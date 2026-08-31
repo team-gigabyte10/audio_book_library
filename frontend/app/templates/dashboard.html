@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    {% if not ocr_available %}
+    <div class="alert alert-warning">
+        <div class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="alert-content">
+            <h4>Bangla OCR is unavailable</h4>
+            <p>{{ ocr_message }}</p>
+            <small>Note: Text-based PDFs can still be processed without OCR.</small>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Hero Header -->
+    <header class="dashboard-header">
+        <h1>📖 {{ app_name }}</h1>
+        <p class="subtitle">PDF Processing & Bangla Text Extraction for Audiobook Platform</p>
+    </header>
+
+    <!-- Upload Card Section -->
+    <div class="card upload-card">
+        <div class="card-header">
+            <h3><i class="fa-solid fa-cloud-arrow-up"></i> PDF বই আপলোড করুন</h3>
+            <span class="badge badge-info">PDF File Only</span>
+        </div>
+
+        <!-- Drag & Drop Dropzone -->
+        <div id="dropzone" class="dropzone">
+            <input type="file" id="file-input" accept=".pdf" class="file-input-hidden">
+            
+            <div class="dropzone-content">
+                <div class="dropzone-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+                <h3>Drag & Drop PDF Here</h3>
+                <p>অথবা ফাইল সিলেক্ট করতে নিচে ক্লিক করুন</p>
+                
+                <button type="button" id="browse-btn" class="btn btn-primary">
+                    <i class="fa-solid fa-folder-open"></i> Select PDF Book
+                </button>
+                
+                <div class="file-limits">
+                    <span><i class="fa-solid fa-circle-check"></i> Supported: .pdf</span>
+                    <span><i class="fa-solid fa-weight-hanging"></i> Maximum Size: {{ max_size_mb }} MB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selected File Preview Bar (Hidden initially) -->
+        <div id="file-preview" class="file-preview hidden">
+            <div class="file-info-box">
+                <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                <div class="file-details">
+                    <h4 id="preview-filename">Book_Title.pdf</h4>
+                    <p id="preview-filesize">0 MB</p>
+                </div>
+            </div>
+
+            <!-- Upload Progress Bar -->
+            <div id="upload-progress-container" class="progress-container hidden">
+                <div class="progress-bar-bg">
+                    <div id="upload-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span id="upload-progress-text">0%</span>
+            </div>
+
+            <div class="file-actions">
+                <button type="button" id="remove-file-btn" class="btn btn-secondary">
+                    <i class="fa-solid fa-trash"></i> Remove
+                </button>
+                <button type="button" id="start-upload-btn" class="btn btn-success">
+                    <i class="fa-solid fa-play"></i> Process PDF
+                </button>
+            </div>
+        </div>
+        
+        <div id="upload-error" class="error-banner hidden"></div>
+    </div>
+
+    <!-- Recent Processing Jobs Section -->
+    <div class="card recent-card">
+        <div class="card-header">
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> সাম্প্রতিক প্রসেসিং জবস (Recent Jobs)</h3>
+            <button id="refresh-jobs-btn" class="btn btn-icon" title="Refresh List">
+                <i class="fa-solid fa-rotate"></i>
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="jobs-table">
+                <thead>
+                    <tr>
+                        <th>ফাইল এর নাম (Filename)</th>
+                        <th>পৃষ্ঠা (Pages)</th>
+                        <th>স্ট্যাটাস (Status)</th>
+                        <th>তারিখ (Created At)</th>
+                        <th>অ্যাকশন (Action)</th>
+                    </tr>
+                </thead>
+                <tbody id="jobs-table-body">
+                    {% if recent_jobs %}
+                        {% for job in recent_jobs %}
+                        <tr>
+                            <td class="filename-cell">
+                                <i class="fa-solid fa-file-lines"></i> {{ job.original_filename }}
+                            </td>
+                            <td>{{ job.total_pages or '—' }}</td>
+                            <td>
+                                <span class="status-badge status-{{ job.status | lower }}">
+                                    {{ job.status }}
+                                </span>
+                            </td>
+                            <td class="date-cell">{{ job.created_at[:16].replace('T', ' ') }}</td>
+                            <td>
+                                {% if job.status == 'COMPLETED' %}
+                                <a href="/results/{{ job.job_id }}" class="btn btn-sm btn-outline">
+                                    <i class="fa-solid fa-eye"></i> View Text
+                                </a>
+                                {% else %}
+                                <a href="/processing/{{ job.job_id }}" class="btn btn-sm btn-outline">
+                                    <i class="fa-solid fa-spinner"></i> View Progress
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="empty-table-text">
+                                <i class="fa-solid fa-folder-open"></i> কোনো ফাইল প্রসেস করা হয়নি
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/upload.js"></script>
+{% endblock %}

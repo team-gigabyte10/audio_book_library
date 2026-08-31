@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}{{ job.original_filename }} - Extracted Text Viewer{% endblock %}
+
+{% block content %}
+<div class="result-viewer-container">
+    <!-- Header Action Bar -->
+    <header class="result-header-bar">
+        <div class="header-title-box">
+            <a href="/" class="btn btn-icon-back" title="Back to Dashboard"><i class="fa-solid fa-arrow-left"></i></a>
+            <div>
+                <h2><i class="fa-solid fa-book-bookmark"></i> {{ job.original_filename }}</h2>
+                <div class="header-badges">
+                    <span class="badge badge-success"><i class="fa-solid fa-check"></i> Completed</span>
+                    <span class="badge badge-neutral"><i class="fa-solid fa-file"></i> {{ job.total_pages }} Pages</span>
+                    <span class="badge badge-info"><i class="fa-solid fa-font"></i> Text Pages: {{ job.text_pages }}</span>
+                    <span class="badge badge-warning"><i class="fa-solid fa-camera"></i> Scanned Pages: {{ job.scanned_pages }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Dropdown -->
+        <div class="export-dropdown-box">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button">
+                    <i class="fa-solid fa-download"></i> Download Export <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="/export/{{ job.job_id }}/md" class="dropdown-item"><i class="fa-brands fa-markdown"></i> Markdown Document (.md)</a>
+                    <a href="/export/{{ job.job_id }}/txt" class="dropdown-item"><i class="fa-solid fa-file-lines"></i> Text File (.txt)</a>
+                    <a href="/export/{{ job.job_id }}/docx" class="dropdown-item"><i class="fa-solid fa-file-word"></i> Word Document (.docx)</a>
+                    <a href="/export/{{ job.job_id }}/json" class="dropdown-item"><i class="fa-solid fa-file-code"></i> JSON Metadata (.json)</a>
+                    <a href="/export/{{ job.job_id }}/csv" class="dropdown-item"><i class="fa-solid fa-file-csv"></i> Excel/CSV (.csv)</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% if not job.ocr_available and (job.scanned_pages > 0 or job.mixed_pages > 0) %}
+    <div class="alert alert-warning" style="margin: 12px 0 20px 0; padding: 12px 18px; border-radius: 8px; background-color: #fffbebf5; border: 1px solid #fcd34d; color: #92400e;">
+        <i class="fa-solid fa-triangle-exclamation" style="margin-right: 6px;"></i> <strong>Bangla OCR engine is unavailable.</strong> 
+        Scanned pages were processed using direct text extraction fallback. Install Tesseract OCR to perform OCR on scanned pages.
+        <a href="/api/ocr/status" target="_blank" style="margin-left: 10px; font-weight: 600; text-decoration: underline; color: #b45309;">
+            <i class="fa-solid fa-stethoscope"></i> Check OCR Status
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Main Grid Workspace -->
+    <div class="viewer-grid-layout">
+        <!-- Sidebar Navigation (Chapters & Pages) -->
+        <aside class="viewer-sidebar">
+            <!-- Search Widget -->
+            <div class="sidebar-widget search-widget">
+                <h4><i class="fa-solid fa-magnifying-glass"></i> বাংলা টেক্সট অনুসন্ধান</h4>
+                <div class="search-input-box">
+                    <input type="text" id="search-input" placeholder="খুঁজুন (যেমন: বাংলাদেশ)..." dir="auto">
+                    <button id="search-btn" class="btn btn-primary btn-sm"><i class="fa-solid fa-search"></i></button>
+                </div>
+                <div id="search-results-info" class="search-info hidden"></div>
+            </div>
+
+            <!-- Chapter Outline Widget -->
+            <div class="sidebar-widget chapters-widget">
+                <h4><i class="fa-solid fa-list-ol"></i> অধ্যায়সমূহ (Chapters)</h4>
+                <ul id="chapters-list" class="chapters-list">
+                    {% if job.chapters %}
+                        {% for ch in job.chapters %}
+                        <li class="chapter-item" data-start="{{ ch.start_page }}" data-end="{{ ch.end_page }}" onclick="jumpToPage({{ ch.start_page }})">
+                            <span class="chapter-title">{{ ch.title }}</span>
+                            <span class="chapter-pages">Page {{ ch.start_page }}–{{ ch.end_page }}</span>
+                        </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="no-chapters">কোনো অধ্যায় শনাক্ত হয়নি (No chapters detected)</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <!-- Page Quick Jumper -->
+            <div class="sidebar-widget pages-widget">
+                <h4><i class="fa-solid fa-layer-group"></i> পৃষ্ঠা নির্বাচন (Pages)</h4>
+                <div class="page-select-container">
+                    <select id="page-select" onchange="jumpToPage(this.value)">
+                        {% for p in job.pages %}
+                        <option value="{{ p.page_number }}">
+                            Page {{ p.page_number }} ({% if p.processing_method == 'ocr' %}OCR{% elif p.fallback_used or 'fallback' in (p.processing_method | string | lower) %}Text Ext. - Fallback{% else %}Text Ext.{% endif %})
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Extracted Text Panel -->
+        <section class="viewer-main-panel">
+            <!-- Control Toolbar -->
+            <div class="viewer-toolbar">
+                <div class="page-nav-controls">
+                    <button id="prev-page-btn" class="btn btn-secondary btn-sm" onclick="prevPage()"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+                    <span id="current-page-label" class="page-label">Page 1 of {{ job.total_pages }}</span>
+                    <button id="next-page-btn" class="btn btn-secondary btn-sm" onclick="nextPage()">Next <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="view-toggles">
+                    <!-- Raw vs Cleaned Toggle -->
+                    <div class="toggle-mode-box">
+                        <span class="toggle-label">Cleaned Text</span>
+                        <label class="switch">
+                            <input type="checkbox" id="raw-text-toggle" onchange="toggleRawText(this.checked)">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="toggle-label">Raw Text</span>
+                    </div>
+
+                    <!-- Zoom Controls -->
+                    <div class="zoom-controls">
+                        <button class="btn btn-icon-sm" onclick="adjustZoom(-2)" title="Decrease font size"><i class="fa-solid fa-font-case"></i>-</button>
+                        <button class="btn btn-icon-sm" onclick="adjustZoom(2)" title="Increase font size"><i class="fa-solid fa-font-case"></i>+</button>
+                    </div>
+
+                    <!-- Copy & Edit Buttons -->
+                    <button id="copy-text-btn" class="btn btn-outline btn-sm" onclick="copyCurrentPageText()">
+                        <i class="fa-solid fa-copy"></i> Copy
+                    </button>
+                    <button id="edit-text-btn" class="btn btn-primary btn-sm" onclick="enableEditMode()">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit Text
+                    </button>
+                </div>
+            </div>
+
+            <!-- Flexible Real-Time Audiobook Player Card -->
+            <div id="audiobook-player-card" class="audiobook-player-card">
+                <div class="audiobook-player-header">
+                    <!-- Left: Play/Pause & Status -->
+                    <div class="audio-info-group">
+                        <button id="audio-play-btn" class="btn-audio-play" onclick="toggleAudioPlay()" title="Play/Pause Audio Narration">
+                            <i class="fa-solid fa-play" id="audio-play-icon"></i>
+                        </button>
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+                                <i class="fa-solid fa-headphones" style="color: #60a5fa;"></i> 
+                                <span id="audio-player-status">বাংলা অডিওবুক (Real-Time Audiobook)</span>
+                            </div>
+                            <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 2px;">
+                                <span id="audio-time-current">00:00</span> / <span id="audio-time-duration">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center & Right: Controls (Voice, Speed & Auto Next) -->
+                    <div class="audio-controls-group">
+                        <!-- Voice Selector -->
+                        <div class="audio-control-item">
+                            <label for="voice-select" style="color: #cbd5e1;"><i class="fa-solid fa-microphone"></i> কন্ঠ:</label>
+                            <select id="voice-select" onchange="onVoiceChanged()">
+                                <option value="nabanita">নবনীত (Nabanita - Female BD)</option>
+                                <option value="pradeep">প্রদীপ (Pradeep - Male BD)</option>
+                                <option value="tanishaa">তানিষা (Tanishaa - Female IN)</option>
+                                <option value="bashkar">ভাস্কর (Bashkar - Male IN)</option>
+                            </select>
+                        </div>
+
+                        <!-- Speed Selector -->
+                        <div class="audio-control-item">
+                            <label for="speed-select" style="color: #cbd5e1;"><i class="fa-solid fa-gauge-high"></i> গতি:</label>
+                            <select id="speed-select" onchange="onSpeedChanged(this.value)">
+                                <option value="0.8">0.8x</option>
+                                <option value="1.0" selected>1.0x (Normal)</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2.0">2.0x</option>
+                            </select>
+                        </div>
+
+                        <!-- Auto Advance Toggle -->
+                        <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
+                            <input type="checkbox" id="auto-advance-audio" checked style="accent-color: #3b82f6;"> Auto Next Page
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Scrubber Timeline -->
+                <div class="audio-timeline-box">
+                    <input type="range" id="audio-progress-bar" value="0" min="0" max="100" oninput="onAudioSeek(this.value)">
+                </div>
+            </div>
+
+            <!-- Page Metrics Header -->
+            <div class="page-metrics-bar">
+                <span id="method-tag" class="badge badge-info">Method: PyMuPDF</span>
+                <span id="char-count-tag" class="metric-tag"><i class="fa-solid fa-font"></i> Chars: 0</span>
+                <span id="word-count-tag" class="metric-tag"><i class="fa-solid fa-align-left"></i> Words: 0</span>
+                <span id="confidence-tag" class="metric-tag hidden"><i class="fa-solid fa-bullseye"></i> OCR Conf: 0%</span>
+            </div>
+
+            <!-- Text Content View Box -->
+            <div id="text-display-box" class="text-display-box bangla-text" dir="ltr">
+                <div class="placeholder-loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading page content...</div>
+            </div>
+
+            <!-- Inline Text Editor (Hidden by default) -->
+            <div id="text-editor-box" class="text-editor-box hidden">
+                <textarea id="page-edit-textarea" class="bangla-textarea"></textarea>
+                <div class="editor-actions">
+                    <button class="btn btn-secondary" onclick="cancelEditMode()"><i class="fa-solid fa-xmark"></i> Cancel</button>
+                    <button class="btn btn-success" onclick="saveEditedText()"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const JOB_ID = "{{ job.job_id }}";
+    const TOTAL_PAGES = {{ job.total_pages }};
+    const PAGES_DATA = {{ job.pages | tojson }};
+</script>
+<script src="/static/js/viewer.js"></script>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Processing {{ job.original_filename }} - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="processing-container">
+    <div class="card processing-card">
+        <!-- Header -->
+        <div class="processing-header">
+            <div class="book-meta">
+                <h2><i class="fa-solid fa-book"></i> {{ job.original_filename }}</h2>
+                <span class="file-badge"><i class="fa-solid fa-hard-drive"></i> {{ (job.file_size / (1024*1024)) | round(1) }} MB</span>
+            </div>
+            
+            <div id="status-badge-container">
+                <span id="status-badge" class="status-badge status-{{ job.status | lower }}">
+                    {{ job.status }}
+                </span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Progress Overview Grid -->
+        <div class="progress-stats-grid">
+            <div class="stat-box">
+                <span class="stat-label">মোট পৃষ্ঠা (Total Pages)</span>
+                <span id="total-pages-val" class="stat-value">{{ job.total_pages or '—' }}</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">টেক্সট পৃষ্ঠা (Text Pages)</span>
+                <span id="text-pages-val" class="stat-value text-success">{{ job.text_pages or 0 }}</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">স্ক্যানড পৃষ্ঠা (OCR Pages)</span>
+                <span id="scanned-pages-val" class="stat-value text-warning">{{ job.scanned_pages or 0 }}</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">মিক্সড পৃষ্ঠা (Mixed Pages)</span>
+                <span id="mixed-pages-val" class="stat-value text-info">{{ job.mixed_pages or 0 }}</span>
+            </div>
+        </div>
+
+        <!-- Main Progress Bar Component -->
+        <div class="progress-main-section">
+            <div class="progress-meta">
+                <span id="page-counter-text" class="counter-text">Processing Page {{ job.processed_pages }} / {{ job.total_pages or '?' }}</span>
+                <span id="progress-percent-text" class="percent-text">{{ job.progress_percent }}%</span>
+            </div>
+
+            <div class="progress-bar-bg large-bar">
+                <div id="processing-progress-fill" class="progress-bar-fill" style="width: {{ job.progress_percent }}%;"></div>
+            </div>
+
+            <div class="operation-info">
+                <div class="op-status">
+                    <i class="fa-solid fa-gear fa-spin spinner-icon"></i>
+                    <span id="current-operation-text">{{ job.current_operation }}</span>
+                </div>
+                
+                <div class="eta-status">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>আনুমানিক সময় বাকি (ETA): </span>
+                    <strong id="eta-text">
+                        {% if job.estimated_remaining_seconds %}
+                            {{ (job.estimated_remaining_seconds / 60) | int }} মি {{ (job.estimated_remaining_seconds % 60) | int }} সে
+                        {% else %}
+                            হিসাব করা হচ্ছে...
+                        {% endif %}
+                    </strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Container -->
+        <div id="error-container" class="alert alert-danger hidden">
+            <div class="alert-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+            <div class="alert-content">
+                <h4>প্রসেসিং ব্যর্থ হয়েছে (Processing Failed)</h4>
+                <p id="error-message-text"></p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="processing-actions">
+            <button id="cancel-btn" class="btn btn-secondary" onclick="cancelProcessing('{{ job.job_id }}')">
+                <i class="fa-solid fa-ban"></i> Cancel Processing
+            </button>
+            <a id="view-result-btn" href="/results/{{ job.job_id }}" class="btn btn-success hidden">
+                <i class="fa-solid fa-square-poll-vertical"></i> View Extracted Text
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const JOB_ID = "{{ job.job_id }}";
+</script>
+<script src="/static/js/processing.js"></script>
+{% endblock %}
