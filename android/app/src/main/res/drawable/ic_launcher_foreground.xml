@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="1.6"
+        android:scaleY="1.6"
+        android:translateX="-32.4"
+        android:translateY="-32.4">
+        <!-- Open Book Base -->
+        <path
+            android:fillColor="#E0F2F1"
+            android:pathData="M39,46 C44,43 50,43 54,45 C58,43 64,43 69,46 L69,67 C64,64 58,64 54,66 C50,64 44,64 39,67 Z" />
+        <!-- Book Spine/Dividing Line -->
+        <path
+            android:fillColor="#004D40"
+            android:pathData="M53.5,45.5 L54.5,45.5 L54.5,66 L53.5,66 Z" />
+        <!-- Book Page lines left -->
+        <path
+            android:fillColor="#80CBC4"
+            android:pathData="M43,49 L50,47.5 L50,49 L43,50.5 Z M43,53 L50,51.5 L50,53 L43,54.5 Z M43,57 L50,55.5 L50,57 L43,58.5 Z" />
+        <!-- Book Page lines right -->
+        <path
+            android:fillColor="#80CBC4"
+            android:pathData="M58,47.5 L65,49 L65,50.5 L58,49 Z M58,51.5 L65,53 L65,54.5 L58,53 Z M58,55.5 L65,57 L65,58.5 L58,57 Z" />
+        <!-- Headphone Band -->
+        <path
+            android:fillColor="#FFD54F"
+            android:pathData="M54,34 C44,34 36,42 36,52 L39,52 C39,43.7 45.7,37 54,37 C62.3,37 69,43.7 69,52 L72,52 C72,42 64,34 54,34 Z" />
+        <!-- Headphone Left Ear Cup -->
+        <path
+            android:fillColor="#FFCA28"
+            android:pathData="M34,49 C34,47.3 35.3,46 37,46 L38,46 C39.7,46 41,47.3 41,49 L41,56 C41,57.7 39.7,59 38,59 L37,59 C35.3,59 34,57.7 34,56 Z" />
+        <!-- Headphone Right Ear Cup -->
+        <path
+            android:fillColor="#FFCA28"
+            android:pathData="M67,49 C67,47.3 68.3,46 70,46 L71,46 C72.7,46 74,47.3 74,49 L74,56 C74,57.7 72.7,59 71,59 L70,59 C68.3,59 67,57.7 67,56 Z" />
+        <!-- Sound Wave Sparkles -->
+        <path
+            android:fillColor="#4DD0E1"
+            android:pathData="M52,30 L56,30 L54,26 Z M34,38 L36.5,41 L33,42 Z M74,38 L75,42 L71.5,41 Z" />
+    </group>
+</vector>
