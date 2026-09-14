@@ -33,35 +33,17 @@ class AudiobookRepository(
 
     val lastPlayedHistory: Flow<PlaybackHistoryEntity?> = historyDao.getLastPlayedFlow()
 
-    suspend fun initializeSampleBooksIfNeeded() = withContext(Dispatchers.IO) {
+    suspend fun removeBuiltInBooksIfNeeded() = withContext(Dispatchers.IO) {
         try {
-            val assetFiles = context.assets.list("books")?.filter { it.endsWith(".md", ignoreCase = true) } ?: emptyList()
-            for (filename in assetFiles) {
-                val assetPath = "books/$filename"
-                val bookId = "asset-" + filename.removeSuffix(".md").removeSuffix(".markdown")
-
-                val existingBook = bookDao.getBookById(bookId)
-                if (existingBook == null) {
-                    val content = context.assets.open(assetPath).bufferedReader().use { it.readText() }
-                    val fallbackTitle = filename.removeSuffix(".md")
-                        .replace("_", " ")
-                        .replace("-", " ")
-                    val parsed = MarkdownParser.parse(
-                        content = content,
-                        fallbackId = bookId,
-                        fallbackTitle = fallbackTitle,
-                        filePath = assetPath,
-                        isAsset = true
-                    )
-                    saveParsedBook(parsed)
-                }
-            }
+            bookDao.deleteBuiltInBooks()
+            chapterDao.deleteBuiltInChapters()
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     suspend fun importBookFromUri(uri: Uri): Result<Book> = withContext(Dispatchers.IO) {
+
         try {
             val content = context.contentResolver.openInputStream(uri)?.bufferedReader()?.use {
                 it.readText()
@@ -83,8 +65,10 @@ class AudiobookRepository(
 
             // Copy file to internal app storage for reliable offline access
             val bookId = "book-" + UUID.randomUUID().toString().take(8)
-            val internalFile = File(context.filesDir, "$bookId.md")
+            val bookStoreDir = File(context.filesDir, "book-store").apply { if (!exists()) mkdirs() }
+            val internalFile = File(bookStoreDir, "$bookId.md")
             internalFile.writeText(content)
+
 
             val parsed = MarkdownParser.parse(
                 content = content,
@@ -137,6 +121,39 @@ class AudiobookRepository(
     suspend fun getLastPlayedSync(): PlaybackHistoryEntity? = withContext(Dispatchers.IO) {
         historyDao.getLastPlayedSync()
     }
+
+    suspend fun importDownloadedBook(
+        file: File,
+        bookId: String,
+        title: String,
+        author: String? = null,
+        coverPath: String? = null
+    ): Book? = withContext(Dispatchers.IO) {
+        try {
+            if (!file.exists() || file.length() == 0L) return@withContext null
+            val existing = bookDao.getBookById(bookId)
+            if (existing != null) return@withContext existing.toDomainModel()
+
+            val content = file.readText()
+            val parsed = MarkdownParser.parse(
+                content = content,
+                fallbackId = bookId,
+                fallbackTitle = title,
+                filePath = file.absolutePath,
+                isAsset = false
+            )
+            val updatedBook = parsed.book.copy(
+                author = author ?: parsed.book.author,
+                coverPath = coverPath ?: parsed.book.coverPath
+            )
+            saveParsedBook(parsed.copy(book = updatedBook))
+            updatedBook
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
 
     suspend fun deleteBook(bookId: String) = withContext(Dispatchers.IO) {
         bookDao.deleteBookById(bookId)

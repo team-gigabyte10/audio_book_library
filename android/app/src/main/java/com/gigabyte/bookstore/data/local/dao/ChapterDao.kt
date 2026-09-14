@@ -29,4 +29,8 @@ interface ChapterDao {
 
     @Query("DELETE FROM chapters WHERE bookId = :bookId")
     suspend fun deleteChaptersForBook(bookId: String)
+
+    @Query("DELETE FROM chapters WHERE bookId LIKE 'asset-%'")
+    suspend fun deleteBuiltInChapters()
 }
+

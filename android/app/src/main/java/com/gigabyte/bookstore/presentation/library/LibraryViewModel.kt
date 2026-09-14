@@ -40,7 +40,45 @@ class LibraryViewModel(application: Application) : AndroidViewModel(application)
 
     val voiceStatus: StateFlow<TTSVoiceStatus> = ttsManager.voiceStatus
 
+    val userRepository = com.gigabyte.bookstore.data.repository.UserRepository(application, app.appPreferences)
+
+    val userStatus: StateFlow<String> = app.appPreferences.userStatus
+    val userName: StateFlow<String> = app.appPreferences.userName
+    val userEmail: StateFlow<String> = app.appPreferences.userEmail
+    val userInstitute: StateFlow<String> = app.appPreferences.userInstitute
+    val userAddress: StateFlow<String> = app.appPreferences.userAddress
+    val userPhone: StateFlow<String> = app.appPreferences.userPhone
+    val deviceId: StateFlow<String> = app.appPreferences.deviceId
+    val userBalance: StateFlow<Double> = app.appPreferences.userBalance
+
+    fun updateUserProfile(
+        name: String,
+        institute: String,
+        address: String,
+        phone: String?,
+        onComplete: (Boolean) -> Unit
+    ) {
+        viewModelScope.launch {
+            val res = userRepository.updateUserProfile(name, institute, address, phone)
+            onComplete(res.isSuccess)
+        }
+    }
+
+    fun submitPayment(
+        method: String,
+        transactionId: String,
+        amount: Double,
+        onComplete: (Boolean) -> Unit
+    ) {
+        viewModelScope.launch {
+            val res = userRepository.submitPaymentRequest(method, transactionId, amount)
+            onComplete(res.isSuccess)
+        }
+    }
+
     private val _importState = MutableStateFlow<ImportUiState>(ImportUiState.Idle)
+
+
     val importState: StateFlow<ImportUiState> = _importState.asStateFlow()
 
     fun importBook(uri: Uri) {

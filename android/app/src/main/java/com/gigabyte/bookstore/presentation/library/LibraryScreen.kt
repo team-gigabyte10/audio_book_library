@@ -24,8 +24,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AutoStories
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Headphones
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
@@ -37,9 +39,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -48,11 +53,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -65,10 +72,18 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.data.local.entities.PlaybackHistoryEntity
+import com.gigabyte.bookstore.data.models.PlaybackState
+import com.gigabyte.bookstore.domain.tts.TTSVoiceStatus
 import com.gigabyte.bookstore.data.models.Book
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.TTSStatusBanner
+import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
+import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
+import com.gigabyte.bookstore.presentation.drawer.BookmarksDialog
+import com.gigabyte.bookstore.presentation.drawer.ProfileUpdateDialog
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -79,23 +94,41 @@ fun LibraryScreen(
     onOpenPlayer: () -> Unit,
     onOpenReader: (String, Int) -> Unit,
     onOpenSearch: () -> Unit,
-    onOpenSettings: () -> Unit
+    onOpenSettings: () -> Unit,
+    onOpenPayment: () -> Unit,
+    onOpenPaymentApproval: () -> Unit
 ) {
-    val books by viewModel.books.collectAsStateWithLifecycle()
-    val lastPlayed by viewModel.lastPlayed.collectAsStateWithLifecycle()
-    val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
-    val voiceStatus by viewModel.voiceStatus.collectAsStateWithLifecycle()
-    val importState by viewModel.importState.collectAsStateWithLifecycle()
+    val books: List<Book> by viewModel.books.collectAsStateWithLifecycle()
+    val lastPlayed: PlaybackHistoryEntity? by viewModel.lastPlayed.collectAsStateWithLifecycle()
+    val playbackState: PlaybackState by viewModel.playbackState.collectAsStateWithLifecycle()
+    val voiceStatus: TTSVoiceStatus by viewModel.voiceStatus.collectAsStateWithLifecycle()
+    val importState: ImportUiState by viewModel.importState.collectAsStateWithLifecycle()
 
-    val snackbarHostState = remember { SnackbarHostStateStateWrapper() }
+    val userStatus: String by viewModel.userStatus.collectAsStateWithLifecycle()
+    val userName: String by viewModel.userName.collectAsStateWithLifecycle()
+    val userEmail: String by viewModel.userEmail.collectAsStateWithLifecycle()
+    val userInstitute: String by viewModel.userInstitute.collectAsStateWithLifecycle()
+    val userAddress: String by viewModel.userAddress.collectAsStateWithLifecycle()
+    val userPhone: String by viewModel.userPhone.collectAsStateWithLifecycle()
+    val userBalance: Double by viewModel.userBalance.collectAsStateWithLifecycle()
+
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+
+    var showProfileDialog by remember { mutableStateOf(false) }
+    var showBookmarksDialog by remember { mutableStateOf(false) }
+    var showAboutUsDialog by remember { mutableStateOf(false) }
+
+    val snackbarHostState = remember { SnackbarHostState() }
     var bookToDelete by remember { mutableStateOf<Book?>(null) }
 
     // SAF Document Picker for .md files
     val filePickerLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.OpenDocument()
-    ) { uri: Uri? ->
-        uri?.let { viewModel.importBook(it) }
-    }
+        contract = ActivityResultContracts.OpenDocument(),
+        onResult = { uri: Uri? ->
+            uri?.let { viewModel.importBook(it) }
+        }
+    )
 
     LaunchedEffect(importState) {
         when (val state = importState) {
@@ -111,28 +144,101 @@ fun LibraryScreen(
         }
     }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = Icons.Default.Headphones,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(28.dp)
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Column {
-                            Text(
-                                text = "বাংলা অডিওবুক",
-                                style = MaterialTheme.typography.titleLarge.copy(
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 20.sp
-                                )
+
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            AppDrawerContent(
+                userName = userName,
+                userEmail = userEmail,
+                userInstitute = userInstitute,
+                userStatus = userStatus,
+                userBalance = userBalance,
+                onProfileClick = {
+                    scope.launch { drawerState.close() }
+                    showProfileDialog = true
+                },
+                onLastReadClick = {
+                    scope.launch { drawerState.close() }
+                    if (lastPlayed != null) {
+                        viewModel.continueLastPlayed()
+                        onOpenReader(lastPlayed!!.bookId, lastPlayed!!.chapterIndex)
+                    }
+                },
+                onBookmarksClick = {
+                    scope.launch { drawerState.close() }
+                    showBookmarksDialog = true
+                },
+                onPaymentClick = {
+                    scope.launch { drawerState.close() }
+                    onOpenPayment()
+                },
+                onApprovePaymentsClick = {
+                    scope.launch { drawerState.close() }
+                    onOpenPaymentApproval()
+                },
+                onAboutUsClick = {
+                    scope.launch { drawerState.close() }
+                    showAboutUsDialog = true
+                }
+            )
+        }
+    ) {
+
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    navigationIcon = {
+                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                            Icon(
+                                imageVector = Icons.Default.Menu,
+                                contentDescription = "মেনু ওপেন করুন"
                             )
+                        }
+                    },
+                    title = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Default.Headphones,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(28.dp)
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Column {
+
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(
+                                    text = "বাংলা অডিওবুক",
+                                    style = MaterialTheme.typography.titleLarge.copy(
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 18.sp
+                                    )
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                // User Status Badge (Trial or Active)
+                                Surface(
+                                    color = if (userStatus.equals("trial", ignoreCase = true))
+                                        MaterialTheme.colorScheme.tertiaryContainer
+                                    else
+                                        MaterialTheme.colorScheme.primaryContainer,
+                                    shape = androidx.compose.foundation.shape.CircleShape
+                                ) {
+                                    Text(
+                                        text = if (userStatus.equals("trial", ignoreCase = true)) "Trial" else "Active",
+                                        fontSize = 10.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = if (userStatus.equals("trial", ignoreCase = true))
+                                            MaterialTheme.colorScheme.onTertiaryContainer
+                                        else
+                                            MaterialTheme.colorScheme.onPrimaryContainer,
+                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                    )
+                                }
+                            }
+
                             Text(
-                                text = "Native Android TTS",
+                                text = if (userName.isNotBlank()) "User: $userName" else "Native Android TTS",
                                 style = MaterialTheme.typography.labelSmall.copy(
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
@@ -140,6 +246,7 @@ fun LibraryScreen(
                         }
                     }
                 },
+
                 actions = {
                     IconButton(
                         onClick = {
@@ -218,6 +325,71 @@ fun LibraryScreen(
                     )
                 }
 
+                // 1.1 Status Notice Banner
+                if (userStatus.equals("trial", ignoreCase = true)) {
+                    item {
+                        Card(
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.6f)
+                            ),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 4.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(12.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Info,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.tertiary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                                Spacer(modifier = Modifier.width(10.dp))
+                                Text(
+                                    text = "ট্রায়াল মোড সক্রিয়: শুধুমাত্র অডিওবুক সারসংক্ষেপ উপলব্ধ। সম্পূর্ণ বই ও মূল পিডিএফ পড়তে পেইড একাউন্ট প্রয়োজন।",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer
+                                )
+                            }
+                        }
+                    }
+                } else if (userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)) {
+                    item {
+                        Card(
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
+                            ),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 4.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(12.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Check,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                                Spacer(modifier = Modifier.width(10.dp))
+                                Text(
+                                    text = "পেইড মেম্বারশিপ সক্রিয়: সম্পূর্ণ বই পড়া ও মূল পিডিএফ ডাউনলোড আনলক করা হয়েছে।",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                                )
+                            }
+                        }
+                    }
+                }
+
+
+
                 // 2. Continue Listening Hero Card (if history exists)
                 if (lastPlayed != null) {
                     item {
@@ -265,7 +437,7 @@ fun LibraryScreen(
                     }
                 }
 
-                // 4. Books List
+                // 4. Books Grid (2 books per row)
                 if (books.isEmpty()) {
                     item {
                         EmptyLibraryState(
@@ -277,18 +449,30 @@ fun LibraryScreen(
                         )
                     }
                 } else {
-                    items(books, key = { it.id }) { book ->
-                        BookListItemCard(
-                            book = book,
-                            isPlaying = playbackState.isPlaying && playbackState.bookId == book.id,
-                            onCardClick = { onBookClick(book.id) },
-                            onPlayClick = { onPlayClick(book.id, 0) },
-                            onReadClick = { onOpenReader(book.id, 0) },
-                            onDeleteClick = { bookToDelete = book }
-                        )
+                    items(books.chunked(2), key = { pair -> pair.first().id }) { pair ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            for (book in pair) {
+                                BookGridItemCard(
+                                    book = book,
+                                    isPlaying = playbackState.isPlaying && playbackState.bookId == book.id,
+                                    onCardClick = { onBookClick(book.id) },
+                                    onPlayClick = { onPlayClick(book.id, 0) },
+                                    onReadClick = { onOpenReader(book.id, 0) },
+                                    onDeleteClick = { bookToDelete = book },
+                                    modifier = Modifier.weight(1f)
+                                )
+                            }
+                            if (pair.size == 1) {
+                                Spacer(modifier = Modifier.weight(1f))
+                            }
+                        }
                     }
                 }
             }
+
 
             // Loading dialog when importing Markdown
             if (importState is ImportUiState.Loading) {
@@ -335,7 +519,42 @@ fun LibraryScreen(
             }
         }
     }
+
+        // Dialogs triggered from Navigation Drawer
+
+        if (showProfileDialog) {
+            ProfileUpdateDialog(
+                initialName = userName,
+                initialInstitute = userInstitute,
+                initialAddress = userAddress,
+                initialPhone = userPhone,
+                email = userEmail,
+                onDismiss = { showProfileDialog = false },
+                onSave = { name, institute, address, phone ->
+                    viewModel.updateUserProfile(name, institute, address, phone) {
+                        showProfileDialog = false
+                    }
+                }
+            )
+        }
+
+        if (showBookmarksDialog) {
+
+            BookmarksDialog(
+                books = books,
+                onSelectBook = onBookClick,
+                onDismiss = { showBookmarksDialog = false }
+            )
+        }
+
+        if (showAboutUsDialog) {
+            AboutUsDialog(
+                onDismiss = { showAboutUsDialog = false }
+            )
+        }
+    }
 }
+
 
 @Composable
 fun ContinueListeningCard(
@@ -423,16 +642,17 @@ fun ContinueListeningCard(
 }
 
 @Composable
-fun BookListItemCard(
+fun BookGridItemCard(
     book: Book,
     isPlaying: Boolean,
     onCardClick: () -> Unit,
     onPlayClick: () -> Unit,
     onReadClick: () -> Unit,
-    onDeleteClick: () -> Unit
+    onDeleteClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable { onCardClick() }
             .testTag("book_item_${book.id}"),
@@ -442,98 +662,124 @@ fun BookListItemCard(
         ),
         elevation = CardDefaults.cardElevation(2.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            BookCoverView(
-                title = book.title,
-                author = book.author,
-                coverPath = book.coverPath,
-                modifier = Modifier.size(72.dp),
-                cornerRadius = 10.dp,
-                elevation = 2.dp
-            )
+        Column(modifier = Modifier.fillMaxWidth()) {
+            // Book Cover Image with overlay Play Button
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(150.dp)
+            ) {
+                BookCoverView(
+                    title = book.title,
+                    author = book.author,
+                    coverPath = book.coverPath,
+                    modifier = Modifier.fillMaxSize(),
+                    cornerRadius = 0.dp,
+                    elevation = 0.dp
+                )
 
-            Spacer(modifier = Modifier.width(14.dp))
+                // Floating Play Button
+                IconButton(
+                    onClick = onPlayClick,
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(8.dp)
+                        .size(38.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.primary)
+                        .testTag("play_book_${book.id}")
+                ) {
+                    Icon(
+                        imageVector = if (isPlaying) Icons.Default.Headphones else Icons.Default.PlayArrow,
+                        contentDescription = "শুনুন",
+                        tint = MaterialTheme.colorScheme.onPrimary,
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+            }
 
-            Column(modifier = Modifier.weight(1f)) {
+            // Info & Actions Section
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
+            ) {
                 Text(
                     text = book.title,
-                    style = MaterialTheme.typography.titleMedium.copy(
+                    style = MaterialTheme.typography.titleSmall.copy(
                         fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
+                        fontSize = 13.sp
+                    ),
+                    maxLines = 2,
+                    minLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+                Spacer(modifier = Modifier.height(2.dp))
+
+                Text(
+                    text = book.author?.ifBlank { "বাংলা অডিওবুক" } ?: "বাংলা অডিওবুক",
+                    style = MaterialTheme.typography.bodySmall.copy(
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 11.sp
                     ),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
 
-                if (!book.author.isNullOrBlank()) {
-                    Text(
-                        text = book.author,
-                        style = MaterialTheme.typography.bodySmall.copy(
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        ),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
+                Spacer(modifier = Modifier.height(8.dp))
 
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(
                         text = "অধ্যায়: ${book.chapterCount}",
                         style = MaterialTheme.typography.labelSmall.copy(
                             color = MaterialTheme.colorScheme.primary,
+                            fontSize = 10.sp,
                             fontWeight = FontWeight.Medium
                         )
                     )
-                    if (book.isAsset) {
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            text = "বিল্ট-ইন",
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                color = MaterialTheme.colorScheme.secondary
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(
+                            onClick = onReadClick,
+                            modifier = Modifier
+                                .size(28.dp)
+                                .testTag("read_book_${book.id}")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.MenuBook,
+                                contentDescription = "পড়ুন",
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(16.dp)
                             )
-                        )
+                        }
+
+                        IconButton(
+                            onClick = onDeleteClick,
+                            modifier = Modifier
+                                .size(28.dp)
+                                .testTag("delete_book_${book.id}")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = "মুছুন",
+                                tint = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
                     }
-                }
-            }
-
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(
-                    onClick = onReadClick,
-                    modifier = Modifier.testTag("read_book_${book.id}")
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.MenuBook,
-                        contentDescription = "পড়ুন",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-
-                IconButton(
-                    onClick = onPlayClick,
-                    modifier = Modifier
-                        .size(38.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primaryContainer)
-                        .testTag("play_book_${book.id}")
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.PlayArrow,
-                        contentDescription = "শুনুন",
-                        tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                        modifier = Modifier.size(22.dp)
-                    )
                 }
             }
         }
     }
 }
+
+
+
 
 @Composable
 fun EmptyLibraryState(
@@ -576,8 +822,3 @@ fun EmptyLibraryState(
     }
 }
 
-class SnackbarHostStateStateWrapper {
-    suspend fun showSnackbar(message: String) {
-        // Simple wrapper if needed
-    }
-}

@@ -30,6 +30,10 @@ interface BookDao {
     @Query("DELETE FROM books WHERE id = :id")
     suspend fun deleteBookById(id: String)
 
+    @Query("DELETE FROM books WHERE id LIKE 'asset-%' OR isAsset = 1")
+    suspend fun deleteBuiltInBooks()
+
     @Query("SELECT COUNT(*) FROM books")
     suspend fun getBookCount(): Int
 }
+

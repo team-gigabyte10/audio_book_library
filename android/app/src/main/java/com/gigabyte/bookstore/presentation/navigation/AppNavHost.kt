@@ -27,10 +27,15 @@ import com.gigabyte.bookstore.presentation.reader.TextReaderScreen
 import com.gigabyte.bookstore.presentation.reader.TextReaderViewModel
 import com.gigabyte.bookstore.presentation.search.SearchScreen
 import com.gigabyte.bookstore.presentation.search.SearchViewModel
+import com.gigabyte.bookstore.presentation.auth.RegisterScreen
+import com.gigabyte.bookstore.presentation.sync.SyncScreen
 import com.gigabyte.bookstore.presentation.settings.SettingsScreen
 import com.gigabyte.bookstore.presentation.settings.SettingsViewModel
+import com.gigabyte.bookstore.presentation.payment.PaymentScreen
+import com.gigabyte.bookstore.presentation.payment.PaymentApprovalScreen
 
 @Composable
+
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController()
@@ -39,7 +44,7 @@ fun AppNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Library.route,
+        startDestination = Screen.Sync.route,
         modifier = modifier,
         enterTransition = {
             slideInHorizontally(
@@ -66,8 +71,36 @@ fun AppNavHost(
             ) + fadeOut(animationSpec = tween(300))
         }
     ) {
+        // 0. Splash & Background Sync Screen (Verifies Device ID, downloads missing files with progress)
+        composable(Screen.Sync.route) {
+            SyncScreen(
+                onNavigateToRegister = {
+                    navController.navigate(Screen.Register.route) {
+                        popUpTo(Screen.Sync.route) { inclusive = true }
+                    }
+                },
+                onNavigateToLibrary = {
+                    navController.navigate(Screen.Library.route) {
+                        popUpTo(Screen.Sync.route) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        // 0.1 First-time Registration Screen
+        composable(Screen.Register.route) {
+            RegisterScreen(
+                onRegistrationSuccess = {
+                    navController.navigate(Screen.Sync.route) {
+                        popUpTo(Screen.Register.route) { inclusive = true }
+                    }
+                }
+            )
+        }
+
         // 1. Library Screen
         composable(Screen.Library.route) {
+
             val viewModel: LibraryViewModel = viewModel(factory = SimpleViewModelFactory {
                 LibraryViewModel(application)
             })
@@ -94,6 +127,12 @@ fun AppNavHost(
                 },
                 onOpenSettings = {
                     navController.navigate(Screen.Settings.route)
+                },
+                onOpenPayment = {
+                    navController.navigate(Screen.Payment.route)
+                },
+                onOpenPaymentApproval = {
+                    navController.navigate(Screen.PaymentApproval.route)
                 }
             )
         }
@@ -126,8 +165,12 @@ fun AppNavHost(
                 },
                 onSearchInBook = { bId ->
                     navController.navigate(Screen.Search.createRoute(bId))
+                },
+                onOpenPayment = {
+                    navController.navigate(Screen.Payment.route)
                 }
             )
+
         }
 
         // 3. Player Screen
@@ -224,8 +267,23 @@ fun AppNavHost(
                 }
             )
         }
+
+        // 6. Payment & Membership Screen
+        composable(Screen.Payment.route) {
+            PaymentScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+        // 7. Payment Approval Screen
+        composable(Screen.PaymentApproval.route) {
+            PaymentApprovalScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
     }
 }
+
 
 class SimpleViewModelFactory<T : androidx.lifecycle.ViewModel>(
     private val creator: () -> T
