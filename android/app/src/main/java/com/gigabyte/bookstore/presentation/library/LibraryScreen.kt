@@ -111,6 +111,9 @@ fun LibraryScreen(
     val userAddress: String by viewModel.userAddress.collectAsStateWithLifecycle()
     val userPhone: String by viewModel.userPhone.collectAsStateWithLifecycle()
     val userBalance: Double by viewModel.userBalance.collectAsStateWithLifecycle()
+    val displayBooks = remember(books) {
+        books.filter { !it.id.endsWith("_full") }.distinctBy { it.id.removeSuffix("_full") }
+    }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -237,36 +240,12 @@ fun LibraryScreen(
                                 }
                             }
 
-                            Text(
-                                text = if (userName.isNotBlank()) "User: $userName" else "Native Android TTS",
-                                style = MaterialTheme.typography.labelSmall.copy(
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            )
+
                         }
                     }
                 },
 
                 actions = {
-                    IconButton(
-                        onClick = {
-                            filePickerLauncher.launch(
-                                arrayOf(
-                                    "text/markdown",
-                                    "text/plain",
-                                    "application/octet-stream",
-                                    "*/*"
-                                )
-                            )
-                        },
-                        modifier = Modifier.testTag("library_add_book_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "বই যোগ করুন",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
                     IconButton(
                         onClick = onOpenSearch,
                         modifier = Modifier.testTag("library_search_button")
@@ -311,10 +290,10 @@ fun LibraryScreen(
                 contentPadding = PaddingValues(
                     start = 16.dp,
                     end = 16.dp,
-                    top = 12.dp,
+                    top = 8.dp,
                     bottom = if (playbackState.bookId.isNotBlank()) 96.dp else 24.dp
                 ),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+                verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 // 1. Bangla TTS Voice Check Banner
                 item {
@@ -356,36 +335,6 @@ fun LibraryScreen(
                             }
                         }
                     }
-                } else if (userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)) {
-                    item {
-                        Card(
-                            colors = CardDefaults.cardColors(
-                                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
-                            ),
-                            shape = RoundedCornerShape(12.dp),
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 4.dp)
-                        ) {
-                            Row(
-                                modifier = Modifier.padding(12.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Check,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.size(20.dp)
-                                )
-                                Spacer(modifier = Modifier.width(10.dp))
-                                Text(
-                                    text = "পেইড মেম্বারশিপ সক্রিয়: সম্পূর্ণ বই পড়া ও মূল পিডিএফ ডাউনলোড আনলক করা হয়েছে।",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer
-                                )
-                            }
-                        }
-                    }
                 }
 
 
@@ -415,30 +364,17 @@ fun LibraryScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "আমার বইসমূহ (${books.size})",
+                            text = "বইসমূহ (${books.size})",
                             style = MaterialTheme.typography.titleMedium.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 18.sp
                             )
                         )
-
-                        TextButton(
-                            onClick = {
-                                filePickerLauncher.launch(
-                                    arrayOf("text/markdown", "text/plain", "*/*")
-                                )
-                            },
-                            modifier = Modifier.testTag("header_add_book_button")
-                        ) {
-                            Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text("বই যোগ করুন", fontWeight = FontWeight.SemiBold)
-                        }
                     }
                 }
 
                 // 4. Books Grid (2 books per row)
-                if (books.isEmpty()) {
+                if (displayBooks.isEmpty()) {
                     item {
                         EmptyLibraryState(
                             onAddBookClick = {
@@ -449,7 +385,7 @@ fun LibraryScreen(
                         )
                     }
                 } else {
-                    items(books.chunked(2), key = { pair -> pair.first().id }) { pair ->
+                    items(displayBooks.chunked(2), key = { pair -> pair.first().id }) { pair ->
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -461,7 +397,6 @@ fun LibraryScreen(
                                     onCardClick = { onBookClick(book.id) },
                                     onPlayClick = { onPlayClick(book.id, 0) },
                                     onReadClick = { onOpenReader(book.id, 0) },
-                                    onDeleteClick = { bookToDelete = book },
                                     modifier = Modifier.weight(1f)
                                 )
                             }
@@ -582,32 +517,34 @@ fun ContinueListeningCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(14.dp),
+                .padding(horizontal = 12.dp, vertical = 6.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             BookCoverView(
                 title = bookTitle,
                 author = author,
                 coverPath = coverPath,
-                modifier = Modifier.size(68.dp),
-                cornerRadius = 10.dp,
-                elevation = 3.dp
+                modifier = Modifier.size(52.dp),
+                cornerRadius = 8.dp,
+                elevation = 2.dp
             )
 
-            Spacer(modifier = Modifier.width(14.dp))
+            Spacer(modifier = Modifier.width(12.dp))
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "চালিয়ে যান (Continue)",
+                    text = "চালিয়ে যান",
                     style = MaterialTheme.typography.labelSmall.copy(
                         color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 11.sp
                     )
                 )
                 Text(
                     text = bookTitle,
                     style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 15.sp
                     ),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -615,7 +552,8 @@ fun ContinueListeningCard(
                 Text(
                     text = chapterTitle,
                     style = MaterialTheme.typography.bodySmall.copy(
-                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
+                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
+                        fontSize = 12.sp
                     ),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
@@ -625,7 +563,7 @@ fun ContinueListeningCard(
             IconButton(
                 onClick = onContinueClick,
                 modifier = Modifier
-                    .size(46.dp)
+                    .size(40.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary)
                     .testTag("continue_listening_play_button")
@@ -634,7 +572,7 @@ fun ContinueListeningCard(
                     imageVector = Icons.Default.PlayArrow,
                     contentDescription = "চালিয়ে যান",
                     tint = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(24.dp)
                 )
             }
         }
@@ -648,7 +586,6 @@ fun BookGridItemCard(
     onCardClick: () -> Unit,
     onPlayClick: () -> Unit,
     onReadClick: () -> Unit,
-    onDeleteClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -754,20 +691,6 @@ fun BookGridItemCard(
                                 imageVector = Icons.Default.MenuBook,
                                 contentDescription = "পড়ুন",
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.size(16.dp)
-                            )
-                        }
-
-                        IconButton(
-                            onClick = onDeleteClick,
-                            modifier = Modifier
-                                .size(28.dp)
-                                .testTag("delete_book_${book.id}")
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Delete,
-                                contentDescription = "মুছুন",
-                                tint = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
                                 modifier = Modifier.size(16.dp)
                             )
                         }

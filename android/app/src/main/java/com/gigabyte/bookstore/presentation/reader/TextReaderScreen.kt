@@ -36,11 +36,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -71,8 +75,64 @@ fun TextReaderScreen(
     val isSamplePlaying by viewModel.isSamplePlaying.collectAsStateWithLifecycle()
 
 
-    val listState = rememberLazyListState()
+    val savedItemIndex = remember(viewModel.bookId) { viewModel.preferences.getReaderLastReadIndex(viewModel.bookId) }
+    val savedItemOffset = remember(viewModel.bookId) { viewModel.preferences.getReaderLastReadOffset(viewModel.bookId) }
+    val listState = rememberLazyListState(
+        initialFirstVisibleItemIndex = savedItemIndex,
+        initialFirstVisibleItemScrollOffset = savedItemOffset
+    )
     val isBookPlaying = playbackState.isPlaying && playbackState.bookId == book?.id
+
+    var hasRestoredInitialPosition by remember { mutableStateOf(false) }
+
+    // Restore saved reading position or navigate to initialChapterIndex once chapters are loaded
+    LaunchedEffect(chapters.size, chapterChunksMap.size) {
+        if (!hasRestoredInitialPosition && chapters.isNotEmpty() && chapterChunksMap.isNotEmpty()) {
+            if (savedItemIndex > 0) {
+                listState.scrollToItem(savedItemIndex, savedItemOffset)
+                hasRestoredInitialPosition = true
+            } else if (viewModel.initialChapterIndex > 0) {
+                var targetIndex = 0
+                val chapIdx = viewModel.initialChapterIndex.coerceIn(0, chapters.size - 1)
+                for (c in 0 until chapIdx) {
+                    val chunks = chapterChunksMap[c] ?: viewModel.getChunksForPage(c)
+                    targetIndex += 1 + chunks.size
+                }
+                listState.scrollToItem(targetIndex)
+                hasRestoredInitialPosition = true
+            } else {
+                hasRestoredInitialPosition = true
+            }
+        }
+    }
+
+    // Auto-save last read position as user scrolls
+    LaunchedEffect(listState, viewModel.bookId, hasRestoredInitialPosition) {
+        if (hasRestoredInitialPosition) {
+            snapshotFlow { listState.firstVisibleItemIndex to listState.firstVisibleItemScrollOffset }
+                .distinctUntilChanged()
+                .collect { (itemIdx, offset) ->
+                    if (itemIdx >= 0) {
+                        viewModel.preferences.setReaderLastReadPosition(viewModel.bookId, itemIdx, offset)
+                    }
+                }
+        }
+    }
+
+    // Save position upon leaving the screen
+    DisposableEffect(viewModel.bookId) {
+        onDispose {
+            try {
+                val itemIdx = listState.firstVisibleItemIndex
+                val offset = listState.firstVisibleItemScrollOffset
+                if (itemIdx >= 0) {
+                    viewModel.preferences.setReaderLastReadPosition(viewModel.bookId, itemIdx, offset)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 
     // Auto-scroll to active speaking sentence chunk across all lessons/chapters on the single page
     LaunchedEffect(playbackState.chapterIndex, playbackState.chunkIndex, playbackState.isPlaying) {
@@ -90,6 +150,25 @@ fun TextReaderScreen(
         }
     }
 
+    // Derive current visible chapter from listState.firstVisibleItemIndex
+    val currentVisibleChapter by remember {
+        derivedStateOf {
+            val visibleIdx = listState.firstVisibleItemIndex
+            var accumulated = 0
+            var found = 0
+            for (c in 0 until chapters.size) {
+                val chunks = chapterChunksMap[c] ?: emptyList()
+                val countForChap = 1 + chunks.size
+                if (visibleIdx < accumulated + countForChap) {
+                    found = c
+                    break
+                }
+                accumulated += countForChap
+            }
+            found
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -104,7 +183,7 @@ fun TextReaderScreen(
                             overflow = TextOverflow.Ellipsis
                         )
                         Text(
-                            text = "${chapters.size} টি পাঠ • এক পাতা রিডার",
+                            text = if (chapters.isNotEmpty()) "অধ্যায় ${currentVisibleChapter + 1} / ${chapters.size}" else "${chapters.size} টি অধ্যায়",
                             style = MaterialTheme.typography.bodySmall.copy(
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             ),
@@ -131,8 +210,16 @@ fun TextReaderScreen(
                             if (isBookPlaying) {
                                 viewModel.player.pause()
                             } else {
-                                val targetChap = playbackState.chapterIndex.coerceAtLeast(0)
-                                val targetChunk = playbackState.chunkIndex.coerceAtLeast(0)
+                                val targetChap = if (playbackState.bookId == book?.id) {
+                                    playbackState.chapterIndex.coerceAtLeast(0)
+                                } else {
+                                    currentVisibleChapter
+                                }
+                                val targetChunk = if (playbackState.bookId == book?.id) {
+                                    playbackState.chunkIndex.coerceAtLeast(0)
+                                } else {
+                                    0
+                                }
                                 viewModel.speakFromChunk(targetChap, targetChunk)
                             }
                         },
@@ -191,45 +278,6 @@ fun TextReaderScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            // Active Voice Header Bar
-            Surface(
-                modifier = Modifier.fillMaxWidth(),
-                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 6.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "একক পৃষ্ঠায় সব পাঠ ও বই • যেকোনো বাক্য বা প্লে আইকনে ট্যাপ করে শুনুন",
-                        style = MaterialTheme.typography.labelSmall.copy(
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            fontSize = 11.sp
-                        ),
-                        modifier = Modifier.weight(1f)
-                    )
-
-                    Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f),
-                        modifier = Modifier.testTag("reader_voice_badge")
-                    ) {
-                        Text(
-                            text = currentVoice.nameBangla.substringBefore("(").trim(),
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                                fontSize = 10.sp
-                            ),
-                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                        )
-                    }
-                }
-            }
-
             // Continuous Single Page LazyColumn for ALL Chapters and Text
             LazyColumn(
                 state = listState,

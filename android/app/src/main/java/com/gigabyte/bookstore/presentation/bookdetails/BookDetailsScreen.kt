@@ -77,6 +77,8 @@ fun BookDetailsScreen(
     onPlayChapter: (Int) -> Unit,
     onOpenPlayer: () -> Unit,
     onOpenReader: (Int) -> Unit,
+    onOpenFullBook: (String) -> Unit = {},
+    onOpenPdf: (String) -> Unit = {},
     onSearchInBook: (String) -> Unit,
     onOpenPayment: () -> Unit = {}
 ) {
@@ -90,6 +92,7 @@ fun BookDetailsScreen(
     val userStatus by viewModel.userStatus.collectAsStateWithLifecycle()
     val isPdfDownloaded by viewModel.isPdfDownloaded.collectAsStateWithLifecycle()
     val isFullBookDownloaded by viewModel.isFullBookDownloaded.collectAsStateWithLifecycle()
+    val isDownloadingFullBook by viewModel.isDownloadingFullBook.collectAsStateWithLifecycle()
     val pdfProgress by viewModel.pdfDownloadProgress.collectAsStateWithLifecycle()
     val downloadError by viewModel.downloadErrorMessage.collectAsStateWithLifecycle()
     val downloadSuccess by viewModel.downloadSuccessMessage.collectAsStateWithLifecycle()
@@ -289,27 +292,50 @@ fun BookDetailsScreen(
                             OutlinedButton(
                                 onClick = {
                                     if (isPaid) {
-                                        onOpenReader(0)
+                                        viewModel.openFullBook(
+                                            onSuccess = { fullBookId ->
+                                                onOpenFullBook(fullBookId)
+                                            },
+                                            onError = { errMsg ->
+                                                scope.launch {
+                                                    snackbarHostState.showSnackbar(errMsg)
+                                                }
+                                            }
+                                        )
                                     } else {
                                         showUpgradeDialog = "সম্পূর্ণ বই পড়ার সুবিধা শুধুমাত্র পেইড (Paid) ব্যবহারকারীদের জন্য। অনুগ্রহ করে আপনার অ্যাকাউন্ট আপগ্রেড করুন।"
                                     }
                                 },
+                                enabled = !isDownloadingFullBook,
                                 modifier = Modifier.weight(1f),
                                 colors = if (!isPaid) ButtonDefaults.outlinedButtonColors(
                                     contentColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
                                 ) else ButtonDefaults.outlinedButtonColors()
                             ) {
-                                Icon(
-                                    imageVector = if (isPaid) Icons.Default.AutoStories else Icons.Default.Lock,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(18.dp)
-                                )
-                                Spacer(modifier = Modifier.width(6.dp))
-                                Text(
-                                    text = if (isPaid) "সম্পূর্ণ বই" else "সম্পূর্ণ বই (পেইড)",
-                                    fontSize = 12.sp,
-                                    maxLines = 1
-                                )
+                                if (isDownloadingFullBook) {
+                                    CircularProgressIndicator(
+                                        modifier = Modifier.size(16.dp),
+                                        strokeWidth = 2.dp
+                                    )
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(
+                                        text = "লোড হচ্ছে...",
+                                        fontSize = 12.sp,
+                                        maxLines = 1
+                                    )
+                                } else {
+                                    Icon(
+                                        imageVector = if (isPaid) Icons.Default.AutoStories else Icons.Default.Lock,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(
+                                        text = if (isPaid) "সম্পূর্ণ বই" else "সম্পূর্ণ বই (পেইড)",
+                                        fontSize = 12.sp,
+                                        maxLines = 1
+                                    )
+                                }
                             }
 
                             // PDF Document Button (Manual Download or Open)
@@ -319,23 +345,7 @@ fun BookDetailsScreen(
                                         showUpgradeDialog = "মূল পিডিএফ ডকুমেন্ট পড়ার সুবিধা শুধুমাত্র পেইড (Paid) ব্যবহারকারীদের জন্য। অনুগ্রহ করে আপনার অ্যাকাউন্ট আপগ্রেড করুন।"
                                     } else {
                                         if (isPdfDownloaded) {
-                                            val pdfUri = viewModel.getPdfFileUri(context)
-                                            if (pdfUri != null) {
-                                                val intent = Intent(Intent.ACTION_VIEW).apply {
-                                                    setDataAndType(pdfUri, "application/pdf")
-                                                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                                                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                                }
-                                                try {
-                                                    context.startActivity(Intent.createChooser(intent, "পিডিএফ ওপেন করুন"))
-                                                } catch (e: Exception) {
-                                                    scope.launch {
-                                                        snackbarHostState.showSnackbar("পিডিএফ ওপেন করার মতো কোনো অ্যাপ ডিভাইসে পাওয়া যায়নি")
-                                                    }
-                                                }
-                                            } else {
-                                                viewModel.downloadPdf()
-                                            }
+                                            onOpenPdf(currentBook.id)
                                         } else {
                                             viewModel.downloadPdf()
                                         }

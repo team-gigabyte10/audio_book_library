@@ -33,6 +33,7 @@ import com.gigabyte.bookstore.presentation.settings.SettingsScreen
 import com.gigabyte.bookstore.presentation.settings.SettingsViewModel
 import com.gigabyte.bookstore.presentation.payment.PaymentScreen
 import com.gigabyte.bookstore.presentation.payment.PaymentApprovalScreen
+import com.gigabyte.bookstore.presentation.pdf.PdfViewerScreen
 
 @Composable
 
@@ -163,6 +164,12 @@ fun AppNavHost(
                 onOpenReader = { chapterIdx ->
                     navController.navigate(Screen.TextReader.createRoute(bookId, chapterIdx))
                 },
+                onOpenFullBook = { fullBookId ->
+                    navController.navigate(Screen.TextReader.createRoute(fullBookId, 0))
+                },
+                onOpenPdf = { bId ->
+                    navController.navigate(Screen.PdfViewer.createRoute(bId))
+                },
                 onSearchInBook = { bId ->
                     navController.navigate(Screen.Search.createRoute(bId))
                 },
@@ -255,6 +262,9 @@ fun AppNavHost(
             SearchScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() },
+                onOpenBook = { bId ->
+                    navController.navigate(Screen.BookDetails.createRoute(bId))
+                },
                 onOpenReader = { bId, cIdx ->
                     navController.navigate(Screen.TextReader.createRoute(bId, cIdx))
                 },
@@ -279,6 +289,18 @@ fun AppNavHost(
         composable(Screen.PaymentApproval.route) {
             PaymentApprovalScreen(
                 onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+        // 8. In-App PDF Viewer Screen
+        composable(
+            route = Screen.PdfViewer.route,
+            arguments = listOf(navArgument("bookId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val bId = backStackEntry.arguments?.getString("bookId") ?: ""
+            PdfViewerScreen(
+                bookId = bId,
+                onBackClick = { navController.popBackStack() }
             )
         }
     }

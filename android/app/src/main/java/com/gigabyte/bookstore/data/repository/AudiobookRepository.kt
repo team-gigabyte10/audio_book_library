@@ -28,7 +28,10 @@ class AudiobookRepository(
     private val historyDao = database.playbackHistoryDao()
 
     val allBooks: Flow<List<Book>> = bookDao.getAllBooks().map { entities ->
-        entities.map { it.toDomainModel() }
+        entities
+            .filter { !it.id.endsWith("_full") }
+            .distinctBy { it.id.removeSuffix("_full") }
+            .map { it.toDomainModel() }
     }
 
     val lastPlayedHistory: Flow<PlaybackHistoryEntity?> = historyDao.getLastPlayedFlow()

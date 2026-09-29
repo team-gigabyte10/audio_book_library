@@ -211,6 +211,20 @@ class BookSyncManager(
                         )
                     }
                 }
+
+                val fullPath = book.localFullBookPath
+                if (!fullPath.isNullOrBlank()) {
+                    val fullFile = File(fullPath)
+                    if (fullFile.exists() && fullFile.length() > 0) {
+                        audiobookRepository?.importDownloadedBook(
+                            file = fullFile,
+                            bookId = "${book.id}_full",
+                            title = "${book.title} (সম্পূর্ণ)",
+                            author = book.author,
+                            coverPath = book.localCoverPath
+                        )
+                    }
+                }
             }
 
             _cachedBooks.value = remoteList
@@ -239,6 +253,50 @@ class BookSyncManager(
             }
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    suspend fun downloadMarkdownFile(
+        url: String?,
+        storagePath: String?,
+        destination: File
+    ): Boolean = withContext(Dispatchers.IO) {
+        try {
+            destination.parentFile?.mkdirs()
+            if (!url.isNullOrBlank()) {
+                val request = Request.Builder().url(url).build()
+                okHttpClient.newCall(request).execute().use { response ->
+                    if (response.isSuccessful) {
+                        response.body?.byteStream()?.use { input ->
+                            FileOutputStream(destination).use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (destination.exists() && destination.length() > 0) {
+                return@withContext true
+            }
+
+            val storageRef = when {
+                !storagePath.isNullOrBlank() -> storage.reference.child(storagePath)
+                !url.isNullOrBlank() && url.contains("firebasestorage.googleapis.com") -> {
+                    storage.getReferenceFromUrl(url)
+                }
+                else -> null
+            }
+
+            if (storageRef != null) {
+                storageRef.getFile(destination).await()
+                return@withContext destination.exists() && destination.length() > 0
+            }
+
+            false
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
         }
     }
 
@@ -395,7 +453,7 @@ class BookSyncManager(
         }
     }
 
-    private fun loadOfflineCachedBooks(userStatus: String): List<RemoteBook> {
+    private suspend fun loadOfflineCachedBooks(userStatus: String): List<RemoteBook> {
         val files = booksDir.listFiles { _, name -> name.endsWith("_summary.md") } ?: return emptyList()
         return files.map { summaryFile ->
             val bookId = summaryFile.name.removeSuffix("_summary.md")
@@ -409,6 +467,16 @@ class BookSyncManager(
             } catch (e: Exception) { "" }
 
             val titleGuess = summaryFile.name.removeSuffix("_summary.md").replace("_", " ")
+
+            if (fullBook != null) {
+                audiobookRepository?.importDownloadedBook(
+                    file = fullBook,
+                    bookId = "${bookId}_full",
+                    title = "$titleGuess (সম্পূর্ণ)",
+                    author = null,
+                    coverPath = cover?.absolutePath
+                )
+            }
 
             RemoteBook(
                 id = bookId,

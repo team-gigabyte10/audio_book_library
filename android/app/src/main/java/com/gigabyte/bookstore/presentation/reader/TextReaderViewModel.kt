@@ -15,11 +15,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.File
 
 class TextReaderViewModel(
     application: Application,
-    private val bookId: String,
-    private val initialChapterIndex: Int
+    val bookId: String,
+    val initialChapterIndex: Int
 ) : AndroidViewModel(application) {
 
     private val app = application as BanglaAudiobookApp
@@ -55,7 +56,30 @@ class TextReaderViewModel(
 
     private fun loadData() {
         viewModelScope.launch {
-            _book.value = repository.getBookById(bookId)
+            var currentBook = repository.getBookById(bookId)
+            if (currentBook == null) {
+                val booksDir = File(app.filesDir, "book-store")
+                val isFull = bookId.endsWith("_full")
+                val baseBookId = if (isFull) bookId.removeSuffix("_full") else bookId
+                val targetFile = if (isFull) {
+                    File(booksDir, "${baseBookId}_full.md")
+                } else {
+                    File(booksDir, "${baseBookId}_summary.md")
+                }
+
+                if (targetFile.exists() && targetFile.length() > 0) {
+                    val baseBook = repository.getBookById(baseBookId)
+                    currentBook = repository.importDownloadedBook(
+                        file = targetFile,
+                        bookId = bookId,
+                        title = if (isFull) "${baseBook?.title ?: "বই"} (সম্পূর্ণ)" else (baseBook?.title ?: "বই"),
+                        author = baseBook?.author,
+                        coverPath = baseBook?.coverPath
+                    )
+                }
+            }
+
+            _book.value = currentBook
             val chapList = repository.getChaptersForBookSync(bookId)
             _chapters.value = chapList
 

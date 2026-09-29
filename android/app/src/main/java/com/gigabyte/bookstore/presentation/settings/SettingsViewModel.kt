@@ -24,6 +24,11 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val autoPlayNext: StateFlow<Boolean> = preferences.autoPlayNext
     val keepScreenAwake: StateFlow<Boolean> = preferences.keepScreenAwake
     val fullAudiobookMode: StateFlow<Boolean> = preferences.fullAudiobookMode
+    val themeMode: StateFlow<String> = preferences.themeMode
+
+    fun setThemeMode(mode: String) {
+        preferences.setThemeMode(mode)
+    }
 
     fun selectVoiceProfile(profile: BanglaVoiceProfile) {
         preferences.setSelectedVoiceId(profile.id)

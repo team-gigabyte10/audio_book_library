@@ -31,6 +31,14 @@ class AppPreferences(context: Context) {
     private val _selectedVoiceId = MutableStateFlow(prefs.getString(KEY_SELECTED_VOICE_ID, "voice_natural_clear") ?: "voice_natural_clear")
     val selectedVoiceId: StateFlow<String> = _selectedVoiceId.asStateFlow()
 
+    private val _themeMode = MutableStateFlow(prefs.getString(KEY_THEME_MODE, "system") ?: "system")
+    val themeMode: StateFlow<String> = _themeMode.asStateFlow()
+
+    fun setThemeMode(mode: String) {
+        prefs.edit().putString(KEY_THEME_MODE, mode).apply()
+        _themeMode.value = mode
+    }
+
     fun setSpeechRate(rate: Float) {
         prefs.edit().putFloat(KEY_SPEECH_RATE, rate).apply()
         _speechRate.value = rate
@@ -74,6 +82,7 @@ class AppPreferences(context: Context) {
         private const val KEY_FULL_AUDIOBOOK_MODE = "full_audiobook_mode"
         private const val KEY_READER_FONT_SIZE = "reader_font_size"
         private const val KEY_SELECTED_VOICE_ID = "selected_voice_id"
+        private const val KEY_THEME_MODE = "theme_mode"
 
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"
@@ -198,6 +207,29 @@ class AppPreferences(context: Context) {
         _userEmail.value = ""
         _userStatus.value = "trial"
         _userBalance.value = 0.0
+    }
+
+    fun getPdfLastReadPage(bookId: String): Int {
+        return prefs.getInt("pdf_last_page_$bookId", 0)
+    }
+
+    fun setPdfLastReadPage(bookId: String, page: Int) {
+        prefs.edit().putInt("pdf_last_page_$bookId", page.coerceAtLeast(0)).apply()
+    }
+
+    fun getReaderLastReadIndex(bookId: String): Int {
+        return prefs.getInt("reader_last_index_$bookId", 0)
+    }
+
+    fun getReaderLastReadOffset(bookId: String): Int {
+        return prefs.getInt("reader_last_offset_$bookId", 0)
+    }
+
+    fun setReaderLastReadPosition(bookId: String, index: Int, offset: Int) {
+        prefs.edit()
+            .putInt("reader_last_index_$bookId", index.coerceAtLeast(0))
+            .putInt("reader_last_offset_$bookId", offset.coerceAtLeast(0))
+            .apply()
     }
 }
 

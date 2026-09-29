@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BookDao {
-    @Query("SELECT * FROM books ORDER BY addedDate DESC")
+    @Query("SELECT * FROM books WHERE id NOT LIKE '%_full' ORDER BY addedDate DESC")
     fun getAllBooks(): Flow<List<BookEntity>>
 
     @Query("SELECT * FROM books WHERE id = :id LIMIT 1")
@@ -18,7 +18,7 @@ interface BookDao {
     @Query("SELECT * FROM books WHERE id = :id LIMIT 1")
     fun getBookByIdFlow(id: String): Flow<BookEntity?>
 
-    @Query("SELECT * FROM books WHERE title LIKE '%' || :query || '%' OR author LIKE '%' || :query || '%'")
+    @Query("SELECT * FROM books WHERE id NOT LIKE '%_full' AND (title LIKE '%' || :query || '%' OR author LIKE '%' || :query || '%')")
     fun searchBooks(query: String): Flow<List<BookEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

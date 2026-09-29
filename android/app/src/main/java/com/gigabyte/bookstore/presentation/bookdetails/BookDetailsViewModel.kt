@@ -58,6 +58,9 @@ class BookDetailsViewModel(
     private val _isFullBookDownloaded = MutableStateFlow(false)
     val isFullBookDownloaded: StateFlow<Boolean> = _isFullBookDownloaded.asStateFlow()
 
+    private val _isDownloadingFullBook = MutableStateFlow(false)
+    val isDownloadingFullBook: StateFlow<Boolean> = _isDownloadingFullBook.asStateFlow()
+
     private val _pdfDownloadProgress = MutableStateFlow<Int?>(null)
     val pdfDownloadProgress: StateFlow<Int?> = _pdfDownloadProgress.asStateFlow()
 
@@ -255,6 +258,78 @@ class BookDetailsViewModel(
             startChunkIndex = startChunk,
             autoPlay = true
         )
+    }
+
+    fun openFullBook(
+        onSuccess: (fullBookId: String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val fullFile = File(booksDir, "${bookId}_full.md")
+        val fullBookId = "${bookId}_full"
+
+        if (fullFile.exists() && fullFile.length() > 0) {
+            _isFullBookDownloaded.value = true
+            viewModelScope.launch {
+                val currentBook = _book.value
+                repository.importDownloadedBook(
+                    file = fullFile,
+                    bookId = fullBookId,
+                    title = if (currentBook != null) "${currentBook.title} (সম্পূর্ণ)" else "সম্পূর্ণ বই",
+                    author = currentBook?.author,
+                    coverPath = currentBook?.coverPath
+                )
+                onSuccess(fullBookId)
+            }
+            return
+        }
+
+        viewModelScope.launch {
+            _isDownloadingFullBook.value = true
+            try {
+                val cached = syncManager.cachedBooks.value.find { it.id == bookId || it.slug == bookId }
+                var fullUrl = cached?.fullBookMdUrl
+                var fullPath = cached?.fullBookMdPath
+
+                if (fullUrl.isNullOrBlank() && fullPath.isNullOrBlank()) {
+                    val doc = firestore.collection("books").document(bookId).get().await()
+                    if (doc.exists()) {
+                        fullUrl = doc.getString("fullBookMdUrl")
+                        fullPath = doc.getString("fullBookMdPath")
+                    }
+                }
+
+                if (fullUrl.isNullOrBlank() && fullPath.isNullOrBlank()) {
+                    _isDownloadingFullBook.value = false
+                    onError("এই বইটির সম্পূর্ণ সংস্করণ অনলাইনে উপলব্ধ নেই")
+                    return@launch
+                }
+
+                val downloadSuccess = syncManager.downloadMarkdownFile(
+                    url = fullUrl,
+                    storagePath = fullPath,
+                    destination = fullFile
+                )
+
+                _isDownloadingFullBook.value = false
+                if (downloadSuccess && fullFile.exists() && fullFile.length() > 0) {
+                    _isFullBookDownloaded.value = true
+                    val currentBook = _book.value
+                    repository.importDownloadedBook(
+                        file = fullFile,
+                        bookId = fullBookId,
+                        title = if (currentBook != null) "${currentBook.title} (সম্পূর্ণ)" else "সম্পূর্ণ বই",
+                        author = currentBook?.author,
+                        coverPath = currentBook?.coverPath
+                    )
+                    onSuccess(fullBookId)
+                } else {
+                    onError("সম্পূর্ণ বই ডাউনলোড করা সম্ভব হয়নি")
+                }
+            } catch (e: Exception) {
+                _isDownloadingFullBook.value = false
+                onError("ডাউনলোড ত্রুটি: ${e.localizedMessage ?: "নেটওয়ার্ক সমস্যা"}")
+            }
+        }
     }
 }
 

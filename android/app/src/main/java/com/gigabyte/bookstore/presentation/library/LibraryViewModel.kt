@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -31,6 +32,9 @@ class LibraryViewModel(application: Application) : AndroidViewModel(application)
     val ttsManager = app.ttsManager
 
     val books: StateFlow<List<Book>> = repository.allBooks
+        .map { list ->
+            list.filter { !it.id.endsWith("_full") }.distinctBy { it.id.removeSuffix("_full") }
+        }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     val lastPlayed: StateFlow<PlaybackHistoryEntity?> = repository.lastPlayedHistory
