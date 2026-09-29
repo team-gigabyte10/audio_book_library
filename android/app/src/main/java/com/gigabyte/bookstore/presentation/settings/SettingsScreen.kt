@@ -49,8 +49,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -93,7 +92,7 @@ fun SettingsScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = { Text("সেটিংস ও ভয়েস কনফিগারেশন") },
                 navigationIcon = {
                     IconButton(
@@ -105,10 +104,7 @@ fun SettingsScreen(
                             contentDescription = "ফিরে যান"
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         }
     ) { innerPadding ->

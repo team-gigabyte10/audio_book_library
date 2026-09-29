@@ -59,8 +59,7 @@ import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -105,13 +104,13 @@ fun PlayerScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
                             text = "এখন বাজছে (Now Playing)",
                             style = MaterialTheme.typography.labelMedium.copy(
-                                color = MaterialTheme.colorScheme.primary,
+                                color = Color(0xFFFFD54F),
                                 fontWeight = FontWeight.Bold
                             )
                         )
@@ -137,8 +136,6 @@ fun PlayerScreen(
                     }
                 },
                 actions = {
-
-
                     // Open Reader Screen
                     IconButton(
                         onClick = {
@@ -166,10 +163,7 @@ fun PlayerScreen(
                             tint = MaterialTheme.colorScheme.error
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         }
     ) { innerPadding ->

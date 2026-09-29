@@ -52,6 +52,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -69,7 +70,7 @@ fun SearchScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = { Text("বই অনুসন্ধান (Search Books)") },
                 navigationIcon = {
                     IconButton(
@@ -81,10 +82,7 @@ fun SearchScreen(
                             contentDescription = "ফিরে যান"
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         },
         bottomBar = {

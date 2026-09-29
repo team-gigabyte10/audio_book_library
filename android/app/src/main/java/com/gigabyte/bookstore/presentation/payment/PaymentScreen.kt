@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.repository.UserRepository
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +56,7 @@ fun PaymentScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = {
                     Text(
                         text = "পেমেন্ট ও মেম্বারশিপ",
@@ -72,10 +73,7 @@ fun PaymentScreen(
                             contentDescription = "ফিরে যান"
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         }
     ) { innerPadding ->

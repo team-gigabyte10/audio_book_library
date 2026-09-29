@@ -79,6 +79,7 @@ import com.gigabyte.bookstore.data.models.Book
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.TTSStatusBanner
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
 import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
 import com.gigabyte.bookstore.presentation.drawer.BookmarksDialog
@@ -190,7 +191,7 @@ fun LibraryScreen(
 
         Scaffold(
             topBar = {
-                TopAppBar(
+                ThemedTopAppBar(
                     navigationIcon = {
                         IconButton(onClick = { scope.launch { drawerState.open() } }) {
                             Icon(
@@ -204,71 +205,61 @@ fun LibraryScreen(
                             Icon(
                                 imageVector = Icons.Default.Headphones,
                                 contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
+                                tint = Color(0xFFFFD54F),
                                 modifier = Modifier.size(28.dp)
                             )
                             Spacer(modifier = Modifier.width(10.dp))
                             Column {
-
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Text(
-                                    text = "বাংলা অডিওবুক",
-                                    style = MaterialTheme.typography.titleLarge.copy(
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 18.sp
-                                    )
-                                )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                // User Status Badge (Trial or Active)
-                                Surface(
-                                    color = if (userStatus.equals("trial", ignoreCase = true))
-                                        MaterialTheme.colorScheme.tertiaryContainer
-                                    else
-                                        MaterialTheme.colorScheme.primaryContainer,
-                                    shape = androidx.compose.foundation.shape.CircleShape
-                                ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
                                     Text(
-                                        text = if (userStatus.equals("trial", ignoreCase = true)) "Trial" else "Active",
-                                        fontSize = 10.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = if (userStatus.equals("trial", ignoreCase = true))
-                                            MaterialTheme.colorScheme.onTertiaryContainer
-                                        else
-                                            MaterialTheme.colorScheme.onPrimaryContainer,
-                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                        text = "বাংলা অডিওবুক",
+                                        style = MaterialTheme.typography.titleLarge.copy(
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 18.sp
+                                        )
                                     )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    // User Status Badge (Trial or Active)
+                                    Surface(
+                                        color = if (userStatus.equals("trial", ignoreCase = true))
+                                            Color(0xFFFFB300)
+                                        else
+                                            Color(0xFF26A69A),
+                                        shape = androidx.compose.foundation.shape.CircleShape
+                                    ) {
+                                        Text(
+                                            text = if (userStatus.equals("trial", ignoreCase = true)) "Trial" else "Active",
+                                            fontSize = 10.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color.Black,
+                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                        )
+                                    }
                                 }
                             }
-
-
+                        }
+                    },
+                    actions = {
+                        IconButton(
+                            onClick = onOpenSearch,
+                            modifier = Modifier.testTag("library_search_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = "অনুসন্ধান"
+                            )
+                        }
+                        IconButton(
+                            onClick = onOpenSettings,
+                            modifier = Modifier.testTag("library_settings_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Settings,
+                                contentDescription = "সেটিংস"
+                            )
                         }
                     }
-                },
-
-                actions = {
-                    IconButton(
-                        onClick = onOpenSearch,
-                        modifier = Modifier.testTag("library_search_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "অনুসন্ধান"
-                        )
-                    }
-                    IconButton(
-                        onClick = onOpenSettings,
-                        modifier = Modifier.testTag("library_settings_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Settings,
-                            contentDescription = "সেটিংস"
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
                 )
-            )
         },
         bottomBar = {
             MiniPlayerBar(

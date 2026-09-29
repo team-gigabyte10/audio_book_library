@@ -37,8 +37,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -171,7 +170,7 @@ fun PdfViewerScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = {
                     Column {
                         Text(
@@ -184,7 +183,7 @@ fun PdfViewerScreen(
                             Text(
                                 text = "মোট $pageCount টি পৃষ্ঠা",
                                 style = MaterialTheme.typography.bodySmall.copy(
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    color = Color.White.copy(alpha = 0.8f)
                                 ),
                                 maxLines = 1
                             )
@@ -207,15 +206,11 @@ fun PdfViewerScreen(
                         }) {
                             Icon(
                                 imageVector = Icons.Default.ZoomOutMap,
-                                contentDescription = "জুম রিসেট",
-                                tint = MaterialTheme.colorScheme.primary
+                                contentDescription = "জুম রিসেট"
                             )
                         }
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         }
     ) { innerPadding ->

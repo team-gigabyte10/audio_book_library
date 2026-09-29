@@ -23,6 +23,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -47,17 +48,14 @@ fun RegisterScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = {
                     Text(
                         text = "Create Account",
                         fontWeight = FontWeight.Bold,
                         fontSize = 20.sp
                     )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
-                )
+                }
             )
         }
     ) { paddingValues ->

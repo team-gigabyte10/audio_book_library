@@ -68,6 +68,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.data.models.Chapter
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -118,7 +119,7 @@ fun BookDetailsScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = { Text("বইয়ের বিবরণ", maxLines = 1) },
                 navigationIcon = {
                     IconButton(
@@ -141,10 +142,7 @@ fun BookDetailsScreen(
                             contentDescription = "বইয়ে খুঁজুন"
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         },
         bottomBar = {

@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -113,7 +114,7 @@ fun PaymentApprovalScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
+            ThemedTopAppBar(
                 title = {
                     Column {
                         Text(
@@ -127,7 +128,7 @@ fun PaymentApprovalScreen(
                             text = "Payment Request Management",
                             style = MaterialTheme.typography.bodySmall.copy(
                                 fontSize = 11.sp,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                color = Color.White.copy(alpha = 0.8f)
                             )
                         )
                     }
@@ -150,10 +151,7 @@ fun PaymentApprovalScreen(
                             contentDescription = "রিফ্রেশ করুন"
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                }
             )
         }
     ) { innerPadding ->

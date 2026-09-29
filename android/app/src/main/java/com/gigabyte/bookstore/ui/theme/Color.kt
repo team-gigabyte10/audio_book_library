@@ -21,3 +21,12 @@ val DarkAmberSecondary = Color(0xFFFFB74D)
 val DarkAmberOnSecondary = Color(0xFF4A2800)
 val DarkAmberSecondaryContainer = Color(0xFF6B3B00)
 val DarkAmberOnSecondaryContainer = Color(0xFFFFE082)
+
+// Dedicated Status Bar & App Bar Colors
+val LightStatusBarColor = Color(0xFF003830) // Deep Forest Teal for Status Bar
+val LightAppBarColor = Color(0xFF00695C)    // Vibrant Primary Teal for AppBar
+val LightAppBarTitleColor = Color(0xFFFFFFFF)
+
+val DarkStatusBarColor = Color(0xFF070E0D)  // Deep Midnight Black for Status Bar
+val DarkAppBarColor = Color(0xFF162B27)     // Dark Slate Teal for AppBar
+val DarkAppBarTitleColor = Color(0xFFE0F2F1)
