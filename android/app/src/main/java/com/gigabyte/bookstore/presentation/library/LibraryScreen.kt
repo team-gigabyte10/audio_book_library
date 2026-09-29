@@ -209,34 +209,13 @@ fun LibraryScreen(
                                 modifier = Modifier.size(28.dp)
                             )
                             Spacer(modifier = Modifier.width(10.dp))
-                            Column {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Text(
-                                        text = "বাংলা অডিওবুক",
-                                        style = MaterialTheme.typography.titleLarge.copy(
-                                            fontWeight = FontWeight.Bold,
-                                            fontSize = 18.sp
-                                        )
-                                    )
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                    // User Status Badge (Trial or Active)
-                                    Surface(
-                                        color = if (userStatus.equals("trial", ignoreCase = true))
-                                            Color(0xFFFFB300)
-                                        else
-                                            Color(0xFF26A69A),
-                                        shape = androidx.compose.foundation.shape.CircleShape
-                                    ) {
-                                        Text(
-                                            text = if (userStatus.equals("trial", ignoreCase = true)) "Trial" else "Active",
-                                            fontSize = 10.sp,
-                                            fontWeight = FontWeight.Bold,
-                                            color = Color.Black,
-                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                                        )
-                                    }
-                                }
-                            }
+                            Text(
+                                text = "বাংলা অডিওবুক",
+                                style = MaterialTheme.typography.titleLarge.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 18.sp
+                                )
+                            )
                         }
                     },
                     actions = {
