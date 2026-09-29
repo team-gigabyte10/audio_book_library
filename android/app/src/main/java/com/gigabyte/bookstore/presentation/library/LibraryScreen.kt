@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
@@ -39,6 +40,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
@@ -76,10 +78,15 @@ import com.gigabyte.bookstore.data.local.entities.PlaybackHistoryEntity
 import com.gigabyte.bookstore.data.models.PlaybackState
 import com.gigabyte.bookstore.domain.tts.TTSVoiceStatus
 import com.gigabyte.bookstore.data.models.Book
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
+import com.gigabyte.bookstore.presentation.components.AppBackground
+import com.gigabyte.bookstore.presentation.components.AudioWaveAnimation
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.TTSStatusBanner
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import com.gigabyte.bookstore.ui.theme.GoldenAccent
 import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
 import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
 import com.gigabyte.bookstore.presentation.drawer.BookmarksDialog
@@ -250,7 +257,7 @@ fun LibraryScreen(
             )
         }
     ) { innerPadding ->
-        Box(
+        AppBackground(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
@@ -329,17 +336,40 @@ fun LibraryScreen(
                 // 3. Section Header: My Books
                 item {
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp, bottom = 4.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
+                        Box(
+                            modifier = Modifier
+                                .width(4.dp)
+                                .height(18.dp)
+                                .clip(RoundedCornerShape(2.dp))
+                                .background(MaterialTheme.colorScheme.primary)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "বইসমূহ (${books.size})",
-                            style = MaterialTheme.typography.titleMedium.copy(
+                            text = "বইসমূহ",
+                            style = MaterialTheme.typography.titleLarge.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 18.sp
                             )
                         )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Surface(
+                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
+                            shape = CircleShape
+                        ) {
+                            Text(
+                                text = "${displayBooks.size} টি বই",
+                                style = MaterialTheme.typography.labelMedium.copy(
+                                    color = MaterialTheme.colorScheme.primary,
+                                    fontWeight = FontWeight.Bold
+                                ),
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
+                            )
+                        }
                     }
                 }
 
@@ -480,69 +510,94 @@ fun ContinueListeningCard(
             .testTag("continue_listening_card"),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
+            containerColor = MaterialTheme.colorScheme.surface
         ),
-        elevation = CardDefaults.cardElevation(4.dp)
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.25f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp, vertical = 6.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            BookCoverView(
-                title = bookTitle,
-                author = author,
-                coverPath = coverPath,
-                modifier = Modifier.size(52.dp),
-                cornerRadius = 8.dp,
-                elevation = 2.dp
-            )
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 14.dp, vertical = 10.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                BookCoverView(
+                    title = bookTitle,
+                    author = author,
+                    coverPath = coverPath,
+                    modifier = Modifier.size(54.dp),
+                    cornerRadius = 10.dp,
+                    elevation = 4.dp
+                )
 
-            Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(14.dp))
 
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = "চালিয়ে যান",
-                    style = MaterialTheme.typography.labelSmall.copy(
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 11.sp
+                Column(modifier = Modifier.weight(1f)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = if (isPlaying) "এখন বাজছে" else "চালিয়ে যান",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 11.sp
+                            )
+                        )
+                        if (isPlaying) {
+                            Spacer(modifier = Modifier.width(6.dp))
+                            AudioWaveAnimation(isPlaying = true, maxHeight = 12.dp)
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(
+                        text = bookTitle,
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 15.sp
+                        ),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
-                )
-                Text(
-                    text = bookTitle,
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 15.sp
-                    ),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-                Text(
-                    text = chapterTitle,
-                    style = MaterialTheme.typography.bodySmall.copy(
-                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
-                        fontSize = 12.sp
-                    ),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
+                    Text(
+                        text = chapterTitle,
+                        style = MaterialTheme.typography.bodySmall.copy(
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontSize = 12.sp
+                        ),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                IconButton(
+                    onClick = onContinueClick,
+                    modifier = Modifier
+                        .size(42.dp)
+                        .clip(CircleShape)
+                        .background(if (isPlaying) Color(0xFFFFB300) else MaterialTheme.colorScheme.primary)
+                        .testTag("continue_listening_play_button")
+                ) {
+                    Icon(
+                        imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                        contentDescription = "চালিয়ে যান",
+                        tint = if (isPlaying) Color.Black else MaterialTheme.colorScheme.onPrimary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
             }
 
-            IconButton(
-                onClick = onContinueClick,
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.primary)
-                    .testTag("continue_listening_play_button")
-            ) {
-                Icon(
-                    imageVector = Icons.Default.PlayArrow,
-                    contentDescription = "চালিয়ে যান",
-                    tint = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier.size(24.dp)
+            // Progress bar
+            if (totalChunks > 0) {
+                val progress = (chunkIndex.toFloat() / totalChunks.toFloat()).coerceIn(0.02f, 1f)
+                LinearProgressIndicator(
+                    progress = { progress },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(3.dp),
+                    color = MaterialTheme.colorScheme.primary,
+                    trackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
                 )
             }
         }
@@ -563,11 +618,12 @@ fun BookGridItemCard(
             .fillMaxWidth()
             .clickable { onCardClick() }
             .testTag("book_item_${book.id}"),
-        shape = RoundedCornerShape(14.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+            containerColor = MaterialTheme.colorScheme.surface
         ),
-        elevation = CardDefaults.cardElevation(2.dp)
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.45f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             // Book Cover Image with overlay Play Button

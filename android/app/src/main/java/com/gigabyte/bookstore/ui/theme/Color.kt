@@ -30,3 +30,16 @@ val LightAppBarTitleColor = Color(0xFFFFFFFF)
 val DarkStatusBarColor = Color(0xFF070E0D)  // Deep Midnight Black for Status Bar
 val DarkAppBarColor = Color(0xFF162B27)     // Dark Slate Teal for AppBar
 val DarkAppBarTitleColor = Color(0xFFE0F2F1)
+
+// Ambient Canvas Backgrounds & Card Surfaces
+val LightAppBackground = Color(0xFFF5FAF8) // Soothing soft sage mist canvas
+val DarkAppBackground = Color(0xFF091211)  // Deep obsidian midnight slate
+
+val LightSurfaceCard = Color(0xFFFFFFFF)
+val DarkSurfaceCard = Color(0xFF122220)
+
+val LightCardBorder = Color(0x1F004D40)
+val DarkCardBorder = Color(0x3380CBC4)
+
+val GoldenAccent = Color(0xFFFFD54F)
+

@@ -49,6 +49,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -108,14 +109,18 @@ fun SettingsScreen(
             )
         }
     ) { innerPadding ->
-        Column(
+        AppBackground(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(scrollState)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
             // 1. TTS Voice Engine Status Banner
             TTSStatusBanner(
                 status = voiceStatus,
@@ -438,7 +443,6 @@ fun SettingsScreen(
                     }
                 }
             }
-
         }
 
         // Full Voice Selection Sheet
@@ -460,4 +464,5 @@ fun SettingsScreen(
             )
         }
     }
+}
 }

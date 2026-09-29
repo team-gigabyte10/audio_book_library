@@ -50,6 +50,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
@@ -95,12 +96,16 @@ fun SearchScreen(
             )
         }
     ) { innerPadding ->
-        Column(
+        AppBackground(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp)
         ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp)
+            ) {
             Spacer(modifier = Modifier.height(8.dp))
 
             // Search input field
@@ -372,4 +377,5 @@ fun SearchScreen(
             }
         }
     }
+}
 }

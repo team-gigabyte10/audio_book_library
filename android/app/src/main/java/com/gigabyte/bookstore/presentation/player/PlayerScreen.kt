@@ -59,6 +59,18 @@ import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Brush
+import com.gigabyte.bookstore.presentation.components.AppBackground
+import com.gigabyte.bookstore.presentation.components.AudioWaveAnimation
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -167,27 +179,76 @@ fun PlayerScreen(
             )
         }
     ) { innerPadding ->
-        Column(
+        AppBackground(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(scrollState)
-                .padding(horizontal = 24.dp, vertical = 8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)
+                    .padding(horizontal = 24.dp, vertical = 8.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
             Spacer(modifier = Modifier.height(4.dp))
 
-            // 1. Large Cover Art
-            BookCoverView(
-                title = playbackState.bookTitle.ifBlank { "অডিওবুক" },
-                author = playbackState.author,
-                coverPath = playbackState.coverPath,
-                modifier = Modifier.size(width = 190.dp, height = 240.dp),
-                cornerRadius = 18.dp,
-                elevation = 8.dp
-            )
+            // 1. Ambient Breathing Aura + Large Cover Art
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp)
+            ) {
+                val infiniteTransition = rememberInfiniteTransition(label = "player_aura")
+                val auraScale by infiniteTransition.animateFloat(
+                    initialValue = 0.95f,
+                    targetValue = 1.06f,
+                    animationSpec = infiniteRepeatable(
+                        animation = tween(2400, easing = FastOutSlowInEasing),
+                        repeatMode = RepeatMode.Reverse
+                    ),
+                    label = "auraScale"
+                )
+                val auraAlpha by infiniteTransition.animateFloat(
+                    initialValue = 0.25f,
+                    targetValue = 0.55f,
+                    animationSpec = infiniteRepeatable(
+                        animation = tween(2400, easing = FastOutSlowInEasing),
+                        repeatMode = RepeatMode.Reverse
+                    ),
+                    label = "auraAlpha"
+                )
 
-            Spacer(modifier = Modifier.height(16.dp))
+                if (playbackState.isPlaying) {
+                    Box(
+                        modifier = Modifier
+                            .size(240.dp)
+                            .scale(auraScale)
+                            .background(
+                                brush = Brush.radialGradient(
+                                    colors = listOf(
+                                        MaterialTheme.colorScheme.primary.copy(alpha = auraAlpha),
+                                        Color(0xFFFFD54F).copy(alpha = auraAlpha * 0.4f),
+                                        Color.Transparent
+                                    )
+                                ),
+                                shape = CircleShape
+                            )
+                    )
+                }
+
+                BookCoverView(
+                    title = playbackState.bookTitle.ifBlank { "অডিওবুক" },
+                    author = playbackState.author,
+                    coverPath = playbackState.coverPath,
+                    modifier = Modifier.size(width = 195.dp, height = 245.dp),
+                    cornerRadius = 20.dp,
+                    elevation = 10.dp
+                )
+            }
+
+            Spacer(modifier = Modifier.height(14.dp))
 
             // 2. Book & Chapter Info
             Text(
@@ -225,6 +286,10 @@ fun PlayerScreen(
                         fontWeight = FontWeight.SemiBold
                     )
                 )
+
+                if (playbackState.isPlaying) {
+                    AudioWaveAnimation(isPlaying = true, maxHeight = 13.dp)
+                }
 
                 Text(
                     text = "•",
@@ -569,6 +634,7 @@ fun PlayerScreen(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
+        }
         }
 
         // Sleep Timer Dialog

@@ -2,6 +2,7 @@ package com.gigabyte.bookstore.presentation.bookdetails
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -67,6 +68,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.data.models.Chapter
 import com.gigabyte.bookstore.presentation.components.BookCoverView
+import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 
@@ -155,22 +157,23 @@ fun BookDetailsScreen(
             )
         }
     ) { innerPadding ->
-        if (book == null) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator()
-            }
-        } else {
+        AppBackground(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
+            if (book == null) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            } else {
             val currentBook = book!!
 
             LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding),
+                modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(
                     start = 16.dp,
                     end = 16.dp,
@@ -185,16 +188,37 @@ fun BookDetailsScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    ) {
+                        // Ambient radial glow behind cover
+                        Box(
+                            modifier = Modifier
+                                .size(190.dp)
+                                .background(
+                                    brush = Brush.radialGradient(
+                                        colors = listOf(
+                                            MaterialTheme.colorScheme.primary.copy(alpha = 0.35f),
+                                            Color(0xFFFFD54F).copy(alpha = 0.15f),
+                                            Color.Transparent
+                                        )
+                                    ),
+                                    shape = CircleShape
+                                )
+                        )
+
                         BookCoverView(
                             title = currentBook.title,
                             author = currentBook.author,
                             coverPath = currentBook.coverPath,
-                            modifier = Modifier.size(width = 160.dp, height = 220.dp),
-                            cornerRadius = 16.dp,
-                            elevation = 6.dp
+                            modifier = Modifier.size(width = 165.dp, height = 225.dp),
+                            cornerRadius = 18.dp,
+                            elevation = 8.dp
                         )
+                    }
 
-                        Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(18.dp))
 
                         Text(
                             text = currentBook.title,
@@ -389,6 +413,7 @@ fun BookDetailsScreen(
                 }
             }
         }
+    }
     }
 
     // Upgrade Dialog for Trial Users
