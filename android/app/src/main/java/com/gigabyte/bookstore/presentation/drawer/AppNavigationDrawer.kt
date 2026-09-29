@@ -8,7 +8,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -23,6 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gigabyte.bookstore.ui.theme.DarkStatusBarColor
+import com.gigabyte.bookstore.ui.theme.LightStatusBarColor
 
 @Composable
 fun AppDrawerContent(
@@ -40,12 +41,12 @@ fun AppDrawerContent(
     modifier: Modifier = Modifier
 ) {
     val isDark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+    val actualStatusBarColor = if (isDark) DarkStatusBarColor else LightStatusBarColor
 
-    // Deep, cohesive professional executive teal gradient
+    // Cohesive executive teal gradient matching App Bar
     val headerBrush = if (isDark) {
         Brush.verticalGradient(
             colors = listOf(
-                Color(0xFF071210),
                 Color(0xFF102621),
                 Color(0xFF16322C)
             )
@@ -53,20 +54,28 @@ fun AppDrawerContent(
     } else {
         Brush.verticalGradient(
             colors = listOf(
-                Color(0xFF003830), // Matches Status Bar
                 Color(0xFF004D40),
-                Color(0xFF00695C)  // Matches App Bar
+                Color(0xFF00695C)
             )
         )
     }
 
     ModalDrawerSheet(
         modifier = modifier.width(320.dp),
-        drawerContainerColor = MaterialTheme.colorScheme.surface
+        drawerContainerColor = MaterialTheme.colorScheme.surface,
+        windowInsets = WindowInsets(0, 0, 0, 0)
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
+            // 1. Status bar area spacer matching the exact system status bar
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .windowInsetsTopHeight(WindowInsets.statusBars)
+                    .background(actualStatusBarColor)
+            )
+
             // Scrollable upper content
             Column(
                 modifier = Modifier
@@ -74,38 +83,41 @@ fun AppDrawerContent(
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
             ) {
-                // 1. Professional Header Card
+                // 2. Redesigned User Info Card (Clean, modern layout without top gap)
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(headerBrush)
-                        .padding(top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding())
-                        .padding(horizontal = 20.dp, vertical = 20.dp)
+                        .background(
+                            brush = headerBrush,
+                            shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)
+                        )
+                        .padding(horizontal = 20.dp, vertical = 18.dp)
                 ) {
                     Column {
+                        // User Profile: Avatar + Name & Email
                         Row(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            // Avatar with golden/white accent ring
+                            // Avatar with warm amber/gold border
                             Box(
                                 modifier = Modifier
-                                    .size(58.dp)
+                                    .size(60.dp)
                                     .clip(CircleShape)
-                                    .border(2.dp, Color(0xFFFFD54F).copy(alpha = 0.8f), CircleShape)
-                                    .background(Color.White.copy(alpha = 0.18f)),
+                                    .border(2.dp, Color(0xFFFFD54F), CircleShape)
+                                    .background(Color.White.copy(alpha = 0.2f)),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
                                     text = userName.take(1).uppercase().ifBlank { "U" },
-                                    fontSize = 24.sp,
+                                    fontSize = 26.sp,
                                     fontWeight = FontWeight.ExtraBold,
                                     color = Color.White
                                 )
                             }
 
-                            Spacer(modifier = Modifier.width(14.dp))
+                            Spacer(modifier = Modifier.width(16.dp))
 
-                            Column {
+                            Column(modifier = Modifier.weight(1f)) {
                                 Text(
                                     text = userName.ifBlank { "User" },
                                     fontSize = 18.sp,
@@ -120,25 +132,32 @@ fun AppDrawerContent(
                                 Text(
                                     text = userEmail.ifBlank { "No email registered" },
                                     fontSize = 12.sp,
-                                    color = Color.White.copy(alpha = 0.82f),
+                                    color = Color.White.copy(alpha = 0.85f),
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis
                                 )
 
                                 if (userInstitute.isNotBlank()) {
-                                    Spacer(modifier = Modifier.height(3.dp))
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier
+                                            .clip(RoundedCornerShape(6.dp))
+                                            .background(Color.White.copy(alpha = 0.15f))
+                                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                                    ) {
                                         Icon(
                                             imageVector = Icons.Default.School,
                                             contentDescription = null,
                                             tint = Color(0xFFFFE082),
-                                            modifier = Modifier.size(13.dp)
+                                            modifier = Modifier.size(12.dp)
                                         )
                                         Spacer(modifier = Modifier.width(4.dp))
                                         Text(
                                             text = userInstitute,
-                                            fontSize = 11.sp,
-                                            color = Color.White.copy(alpha = 0.9f),
+                                            fontSize = 10.5.sp,
+                                            fontWeight = FontWeight.Medium,
+                                            color = Color.White,
                                             maxLines = 1,
                                             overflow = TextOverflow.Ellipsis
                                         )
@@ -147,9 +166,9 @@ fun AppDrawerContent(
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(18.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                        // Status Badge and Balance Chip Row
+                        // Status Badge & Balance Chip Row
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
@@ -157,18 +176,18 @@ fun AppDrawerContent(
                         ) {
                             val isPaid = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
 
-                            // Glassmorphic Status Pill
+                            // Status Pill
                             Surface(
                                 color = if (isPaid) Color(0xFF065F46) else Color(0xFF78350F),
-                                shape = RoundedCornerShape(12.dp),
+                                shape = RoundedCornerShape(10.dp),
                                 modifier = Modifier.border(
                                     width = 1.dp,
-                                    color = if (isPaid) Color(0xFF34D399).copy(alpha = 0.5f) else Color(0xFFFBBF24).copy(alpha = 0.5f),
-                                    shape = RoundedCornerShape(12.dp)
+                                    color = if (isPaid) Color(0xFF34D399).copy(alpha = 0.6f) else Color(0xFFFBBF24).copy(alpha = 0.6f),
+                                    shape = RoundedCornerShape(10.dp)
                                 )
                             ) {
                                 Row(
-                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Icon(
@@ -187,18 +206,18 @@ fun AppDrawerContent(
                                 }
                             }
 
-                            // Frosted Glass Balance Chip
+                            // Balance Pill
                             Surface(
-                                color = Color.White.copy(alpha = 0.14f),
-                                shape = RoundedCornerShape(12.dp),
+                                color = Color.White.copy(alpha = 0.15f),
+                                shape = RoundedCornerShape(10.dp),
                                 modifier = Modifier.border(
                                     width = 1.dp,
                                     color = Color.White.copy(alpha = 0.25f),
-                                    shape = RoundedCornerShape(12.dp)
+                                    shape = RoundedCornerShape(10.dp)
                                 )
                             ) {
                                 Row(
-                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Icon(
@@ -210,7 +229,7 @@ fun AppDrawerContent(
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text(
                                         text = "৳ ${"%.2f".format(userBalance)}",
-                                        fontSize = 11.sp,
+                                        fontSize = 11.5.sp,
                                         fontWeight = FontWeight.Bold,
                                         color = Color.White
                                     )
@@ -220,9 +239,9 @@ fun AppDrawerContent(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
 
-                // Section 1: লাইব্রেরি ও রিডিং
+                // Section 1: লাইব্রেরি ও অ্যাক্টিভিটি
                 DrawerSectionHeader(title = "লাইব্রেরি ও অ্যাক্টিভিটি")
 
                 DrawerMenuItem(
@@ -252,7 +271,7 @@ fun AppDrawerContent(
 
                 Spacer(modifier = Modifier.height(4.dp))
 
-                // Section 2: পেমেন্ট ও সেবা
+                // Section 2: অ্যাকাউন্ট ও সেবা
                 DrawerSectionHeader(title = "অ্যাকাউন্ট ও সেবা")
 
                 DrawerMenuItem(
