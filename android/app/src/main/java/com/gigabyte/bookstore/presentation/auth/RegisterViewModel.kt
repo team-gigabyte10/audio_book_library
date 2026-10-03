@@ -32,7 +32,8 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
         email: String,
         institute: String,
         address: String,
-        phone: String?
+        phone: String?,
+        referralCodeInput: String? = null
     ) {
         if (name.isBlank() || email.isBlank() || institute.isBlank() || address.isBlank()) {
             _uiState.value = RegisterUiState.Error("Please fill in Name, Email, Institute, and Address.")
@@ -52,7 +53,8 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
                 email = email,
                 institute = institute,
                 address = address,
-                phone = phone
+                phone = phone,
+                referralCodeInput = referralCodeInput
             )
 
             result.fold(

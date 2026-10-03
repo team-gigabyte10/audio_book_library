@@ -29,9 +29,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.PaymentRequest
 import com.gigabyte.bookstore.data.repository.UserRepository
+import com.gigabyte.bookstore.data.util.SmsVerificationHelper
+import com.gigabyte.bookstore.data.util.SmsVerificationResult
 import kotlinx.coroutines.launch
 
 enum class PaymentFilter(val label: String) {
@@ -40,6 +44,16 @@ enum class PaymentFilter(val label: String) {
     APPROVED("অনুমোদিত (Approved)"),
     REJECTED("বাতিল (Rejected)")
 }
+
+fun getPaymentPackageLabel(packageType: String): String {
+    return when (packageType) {
+        "english_course" -> "🗣️ স্পোকেন ইংলিশ (৳১০০)"
+        "japanese_course" -> "🇯🇵 জাপানিজ স্পোকেন (৳১০০)"
+        "mega_bundle" -> "⭐ মেগা বান্ডেল (৩টি কোর্স - ৳২৫০)"
+        else -> "📚 অডিওবুক বান্ডেল (৳১০০)"
+    }
+}
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,6 +78,33 @@ fun PaymentApprovalScreen(
     var requestToApprove by remember { mutableStateOf<PaymentRequest?>(null) }
     var requestToReject by remember { mutableStateOf<PaymentRequest?>(null) }
     var rejectionReasonInput by remember { mutableStateOf("") }
+
+    // SMS Verification State
+    var activeVerificationResult by remember { mutableStateOf<SmsVerificationResult?>(null) }
+    var verifyingRequest by remember { mutableStateOf<PaymentRequest?>(null) }
+
+    val smsPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            verifyingRequest?.let { req ->
+                activeVerificationResult = SmsVerificationHelper.verifyTransaction(context, req.transactionId, req.amount)
+            }
+        } else {
+            scope.launch {
+                snackbarHostState.showSnackbar("ইনবক্স থেকে এসএমএস যাচাই করতে READ_SMS পারমিশন প্রয়োজন।")
+            }
+        }
+    }
+
+    fun performSmsCheck(req: PaymentRequest) {
+        verifyingRequest = req
+        if (SmsVerificationHelper.hasSmsPermission(context)) {
+            activeVerificationResult = SmsVerificationHelper.verifyTransaction(context, req.transactionId, req.amount)
+        } else {
+            smsPermissionLauncher.launch(android.Manifest.permission.READ_SMS)
+        }
+    }
 
     fun loadRequests() {
         scope.launch {
@@ -109,6 +150,11 @@ fun PaymentApprovalScreen(
     val approvedCount = remember(requests) { requests.count { it.status.equals("approved", ignoreCase = true) } }
     val totalApprovedAmount = remember(requests) {
         requests.filter { it.status.equals("approved", ignoreCase = true) }.sumOf { it.amount }
+    }
+
+    // Group requests by normalized Transaction ID to detect duplicates across users
+    val duplicateTrxMap = remember(requests) {
+        requests.groupBy { it.transactionId.trim().replace("\\s+".toRegex(), "").uppercase() }
     }
 
     Scaffold(
@@ -334,8 +380,12 @@ fun PaymentApprovalScreen(
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         items(filteredRequests, key = { it.id }) { req ->
+                            val normalizedTrx = req.transactionId.trim().replace("\\s+".toRegex(), "").uppercase()
+                            val duplicateList = duplicateTrxMap[normalizedTrx] ?: emptyList()
+
                             PaymentRequestCard(
                                 request = req,
+                                duplicateRequests = duplicateList,
                                 isProcessing = isProcessingAction,
                                 onCopyTrx = { trx ->
                                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -350,6 +400,9 @@ fun PaymentApprovalScreen(
                                 onRejectClick = {
                                     rejectionReasonInput = ""
                                     requestToReject = req
+                                },
+                                onVerifySmsClick = {
+                                    performSmsCheck(req)
                                 }
                             )
                         }
@@ -389,13 +442,36 @@ fun PaymentApprovalScreen(
                     ) {
                         Column(modifier = Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             Text("ব্যবহারকারী: ${req.email}", fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                            Text("প্যাকেজ: ${getPaymentPackageLabel(req.packageType)}", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
                             Text("মাধ্যম: ${req.method}", fontSize = 12.sp)
                             Text("ট্রানজেকশন আইডি: ${req.transactionId}", fontSize = 12.sp)
                             Text("টাকার পরিমাণ: ৳ ${"%.2f".format(req.amount)}", fontSize = 13.sp, fontWeight = FontWeight.Bold, color = Color(0xFF10B981))
                         }
                     }
+
+                    val normalizedReqTrx = req.transactionId.trim().replace("\\s+".toRegex(), "").uppercase()
+                    val dupes = duplicateTrxMap[normalizedReqTrx] ?: emptyList()
+                    if (dupes.size > 1) {
+                        val hasApproved = dupes.any { it.id != req.id && it.status.equals("approved", ignoreCase = true) }
+                        Surface(
+                            color = Color(0xFFFEE2E2),
+                            shape = RoundedCornerShape(8.dp),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFEF4444)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(8.dp)) {
+                                Text(
+                                    text = if (hasApproved) "🚨 মারাত্মক সতর্কতা: এই TrxID ইতিমধ্যে অন্য অ্যাকাউন্টে অনুমোদিত হয়েছে! পুনরায় অনুমোদন করলে জালিয়াতি হবে।" else "⚠️ সতর্কতা: এই Transaction ID-টি আরও ${dupes.size - 1} জন ব্যবহারকারী সাবমিট করেছেন! একই ট্রানজেকশন একাধিকবার অনুমোদন করবেন না।",
+                                    fontSize = 11.5.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color(0xFFB91C1C)
+                                )
+                            }
+                        }
+                    }
+
                     Text(
-                        text = "অনুমোদনের পর ব্যবহারকারী 'PAID' স্ট্যাটাস পাবেন এবং ব্যালেন্সে ৳ ${"%.2f".format(req.amount)} যোগ হবে।",
+                        text = "অনুমোদনের পর ব্যবহারকারী '${getPaymentPackageLabel(req.packageType)}' অ্যাক্সেস পাবেন এবং ব্যালেন্স ও প্রযোজ্য রেফারেল বোনাস জমা হবে।",
                         fontSize = 12.sp,
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -510,6 +586,158 @@ fun PaymentApprovalScreen(
             }
         )
     }
+
+    // SMS Verification Result Dialog
+    if (activeVerificationResult != null && verifyingRequest != null) {
+        val result = activeVerificationResult!!
+        val req = verifyingRequest!!
+        AlertDialog(
+            onDismissRequest = {
+                activeVerificationResult = null
+                verifyingRequest = null
+            },
+            icon = {
+                Icon(
+                    imageVector = if (result.isFound) {
+                        if (result.isAmountMatching == false) Icons.Default.Warning else Icons.Default.CheckCircle
+                    } else Icons.Default.Cancel,
+                    contentDescription = null,
+                    tint = if (result.isFound) {
+                        if (result.isAmountMatching == false) Color(0xFFF59E0B) else Color(0xFF10B981)
+                    } else MaterialTheme.colorScheme.error,
+                    modifier = Modifier.size(36.dp)
+                )
+            },
+            title = {
+                Text(
+                    text = if (result.isFound) "ইনবক্সে এসএমএস পাওয়া গেছে!" else "এসএমএস পাওয়া যায়নি",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 17.sp
+                )
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    if (result.isFound) {
+                        Surface(
+                            color = if (result.isAmountMatching == false) Color(0xFFFEF3C7) else Color(0xFFECFDF5),
+                            shape = RoundedCornerShape(10.dp),
+                            border = androidx.compose.foundation.BorderStroke(
+                                1.dp,
+                                if (result.isAmountMatching == false) Color(0xFFF59E0B) else Color(0xFF10B981)
+                            ),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(10.dp)) {
+                                Text(
+                                    text = if (result.isAmountMatching == false) "⚠️ টাকার পরিমাণে অমিল!" else "✅ ট্রানজেকশন মিলেছে",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 13.5.sp,
+                                    color = if (result.isAmountMatching == false) Color(0xFFB45309) else Color(0xFF047857)
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = "প্রেরক (Sender): ${result.sender}",
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    color = Color.Black.copy(alpha = 0.8f)
+                                )
+                                Text(
+                                    text = "প্রাপ্তির সময়: ${result.date}",
+                                    fontSize = 11.5.sp,
+                                    color = Color.Black.copy(alpha = 0.6f)
+                                )
+                                if (result.extractedAmount != null) {
+                                    Text(
+                                        text = "এসএমএসে প্রাপ্ত টাকা: ৳${"%.2f".format(result.extractedAmount)} (রিকোয়েস্টে: ৳${"%.2f".format(result.expectedAmount)})",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = if (result.isAmountMatching == false) Color(0xFFB45309) else Color(0xFF047857)
+                                    )
+                                }
+                            }
+                        }
+
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(8.dp),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(8.dp)) {
+                                Text(
+                                    text = "আসল এসএমএস (SMS Body):",
+                                    fontSize = 10.5.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                Spacer(modifier = Modifier.height(3.dp))
+                                Text(
+                                    text = result.body,
+                                    fontSize = 11.5.sp,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    lineHeight = 16.sp
+                                )
+                            }
+                        }
+                    } else {
+                        Text(
+                            text = result.errorMessage ?: "ইনবক্সে '${req.transactionId}' ট্রানজেকশন আইডির কোনো এসএমএস নেই।",
+                            fontSize = 13.sp,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(8.dp),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = "পরামর্শ: নিশ্চিত করুন যে বিকাশ/নগদ এর নোটিফিকেশন এসএমএস এই ফোনে এসেছে এবং ব্যবহারকারী সঠিক TrxID দিয়েছে।",
+                                fontSize = 11.5.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                if (result.isFound) {
+                    Button(
+                        onClick = {
+                            activeVerificationResult = null
+                            requestToApprove = req
+                            verifyingRequest = null
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                    ) {
+                        Icon(imageVector = Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp))
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text("অনুমোদনে যান")
+                    }
+                } else {
+                    Button(
+                        onClick = {
+                            activeVerificationResult = null
+                            verifyingRequest = null
+                        }
+                    ) {
+                        Text("ঠিক আছে")
+                    }
+                }
+            },
+            dismissButton = {
+                if (result.isFound) {
+                    TextButton(
+                        onClick = {
+                            activeVerificationResult = null
+                            verifyingRequest = null
+                        }
+                    ) {
+                        Text("বন্ধ করুন")
+                    }
+                }
+            }
+        )
+    }
 }
 
 @Composable
@@ -567,10 +795,12 @@ private fun KpiCard(
 @Composable
 private fun PaymentRequestCard(
     request: PaymentRequest,
+    duplicateRequests: List<PaymentRequest> = emptyList(),
     isProcessing: Boolean,
     onCopyTrx: (String) -> Unit,
     onApproveClick: () -> Unit,
-    onRejectClick: () -> Unit
+    onRejectClick: () -> Unit,
+    onVerifySmsClick: () -> Unit
 ) {
     val methodColor = when (request.method.lowercase()) {
         "bkash" -> Color(0xFFE2136E)
@@ -691,6 +921,22 @@ private fun PaymentRequestCard(
                 )
             }
 
+            Spacer(modifier = Modifier.height(4.dp))
+
+            // Package Badge
+            Surface(
+                color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
+                shape = RoundedCornerShape(6.dp)
+            ) {
+                Text(
+                    text = "কোর্স: ${getPaymentPackageLabel(request.packageType)}",
+                    fontSize = 11.5.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                )
+            }
+
             Spacer(modifier = Modifier.height(6.dp))
 
             // Transaction ID with Copy Button
@@ -720,15 +966,81 @@ private fun PaymentRequestCard(
                         )
                     }
 
-                    IconButton(
-                        onClick = { onCopyTrx(request.transactionId) },
-                        modifier = Modifier.size(30.dp)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.ContentCopy,
-                            contentDescription = "কপি করুন",
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(16.dp)
+                        IconButton(
+                            onClick = { onCopyTrx(request.transactionId) },
+                            modifier = Modifier.size(32.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.ContentCopy,
+                                contentDescription = "কপি করুন",
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
+
+                        FilledTonalButton(
+                            onClick = onVerifySmsClick,
+                            shape = RoundedCornerShape(8.dp),
+                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                            modifier = Modifier.height(30.dp),
+                            colors = ButtonDefaults.filledTonalButtonColors(
+                                containerColor = Color(0xFF0284C7).copy(alpha = 0.15f),
+                                contentColor = Color(0xFF0284C7)
+                            )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = null,
+                                modifier = Modifier.size(13.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "এসএমএস চেক",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+            }
+
+            val duplicateCount = duplicateRequests.size
+            if (duplicateCount > 1) {
+                val hasAlreadyApprovedOther = duplicateRequests.any { it.id != request.id && it.status.equals("approved", ignoreCase = true) }
+                val otherEmails = duplicateRequests.filter { it.id != request.id }.map { it.email }.distinct()
+
+                Spacer(modifier = Modifier.height(6.dp))
+                Surface(
+                    color = Color(0xFFFEE2E2),
+                    shape = RoundedCornerShape(8.dp),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFEF4444)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Default.Warning,
+                                contentDescription = null,
+                                tint = Color(0xFFDC2626),
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = if (hasAlreadyApprovedOther) "🚨 জালিয়াতি সতর্কতা: TrxID ইতিমধ্যে অনুমোদিত!" else "⚠️ সতর্কতা: একই TrxID মোট $duplicateCount বার ব্যবহৃত!",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 12.sp,
+                                color = Color(0xFFB91C1C)
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(3.dp))
+                        Text(
+                            text = "অন্যান্য ইউজার: ${otherEmails.joinToString(", ")}",
+                            fontSize = 11.sp,
+                            color = Color(0xFF7F1D1D)
                         )
                     }
                 }

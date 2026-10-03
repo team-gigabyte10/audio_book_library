@@ -5,9 +5,13 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -16,7 +20,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -26,6 +32,17 @@ import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import kotlinx.coroutines.launch
+
+data class AppCoursePackage(
+    val id: String,
+    val title: String,
+    val subtitle: String,
+    val price: Double,
+    val priceDisplay: String,
+    val icon: ImageVector,
+    val tag: String? = null,
+    val highlights: List<String>
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,11 +58,78 @@ fun PaymentScreen(
     val userEmail by app.appPreferences.userEmail.collectAsStateWithLifecycle()
     val userStatus by app.appPreferences.userStatus.collectAsStateWithLifecycle()
     val userBalance by app.appPreferences.userBalance.collectAsStateWithLifecycle()
+    val unlockedBundles by app.appPreferences.unlockedBundles.collectAsStateWithLifecycle()
+
+    val packages = remember {
+        listOf(
+            AppCoursePackage(
+                id = "audiobook_bundle",
+                title = "অডিওবুক বান্ডেল",
+                subtitle = "লাইব্রেরির সব পূর্ণ বই ও মূল PDF",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.MenuBook,
+                tag = "জনপ্রিয়",
+                highlights = listOf(
+                    "সব বইয়ের সম্পূর্ণ অধ্যায় অডিও ও টেক্সট",
+                    "হাই-কোয়ালিটি মূল PDF ফাইল সরাসরি ডাউনলোড",
+                    "আজীবন আনলিমিটেড লাইব্রেরি অ্যাক্সেস"
+                )
+            ),
+            AppCoursePackage(
+                id = "english_course",
+                title = "স্পোকেন ইংলিশ কোর্স",
+                subtitle = "সহজে অনর্গল ইংরেজি বলা শিখুন",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.RecordVoiceOver,
+                tag = null,
+                highlights = listOf(
+                    "দৈনন্দিন কথোপকথনের অডিও লেসন (১–২০)",
+                    "উচ্চারণ ও ফ্লুয়েন্সি মাস্টারক্লাস অডিও",
+                    "প্র্যাকটিস শিট ও লেকচার নোটস PDF"
+                )
+            ),
+            AppCoursePackage(
+                id = "japanese_course",
+                title = "জাপানিজ স্পোকেন কোর্স",
+                subtitle = "JLPT N5 বেসিক টু স্পিকিং",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = null,
+                highlights = listOf(
+                    "বেসিক হিরাগানা, কাতাকানা ও প্রয়োজনীয় শব্দভাণ্ডার",
+                    "দৈনন্দিন জাপানিজ সিচুয়েশনাল কথোপকথন অডিও",
+                    "জাপান ভিসা ও উচ্চশিক্ষার্থীদের বিশেষ সিলেবাস"
+                )
+            ),
+            AppCoursePackage(
+                id = "mega_bundle",
+                title = "অল-ইন-ওয়ান মেগা বান্ডেল",
+                subtitle = "৩টি কোর্স একসাথে (৫০ টাকা ছাড়!)",
+                price = 250.0,
+                priceDisplay = "৳ ২৫০",
+                icon = Icons.Default.Stars,
+                tag = "সেরা অফার",
+                highlights = listOf(
+                    "সম্পূর্ণ অডিওবুক বান্ডেল (সব বই ও PDF)",
+                    "সম্পূর্ণ স্পোকেন ইংলিশ কোর্স (সব লেসন ও নোট)",
+                    "সম্পূর্ণ জাপানিজ স্পোকেন কোর্স (JLPT N5 সিলেবাস)",
+                    "এককালীন পেমেন্টে আজীবন ৩টি কোর্সের অ্যাক্সেস"
+                )
+            )
+        )
+    }
+
+    var selectedPackageId by remember { mutableStateOf("audiobook_bundle") }
+    val selectedPackage = packages.firstOrNull { it.id == selectedPackageId } ?: packages.first()
 
     var selectedMethod by remember { mutableStateOf("bKash") }
     var transactionId by remember { mutableStateOf("") }
-    var amountText by remember { mutableStateOf("99") }
+    var amountText by remember { mutableStateOf(selectedPackage.price.toInt().toString()) }
     var isSubmitting by remember { mutableStateOf(false) }
+    var submissionError by remember { mutableStateOf<String?>(null) }
     var submitSuccess by remember { mutableStateOf(false) }
 
     val paymentNumbers = mapOf(
@@ -59,7 +143,7 @@ fun PaymentScreen(
             ThemedTopAppBar(
                 title = {
                     Text(
-                        text = "পেমেন্ট ও মেম্বারশিপ",
+                        text = "কোর্স ও মেম্বারশিপ প্যাকেজ",
                         style = MaterialTheme.typography.titleLarge.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 19.sp
@@ -89,7 +173,7 @@ fun PaymentScreen(
             Card(
                 shape = RoundedCornerShape(14.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f)
+                    containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f)
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -101,7 +185,7 @@ fun PaymentScreen(
                     ) {
                         Column {
                             Text(
-                                text = userName.ifBlank { "ইউজার" },
+                                text = userName.ifBlank { "শিক্ষার্থী / ইউজার" },
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -118,7 +202,7 @@ fun PaymentScreen(
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
-                                text = if (isPaid) "PAID USER" else "TRIAL USER",
+                                text = if (isPaid) "PAID MEMBER" else "FREE PREVIEW",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White,
@@ -128,7 +212,7 @@ fun PaymentScreen(
                     }
 
                     Spacer(modifier = Modifier.height(10.dp))
-                    HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f))
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Row(
@@ -137,13 +221,13 @@ fun PaymentScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "ব্যালেন্স:",
+                            text = "রেফারেল ওয়ালেট ব্যালেন্স:",
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Medium
                         )
                         Text(
                             text = "৳ ${"%.2f".format(userBalance)}",
-                            fontSize = 15.sp,
+                            fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.primary
                         )
@@ -151,64 +235,84 @@ fun PaymentScreen(
                 }
             }
 
-            // 2. Packages Pricing Card
+            // 2. Selectable Course Packages
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                Text(
+                    text = "কোর্স বা বান্ডেল নির্বাচন করুন:",
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
+                packages.forEach { pkg ->
+                    val isSelected = selectedPackageId == pkg.id
+                    val isAlreadyUnlocked = app.appPreferences.isBundleUnlocked(pkg.id)
+
+                    CourseBundleCard(
+                        pkg = pkg,
+                        isSelected = isSelected,
+                        isUnlocked = isAlreadyUnlocked,
+                        onClick = {
+                            selectedPackageId = pkg.id
+                            amountText = pkg.price.toInt().toString()
+                        }
+                    )
+                }
+            }
+
+            // 3. Selected Package Highlights Summary
             Card(
-                shape = RoundedCornerShape(14.dp),
+                shape = RoundedCornerShape(12.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = "পেইড মেম্বারশিপ প্যাকেজসমূহ",
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        PackageOptionCard(
-                            title = "১ মাস",
-                            price = "৳ ৯৯",
-                            selected = amountText == "99",
-                            onClick = { amountText = "99" },
-                            modifier = Modifier.weight(1f)
+                Column(modifier = Modifier.padding(14.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = selectedPackage.icon,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(20.dp)
                         )
-                        PackageOptionCard(
-                            title = "৬ মাস",
-                            price = "৳ ২৯৯",
-                            selected = amountText == "299",
-                            onClick = { amountText = "299" },
-                            modifier = Modifier.weight(1f)
-                        )
-                        PackageOptionCard(
-                            title = "১ বছর",
-                            price = "৳ ৪৯৯",
-                            selected = amountText == "499",
-                            onClick = { amountText = "499" },
-                            modifier = Modifier.weight(1f)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "${selectedPackage.title} (${selectedPackage.priceDisplay}) এর সুবিধা:",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.5.sp,
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                     }
 
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Text(
-                        text = "✓ সকল বইয়ের সম্পূর্ণ অধ্যায় পাঠ ও অডিওবুক প্লেব্যাক\n✓ মূল হাই-কোয়ালিটি PDF ফাইল অফলাইন ডাউনলোড\n✓ কোনো বিজ্ঞাপন বা বাধা ছাড়াই আনলিমিটেড পাঠ",
-                        fontSize = 12.sp,
-                        lineHeight = 18.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    selectedPackage.highlights.forEach { point ->
+                        Row(
+                            modifier = Modifier.padding(vertical = 2.dp),
+                            verticalAlignment = Alignment.Top
+                        ) {
+                            Text(
+                                text = "✓ ",
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF10B981),
+                                fontSize = 12.sp
+                            )
+                            Text(
+                                text = point,
+                                fontSize = 12.sp,
+                                lineHeight = 17.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
                 }
             }
 
-            // 3. Payment Method Selection
+            // 4. Payment Method Selection
             Column {
                 Text(
                     text = "পেমেন্ট মাধ্যম বেছে নিন (Send Money):",
-                    fontSize = 13.sp,
+                    fontSize = 13.5.sp,
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -228,7 +332,7 @@ fun PaymentScreen(
                 }
             }
 
-            // 4. Number & Copy Box
+            // 5. Payment Number & Copy Box
             val currentNumber = paymentNumbers[selectedMethod] ?: ""
             Card(
                 shape = RoundedCornerShape(12.dp),
@@ -276,23 +380,23 @@ fun PaymentScreen(
                 }
             }
 
-            // 5. Steps Instructions
+            // 6. Payment Instructions
             Card(
                 shape = RoundedCornerShape(12.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.25f)
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(14.dp)) {
                     Text(
-                        text = "কীভাবে পেমেন্ট করবেন?",
+                        text = "পেমেন্ট নির্দেশিকা:",
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp
                     )
                     Spacer(modifier = Modifier.height(6.dp))
                     Text(
-                        text = "১. আপনার $selectedMethod অ্যাপে প্রবেশ করুন।\n২. 'Send Money' অপশন সিলেক্ট করে উপরের নম্বরে নির্বাচিত প্যাকেজের টাকা পাঠান।\n৩. সফল ট্রানজেকশনের পর SMS বা অ্যাপ স্টেটমেন্ট থেকে Transaction ID (TrxID) কপি করুন।\n৪. নিচের ফর্মে Transaction ID দিয়ে সাবমিট করুন।",
+                        text = "১. আপনার $selectedMethod অ্যাপে গিয়ে 'Send Money' সিলেক্ট করুন।\n২. উপরের নম্বরে ${selectedPackage.priceDisplay} সেন্ড মানি করুন।\n৩. সফল ট্রানজেকশনের পর SMS বা অ্যাপ থেকে TrxID কপি করে নিচে লিখুন।\n৪. অ্যাডমিন ভেরিফাই করলেই আপনার কোর্সটি অবিলম্বে আনলক হয়ে যাবে।",
                         fontSize = 12.sp,
                         lineHeight = 18.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -300,11 +404,11 @@ fun PaymentScreen(
                 }
             }
 
-            // 6. Transaction ID Form
+            // 7. Transaction Confirmation Form
             Column {
                 Text(
-                    text = "পেমেন্ট নিশ্চিতকরণ ফর্ম:",
-                    fontSize = 13.sp,
+                    text = "পেমেন্ট নিশ্চিতকরণ তথ্য:",
+                    fontSize = 13.5.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -330,6 +434,36 @@ fun PaymentScreen(
                     shape = RoundedCornerShape(10.dp)
                 )
 
+                if (submissionError != null) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color(0xFFFEE2E2)
+                        ),
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Warning,
+                                contentDescription = null,
+                                tint = Color(0xFFDC2626),
+                                modifier = Modifier.size(24.dp)
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Text(
+                                text = submissionError ?: "",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = Color(0xFFB91C1C)
+                            )
+                        }
+                    }
+                }
+
                 if (submitSuccess) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Card(
@@ -347,11 +481,11 @@ fun PaymentScreen(
                                 imageVector = Icons.Default.CheckCircle,
                                 contentDescription = null,
                                 tint = Color(0xFF10B981),
-                                modifier = Modifier.size(22.dp)
+                                modifier = Modifier.size(24.dp)
                             )
                             Spacer(modifier = Modifier.width(10.dp))
                             Text(
-                                text = "পেমেন্ট অনুরোধ সফলভাবে জমা দেওয়া হয়েছে! অ্যাডমিন যাচাই করার পর আপনার অ্যাকাউন্টটি পেইড মেম্বারশিপে সক্রিয় হবে।",
+                                text = "'${selectedPackage.title}' এর জন্য ৳$amountText পেমেন্ট অনুরোধ সফলভাবে জমা দেওয়া হয়েছে! অ্যাডমিন যাচাই করার পর আপনার কোর্সটি সক্রিয় হবে।",
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.SemiBold,
                                 color = Color(0xFF065F46)
@@ -366,15 +500,24 @@ fun PaymentScreen(
                     onClick = {
                         if (transactionId.isNotBlank()) {
                             isSubmitting = true
-                            val amount = amountText.toDoubleOrNull() ?: 99.0
+                            submissionError = null
+                            val amount = amountText.toDoubleOrNull() ?: selectedPackage.price
                             scope.launch {
-                                val res = userRepository.submitPaymentRequest(selectedMethod, transactionId.trim(), amount)
+                                val res = userRepository.submitPaymentRequest(
+                                    method = selectedMethod,
+                                    transactionId = transactionId.trim(),
+                                    amount = amount,
+                                    packageType = selectedPackageId
+                                )
                                 isSubmitting = false
                                 if (res.isSuccess) {
                                     submitSuccess = true
-                                    Toast.makeText(context, "অনুরোধ পাঠানো হয়েছে!", Toast.LENGTH_SHORT).show()
+                                    submissionError = null
+                                    Toast.makeText(context, "অনুরোধ সফলভাবে পাঠানো হয়েছে!", Toast.LENGTH_SHORT).show()
                                 } else {
-                                    Toast.makeText(context, "ব্যর্থ হয়েছে। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন।", Toast.LENGTH_LONG).show()
+                                    val err = res.exceptionOrNull()?.message ?: "পেমেন্ট অনুরোধ পাঠাতে ব্যর্থ হয়েছে। অনুগ্রহ করে ইন্টারনেট চেক করুন।"
+                                    submissionError = err
+                                    Toast.makeText(context, err, Toast.LENGTH_LONG).show()
                                 }
                             }
                         }
@@ -390,7 +533,7 @@ fun PaymentScreen(
                         Spacer(modifier = Modifier.width(8.dp))
                     }
                     Text(
-                        text = if (submitSuccess) "সাবমিট সম্পন্ন হয়েছে" else "পেমেন্ট সাবমিট করুন",
+                        text = if (submitSuccess) "অনুরোধ পাঠানো সম্পন্ন" else "পেমেন্ট জমা দিন (${selectedPackage.priceDisplay})",
                         fontWeight = FontWeight.Bold,
                         fontSize = 15.sp
                     )
@@ -401,41 +544,133 @@ fun PaymentScreen(
 }
 
 @Composable
-private fun PackageOptionCard(
-    title: String,
-    price: String,
-    selected: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
+private fun CourseBundleCard(
+    pkg: AppCoursePackage,
+    isSelected: Boolean,
+    isUnlocked: Boolean,
+    onClick: () -> Unit
 ) {
     Card(
         onClick = onClick,
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
+            containerColor = if (isSelected) {
+                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f)
+            } else {
+                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)
+            }
         ),
-        elevation = CardDefaults.cardElevation(if (selected) 4.dp else 1.dp),
-        modifier = modifier
+        border = if (isSelected) {
+            androidx.compose.foundation.BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
+        } else if (isUnlocked) {
+            androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.6f))
+        } else {
+            androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f))
+        },
+        modifier = Modifier.fillMaxWidth()
     ) {
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 12.dp, horizontal = 8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .padding(14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(
-                text = title,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Medium,
-                color = if (selected) Color.White else MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = price,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = if (selected) Color.White else MaterialTheme.colorScheme.primary
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(42.dp)
+                        .clip(CircleShape)
+                        .background(
+                            if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
+                        ),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = pkg.icon,
+                        contentDescription = null,
+                        tint = if (isSelected) Color.White else MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(22.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = pkg.title,
+                            fontSize = 14.5.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+
+                        if (pkg.tag != null) {
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Surface(
+                                color = Color(0xFFEC4899),
+                                shape = RoundedCornerShape(6.dp)
+                            ) {
+                                Text(
+                                    text = pkg.tag,
+                                    fontSize = 9.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White,
+                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(2.dp))
+
+                    Text(
+                        text = pkg.subtitle,
+                        fontSize = 11.5.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    if (isUnlocked) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Default.CheckCircle,
+                                contentDescription = null,
+                                tint = Color(0xFF10B981),
+                                modifier = Modifier.size(13.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "ইতিমধ্যে কেনা হয়েছে (Unlocked)",
+                                fontSize = 10.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF10B981)
+                            )
+                        }
+                    }
+                }
+            }
+
+            Column(
+                horizontalAlignment = Alignment.End,
+                modifier = Modifier.padding(start = 8.dp)
+            ) {
+                Text(
+                    text = pkg.priceDisplay,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+
+                RadioButton(
+                    selected = isSelected,
+                    onClick = onClick,
+                    modifier = Modifier.size(28.dp)
+                )
+            }
         }
     }
 }

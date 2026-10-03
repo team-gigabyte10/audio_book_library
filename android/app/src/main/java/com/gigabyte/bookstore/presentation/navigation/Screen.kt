@@ -22,5 +22,6 @@ sealed class Screen(val route: String) {
     object PdfViewer : Screen("pdf_viewer/{bookId}") {
         fun createRoute(bookId: String) = "pdf_viewer/$bookId"
     }
+    object Referral : Screen("referral")
 }
 

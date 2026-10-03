@@ -93,13 +93,40 @@ class AppPreferences(context: Context) {
         private const val KEY_DEVICE_ID = "device_id"
         private const val KEY_USER_STATUS = "user_status"
         private const val KEY_USER_BALANCE = "user_balance"
+        private const val KEY_REFERRAL_CODE = "referral_code"
+        private const val KEY_REFERRED_BY = "referred_by"
         private const val KEY_CREATED_AT = "created_at"
         private const val KEY_LAST_LOGIN_AT = "last_login_at"
+        private const val KEY_UNLOCKED_BUNDLES = "unlocked_bundles"
     }
 
     // User session flows
     private val _isLoggedIn = MutableStateFlow(prefs.getBoolean(KEY_IS_LOGGED_IN, false))
     val isLoggedIn: StateFlow<Boolean> = _isLoggedIn.asStateFlow()
+
+    private val _unlockedBundles = MutableStateFlow<Set<String>>(
+        prefs.getStringSet(KEY_UNLOCKED_BUNDLES, emptySet()) ?: emptySet()
+    )
+    val unlockedBundles: StateFlow<Set<String>> = _unlockedBundles.asStateFlow()
+
+    fun getUnlockedBundles(): Set<String> = _unlockedBundles.value
+
+    fun setUnlockedBundles(bundles: Set<String>) {
+        prefs.edit().putStringSet(KEY_UNLOCKED_BUNDLES, bundles).apply()
+        _unlockedBundles.value = bundles
+    }
+
+    fun addUnlockedBundle(bundle: String) {
+        val updated = _unlockedBundles.value.toMutableSet().apply { add(bundle) }
+        prefs.edit().putStringSet(KEY_UNLOCKED_BUNDLES, updated).apply()
+        _unlockedBundles.value = updated
+    }
+
+    fun isBundleUnlocked(bundleId: String): Boolean {
+        if (_unlockedBundles.value.contains("mega_bundle")) return true
+        if (bundleId == "audiobook_bundle" && (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true))) return true
+        return _unlockedBundles.value.contains(bundleId)
+    }
 
     private val _userEmail = MutableStateFlow(prefs.getString(KEY_USER_EMAIL, "") ?: "")
     val userEmail: StateFlow<String> = _userEmail.asStateFlow()
@@ -125,6 +152,9 @@ class AppPreferences(context: Context) {
     private val _userBalance = MutableStateFlow(prefs.getFloat(KEY_USER_BALANCE, 0.0f).toDouble())
     val userBalance: StateFlow<Double> = _userBalance.asStateFlow()
 
+    private val _referralCode = MutableStateFlow(prefs.getString(KEY_REFERRAL_CODE, "") ?: "")
+    val referralCode: StateFlow<String> = _referralCode.asStateFlow()
+
     fun saveUserSession(
         name: String,
         email: String,
@@ -134,6 +164,8 @@ class AppPreferences(context: Context) {
         deviceId: String,
         status: String = "trial",
         balance: Double = 0.0,
+        referralCode: String = "",
+        referredBy: String? = null,
         createdAt: String = "",
         lastLoginAt: String = ""
     ) {
@@ -147,6 +179,8 @@ class AppPreferences(context: Context) {
             .putString(KEY_DEVICE_ID, deviceId)
             .putString(KEY_USER_STATUS, status)
             .putFloat(KEY_USER_BALANCE, balance.toFloat())
+            .putString(KEY_REFERRAL_CODE, referralCode)
+            .putString(KEY_REFERRED_BY, referredBy ?: "")
             .putString(KEY_CREATED_AT, createdAt)
             .putString(KEY_LAST_LOGIN_AT, lastLoginAt)
             .apply()
@@ -160,6 +194,12 @@ class AppPreferences(context: Context) {
         _deviceId.value = deviceId
         _userStatus.value = status
         _userBalance.value = balance
+        _referralCode.value = referralCode
+    }
+
+    fun updateReferralCode(code: String) {
+        prefs.edit().putString(KEY_REFERRAL_CODE, code).apply()
+        _referralCode.value = code
     }
 
     fun updateProfile(name: String, institute: String, address: String, phone: String?) {
@@ -200,6 +240,9 @@ class AppPreferences(context: Context) {
             .remove(KEY_USER_EMAIL)
             .remove(KEY_USER_STATUS)
             .remove(KEY_USER_BALANCE)
+            .remove(KEY_REFERRAL_CODE)
+            .remove(KEY_REFERRED_BY)
+            .remove(KEY_UNLOCKED_BUNDLES)
             .apply()
 
         _isLoggedIn.value = false
@@ -207,6 +250,8 @@ class AppPreferences(context: Context) {
         _userEmail.value = ""
         _userStatus.value = "trial"
         _userBalance.value = 0.0
+        _referralCode.value = ""
+        _unlockedBundles.value = emptySet()
     }
 
     fun getPdfLastReadPage(bookId: String): Int {

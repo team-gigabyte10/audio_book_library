@@ -34,6 +34,7 @@ import com.gigabyte.bookstore.presentation.settings.SettingsViewModel
 import com.gigabyte.bookstore.presentation.payment.PaymentScreen
 import com.gigabyte.bookstore.presentation.payment.PaymentApprovalScreen
 import com.gigabyte.bookstore.presentation.pdf.PdfViewerScreen
+import com.gigabyte.bookstore.presentation.referral.ReferralScreen
 
 @Composable
 
@@ -134,6 +135,9 @@ fun AppNavHost(
                 },
                 onOpenPaymentApproval = {
                     navController.navigate(Screen.PaymentApproval.route)
+                },
+                onOpenReferral = {
+                    navController.navigate(Screen.Referral.route)
                 }
             )
         }
@@ -301,6 +305,13 @@ fun AppNavHost(
             PdfViewerScreen(
                 bookId = bId,
                 onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        // 9. Referral & Earn Screen
+        composable(Screen.Referral.route) {
+            ReferralScreen(
+                onNavigateBack = { navController.popBackStack() }
             )
         }
     }

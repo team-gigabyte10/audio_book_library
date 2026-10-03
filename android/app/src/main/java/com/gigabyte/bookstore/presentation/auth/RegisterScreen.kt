@@ -36,6 +36,7 @@ fun RegisterScreen(
     var institute by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }
+    var referralCode by remember { mutableStateOf("") }
 
     val uiState by viewModel.uiState.collectAsState()
     val focusManager = LocalFocusManager.current
@@ -180,6 +181,24 @@ fun RegisterScreen(
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Phone,
+                    imeAction = ImeAction.Next
+                ),
+                keyboardActions = KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Down) }),
+                shape = RoundedCornerShape(12.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = referralCode,
+                onValueChange = { referralCode = it.uppercase() },
+                label = { Text("রেফার কোড (যদি থাকে) / Referral Code (Optional)") },
+                placeholder = { Text("e.g. SUMON1234") },
+                leadingIcon = { Icon(Icons.Default.CardGiftcard, contentDescription = null, tint = MaterialTheme.colorScheme.primary) },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
@@ -208,7 +227,8 @@ fun RegisterScreen(
                         email = email,
                         institute = institute,
                         address = address,
-                        phone = phone.takeIf { it.isNotBlank() }
+                        phone = phone.takeIf { it.isNotBlank() },
+                        referralCodeInput = referralCode.takeIf { it.isNotBlank() }
                     )
                 },
                 enabled = uiState !is RegisterUiState.Loading,

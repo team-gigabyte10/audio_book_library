@@ -37,6 +37,7 @@ fun AppDrawerContent(
     onBookmarksClick: () -> Unit,
     onPaymentClick: () -> Unit,
     onApprovePaymentsClick: () -> Unit,
+    onReferralClick: () -> Unit,
     onAboutUsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -275,6 +276,14 @@ fun AppDrawerContent(
                 DrawerSectionHeader(title = "অ্যাকাউন্ট ও সেবা")
 
                 DrawerMenuItem(
+                    icon = Icons.Default.CardGiftcard,
+                    title = "রেফার ও আয় (Learn & Earn)",
+                    badge = "৳২০",
+                    badgeColor = Color(0xFF10B981),
+                    onClick = onReferralClick
+                )
+
+                DrawerMenuItem(
                     icon = Icons.Default.Payment,
                     title = "পেমেন্ট নির্দেশনা (Payment Info)",
                     onClick = onPaymentClick
@@ -349,6 +358,8 @@ private fun DrawerSectionHeader(title: String) {
 private fun DrawerMenuItem(
     icon: ImageVector,
     title: String,
+    badge: String? = null,
+    badgeColor: Color = Color(0xFF10B981),
     onClick: () -> Unit
 ) {
     NavigationDrawerItem(
@@ -375,6 +386,23 @@ private fun DrawerMenuItem(
                 fontWeight = FontWeight.Medium
             )
         },
+        badge = if (badge != null) {
+            {
+                Surface(
+                    color = badgeColor.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(8.dp),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, badgeColor.copy(alpha = 0.4f))
+                ) {
+                    Text(
+                        text = badge,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = badgeColor,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
+                    )
+                }
+            }
+        } else null,
         selected = false,
         onClick = onClick,
         modifier = Modifier
