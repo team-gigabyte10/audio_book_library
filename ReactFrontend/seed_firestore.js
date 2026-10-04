@@ -10,7 +10,7 @@ async function seedFirestoreData() {
       id: 'banner_mega_bundle',
       title: 'সেলফ-গ্রোথ মেগা অডিওবুক বান্ডেল',
       subtitle: 'শীর্ষ ৫টি বিশ্বখ্যাত বেস্টসেলার বই একসাথে বাংলায় শুনুন',
-      tag: 'অডিওবুক বান্ডেল',
+      tag: 'আত্ম উন্নয়নমূলক বই',
       tagColor: '#00695C',
       imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&auto=format&fit=crop&q=80',
       actionType: 'bundle',

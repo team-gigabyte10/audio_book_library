@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -210,56 +211,7 @@ fun LibraryScreen(
     ) {
 
         Scaffold(
-            topBar = {
-                ThemedTopAppBar(
-                    navigationIcon = {
-                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
-                            Icon(
-                                imageVector = Icons.Default.Menu,
-                                contentDescription = "মেনু ওপেন করুন"
-                            )
-                        }
-                    },
-                    title = {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                imageVector = Icons.Default.Headphones,
-                                contentDescription = null,
-                                tint = Color(0xFFFFD54F),
-                                modifier = Modifier.size(28.dp)
-                            )
-                            Spacer(modifier = Modifier.width(10.dp))
-                            Text(
-                                text = "বাংলা অডিওবুক",
-                                style = MaterialTheme.typography.titleLarge.copy(
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 18.sp
-                                )
-                            )
-                        }
-                    },
-                    actions = {
-                        IconButton(
-                            onClick = onOpenSearch,
-                            modifier = Modifier.testTag("library_search_button")
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Search,
-                                contentDescription = "অনুসন্ধান"
-                            )
-                        }
-                        IconButton(
-                            onClick = onOpenSettings,
-                            modifier = Modifier.testTag("library_settings_button")
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Settings,
-                                contentDescription = "সেটিংস"
-                            )
-                        }
-                    }
-                )
-        },
+            
         bottomBar = {
             MiniPlayerBar(
                 playbackState = playbackState,
@@ -274,6 +226,7 @@ fun LibraryScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .statusBarsPadding()
         ) {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),

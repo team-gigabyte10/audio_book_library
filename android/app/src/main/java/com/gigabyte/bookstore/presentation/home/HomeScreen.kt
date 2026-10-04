@@ -290,21 +290,6 @@ fun HomeScreen(
                             )
                         }
 
-                        // 3. Continue Listening/Learning card
-                        if (lastPlayed != null) {
-                            item {
-                                Spacer(modifier = Modifier.height(12.dp))
-                                HomeContinueListeningCard(
-                                    lastPlayed = lastPlayed!!,
-                                    playbackState = playbackState,
-                                    onContinueClick = {
-                                        viewModel.continueLastPlayed()
-                                        onNavigateToPlayer()
-                                    }
-                                )
-                            }
-                        }
-
                         // 4. 📦 AUDIO BOOK BUNDLES (Tapping opens Library Screen directly)
                         if ((selectedCategory == "all" || selectedCategory == "bundles") &&
                             uiState.audioBundles.isNotEmpty()
@@ -312,8 +297,8 @@ fun HomeScreen(
                             item {
                                 Spacer(modifier = Modifier.height(16.dp))
                                 SectionHeader(
-                                    title = "অডিও বুক বান্ডিল",
-                                    subtitle = "বিশ্বসেরা বইগুলোর পূর্ণাঙ্গ অডিওবুক ও সারসংক্ষেপ",
+                                    title = "আত্ম উন্নয়নমূলক বাংলা বই",
+                                    subtitle = "বিশ্বসেরা আত্মউন্নয়ন ও মোটিভেশনাল বইগুলোর পূর্ণাঙ্গ অডিও সংকলন",
                                     icon = Icons.Default.LocalMall,
                                     onViewAllClick = onNavigateToLibrary,
                                     viewAllText = "লাইব্রেরি খুলুন"
@@ -454,7 +439,7 @@ fun CategoryFilterChipsRow(
 ) {
     val categories = listOf(
         "all" to "সব ক্যাটেগরী",
-        "bundles" to "📦 অডিও বুক বান্ডিল",
+        "bundles" to "📚 আত্ম উন্নয়নমূলক বাংলা বই",
         "english" to "🇬🇧 ইংলিশ কোর্স",
         "japanese" to "🇯🇵 জাপানি কোর্স"
     )

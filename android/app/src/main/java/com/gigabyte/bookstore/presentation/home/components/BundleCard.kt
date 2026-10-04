@@ -114,7 +114,7 @@ fun BundleCard(
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = bundle.badge.ifBlank { "অডিওবুক বান্ডেল" },
+                            text = bundle.badge.ifBlank { "আত্ম উন্নয়নমূলক বই" },
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 11.sp,
