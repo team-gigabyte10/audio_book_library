@@ -18,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.AutoStories
-import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -204,7 +203,7 @@ fun BundleCard(
                 )
 
                 if (!bundle.subtitle.isNullOrBlank()) {
-                    Spacer(modifier = Modifier.height(2.dp))
+                    Spacer(modifier = Modifier.height(3.dp))
                     Text(
                         text = bundle.subtitle,
                         style = MaterialTheme.typography.bodySmall.copy(
@@ -212,30 +211,8 @@ fun BundleCard(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         ),
                         maxLines = 2,
+                        minLines = 2,
                         overflow = TextOverflow.Ellipsis
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                // Duration row
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Headphones,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(14.dp)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
-                    Text(
-                        text = "মোট অডিও: ${bundle.totalDurationHours} ঘণ্টা",
-                        style = MaterialTheme.typography.bodySmall.copy(
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.Medium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
                     )
                 }
 

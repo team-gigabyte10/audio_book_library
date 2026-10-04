@@ -145,20 +145,6 @@ fun BundleDetailsBottomSheet(
                         )
                     }
                 }
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = Icons.Default.Headphones,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(16.dp)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
-                    Text(
-                        text = "${bundle.totalDurationHours} ঘণ্টা অডিও",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
             }
 
             if (!bundle.description.isNullOrBlank()) {
