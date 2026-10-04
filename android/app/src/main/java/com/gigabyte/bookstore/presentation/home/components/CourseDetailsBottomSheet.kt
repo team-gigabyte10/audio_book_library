@@ -299,7 +299,7 @@ fun CourseDetailsBottomSheet(
                                             shape = RoundedCornerShape(4.dp)
                                         ) {
                                             Text(
-                                                text = "ফ্রি প্রিভিউ",
+                                                text = "অডিও প্রিভিউ",
                                                 style = MaterialTheme.typography.labelSmall.copy(
                                                     fontSize = 9.sp,
                                                     color = Color.White
@@ -319,51 +319,34 @@ fun CourseDetailsBottomSheet(
             HorizontalDivider()
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Price & Enroll CTA
-            Row(
+            // Action Button: Start Course (No price)
+            Button(
+                onClick = { onEnrollClick(course) },
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary
+                ),
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                    horizontal = 24.dp,
+                    vertical = 13.dp
+                )
             ) {
-                Column {
-                    if (course.originalPrice > course.discountedPrice) {
-                        Text(
-                            text = "৳ ${course.originalPrice.toInt()}",
-                            style = MaterialTheme.typography.bodySmall.copy(
-                                fontSize = 12.sp,
-                                textDecoration = TextDecoration.LineThrough,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        )
-                    }
-                    Text(
-                        text = if (course.isFree) "সম্পূর্ণ ফ্রি" else "৳ ${course.discountedPrice.toInt()}",
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontWeight = FontWeight.ExtraBold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
+                Icon(
+                    imageVector = Icons.Default.PlayCircleOutline,
+                    contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "কোর্সটি শুরু করুন",
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp,
+                        color = Color.White
                     )
-                }
-
-                Button(
-                    onClick = { onEnrollClick(course) },
-                    shape = RoundedCornerShape(12.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary
-                    ),
-                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
-                        horizontal = 24.dp,
-                        vertical = 12.dp
-                    )
-                ) {
-                    Text(
-                        text = if (course.isFree) "কোর্স শুরু করুন" else "কোর্সটিতে এনরোল করুন",
-                        style = MaterialTheme.typography.labelLarge.copy(
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    )
-                }
+                )
             }
         }
     }

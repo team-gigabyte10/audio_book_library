@@ -80,7 +80,6 @@ import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
 import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
 import com.gigabyte.bookstore.presentation.drawer.ProfileUpdateDialog
 import com.gigabyte.bookstore.presentation.home.components.BundleCard
-import com.gigabyte.bookstore.presentation.home.components.BundleDetailsBottomSheet
 import com.gigabyte.bookstore.presentation.home.components.CourseCard
 import com.gigabyte.bookstore.presentation.home.components.CourseDetailsBottomSheet
 import com.gigabyte.bookstore.presentation.home.components.HeroBannerCarousel
@@ -118,12 +117,11 @@ fun HomeScreen(
     var showProfileDialog by remember { mutableStateOf(false) }
     var showAboutUsDialog by remember { mutableStateOf(false) }
 
-    // Bottom sheet states for Bundle and Course
-    var selectedBundle by remember { mutableStateOf<AudioBundle?>(null) }
+    // Bottom sheet state for Course
     var selectedCourse by remember { mutableStateOf<Course?>(null) }
 
-    // Filter Chip State
-    var selectedCategory by remember { mutableStateOf("all") } // "all", "bundles", "english", "japanese", "books"
+    // Filter Chip State (3 categories: bundles, english, japanese)
+    var selectedCategory by remember { mutableStateOf("all") }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -214,29 +212,6 @@ fun HomeScreen(
                         }
                     },
                     actions = {
-                        // User balance badge
-                        Surface(
-                            shape = RoundedCornerShape(16.dp),
-                            color = MaterialTheme.colorScheme.surface.copy(alpha = 0.2f),
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(16.dp))
-                                .clickable { onNavigateToPayment() }
-                                .padding(end = 4.dp)
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                            ) {
-                                Text(
-                                    text = "৳ ${"%.0f".format(userBalance)}",
-                                    style = MaterialTheme.typography.labelSmall.copy(
-                                        fontWeight = FontWeight.Bold,
-                                        color = GoldenAccent
-                                    )
-                                )
-                            }
-                        }
-
                         IconButton(onClick = onNavigateToSearch) {
                             Icon(
                                 imageVector = Icons.Default.Search,
@@ -296,10 +271,9 @@ fun HomeScreen(
                                     onBannerClick = { banner ->
                                         handleBannerClick(
                                             banner = banner,
-                                            bundles = uiState.audioBundles,
                                             courses = uiState.englishCourses + uiState.japaneseCourses,
-                                            onSelectBundle = { selectedBundle = it },
                                             onSelectCourse = { selectedCourse = it },
+                                            onNavigateToLibrary = onNavigateToLibrary,
                                             onNavigateToBook = onNavigateToBook
                                         )
                                     }
@@ -307,7 +281,7 @@ fun HomeScreen(
                             }
                         }
 
-                        // 2. Category Filter Chips
+                        // 2. Category Filter Chips (Strictly 3 main categories)
                         item {
                             Spacer(modifier = Modifier.height(12.dp))
                             CategoryFilterChipsRow(
@@ -331,17 +305,18 @@ fun HomeScreen(
                             }
                         }
 
-                        // 4. 📦 AUDIO BOOK BUNDLES (Fetched directly from Firestore)
+                        // 4. 📦 AUDIO BOOK BUNDLES (Tapping opens Library Screen directly)
                         if ((selectedCategory == "all" || selectedCategory == "bundles") &&
                             uiState.audioBundles.isNotEmpty()
                         ) {
                             item {
                                 Spacer(modifier = Modifier.height(16.dp))
                                 SectionHeader(
-                                    title = "অডিওবুক মেগা বান্ডেল",
-                                    subtitle = "একাধিক বেস্টসেলার বই একসাথে আকর্ষণীয় ছাড়ে",
+                                    title = "অডিও বুক বান্ডিল",
+                                    subtitle = "বিশ্বসেরা বইগুলোর পূর্ণাঙ্গ অডিওবুক ও সারসংক্ষেপ",
                                     icon = Icons.Default.LocalMall,
-                                    onViewAllClick = { selectedCategory = "bundles" }
+                                    onViewAllClick = onNavigateToLibrary,
+                                    viewAllText = "লাইব্রেরি খুলুন"
                                 )
                                 LazyRow(
                                     contentPadding = PaddingValues(horizontal = 16.dp),
@@ -351,7 +326,7 @@ fun HomeScreen(
                                     items(uiState.audioBundles, key = { it.id }) { bundle ->
                                         BundleCard(
                                             bundle = bundle,
-                                            onClick = { selectedBundle = bundle }
+                                            onClick = onNavigateToLibrary
                                         )
                                     }
                                 }
@@ -365,8 +340,8 @@ fun HomeScreen(
                             item {
                                 Spacer(modifier = Modifier.height(20.dp))
                                 SectionHeader(
-                                    title = "ইংরেজি ভাষা শিক্ষা কোর্স",
-                                    subtitle = "স্পোকেন ইংলিশ, উচ্চারণ ও ভোকাবুলারি অডিও লেসন",
+                                    title = "ইংলিশ ল্যাঙ্গুয়েজ কোর্স",
+                                    subtitle = "স্পোকেন ইংলিশ, সঠিক উচ্চারণ ও ভোকাবুলারি অডিও লেসন",
                                     icon = Icons.Default.Translate,
                                     onViewAllClick = { selectedCategory = "english" }
                                 )
@@ -412,35 +387,6 @@ fun HomeScreen(
                             }
                         }
 
-                        // 7. 🎧 TRENDING AUDIOBOOKS (From Firestore books collection)
-                        if ((selectedCategory == "all" || selectedCategory == "books") &&
-                            uiState.trendingBooks.isNotEmpty()
-                        ) {
-                            item {
-                                Spacer(modifier = Modifier.height(20.dp))
-                                SectionHeader(
-                                    title = "জনপ্রিয় অডিওবুকসমূহ",
-                                    subtitle = "অ্যাপ লাইব্রেরির নির্বাচিত বইগুলো শুনুন বা পড়ুন",
-                                    icon = Icons.Default.Headphones,
-                                    onViewAllClick = onNavigateToLibrary,
-                                    viewAllText = "লাইব্রেরি দেখুন"
-                                )
-                                LazyRow(
-                                    contentPadding = PaddingValues(horizontal = 16.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(14.dp),
-                                    modifier = Modifier.fillMaxWidth()
-                                ) {
-                                    items(uiState.trendingBooks, key = { it.id }) { book ->
-                                        HomeTrendingBookCard(
-                                            book = book,
-                                            onClick = { onNavigateToBook(book.id) },
-                                            onPlay = { onPlayBook(book.id, 0) }
-                                        )
-                                    }
-                                }
-                            }
-                        }
-
                         // Bottom Spacer
                         item {
                             Spacer(modifier = Modifier.height(40.dp))
@@ -458,19 +404,6 @@ fun HomeScreen(
             onDismiss = { selectedCourse = null },
             onEnrollClick = {
                 selectedCourse = null
-                onNavigateToPayment()
-            }
-        )
-    }
-
-    // Interactive Bottom Sheet for Bundle Details
-    selectedBundle?.let { bundle ->
-        BundleDetailsBottomSheet(
-            bundle = bundle,
-            onDismiss = { selectedBundle = null },
-            onUnlockClick = {
-                selectedBundle = null
-                onNavigateToPayment()
             }
         )
     }
@@ -498,24 +431,18 @@ fun HomeScreen(
 
 private fun handleBannerClick(
     banner: HeroBanner,
-    bundles: List<AudioBundle>,
     courses: List<Course>,
-    onSelectBundle: (AudioBundle) -> Unit,
     onSelectCourse: (Course) -> Unit,
+    onNavigateToLibrary: () -> Unit,
     onNavigateToBook: (String) -> Unit
 ) {
     when (banner.actionType) {
-        "bundle" -> {
-            val bundle = bundles.find { it.id == banner.targetId } ?: bundles.firstOrNull()
-            bundle?.let { onSelectBundle(it) }
-        }
+        "bundle" -> onNavigateToLibrary()
         "course" -> {
             val course = courses.find { it.id == banner.targetId } ?: courses.firstOrNull()
             course?.let { onSelectCourse(it) }
         }
-        "book" -> {
-            onNavigateToBook(banner.targetId)
-        }
+        "book" -> onNavigateToBook(banner.targetId)
     }
 }
 
@@ -526,11 +453,10 @@ fun CategoryFilterChipsRow(
     modifier: Modifier = Modifier
 ) {
     val categories = listOf(
-        "all" to "সকল কনটেন্ট",
-        "bundles" to "📦 অডিও বান্ডেল",
-        "english" to "🇬🇧 ইংরেজি কোর্স",
-        "japanese" to "🇯🇵 জাপানি কোর্স",
-        "books" to "🎧 অডিওবুক"
+        "all" to "সব ক্যাটেগরী",
+        "bundles" to "📦 অডিও বুক বান্ডিল",
+        "english" to "🇬🇧 ইংলিশ কোর্স",
+        "japanese" to "🇯🇵 জাপানি কোর্স"
     )
 
     LazyRow(

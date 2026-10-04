@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.Star
@@ -35,7 +36,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -102,7 +102,7 @@ fun BundleCard(
                         )
                 )
 
-                // Top badges: Savings & Badge
+                // Top badges: Category Badge & Rating
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -111,11 +111,11 @@ fun BundleCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Surface(
-                        color = Color(0xFFE53935),
+                        color = MaterialTheme.colorScheme.primary,
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "${bundle.savingsPercentage}% ছাড়",
+                            text = bundle.badge.ifBlank { "অডিওবুক বান্ডেল" },
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 11.sp,
@@ -239,54 +239,43 @@ fun BundleCard(
                     )
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
-                // Price and Action Button
-                Row(
+                // Action Button: Direct navigation to Library (No price)
+                Button(
+                    onClick = onClick,
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary
+                    ),
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                        horizontal = 14.dp,
+                        vertical = 8.dp
+                    )
                 ) {
-                    Column {
-                        if (bundle.originalPrice > bundle.discountedPrice) {
-                            Text(
-                                text = "৳ ${bundle.originalPrice.toInt()}",
-                                style = MaterialTheme.typography.bodySmall.copy(
-                                    fontSize = 11.sp,
-                                    textDecoration = TextDecoration.LineThrough,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
-                                )
-                            )
-                        }
-                        Text(
-                            text = "৳ ${bundle.discountedPrice.toInt()}",
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontWeight = FontWeight.ExtraBold,
-                                fontSize = 16.sp,
-                                color = MaterialTheme.colorScheme.primary
-                            )
+                    Icon(
+                        imageVector = Icons.Default.AutoStories,
+                        contentDescription = null,
+                        tint = Color.White,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "বইগুলো লাইব্রেরিতে দেখুন",
+                        style = MaterialTheme.typography.labelMedium.copy(
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp,
+                            color = Color.White
                         )
-                    }
-
-                    Button(
-                        onClick = onClick,
-                        shape = RoundedCornerShape(10.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary
-                        ),
-                        contentPadding = androidx.compose.foundation.layout.PaddingValues(
-                            horizontal = 14.dp,
-                            vertical = 6.dp
-                        )
-                    ) {
-                        Text(
-                            text = "বান্ডেল দেখুন",
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 12.sp
-                            )
-                        )
-                    }
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                        contentDescription = null,
+                        tint = Color.White,
+                        modifier = Modifier.size(14.dp)
+                    )
                 }
             }
         }
