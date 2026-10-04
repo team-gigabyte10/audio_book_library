@@ -19,6 +19,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.gigabyte.bookstore.presentation.bookdetails.BookDetailsScreen
 import com.gigabyte.bookstore.presentation.bookdetails.BookDetailsViewModel
+import com.gigabyte.bookstore.presentation.home.HomeScreen
+import com.gigabyte.bookstore.presentation.home.HomeViewModel
 import com.gigabyte.bookstore.presentation.library.LibraryScreen
 import com.gigabyte.bookstore.presentation.library.LibraryViewModel
 import com.gigabyte.bookstore.presentation.player.PlayerScreen
@@ -82,7 +84,7 @@ fun AppNavHost(
                     }
                 },
                 onNavigateToLibrary = {
-                    navController.navigate(Screen.Library.route) {
+                    navController.navigate(Screen.Home.route) {
                         popUpTo(Screen.Sync.route) { inclusive = true }
                     }
                 }
@@ -96,6 +98,44 @@ fun AppNavHost(
                     navController.navigate(Screen.Sync.route) {
                         popUpTo(Screen.Register.route) { inclusive = true }
                     }
+                }
+            )
+        }
+
+        // 0.2 Home Screen (Audiobook Bundles, English Language Courses, Japanese Language Courses, Trending Books)
+        composable(Screen.Home.route) {
+            val viewModel: HomeViewModel = viewModel(factory = SimpleViewModelFactory {
+                HomeViewModel(application)
+            })
+            HomeScreen(
+                viewModel = viewModel,
+                onNavigateToLibrary = {
+                    navController.navigate(Screen.Library.route)
+                },
+                onNavigateToBook = { bookId ->
+                    navController.navigate(Screen.BookDetails.createRoute(bookId))
+                },
+                onNavigateToPlayer = {
+                    val currentBookId = viewModel.playbackState.value.bookId
+                    if (!currentBookId.isNullOrBlank()) {
+                        val currentChapIdx = viewModel.playbackState.value.chapterIndex
+                        navController.navigate(Screen.Player.createRoute(currentBookId, currentChapIdx))
+                    }
+                },
+                onPlayBook = { bookId, chapterIdx ->
+                    navController.navigate(Screen.Player.createRoute(bookId, chapterIdx))
+                },
+                onNavigateToSearch = {
+                    navController.navigate(Screen.Search.createRoute())
+                },
+                onNavigateToPayment = {
+                    navController.navigate(Screen.Payment.route)
+                },
+                onNavigateToReferral = {
+                    navController.navigate(Screen.Referral.route)
+                },
+                onNavigateToApproval = {
+                    navController.navigate(Screen.PaymentApproval.route)
                 }
             )
         }
@@ -138,6 +178,9 @@ fun AppNavHost(
                 },
                 onOpenReferral = {
                     navController.navigate(Screen.Referral.route)
+                },
+                onNavigateToHome = {
+                    navController.navigate(Screen.Home.route)
                 }
             )
         }

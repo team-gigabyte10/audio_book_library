@@ -39,6 +39,8 @@ fun AppDrawerContent(
     onApprovePaymentsClick: () -> Unit,
     onReferralClick: () -> Unit,
     onAboutUsClick: () -> Unit,
+    onHomeClick: (() -> Unit)? = null,
+    onLibraryClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     val isDark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
@@ -243,7 +245,23 @@ fun AppDrawerContent(
                 Spacer(modifier = Modifier.height(14.dp))
 
                 // Section 1: লাইব্রেরি ও অ্যাক্টিভিটি
-                DrawerSectionHeader(title = "লাইব্রেরি ও অ্যাক্টিভিটি")
+                DrawerSectionHeader(title = "ন্যাভিগেশন ও লাইব্রেরি")
+
+                if (onHomeClick != null) {
+                    DrawerMenuItem(
+                        icon = Icons.Default.Home,
+                        title = "হোম একাডেমি (Home)",
+                        onClick = onHomeClick
+                    )
+                }
+
+                if (onLibraryClick != null) {
+                    DrawerMenuItem(
+                        icon = Icons.Default.MenuBook,
+                        title = "বইয়ের লাইব্রেরি (Library)",
+                        onClick = onLibraryClick
+                    )
+                }
 
                 DrawerMenuItem(
                     icon = Icons.Default.AccountCircle,

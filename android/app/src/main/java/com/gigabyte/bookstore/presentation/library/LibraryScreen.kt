@@ -105,7 +105,8 @@ fun LibraryScreen(
     onOpenSettings: () -> Unit,
     onOpenPayment: () -> Unit,
     onOpenPaymentApproval: () -> Unit,
-    onOpenReferral: () -> Unit
+    onOpenReferral: () -> Unit,
+    onNavigateToHome: (() -> Unit)? = null
 ) {
     val books: List<Book> by viewModel.books.collectAsStateWithLifecycle()
     val lastPlayed: PlaybackHistoryEntity? by viewModel.lastPlayed.collectAsStateWithLifecycle()
@@ -196,6 +197,13 @@ fun LibraryScreen(
                 onAboutUsClick = {
                     scope.launch { drawerState.close() }
                     showAboutUsDialog = true
+                },
+                onHomeClick = {
+                    scope.launch { drawerState.close() }
+                    onNavigateToHome?.invoke()
+                },
+                onLibraryClick = {
+                    scope.launch { drawerState.close() }
                 }
             )
         }

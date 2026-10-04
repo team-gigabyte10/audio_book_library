@@ -3,6 +3,7 @@ package com.gigabyte.bookstore.presentation.navigation
 sealed class Screen(val route: String) {
     object Register : Screen("register")
     object Sync : Screen("sync")
+    object Home : Screen("home")
     object Library : Screen("library")
     object BookDetails : Screen("book_details/{bookId}") {
         fun createRoute(bookId: String) = "book_details/$bookId"
