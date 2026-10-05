@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   FileText, BookOpen, FileCode, UploadCloud, Edit3, 
-  Eye, ArrowLeft, Loader2, CheckCircle2, Image 
+  Eye, ArrowLeft, Loader2, CheckCircle2, Image, Link2 
 } from 'lucide-react';
 import { marked } from 'marked';
 import { formatFileSize } from '../utils/mdParser';
@@ -30,6 +30,7 @@ export default function BookPreview({
   const [category, setCategory] = useState(bookData.category || 'Personal Finance & Business');
   const [language, setLanguage] = useState(bookData.language || 'Bangla');
   const [audioUrl, setAudioUrl] = useState(bookData.audioUrl || '');
+  const [pdfDriveUrl, setPdfDriveUrl] = useState(bookData.pdfDriveUrl || '');
 
   const handleTriggerUpload = () => {
     onUpload({
@@ -41,7 +42,8 @@ export default function BookPreview({
       tagline,
       category,
       language,
-      audioUrl
+      audioUrl,
+      pdfDriveUrl
     });
   };
 
@@ -160,21 +162,23 @@ export default function BookPreview({
 
           {/* PDF Document */}
           <div style={{
-            background: bookData.pdfFile ? 'rgba(239, 68, 68, 0.1)' : 'rgba(255,255,255,0.03)',
-            border: bookData.pdfFile ? '1px solid rgba(239, 68, 68, 0.3)' : '1px solid var(--border-subtle)',
+            background: (bookData.pdfFile || bookData.pdfDriveUrl) ? 'rgba(239, 68, 68, 0.1)' : 'rgba(255,255,255,0.03)',
+            border: (bookData.pdfFile || bookData.pdfDriveUrl) ? '1px solid rgba(239, 68, 68, 0.3)' : '1px solid var(--border-subtle)',
             borderRadius: 10,
             padding: '0.75rem 1rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.75rem'
           }}>
-            <FileCode size={20} color={bookData.pdfFile ? '#f87171' : '#64748b'} />
-            <div>
-              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: bookData.pdfFile ? '#f8fafc' : '#64748b' }}>
+            <FileCode size={20} color={(bookData.pdfFile || bookData.pdfDriveUrl) ? '#f87171' : '#64748b'} />
+            <div style={{ overflow: 'hidden' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: (bookData.pdfFile || bookData.pdfDriveUrl) ? '#f8fafc' : '#64748b' }}>
                 PDF Document
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                {bookData.pdfFile ? `${bookData.pdfFile.name} (${formatFileSize(bookData.pdfFile.size)})` : 'Not provided'}
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                {bookData.pdfFile 
+                  ? `${bookData.pdfFile.name} (${formatFileSize(bookData.pdfFile.size)})` 
+                  : (bookData.pdfDriveUrl ? 'Google Drive / PDF Link Provided' : 'Not provided')}
               </div>
             </div>
           </div>
@@ -304,6 +308,23 @@ export default function BookPreview({
               onChange={(e) => setAudioUrl(e.target.value)}
               placeholder="https://domain.com/audio.mp3"
             />
+          </div>
+
+          <div>
+            <label className="input-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <Link2 size={13} color="#f87171" />
+              <span>Google Drive / Web PDF Link</span>
+            </label>
+            <input
+              type="url"
+              className="input-field"
+              value={pdfDriveUrl}
+              onChange={(e) => setPdfDriveUrl(e.target.value)}
+              placeholder="https://drive.google.com/file/d/.../view or direct PDF URL"
+            />
+            <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)', marginTop: '0.2rem', display: 'block' }}>
+              Used for reading / downloading PDF if no local .pdf file was uploaded.
+            </span>
           </div>
         </div>
 

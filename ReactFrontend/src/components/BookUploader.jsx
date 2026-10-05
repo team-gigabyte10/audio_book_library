@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { 
   UploadCloud, FileText, FileCode, BookOpen, FileCheck, 
-  Image, Sparkles, Check, Info, Trash2, ArrowRight 
+  Image, Sparkles, Check, Info, Trash2, ArrowRight, Link2 
 } from 'lucide-react';
 import { extractBookMetadata, formatFileSize } from '../utils/mdParser';
 
@@ -13,6 +13,7 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
   const [fullBookText, setFullBookText] = useState('');
   
   const [pdfFile, setPdfFile] = useState(null);
+  const [pdfDriveUrl, setPdfDriveUrl] = useState('');
   
   const [coverFile, setCoverFile] = useState(null);
   const [coverPreview, setCoverPreview] = useState(null);
@@ -151,18 +152,18 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
   };
 
   const handleProceed = () => {
-    if (!summaryFile && !fullBookFile && !pdfFile) {
+    if (!summaryFile && !fullBookFile && !pdfFile && !pdfDriveUrl.trim()) {
       onShowToast({
         type: 'error',
-        title: 'Missing Files',
-        message: 'Please upload at least a Summary .md, Full Book .md, or PDF file.'
+        title: 'Missing Files or Link',
+        message: 'Please upload at least a Summary .md, Full Book .md, or provide a PDF file/Drive link.'
       });
       return;
     }
 
     // Extract metadata from whichever markdown file is available
     const primaryText = summaryText || fullBookText || '';
-    const primaryName = summaryFile?.name || fullBookFile?.name || pdfFile?.name || '';
+    const primaryName = summaryFile?.name || fullBookFile?.name || pdfFile?.name || (pdfDriveUrl ? 'Book_From_Drive.pdf' : '');
     const extracted = extractBookMetadata(primaryText, primaryName);
 
     const callback = onProceedToReview || onParsedBook;
@@ -174,6 +175,7 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
         fullBookFile,
         fullBookText,
         pdfFile,
+        pdfDriveUrl: pdfDriveUrl.trim(),
         coverFile,
         coverPreview,
         category,
@@ -183,7 +185,7 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
     }
   };
 
-  const hasAnyFile = summaryFile || fullBookFile || pdfFile;
+  const hasAnyFile = summaryFile || fullBookFile || pdfFile || pdfDriveUrl.trim();
 
   return (
     <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
@@ -383,37 +385,74 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
           </div>
         </div>
 
-        {/* Slot 3: PDF Document */}
-        <div className="glass-panel" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', border: pdfFile ? '1px solid rgba(239, 68, 68, 0.5)' : '1px solid var(--border-subtle)' }}>
+        {/* Slot 3: PDF Document (File or Drive Link) */}
+        <div className="glass-panel" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', border: (pdfFile || pdfDriveUrl) ? '1px solid rgba(239, 68, 68, 0.5)' : '1px solid var(--border-subtle)' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, color: '#f87171' }}>
-                <FileCode size={18} /> 3. PDF Book Document (.pdf)
+                <FileCode size={18} /> 3. PDF Book Document (.pdf or Drive Link)
               </div>
-              {pdfFile && <Check size={18} color="#10b981" />}
+              {(pdfFile || pdfDriveUrl) && <Check size={18} color="#10b981" />}
             </div>
             
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
-              Official PDF version for mobile readers or downloaders.
+              Upload local PDF or paste a Google Drive / Web PDF link.
             </p>
 
             {pdfFile ? (
-              <div style={{ background: 'rgba(239, 68, 68, 0.08)', padding: '0.75rem', borderRadius: 8, border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+              <div style={{ background: 'rgba(239, 68, 68, 0.08)', padding: '0.75rem', borderRadius: 8, border: '1px solid rgba(239, 68, 68, 0.2)', marginBottom: '0.75rem' }}>
                 <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#f8fafc', wordBreak: 'break-all' }}>
                   {pdfFile.name}
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 2 }}>
-                  {formatFileSize(pdfFile.size)}
+                  {formatFileSize(pdfFile.size)} (Local file ready to upload)
+                </div>
+              </div>
+            ) : pdfDriveUrl ? (
+              <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.75rem', borderRadius: 8, border: '1px solid rgba(16, 185, 129, 0.25)', marginBottom: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, fontSize: '0.82rem', color: '#34d399' }}>
+                  <Link2 size={14} /> PDF Drive Link Added
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: 3, wordBreak: 'break-all' }}>
+                  {pdfDriveUrl}
                 </div>
               </div>
             ) : (
-              <div style={{ padding: '1rem', textAlign: 'center', border: '1px dashed var(--border-subtle)', borderRadius: 8, color: '#64748b', fontSize: '0.82rem' }}>
-                No PDF file selected
+              <div style={{ padding: '0.75rem', textAlign: 'center', border: '1px dashed var(--border-subtle)', borderRadius: 8, color: '#64748b', fontSize: '0.82rem', marginBottom: '0.75rem' }}>
+                No PDF file or Drive link provided
               </div>
             )}
+
+            {/* Google Drive PDF Link input */}
+            <div style={{ marginTop: '0.5rem' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '0.35rem' }}>
+                <Link2 size={13} color="#f87171" /> Google Drive or PDF Link:
+              </label>
+              <div style={{ display: 'flex', gap: '0.35rem' }}>
+                <input
+                  type="url"
+                  className="input-field"
+                  style={{ fontSize: '0.8rem', padding: '0.45rem 0.65rem' }}
+                  placeholder="https://drive.google.com/file/d/..."
+                  value={pdfDriveUrl}
+                  onChange={(e) => setPdfDriveUrl(e.target.value)}
+                />
+                {pdfDriveUrl && (
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    style={{ padding: '0.45rem 0.65rem', color: '#ef4444' }}
+                    onClick={() => setPdfDriveUrl('')}
+                    title="Clear link"
+                  >
+                    <Trash2 size={13} />
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
             <input
               type="file"
               ref={pdfInputRef}
@@ -427,7 +466,7 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
               style={{ flex: 1, fontSize: '0.82rem', padding: '0.5rem' }}
               onClick={() => pdfInputRef.current?.click()}
             >
-              {pdfFile ? 'Change PDF' : 'Select PDF .pdf'}
+              {pdfFile ? 'Change File' : 'Or Pick File (.pdf)'}
             </button>
             {pdfFile && (
               <button
@@ -489,6 +528,19 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
               placeholder="https://domain.com/audiobook.mp3"
               value={audioUrl}
               onChange={(e) => setAudioUrl(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label className="input-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Link2 size={14} color="#f87171" /> Google Drive / PDF Download URL
+            </label>
+            <input
+              type="url"
+              className="input-field"
+              placeholder="https://drive.google.com/file/d/..."
+              value={pdfDriveUrl}
+              onChange={(e) => setPdfDriveUrl(e.target.value)}
             />
           </div>
 

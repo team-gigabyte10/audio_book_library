@@ -5,7 +5,7 @@ import BookPreview from './components/BookPreview';
 import LibraryView from './components/LibraryView';
 import RulesModal from './components/RulesModal';
 import Toast from './components/Toast';
-import { generateBookSlug } from './utils/mdParser';
+import { generateBookSlug, formatDrivePdfUrl } from './utils/mdParser';
 import { db, storage, rtdb, auth } from './firebase/config';
 import { signInAnonymously } from 'firebase/auth';
 import { 
@@ -158,6 +158,9 @@ export default function App() {
           console.warn('PDF storage upload error:', err);
           throw err;
         }
+      } else if (finalBookData.pdfDriveUrl) {
+        // Use normalized Google Drive / Web direct PDF URL
+        pdfUrl = formatDrivePdfUrl(finalBookData.pdfDriveUrl);
       }
 
       // 4. Upload Cover Image (if provided)
@@ -194,9 +197,10 @@ export default function App() {
         fullBookMdPath: fullBookMdPath || '',
         fullBookFilename: finalBookData.fullBookFile?.name || '',
 
-        pdfUrl: pdfUrl || '',
+        pdfUrl: pdfUrl || (finalBookData.pdfDriveUrl ? formatDrivePdfUrl(finalBookData.pdfDriveUrl) : ''),
         pdfPath: pdfPath || '',
-        pdfFilename: finalBookData.pdfFile?.name || '',
+        pdfFilename: finalBookData.pdfFile?.name || (finalBookData.pdfDriveUrl ? 'Google Drive PDF' : ''),
+        pdfDriveUrl: finalBookData.pdfDriveUrl || '',
 
         coverUrl: coverUrl || '',
         coverPath: coverPath || '',
@@ -208,7 +212,7 @@ export default function App() {
 
         hasSummary: !!summaryMdUrl,
         hasFullBook: !!fullBookMdUrl,
-        hasPdf: !!pdfUrl,
+        hasPdf: !!pdfUrl || !!finalBookData.pdfDriveUrl,
 
         slug: slug,
         createdAt: serverTimestamp(),

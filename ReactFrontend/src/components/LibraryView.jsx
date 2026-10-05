@@ -206,13 +206,13 @@ export default function LibraryView({ books, loading, onRefresh, onDeleteBook })
                   )}
 
                   {/* PDF Document link */}
-                  {book.pdfUrl && (
+                  {(book.pdfUrl || book.pdfDriveUrl) && (
                     <a
-                      href={book.pdfUrl}
+                      href={book.pdfUrl || book.pdfDriveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-secondary"
-                      title="Open or Download PDF from Firebase Storage"
+                      title={book.pdfDriveUrl ? "Open PDF via Google Drive / Web link" : "Open or Download PDF"}
                       style={{ padding: '0.4rem 0.65rem', fontSize: '0.78rem', color: '#f87171' }}
                     >
                       <FileCode size={13} /> PDF
