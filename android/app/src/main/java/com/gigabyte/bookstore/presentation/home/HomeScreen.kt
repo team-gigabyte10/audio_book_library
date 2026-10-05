@@ -1,5 +1,8 @@
 package com.gigabyte.bookstore.presentation.home
 
+import android.app.Activity
+import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -59,6 +62,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -74,6 +78,7 @@ import com.gigabyte.bookstore.data.models.RemoteBook
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.AudioWaveAnimation
 import com.gigabyte.bookstore.presentation.components.BookCoverView
+import com.gigabyte.bookstore.presentation.components.ExitConfirmationDialog
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
@@ -110,12 +115,42 @@ fun HomeScreen(
     val userStatus by viewModel.userStatus.collectAsStateWithLifecycle()
     val userBalance by viewModel.userBalance.collectAsStateWithLifecycle()
     val userInstitute by viewModel.userInstitute.collectAsStateWithLifecycle()
+    val unlockedBundles by viewModel.unlockedBundles.collectAsStateWithLifecycle()
+
+    val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("audiobook_bundle")
+    }
+    val isEnglishUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("english_course")
+    }
+    val isJapaneseUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("japanese_course")
+    }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     var showProfileDialog by remember { mutableStateOf(false) }
     var showAboutUsDialog by remember { mutableStateOf(false) }
+    var showExitDialog by remember { mutableStateOf(false) }
+    var backPressedTime by remember { mutableStateOf(0L) }
+
+    BackHandler(enabled = true) {
+        if (showExitDialog) {
+            showExitDialog = false
+        } else if (drawerState.isOpen) {
+            scope.launch { drawerState.close() }
+        } else {
+            val currentTime = System.currentTimeMillis()
+            if (currentTime - backPressedTime < 2000L) {
+                showExitDialog = true
+            } else {
+                backPressedTime = currentTime
+                Toast.makeText(context, "অ্যাপ বন্ধ করতে আবার ব্যাক চাপুন", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     // Bottom sheet state for Course
     var selectedCourse by remember { mutableStateOf<Course?>(null) }
@@ -290,7 +325,7 @@ fun HomeScreen(
                             )
                         }
 
-                        // 4. 📦 AUDIO BOOK BUNDLES (Tapping opens Library Screen directly)
+                        // 4. 📦 AUDIO BOOK BUNDLES (Tapping opens Library if bought, Payment if not)
                         if ((selectedCategory == "all" || selectedCategory == "bundles") &&
                             uiState.audioBundles.isNotEmpty()
                         ) {
@@ -300,8 +335,9 @@ fun HomeScreen(
                                     title = "আত্ম উন্নয়নমূলক বাংলা বই",
                                     subtitle = "বিশ্বসেরা আত্মউন্নয়ন ও মোটিভেশনাল বইগুলোর পূর্ণাঙ্গ অডিও সংকলন",
                                     icon = Icons.Default.LocalMall,
-                                    onViewAllClick = onNavigateToLibrary,
-                                    viewAllText = "লাইব্রেরি খুলুন"
+                                    isPurchased = isAudiobookUnlocked,
+                                    onViewAllClick = if (isAudiobookUnlocked) onNavigateToLibrary else onNavigateToPayment,
+                                    viewAllText = if (isAudiobookUnlocked) "আনলকড" else "১০০ টাকা"
                                 )
                                 LazyRow(
                                     contentPadding = PaddingValues(horizontal = 16.dp),
@@ -328,7 +364,9 @@ fun HomeScreen(
                                     title = "ইংলিশ ল্যাঙ্গুয়েজ কোর্স",
                                     subtitle = "স্পোকেন ইংলিশ, সঠিক উচ্চারণ ও ভোকাবুলারি অডিও লেসন",
                                     icon = Icons.Default.Translate,
-                                    onViewAllClick = { selectedCategory = "english" }
+                                    isPurchased = isEnglishUnlocked,
+                                    onViewAllClick = if (isEnglishUnlocked) { { selectedCategory = "english" } } else onNavigateToPayment,
+                                    viewAllText = if (isEnglishUnlocked) "আনলকড" else "১০০ টাকা"
                                 )
                                 LazyRow(
                                     contentPadding = PaddingValues(horizontal = 16.dp),
@@ -355,7 +393,9 @@ fun HomeScreen(
                                     title = "জাপানি ভাষা শিক্ষা (JLPT N5/N4)",
                                     subtitle = "জাপানে ভিসা, উচ্চশিক্ষা ও চাকরির জন্য পূর্ণাঙ্গ অডিও কোর্স",
                                     icon = Icons.Default.CastForEducation,
-                                    onViewAllClick = { selectedCategory = "japanese" }
+                                    isPurchased = isJapaneseUnlocked,
+                                    onViewAllClick = if (isJapaneseUnlocked) { { selectedCategory = "japanese" } } else onNavigateToPayment,
+                                    viewAllText = if (isJapaneseUnlocked) "আনলকড" else "১০০ টাকা"
                                 )
                                 LazyRow(
                                     contentPadding = PaddingValues(horizontal = 16.dp),
@@ -411,6 +451,19 @@ fun HomeScreen(
     // About Us Dialog
     if (showAboutUsDialog) {
         AboutUsDialog(onDismiss = { showAboutUsDialog = false })
+    }
+
+    // Exit Confirmation Dialog
+    if (showExitDialog) {
+        ExitConfirmationDialog(
+            onConfirmExit = {
+                showExitDialog = false
+                (context as? Activity)?.finish()
+            },
+            onDismiss = {
+                showExitDialog = false
+            }
+        )
     }
 }
 
