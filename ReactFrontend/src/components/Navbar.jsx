@@ -1,8 +1,8 @@
 import React from 'react';
-import { BookOpen, UploadCloud, Library, Radio } from 'lucide-react';
+import { BookOpen, UploadCloud, Library, Radio, GraduationCap } from 'lucide-react';
 import { firebaseConfig } from '../firebase/config';
 
-export default function Navbar({ activeTab, setActiveTab, bookCount, onOpenRules }) {
+export default function Navbar({ activeTab, setActiveTab, bookCount, courseCount, onOpenRules }) {
   return (
     <header style={{
       position: 'sticky',
@@ -111,6 +111,38 @@ export default function Navbar({ activeTab, setActiveTab, bookCount, onOpenRules
                 marginLeft: 4
               }}>
                 {bookCount}
+              </span>
+            )}
+          </button>
+
+          <button
+            onClick={() => setActiveTab('courses')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.5rem 1.1rem',
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              fontWeight: 600,
+              fontSize: '0.88rem',
+              transition: 'all 0.2s',
+              background: activeTab === 'courses' ? 'linear-gradient(135deg, #10b981, #059669)' : 'transparent',
+              color: activeTab === 'courses' ? '#ffffff' : 'var(--text-muted)'
+            }}
+          >
+            <GraduationCap size={16} />
+            Language & Skill Courses
+            {typeof courseCount === 'number' && courseCount > 0 && (
+              <span style={{
+                background: activeTab === 'courses' ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.1)',
+                padding: '1px 7px',
+                borderRadius: '9999px',
+                fontSize: '0.75rem',
+                marginLeft: 4
+              }}>
+                {courseCount}
               </span>
             )}
           </button>

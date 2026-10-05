@@ -4,6 +4,8 @@ import {
   Image, Sparkles, Check, Info, Trash2, ArrowRight, Link2 
 } from 'lucide-react';
 import { extractBookMetadata, formatFileSize } from '../utils/mdParser';
+import CategorySelector from './CategorySelector';
+import { DEFAULT_CATEGORY } from '../constants/categories';
 
 export default function BookUploader({ onProceedToReview, onParsedBook, onShowToast }) {
   const [summaryFile, setSummaryFile] = useState(null);
@@ -18,7 +20,7 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
   const [coverFile, setCoverFile] = useState(null);
   const [coverPreview, setCoverPreview] = useState(null);
   
-  const [category, setCategory] = useState('Personal Finance & Business');
+  const [category, setCategory] = useState(DEFAULT_CATEGORY);
   const [language, setLanguage] = useState('Bangla');
   const [audioUrl, setAudioUrl] = useState('');
 
@@ -504,21 +506,10 @@ export default function BookUploader({ onProceedToReview, onParsedBook, onShowTo
             </select>
           </div>
 
-          <div>
-            <label className="input-label">Category</label>
-            <select
-              className="input-field"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              <option value="Personal Finance & Business">Personal Finance & Business</option>
-              <option value="Self Improvement">Self Improvement</option>
-              <option value="Psychology & Mindset">Psychology & Mindset</option>
-              <option value="Productivity & Habits">Productivity & Habits</option>
-              <option value="Biographies & History">Biographies & History</option>
-              <option value="Fiction & Literature">Fiction & Literature</option>
-            </select>
-          </div>
+          <CategorySelector
+            value={category}
+            onChange={setCategory}
+          />
 
           <div style={{ gridColumn: '1 / -1' }}>
             <label className="input-label">Audio Stream / MP3 URL (Optional)</label>

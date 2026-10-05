@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import BookUploader from './components/BookUploader';
 import BookPreview from './components/BookPreview';
 import LibraryView from './components/LibraryView';
+import CoursesView from './components/CoursesView';
 import RulesModal from './components/RulesModal';
 import Toast from './components/Toast';
 import { generateBookSlug, formatDrivePdfUrl } from './utils/mdParser';
@@ -20,10 +21,12 @@ import { ref as dbRef, set as rtdbSet, remove as rtdbRemove } from 'firebase/dat
 import confetti from 'canvas-confetti';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'library'
+  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'library' | 'courses'
   const [parsedBook, setParsedBook] = useState(null);
   const [books, setBooks] = useState([]);
   const [loadingBooks, setLoadingBooks] = useState(false);
+  const [courses, setCourses] = useState([]);
+  const [loadingCourses, setLoadingCourses] = useState(false);
   const [showRulesModal, setShowRulesModal] = useState(false);
 
 
@@ -75,12 +78,26 @@ export default function App() {
     setLoadingBooks(false);
   };
 
+  const fetchCourses = async () => {
+    setLoadingCourses(true);
+    try {
+      const snapshot = await getDocs(collection(db, 'courses'));
+      const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setCourses(items);
+    } catch (err) {
+      console.warn('Error fetching courses from Firestore:', err);
+    } finally {
+      setLoadingCourses(false);
+    }
+  };
+
   useEffect(() => {
     // Attempt anonymous sign-in so request.auth is populated if project rules require it
     signInAnonymously(auth).catch((err) => {
       console.log('Anonymous sign-in note:', err.message);
     });
     fetchBooks();
+    fetchCourses();
   }, []);
 
   // Handle uploading files (Summary .md, Full .md, PDF) to Firebase
@@ -376,6 +393,7 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         bookCount={books.length}
+        courseCount={courses.length}
         onOpenRules={() => setShowRulesModal(true)}
       />
 
@@ -397,12 +415,18 @@ export default function App() {
               onShowToast={addToast}
             />
           )
-        ) : (
+        ) : activeTab === 'library' ? (
           <LibraryView
             books={books}
             loading={loadingBooks}
             onRefresh={fetchBooks}
             onDeleteBook={handleDeleteBook}
+          />
+        ) : (
+          <CoursesView
+            courses={courses}
+            loading={loadingCourses}
+            onRefresh={fetchCourses}
           />
         )}
       </main>

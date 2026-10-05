@@ -5,6 +5,8 @@ import {
 } from 'lucide-react';
 import { marked } from 'marked';
 import { formatFileSize } from '../utils/mdParser';
+import CategorySelector from './CategorySelector';
+import { DEFAULT_CATEGORY } from '../constants/categories';
 
 marked.setOptions({
   gfm: true,
@@ -27,7 +29,7 @@ export default function BookPreview({
   const [author, setAuthor] = useState(bookData.author || '');
   const [translator, setTranslator] = useState(bookData.translator || '');
   const [tagline, setTagline] = useState(bookData.tagline || '');
-  const [category, setCategory] = useState(bookData.category || 'Personal Finance & Business');
+  const [category, setCategory] = useState(bookData.category || DEFAULT_CATEGORY);
   const [language, setLanguage] = useState(bookData.language || 'Bangla');
   const [audioUrl, setAudioUrl] = useState(bookData.audioUrl || '');
   const [pdfDriveUrl, setPdfDriveUrl] = useState(bookData.pdfDriveUrl || '');
@@ -278,25 +280,21 @@ export default function BookPreview({
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-            <div>
-              <label className="input-label">Category</label>
-              <input
-                type="text"
-                className="input-field"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-            </div>
-            <div>
-              <label className="input-label">Language</label>
-              <input
-                type="text"
-                className="input-field"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-              />
-            </div>
+          <div>
+            <CategorySelector
+              value={category}
+              onChange={setCategory}
+            />
+          </div>
+          
+          <div>
+            <label className="input-label">Language</label>
+            <input
+              type="text"
+              className="input-field"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+            />
           </div>
 
           <div>
