@@ -94,14 +94,8 @@ class BookSyncManager(
                     publishedAtIso = doc.getString("publishedAtIso")
                 )
 
-                // If user status is "trial", include only books that have a summary!
-                if (userStatus.equals("trial", ignoreCase = true)) {
-                    if (!book.summaryMdUrl.isNullOrBlank()) {
-                        remoteList.add(book)
-                    }
-                } else {
-                    remoteList.add(book)
-                }
+                // Include all books from Firestore so the library displays the entire catalog
+                remoteList.add(book)
             }
 
             // 2. Determine which files are missing locally (.md files and covers ONLY)
@@ -141,17 +135,19 @@ class BookSyncManager(
                     }
                 }
 
-                // Full Book Markdown: auto-download only if user is paid
-                if (userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)) {
-                    if (!book.fullBookMdUrl.isNullOrBlank()) {
-                        val fullLocal = File(booksDir, "${book.id}_full.md")
-                        if (fullLocal.exists() && fullLocal.length() > 0) {
-                            book.localFullBookPath = fullLocal.absolutePath
-                        } else {
-                            tasksToDownload.add(
-                                DownloadTask(book.id, "full", book.fullBookMdUrl, fullLocal, "${book.title} (Full Book)")
-                            )
-                        }
+                // Full Book Markdown: auto-download if user is paid/active OR if book has no separate summary
+                val shouldDownloadFull = userStatus.equals("paid", ignoreCase = true) ||
+                        userStatus.equals("active", ignoreCase = true) ||
+                        book.summaryMdUrl.isNullOrBlank()
+
+                if (shouldDownloadFull && !book.fullBookMdUrl.isNullOrBlank()) {
+                    val fullLocal = File(booksDir, "${book.id}_full.md")
+                    if (fullLocal.exists() && fullLocal.length() > 0) {
+                        book.localFullBookPath = fullLocal.absolutePath
+                    } else {
+                        tasksToDownload.add(
+                            DownloadTask(book.id, "full", book.fullBookMdUrl, fullLocal, "${book.title} (Full Book)")
+                        )
                     }
                 }
 
@@ -199,6 +195,10 @@ class BookSyncManager(
             // Index downloaded books into local Room database for offline player & reader access
             for (book in remoteList) {
                 val summaryPath = book.localSummaryPath
+                val fullPath = book.localFullBookPath
+                var primaryImported = false
+
+                // 1. If summary markdown exists, import it as primary book (book.id)
                 if (!summaryPath.isNullOrBlank()) {
                     val file = File(summaryPath)
                     if (file.exists() && file.length() > 0) {
@@ -209,10 +209,26 @@ class BookSyncManager(
                             author = book.author,
                             coverPath = book.localCoverPath
                         )
+                        primaryImported = true
                     }
                 }
 
-                val fullPath = book.localFullBookPath
+                // 2. If no summary, but full markdown exists, import full book as primary book (book.id)
+                if (!primaryImported && !fullPath.isNullOrBlank()) {
+                    val file = File(fullPath)
+                    if (file.exists() && file.length() > 0) {
+                        audiobookRepository?.importDownloadedBook(
+                            file = file,
+                            bookId = book.id,
+                            title = book.title,
+                            author = book.author,
+                            coverPath = book.localCoverPath
+                        )
+                        primaryImported = true
+                    }
+                }
+
+                // 3. Always import full book under "${book.id}_full" if full file exists
                 if (!fullPath.isNullOrBlank()) {
                     val fullFile = File(fullPath)
                     if (fullFile.exists() && fullFile.length() > 0) {
@@ -224,6 +240,17 @@ class BookSyncManager(
                             coverPath = book.localCoverPath
                         )
                     }
+                }
+
+                // 4. If neither markdown file is downloaded yet, ensure placeholder entry in Room
+                if (!primaryImported) {
+                    audiobookRepository?.ensureBookPlaceholder(
+                        bookId = book.id,
+                        title = book.title,
+                        author = book.author,
+                        coverPath = book.localCoverPath ?: book.coverUrl,
+                        description = book.subtitle ?: book.tagline
+                    )
                 }
             }
 
@@ -454,23 +481,47 @@ class BookSyncManager(
     }
 
     private suspend fun loadOfflineCachedBooks(userStatus: String): List<RemoteBook> {
-        val files = booksDir.listFiles { _, name -> name.endsWith("_summary.md") } ?: return emptyList()
-        return files.map { summaryFile ->
-            val bookId = summaryFile.name.removeSuffix("_summary.md")
+        val allFiles = booksDir.listFiles() ?: return emptyList()
+        val bookIds = allFiles
+            .map { it.name }
+            .filter { it.endsWith("_summary.md") || it.endsWith("_full.md") || it.endsWith(".pdf") }
+            .map {
+                it.removeSuffix("_summary.md")
+                    .removeSuffix("_full.md")
+                    .removeSuffix(".pdf")
+            }
+            .distinct()
+
+        return bookIds.map { bookId ->
+            val summaryFile = File(booksDir, "${bookId}_summary.md").takeIf { it.exists() && it.length() > 0 }
+            val fullBookFile = File(booksDir, "${bookId}_full.md").takeIf { it.exists() && it.length() > 0 }
+            val pdfFile = File(booksDir, "${bookId}.pdf").takeIf { it.exists() && it.length() > 0 }
             val cover = File(booksDir, "${bookId}_cover.jpg").takeIf { it.exists() }
                 ?: File(booksDir, "${bookId}_cover.png").takeIf { it.exists() }
-            val fullBook = File(booksDir, "${bookId}_full.md").takeIf { it.exists() && it.length() > 0 }
-            val pdf = File(booksDir, "${bookId}.pdf").takeIf { it.exists() && it.length() > 0 }
 
-            val contentSnippet = try {
-                summaryFile.bufferedReader().use { it.readLines().take(5).joinToString(" ") }
-            } catch (e: Exception) { "" }
+            val titleGuess = bookId.replace("_", " ")
 
-            val titleGuess = summaryFile.name.removeSuffix("_summary.md").replace("_", " ")
-
-            if (fullBook != null) {
+            if (summaryFile != null) {
                 audiobookRepository?.importDownloadedBook(
-                    file = fullBook,
+                    file = summaryFile,
+                    bookId = bookId,
+                    title = titleGuess,
+                    author = null,
+                    coverPath = cover?.absolutePath
+                )
+            } else if (fullBookFile != null) {
+                audiobookRepository?.importDownloadedBook(
+                    file = fullBookFile,
+                    bookId = bookId,
+                    title = titleGuess,
+                    author = null,
+                    coverPath = cover?.absolutePath
+                )
+            }
+
+            if (fullBookFile != null) {
+                audiobookRepository?.importDownloadedBook(
+                    file = fullBookFile,
                     bookId = "${bookId}_full",
                     title = "$titleGuess (সম্পূর্ণ)",
                     author = null,
@@ -478,17 +529,21 @@ class BookSyncManager(
                 )
             }
 
+            val contentSnippet = try {
+                (summaryFile ?: fullBookFile)?.bufferedReader()?.use { it.readLines().take(5).joinToString(" ") } ?: ""
+            } catch (e: Exception) { "" }
+
             RemoteBook(
                 id = bookId,
                 title = titleGuess,
                 summarySnippet = contentSnippet,
-                localSummaryPath = summaryFile.absolutePath,
-                localFullBookPath = fullBook?.absolutePath,
-                localPdfPath = pdf?.absolutePath,
+                localSummaryPath = summaryFile?.absolutePath,
+                localFullBookPath = fullBookFile?.absolutePath,
+                localPdfPath = pdfFile?.absolutePath,
                 localCoverPath = cover?.absolutePath,
-                hasSummary = true,
-                hasFullBook = fullBook != null,
-                hasPdf = pdf != null
+                hasSummary = summaryFile != null,
+                hasFullBook = fullBookFile != null,
+                hasPdf = pdfFile != null
             )
         }
     }

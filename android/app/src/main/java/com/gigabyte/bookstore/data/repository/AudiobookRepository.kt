@@ -28,10 +28,22 @@ class AudiobookRepository(
     private val historyDao = database.playbackHistoryDao()
 
     val allBooks: Flow<List<Book>> = bookDao.getAllBooks().map { entities ->
-        entities
-            .filter { !it.id.endsWith("_full") }
-            .distinctBy { it.id.removeSuffix("_full") }
-            .map { it.toDomainModel() }
+        val map = linkedMapOf<String, BookEntity>()
+        for (entity in entities) {
+            val baseId = entity.id.removeSuffix("_full")
+            val existing = map[baseId]
+            if (existing == null || existing.id.endsWith("_full")) {
+                map[baseId] = if (entity.id.endsWith("_full")) {
+                    entity.copy(
+                        id = baseId,
+                        title = entity.title.removeSuffix(" (সম্পূর্ণ)")
+                    )
+                } else {
+                    entity
+                }
+            }
+        }
+        map.values.map { it.toDomainModel() }
     }
 
     val lastPlayedHistory: Flow<PlaybackHistoryEntity?> = historyDao.getLastPlayedFlow()
@@ -95,14 +107,30 @@ class AudiobookRepository(
     fun getBookFlow(id: String): Flow<Book?> = bookDao.getBookByIdFlow(id).map { it?.toDomainModel() }
 
     fun getChaptersForBook(bookId: String): Flow<List<Chapter>> =
-        chapterDao.getChaptersForBook(bookId).map { list -> list.map { it.toDomainModel() } }
+        chapterDao.getChaptersForBook(bookId).map { list ->
+            if (list.isEmpty() && !bookId.endsWith("_full")) {
+                chapterDao.getChaptersForBookSync("${bookId}_full").map { it.toDomainModel() }
+            } else {
+                list.map { it.toDomainModel() }
+            }
+        }
 
     suspend fun getChaptersForBookSync(bookId: String): List<Chapter> = withContext(Dispatchers.IO) {
-        chapterDao.getChaptersForBookSync(bookId).map { it.toDomainModel() }
+        val list = chapterDao.getChaptersForBookSync(bookId)
+        if (list.isEmpty() && !bookId.endsWith("_full")) {
+            chapterDao.getChaptersForBookSync("${bookId}_full").map { it.toDomainModel() }
+        } else {
+            list.map { it.toDomainModel() }
+        }
     }
 
     suspend fun getChapterByIndex(bookId: String, index: Int): Chapter? = withContext(Dispatchers.IO) {
-        chapterDao.getChapterByIndex(bookId, index)?.toDomainModel()
+        val chapter = chapterDao.getChapterByIndex(bookId, index)
+        if (chapter == null && !bookId.endsWith("_full")) {
+            chapterDao.getChapterByIndex("${bookId}_full", index)?.toDomainModel()
+        } else {
+            chapter?.toDomainModel()
+        }
     }
 
     suspend fun searchInBook(bookId: String, query: String): List<Chapter> = withContext(Dispatchers.IO) {
@@ -162,6 +190,36 @@ class AudiobookRepository(
         bookDao.deleteBookById(bookId)
         chapterDao.deleteChaptersForBook(bookId)
         historyDao.deleteHistory(bookId)
+    }
+
+    suspend fun ensureBookPlaceholder(
+        bookId: String,
+        title: String,
+        author: String? = null,
+        coverPath: String? = null,
+        description: String? = null
+    ): Book? = withContext(Dispatchers.IO) {
+        try {
+            val existing = bookDao.getBookById(bookId)
+            if (existing != null) return@withContext existing.toDomainModel()
+
+            val entity = BookEntity(
+                id = bookId,
+                title = title,
+                author = author,
+                filePath = "",
+                coverPath = coverPath,
+                chapterCount = 0,
+                description = description,
+                addedDate = System.currentTimeMillis(),
+                isAsset = false
+            )
+            bookDao.insertBook(entity)
+            entity.toDomainModel()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
     }
 
     private suspend fun saveParsedBook(parsed: ParsedBook) {

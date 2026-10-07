@@ -31,11 +31,24 @@ class LibraryViewModel(application: Application) : AndroidViewModel(application)
     val player = app.player
     val ttsManager = app.ttsManager
 
+    val syncManager = app.syncManager
+
     val books: StateFlow<List<Book>> = repository.allBooks
-        .map { list ->
-            list.filter { !it.id.endsWith("_full") }.distinctBy { it.id.removeSuffix("_full") }
-        }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    init {
+        refreshLibrary()
+    }
+
+    fun refreshLibrary() {
+        viewModelScope.launch {
+            try {
+                syncManager.syncBooksForUser(userStatus.value)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 
     val lastPlayed: StateFlow<PlaybackHistoryEntity?> = repository.lastPlayedHistory
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)

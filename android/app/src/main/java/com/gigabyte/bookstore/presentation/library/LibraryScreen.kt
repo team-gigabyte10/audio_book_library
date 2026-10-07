@@ -124,7 +124,19 @@ fun LibraryScreen(
     val userPhone: String by viewModel.userPhone.collectAsStateWithLifecycle()
     val userBalance: Double by viewModel.userBalance.collectAsStateWithLifecycle()
     val displayBooks = remember(books) {
-        books.filter { !it.id.endsWith("_full") }.distinctBy { it.id.removeSuffix("_full") }
+        val map = linkedMapOf<String, Book>()
+        for (b in books) {
+            val baseId = b.id.removeSuffix("_full")
+            val existing = map[baseId]
+            if (existing == null || existing.id.endsWith("_full")) {
+                map[baseId] = if (b.id.endsWith("_full")) {
+                    b.copy(id = baseId, title = b.title.removeSuffix(" (সম্পূর্ণ)"))
+                } else {
+                    b
+                }
+            }
+        }
+        map.values.toList()
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -216,23 +228,113 @@ fun LibraryScreen(
     ) {
 
         Scaffold(
-            
-        bottomBar = {
-            MiniPlayerBar(
-                playbackState = playbackState,
-                onBarClick = onOpenPlayer,
-                onPlayPauseClick = { viewModel.player.togglePlayPause() },
-                onNextClick = { viewModel.player.nextChapter() },
-                onCloseClick = { viewModel.player.stopAndClose() }
-            )
-        }
-    ) { innerPadding ->
-        AppBackground(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .statusBarsPadding()
-        ) {
+            topBar = {
+                ThemedTopAppBar(
+                    navigationIcon = {
+                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                            Icon(
+                                imageVector = Icons.Default.Menu,
+                                contentDescription = "মেনু ওপেন করুন"
+                            )
+                        }
+                    },
+                    title = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Default.Headphones,
+                                contentDescription = null,
+                                tint = GoldenAccent,
+                                modifier = Modifier.size(26.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Column {
+                                Text(
+                                    text = "বাংলা অডিওবুক",
+                                    style = MaterialTheme.typography.titleMedium.copy(
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 17.sp
+                                    )
+                                )
+                                Text(
+                                    text = "বইয়ের লাইব্রেরি",
+                                    style = MaterialTheme.typography.bodySmall.copy(
+                                        fontSize = 10.sp,
+                                        color = Color(0xFFE0F2F1)
+                                    )
+                                )
+                            }
+                        }
+                    },
+                    actions = {
+                        // User Status Chip / Badge in the app bar
+                        val isPaidUser = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
+                        Surface(
+                            color = if (isPaidUser) Color(0xFF1B5E20).copy(alpha = 0.25f) else Color(0xFFE65100).copy(alpha = 0.25f),
+                            shape = RoundedCornerShape(12.dp),
+                            border = BorderStroke(
+                                1.dp,
+                                if (isPaidUser) Color(0xFF4CAF50).copy(alpha = 0.6f) else Color(0xFFFFB300).copy(alpha = 0.6f)
+                            ),
+                            modifier = Modifier.padding(end = 4.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(6.dp)
+                                        .clip(CircleShape)
+                                        .background(if (isPaidUser) Color(0xFF4CAF50) else Color(0xFFFFB300))
+                                )
+                                Spacer(modifier = Modifier.width(5.dp))
+                                Text(
+                                    text = if (isPaidUser) "আনলকড" else "ট্রায়াল",
+                                    style = MaterialTheme.typography.labelSmall.copy(
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 11.sp,
+                                        color = if (isPaidUser) Color(0xFF81C784) else Color(0xFFFFD54F)
+                                    )
+                                )
+                            }
+                        }
+
+                        IconButton(
+                            onClick = onOpenSearch,
+                            modifier = Modifier.testTag("library_search_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = "অনুসন্ধান"
+                            )
+                        }
+                        IconButton(
+                            onClick = onOpenSettings,
+                            modifier = Modifier.testTag("library_settings_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Settings,
+                                contentDescription = "সেটিংস"
+                            )
+                        }
+                    }
+                )
+            },
+            bottomBar = {
+                MiniPlayerBar(
+                    playbackState = playbackState,
+                    onBarClick = onOpenPlayer,
+                    onPlayPauseClick = { viewModel.player.togglePlayPause() },
+                    onNextClick = { viewModel.player.nextChapter() },
+                    onCloseClick = { viewModel.player.stopAndClose() }
+                )
+            }
+        ) { innerPadding ->
+            AppBackground(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            ) {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(
