@@ -18,6 +18,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
+import com.gigabyte.bookstore.data.models.CourseLesson
+
+enum class HomeTab {
+    BUNDLES,
+    COURSES
+}
+
 data class HomeUiState(
     val isLoading: Boolean = true,
     val isRefreshing: Boolean = false,
@@ -36,6 +43,13 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val bookRepository = app.repository
     val player = app.player
 
+    private val _selectedTab = MutableStateFlow(HomeTab.BUNDLES)
+    val selectedTab: StateFlow<HomeTab> = _selectedTab.asStateFlow()
+
+    fun selectTab(tab: HomeTab) {
+        _selectedTab.value = tab
+    }
+
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
@@ -52,6 +66,49 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val unlockedBundles: StateFlow<Set<String>> = app.appPreferences.unlockedBundles
 
     fun isBundleUnlocked(bundleId: String): Boolean = app.appPreferences.isBundleUnlocked(bundleId)
+
+    fun playCourseLesson(course: Course, lesson: CourseLesson) {
+        val markdown = lesson.content.ifBlank {
+            getSampleLessonMarkdown(course, lesson)
+        }
+        player.loadAndPlayLesson(
+            courseId = course.id,
+            courseTitle = course.title,
+            lessonTitle = lesson.title,
+            markdownContent = markdown,
+            language = course.language,
+            coverPath = course.thumbnailUrl ?: course.bannerUrl,
+            autoPlay = true
+        )
+    }
+
+    private fun getSampleLessonMarkdown(course: Course, lesson: CourseLesson): String {
+        val isJapanese = course.language.equals("Japanese", ignoreCase = true)
+        return if (isJapanese) {
+            """
+            # ${lesson.title}
+            
+            1. おはようございます。
+            2. こんにちは。
+            3. こんばんは。
+            4. はじめまして。
+            5. どうぞよろしくおねがいします。
+            6. ありがとう ございます。
+            7. また あした。
+            """.trimIndent()
+        } else {
+            """
+            # ${lesson.title}
+            
+            1. Hello! How are you doing today?
+            2. I am doing very well, thank you!
+            3. Could you please introduce yourself?
+            4. It is a pleasure to meet you.
+            5. Practice these sentences daily for native fluency.
+            6. Have a wonderful day ahead!
+            """.trimIndent()
+        }
+    }
 
     init {
         loadHomeData()

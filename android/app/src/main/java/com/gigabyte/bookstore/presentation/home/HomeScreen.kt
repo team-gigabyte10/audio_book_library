@@ -88,6 +88,7 @@ import com.gigabyte.bookstore.presentation.home.components.BundleCard
 import com.gigabyte.bookstore.presentation.home.components.CourseCard
 import com.gigabyte.bookstore.presentation.home.components.CourseDetailsBottomSheet
 import com.gigabyte.bookstore.presentation.home.components.HeroBannerCarousel
+import com.gigabyte.bookstore.presentation.home.components.HomeShowcaseCard
 import com.gigabyte.bookstore.presentation.home.components.SectionHeader
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 import kotlinx.coroutines.launch
@@ -104,6 +105,7 @@ fun HomeScreen(
     onNavigateToPayment: () -> Unit,
     onNavigateToReferral: () -> Unit,
     onNavigateToApproval: () -> Unit,
+    onNavigateToBookCategories: ((String?) -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -316,100 +318,71 @@ fun HomeScreen(
                             }
                         }
 
-                        // 2. Category Filter Chips (Strictly 3 main categories)
+                        // 1. 📚 BUNDLE BOOKS SHOWCASE CARD
                         item {
-                            Spacer(modifier = Modifier.height(12.dp))
-                            CategoryFilterChipsRow(
-                                selected = selectedCategory,
-                                onSelect = { selectedCategory = it }
+                            Spacer(modifier = Modifier.height(14.dp))
+                            val bundle = uiState.audioBundles.firstOrNull()
+                            HomeShowcaseCard(
+                                title = bundle?.title?.ifBlank { "আত্ম উন্নয়নমূলক বাংলা বই বান্ডেল" } ?: "আত্ম উন্নয়নমূলক বাংলা বই বান্ডেল",
+                                subtitle = bundle?.subtitle ?: "৫০+ বিশ্বসেরা বই, জীবনী, ক্যারিয়ার ও মোটিভেশনাল সংকলন",
+                                badgeText = "📚 বাংলা বই বান্ডেল",
+                                badgeColor = Color(0xFF0D9488),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isAudiobookUnlocked,
+                                imageUrl = bundle?.coverUrl,
+                                fallbackGradientColors = listOf(Color(0xFF0D9488), Color(0xFF042F2E)),
+                                accentColor = Color(0xFF0D9488),
+                                statsText = "📚 ${bundle?.bookCount ?: 50}+ টি বই · সকল ক্যাটাগরি",
+                                ctaText = "ক্যাটাগরি সমূহ দেখুন",
+                                onClick = { onNavigateToBookCategories?.invoke(bundle?.id) },
+                                modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }
 
-                        // 4. 📦 AUDIO BOOK BUNDLES (Tapping opens Library if bought, Payment if not)
-                        if ((selectedCategory == "all" || selectedCategory == "bundles") &&
-                            uiState.audioBundles.isNotEmpty()
-                        ) {
-                            item {
-                                Spacer(modifier = Modifier.height(16.dp))
-                                SectionHeader(
-                                    title = "আত্ম উন্নয়নমূলক বাংলা বই",
-                                    subtitle = "বিশ্বসেরা আত্মউন্নয়ন ও মোটিভেশনাল বইগুলোর পূর্ণাঙ্গ অডিও সংকলন",
-                                    icon = Icons.Default.LocalMall,
-                                    isPurchased = isAudiobookUnlocked,
-                                    onViewAllClick = if (isAudiobookUnlocked) onNavigateToLibrary else onNavigateToPayment,
-                                    viewAllText = if (isAudiobookUnlocked) "আনলকড" else "১০০ টাকা"
-                                )
-                                LazyRow(
-                                    contentPadding = PaddingValues(horizontal = 16.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(14.dp),
-                                    modifier = Modifier.fillMaxWidth()
-                                ) {
-                                    items(uiState.audioBundles, key = { it.id }) { bundle ->
-                                        BundleCard(
-                                            bundle = bundle,
-                                            onClick = onNavigateToLibrary
-                                        )
-                                    }
-                                }
-                            }
+                        // 2. 🇬🇧 ENGLISH LANGUAGE COURSE SHOWCASE CARD
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            val englishCourse = uiState.englishCourses.firstOrNull()
+                            HomeShowcaseCard(
+                                title = englishCourse?.title ?: "কমপ্লিট স্পোকেন ইংলিশ মাস্টারক্লাস",
+                                subtitle = englishCourse?.subtitle ?: "নেটিভ অডিও ও সহজ নিয়মে ফ্লুয়েন্টলি কথা বলুন",
+                                badgeText = "🇬🇧 স্পোকেন ইংলিশ কোর্স",
+                                badgeColor = Color(0xFF1565C0),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isEnglishUnlocked,
+                                imageUrl = englishCourse?.bannerUrl ?: englishCourse?.thumbnailUrl,
+                                fallbackGradientColors = listOf(Color(0xFF1565C0), Color(0xFF0D47A1)),
+                                accentColor = Color(0xFF1565C0),
+                                statsText = "🎧 ${englishCourse?.lessonCount ?: 15}টি অডিও লেসন · লেভেল: ${englishCourse?.level?.ifBlank { "Beginner" } ?: "Beginner"}",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = {
+                                    englishCourse?.let { selectedCourse = it }
+                                },
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
                         }
 
-                        // 5. 🇬🇧 ENGLISH LANGUAGE COURSES (Fetched directly from Firestore)
-                        if ((selectedCategory == "all" || selectedCategory == "english") &&
-                            uiState.englishCourses.isNotEmpty()
-                        ) {
-                            item {
-                                Spacer(modifier = Modifier.height(20.dp))
-                                SectionHeader(
-                                    title = "ইংলিশ ল্যাঙ্গুয়েজ কোর্স",
-                                    subtitle = "স্পোকেন ইংলিশ, সঠিক উচ্চারণ ও ভোকাবুলারি অডিও লেসন",
-                                    icon = Icons.Default.Translate,
-                                    isPurchased = isEnglishUnlocked,
-                                    onViewAllClick = if (isEnglishUnlocked) { { selectedCategory = "english" } } else onNavigateToPayment,
-                                    viewAllText = if (isEnglishUnlocked) "আনলকড" else "১০০ টাকা"
-                                )
-                                LazyRow(
-                                    contentPadding = PaddingValues(horizontal = 16.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(14.dp),
-                                    modifier = Modifier.fillMaxWidth()
-                                ) {
-                                    items(uiState.englishCourses, key = { it.id }) { course ->
-                                        CourseCard(
-                                            course = course,
-                                            onClick = { selectedCourse = course }
-                                        )
-                                    }
-                                }
-                            }
-                        }
-
-                        // 6. 🇯🇵 JAPANESE LANGUAGE COURSES (Fetched directly from Firestore)
-                        if ((selectedCategory == "all" || selectedCategory == "japanese") &&
-                            uiState.japaneseCourses.isNotEmpty()
-                        ) {
-                            item {
-                                Spacer(modifier = Modifier.height(20.dp))
-                                SectionHeader(
-                                    title = "জাপানি ভাষা শিক্ষা (JLPT N5/N4)",
-                                    subtitle = "জাপানে ভিসা, উচ্চশিক্ষা ও চাকরির জন্য পূর্ণাঙ্গ অডিও কোর্স",
-                                    icon = Icons.Default.CastForEducation,
-                                    isPurchased = isJapaneseUnlocked,
-                                    onViewAllClick = if (isJapaneseUnlocked) { { selectedCategory = "japanese" } } else onNavigateToPayment,
-                                    viewAllText = if (isJapaneseUnlocked) "আনলকড" else "১০০ টাকা"
-                                )
-                                LazyRow(
-                                    contentPadding = PaddingValues(horizontal = 16.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(14.dp),
-                                    modifier = Modifier.fillMaxWidth()
-                                ) {
-                                    items(uiState.japaneseCourses, key = { it.id }) { course ->
-                                        CourseCard(
-                                            course = course,
-                                            onClick = { selectedCourse = course }
-                                        )
-                                    }
-                                }
-                            }
+                        // 3. 🇯🇵 JAPANESE LANGUAGE COURSE SHOWCASE CARD
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            val japaneseCourse = uiState.japaneseCourses.firstOrNull()
+                            HomeShowcaseCard(
+                                title = japaneseCourse?.title ?: "জাপানি ভাষা শিক্ষা (JLPT N5/N4)",
+                                subtitle = japaneseCourse?.subtitle ?: "জাপানে ভিসা, উচ্চশিক্ষা ও চাকরির জন্য পূর্ণাঙ্গ অডিও গাইড",
+                                badgeText = "🇯🇵 জাপানি ভাষা কোর্স",
+                                badgeColor = Color(0xFFC62828),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isJapaneseUnlocked,
+                                imageUrl = japaneseCourse?.bannerUrl ?: japaneseCourse?.thumbnailUrl,
+                                fallbackGradientColors = listOf(Color(0xFFC62828), Color(0xFF7F1D1D)),
+                                accentColor = Color(0xFFC62828),
+                                statsText = "🎧 ${japaneseCourse?.lessonCount ?: 12}টি অডিও লেসন · JLPT প্রস্তুতি",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = {
+                                    japaneseCourse?.let { selectedCourse = it }
+                                },
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
                         }
 
                         // Bottom Spacer
@@ -429,6 +402,22 @@ fun HomeScreen(
             onDismiss = { selectedCourse = null },
             onEnrollClick = {
                 selectedCourse = null
+                val isCourseUnlocked = if (course.language.equals("Japanese", ignoreCase = true)) {
+                    isJapaneseUnlocked
+                } else {
+                    isEnglishUnlocked
+                }
+                if (isCourseUnlocked) {
+                    val firstLesson = course.modules.firstOrNull()?.lessons?.firstOrNull()
+                    if (firstLesson != null) {
+                        viewModel.playCourseLesson(course, firstLesson)
+                    }
+                } else {
+                    onNavigateToPayment()
+                }
+            },
+            onPlayLesson = { clickedCourse, lesson ->
+                viewModel.playCourseLesson(clickedCourse, lesson)
             }
         )
     }

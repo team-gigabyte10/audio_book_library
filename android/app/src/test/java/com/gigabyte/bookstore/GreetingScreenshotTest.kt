@@ -24,7 +24,7 @@ class GreetingScreenshotTest {
   fun greeting_screenshot() {
     composeTestRule.setContent {
       BanglaAudiobookTheme {
-        Text("বাংলা অডিওবুক")
+        Text("αª¼αª╛αªéαª▓αª╛ αªàαªíαª┐αªôαª¼αºüαªò")
       }
     }
 

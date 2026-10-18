@@ -4,6 +4,8 @@ data class CourseLesson(
     val id: String = "",
     val title: String = "",
     val duration: String = "",
+    val content: String = "",
+    val mdPath: String? = null,
     val audioUrl: String? = null,
     val pdfUrl: String? = null,
     val isFree: Boolean = false

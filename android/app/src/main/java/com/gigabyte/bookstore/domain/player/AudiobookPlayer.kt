@@ -78,6 +78,7 @@ class AudiobookPlayer(
 
     fun loadAndPlayBook(book: Book, startChapterIndex: Int = 0, startChunkIndex: Int = 0, autoPlay: Boolean = true) {
         scope.launch(Dispatchers.Main) {
+            ttsManager.resetToBanglaLanguage()
             _playbackState.value = _playbackState.value.copy(isLoading = true)
             currentBook = book
             lastBook = book
@@ -107,6 +108,46 @@ class AudiobookPlayer(
 
             if (autoPlay && currentChunks.isNotEmpty()) {
                 playChunk(currentChunkIndex)
+            }
+        }
+    }
+
+    fun loadAndPlayLesson(
+        courseId: String,
+        courseTitle: String,
+        lessonTitle: String,
+        markdownContent: String,
+        language: String = "English",
+        coverPath: String? = null,
+        autoPlay: Boolean = true
+    ) {
+        scope.launch(Dispatchers.Main) {
+            _playbackState.value = _playbackState.value.copy(isLoading = true)
+            ttsManager.setCourseLanguage(language)
+
+            val fullCleanText = "$lessonTitle.\n\n" + MarkdownCleaner.cleanForTTS(markdownContent)
+            currentChunks = SentenceChunker.splitIntoChunks(fullCleanText)
+            currentChunkIndex = 0
+
+            val currentChunk = currentChunks.getOrNull(0)
+
+            _playbackState.value = _playbackState.value.copy(
+                bookId = "course_$courseId",
+                bookTitle = courseTitle,
+                author = "ল্যাঙ্গুয়েজ একাডেমি ($language)",
+                coverPath = coverPath,
+                chapterIndex = 0,
+                chapterTitle = lessonTitle,
+                totalChapters = 1,
+                chunkIndex = 0,
+                totalChunks = currentChunks.size,
+                currentChunkText = currentChunk?.text ?: "",
+                isLoading = false,
+                errorMessage = null
+            )
+
+            if (autoPlay && currentChunks.isNotEmpty()) {
+                playChunk(0)
             }
         }
     }

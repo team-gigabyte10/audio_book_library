@@ -95,6 +95,8 @@ class HomeRepository(
                             id = lMap["id"] as? String ?: "",
                             title = lMap["title"] as? String ?: "",
                             duration = lMap["duration"] as? String ?: "",
+                            content = lMap["content"] as? String ?: "",
+                            mdPath = lMap["mdPath"] as? String,
                             audioUrl = lMap["audioUrl"] as? String,
                             pdfUrl = lMap["pdfUrl"] as? String,
                             isFree = lMap["isFree"] as? Boolean ?: false
@@ -170,4 +172,46 @@ class HomeRepository(
             emptyList()
         }
     }
+
+    suspend fun getAllBooks(): List<RemoteBook> = withContext(Dispatchers.IO) {
+        try {
+            val snapshot = firestore.collection("books").get().await()
+            snapshot.documents.mapNotNull { doc ->
+                RemoteBook(
+                    id = doc.id,
+                    title = doc.getString("title") ?: "Untitled",
+                    subtitle = doc.getString("subtitle"),
+                    author = doc.getString("author"),
+                    translator = doc.getString("translator"),
+                    tagline = doc.getString("tagline"),
+                    category = doc.getString("category") ?: "আত্মউন্নয়ন",
+                    language = doc.getString("language") ?: "Bangla",
+                    audioUrl = doc.getString("audioUrl"),
+                    summaryMdUrl = doc.getString("summaryMdUrl"),
+                    summaryMdPath = doc.getString("summaryMdPath"),
+                    summaryFilename = doc.getString("summaryFilename"),
+                    fullBookMdUrl = doc.getString("fullBookMdUrl"),
+                    fullBookMdPath = doc.getString("fullBookMdPath"),
+                    fullBookFilename = doc.getString("fullBookFilename"),
+                    pdfUrl = doc.getString("pdfUrl"),
+                    pdfPath = doc.getString("pdfPath"),
+                    pdfFilename = doc.getString("pdfFilename"),
+                    coverUrl = doc.getString("coverUrl"),
+                    coverPath = doc.getString("coverPath"),
+                    summarySnippet = doc.getString("summarySnippet"),
+                    totalWords = doc.getLong("totalWords")?.toInt() ?: 0,
+                    estimatedMinutes = doc.getLong("estimatedMinutes")?.toInt() ?: 1,
+                    hasSummary = doc.getBoolean("hasSummary") ?: false,
+                    hasFullBook = doc.getBoolean("hasFullBook") ?: false,
+                    hasPdf = doc.getBoolean("hasPdf") ?: false,
+                    slug = doc.getString("slug"),
+                    publishedAtIso = doc.getString("publishedAtIso")
+                )
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error fetching all books from Firestore: ${e.message}", e)
+            emptyList()
+        }
+    }
 }
+

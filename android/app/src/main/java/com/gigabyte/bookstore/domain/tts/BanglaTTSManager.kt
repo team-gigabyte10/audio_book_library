@@ -448,6 +448,37 @@ class BanglaTTSManager(
         tts?.setPitch(pitch)
     }
 
+    fun setCourseLanguage(language: String): Boolean {
+        val currentTts = tts ?: return false
+        val targetLocale = when (language.lowercase().trim()) {
+            "english", "en", "eng" -> Locale.US
+            "japanese", "ja", "jpn" -> Locale.JAPAN
+            "korean", "ko", "kor" -> Locale.KOREAN
+            "german", "de", "ger" -> Locale.GERMAN
+            else -> activeLocale
+        }
+        return try {
+            val availability = currentTts.isLanguageAvailable(targetLocale)
+            if (availability >= TextToSpeech.LANG_AVAILABLE) {
+                currentTts.language = targetLocale
+                true
+            } else {
+                currentTts.language = targetLocale
+                false
+            }
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    fun resetToBanglaLanguage() {
+        try {
+            tts?.language = activeLocale
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     fun stop() {
         activeUtteranceId = null
         try {

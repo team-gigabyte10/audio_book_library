@@ -17,6 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.gigabyte.bookstore.presentation.categories.BookCategoriesScreen
+import com.gigabyte.bookstore.presentation.categories.BookCategoriesViewModel
 import com.gigabyte.bookstore.presentation.bookdetails.BookDetailsScreen
 import com.gigabyte.bookstore.presentation.bookdetails.BookDetailsViewModel
 import com.gigabyte.bookstore.presentation.home.HomeScreen
@@ -136,6 +138,9 @@ fun AppNavHost(
                 },
                 onNavigateToApproval = {
                     navController.navigate(Screen.PaymentApproval.route)
+                },
+                onNavigateToBookCategories = { bundleId ->
+                    navController.navigate(Screen.BookCategories.createRoute(bundleId))
                 }
             )
         }
@@ -355,6 +360,44 @@ fun AppNavHost(
         composable(Screen.Referral.route) {
             ReferralScreen(
                 onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+        // 10. Book Categories Screen
+        composable(
+            route = Screen.BookCategories.route,
+            arguments = listOf(
+                navArgument("bundleId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) { backStackEntry ->
+            val bundleId = backStackEntry.arguments?.getString("bundleId")
+            val catViewModel: BookCategoriesViewModel = viewModel(factory = SimpleViewModelFactory {
+                BookCategoriesViewModel(application)
+            })
+            BookCategoriesScreen(
+                viewModel = catViewModel,
+                initialBundleId = bundleId,
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToBook = { bookId ->
+                    navController.navigate(Screen.BookDetails.createRoute(bookId))
+                },
+                onNavigateToPayment = {
+                    navController.navigate(Screen.Payment.route)
+                },
+                onNavigateToPlayer = {
+                    val currentBookId = catViewModel.playbackState.value.bookId
+                    if (!currentBookId.isNullOrBlank()) {
+                        val currentChapIdx = catViewModel.playbackState.value.chapterIndex
+                        navController.navigate(Screen.Player.createRoute(currentBookId, currentChapIdx))
+                    }
+                },
+                onPlayBook = { bookId, chapterIdx ->
+                    navController.navigate(Screen.Player.createRoute(bookId, chapterIdx))
+                }
             )
         }
     }

@@ -13,24 +13,24 @@ class ExampleUnitTest {
     @Test
     fun testMarkdownCleaner_preservesBanglaPunctuationAndText() {
         val markdown = """
-            # সোনার বাংলা
+            # αª╕αºïαª¿αª╛αª░ αª¼αª╛αªéαª▓αª╛
             
-            **আমার সোনার বাংলা**, আমি তোমায় *ভালোবাসি*।
-            > চিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি?
+            **αªåαª«αª╛αª░ αª╕αºïαª¿αª╛αª░ αª¼αª╛αªéαª▓αª╛**, αªåαª«αª┐ αªñαºïαª«αª╛αª»αª╝ *αª¡αª╛αª▓αºïαª¼αª╛αª╕αª┐*αÑñ
+            > αªÜαª┐αª░αªªαª┐αª¿ αªñαºïαª«αª╛αª░ αªåαªòαª╛αª╢, αªñαºïαª«αª╛αª░ αª¼αª╛αªñαª╛αª╕, αªåαª«αª╛αª░ αª¬αºìαª░αª╛αªúαºç αª¼αª╛αª£αª╛αª»αª╝ αª¼αª╛αªüαª╢αª┐?
             
-            [রবীন্দ্রনাথ ঠাকুর](https://example.com)
+            [αª░αª¼αºÇαª¿αºìαªªαºìαª░αª¿αª╛αªÑ αªáαª╛αªòαºüαª░](https://example.com)
             ```kotlin
             val tts = "test"
             ```
-            - প্রথম দফা
-            - দ্বিতীয় দফা!
+            - αª¬αºìαª░αªÑαª« αªªαª½αª╛
+            - αªªαºìαª¼αª┐αªñαºÇαª»αª╝ αªªαª½αª╛!
         """.trimIndent()
 
         val cleaned = MarkdownCleaner.cleanForTTS(markdown)
 
-        assertTrue(cleaned.contains("আমার সোনার বাংলা"))
-        assertTrue(cleaned.contains("আমি তোমায় ভালোবাসি।"))
-        assertTrue(cleaned.contains("চিরদিন তোমার আকাশ"))
+        assertTrue(cleaned.contains("αªåαª«αª╛αª░ αª╕αºïαª¿αª╛αª░ αª¼αª╛αªéαª▓αª╛"))
+        assertTrue(cleaned.contains("αªåαª«αª┐ αªñαºïαª«αª╛αª»αª╝ αª¡αª╛αª▓αºïαª¼αª╛αª╕αª┐αÑñ"))
+        assertTrue(cleaned.contains("αªÜαª┐αª░αªªαª┐αª¿ αªñαºïαª«αª╛αª░ αªåαªòαª╛αª╢"))
         assertTrue(cleaned.contains("?"))
         assertTrue(cleaned.contains("!"))
         // Markdown symbols should be removed
@@ -41,39 +41,39 @@ class ExampleUnitTest {
 
     @Test
     fun testSentenceChunker_splitsOnBanglaDari() {
-        val banglaText = "আমার সোনার বাংলা, আমি তোমায় ভালোবাসি। চিরদিন তোমার আকাশ, তোমার বাতাস, আমার প্রাণে বাজায় বাঁশি। ও মা, ফাগুনে তোর আমের বনে ঘ্রাণে পাগল করে।"
+        val banglaText = "αªåαª«αª╛αª░ αª╕αºïαª¿αª╛αª░ αª¼αª╛αªéαª▓αª╛, αªåαª«αª┐ αªñαºïαª«αª╛αª»αª╝ αª¡αª╛αª▓αºïαª¼αª╛αª╕αª┐αÑñ αªÜαª┐αª░αªªαª┐αª¿ αªñαºïαª«αª╛αª░ αªåαªòαª╛αª╢, αªñαºïαª«αª╛αª░ αª¼αª╛αªñαª╛αª╕, αªåαª«αª╛αª░ αª¬αºìαª░αª╛αªúαºç αª¼αª╛αª£αª╛αª»αª╝ αª¼αª╛αªüαª╢αª┐αÑñ αªô αª«αª╛, αª½αª╛αªùαºüαª¿αºç αªñαºïαª░ αªåαª«αºçαª░ αª¼αª¿αºç αªÿαºìαª░αª╛αªúαºç αª¬αª╛αªùαª▓ αªòαª░αºçαÑñ"
         val chunks = SentenceChunker.splitIntoChunks(banglaText)
 
         assertTrue(chunks.isNotEmpty())
         assertTrue(chunks.size >= 3)
         assertEquals(0, chunks[0].index)
-        assertTrue(chunks[0].text.endsWith("।"))
+        assertTrue(chunks[0].text.endsWith("αÑñ"))
     }
 
     @Test
     fun testMarkdownParser_parsesFrontmatterAndChapters() {
         val markdown = """
             ---
-            title: গীতাঞ্জলি
-            author: রবীন্দ্রনাথ ঠাকুর
-            description: নির্বাচিত কবিতা
+            title: αªùαºÇαªñαª╛αª₧αºìαª£αª▓αª┐
+            author: αª░αª¼αºÇαª¿αºìαªªαºìαª░αª¿αª╛αªÑ αªáαª╛αªòαºüαª░
+            description: αª¿αª┐αª░αºìαª¼αª╛αªÜαª┐αªñ αªòαª¼αª┐αªñαª╛
             ---
             
-            # গীতাঞ্জলি
+            # αªùαºÇαªñαª╛αª₧αºìαª£αª▓αª┐
             
-            ## অধ্যায় ১: চিত্ত যেথা ভয়শূন্য
-            চিত্ত যেথা ভয়শূন্য, উচ্চ যেথা শির। জ্ঞান যেথা মুক্ত।
+            ## αªàαªºαºìαª»αª╛αª»αª╝ αºº: αªÜαª┐αªñαºìαªñ αª»αºçαªÑαª╛ αª¡αª»αª╝αª╢αºéαª¿αºìαª»
+            αªÜαª┐αªñαºìαªñ αª»αºçαªÑαª╛ αª¡αª»αª╝αª╢αºéαª¿αºìαª», αªëαªÜαºìαªÜ αª»αºçαªÑαª╛ αª╢αª┐αª░αÑñ αª£αºìαª₧αª╛αª¿ αª»αºçαªÑαª╛ αª«αºüαªòαºìαªñαÑñ
             
-            ## অধ্যায় ২: অঞ্জলি ও সমর্পণ
-            তুমি কেমন করে গান করো হে গুণী, আমি অবাক হয়ে শুনি কেবল শুনি।
+            ## αªàαªºαºìαª»αª╛αª»αª╝ αº¿: αªàαª₧αºìαª£αª▓αª┐ αªô αª╕αª«αª░αºìαª¬αªú
+            αªñαºüαª«αª┐ αªòαºçαª«αª¿ αªòαª░αºç αªùαª╛αª¿ αªòαª░αºï αª╣αºç αªùαºüαªúαºÇ, αªåαª«αª┐ αªàαª¼αª╛αªò αª╣αª»αª╝αºç αª╢αºüαª¿αª┐ αªòαºçαª¼αª▓ αª╢αºüαª¿αª┐αÑñ
         """.trimIndent()
 
         val parsed = MarkdownParser.parse(markdown)
 
-        assertEquals("গীতাঞ্জলি", parsed.book.title)
-        assertEquals("রবীন্দ্রনাথ ঠাকুর", parsed.book.author)
+        assertEquals("αªùαºÇαªñαª╛αª₧αºìαª£αª▓αª┐", parsed.book.title)
+        assertEquals("αª░αª¼αºÇαª¿αºìαªªαºìαª░αª¿αª╛αªÑ αªáαª╛αªòαºüαª░", parsed.book.author)
         assertEquals(2, parsed.chapters.size)
-        assertEquals("অধ্যায় ১: চিত্ত যেথা ভয়শূন্য", parsed.chapters[0].title)
-        assertEquals("অধ্যায় ২: অঞ্জলি ও সমর্পণ", parsed.chapters[1].title)
+        assertEquals("αªàαªºαºìαª»αª╛αª»αª╝ αºº: αªÜαª┐αªñαºìαªñ αª»αºçαªÑαª╛ αª¡αª»αª╝αª╢αºéαª¿αºìαª»", parsed.chapters[0].title)
+        assertEquals("αªàαªºαºìαª»αª╛αª»αª╝ αº¿: αªàαª₧αºìαª£αª▓αª┐ αªô αª╕αª«αª░αºìαª¬αªú", parsed.chapters[1].title)
     }
 }

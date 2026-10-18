@@ -1,6 +1,7 @@
 package com.gigabyte.bookstore.presentation.home.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,11 +22,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CastForEducation
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayCircleOutline
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -51,6 +53,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.gigabyte.bookstore.data.models.Course
+import com.gigabyte.bookstore.data.models.CourseLesson
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
@@ -59,6 +62,7 @@ fun CourseDetailsBottomSheet(
     course: Course,
     onDismiss: () -> Unit,
     onEnrollClick: (Course) -> Unit,
+    onPlayLesson: ((Course, CourseLesson) -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
@@ -150,21 +154,21 @@ fun CourseDetailsBottomSheet(
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        imageVector = Icons.Default.Headphones,
+                        imageVector = Icons.Default.CastForEducation,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(16.dp)
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "${course.totalHours} ঘণ্টা অডিও",
+                        text = "লেভেল: ${course.level.ifBlank { "Beginner" }}",
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        imageVector = Icons.Default.CastForEducation,
+                        imageVector = Icons.Default.MenuBook,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(16.dp)
@@ -269,7 +273,11 @@ fun CourseDetailsBottomSheet(
                                 Row(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(vertical = 4.dp),
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .clickable(enabled = lesson.isFree || onPlayLesson != null) {
+                                            onPlayLesson?.invoke(course, lesson)
+                                        }
+                                        .padding(vertical = 6.dp, horizontal = 4.dp),
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
@@ -298,14 +306,26 @@ fun CourseDetailsBottomSheet(
                                             color = MaterialTheme.colorScheme.primary,
                                             shape = RoundedCornerShape(4.dp)
                                         ) {
-                                            Text(
-                                                text = "অডিও প্রিভিউ",
-                                                style = MaterialTheme.typography.labelSmall.copy(
-                                                    fontSize = 9.sp,
-                                                    color = Color.White
-                                                ),
-                                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                                            )
+                                            Row(
+                                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.VolumeUp,
+                                                    contentDescription = null,
+                                                    tint = Color.White,
+                                                    modifier = Modifier.size(11.dp)
+                                                )
+                                                Spacer(modifier = Modifier.width(3.dp))
+                                                Text(
+                                                    text = "TTS পাঠ শুনুন",
+                                                    style = MaterialTheme.typography.labelSmall.copy(
+                                                        fontSize = 9.sp,
+                                                        color = Color.White,
+                                                        fontWeight = FontWeight.Bold
+                                                    )
+                                                )
+                                            }
                                         }
                                     }
                                 }
