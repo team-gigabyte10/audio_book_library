@@ -31,6 +31,8 @@ import com.gigabyte.bookstore.presentation.reader.TextReaderScreen
 import com.gigabyte.bookstore.presentation.reader.TextReaderViewModel
 import com.gigabyte.bookstore.presentation.search.SearchScreen
 import com.gigabyte.bookstore.presentation.search.SearchViewModel
+import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.presentation.auth.LoginScreen
 import com.gigabyte.bookstore.presentation.auth.RegisterScreen
 import com.gigabyte.bookstore.presentation.sync.SyncScreen
 import com.gigabyte.bookstore.presentation.settings.SettingsScreen
@@ -88,8 +90,9 @@ fun AppNavHost(
         // 0. Splash & Background Sync Screen (Verifies Device ID, downloads missing files with progress)
         composable(Screen.Sync.route) {
             SyncScreen(
+                // Logged out (or account/device problem): show Login, which links to Register.
                 onNavigateToRegister = {
-                    navController.navigate(Screen.Register.route) {
+                    navController.navigate(Screen.Login.route) {
                         popUpTo(Screen.Sync.route) { inclusive = true }
                     }
                 },
@@ -101,12 +104,34 @@ fun AppNavHost(
             )
         }
 
-        // 0.1 First-time Registration Screen
+        // 0.1 Login Screen (shown when logged out)
+        composable(Screen.Login.route) {
+            LoginScreen(
+                onLoginSuccess = {
+                    // Sync re-verifies the account and downloads the user's books, then opens Home.
+                    navController.navigate(Screen.Sync.route) {
+                        popUpTo(navController.graph.id) { inclusive = true }
+                    }
+                },
+                onNavigateToRegister = {
+                    navController.navigate(Screen.Register.route) { launchSingleTop = true }
+                }
+            )
+        }
+
+        // 0.2 First-time Registration Screen
         composable(Screen.Register.route) {
             RegisterScreen(
                 onRegistrationSuccess = {
                     navController.navigate(Screen.Sync.route) {
-                        popUpTo(Screen.Register.route) { inclusive = true }
+                        popUpTo(navController.graph.id) { inclusive = true }
+                    }
+                },
+                onNavigateToLogin = {
+                    if (!navController.popBackStack(Screen.Login.route, inclusive = false)) {
+                        navController.navigate(Screen.Login.route) {
+                            popUpTo(Screen.Register.route) { inclusive = true }
+                        }
                     }
                 }
             )
@@ -152,7 +177,8 @@ fun AppNavHost(
                 },
                 onNavigateToLearnEnglish = {
                     navController.navigate(Screen.Learn.route)
-                }
+                },
+                onLogout = { logout(application, navController) }
             )
         }
 
@@ -197,7 +223,8 @@ fun AppNavHost(
                 },
                 onNavigateToHome = {
                     navController.navigate(Screen.Home.route)
-                }
+                },
+                onLogout = { logout(application, navController) }
             )
         }
 
@@ -484,6 +511,16 @@ fun AppNavHost(
     }
 }
 
+
+/** Stops playback, clears the local session and shows Login with an empty back stack. */
+private fun logout(application: Application, navController: NavHostController) {
+    val app = application as BanglaAudiobookApp
+    app.player.stopAndClose()
+    app.preferences.clearUserSession()
+    navController.navigate(Screen.Login.route) {
+        popUpTo(navController.graph.id) { inclusive = true }
+    }
+}
 
 class SimpleViewModelFactory<T : androidx.lifecycle.ViewModel>(
     private val creator: () -> T

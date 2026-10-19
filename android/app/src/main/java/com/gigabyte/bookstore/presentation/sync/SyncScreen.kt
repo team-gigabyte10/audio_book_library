@@ -188,25 +188,26 @@ fun SyncScreen(
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
-                                text = "Device ID Mismatch",
+                                text = "অ্যাকাউন্টটি অন্য ফোনে চালু আছে",
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.onErrorContainer
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
-                                text = "Your account is registered on another device. Please register this device to continue.",
+                                text = "একটি অ্যাকাউন্ট একটি ফোনেই ব্যবহার করা যায়। অন্য অ্যাকাউন্ট দিয়ে লগইন করুন, " +
+                                    "অথবা ফোন পরিবর্তনের জন্য আমাদের সাথে যোগাযোগ করুন। (This account is active on another phone.)",
                                 fontSize = 12.sp,
                                 textAlign = TextAlign.Center,
                                 color = MaterialTheme.colorScheme.onErrorContainer
                             )
                             Spacer(modifier = Modifier.height(14.dp))
                             Button(
-                                onClick = onNavigateToRegister,
+                                onClick = onNavigateToRegister, // routed to the Login screen in AppNavHost
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = MaterialTheme.colorScheme.error
                                 )
                             ) {
-                                Text("Register This Device")
+                                Text("লগইন পেজে যান (Go to Login)")
                             }
                         }
                     }

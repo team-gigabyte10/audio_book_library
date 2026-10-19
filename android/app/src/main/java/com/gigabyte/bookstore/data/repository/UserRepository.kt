@@ -22,6 +22,14 @@ sealed class VerificationResult {
     data class Error(val message: String) : VerificationResult()
 }
 
+sealed class LoginResult {
+    data class Success(val user: User) : LoginResult()
+    object NotFound : LoginResult()
+    object DeviceMismatch : LoginResult()
+    object Offline : LoginResult()
+    data class Error(val message: String) : LoginResult()
+}
+
 class UserRepository(
     private val context: Context,
     private val appPreferences: AppPreferences
@@ -51,13 +59,11 @@ class UserRepository(
             val userDocRef = firestore.collection("users").document(normalizedEmail)
             val snapshot = userDocRef.get().await()
 
+            // Never overwrite an existing account: that would reset status, balance and unlocked bundles.
             if (snapshot.exists()) {
-                val existingDeviceId = snapshot.getString("deviceId") ?: ""
-                if (existingDeviceId.isNotBlank() && existingDeviceId != deviceId) {
-                    return@withContext Result.failure(
-                        Exception("Email is already registered on another device (ID: $existingDeviceId)")
-                    )
-                }
+                return@withContext Result.failure(
+                    Exception("এই ইমেইলে আগে থেকেই অ্যাকাউন্ট আছে। অনুগ্রহ করে লগইন করুন। (Account already exists — please log in.)")
+                )
             }
 
             // Referral code verification
@@ -133,6 +139,94 @@ class UserRepository(
         } catch (e: Exception) {
             e.printStackTrace()
             Result.failure(e)
+        }
+    }
+
+    /**
+     * Logs in with email + this phone's device ID (ANDROID_ID). The device ID is read here,
+     * never typed or shown to the user. Accounts have no password.
+     * - Account's deviceId matches this phone → success.
+     * - Account's deviceId is a different phone → DeviceMismatch (one phone per account).
+     * - Account has no deviceId yet (e.g. reset by an admin) → bound to this phone.
+     */
+    suspend fun loginWithEmail(email: String): LoginResult = withContext(Dispatchers.IO) {
+        if (!com.gigabyte.bookstore.data.util.NetworkUtils.isOnline(context)) {
+            return@withContext LoginResult.Offline
+        }
+        try {
+            val normalizedEmail = email.trim().lowercase()
+            val userDocRef = firestore.collection("users").document(normalizedEmail)
+            val snapshot = userDocRef.get().await()
+            if (!snapshot.exists()) {
+                return@withContext LoginResult.NotFound
+            }
+
+            val deviceId = getDeviceId()
+            val registeredDeviceId = snapshot.getString("deviceId") ?: ""
+            if (registeredDeviceId.isNotBlank() && registeredDeviceId != deviceId) {
+                return@withContext LoginResult.DeviceMismatch
+            }
+
+            val name = snapshot.getString("name") ?: ""
+            val status = snapshot.getString("status") ?: "trial"
+            val balance = snapshot.getDouble("balance") ?: 0.0
+            var referralCode = snapshot.getString("referralCode") ?: ""
+            val currentDate = User.getCurrentFormattedDate()
+
+            val updates = hashMapOf<String, Any>("lastLoginAt" to currentDate, "deviceId" to deviceId)
+            if (referralCode.isBlank()) {
+                referralCode = User.generateReferralCode(name)
+                updates["referralCode"] = referralCode
+            }
+            try {
+                userDocRef.update(updates).await()
+            } catch (e: Exception) {
+                // Non-critical: the session below still works
+            }
+
+            val rawBundles = (snapshot.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val bundlesSet = rawBundles.toMutableSet()
+            if (status.equals("paid", ignoreCase = true) && bundlesSet.isEmpty()) {
+                bundlesSet.add("audiobook_bundle")
+            }
+
+            val user = User(
+                name = name,
+                email = normalizedEmail,
+                institute = snapshot.getString("institute") ?: "",
+                address = snapshot.getString("address") ?: "",
+                phone = snapshot.getString("phone"),
+                deviceId = deviceId,
+                status = status,
+                balance = balance,
+                referralCode = referralCode,
+                referredBy = snapshot.getString("referredBy"),
+                referralRewardPaid = snapshot.getBoolean("referralRewardPaid") ?: false,
+                unlockedBundles = bundlesSet.toList(),
+                createdAt = snapshot.getString("createdAt") ?: "",
+                lastLoginAt = currentDate
+            )
+
+            appPreferences.saveUserSession(
+                name = user.name,
+                email = user.email,
+                institute = user.institute,
+                address = user.address,
+                phone = user.phone,
+                deviceId = user.deviceId,
+                status = user.status,
+                balance = user.balance,
+                referralCode = user.referralCode,
+                referredBy = user.referredBy,
+                createdAt = user.createdAt,
+                lastLoginAt = user.lastLoginAt
+            )
+            appPreferences.setUnlockedBundles(bundlesSet)
+
+            LoginResult.Success(user)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            LoginResult.Error(e.message ?: "Login failed")
         }
     }
 

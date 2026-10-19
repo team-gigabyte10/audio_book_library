@@ -108,7 +108,8 @@ fun LibraryScreen(
     onOpenPayment: () -> Unit,
     onOpenPaymentApproval: () -> Unit,
     onOpenReferral: () -> Unit,
-    onNavigateToHome: (() -> Unit)? = null
+    onNavigateToHome: (() -> Unit)? = null,
+    onLogout: (() -> Unit)? = null
 ) {
     val books: List<Book> by viewModel.books.collectAsStateWithLifecycle()
     val lastPlayed: PlaybackHistoryEntity? by viewModel.lastPlayed.collectAsStateWithLifecycle()
@@ -222,6 +223,12 @@ fun LibraryScreen(
                 },
                 onLibraryClick = {
                     scope.launch { drawerState.close() }
+                },
+                onLogoutClick = onLogout?.let { logout ->
+                    {
+                        scope.launch { drawerState.close() }
+                        logout()
+                    }
                 }
             )
         }

@@ -1,6 +1,7 @@
 package com.gigabyte.bookstore.presentation.navigation
 
 sealed class Screen(val route: String) {
+    object Login : Screen("login")
     object Register : Screen("register")
     object Sync : Screen("sync")
     object Home : Screen("home")

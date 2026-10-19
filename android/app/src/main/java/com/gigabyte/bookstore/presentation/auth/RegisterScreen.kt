@@ -29,6 +29,7 @@ import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 @Composable
 fun RegisterScreen(
     onRegistrationSuccess: () -> Unit,
+    onNavigateToLogin: (() -> Unit)? = null,
     viewModel: RegisterViewModel = viewModel()
 ) {
     var name by remember { mutableStateOf("") }
@@ -247,6 +248,16 @@ fun RegisterScreen(
                     Icon(imageVector = Icons.Default.Check, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(text = "Register & Activate Trial", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+
+            if (onNavigateToLogin != null) {
+                Spacer(modifier = Modifier.height(12.dp))
+                TextButton(onClick = onNavigateToLogin, modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        text = "আগে থেকেই অ্যাকাউন্ট আছে? লগইন করুন (Already registered? Log in)",
+                        fontWeight = FontWeight.SemiBold
+                    )
                 }
             }
 

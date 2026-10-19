@@ -22,8 +22,6 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     private val appPreferences = (application as BanglaAudiobookApp).appPreferences
     private val userRepository = UserRepository(application, appPreferences)
 
-    val deviceId: String = userRepository.getDeviceId()
-
     private val _uiState = MutableStateFlow<RegisterUiState>(RegisterUiState.Idle)
     val uiState: StateFlow<RegisterUiState> = _uiState.asStateFlow()
 

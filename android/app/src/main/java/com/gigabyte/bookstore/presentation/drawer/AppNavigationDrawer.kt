@@ -10,7 +10,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -41,8 +46,27 @@ fun AppDrawerContent(
     onAboutUsClick: () -> Unit,
     onHomeClick: (() -> Unit)? = null,
     onLibraryClick: (() -> Unit)? = null,
+    onLogoutClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
+    var showLogoutConfirm by remember { mutableStateOf(false) }
+    if (showLogoutConfirm && onLogoutClick != null) {
+        AlertDialog(
+            onDismissRequest = { showLogoutConfirm = false },
+            title = { Text("লগআউট করবেন?") },
+            text = { Text("আবার ব্যবহার করতে আপনার ইমেইল দিয়ে লগইন করতে হবে। আপনার অ্যাকাউন্ট ও কেনা বান্ডেল ঠিক থাকবে।") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showLogoutConfirm = false
+                    onLogoutClick()
+                }) { Text("লগআউট") }
+            },
+            dismissButton = {
+                TextButton(onClick = { showLogoutConfirm = false }) { Text("বাতিল") }
+            }
+        )
+    }
+
     val isDark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
     val actualStatusBarColor = if (isDark) DarkStatusBarColor else LightStatusBarColor
 
@@ -318,6 +342,14 @@ fun AppDrawerContent(
                     title = "আমাদের সম্পর্কে (About Us)",
                     onClick = onAboutUsClick
                 )
+
+                if (onLogoutClick != null) {
+                    DrawerMenuItem(
+                        icon = Icons.AutoMirrored.Filled.Logout,
+                        title = "লগআউট (Logout)",
+                        onClick = { showLogoutConfirm = true }
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(16.dp))
             }

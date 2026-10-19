@@ -107,6 +107,7 @@ fun HomeScreen(
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
     onNavigateToLearnEnglish: () -> Unit = {},
+    onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -207,6 +208,12 @@ fun HomeScreen(
                 onLibraryClick = {
                     scope.launch { drawerState.close() }
                     onNavigateToLibrary()
+                },
+                onLogoutClick = onLogout?.let { logout ->
+                    {
+                        scope.launch { drawerState.close() }
+                        logout()
+                    }
                 }
             )
         }
