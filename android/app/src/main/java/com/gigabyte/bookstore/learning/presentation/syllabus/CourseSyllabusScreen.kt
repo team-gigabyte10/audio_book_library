@@ -109,7 +109,7 @@ fun CourseSyllabusScreen(
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var expandedParts by remember { mutableStateOf(setOf("en-foundations-p1", "en-foundations-p2")) }
+    var expandedParts by remember { mutableStateOf(emptySet<String>()) }
 
     Scaffold(
         topBar = {
@@ -163,12 +163,7 @@ fun CourseSyllabusScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // 1. Course Header Banner
-                    item {
-                        CourseSummaryHeader()
-                    }
-
-                    // 2. Self Presentation Speech Card (Only English monologue)
+                    // 1. Self Presentation Speech Card (Only English monologue)
                     item {
                         SelfPresentationCard(
                             onClick = { onOpenIntro("self_presentation.md") }
@@ -233,87 +228,7 @@ fun CourseSyllabusScreen(
     }
 }
 
-@Composable
-private fun CourseSummaryHeader() {
-    Card(
-        shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(1.5.dp, Color(0xFF1565C0).copy(alpha = 0.4f)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color(0xFF1565C0).copy(alpha = 0.16f),
-                            Color(0xFF0D47A1).copy(alpha = 0.06f)
-                        )
-                    )
-                )
-                .padding(16.dp)
-        ) {
-            Column {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Surface(
-                        color = Color(0xFF1565C0),
-                        shape = RoundedCornerShape(8.dp)
-                    ) {
-                        Text(
-                            text = "🇬🇧 স্পোকেন ইংলিশ ফাউন্ডেশন",
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        )
-                    }
-                    Text(
-                        text = "১০০% ফ্রি",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = GoldenAccent
-                    )
-                }
 
-                Spacer(modifier = Modifier.height(10.dp))
-
-                Text(
-                    text = "সহজ নিয়মে কথা বলুন (Be-Verbs & Self Presentation)",
-                    fontSize = 18.sp,
-                    lineHeight = 25.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(
-                    text = "পেশা, পরিচয়, শারীরিক ও মানসিক অবস্থা এবং সম্পূর্ণ আত্মপরিচয় উপস্থাপনা নেটিভ অডিও দিয়ে অনুশীলন করুন।",
-                    fontSize = 13.sp,
-                    lineHeight = 18.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Pill(text = "📚 ২টি অংশ")
-                    Pill(text = "🎧 ৪টি লেসন")
-                    Pill(text = "💬 ৫৭টি বাক্য")
-                }
-            }
-        }
-    }
-}
 
 @Composable
 private fun SelfPresentationCard(
@@ -483,37 +398,7 @@ private fun SyllabusPartHeaderCard(
                 Spacer(modifier = Modifier.width(14.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(6.dp)
-                    ) {
-                        Surface(
-                            color = theme.accentColor,
-                            shape = RoundedCornerShape(6.dp)
-                        ) {
-                            Text(
-                                text = "অংশ 0${part.order}",
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White,
-                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                            )
-                        }
-                        Surface(
-                            color = theme.accentColor.copy(alpha = 0.2f),
-                            shape = RoundedCornerShape(6.dp)
-                        ) {
-                            Text(
-                                text = "লেভেল ${part.level}",
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = theme.accentColor,
-                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                            )
-                        }
-                    }
 
-                    Spacer(modifier = Modifier.height(6.dp))
 
                     Text(
                         text = part.titleBn.orEmpty(),

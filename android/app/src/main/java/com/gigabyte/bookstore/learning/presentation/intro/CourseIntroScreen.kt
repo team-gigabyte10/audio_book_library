@@ -315,15 +315,6 @@ fun CourseIntroScreen(
                         ) {
                             Icon(Icons.Default.SkipNext, contentDescription = "পরবর্তী")
                         }
-
-                        Spacer(Modifier.width(12.dp))
-
-                        // Stop Button
-                        if (isPlaying) {
-                            IconButton(onClick = { stopAudio() }) {
-                                Icon(Icons.Default.Stop, contentDescription = "বন্ধ করুন", tint = MaterialTheme.colorScheme.error)
-                            }
-                        }
                     }
                 }
             }
