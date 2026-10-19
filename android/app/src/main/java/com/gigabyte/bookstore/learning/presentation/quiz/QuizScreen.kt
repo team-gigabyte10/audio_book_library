@@ -212,7 +212,7 @@ private fun ResultPanel(
         Spacer(Modifier.height(8.dp))
         Text(
             if (state.passed) "অভিনন্দন! লেসনটি সম্পন্ন হয়েছে।"
-            else "পাস করতে ${LessonUnlock.PASS_SCORE}% লাগবে। লেসনটি আবার শুনে চেষ্টা করুন।",
+            else "লেসনটি সম্পন্ন করতে ${LessonUnlock.PASS_SCORE}% লাগবে। আবার শুনে চেষ্টা করুন, অথবা পরের লেসনে যান।",
             style = MaterialTheme.typography.titleMedium
         )
         if (state.questions.isNotEmpty()) {
@@ -220,7 +220,7 @@ private fun ResultPanel(
         }
         Spacer(Modifier.height(24.dp))
         val next = state.nextLessonId
-        if (state.passed && next != null) {
+        if (next != null) {
             Button(onClick = { onOpenNextLesson(next) }, modifier = Modifier.fillMaxWidth()) { Text("পরের লেসন") }
             Spacer(Modifier.height(8.dp))
         }

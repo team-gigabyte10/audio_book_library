@@ -5,26 +5,19 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.learning.data.LessonSummary
-import com.gigabyte.bookstore.learning.domain.model.LessonUnlock
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class PartLessonsViewModel(application: Application, partId: String) : AndroidViewModel(application) {
 
     private val app = application as BanglaAudiobookApp
-    private val preferences = app.preferences
-
-    private val purchased = combine(preferences.unlockedBundles, preferences.userStatus) { _, _ ->
-        preferences.isBundleUnlocked(LessonUnlock.BUNDLE_ID)
-    }
 
     /** null while loading. */
-    val lessons: StateFlow<List<LessonSummary>?> = app.learningRepository.observeLessons(partId, purchased)
+    val lessons: StateFlow<List<LessonSummary>?> = app.learningRepository.observeLessons(partId)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
     private val _title = MutableStateFlow("")

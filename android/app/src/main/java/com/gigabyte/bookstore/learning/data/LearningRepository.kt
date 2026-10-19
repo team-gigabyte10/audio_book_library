@@ -8,13 +8,10 @@ import com.gigabyte.bookstore.learning.data.db.LessonProgressEntity
 import com.gigabyte.bookstore.learning.domain.model.LadderStep
 import com.gigabyte.bookstore.learning.domain.model.LessonItem
 import com.gigabyte.bookstore.learning.domain.model.LessonState
-import com.gigabyte.bookstore.learning.domain.model.LessonStatus
 import com.gigabyte.bookstore.learning.domain.model.LessonUnlock
 import com.gigabyte.bookstore.learning.domain.model.Level
-import com.gigabyte.bookstore.learning.domain.model.LockReason
 import com.gigabyte.bookstore.learning.domain.model.Token
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 
 data class PartSummary(
@@ -34,7 +31,7 @@ data class LessonSummary(
     val titleTarget: String?,
     val itemCount: Int,
     val bestScore: Int,
-    val status: LessonStatus
+    val state: LessonState
 )
 
 data class LessonContent(
@@ -58,31 +55,31 @@ class LearningRepository(private val dao: LearningDao) {
                 titleBn = row.part.titleBn,
                 titleTarget = row.part.titleTarget,
                 lessonCount = row.lessonCount,
-                isEnabled = row.lessonCount > 0 && row.part.order in LessonUnlock.ENABLED_PARTS
+                // Every part with at least one visible lesson is open (Part 0 has no content yet).
+                isEnabled = row.lessonCount > 0
             )
         }
     }
 
-    /** Lessons of a part that pass the quality gate, with their unlock status. Re-emits when progress changes. */
-    fun observeLessons(partId: String, purchased: Flow<Boolean>): Flow<List<LessonSummary>> =
-        combine(dao.observeProgress(), purchased) { progress, isPurchased -> progress to isPurchased }
-            .map { (progress, isPurchased) ->
-                val byLesson = progress.associateBy { it.lessonId }
-                val lessons = dao.getLessonsWithCount(partId)
-                    .filter { it.visibleCount >= LessonUnlock.MIN_VISIBLE_ITEMS }
-                val statuses = LessonUnlock.compute(lessons.map { byLesson[it.lesson.id]?.state }, isPurchased)
-                lessons.mapIndexed { index, row ->
+    /** Lessons of a part that pass the quality gate, with their progress. Re-emits when progress changes. */
+    fun observeLessons(partId: String): Flow<List<LessonSummary>> =
+        dao.observeProgress().map { progress ->
+            val byLesson = progress.associateBy { it.lessonId }
+            dao.getLessonsWithCount(partId)
+                .filter { it.visibleCount >= LessonUnlock.MIN_VISIBLE_ITEMS }
+                .map { row ->
+                    val saved = byLesson[row.lesson.id]
                     LessonSummary(
                         id = row.lesson.id,
                         order = row.lesson.order,
                         titleBn = row.lesson.titleBn,
                         titleTarget = row.lesson.titleTarget,
                         itemCount = row.visibleCount,
-                        bestScore = byLesson[row.lesson.id]?.bestScore ?: 0,
-                        status = statuses[index]
+                        bestScore = saved?.bestScore ?: 0,
+                        state = LessonUnlock.stateOf(saved?.state)
                     )
                 }
-            }
+        }
 
     suspend fun getPartTitle(partId: String): String? = dao.getPart(partId)?.let { it.titleBn ?: it.titleTarget }
 
@@ -186,6 +183,3 @@ fun ItemEntity.toLessonItem(): LessonItem {
         speaker = speaker
     )
 }
-
-val LessonStatus.isPlayable: Boolean get() = state != LessonState.LOCKED
-val LessonStatus.needsPurchase: Boolean get() = lockReason == LockReason.PURCHASE_REQUIRED

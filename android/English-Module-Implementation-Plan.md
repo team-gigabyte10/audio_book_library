@@ -11,10 +11,10 @@ Code lives in `app/src/main/java/com/gigabyte/bookstore/learning/`. Tests are in
 
 **Built:** streaming importer → `LearningDatabase`, quality gate, ladder queue builder, two-instance `TtsStepEngine`, `LessonPlayer`, Learn home / part / lesson (Listen + Speak modes, word-by-word, settings sheet) / quiz screens, lesson unlock + bundle gate, Home English card → `learn` route, Bangla voice prompt on every app open.
 
-**Defaults chosen for the open decisions (§7):**
-1. The first lesson of each part is free; the rest need the `english_course` bundle.
+**Decisions for the open questions (§7):**
+1. **No locks** (user decision): every lesson in every part is open. There is no purchase gate and no required order. A quiz score of 70% or more only marks a lesson as done.
 2. The Home English card opens the new module. The Firestore course sheet is still reachable from banners.
-3. Parts 1–4 are shown behind the §6 quality gate.
+3. All parts with content are open (Parts 1–9). The §6 quality gate still hides flagged items and items without Bangla. Part 0 has no content, so it shows "শীঘ্রই আসছে".
 4. Mistake reports are deferred.
 
 **Deviations from this plan:**
