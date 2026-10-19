@@ -30,7 +30,7 @@ data class LessonUiState(
     val isLoading: Boolean = true,
     val content: LessonContent? = null,
     val mode: LessonMode = LessonMode.LISTEN,
-    val showIntro: Boolean = true,
+    val showIntro: Boolean = false,
     val notFound: Boolean = false
 )
 
@@ -72,8 +72,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
                 return@launch
             }
             val startItem = repository.getLastItemIndex(lessonId).coerceIn(0, content.items.lastIndex)
-            val hasIntro = !content.lesson.introBn.isNullOrBlank() || content.structure.isNotEmpty()
-            _uiState.value = LessonUiState(isLoading = false, content = content, showIntro = hasIntro)
+            _uiState.value = LessonUiState(isLoading = false, content = content, showIntro = false)
             rebuildQueue(startItem)
 
             // Rebuild when settings or Bangla voice availability change, keeping the current item.

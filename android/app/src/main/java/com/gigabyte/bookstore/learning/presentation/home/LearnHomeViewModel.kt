@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.learning.data.ContinueLesson
 import com.gigabyte.bookstore.learning.data.PartSummary
+import com.gigabyte.bookstore.learning.data.PartWithLessons
 import com.gigabyte.bookstore.learning.data.content.ContentState
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -17,6 +18,9 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
     private val repository = app.learningRepository
 
     val contentState: StateFlow<ContentState> = app.learningContent.state
+
+    val syllabus: StateFlow<List<PartWithLessons>> = repository.observeSyllabus()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val parts: StateFlow<List<PartSummary>> = repository.observeParts()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())

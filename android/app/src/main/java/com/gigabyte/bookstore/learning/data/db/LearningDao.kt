@@ -70,6 +70,14 @@ interface LearningDao {
     )
     suspend fun getLessonsWithCount(partId: String): List<LessonWithCount>
 
+    @Query(
+        """
+        SELECT l.*, (SELECT COUNT(*) FROM items i WHERE i.lessonId = l.id AND $VISIBLE_ITEM) AS visibleCount
+        FROM lessons l ORDER BY l.sort_order
+        """
+    )
+    suspend fun getAllLessonsWithCount(): List<LessonWithCount>
+
     @Query("SELECT * FROM lessons WHERE id = :lessonId")
     suspend fun getLesson(lessonId: String): LessonEntity?
 

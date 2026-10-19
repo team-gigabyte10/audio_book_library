@@ -12,6 +12,7 @@ import com.gigabyte.bookstore.learning.domain.model.LessonUnlock
 import com.gigabyte.bookstore.learning.domain.model.Level
 import com.gigabyte.bookstore.learning.domain.model.Token
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 
 data class PartSummary(
@@ -32,6 +33,23 @@ data class LessonSummary(
     val itemCount: Int,
     val bestScore: Int,
     val state: LessonState
+)
+
+data class LessonItemSummary(
+    val id: String,
+    val partId: String,
+    val order: Int,
+    val titleBn: String?,
+    val titleTarget: String?,
+    val introBn: String?,
+    val itemCount: Int,
+    val bestScore: Int,
+    val state: LessonState
+)
+
+data class PartWithLessons(
+    val part: PartSummary,
+    val lessons: List<LessonItemSummary>
 )
 
 data class LessonContent(
@@ -79,6 +97,42 @@ class LearningRepository(private val dao: LearningDao) {
                         state = LessonUnlock.stateOf(saved?.state)
                     )
                 }
+        }
+
+    /** Entire course syllabus: each Part bundled with its accessible Lessons. */
+    fun observeSyllabus(): Flow<List<PartWithLessons>> =
+        dao.observeParts().combine(dao.observeProgress()) { parts, progress ->
+            val byLesson = progress.associateBy { it.lessonId }
+            val allLessons = dao.getAllLessonsWithCount()
+                .filter { it.visibleCount >= LessonUnlock.MIN_VISIBLE_ITEMS }
+            val lessonsByPart = allLessons.groupBy { it.lesson.partId }
+
+            parts.map { row ->
+                val partSummary = PartSummary(
+                    id = row.part.id,
+                    order = row.part.order,
+                    level = row.part.level,
+                    titleBn = row.part.titleBn,
+                    titleTarget = row.part.titleTarget,
+                    lessonCount = row.lessonCount,
+                    isEnabled = row.lessonCount > 0
+                )
+                val partLessons = lessonsByPart[row.part.id].orEmpty().map { l ->
+                    val saved = byLesson[l.lesson.id]
+                    LessonItemSummary(
+                        id = l.lesson.id,
+                        partId = l.lesson.partId,
+                        order = l.lesson.order,
+                        titleBn = l.lesson.titleBn,
+                        titleTarget = l.lesson.titleTarget,
+                        introBn = l.lesson.introBn,
+                        itemCount = l.visibleCount,
+                        bestScore = saved?.bestScore ?: 0,
+                        state = LessonUnlock.stateOf(saved?.state)
+                    )
+                }
+                PartWithLessons(part = partSummary, lessons = partLessons)
+            }
         }
 
     suspend fun getPartTitle(partId: String): String? = dao.getPart(partId)?.let { it.titleBn ?: it.titleTarget }
