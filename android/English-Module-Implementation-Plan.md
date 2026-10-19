@@ -9,7 +9,7 @@ Design references: `Learning-Module-Guideline.md` (primary), `LanguageCourse.md`
 
 Code lives in `app/src/main/java/com/gigabyte/bookstore/learning/`. Tests are in `app/src/test/java/com/gigabyte/bookstore/learning/`.
 
-**Built:** streaming importer → `LearningDatabase`, quality gate, ladder queue builder, two-instance `TtsStepEngine`, `LessonPlayer`, Learn home / part / lesson (Listen + Speak modes, word-by-word, settings sheet) / quiz screens, lesson unlock + bundle gate, Home English card → `learn` route, Bangla voice prompt on every app open.
+**Built:** streaming importer → `LearningDatabase`, quality gate, ladder queue builder, single-engine `TtsStepEngine`, `LessonPlayer`, Learn home / part / lesson (Listen + Speak modes, word-by-word, settings sheet) / quiz screens, Home English card → `learn` route, Bangla voice prompt on every app open.
 
 **Decisions for the open questions (§7):**
 1. **No locks** (user decision): every lesson in every part is open. There is no purchase gate and no required order. A quiz score of 70% or more only marks a lesson as done.
@@ -131,7 +131,7 @@ sealed interface PlaybackStep {
   - It skips the `bn` step when `bn` is null or Bangla is turned off.
   - Word-by-word mode plays each token, then cumulative prefixes (`I` → `I eat` → `I eat rice`), then the full ladder.
 - `StepAudioEngine` interface with `suspend fun play(step)`. The only real implementation is **`TtsStepEngine`**; the interface exists so `LessonPlayer` can be unit-tested with a fake:
-  - Two `TextToSpeech` instances (EN `Locale.US` and BN with the existing fallback chain), so the en↔bn alternation doesn't call `setLanguage` for every step.
+  - **One** `TextToSpeech` instance for both languages (user decision: no dual TTS engines). It resolves the EN (`Locale.US` first) and BN (`bn-BD`, `bn-IN`, `bn`) locale and best offline voice once at start, then switches language only when a step needs a different language from the previous step.
   - Rate comes from `setSpeechRate(step.rate)`, so 0.6x is the TTS engine speaking slowly. Pauses use `playSilentUtterance`.
   - It suspends until `UtteranceProgressListener.onDone`, with a timeout guard.
   - **English voice:** on first open, pick the best installed `en-US` voice (prefer `Voice.QUALITY_HIGH`/`VERY_HIGH`, not `isNetworkConnectionRequired`) and let the learner change it in settings. If no English voice is installed, show a one-time prompt to install one (`ACTION_INSTALL_TTS_DATA`).
@@ -206,7 +206,6 @@ learn/review                  Review (due SRS cards through the same ladder)
 
 ### Phase 4: Parts 7–9
 - Enable Parts 7–9 after review. In Part 9, show `speaker` labels and split long interview answers into sentences.
-- In Part 9 dialogues, use two different installed English voices for the two speakers if the device has more than one.
 
 ---
 

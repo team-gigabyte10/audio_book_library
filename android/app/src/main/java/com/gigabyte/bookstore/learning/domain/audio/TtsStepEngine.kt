@@ -28,7 +28,8 @@ interface StepAudioEngine {
 
 /**
  * On-device TTS only (no audio files, by design).
- * Two TextToSpeech instances so alternating EN ↔ BN never calls setLanguage per step.
+ * One TextToSpeech instance for both languages: it switches language (and voice)
+ * only when a step needs a different language from the previous step.
  */
 class TtsStepEngine(private val context: Context) : StepAudioEngine {
 
@@ -38,52 +39,43 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private val _banglaAvailable = MutableStateFlow<Boolean?>(null)
     override val banglaAvailable: StateFlow<Boolean?> = _banglaAvailable.asStateFlow()
 
-    private var english = Engine(listOf(Locale.US, Locale.UK, Locale.ENGLISH), _englishAvailable)
-    private var bangla = Engine(BANGLA_LOCALES, _banglaAvailable)
+    private var engine = Engine()
 
-    override suspend fun speak(text: String, lang: SpeechLang, rate: Float) {
-        val engine = if (lang == SpeechLang.EN) english else bangla
-        engine.speak(text, rate)
-    }
+    override suspend fun speak(text: String, lang: SpeechLang, rate: Float) = engine.speak(text, lang, rate)
 
-    override fun stop() {
-        english.stop()
-        bangla.stop()
-    }
+    override fun stop() = engine.stop()
 
-    /** Re-checks the Bangla voice, e.g. after the user returns from the install-voice screen. */
+    /**
+     * Restarts the engine so it sees newly installed voice data,
+     * e.g. after the user returns from the install-voice screen.
+     */
     fun refreshBangla() {
-        bangla.shutdown()
+        engine.shutdown()
+        _englishAvailable.value = null
         _banglaAvailable.value = null
-        bangla = Engine(BANGLA_LOCALES, _banglaAvailable)
+        engine = Engine()
     }
 
-    fun shutdown() {
-        english.shutdown()
-        bangla.shutdown()
-    }
+    fun shutdown() = engine.shutdown()
 
-    private inner class Engine(
-        private val locales: List<Locale>,
-        private val available: MutableStateFlow<Boolean?>
-    ) : TextToSpeech.OnInitListener {
+    private inner class Engine : TextToSpeech.OnInitListener {
 
         private val ready = CompletableDeferred<Boolean>()
         private val pending = ConcurrentHashMap<String, CancellableContinuation<Unit>>()
         private val tts: TextToSpeech = TextToSpeech(context.applicationContext, this)
 
+        /** Resolved once at init: the locale and best offline voice for each language (null = not installed). */
+        private val locales = mutableMapOf<SpeechLang, Locale>()
+        private val voices = mutableMapOf<SpeechLang, Voice>()
+        private var currentLang: SpeechLang? = null
+
         override fun onInit(status: Int) {
             if (status != TextToSpeech.SUCCESS) {
-                finishInit(false)
+                finishInit(ok = false)
                 return
             }
-            val locale = locales.firstOrNull { isAvailable(tts.isLanguageAvailable(it)) }
-            if (locale == null) {
-                finishInit(false)
-                return
-            }
-            tts.language = locale
-            bestOfflineVoice(locale)?.let { voice -> runCatching { tts.voice = voice } }
+            resolve(SpeechLang.EN, ENGLISH_LOCALES)
+            resolve(SpeechLang.BN, BANGLA_LOCALES)
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String?) = Unit
                 override fun onDone(utteranceId: String?) = complete(utteranceId)
@@ -93,11 +85,18 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 override fun onError(utteranceId: String?, errorCode: Int) = complete(utteranceId)
                 override fun onStop(utteranceId: String?, interrupted: Boolean) = complete(utteranceId)
             })
-            finishInit(true)
+            finishInit(ok = true)
+        }
+
+        private fun resolve(lang: SpeechLang, candidates: List<Locale>) {
+            val locale = candidates.firstOrNull { isAvailable(tts.isLanguageAvailable(it)) } ?: return
+            locales[lang] = locale
+            bestOfflineVoice(locale)?.let { voices[lang] = it }
         }
 
         private fun finishInit(ok: Boolean) {
-            available.value = ok
+            _englishAvailable.value = ok && SpeechLang.EN in locales
+            _banglaAvailable.value = ok && SpeechLang.BN in locales
             ready.complete(ok)
         }
 
@@ -114,8 +113,23 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 .maxByOrNull { it.quality }
         }.getOrNull()
 
-        suspend fun speak(text: String, rate: Float) {
+        /** Switches the single engine to [lang]. Returns false if that language is not installed. */
+        private fun switchTo(lang: SpeechLang): Boolean {
+            if (lang == currentLang) return true
+            val locale = locales[lang] ?: return false
+            val voice = voices[lang]
+            val switched = if (voice != null) {
+                runCatching { tts.voice = voice }.isSuccess || runCatching { tts.language = locale }.isSuccess
+            } else {
+                runCatching { tts.language = locale }.isSuccess
+            }
+            if (switched) currentLang = lang
+            return switched
+        }
+
+        suspend fun speak(text: String, lang: SpeechLang, rate: Float) {
             if (text.isBlank() || !ready.await()) return
+            if (!switchTo(lang)) return // language not installed: skip this step
             tts.setSpeechRate(rate)
             // Guard against engines that never call onDone.
             val timeoutMs = 4_000L + (text.length * 150L / rate.coerceAtLeast(0.3f)).toLong()
@@ -148,6 +162,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
 
     companion object {
         private val counter = AtomicLong()
+        val ENGLISH_LOCALES = listOf(Locale.US, Locale.UK, Locale.ENGLISH)
         val BANGLA_LOCALES = listOf(Locale("bn", "BD"), Locale("bn", "IN"), Locale("bn"))
 
         fun isAvailable(result: Int) = result == TextToSpeech.LANG_AVAILABLE ||
