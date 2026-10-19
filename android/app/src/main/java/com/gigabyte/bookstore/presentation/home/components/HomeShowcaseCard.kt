@@ -181,14 +181,18 @@ fun HomeShowcaseCard(
                         if (!statsText.isNullOrBlank()) {
                             Text(
                                 text = statsText,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                modifier = Modifier.weight(1f, fill = false),
                                 style = MaterialTheme.typography.labelSmall.copy(
                                     fontSize = 11.sp,
                                     color = GoldenAccent,
                                     fontWeight = FontWeight.Medium
                                 )
                             )
+                            Spacer(modifier = Modifier.width(8.dp))
                         } else {
-                            Spacer(modifier = Modifier.width(1.dp))
+                            Spacer(modifier = Modifier.weight(1f))
                         }
 
                         Surface(
@@ -205,6 +209,8 @@ fun HomeShowcaseCard(
                             ) {
                                 Text(
                                     text = ctaText,
+                                    maxLines = 1,
+                                    softWrap = false,
                                     style = MaterialTheme.typography.labelSmall.copy(
                                         fontWeight = FontWeight.Bold,
                                         color = Color.White,

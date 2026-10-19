@@ -108,6 +108,6 @@ class ContentImporter(
     }
 
     companion object {
-        const val ASSET_NAME = "ESCB-Latest-Version.json"
+        const val ASSET_NAME = "spoken_english_foundations.json"
     }
 }

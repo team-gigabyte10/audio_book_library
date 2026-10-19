@@ -1,0 +1,2469 @@
+{
+  "schema_version": 1,
+  "course": {
+    "id": "en-spoken-foundations",
+    "target_lang": "en",
+    "base_lang": "bn",
+    "title_bn": "স্পোকেন ইংলিশ ফাউন্ডেশন কোর্স",
+    "title_target": "Spoken English Foundation Course",
+    "source": "Curated Spoken English Curriculum",
+    "note": "Profession identities, subject variations, personality traits with be-verbs, and self-presentation."
+  },
+  "ladder_default": [
+    {
+      "play": "target",
+      "speed": 0.6
+    },
+    {
+      "play": "bn",
+      "speed": 1.0
+    },
+    {
+      "play": "target",
+      "speed": 0.6
+    },
+    {
+      "play": "target",
+      "speed": 0.8
+    },
+    {
+      "play": "target",
+      "speed": 1.0
+    },
+    {
+      "play": "target",
+      "speed": 1.2,
+      "min_level": "B1"
+    },
+    {
+      "pause_ms": 1500
+    }
+  ],
+  "stats": {
+    "lessons": 5,
+    "items": 69
+  },
+  "parts": [
+    {
+      "id": "en-foundations-p1",
+      "order": 1,
+      "level": "A1",
+      "title_bn": "পেশা ও পরিচয় (Be-Verbs: Professions)",
+      "title_target": "Professions & Identity",
+      "lessons": [
+        {
+          "id": "en-foundations-l01",
+          "order": 1,
+          "title_bn": "আমার পেশা (I am a/an...)",
+          "title_target": "My Profession (I am a/an...)",
+          "intro_bn": "নিজের পেশা বা পরিচয় প্রকাশ করতে 'I am a' অথবা 'I am an' ব্যবহার করা হয়। স্বরবর্ণ (vowel sound a, e, i, o, u) দিয়ে শুরু হওয়া শব্দের আগে 'an' এবং ব্যঞ্জনবর্ণের (consonant) আগে 'a' বসে।",
+          "structure": [
+            "Subject (I) + Be Verb (am) + Article (a/an) + Noun (Profession)"
+          ],
+          "source_section": "Foundations: Professions (I am)",
+          "items": [
+            {
+              "id": "en-prof-001",
+              "concept_id": "c-i-am-student",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a student.",
+              "bn": "আমি একজন ছাত্র।",
+              "bn_pron": "আই অ্যাম আ স্টুডেন্ট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "student",
+                  "bn": "ছাত্র"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-002",
+              "concept_id": "c-i-am-teacher",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a teacher.",
+              "bn": "আমি একজন শিক্ষক।",
+              "bn_pron": "আই অ্যাম আ টিচার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "teacher",
+                  "bn": "শিক্ষক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-003",
+              "concept_id": "c-i-am-politician",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a politician.",
+              "bn": "আমি একজন রাজনীতিবিদ।",
+              "bn_pron": "আই অ্যাম আ পলিটিশিয়ান।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "politician",
+                  "bn": "রাজনীতিবিদ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-004",
+              "concept_id": "c-i-am-businessman",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a businessman.",
+              "bn": "আমি একজন ব্যবসায়ী।",
+              "bn_pron": "আই অ্যাম আ বিজনেসম্যান।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "businessman",
+                  "bn": "ব্যবসায়ী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-005",
+              "concept_id": "c-i-am-doctor",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a doctor.",
+              "bn": "আমি একজন ডাক্তার।",
+              "bn_pron": "আই অ্যাম আ ডক্টর।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "doctor",
+                  "bn": "ডাক্তার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-006",
+              "concept_id": "c-i-am-engineer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am an engineer.",
+              "bn": "আমি একজন প্রকৌশলী।",
+              "bn_pron": "আই অ্যাম অ্যান ইঞ্জিনিয়ার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "an",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "engineer",
+                  "bn": "প্রকৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-007",
+              "concept_id": "c-i-am-lawyer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a lawyer.",
+              "bn": "আমি একজন আইনজীবী।",
+              "bn_pron": "আই অ্যাম আ লয়্যার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "lawyer",
+                  "bn": "আইনজীবী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-008",
+              "concept_id": "c-i-am-writer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a writer.",
+              "bn": "আমি একজন লেখক।",
+              "bn_pron": "আই অ্যাম আ রাইটার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "writer",
+                  "bn": "লেখক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-009",
+              "concept_id": "c-i-am-farmer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a farmer.",
+              "bn": "আমি একজন কৃষক।",
+              "bn_pron": "আই অ্যাম আ ফার্মার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "farmer",
+                  "bn": "কৃষক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-010",
+              "concept_id": "c-i-am-nurse",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a nurse.",
+              "bn": "আমি একজন সেবিকা (নার্স)।",
+              "bn_pron": "আই অ্যাম আ নার্স।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "nurse",
+                  "bn": "সেবিকা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-011",
+              "concept_id": "c-i-am-pilot",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a pilot.",
+              "bn": "আমি একজন বৈমানিক (পাইলট)।",
+              "bn_pron": "আই অ্যাম আ পাইলট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "pilot",
+                  "bn": "বৈমানিক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-012",
+              "concept_id": "c-i-am-artist",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am an artist.",
+              "bn": "আমি একজন শিল্পী।",
+              "bn_pron": "আই অ্যাম অ্যান আর্টিস্ট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "an",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "artist",
+                  "bn": "শিল্পী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-013",
+              "concept_id": "c-i-am-driver",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a driver.",
+              "bn": "আমি একজন চালক।",
+              "bn_pron": "আই অ্যাম আ ড্রাইভার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "driver",
+                  "bn": "চালক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-014",
+              "concept_id": "c-i-am-banker",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a banker.",
+              "bn": "আমি একজন ব্যাংকার।",
+              "bn_pron": "আই অ্যাম আ ব্যাংকার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "banker",
+                  "bn": "ব্যাংকার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-015",
+              "concept_id": "c-i-am-police-officer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a police officer.",
+              "bn": "আমি একজন পুলিশ কর্মকর্তা।",
+              "bn_pron": "আই অ্যাম আ পুলিশ অফিসার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "police",
+                  "bn": "পুলিশ"
+                },
+                {
+                  "t": "officer",
+                  "bn": "কর্মকর্তা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-016",
+              "concept_id": "c-i-am-journalist",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a journalist.",
+              "bn": "আমি একজন সাংবাদিক।",
+              "bn_pron": "আই অ্যাম আ জার্নালিস্ট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "journalist",
+                  "bn": "সাংবাদিক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-017",
+              "concept_id": "c-i-am-scientist",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a scientist.",
+              "bn": "আমি একজন বিজ্ঞানী।",
+              "bn_pron": "আই অ্যাম আ সায়েন্টিস্ট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "scientist",
+                  "bn": "বিজ্ঞানী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-018",
+              "concept_id": "c-i-am-chef",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a chef.",
+              "bn": "আমি একজন প্রধান বাবুর্চি (শেফ)।",
+              "bn_pron": "আই অ্যাম আ শেফ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "chef",
+                  "bn": "বাবুর্চি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-019",
+              "concept_id": "c-i-am-architect",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am an architect.",
+              "bn": "আমি একজন স্থপতি।",
+              "bn_pron": "আই অ্যাম অ্যান আর্কিটেক্ট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "an",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "architect",
+                  "bn": "স্থপতি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-prof-020",
+              "concept_id": "c-i-am-software-engineer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a software engineer.",
+              "bn": "আমি একজন সফটওয়্যার প্রকৌশলী।",
+              "bn_pron": "আই অ্যাম আ সফটওয়্যার ইঞ্জিনিয়ার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "software",
+                  "bn": "সফটওয়্যার"
+                },
+                {
+                  "t": "engineer",
+                  "bn": "প্রকৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l02",
+          "order": 2,
+          "title_bn": "অন্যদের পেশা (You, He, They, Nayem, Shefat)",
+          "title_target": "Others' Professions (You, He, They, Names)",
+          "intro_bn": "কর্তা (Subject) পরিবর্তনের সাথে সাথে Be-Verb পরিবর্তিত হয়: You এর সাথে are, He এর সাথে is, They এর সাথে are (এবং বহুবচন নাম), এবং একবচন নাম (Nayem, Shefat) এর সাথে is বসে।",
+          "structure": [
+            "You + are + a/an + Noun",
+            "He + is + a/an + Noun",
+            "They + are + Nouns (Plural)",
+            "Name + is + a/an + Noun"
+          ],
+          "source_section": "Foundations: Pronouns & Subject Variations",
+          "items": [
+            {
+              "id": "en-sub-001",
+              "concept_id": "c-you-are-doctor",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are a doctor.",
+              "bn": "তুমি একজন ডাক্তার।",
+              "bn_pron": "ইউ আর আ ডক্টর।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "doctor",
+                  "bn": "ডাক্তার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-002",
+              "concept_id": "c-you-are-engineer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are an engineer.",
+              "bn": "তুমি একজন প্রকৌশলী।",
+              "bn_pron": "ইউ আর অ্যান ইঞ্জিনিয়ার।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "an",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "engineer",
+                  "bn": "প্রকৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-003",
+              "concept_id": "c-you-are-journalist",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are a journalist.",
+              "bn": "আপনি একজন সাংবাদিক।",
+              "bn_pron": "ইউ আর আ জার্নালিস্ট।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "journalist",
+                  "bn": "সাংবাদিক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-004",
+              "concept_id": "c-he-is-writer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is a writer.",
+              "bn": "সে একজন লেখক।",
+              "bn_pron": "হি ইজ আ রাইটার।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "writer",
+                  "bn": "লেখক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-005",
+              "concept_id": "c-he-is-banker",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is a banker.",
+              "bn": "সে একজন ব্যাংকার।",
+              "bn_pron": "হি ইজ আ ব্যাংকার।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "banker",
+                  "bn": "ব্যাংকার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-006",
+              "concept_id": "c-he-is-police-officer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is a police officer.",
+              "bn": "তিনি একজন পুলিশ কর্মকর্তা।",
+              "bn_pron": "হি ইজ আ পুলিশ অফিসার।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "police",
+                  "bn": "পুলিশ"
+                },
+                {
+                  "t": "officer",
+                  "bn": "কর্মকর্তা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-007",
+              "concept_id": "c-they-are-teachers",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are teachers.",
+              "bn": "তারা শিক্ষক।",
+              "bn_pron": "দে আর টিচার্স।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "teachers",
+                  "bn": "শিক্ষকবৃন্দ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-008",
+              "concept_id": "c-they-are-doctors",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are doctors.",
+              "bn": "তারা ডাক্তার।",
+              "bn_pron": "দে আর ডক্টরস।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "doctors",
+                  "bn": "ডাক্তারগণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-009",
+              "concept_id": "c-they-are-farmers",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are farmers.",
+              "bn": "তারা কৃষক।",
+              "bn_pron": "দে আর ফার্মার্স।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "farmers",
+                  "bn": "কৃষকবৃন্দ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-010",
+              "concept_id": "c-nayem-is-pilot",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Nayem is a pilot.",
+              "bn": "নাঈম একজন বৈমানিক।",
+              "bn_pron": "নাঈম ইজ আ পাইলট।",
+              "tokens": [
+                {
+                  "t": "Nayem",
+                  "bn": "নাঈম"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "pilot",
+                  "bn": "বৈমানিক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-011",
+              "concept_id": "c-nayem-is-lawyer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Nayem is a lawyer.",
+              "bn": "নাঈম একজন আইনজীবী।",
+              "bn_pron": "নাঈম ইজ আ লয়্যার।",
+              "tokens": [
+                {
+                  "t": "Nayem",
+                  "bn": "নাঈম"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "lawyer",
+                  "bn": "আইনজীবী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-012",
+              "concept_id": "c-nayem-is-businessman",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Nayem is a businessman.",
+              "bn": "নাঈম একজন ব্যবসায়ী।",
+              "bn_pron": "নাঈম ইজ আ বিজনেসম্যান।",
+              "tokens": [
+                {
+                  "t": "Nayem",
+                  "bn": "নাঈম"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "businessman",
+                  "bn": "ব্যবসায়ী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-013",
+              "concept_id": "c-shefat-is-architect",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Shefat is an architect.",
+              "bn": "শেফাত একজন স্থপতি।",
+              "bn_pron": "শেফাত ইজ অ্যান আর্কিটেক্ট।",
+              "tokens": [
+                {
+                  "t": "Shefat",
+                  "bn": "শেফাত"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "an",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "architect",
+                  "bn": "স্থপতি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-014",
+              "concept_id": "c-shefat-is-software-engineer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Shefat is a software engineer.",
+              "bn": "শেফাত একজন সফটওয়্যার প্রকৌশলী।",
+              "bn_pron": "শেফাত ইজ আ সফটওয়্যার ইঞ্জিনিয়ার।",
+              "tokens": [
+                {
+                  "t": "Shefat",
+                  "bn": "শেফাত"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "software",
+                  "bn": "সফটওয়্যার"
+                },
+                {
+                  "t": "engineer",
+                  "bn": "প্রকৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-sub-015",
+              "concept_id": "c-shefat-is-scientist",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Shefat is a scientist.",
+              "bn": "শেফাত একজন বিজ্ঞানী।",
+              "bn_pron": "শেফাত ইজ আ সায়েন্টিস্ট।",
+              "tokens": [
+                {
+                  "t": "Shefat",
+                  "bn": "শেফাত"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "scientist",
+                  "bn": "বিজ্ঞানী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p2",
+      "order": 2,
+      "level": "A2",
+      "title_bn": "ব্যক্তিত্ব ও গুণাবলী (Personality & Traits)",
+      "title_target": "Personality & Character Traits",
+      "lessons": [
+        {
+          "id": "en-foundations-l03",
+          "order": 1,
+          "title_bn": "আমার ব্যক্তিত্ব (I am + Adjective)",
+          "title_target": "My Personality (I am + Adjective)",
+          "intro_bn": "নিজের বৈশিষ্ট্য বা স্বভাব প্রকাশ করতে Be-Verb (am) এর পরে সরাসরি Adjective বসে। এতে কোনো article (a/an) প্রয়োজন হয় না।",
+          "structure": [
+            "Subject (I) + am + Adjective"
+          ],
+          "source_section": "Foundations: Personality (I am)",
+          "items": [
+            {
+              "id": "en-trait-001",
+              "concept_id": "c-i-am-adventurous",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am adventurous.",
+              "bn": "আমি রোমাঞ্চপ্রিয়।",
+              "bn_pron": "আই অ্যাম অ্যাডভেঞ্চারাস।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "adventurous",
+                  "bn": "রোমাঞ্চপ্রিয়"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-002",
+              "concept_id": "c-i-am-ambitious",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am ambitious.",
+              "bn": "আমি উচ্চাকাঙ্ক্ষী।",
+              "bn_pron": "আই অ্যাম অ্যাম্বিশাস।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "ambitious",
+                  "bn": "উচ্চাকাঙ্ক্ষী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-003",
+              "concept_id": "c-i-am-brave",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am brave.",
+              "bn": "আমি সাহসী।",
+              "bn_pron": "আই অ্যাম ব্রেভ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "brave",
+                  "bn": "সাহসী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-004",
+              "concept_id": "c-i-am-broad-minded",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am broad-minded.",
+              "bn": "আমি উদার মনের।",
+              "bn_pron": "আই অ্যাম ব্রড-মাইন্ডেড।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "broad-minded",
+                  "bn": "উদার মনের"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-005",
+              "concept_id": "c-i-am-creative",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am creative.",
+              "bn": "আমি সৃজনশীল।",
+              "bn_pron": "আই অ্যাম ক্রিয়েটিভ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "creative",
+                  "bn": "সৃজনশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-006",
+              "concept_id": "c-i-am-diligent",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am diligent.",
+              "bn": "আমি পরিশ্রমী।",
+              "bn_pron": "আই অ্যাম ডিলিজেন্ট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "diligent",
+                  "bn": "পরিশ্রমী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-007",
+              "concept_id": "c-i-am-diplomatic",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am diplomatic.",
+              "bn": "আমি কৌশলী (কূটনৈতিক)।",
+              "bn_pron": "আই অ্যাম ডিপ্লোম্যাটিক।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "diplomatic",
+                  "bn": "কৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-008",
+              "concept_id": "c-i-am-dynamic",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am dynamic.",
+              "bn": "আমি কর্মতৎপর ও গতিশীল।",
+              "bn_pron": "আই অ্যাম ডাইনামিক।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "dynamic",
+                  "bn": "গতিশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-009",
+              "concept_id": "c-i-am-friendly",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am friendly.",
+              "bn": "আমি বন্ধুভাবাপন্ন।",
+              "bn_pron": "আই অ্যাম ফ্রেন্ডলি।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "friendly",
+                  "bn": "বন্ধুভাবাপন্ন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trait-010",
+              "concept_id": "c-i-am-funny",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am funny.",
+              "bn": "আমি রসিক (মজার মানুষ)।",
+              "bn_pron": "আই অ্যাম ফানি।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "funny",
+                  "bn": "রসিক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l04",
+          "order": 2,
+          "title_bn": "অন্যদের গুণাবলী (You, He, The Boy, The Girl)",
+          "title_target": "Others' Personality Traits",
+          "intro_bn": "অন্যদের ব্যক্তিত্ব বর্ণনা করতে Subject অনুসারে উপযুক্ত be-verb (is/are) ব্যবহার করে Adjective যোগ করা হয়।",
+          "structure": [
+            "Subject (You/He/The Boy/The Girl) + Be Verb (is/are) + Adjective"
+          ],
+          "source_section": "Foundations: Personality & Others",
+          "items": [
+            {
+              "id": "en-oth-trait-001",
+              "concept_id": "c-you-are-brave",
+              "type": "sentence",
+              "level": "A2",
+              "target": "You are brave.",
+              "bn": "তুমি সাহসী।",
+              "bn_pron": "ইউ আর ব্রেভ।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "brave",
+                  "bn": "সাহসী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-002",
+              "concept_id": "c-you-are-creative",
+              "type": "sentence",
+              "level": "A2",
+              "target": "You are creative.",
+              "bn": "তুমি সৃজনশীল।",
+              "bn_pron": "ইউ আর ক্রিয়েটিভ।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "creative",
+                  "bn": "সৃজনশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-003",
+              "concept_id": "c-you-are-friendly",
+              "type": "sentence",
+              "level": "A2",
+              "target": "You are friendly.",
+              "bn": "আপনি বন্ধুভাবাপন্ন।",
+              "bn_pron": "ইউ আর ফ্রেন্ডলি।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "friendly",
+                  "bn": "বন্ধুভাবাপন্ন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-004",
+              "concept_id": "c-he-is-diligent",
+              "type": "sentence",
+              "level": "A2",
+              "target": "He is diligent.",
+              "bn": "সে পরিশ্রমী।",
+              "bn_pron": "হি ইজ ডিলিজেন্ট।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "diligent",
+                  "bn": "পরিশ্রমী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-005",
+              "concept_id": "c-he-is-diplomatic",
+              "type": "sentence",
+              "level": "A2",
+              "target": "He is diplomatic.",
+              "bn": "সে কৌশলী।",
+              "bn_pron": "হি ইজ ডিপ্লোম্যাটিক।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "diplomatic",
+                  "bn": "কৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-006",
+              "concept_id": "c-he-is-ambitious",
+              "type": "sentence",
+              "level": "A2",
+              "target": "He is ambitious.",
+              "bn": "সে উচ্চাকাঙ্ক্ষী।",
+              "bn_pron": "হি ইজ অ্যাম্বিশাস।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "ambitious",
+                  "bn": "উচ্চাকাঙ্ক্ষী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-007",
+              "concept_id": "c-boy-is-dynamic",
+              "type": "sentence",
+              "level": "A2",
+              "target": "The boy is dynamic.",
+              "bn": "ছেলেটি গতিশীল ও কর্মচঞ্চল।",
+              "bn_pron": "দ্য বয় ইজ ডাইনামিক।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "boy",
+                  "bn": "ছেলেটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "dynamic",
+                  "bn": "গতিশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-008",
+              "concept_id": "c-boy-is-funny",
+              "type": "sentence",
+              "level": "A2",
+              "target": "The boy is funny.",
+              "bn": "ছেলেটি রসিক।",
+              "bn_pron": "দ্য বয় ইজ ফানি।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "boy",
+                  "bn": "ছেলেটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "funny",
+                  "bn": "রসিক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-009",
+              "concept_id": "c-boy-is-brave",
+              "type": "sentence",
+              "level": "A2",
+              "target": "The boy is brave.",
+              "bn": "ছেলেটি সাহসী।",
+              "bn_pron": "দ্য বয় ইজ ব্রেভ।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "boy",
+                  "bn": "ছেলেটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "brave",
+                  "bn": "সাহসী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-010",
+              "concept_id": "c-girl-is-broad-minded",
+              "type": "sentence",
+              "level": "A2",
+              "target": "The girl is broad-minded.",
+              "bn": "মেয়েটি উদার মনের।",
+              "bn_pron": "দ্য গার্ল ইজ ব্রড-মাইন্ডেড।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "girl",
+                  "bn": "মেয়েটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "broad-minded",
+                  "bn": "উদার মনের"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-011",
+              "concept_id": "c-girl-is-creative",
+              "type": "sentence",
+              "level": "A2",
+              "target": "The girl is creative.",
+              "bn": "মেয়েটি সৃজনশীল।",
+              "bn_pron": "দ্য গার্ল ইজ ক্রিয়েটিভ।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "girl",
+                  "bn": "মেয়েটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "creative",
+                  "bn": "সৃজনশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-oth-trait-012",
+              "concept_id": "c-girl-is-adventurous",
+              "type": "sentence",
+              "level": "A2",
+              "target": "The girl is adventurous.",
+              "bn": "মেয়েটি রোমাঞ্চপ্রিয়।",
+              "bn_pron": "দ্য গার্ল ইজ অ্যাডভেঞ্চারাস।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "girl",
+                  "bn": "মেয়েটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "adventurous",
+                  "bn": "রোমাঞ্চপ্রিয়"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p3",
+      "order": 3,
+      "level": "A2",
+      "title_bn": "আত্মপরিচয় উপস্থাপনা (Self Presentation)",
+      "title_target": "Self Presentation & Introduction",
+      "lessons": [
+        {
+          "id": "en-foundations-l05",
+          "order": 1,
+          "title_bn": "সম্পূর্ণ আত্মপরিচয় (Complete Self Introduction)",
+          "title_target": "Complete Self Presentation Step-by-Step",
+          "intro_bn": "যেকোনো ইন্টারভিউ, ক্লাসরুম বা নতুন পরিবেশে নিজের পরিচয় সুন্দর ও আত্মবিশ্বাসের সাথে ইংরেজিতে প্রকাশ করার জন্য এই বাক্যগুলো ক্রমান্বয়ে অনুশীলন করুন।",
+          "structure": [
+            "1. Greeting",
+            "2. Opening: I would like to say something about myself",
+            "3. Name: First of all, this is / I am [Name]",
+            "4. Origin & Location",
+            "5. Age (I am currently 32)",
+            "6. Current Profession / Studies",
+            "7. Family Background",
+            "8. Personality & Strengths",
+            "9. Hobbies & Interests (Reciting the Holy Quran, reading)",
+            "10. Future Aspiration & Goal",
+            "11. Summary & Closing"
+          ],
+          "source_section": "Foundations: Self Presentation",
+          "items": [
+            {
+              "id": "en-intro-001",
+              "concept_id": "c-intro-greeting",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Hello everyone, Assalamu Alaikum!",
+              "bn": "হ্যালো সবাইকে, আসসালামু আলাইকুম!",
+              "bn_pron": "হ্যালো এভরিওয়ান, আসসালামু আলাইকুম!",
+              "tokens": [
+                {
+                  "t": "Hello",
+                  "bn": "হ্যালো"
+                },
+                {
+                  "t": "everyone,",
+                  "bn": "সবাইকে"
+                },
+                {
+                  "t": "Assalamu",
+                  "bn": "আসসালামু"
+                },
+                {
+                  "t": "Alaikum!",
+                  "bn": "আলাইকুম!"
+                }
+              ],
+              "tags": {
+                "sentence_type": "exclamatory",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-002",
+              "concept_id": "c-intro-opening",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I would like to say something about myself.",
+              "bn": "আমি আমার নিজের সম্পর্কে কিছু বলতে চাই।",
+              "bn_pron": "আই উড লাইক টু সে সামথিং অ্যাবাউট মাইসেল্ফ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "would",
+                  "bn": "চাই"
+                },
+                {
+                  "t": "like",
+                  "bn": "পছন্দ করি"
+                },
+                {
+                  "t": "to",
+                  "bn": "তে"
+                },
+                {
+                  "t": "say",
+                  "bn": "বলতে"
+                },
+                {
+                  "t": "something",
+                  "bn": "কিছু"
+                },
+                {
+                  "t": "about",
+                  "bn": "সম্পর্কে"
+                },
+                {
+                  "t": "myself.",
+                  "bn": "আমার নিজের"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-003",
+              "concept_id": "c-intro-name",
+              "type": "sentence",
+              "level": "A1",
+              "target": "First of all, this is Nayem.",
+              "bn": "প্রথমত, আমি নাঈম।",
+              "bn_pron": "ফার্স্ট অব অল, দিস ইজ নাঈম।",
+              "tokens": [
+                {
+                  "t": "First",
+                  "bn": "প্রথম"
+                },
+                {
+                  "t": "of",
+                  "bn": "এর"
+                },
+                {
+                  "t": "all,",
+                  "bn": "সবকিছুর"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "Nayem.",
+                  "bn": "নাঈম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-004",
+              "concept_id": "c-intro-location",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am from Dhaka, Bangladesh.",
+              "bn": "আমি বাংলাদেশের ঢাকা থেকে এসেছি।",
+              "bn_pron": "আই অ্যাম ফ্রম ঢাকা, বাংলাদেশ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "from",
+                  "bn": "থেকে"
+                },
+                {
+                  "t": "Dhaka,",
+                  "bn": "ঢাকা"
+                },
+                {
+                  "t": "Bangladesh.",
+                  "bn": "বাংলাদেশ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-005",
+              "concept_id": "c-intro-age",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am currently 32 years old.",
+              "bn": "বর্তমানে আমার বয়স ৩২ বছর।",
+              "bn_pron": "আই অ্যাম কারেন্টলি থার্টি-টু ইয়ার্স ওল্ড।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "currently",
+                  "bn": "বর্তমানে"
+                },
+                {
+                  "t": "32",
+                  "bn": "৩২"
+                },
+                {
+                  "t": "years",
+                  "bn": "বছর"
+                },
+                {
+                  "t": "old.",
+                  "bn": "বয়সী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-006",
+              "concept_id": "c-intro-profession",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Currently, I am a university student.",
+              "bn": "বর্তমানে, আমি একজন বিশ্ববিদ্যালয়ের ছাত্র।",
+              "bn_pron": "কারেন্টলি, আই অ্যাম আ ইউনিভার্সিটি স্টুডেন্ট।",
+              "tokens": [
+                {
+                  "t": "Currently,",
+                  "bn": "বর্তমানে"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "university",
+                  "bn": "বিশ্ববিদ্যালয়ের"
+                },
+                {
+                  "t": "student.",
+                  "bn": "ছাত্র"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-007",
+              "concept_id": "c-intro-family",
+              "type": "sentence",
+              "level": "A2",
+              "target": "There are four members in my family.",
+              "bn": "আমার পরিবারে চারজন সদস্য আছেন।",
+              "bn_pron": "দেয়ার আর ফোর মেম্বারস ইন মাই ফ্যামিলি।",
+              "tokens": [
+                {
+                  "t": "There",
+                  "bn": "সেখানে"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছেন"
+                },
+                {
+                  "t": "four",
+                  "bn": "চারজন"
+                },
+                {
+                  "t": "members",
+                  "bn": "সদস্য"
+                },
+                {
+                  "t": "in",
+                  "bn": "মধ্যে"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "family.",
+                  "bn": "পরিবার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-008",
+              "concept_id": "c-intro-traits",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am an ambitious, creative, and diligent person.",
+              "bn": "আমি একজন উচ্চাকাঙ্ক্ষী, সৃজনশীল এবং পরিশ্রমী মানুষ।",
+              "bn_pron": "আই অ্যাম অ্যান অ্যাম্বিশাস, ক্রিয়েটিভ, অ্যান্ড ডিলিজেন্ট পারসন।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "an",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "ambitious,",
+                  "bn": "উচ্চাকাঙ্ক্ষী"
+                },
+                {
+                  "t": "creative,",
+                  "bn": "সৃজনশীল"
+                },
+                {
+                  "t": "and",
+                  "bn": "এবং"
+                },
+                {
+                  "t": "diligent",
+                  "bn": "পরিশ্রমী"
+                },
+                {
+                  "t": "person.",
+                  "bn": "ব্যক্তি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-009",
+              "concept_id": "c-intro-hobbies",
+              "type": "sentence",
+              "level": "A2",
+              "target": "In my leisure time, I like reciting the Holy Quran, reading books, and learning spoken English.",
+              "bn": "আমার অবসর সময়ে, আমি পবিত্র কুরআন তিলাওয়াত করতে, বই পড়তে এবং স্পোকেন ইংলিশ শিখতে পছন্দ করি।",
+              "bn_pron": "ইন মাই লেজার টাইম, আই লাইক রিসাইটিং দ্য হোলি কুরআন, রিডিং বুকস, অ্যান্ড লার্নিং স্পোকেন ইংলিশ।",
+              "tokens": [
+                {
+                  "t": "In",
+                  "bn": "মধ্যে"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "leisure",
+                  "bn": "অবসর"
+                },
+                {
+                  "t": "time,",
+                  "bn": "সময়ে"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "like",
+                  "bn": "পছন্দ করি"
+                },
+                {
+                  "t": "reciting",
+                  "bn": "তিলাওয়াত করা"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "Holy",
+                  "bn": "পবিত্র"
+                },
+                {
+                  "t": "Quran,",
+                  "bn": "কুরআন"
+                },
+                {
+                  "t": "reading",
+                  "bn": "পড়া"
+                },
+                {
+                  "t": "books,",
+                  "bn": "বই"
+                },
+                {
+                  "t": "and",
+                  "bn": "এবং"
+                },
+                {
+                  "t": "learning",
+                  "bn": "শেখা"
+                },
+                {
+                  "t": "spoken",
+                  "bn": "স্পোকেন"
+                },
+                {
+                  "t": "English.",
+                  "bn": "ইংরেজি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-010",
+              "concept_id": "c-intro-dream",
+              "type": "sentence",
+              "level": "A2",
+              "target": "My dream is to become a successful software engineer.",
+              "bn": "আমার স্বপ্ন একজন সফল সফটওয়্যার প্রকৌশলী হওয়া।",
+              "bn_pron": "মাই ড্রিম ইজ টু বিকাম আ সাকসেসফুল সফটওয়্যার ইঞ্জিনিয়ার।",
+              "tokens": [
+                {
+                  "t": "My",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "dream",
+                  "bn": "স্বপ্ন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "to",
+                  "bn": "হতে"
+                },
+                {
+                  "t": "become",
+                  "bn": "হওয়া"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "successful",
+                  "bn": "সফল"
+                },
+                {
+                  "t": "software",
+                  "bn": "সফটওয়্যার"
+                },
+                {
+                  "t": "engineer.",
+                  "bn": "প্রকৌশলী"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-011",
+              "concept_id": "c-intro-summary",
+              "type": "sentence",
+              "level": "A2",
+              "target": "That is all about myself for today.",
+              "bn": "আজকের মতো আমার সম্পর্কে এটুকুই।",
+              "bn_pron": "দ্যাট ইজ অল অ্যাবাউট মাইসেল্ফ ফর টুডে।",
+              "tokens": [
+                {
+                  "t": "That",
+                  "bn": "তা"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "all",
+                  "bn": "সবকিছু"
+                },
+                {
+                  "t": "about",
+                  "bn": "সম্পর্কে"
+                },
+                {
+                  "t": "myself",
+                  "bn": "আমার নিজের"
+                },
+                {
+                  "t": "for",
+                  "bn": "জন্য"
+                },
+                {
+                  "t": "today.",
+                  "bn": "আজকের"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-intro-012",
+              "concept_id": "c-intro-closing",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Thank you very much for listening to me.",
+              "bn": "আমার কথা শোনার জন্য আপনাদের অনেক ধন্যবাদ।",
+              "bn_pron": "থ্যাংক ইউ ভেরি মাচ ফর লিসেনিং টু মি।",
+              "tokens": [
+                {
+                  "t": "Thank",
+                  "bn": "ধন্যবাদ"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনাকে/তোমাদের"
+                },
+                {
+                  "t": "very",
+                  "bn": "অনেক"
+                },
+                {
+                  "t": "much",
+                  "bn": "বেশি"
+                },
+                {
+                  "t": "for",
+                  "bn": "জন্য"
+                },
+                {
+                  "t": "listening",
+                  "bn": "শোনার"
+                },
+                {
+                  "t": "to",
+                  "bn": "প্রতি"
+                },
+                {
+                  "t": "me.",
+                  "bn": "আমার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

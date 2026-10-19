@@ -319,7 +319,8 @@ fun HomeScreen(
                                             courses = uiState.englishCourses + uiState.japaneseCourses,
                                             onSelectCourse = { selectedCourse = it },
                                             onNavigateToLibrary = onNavigateToLibrary,
-                                            onNavigateToBook = onNavigateToBook
+                                            onNavigateToBook = onNavigateToBook,
+                                            onNavigateToLearnEnglish = onNavigateToLearnEnglish
                                         )
                                     }
                                 )
@@ -351,19 +352,30 @@ fun HomeScreen(
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             val englishCourse = uiState.englishCourses.firstOrNull()
+                            val spokenBanner = uiState.banners.find { it.id == "banner_spoken_english" }
+                            val englishTitle = spokenBanner?.title?.ifBlank { null }
+                                ?: englishCourse?.title?.takeIf { !it.contains("ভোকাবুলারি") }
+                                ?: "স্পোকেন ইংলিশ কোর্স"
+                            val englishSubtitle = spokenBanner?.subtitle?.ifBlank { null }
+                                ?: englishCourse?.subtitle
+                                ?: "নেটিভ অডিও ও সহজ নিয়মে ফ্লুয়েন্টলি কথা বলুন"
+                            val englishImageUrl = spokenBanner?.imageUrl?.ifBlank { null }
+                                ?: englishCourse?.bannerUrl
+                                ?: englishCourse?.thumbnailUrl
+
                             HomeShowcaseCard(
-                                title = englishCourse?.title ?: "কমপ্লিট স্পোকেন ইংলিশ মাস্টারক্লাস",
-                                subtitle = englishCourse?.subtitle ?: "নেটিভ অডিও ও সহজ নিয়মে ফ্লুয়েন্টলি কথা বলুন",
-                                badgeText = "🇬🇧 স্পোকেন ইংলিশ কোর্স",
+                                title = englishTitle,
+                                subtitle = englishSubtitle,
+                                badgeText = spokenBanner?.tag?.ifBlank { null } ?: "🇬🇧 স্পোকেন ইংলিশ কোর্স",
                                 badgeColor = Color(0xFF1565C0),
                                 priceText = "১০০ টাকা",
                                 isPurchased = isEnglishUnlocked,
-                                imageUrl = englishCourse?.bannerUrl ?: englishCourse?.thumbnailUrl,
+                                imageUrl = englishImageUrl,
                                 fallbackGradientColors = listOf(Color(0xFF1565C0), Color(0xFF0D47A1)),
                                 accentColor = Color(0xFF1565C0),
                                 statsText = "🎧 ${englishCourse?.lessonCount ?: 15}টি অডিও লেসন · লেভেল: ${englishCourse?.level?.ifBlank { "Beginner" } ?: "Beginner"}",
                                 ctaText = "কোর্সটি শুরু করুন",
-                                // Opens the ESCB-based English module (first lesson of each part is free).
+                                // Opens the English spoken foundations module
                                 onClick = onNavigateToLearnEnglish,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
@@ -373,14 +385,25 @@ fun HomeScreen(
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             val japaneseCourse = uiState.japaneseCourses.firstOrNull()
+                            val japaneseBanner = uiState.banners.find { it.id == "banner_japanese_jlpt" }
+                            val japaneseTitle = japaneseBanner?.title?.ifBlank { null }
+                                ?: japaneseCourse?.title
+                                ?: "জাপানি ভাষা শিক্ষা (JLPT N5/N4)"
+                            val japaneseSubtitle = japaneseBanner?.subtitle?.ifBlank { null }
+                                ?: japaneseCourse?.subtitle
+                                ?: "জাপানে ভিসা, উচ্চশিক্ষা ও চাকরির জন্য পূর্ণাঙ্গ অডিও গাইড"
+                            val japaneseImageUrl = japaneseBanner?.imageUrl?.ifBlank { null }
+                                ?: japaneseCourse?.bannerUrl
+                                ?: japaneseCourse?.thumbnailUrl
+
                             HomeShowcaseCard(
-                                title = japaneseCourse?.title ?: "জাপানি ভাষা শিক্ষা (JLPT N5/N4)",
-                                subtitle = japaneseCourse?.subtitle ?: "জাপানে ভিসা, উচ্চশিক্ষা ও চাকরির জন্য পূর্ণাঙ্গ অডিও গাইড",
-                                badgeText = "🇯🇵 জাপানি ভাষা কোর্স",
+                                title = japaneseTitle,
+                                subtitle = japaneseSubtitle,
+                                badgeText = japaneseBanner?.tag?.ifBlank { null } ?: "🇯🇵 জাপানি ভাষা কোর্স",
                                 badgeColor = Color(0xFFC62828),
                                 priceText = "১০০ টাকা",
                                 isPurchased = isJapaneseUnlocked,
-                                imageUrl = japaneseCourse?.bannerUrl ?: japaneseCourse?.thumbnailUrl,
+                                imageUrl = japaneseImageUrl,
                                 fallbackGradientColors = listOf(Color(0xFFC62828), Color(0xFF7F1D1D)),
                                 accentColor = Color(0xFFC62828),
                                 statsText = "🎧 ${japaneseCourse?.lessonCount ?: 12}টি অডিও লেসন · JLPT প্রস্তুতি",
@@ -468,8 +491,13 @@ private fun handleBannerClick(
     courses: List<Course>,
     onSelectCourse: (Course) -> Unit,
     onNavigateToLibrary: () -> Unit,
-    onNavigateToBook: (String) -> Unit
+    onNavigateToBook: (String) -> Unit,
+    onNavigateToLearnEnglish: () -> Unit = {}
 ) {
+    if (banner.id == "banner_spoken_english" || banner.targetId == "learn_english" || banner.actionType == "learn" || banner.actionType == "english") {
+        onNavigateToLearnEnglish()
+        return
+    }
     when (banner.actionType) {
         "bundle" -> onNavigateToLibrary()
         "course" -> {
@@ -477,6 +505,7 @@ private fun handleBannerClick(
             course?.let { onSelectCourse(it) }
         }
         "book" -> onNavigateToBook(banner.targetId)
+        else -> onNavigateToLibrary()
     }
 }
 
