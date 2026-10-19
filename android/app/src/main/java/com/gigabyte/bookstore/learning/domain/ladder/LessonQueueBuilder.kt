@@ -11,6 +11,7 @@ import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 object LessonQueueBuilder {
 
     private const val WORD_RATE = 0.8f
+    private const val BANGLA_RATE = 1.0f
     private const val MAX_WORD_BY_WORD_TOKENS = 12
 
     fun buildLesson(
@@ -28,26 +29,39 @@ object LessonQueueBuilder {
         val steps = mutableListOf<PlaybackStep>()
         if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings)
 
-        for (step in ladder) {
-            if (step.isPause) {
-                val ms = settings.gapMs ?: step.pauseMs
-                if (ms > 0) steps += PlaybackStep.Pause(ms, itemIndex)
-                continue
-            }
-            if (step.minLevel != null && item.level < step.minLevel) continue
-            when (step.play) {
-                SpeechLang.EN -> steps += PlaybackStep.Speak(item.target, SpeechLang.EN, step.speed, itemIndex, Phase.LADDER)
-                SpeechLang.BN -> {
-                    val bn = item.bn
-                    if (settings.bnAudio && !bn.isNullOrBlank()) {
-                        steps += PlaybackStep.Speak(bn, SpeechLang.BN, step.speed, itemIndex, Phase.LADDER)
-                    }
-                }
-                null -> Unit
-            }
+        // English and Bangla are spoken the same number of times: each repeat is an EN → BN pair.
+        val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
+        for (speed in englishSpeeds(item, ladder, settings.repeatCount)) {
+            steps += PlaybackStep.Speak(item.target, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+            if (bn != null) steps += PlaybackStep.Speak(bn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
         }
+
+        val pauseMs = settings.gapMs ?: ladder.filter { it.isPause }.sumOf { it.pauseMs }
+        if (pauseMs > 0) steps += PlaybackStep.Pause(pauseMs, itemIndex)
         return steps
     }
+
+    /**
+     * English speeds for [repeatCount] pairs, from the ladder's slowest to its normal speed
+     * (0.6 → 0.8 → 1.0 for 3 repeats). Level-gated ladder steps (1.2x for B1+) add one more pair.
+     */
+    fun englishSpeeds(item: LessonItem, ladder: List<LadderStep>, repeatCount: Int): List<Float> {
+        val english = ladder.filter { it.play == SpeechLang.EN }
+        val base = english.filter { it.minLevel == null }.map { it.speed }
+        val slow = base.minOrNull() ?: 0.6f
+        val normal = base.maxOrNull() ?: 1.0f
+        val count = repeatCount.coerceIn(LearnSettings.MIN_REPEAT_COUNT, LearnSettings.MAX_REPEAT_COUNT)
+
+        val speeds = if (count == 1) {
+            listOf(normal)
+        } else {
+            (0 until count).map { i -> round2(slow + (normal - slow) * i / (count - 1)) }
+        }
+        val extra = english.filter { step -> step.minLevel != null && item.level >= step.minLevel }.map { it.speed }
+        return speeds + extra
+    }
+
+    private fun round2(value: Float): Float = Math.round(value * 100f) / 100f
 
     /** Each token (target → bn gloss when known), then cumulative prefixes: I → I eat → I eat rice. */
     private fun wordByWord(item: LessonItem, itemIndex: Int, settings: LearnSettings): List<PlaybackStep> {
@@ -62,7 +76,7 @@ object LessonQueueBuilder {
                 steps += PlaybackStep.Speak(gloss, SpeechLang.BN, 1.0f, itemIndex, Phase.WORD)
             }
         }
-        // The full sentence is covered by the ladder, so build up to n-1 tokens only.
+        // The full sentence is covered by the EN → BN pairs, so build up to n-1 tokens only.
         for (end in 2 until tokens.size) {
             val prefix = tokens.subList(0, end).joinToString(" ") { it.text }
             steps += PlaybackStep.Speak(prefix, SpeechLang.EN, WORD_RATE, itemIndex, Phase.BUILD_UP)

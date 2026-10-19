@@ -17,6 +17,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AllInclusive
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Quiz
@@ -190,8 +193,19 @@ fun LessonScreen(
                         }
                     }
 
+                    if (settings.repeatItem) {
+                        Text(
+                            "অবিরাম চালু: এই আইটেমটি বারবার চলবে। পরের আইটেমে যেতে ⏭ চাপুন।",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)
+                        )
+                    }
                     PlayerControls(
                         isPlaying = playerState.isPlaying,
+                        repeatItem = settings.repeatItem,
+                        onToggleRepeat = viewModel::toggleRepeatItem,
                         onPrevious = viewModel::previous,
                         onTogglePlay = viewModel::togglePlayPause,
                         onNext = viewModel::next
@@ -208,7 +222,8 @@ fun LessonScreen(
                 onBnAudio = viewModel::setBnAudio,
                 onWordByWord = viewModel::setWordByWord,
                 onAutoAdvance = viewModel::setAutoAdvance,
-                onLoop = viewModel::setLoopLesson
+                onLoop = viewModel::setLoopLesson,
+                onRepeatCount = viewModel::setRepeatCount
             )
         }
     }
@@ -323,6 +338,8 @@ private fun VoiceWarning(message: String) {
 @Composable
 private fun PlayerControls(
     isPlaying: Boolean,
+    repeatItem: Boolean,
+    onToggleRepeat: () -> Unit,
     onPrevious: () -> Unit,
     onTogglePlay: () -> Unit,
     onNext: () -> Unit
@@ -332,6 +349,23 @@ private fun PlayerControls(
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
+        // Continuous mode: repeat the current item non-stop until Next, Previous or Pause.
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            if (repeatItem) {
+                FilledIconButton(onClick = onToggleRepeat) {
+                    Icon(Icons.Default.AllInclusive, contentDescription = "অবিরাম বন্ধ করুন")
+                }
+            } else {
+                IconButton(onClick = onToggleRepeat) {
+                    Icon(Icons.Default.AllInclusive, contentDescription = "অবিরাম চালু করুন")
+                }
+            }
+            Text(
+                "অবিরাম",
+                style = MaterialTheme.typography.labelSmall,
+                color = if (repeatItem) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
         IconButton(onClick = onPrevious) { Icon(Icons.Default.SkipPrevious, contentDescription = "আগের আইটেম") }
         FilledIconButton(onClick = onTogglePlay, modifier = Modifier.size(64.dp)) {
             Icon(
@@ -350,15 +384,43 @@ private fun SettingsSheet(
     onBnAudio: (Boolean) -> Unit,
     onWordByWord: (Boolean) -> Unit,
     onAutoAdvance: (Boolean) -> Unit,
-    onLoop: (Boolean) -> Unit
+    onLoop: (Boolean) -> Unit,
+    onRepeatCount: (Int) -> Unit
 ) {
     Column(Modifier.padding(horizontal = 20.dp, vertical = 8.dp)) {
         Text("প্লেব্যাক সেটিংস", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
+        // Each repeat = English once + Bangla once, so both are heard the same number of times.
+        Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text("বার বার শুনুন")
+                Text(
+                    "প্রতিবার ইংরেজি ১ বার + বাংলা ১ বার",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            IconButton(
+                onClick = { onRepeatCount(settings.repeatCount - 1) },
+                enabled = settings.repeatCount > LearnSettings.MIN_REPEAT_COUNT
+            ) { Icon(Icons.Default.Remove, contentDescription = "কমান") }
+            Text("${settings.repeatCount}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            IconButton(
+                onClick = { onRepeatCount(settings.repeatCount + 1) },
+                enabled = settings.repeatCount < LearnSettings.MAX_REPEAT_COUNT
+            ) { Icon(Icons.Default.Add, contentDescription = "বাড়ান") }
+        }
         SettingRow("বাংলা অর্থ শুনুন", settings.bnAudio, onBnAudio)
         SettingRow("শব্দে শব্দে শুনুন (বাক্য)", settings.wordByWord, onWordByWord)
         SettingRow("স্বয়ংক্রিয়ভাবে পরের আইটেমে যান", settings.autoAdvance, onAutoAdvance)
         SettingRow("লেসন বারবার চালান", settings.loopLesson, onLoop)
+        if (settings.repeatItem) {
+            Text(
+                "অবিরাম চালু থাকলে উপরের দুটি সেটিং কাজ করে না।",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
         Spacer(Modifier.height(24.dp))
     }
 }

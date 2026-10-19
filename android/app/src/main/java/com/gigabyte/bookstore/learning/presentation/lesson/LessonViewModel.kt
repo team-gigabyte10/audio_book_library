@@ -50,12 +50,18 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val banglaAvailable: StateFlow<Boolean?> = engine.banglaAvailable
 
     val settings: StateFlow<LearnSettings> = combine(
-        preferences.learnBnAudio,
-        preferences.learnWordByWord,
-        preferences.learnAutoAdvance,
-        preferences.learnLoopLesson
-    ) { bnAudio, wordByWord, autoAdvance, loop ->
-        LearnSettings(bnAudio = bnAudio, wordByWord = wordByWord, autoAdvance = autoAdvance, loopLesson = loop)
+        combine(
+            preferences.learnBnAudio,
+            preferences.learnWordByWord,
+            preferences.learnAutoAdvance,
+            preferences.learnLoopLesson
+        ) { bnAudio, wordByWord, autoAdvance, loop ->
+            LearnSettings(bnAudio = bnAudio, wordByWord = wordByWord, autoAdvance = autoAdvance, loopLesson = loop)
+        },
+        preferences.learnRepeatCount,
+        preferences.learnRepeatItem
+    ) { base, repeatCount, repeatItem ->
+        base.copy(repeatCount = repeatCount, repeatItem = repeatItem)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, LearnSettings())
 
     init {
@@ -71,10 +77,15 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
             rebuildQueue(startItem)
 
             // Rebuild when settings or Bangla voice availability change, keeping the current item.
+            // Continuous mode is left out: toggling it must not restart the current item.
             launch {
-                combine(settings, engine.banglaAvailable) { s, bn -> s to bn }
+                combine(settings.map { it.copy(repeatItem = false) }, engine.banglaAvailable) { s, bn -> s to bn }
+                    .distinctUntilChanged()
                     .drop(1)
                     .collect { rebuildQueue(player.state.value.itemIndex) }
+            }
+            launch {
+                settings.map { it.repeatItem }.distinctUntilChanged().collect { player.repeatItem = it }
             }
             // Save the position so "Continue lesson" resumes at the same item.
             launch {
@@ -114,6 +125,10 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     fun setWordByWord(enabled: Boolean) = preferences.setLearnWordByWord(enabled)
     fun setAutoAdvance(enabled: Boolean) = preferences.setLearnAutoAdvance(enabled)
     fun setLoopLesson(enabled: Boolean) = preferences.setLearnLoopLesson(enabled)
+    fun setRepeatCount(count: Int) = preferences.setLearnRepeatCount(
+        count.coerceIn(LearnSettings.MIN_REPEAT_COUNT, LearnSettings.MAX_REPEAT_COUNT)
+    )
+    fun toggleRepeatItem() = preferences.setLearnRepeatItem(!settings.value.repeatItem)
 
     fun onFinishedListening() {
         player.pause()
@@ -136,6 +151,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
         val wasPlaying = player.state.value.isPlaying
         player.autoAdvance = current.autoAdvance
         player.loop = current.loopLesson
+        player.repeatItem = current.repeatItem
         player.load(steps, startItem)
         if (wasPlaying) player.play()
     }

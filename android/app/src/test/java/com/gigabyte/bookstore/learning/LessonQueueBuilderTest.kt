@@ -19,28 +19,56 @@ class LessonQueueBuilderTest {
         tokens = target.split(' ').map { Token(it, null) }
     )
 
-    private fun speaks(steps: List<PlaybackStep>) = steps.filterIsInstance<PlaybackStep.Speak>()
+    private fun ladderSpeaks(steps: List<PlaybackStep>) =
+        steps.filterIsInstance<PlaybackStep.Speak>().filter { it.phase == PlaybackStep.Phase.LADDER }
 
     @Test
-    fun `default ladder below B1 skips the fast step`() {
+    fun `default plays 3 English and 3 Bangla as EN-BN pairs`() {
         val steps = LessonQueueBuilder.buildItem(item(Level.A1), 0, LadderStep.DEFAULT, LearnSettings())
-        assertEquals(listOf(0.6f, 1.0f, 0.6f, 0.8f, 1.0f), speaks(steps).map { it.rate })
-        assertEquals(listOf(SpeechLang.EN, SpeechLang.BN, SpeechLang.EN, SpeechLang.EN, SpeechLang.EN), speaks(steps).map { it.lang })
+        val speaks = ladderSpeaks(steps)
+        assertEquals(
+            listOf(SpeechLang.EN, SpeechLang.BN, SpeechLang.EN, SpeechLang.BN, SpeechLang.EN, SpeechLang.BN),
+            speaks.map { it.lang }
+        )
+        assertEquals(listOf(0.6f, 0.8f, 1.0f), speaks.filter { it.lang == SpeechLang.EN }.map { it.rate })
         assertEquals(PlaybackStep.Pause(1500L, 0), steps.last())
     }
 
     @Test
-    fun `B1 items get the 1_2x step`() {
-        val steps = LessonQueueBuilder.buildItem(item(Level.B1), 0, LadderStep.DEFAULT, LearnSettings())
-        assertTrue(speaks(steps).any { it.rate == 1.2f })
+    fun `English and Bangla counts are equal for every repeat count`() {
+        for (count in 1..5) {
+            val speaks = ladderSpeaks(
+                LessonQueueBuilder.buildItem(item(), 0, LadderStep.DEFAULT, LearnSettings(repeatCount = count))
+            )
+            assertEquals(count, speaks.count { it.lang == SpeechLang.EN })
+            assertEquals(count, speaks.count { it.lang == SpeechLang.BN })
+        }
     }
 
     @Test
-    fun `missing Bangla or Bangla turned off drops the Bangla step`() {
-        val noBn = LessonQueueBuilder.buildItem(item(bn = null), 0, LadderStep.DEFAULT, LearnSettings())
-        val off = LessonQueueBuilder.buildItem(item(), 0, LadderStep.DEFAULT, LearnSettings(bnAudio = false))
-        assertTrue(speaks(noBn).none { it.lang == SpeechLang.BN })
-        assertTrue(speaks(off).none { it.lang == SpeechLang.BN })
+    fun `repeat count speeds go from slow to normal`() {
+        assertEquals(listOf(1.0f), LessonQueueBuilder.englishSpeeds(item(), LadderStep.DEFAULT, 1))
+        assertEquals(listOf(0.6f, 1.0f), LessonQueueBuilder.englishSpeeds(item(), LadderStep.DEFAULT, 2))
+        assertEquals(listOf(0.6f, 0.7f, 0.8f, 0.9f, 1.0f), LessonQueueBuilder.englishSpeeds(item(), LadderStep.DEFAULT, 5))
+        // Out-of-range counts are clamped to 1..5.
+        assertEquals(5, LessonQueueBuilder.englishSpeeds(item(), LadderStep.DEFAULT, 99).size)
+    }
+
+    @Test
+    fun `B1 items add one more 1_2x pair and stay equal`() {
+        val speaks = ladderSpeaks(LessonQueueBuilder.buildItem(item(Level.B1), 0, LadderStep.DEFAULT, LearnSettings()))
+        assertEquals(4, speaks.count { it.lang == SpeechLang.EN })
+        assertEquals(4, speaks.count { it.lang == SpeechLang.BN })
+        assertTrue(speaks.any { it.lang == SpeechLang.EN && it.rate == 1.2f })
+    }
+
+    @Test
+    fun `missing Bangla or Bangla turned off plays English only`() {
+        val noBn = ladderSpeaks(LessonQueueBuilder.buildItem(item(bn = null), 0, LadderStep.DEFAULT, LearnSettings()))
+        val off = ladderSpeaks(LessonQueueBuilder.buildItem(item(), 0, LadderStep.DEFAULT, LearnSettings(bnAudio = false)))
+        assertTrue(noBn.none { it.lang == SpeechLang.BN })
+        assertTrue(off.none { it.lang == SpeechLang.BN })
+        assertEquals(3, off.count { it.lang == SpeechLang.EN })
     }
 
     @Test
@@ -50,9 +78,11 @@ class LessonQueueBuilderTest {
     }
 
     @Test
-    fun `word by word plays tokens then cumulative prefixes before the ladder`() {
+    fun `word by word plays tokens then cumulative prefixes before the pairs`() {
         val steps = LessonQueueBuilder.buildItem(item(), 0, LadderStep.DEFAULT, LearnSettings(wordByWord = true))
-        val texts = speaks(steps).takeWhile { it.phase != PlaybackStep.Phase.LADDER }.map { it.text }
+        val texts = steps.filterIsInstance<PlaybackStep.Speak>()
+            .takeWhile { it.phase != PlaybackStep.Phase.LADDER }
+            .map { it.text }
         assertEquals(listOf("I", "eat", "rice.", "I eat"), texts)
     }
 

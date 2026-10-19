@@ -18,6 +18,8 @@ Code lives in `app/src/main/java/com/gigabyte/bookstore/learning/`. Tests are in
 4. Mistake reports are deferred.
 
 **Deviations from this plan:**
+- **Equal English/Bangla repeats** (user decision): each item plays EN → BN pairs. The "বার বার শুনুন" setting sets the number of pairs (1–5, default 3). English speed goes from slow to normal across the pairs (0.6 → 0.8 → 1.0x), and Bangla plays at 1.0x. B1+ items add one more 1.2x pair. This replaces the JSON ladder's single Bangla step.
+- **Continuous mode** ("∞ অবিরাম" button): the current item repeats non-stop until Next, Previous or Pause. It works while the screen is on; playback with the screen off is not built yet.
 - Gaps use coroutine `delay`, not `playSilentUtterance`, because it is cancellable and testable.
 - UI strings are inline Bangla, matching the rest of the app, not `strings.xml`.
 - Not built yet: the drawer entry, the English voice picker in settings, and mistake reports.

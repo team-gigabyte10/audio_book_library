@@ -85,8 +85,18 @@ data class LearnSettings(
     val wordByWord: Boolean = false,
     val gapMs: Long? = null,
     val autoAdvance: Boolean = true,
-    val loopLesson: Boolean = false
-)
+    val loopLesson: Boolean = false,
+    /** How many English → Bangla pairs each item plays (1..5). */
+    val repeatCount: Int = DEFAULT_REPEAT_COUNT,
+    /** Continuous mode: repeat the current item non-stop until Next, Previous or Pause. */
+    val repeatItem: Boolean = false
+) {
+    companion object {
+        const val DEFAULT_REPEAT_COUNT = 3
+        const val MIN_REPEAT_COUNT = 1
+        const val MAX_REPEAT_COUNT = 5
+    }
+}
 
 /** A single unit of work for the lesson player (Guideline §5: a queue of steps). */
 sealed interface PlaybackStep {

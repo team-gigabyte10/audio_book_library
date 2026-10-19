@@ -36,6 +36,9 @@ class LessonPlayer(
     var autoAdvance: Boolean = true
     var loop: Boolean = false
 
+    /** Continuous mode: the current item repeats non-stop. Next/Previous move to another item, which then repeats. */
+    var repeatItem: Boolean = false
+
     /** Replaces the queue and positions at the first step of [startItem]. Does not start playback. */
     fun load(newSteps: List<PlaybackStep>, startItem: Int = 0) {
         stopJob()
@@ -96,6 +99,14 @@ class LessonPlayer(
                 }
                 position++
                 val next = steps.getOrNull(position)
+                val itemEnded = next == null || next.itemIndex != step.itemIndex
+                if (repeatItem && itemEnded) {
+                    // Go back to the start of the same item. The short delay keeps a silent loop
+                    // (e.g. no voice installed and no gap) from blocking the main thread.
+                    position = firstStepOf(step.itemIndex)
+                    delay(MIN_REPEAT_GAP_MS)
+                    continue
+                }
                 if (!autoAdvance && next != null && next.itemIndex != step.itemIndex) {
                     publish(isPlaying = false)
                     return
@@ -131,5 +142,10 @@ class LessonPlayer(
                 isFinished = isFinished ?: it.isFinished
             )
         }
+    }
+
+    companion object {
+        /** Minimum pause before a continuous-mode repeat starts again. */
+        const val MIN_REPEAT_GAP_MS = 300L
     }
 }

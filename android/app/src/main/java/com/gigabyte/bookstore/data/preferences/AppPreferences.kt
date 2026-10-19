@@ -107,6 +107,22 @@ class AppPreferences(context: Context) {
         _learnLoopLesson.value = enabled
     }
 
+    private val _learnRepeatCount = MutableStateFlow(prefs.getInt(KEY_LEARN_REPEAT_COUNT, 3))
+    val learnRepeatCount: StateFlow<Int> = _learnRepeatCount.asStateFlow()
+
+    private val _learnRepeatItem = MutableStateFlow(prefs.getBoolean(KEY_LEARN_REPEAT_ITEM, false))
+    val learnRepeatItem: StateFlow<Boolean> = _learnRepeatItem.asStateFlow()
+
+    fun setLearnRepeatCount(count: Int) {
+        prefs.edit().putInt(KEY_LEARN_REPEAT_COUNT, count).apply()
+        _learnRepeatCount.value = count
+    }
+
+    fun setLearnRepeatItem(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_LEARN_REPEAT_ITEM, enabled).apply()
+        _learnRepeatItem.value = enabled
+    }
+
     companion object {
         private const val KEY_SPEECH_RATE = "speech_rate"
         private const val KEY_SPEECH_PITCH = "speech_pitch"
@@ -120,6 +136,8 @@ class AppPreferences(context: Context) {
         private const val KEY_LEARN_WORD_BY_WORD = "learn_word_by_word"
         private const val KEY_LEARN_AUTO_ADVANCE = "learn_auto_advance"
         private const val KEY_LEARN_LOOP_LESSON = "learn_loop_lesson"
+        private const val KEY_LEARN_REPEAT_COUNT = "learn_repeat_count"
+        private const val KEY_LEARN_REPEAT_ITEM = "learn_repeat_item"
 
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"
