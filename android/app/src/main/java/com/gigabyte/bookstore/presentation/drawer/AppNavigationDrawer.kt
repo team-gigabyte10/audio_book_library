@@ -271,13 +271,11 @@ fun AppDrawerContent(
                 // Section 1: লাইব্রেরি ও অ্যাক্টিভিটি
                 DrawerSectionHeader(title = "ন্যাভিগেশন ও লাইব্রেরি")
 
-                if (onHomeClick != null) {
-                    DrawerMenuItem(
-                        icon = Icons.Default.Home,
-                        title = "হোম একাডেমি (Home)",
-                        onClick = onHomeClick
-                    )
-                }
+                DrawerMenuItem(
+                    icon = Icons.Default.History,
+                    title = "সর্বশেষ পড়া ও শোনা (Last Read)",
+                    onClick = onLastReadClick
+                )
 
                 if (onLibraryClick != null) {
                     DrawerMenuItem(
@@ -291,12 +289,6 @@ fun AppDrawerContent(
                     icon = Icons.Default.AccountCircle,
                     title = "প্রোফাইল আপডেট (Profile Update)",
                     onClick = onProfileClick
-                )
-
-                DrawerMenuItem(
-                    icon = Icons.Default.History,
-                    title = "সম্প্রতি পড়া (Last Read)",
-                    onClick = onLastReadClick
                 )
 
                 DrawerMenuItem(

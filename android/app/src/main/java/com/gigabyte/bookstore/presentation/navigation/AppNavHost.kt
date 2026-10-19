@@ -51,6 +51,8 @@ import com.gigabyte.bookstore.learning.presentation.quiz.QuizScreen
 import com.gigabyte.bookstore.learning.presentation.quiz.QuizViewModel
 import com.gigabyte.bookstore.learning.presentation.intro.CourseIntroScreen
 import com.gigabyte.bookstore.learning.presentation.syllabus.CourseSyllabusScreen
+import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
+import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 
 @Composable
 
@@ -180,6 +182,9 @@ fun AppNavHost(
                 onNavigateToLearnEnglish = {
                     navController.navigate(Screen.Learn.route)
                 },
+                onNavigateToLastRead = {
+                    navController.navigate(Screen.LastRead.route)
+                },
                 onLogout = { logout(application, navController) }
             )
         }
@@ -225,6 +230,9 @@ fun AppNavHost(
                 },
                 onNavigateToHome = {
                     navController.navigate(Screen.Home.route)
+                },
+                onNavigateToLastRead = {
+                    navController.navigate(Screen.LastRead.route)
                 },
                 onLogout = { logout(application, navController) }
             )
@@ -450,7 +458,6 @@ fun AppNavHost(
                 viewModel = learnViewModel,
                 onBackClick = { navController.popBackStack() },
                 onOpenCourse = { navController.navigate(Screen.CourseSyllabus.route) },
-                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
             )
         }
@@ -534,6 +541,35 @@ fun AppNavHost(
                     navController.navigate(Screen.LearnLesson.createRoute(nextId)) {
                         popUpTo(Screen.LearnLesson.route) { inclusive = true }
                     }
+                }
+            )
+        }
+
+        // 12. Last Read Screen (Recent Activity categorized by Modules)
+        composable(Screen.LastRead.route) {
+            val lastReadViewModel: LastReadViewModel = viewModel(factory = SimpleViewModelFactory {
+                LastReadViewModel(application)
+            })
+            LastReadScreen(
+                viewModel = lastReadViewModel,
+                onBackClick = { navController.popBackStack() },
+                onOpenPlayer = { bookId, chapterIndex ->
+                    navController.navigate(Screen.Player.createRoute(bookId, chapterIndex))
+                },
+                onOpenBookDetails = { bookId ->
+                    navController.navigate(Screen.BookDetails.createRoute(bookId))
+                },
+                onOpenLibrary = {
+                    navController.navigate(Screen.Library.route)
+                },
+                onOpenLesson = { lessonId ->
+                    navController.navigate(Screen.LearnLesson.createRoute(lessonId))
+                },
+                onOpenCourseSyllabus = {
+                    navController.navigate(Screen.CourseSyllabus.route)
+                },
+                onOpenIntro = { asset ->
+                    navController.navigate(Screen.LearnIntro.createRoute(asset))
                 }
             )
         }

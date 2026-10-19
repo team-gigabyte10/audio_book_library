@@ -107,6 +107,7 @@ fun HomeScreen(
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
     onNavigateToLearnEnglish: () -> Unit = {},
+    onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
@@ -177,10 +178,7 @@ fun HomeScreen(
                 },
                 onLastReadClick = {
                     scope.launch { drawerState.close() }
-                    if (lastPlayed != null) {
-                        viewModel.continueLastPlayed()
-                        onNavigateToPlayer()
-                    }
+                    onNavigateToLastRead()
                 },
                 onBookmarksClick = {
                     scope.launch { drawerState.close() }

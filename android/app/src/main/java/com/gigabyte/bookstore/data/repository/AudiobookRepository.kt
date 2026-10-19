@@ -47,6 +47,7 @@ class AudiobookRepository(
     }
 
     val lastPlayedHistory: Flow<PlaybackHistoryEntity?> = historyDao.getLastPlayedFlow()
+    val allPlaybackHistory: Flow<List<PlaybackHistoryEntity>> = historyDao.getAllHistoryFlow()
 
     suspend fun removeBuiltInBooksIfNeeded() = withContext(Dispatchers.IO) {
         try {

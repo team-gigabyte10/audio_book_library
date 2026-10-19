@@ -44,7 +44,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.gigabyte.bookstore.learning.data.ContinueLesson
 import com.gigabyte.bookstore.learning.data.content.ContentState
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
@@ -55,11 +54,9 @@ fun LearnHomeScreen(
     viewModel: LearnHomeViewModel,
     onBackClick: () -> Unit,
     onOpenCourse: () -> Unit,
-    onOpenLesson: (String) -> Unit,
     onOpenIntro: (String) -> Unit
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
-    val continueLesson by viewModel.continueLesson.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -122,13 +119,6 @@ fun LearnHomeScreen(
                         MainCourseCard(
                             onClick = onOpenCourse
                         )
-                    }
-
-                    // 3. Continue Lesson Card (if available)
-                    continueLesson?.let { lesson ->
-                        item {
-                            ContinueCard(lesson, onClick = { onOpenLesson(lesson.lessonId) })
-                        }
                     }
 
                     item {
@@ -379,55 +369,5 @@ private fun InfoPill(text: String) {
 private fun CenteredMessage(content: @Composable () -> Unit) {
     Box(Modifier.fillMaxSize().padding(24.dp), contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) { content() }
-    }
-}
-
-@Composable
-private fun ContinueCard(lesson: ContinueLesson, onClick: () -> Unit) {
-    Card(
-        onClick = onClick,
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-            Surface(
-                color = MaterialTheme.colorScheme.primary,
-                shape = CircleShape,
-                modifier = Modifier.size(42.dp)
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Icon(
-                        Icons.Default.PlayArrow,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onPrimary,
-                        modifier = Modifier.size(26.dp)
-                    )
-                }
-            }
-            Spacer(Modifier.width(14.dp))
-            Column(Modifier.weight(1f)) {
-                Text(
-                    text = if (lesson.isDone) "পুনরায় অনুশীলন করুন" else "যেখানে থামিয়েছিলেন সেখান থেকে শুনুন",
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
-                )
-                Spacer(Modifier.height(2.dp))
-                Text(
-                    text = lesson.title,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
-                )
-            }
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(20.dp)
-            )
-        }
     }
 }

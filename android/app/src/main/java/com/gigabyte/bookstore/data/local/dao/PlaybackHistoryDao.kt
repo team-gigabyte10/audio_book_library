@@ -9,6 +9,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PlaybackHistoryDao {
+    @Query("SELECT * FROM playback_history ORDER BY lastPlayedTimestamp DESC")
+    fun getAllHistoryFlow(): Flow<List<PlaybackHistoryEntity>>
+
     @Query("SELECT * FROM playback_history ORDER BY lastPlayedTimestamp DESC LIMIT 1")
     fun getLastPlayedFlow(): Flow<PlaybackHistoryEntity?>
 

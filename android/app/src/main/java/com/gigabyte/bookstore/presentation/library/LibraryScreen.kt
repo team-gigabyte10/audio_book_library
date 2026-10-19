@@ -109,6 +109,7 @@ fun LibraryScreen(
     onOpenPaymentApproval: () -> Unit,
     onOpenReferral: () -> Unit,
     onNavigateToHome: (() -> Unit)? = null,
+    onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null
 ) {
     val books: List<Book> by viewModel.books.collectAsStateWithLifecycle()
@@ -192,10 +193,7 @@ fun LibraryScreen(
                 },
                 onLastReadClick = {
                     scope.launch { drawerState.close() }
-                    if (lastPlayed != null) {
-                        viewModel.continueLastPlayed()
-                        onOpenReader(lastPlayed!!.bookId, lastPlayed!!.chapterIndex)
-                    }
+                    onNavigateToLastRead()
                 },
                 onBookmarksClick = {
                     scope.launch { drawerState.close() }
