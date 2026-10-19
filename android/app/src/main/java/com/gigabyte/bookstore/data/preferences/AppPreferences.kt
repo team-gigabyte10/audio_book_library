@@ -74,6 +74,39 @@ class AppPreferences(context: Context) {
         _readerFontSize.value = size
     }
 
+    // English learning module settings
+    private val _learnBnAudio = MutableStateFlow(prefs.getBoolean(KEY_LEARN_BN_AUDIO, true))
+    val learnBnAudio: StateFlow<Boolean> = _learnBnAudio.asStateFlow()
+
+    private val _learnWordByWord = MutableStateFlow(prefs.getBoolean(KEY_LEARN_WORD_BY_WORD, false))
+    val learnWordByWord: StateFlow<Boolean> = _learnWordByWord.asStateFlow()
+
+    private val _learnAutoAdvance = MutableStateFlow(prefs.getBoolean(KEY_LEARN_AUTO_ADVANCE, true))
+    val learnAutoAdvance: StateFlow<Boolean> = _learnAutoAdvance.asStateFlow()
+
+    private val _learnLoopLesson = MutableStateFlow(prefs.getBoolean(KEY_LEARN_LOOP_LESSON, false))
+    val learnLoopLesson: StateFlow<Boolean> = _learnLoopLesson.asStateFlow()
+
+    fun setLearnBnAudio(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_LEARN_BN_AUDIO, enabled).apply()
+        _learnBnAudio.value = enabled
+    }
+
+    fun setLearnWordByWord(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_LEARN_WORD_BY_WORD, enabled).apply()
+        _learnWordByWord.value = enabled
+    }
+
+    fun setLearnAutoAdvance(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_LEARN_AUTO_ADVANCE, enabled).apply()
+        _learnAutoAdvance.value = enabled
+    }
+
+    fun setLearnLoopLesson(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_LEARN_LOOP_LESSON, enabled).apply()
+        _learnLoopLesson.value = enabled
+    }
+
     companion object {
         private const val KEY_SPEECH_RATE = "speech_rate"
         private const val KEY_SPEECH_PITCH = "speech_pitch"
@@ -83,6 +116,10 @@ class AppPreferences(context: Context) {
         private const val KEY_READER_FONT_SIZE = "reader_font_size"
         private const val KEY_SELECTED_VOICE_ID = "selected_voice_id"
         private const val KEY_THEME_MODE = "theme_mode"
+        private const val KEY_LEARN_BN_AUDIO = "learn_bn_audio"
+        private const val KEY_LEARN_WORD_BY_WORD = "learn_word_by_word"
+        private const val KEY_LEARN_AUTO_ADVANCE = "learn_auto_advance"
+        private const val KEY_LEARN_LOOP_LESSON = "learn_loop_lesson"
 
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"

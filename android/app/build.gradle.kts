@@ -75,6 +75,9 @@ secrets {
 
 googleServices { missingGoogleServicesStrategy = MissingGoogleServicesStrategy.WARN }
 
+// LearningDatabase exports its schema so migrations can be written and tested.
+ksp { arg("room.schemaLocation", "$projectDir/schemas") }
+
 // Some unused dependencies are commented out below instead of being removed.
 // This makes it easy to add them back in the future if needed.
 dependencies {
@@ -101,6 +104,7 @@ dependencies {
   implementation(libs.androidx.room.ktx)
   implementation(libs.androidx.room.runtime)
   implementation(libs.coil.compose)
+  implementation(libs.moshi)
   implementation(libs.converter.moshi)
   implementation(libs.firebase.ai)
   // Firestore enabled

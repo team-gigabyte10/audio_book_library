@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.presentation.components.BanglaVoiceInstallPrompt
 import com.gigabyte.bookstore.presentation.navigation.AppNavHost
 import com.gigabyte.bookstore.ui.theme.BanglaAudiobookTheme
 
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
             BanglaAudiobookTheme(darkTheme = isDarkTheme) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     AppNavHost()
+                    BanglaVoiceInstallPrompt()
                 }
             }
         }

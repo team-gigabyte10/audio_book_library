@@ -27,5 +27,17 @@ sealed class Screen(val route: String) {
     object BookCategories : Screen("book_categories?bundleId={bundleId}") {
         fun createRoute(bundleId: String? = null) = if (bundleId != null) "book_categories?bundleId=$bundleId" else "book_categories"
     }
+
+    // English learning module
+    object Learn : Screen("learn")
+    object LearnPart : Screen("learn/part/{partId}") {
+        fun createRoute(partId: String) = "learn/part/$partId"
+    }
+    object LearnLesson : Screen("learn/lesson/{lessonId}") {
+        fun createRoute(lessonId: String) = "learn/lesson/$lessonId"
+    }
+    object LearnQuiz : Screen("learn/quiz/{lessonId}") {
+        fun createRoute(lessonId: String) = "learn/quiz/$lessonId"
+    }
 }
 

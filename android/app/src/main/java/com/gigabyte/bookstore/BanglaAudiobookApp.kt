@@ -7,6 +7,11 @@ import com.gigabyte.bookstore.data.repository.AudiobookRepository
 import com.gigabyte.bookstore.data.repository.BookSyncManager
 import com.gigabyte.bookstore.domain.player.AudiobookPlayer
 import com.gigabyte.bookstore.domain.tts.BanglaTTSManager
+import com.gigabyte.bookstore.learning.data.LearningRepository
+import com.gigabyte.bookstore.learning.data.content.ContentImporter
+import com.gigabyte.bookstore.learning.data.content.LearningContentLoader
+import com.gigabyte.bookstore.learning.data.db.LearningDatabase
+import com.gigabyte.bookstore.learning.domain.audio.TtsStepEngine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -38,6 +43,22 @@ class BanglaAudiobookApp : Application() {
     lateinit var syncManager: BookSyncManager
         private set
 
+    // English learning module (created on first use)
+    val learningDatabase: LearningDatabase by lazy { LearningDatabase.getInstance(this) }
+    val learningRepository: LearningRepository by lazy { LearningRepository(learningDatabase.learningDao()) }
+    val learningContent: LearningContentLoader by lazy {
+        LearningContentLoader(ContentImporter(this, learningDatabase, BuildConfig.VERSION_CODE), applicationScope)
+    }
+    private val lessonAudioDelegate = lazy { TtsStepEngine(this) }
+    val lessonAudio: TtsStepEngine by lessonAudioDelegate
+
+    /** Process-wide, so the Bangla voice prompt shows once per app open (cold start), not on rotation. */
+    var banglaVoicePromptHandled = false
+
+    fun refreshLessonBanglaVoice() {
+        if (lessonAudioDelegate.isInitialized()) lessonAudio.refreshBangla()
+    }
+
     override fun onCreate() {
         super.onCreate()
         instance = this
@@ -59,6 +80,7 @@ class BanglaAudiobookApp : Application() {
     override fun onTerminate() {
         super.onTerminate()
         ttsManager.shutdown()
+        if (lessonAudioDelegate.isInitialized()) lessonAudio.shutdown()
     }
 
     companion object {

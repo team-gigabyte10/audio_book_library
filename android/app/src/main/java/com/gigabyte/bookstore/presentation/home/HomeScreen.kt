@@ -106,6 +106,7 @@ fun HomeScreen(
     onNavigateToReferral: () -> Unit,
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
+    onNavigateToLearnEnglish: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -355,9 +356,8 @@ fun HomeScreen(
                                 accentColor = Color(0xFF1565C0),
                                 statsText = "🎧 ${englishCourse?.lessonCount ?: 15}টি অডিও লেসন · লেভেল: ${englishCourse?.level?.ifBlank { "Beginner" } ?: "Beginner"}",
                                 ctaText = "কোর্সটি শুরু করুন",
-                                onClick = {
-                                    englishCourse?.let { selectedCourse = it }
-                                },
+                                // Opens the ESCB-based English module (first lesson of each part is free).
+                                onClick = onNavigateToLearnEnglish,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

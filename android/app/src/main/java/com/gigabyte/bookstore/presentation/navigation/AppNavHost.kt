@@ -39,6 +39,14 @@ import com.gigabyte.bookstore.presentation.payment.PaymentScreen
 import com.gigabyte.bookstore.presentation.payment.PaymentApprovalScreen
 import com.gigabyte.bookstore.presentation.pdf.PdfViewerScreen
 import com.gigabyte.bookstore.presentation.referral.ReferralScreen
+import com.gigabyte.bookstore.learning.presentation.home.LearnHomeScreen
+import com.gigabyte.bookstore.learning.presentation.home.LearnHomeViewModel
+import com.gigabyte.bookstore.learning.presentation.lesson.LessonScreen
+import com.gigabyte.bookstore.learning.presentation.lesson.LessonViewModel
+import com.gigabyte.bookstore.learning.presentation.part.PartLessonsScreen
+import com.gigabyte.bookstore.learning.presentation.part.PartLessonsViewModel
+import com.gigabyte.bookstore.learning.presentation.quiz.QuizScreen
+import com.gigabyte.bookstore.learning.presentation.quiz.QuizViewModel
 
 @Composable
 
@@ -141,6 +149,9 @@ fun AppNavHost(
                 },
                 onNavigateToBookCategories = { bundleId ->
                     navController.navigate(Screen.BookCategories.createRoute(bundleId))
+                },
+                onNavigateToLearnEnglish = {
+                    navController.navigate(Screen.Learn.route)
                 }
             )
         }
@@ -397,6 +408,77 @@ fun AppNavHost(
                 },
                 onPlayBook = { bookId, chapterIdx ->
                     navController.navigate(Screen.Player.createRoute(bookId, chapterIdx))
+                }
+            )
+        }
+
+        // 11. English learning module: home (parts) → part (lessons) → lesson → quiz
+        composable(Screen.Learn.route) {
+            val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
+                LearnHomeViewModel(application)
+            })
+            LearnHomeScreen(
+                viewModel = learnViewModel,
+                onBackClick = { navController.popBackStack() },
+                onOpenPart = { partId -> navController.navigate(Screen.LearnPart.createRoute(partId)) },
+                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) }
+            )
+        }
+
+        composable(
+            route = Screen.LearnPart.route,
+            arguments = listOf(navArgument("partId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val partId = backStackEntry.arguments?.getString("partId") ?: ""
+            val partViewModel: PartLessonsViewModel = viewModel(
+                key = "learn_part_$partId",
+                factory = SimpleViewModelFactory { PartLessonsViewModel(application, partId) }
+            )
+            PartLessonsScreen(
+                viewModel = partViewModel,
+                onBackClick = { navController.popBackStack() },
+                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
+                onOpenPayment = { navController.navigate(Screen.Payment.route) }
+            )
+        }
+
+        composable(
+            route = Screen.LearnLesson.route,
+            arguments = listOf(navArgument("lessonId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val lessonId = backStackEntry.arguments?.getString("lessonId") ?: ""
+            val lessonViewModel: LessonViewModel = viewModel(
+                key = "learn_lesson_$lessonId",
+                factory = SimpleViewModelFactory { LessonViewModel(application, lessonId) }
+            )
+            LessonScreen(
+                viewModel = lessonViewModel,
+                onBackClick = { navController.popBackStack() },
+                onOpenQuiz = { navController.navigate(Screen.LearnQuiz.createRoute(lessonId)) }
+            )
+        }
+
+        composable(
+            route = Screen.LearnQuiz.route,
+            arguments = listOf(navArgument("lessonId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val lessonId = backStackEntry.arguments?.getString("lessonId") ?: ""
+            val quizViewModel: QuizViewModel = viewModel(
+                factory = SimpleViewModelFactory { QuizViewModel(application, lessonId) }
+            )
+            QuizScreen(
+                viewModel = quizViewModel,
+                onBackClick = { navController.popBackStack() },
+                onRetry = {
+                    // A fresh back-stack entry gives a fresh quiz.
+                    navController.navigate(Screen.LearnQuiz.createRoute(lessonId)) {
+                        popUpTo(Screen.LearnQuiz.route) { inclusive = true }
+                    }
+                },
+                onOpenNextLesson = { nextId ->
+                    navController.navigate(Screen.LearnLesson.createRoute(nextId)) {
+                        popUpTo(Screen.LearnLesson.route) { inclusive = true }
+                    }
                 }
             )
         }
