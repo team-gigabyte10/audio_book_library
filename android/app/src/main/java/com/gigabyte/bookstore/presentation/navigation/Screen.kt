@@ -40,5 +40,9 @@ sealed class Screen(val route: String) {
     object LearnQuiz : Screen("learn/quiz/{lessonId}") {
         fun createRoute(lessonId: String) = "learn/quiz/$lessonId"
     }
+    object LearnIntro : Screen("learn/intro?asset={asset}") {
+        fun createRoute(asset: String = "Intro.md") = "learn/intro?asset=$asset"
+    }
+    object CourseSyllabus : Screen("learn/course/syllabus")
 }
 

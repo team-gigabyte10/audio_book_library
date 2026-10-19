@@ -49,6 +49,8 @@ import com.gigabyte.bookstore.learning.presentation.part.PartLessonsScreen
 import com.gigabyte.bookstore.learning.presentation.part.PartLessonsViewModel
 import com.gigabyte.bookstore.learning.presentation.quiz.QuizScreen
 import com.gigabyte.bookstore.learning.presentation.quiz.QuizViewModel
+import com.gigabyte.bookstore.learning.presentation.intro.CourseIntroScreen
+import com.gigabyte.bookstore.learning.presentation.syllabus.CourseSyllabusScreen
 
 @Composable
 
@@ -439,7 +441,7 @@ fun AppNavHost(
             )
         }
 
-        // 11. English learning module: home (parts) → part (lessons) → lesson → quiz
+        // 11. English learning module: home (intro + course cards) → course syllabus (parts/lessons) → lesson → quiz
         composable(Screen.Learn.route) {
             val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
                 LearnHomeViewModel(application)
@@ -447,8 +449,35 @@ fun AppNavHost(
             LearnHomeScreen(
                 viewModel = learnViewModel,
                 onBackClick = { navController.popBackStack() },
-                onOpenPart = { partId -> navController.navigate(Screen.LearnPart.createRoute(partId)) },
-                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) }
+                onOpenCourse = { navController.navigate(Screen.CourseSyllabus.route) },
+                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
+                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
+            )
+        }
+
+        composable(Screen.CourseSyllabus.route) {
+            val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
+                LearnHomeViewModel(application)
+            })
+            CourseSyllabusScreen(
+                viewModel = learnViewModel,
+                onBackClick = { navController.popBackStack() },
+                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
+                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
+            )
+        }
+
+        composable(
+            route = Screen.LearnIntro.route,
+            arguments = listOf(navArgument("asset") {
+                type = NavType.StringType
+                defaultValue = "Intro.md"
+            })
+        ) { backStackEntry ->
+            val asset = backStackEntry.arguments?.getString("asset") ?: "Intro.md"
+            CourseIntroScreen(
+                assetFileName = asset,
+                onBackClick = { navController.popBackStack() }
             )
         }
 

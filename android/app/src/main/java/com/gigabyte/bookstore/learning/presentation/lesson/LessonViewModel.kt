@@ -118,7 +118,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
     fun speakToken(token: Token) = player.speakOnce(token.text, SpeechLang.EN)
 
-    fun speakText(text: String) = player.speakOnce(text, SpeechLang.EN, rate = 0.9f)
+    fun speakText(text: String) = player.speakOnce(text, SpeechLang.EN, rate = 1.05f)
 
     fun setBnAudio(enabled: Boolean) = preferences.setLearnBnAudio(enabled)
     fun setWordByWord(enabled: Boolean) = preferences.setLearnWordByWord(enabled)

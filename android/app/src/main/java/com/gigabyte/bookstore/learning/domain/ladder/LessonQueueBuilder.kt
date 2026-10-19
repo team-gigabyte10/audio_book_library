@@ -10,8 +10,8 @@ import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 /** Turns lesson items + ladder + settings into the flat step queue the player runs. */
 object LessonQueueBuilder {
 
-    private const val WORD_RATE = 0.8f
-    private const val BANGLA_RATE = 1.0f
+    private const val WORD_RATE = 0.95f
+    private const val BANGLA_RATE = 1.15f
     private const val MAX_WORD_BY_WORD_TOKENS = 12
 
     fun buildLesson(
@@ -48,8 +48,8 @@ object LessonQueueBuilder {
     fun englishSpeeds(item: LessonItem, ladder: List<LadderStep>, repeatCount: Int): List<Float> {
         val english = ladder.filter { it.play == SpeechLang.EN }
         val base = english.filter { it.minLevel == null }.map { it.speed }
-        val slow = base.minOrNull() ?: 0.6f
-        val normal = base.maxOrNull() ?: 1.0f
+        val slow = base.minOrNull() ?: 0.9f
+        val normal = base.maxOrNull() ?: 1.1f
         val count = repeatCount.coerceIn(LearnSettings.MIN_REPEAT_COUNT, LearnSettings.MAX_REPEAT_COUNT)
 
         val speeds = if (count == 1) {
