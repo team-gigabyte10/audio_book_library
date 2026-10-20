@@ -111,10 +111,15 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     fun jumpTo(item: Int) = player.jumpToItem(item)
 
     fun setMode(mode: LessonMode) {
+        if (mode == LessonMode.SPEAK) {
+            player.pause()
+        }
         if (_uiState.value.mode == mode) return
         _uiState.update { it.copy(mode = mode) }
         rebuildQueue(player.state.value.itemIndex)
     }
+
+    fun pause() = player.pause()
 
     fun speakToken(token: Token) = player.speakOnce(token.text, SpeechLang.EN)
 
@@ -152,7 +157,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
         player.loop = current.loopLesson
         player.repeatItem = current.repeatItem
         player.load(steps, startItem)
-        if (wasPlaying) player.play()
+        if (wasPlaying && _uiState.value.mode != LessonMode.SPEAK) player.play()
     }
 
     /** Speak drill (lesson template step 5): show the Bangla, leave a gap to answer aloud, then play the answer. */

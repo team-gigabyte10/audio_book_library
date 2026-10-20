@@ -261,7 +261,8 @@ fun LessonScreen(
                                 item = items[index],
                                 onSpeakTarget = { viewModel.speakText(items[index].target) },
                                 onNextItem = viewModel::next,
-                                hasNextItem = index < items.lastIndex
+                                hasNextItem = index < items.lastIndex,
+                                onStartChallenge = viewModel::pause
                             )
                         }
                     }
@@ -576,7 +577,8 @@ private fun SpeedDrillChallengeCard(
     item: LessonItem,
     onSpeakTarget: () -> Unit,
     onNextItem: () -> Unit,
-    hasNextItem: Boolean
+    hasNextItem: Boolean,
+    onStartChallenge: () -> Unit = {}
 ) {
     val wordCount = remember(item.target) {
         item.target.trim().split(Regex("\\s+")).filter { it.isNotBlank() }.size
@@ -908,6 +910,7 @@ private fun SpeedDrillChallengeCard(
                 else -> {
                     Button(
                         onClick = {
+                            onStartChallenge()
                             remainingSeconds = totalSeconds
                             repCount = 0
                             isCompleted = false
