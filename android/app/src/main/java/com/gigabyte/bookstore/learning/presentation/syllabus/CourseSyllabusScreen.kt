@@ -455,21 +455,49 @@ private fun SyllabusLessonCard(
     onClick: () -> Unit
 ) {
     val isDone = lesson.state == LessonState.DONE
+    val isVeryImportant = lesson.titleTarget?.contains("Very Important", ignoreCase = true) == true ||
+        lesson.titleBn?.contains("অতি গুরুত্বপূর্ণ") == true
 
     Card(
         shape = RoundedCornerShape(14.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         border = BorderStroke(
-            1.dp,
-            if (isDone) Color(0xFF10B981).copy(alpha = 0.5f) else partTheme.accentColor.copy(alpha = 0.25f)
+            if (isVeryImportant) 1.5.dp else 1.dp,
+            when {
+                isDone -> Color(0xFF10B981).copy(alpha = 0.5f)
+                isVeryImportant -> Color(0xFFE11D48).copy(alpha = 0.45f)
+                else -> partTheme.accentColor.copy(alpha = 0.25f)
+            }
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isVeryImportant) 3.dp else 2.dp),
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 12.dp)
             .clickable(onClick = onClick)
     ) {
         Column(modifier = Modifier.padding(14.dp)) {
+            if (isVeryImportant) {
+                Surface(
+                    color = Color(0xFFE11D48).copy(alpha = 0.12f),
+                    border = BorderStroke(1.dp, Color(0xFFE11D48).copy(alpha = 0.4f)),
+                    shape = RoundedCornerShape(6.dp),
+                    modifier = Modifier.padding(bottom = 8.dp)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Text(
+                            text = "🔥 VERY IMPORTANT FOR SPOKEN ENGLISH",
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = Color(0xFFE11D48),
+                            letterSpacing = 0.4.sp
+                        )
+                    }
+                }
+            }
+
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Surface(
                     color = if (isDone) Color(0xFF10B981).copy(alpha = 0.18f) else partTheme.accentColor.copy(alpha = 0.14f),
@@ -522,7 +550,9 @@ private fun SyllabusLessonCard(
             ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     Pill(text = "💬 ${lesson.itemCount}টি বাক্য")
-                    if (lesson.bestScore > 0) {
+                    if (isVeryImportant) {
+                        Pill(text = "⚡ ৬ রূপের ড্রিল")
+                    } else if (lesson.bestScore > 0) {
                         Pill(text = "🏆 স্কোর: ${lesson.bestScore}%")
                     } else {
                         Pill(text = "🎧 অডিও অনুশীলন")

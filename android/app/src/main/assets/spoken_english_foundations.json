@@ -40,8 +40,8 @@
     }
   ],
   "stats": {
-    "lessons": 4,
-    "items": 57
+    "lessons": 6,
+    "items": 93
   },
   "parts": [
     {
@@ -676,12 +676,12 @@
             },
             {
               "id": "en-prof-020",
-              "concept_id": "c-i-am-software-engineer",
+              "concept_id": "c-i-am-programmer",
               "type": "sentence",
               "level": "A1",
-              "target": "I am a software engineer.",
-              "bn": "আমি একজন সফটওয়্যার প্রকৌশলী।",
-              "bn_pron": "আই অ্যাম আ সফটওয়্যার ইঞ্জিনিয়ার।",
+              "target": "I am a programmer.",
+              "bn": "আমি একজন প্রোগ্রামার।",
+              "bn_pron": "আই অ্যাম আ প্রোগ্রামার।",
               "tokens": [
                 {
                   "t": "I",
@@ -696,12 +696,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "software",
-                  "bn": "সফটওয়্যার"
-                },
-                {
-                  "t": "engineer",
-                  "bn": "প্রকৌশলী"
+                  "t": "programmer",
+                  "bn": "প্রোগ্রামার"
                 }
               ],
               "tags": {
@@ -728,12 +724,12 @@
           "items": [
             {
               "id": "en-sub-001",
-              "concept_id": "c-you-are-doctor",
+              "concept_id": "c-you-are-singer",
               "type": "sentence",
               "level": "A1",
-              "target": "You are a doctor.",
-              "bn": "তুমি একজন ডাক্তার।",
-              "bn_pron": "ইউ আর আ ডক্টর।",
+              "target": "You are a singer.",
+              "bn": "তুমি একজন গায়ক।",
+              "bn_pron": "ইউ আর আ সিঙ্গার।",
               "tokens": [
                 {
                   "t": "You",
@@ -748,8 +744,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "doctor",
-                  "bn": "ডাক্তার"
+                  "t": "singer",
+                  "bn": "গায়ক"
                 }
               ],
               "tags": {
@@ -760,12 +756,12 @@
             },
             {
               "id": "en-sub-002",
-              "concept_id": "c-you-are-engineer",
+              "concept_id": "c-you-are-actor",
               "type": "sentence",
               "level": "A1",
-              "target": "You are an engineer.",
-              "bn": "তুমি একজন প্রকৌশলী।",
-              "bn_pron": "ইউ আর অ্যান ইঞ্জিনিয়ার।",
+              "target": "You are an actor.",
+              "bn": "তুমি একজন অভিনেতা।",
+              "bn_pron": "ইউ আর অ্যান অ্যাক্টর।",
               "tokens": [
                 {
                   "t": "You",
@@ -780,8 +776,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "engineer",
-                  "bn": "প্রকৌশলী"
+                  "t": "actor",
+                  "bn": "অভিনেতা"
                 }
               ],
               "tags": {
@@ -792,12 +788,12 @@
             },
             {
               "id": "en-sub-003",
-              "concept_id": "c-you-are-journalist",
+              "concept_id": "c-you-are-photographer",
               "type": "sentence",
               "level": "A1",
-              "target": "You are a journalist.",
-              "bn": "আপনি একজন সাংবাদিক।",
-              "bn_pron": "ইউ আর আ জার্নালিস্ট।",
+              "target": "You are a photographer.",
+              "bn": "আপনি একজন আলোকচিত্রী।",
+              "bn_pron": "ইউ আর আ ফটোগ্রাফার।",
               "tokens": [
                 {
                   "t": "You",
@@ -812,8 +808,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "journalist",
-                  "bn": "সাংবাদিক"
+                  "t": "photographer",
+                  "bn": "আলোকচিত্রী"
                 }
               ],
               "tags": {
@@ -824,12 +820,12 @@
             },
             {
               "id": "en-sub-004",
-              "concept_id": "c-he-is-writer",
+              "concept_id": "c-he-is-mechanic",
               "type": "sentence",
               "level": "A1",
-              "target": "He is a writer.",
-              "bn": "সে একজন লেখক।",
-              "bn_pron": "হি ইজ আ রাইটার।",
+              "target": "He is a mechanic.",
+              "bn": "সে একজন মেকানিক।",
+              "bn_pron": "হি ইজ আ মেকানিক।",
               "tokens": [
                 {
                   "t": "He",
@@ -844,8 +840,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "writer",
-                  "bn": "লেখক"
+                  "t": "mechanic",
+                  "bn": "মেকানিক"
                 }
               ],
               "tags": {
@@ -856,12 +852,12 @@
             },
             {
               "id": "en-sub-005",
-              "concept_id": "c-he-is-banker",
+              "concept_id": "c-he-is-electrician",
               "type": "sentence",
               "level": "A1",
-              "target": "He is a banker.",
-              "bn": "সে একজন ব্যাংকার।",
-              "bn_pron": "হি ইজ আ ব্যাংকার।",
+              "target": "He is an electrician.",
+              "bn": "সে একজন ইলেকট্রিশিয়ান।",
+              "bn_pron": "হি ইজ অ্যান ইলেকট্রিশিয়ান।",
               "tokens": [
                 {
                   "t": "He",
@@ -872,12 +868,12 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "a",
+                  "t": "an",
                   "bn": "একজন"
                 },
                 {
-                  "t": "banker",
-                  "bn": "ব্যাংকার"
+                  "t": "electrician",
+                  "bn": "ইলেকট্রিশিয়ান"
                 }
               ],
               "tags": {
@@ -888,12 +884,12 @@
             },
             {
               "id": "en-sub-006",
-              "concept_id": "c-he-is-police-officer",
+              "concept_id": "c-he-is-carpenter",
               "type": "sentence",
               "level": "A1",
-              "target": "He is a police officer.",
-              "bn": "তিনি একজন পুলিশ কর্মকর্তা।",
-              "bn_pron": "হি ইজ আ পুলিশ অফিসার।",
+              "target": "He is a carpenter.",
+              "bn": "তিনি একজন কাঠমিস্ত্রি।",
+              "bn_pron": "হি ইজ আ কার্পেন্টার।",
               "tokens": [
                 {
                   "t": "He",
@@ -908,12 +904,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "police",
-                  "bn": "পুলিশ"
-                },
-                {
-                  "t": "officer",
-                  "bn": "কর্মকর্তা"
+                  "t": "carpenter",
+                  "bn": "কাঠমিস্ত্রি"
                 }
               ],
               "tags": {
@@ -924,12 +916,12 @@
             },
             {
               "id": "en-sub-007",
-              "concept_id": "c-they-are-teachers",
+              "concept_id": "c-they-are-soldiers",
               "type": "sentence",
               "level": "A1",
-              "target": "They are teachers.",
-              "bn": "তারা শিক্ষক।",
-              "bn_pron": "দে আর টিচার্স।",
+              "target": "They are soldiers.",
+              "bn": "তারা সৈনিক।",
+              "bn_pron": "দে আর সোলজার্স।",
               "tokens": [
                 {
                   "t": "They",
@@ -940,8 +932,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "teachers",
-                  "bn": "শিক্ষকবৃন্দ"
+                  "t": "soldiers",
+                  "bn": "সৈনিকবৃন্দ"
                 }
               ],
               "tags": {
@@ -952,12 +944,12 @@
             },
             {
               "id": "en-sub-008",
-              "concept_id": "c-they-are-doctors",
+              "concept_id": "c-they-are-athletes",
               "type": "sentence",
               "level": "A1",
-              "target": "They are doctors.",
-              "bn": "তারা ডাক্তার।",
-              "bn_pron": "দে আর ডক্টরস।",
+              "target": "They are athletes.",
+              "bn": "তারা ক্রীড়াবিদ।",
+              "bn_pron": "দে আর অ্যাথলিটস।",
               "tokens": [
                 {
                   "t": "They",
@@ -968,8 +960,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "doctors",
-                  "bn": "ডাক্তারগণ"
+                  "t": "athletes",
+                  "bn": "ক্রীড়াবিদগণ"
                 }
               ],
               "tags": {
@@ -980,12 +972,12 @@
             },
             {
               "id": "en-sub-009",
-              "concept_id": "c-they-are-farmers",
+              "concept_id": "c-they-are-firefighters",
               "type": "sentence",
               "level": "A1",
-              "target": "They are farmers.",
-              "bn": "তারা কৃষক।",
-              "bn_pron": "দে আর ফার্মার্স।",
+              "target": "They are firefighters.",
+              "bn": "তারা দমকলকর্মী।",
+              "bn_pron": "দে আর ফায়ারফাইটার্স।",
               "tokens": [
                 {
                   "t": "They",
@@ -996,8 +988,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "farmers",
-                  "bn": "কৃষকবৃন্দ"
+                  "t": "firefighters",
+                  "bn": "দমকলকর্মীগণ"
                 }
               ],
               "tags": {
@@ -1008,12 +1000,12 @@
             },
             {
               "id": "en-sub-010",
-              "concept_id": "c-nayem-is-pilot",
+              "concept_id": "c-nayem-is-pharmacist",
               "type": "sentence",
               "level": "A1",
-              "target": "Nayem is a pilot.",
-              "bn": "নাঈম একজন বৈমানিক।",
-              "bn_pron": "নাঈম ইজ আ পাইলট।",
+              "target": "Nayem is a pharmacist.",
+              "bn": "নাঈম একজন ফার্মাসিস্ট।",
+              "bn_pron": "নাঈম ইজ আ ফার্মাসিস্ট।",
               "tokens": [
                 {
                   "t": "Nayem",
@@ -1028,8 +1020,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "pilot",
-                  "bn": "বৈমানিক"
+                  "t": "pharmacist",
+                  "bn": "ফার্মাসিস্ট"
                 }
               ],
               "tags": {
@@ -1040,12 +1032,12 @@
             },
             {
               "id": "en-sub-011",
-              "concept_id": "c-nayem-is-lawyer",
+              "concept_id": "c-nayem-is-designer",
               "type": "sentence",
               "level": "A1",
-              "target": "Nayem is a lawyer.",
-              "bn": "নাঈম একজন আইনজীবী।",
-              "bn_pron": "নাঈম ইজ আ লয়্যার।",
+              "target": "Nayem is a designer.",
+              "bn": "নাঈম একজন ডিজাইনার।",
+              "bn_pron": "নাঈম ইজ আ ডিজাইনার।",
               "tokens": [
                 {
                   "t": "Nayem",
@@ -1060,8 +1052,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "lawyer",
-                  "bn": "আইনজীবী"
+                  "t": "designer",
+                  "bn": "ডিজাইনার"
                 }
               ],
               "tags": {
@@ -1072,12 +1064,12 @@
             },
             {
               "id": "en-sub-012",
-              "concept_id": "c-nayem-is-businessman",
+              "concept_id": "c-nayem-is-manager",
               "type": "sentence",
               "level": "A1",
-              "target": "Nayem is a businessman.",
-              "bn": "নাঈম একজন ব্যবসায়ী।",
-              "bn_pron": "নাঈম ইজ আ বিজনেসম্যান।",
+              "target": "Nayem is a manager.",
+              "bn": "নাঈম একজন ব্যবস্থাপক।",
+              "bn_pron": "নাঈম ইজ আ ম্যানেজার।",
               "tokens": [
                 {
                   "t": "Nayem",
@@ -1092,8 +1084,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "businessman",
-                  "bn": "ব্যবসায়ী"
+                  "t": "manager",
+                  "bn": "ব্যবস্থাপক"
                 }
               ],
               "tags": {
@@ -1104,12 +1096,12 @@
             },
             {
               "id": "en-sub-013",
-              "concept_id": "c-shefat-is-architect",
+              "concept_id": "c-shefat-is-accountant",
               "type": "sentence",
               "level": "A1",
-              "target": "Shefat is an architect.",
-              "bn": "শেফাত একজন স্থপতি।",
-              "bn_pron": "শেফাত ইজ অ্যান আর্কিটেক্ট।",
+              "target": "Shefat is an accountant.",
+              "bn": "শেফাত একজন হিসাবরক্ষক।",
+              "bn_pron": "শেফাত ইজ অ্যান অ্যাকাউন্ট্যান্ট।",
               "tokens": [
                 {
                   "t": "Shefat",
@@ -1124,8 +1116,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "architect",
-                  "bn": "স্থপতি"
+                  "t": "accountant",
+                  "bn": "হিসাবরক্ষক"
                 }
               ],
               "tags": {
@@ -1136,12 +1128,12 @@
             },
             {
               "id": "en-sub-014",
-              "concept_id": "c-shefat-is-software-engineer",
+              "concept_id": "c-shefat-is-musician",
               "type": "sentence",
               "level": "A1",
-              "target": "Shefat is a software engineer.",
-              "bn": "শেফাত একজন সফটওয়্যার প্রকৌশলী।",
-              "bn_pron": "শেফাত ইজ আ সফটওয়্যার ইঞ্জিনিয়ার।",
+              "target": "Shefat is a musician.",
+              "bn": "শেফাত একজন সঙ্গীতশিল্পী।",
+              "bn_pron": "শেফাত ইজ আ মিউজিশিয়ান।",
               "tokens": [
                 {
                   "t": "Shefat",
@@ -1156,12 +1148,8 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "software",
-                  "bn": "সফটওয়্যার"
-                },
-                {
-                  "t": "engineer",
-                  "bn": "প্রকৌশলী"
+                  "t": "musician",
+                  "bn": "সঙ্গীতশিল্পী"
                 }
               ],
               "tags": {
@@ -1172,12 +1160,12 @@
             },
             {
               "id": "en-sub-015",
-              "concept_id": "c-shefat-is-scientist",
+              "concept_id": "c-shefat-is-dentist",
               "type": "sentence",
               "level": "A1",
-              "target": "Shefat is a scientist.",
-              "bn": "শেফাত একজন বিজ্ঞানী।",
-              "bn_pron": "শেফাত ইজ আ সায়েন্টিস্ট।",
+              "target": "Shefat is a dentist.",
+              "bn": "শেফাত একজন দন্তচিকিৎসক।",
+              "bn_pron": "শেফাত ইজ আ ডেন্টিস্ট।",
               "tokens": [
                 {
                   "t": "Shefat",
@@ -1192,14 +1180,688 @@
                   "bn": "একজন"
                 },
                 {
-                  "t": "scientist",
-                  "bn": "বিজ্ঞানী"
+                  "t": "dentist",
+                  "bn": "দন্তচিকিৎসক"
                 }
               ],
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
                 "tense": "present_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l03",
+          "order": 3,
+          "badge": "Very Important for Spoken English",
+          "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
+          "title_bn": "বাক্যের ৬ রূপ: পেশা ও পরিচয় (অতি গুরুত্বপূর্ণ)",
+          "title_target": "6 Sentence Forms: Professions (Very Important)",
+          "intro_bn": "যেকোনো বাক্যকে অনর্গল ইংরেজিতে বলতে হলে এর ৬টি রূপ (Affirmative, Negative, Interrogative, Intro-Negative, WH-Question, WH-Negative) পরিবর্তনের দক্ষতা অর্জন করতে হবে। Be-verb দিয়ে পেশা ও পরিচয়ের প্রতিটি রূপ দ্রুত মুখে উচ্চারণ করে অনুশীলন করুন।",
+          "structure": [
+            "Subject + Be-verb + a/an + Noun",
+            "Subject + Be-verb + not + a/an + Noun",
+            "Be-verb + Subject + a/an + Noun?",
+            "Be-verb + Subject + not + a/an + Noun?",
+            "Why + Be-verb + Subject + a/an + Noun?",
+            "Why + Be-verb + Subject + not + a/an + Noun?"
+          ],
+          "source_section": "Foundations: 6-Pattern Transformation Drill",
+          "items": [
+            {
+              "id": "en-drill-prof-001",
+              "concept_id": "c-i-am-leader-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am a leader.",
+              "bn": "আমি একজন নেতা।",
+              "bn_pron": "আই অ্যাম আ লিডার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "leader",
+                  "bn": "নেতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-prof-002",
+              "concept_id": "c-i-am-leader-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am not a leader.",
+              "bn": "আমি একজন নেতা নই।",
+              "bn_pron": "আই অ্যাম নট আ লিডার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "leader",
+                  "bn": "নেতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-prof-003",
+              "concept_id": "c-i-am-leader-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Am I a leader?",
+              "bn": "আমি কি একজন নেতা?",
+              "bn_pron": "অ্যাম আই আ লিডার?",
+              "tokens": [
+                {
+                  "t": "Am",
+                  "bn": "হই কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "leader",
+                  "bn": "নেতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-prof-004",
+              "concept_id": "c-i-am-leader-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Am I not a leader?",
+              "bn": "আমি কি একজন নেতা নই?",
+              "bn_pron": "অ্যাম আই নট আ লিডার?",
+              "tokens": [
+                {
+                  "t": "Am",
+                  "bn": "হই কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "leader",
+                  "bn": "নেতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-prof-005",
+              "concept_id": "c-i-am-leader-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why am I a leader?",
+              "bn": "আমি কেন একজন নেতা?",
+              "bn_pron": "হোয়াই অ্যাম আই আ লিডার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "leader",
+                  "bn": "নেতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-prof-006",
+              "concept_id": "c-i-am-leader-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why am I not a leader?",
+              "bn": "আমি কেন একজন নেতা নই?",
+              "bn_pron": "হোয়াই অ্যাম আই নট আ লিডার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "leader",
+                  "bn": "নেতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-prof-007",
+              "concept_id": "c-you-are-consultant-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are a consultant.",
+              "bn": "তুমি একজন পরামর্শদাতা।",
+              "bn_pron": "ইউ আর আ কনসালট্যান্ট।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "consultant",
+                  "bn": "পরামর্শদাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-prof-008",
+              "concept_id": "c-you-are-consultant-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are not a consultant.",
+              "bn": "তুমি একজন পরামর্শদাতা নও।",
+              "bn_pron": "ইউ আর নট আ কনসালট্যান্ট।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "consultant",
+                  "bn": "পরামর্শদাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-prof-009",
+              "concept_id": "c-you-are-consultant-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you a consultant?",
+              "bn": "তুমি কি একজন পরামর্শদাতা?",
+              "bn_pron": "আর ইউ আ কনসালট্যান্ট?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "হও কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "consultant",
+                  "bn": "পরামর্শদাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-prof-010",
+              "concept_id": "c-you-are-consultant-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you not a consultant?",
+              "bn": "তুমি কি একজন পরামর্শদাতা নও?",
+              "bn_pron": "আর ইউ নট আ কনসালট্যান্ট?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "হও কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "consultant",
+                  "bn": "পরামর্শদাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-prof-011",
+              "concept_id": "c-you-are-consultant-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are you a consultant?",
+              "bn": "তুমি কেন একজন পরামর্শদাতা?",
+              "bn_pron": "হোয়াই আর ইউ আ কনসালট্যান্ট?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "consultant",
+                  "bn": "পরামর্শদাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-prof-012",
+              "concept_id": "c-you-are-consultant-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are you not a consultant?",
+              "bn": "তুমি কেন একজন পরামর্শদাতা নও?",
+              "bn_pron": "হোয়াই আর ইউ নট আ কনসালট্যান্ট?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "consultant",
+                  "bn": "পরামর্শদাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-prof-013",
+              "concept_id": "c-he-is-judge-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is a judge.",
+              "bn": "তিনি একজন বিচারক।",
+              "bn_pron": "হি ইজ আ জাজ।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "judge",
+                  "bn": "বিচারক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-prof-014",
+              "concept_id": "c-he-is-judge-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is not a judge.",
+              "bn": "তিনি একজন বিচারক নন।",
+              "bn_pron": "হি ইজ নট আ জাজ।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "judge",
+                  "bn": "বিচারক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-prof-015",
+              "concept_id": "c-he-is-judge-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he a judge?",
+              "bn": "তিনি কি একজন বিচারক?",
+              "bn_pron": "ইজ হি আ জাজ?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হন কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "judge",
+                  "bn": "বিচারক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-prof-016",
+              "concept_id": "c-he-is-judge-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he not a judge?",
+              "bn": "তিনি কি একজন বিচারক নন?",
+              "bn_pron": "ইজ হি নট আ জাজ?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হন কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "judge",
+                  "bn": "বিচারক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-prof-017",
+              "concept_id": "c-he-is-judge-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is he a judge?",
+              "bn": "তিনি কেন একজন বিচারক?",
+              "bn_pron": "হোয়াই ইজ হি আ জাজ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "judge",
+                  "bn": "বিচারক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-prof-018",
+              "concept_id": "c-he-is-judge-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is he not a judge?",
+              "bn": "তিনি কেন একজন বিচারক নন?",
+              "bn_pron": "হোয়াই ইজ হি নট আ জাজ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "judge",
+                  "bn": "বিচারক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
               }
             }
           ]
@@ -1214,8 +1876,8 @@
       "title_target": "Personality & Character Traits",
       "lessons": [
         {
-          "id": "en-foundations-l03",
-          "order": 1,
+          "id": "en-foundations-l04",
+          "order": 4,
           "title_bn": "আমার ব্যক্তিত্ব (I am + Adjective)",
           "title_target": "My Personality (I am + Adjective)",
           "intro_bn": "নিজের বৈশিষ্ট্য বা স্বভাব প্রকাশ করতে Be-Verb (am) এর পরে সরাসরি Adjective বসে। এতে কোনো article (a/an) প্রয়োজন হয় না।",
@@ -1507,8 +2169,8 @@
           ]
         },
         {
-          "id": "en-foundations-l04",
-          "order": 2,
+          "id": "en-foundations-l05",
+          "order": 5,
           "title_bn": "অন্যদের গুণাবলী (You, He, The Boy, The Girl)",
           "title_target": "Others' Personality Traits",
           "intro_bn": "অন্যদের ব্যক্তিত্ব বর্ণনা করতে Subject অনুসারে উপযুক্ত be-verb (is/are) ব্যবহার করে Adjective যোগ করা হয়।",
@@ -1519,12 +2181,12 @@
           "items": [
             {
               "id": "en-oth-trait-001",
-              "concept_id": "c-you-are-brave",
+              "concept_id": "c-you-are-honest",
               "type": "sentence",
               "level": "A2",
-              "target": "You are brave.",
-              "bn": "তুমি সাহসী।",
-              "bn_pron": "ইউ আর ব্রেভ।",
+              "target": "You are honest.",
+              "bn": "তুমি সৎ।",
+              "bn_pron": "ইউ আর অনেস্ট।",
               "tokens": [
                 {
                   "t": "You",
@@ -1535,8 +2197,8 @@
                   "bn": "হও"
                 },
                 {
-                  "t": "brave",
-                  "bn": "সাহসী"
+                  "t": "honest",
+                  "bn": "সৎ"
                 }
               ],
               "tags": {
@@ -1547,12 +2209,12 @@
             },
             {
               "id": "en-oth-trait-002",
-              "concept_id": "c-you-are-creative",
+              "concept_id": "c-you-are-polite",
               "type": "sentence",
               "level": "A2",
-              "target": "You are creative.",
-              "bn": "তুমি সৃজনশীল।",
-              "bn_pron": "ইউ আর ক্রিয়েটিভ।",
+              "target": "You are polite.",
+              "bn": "তুমি ভদ্র।",
+              "bn_pron": "ইউ আর পোলাইট।",
               "tokens": [
                 {
                   "t": "You",
@@ -1563,8 +2225,8 @@
                   "bn": "হও"
                 },
                 {
-                  "t": "creative",
-                  "bn": "সৃজনশীল"
+                  "t": "polite",
+                  "bn": "ভদ্র"
                 }
               ],
               "tags": {
@@ -1575,12 +2237,12 @@
             },
             {
               "id": "en-oth-trait-003",
-              "concept_id": "c-you-are-friendly",
+              "concept_id": "c-you-are-generous",
               "type": "sentence",
               "level": "A2",
-              "target": "You are friendly.",
-              "bn": "আপনি বন্ধুভাবাপন্ন।",
-              "bn_pron": "ইউ আর ফ্রেন্ডলি।",
+              "target": "You are generous.",
+              "bn": "আপনি উদার।",
+              "bn_pron": "ইউ আর জেনারাস।",
               "tokens": [
                 {
                   "t": "You",
@@ -1591,8 +2253,8 @@
                   "bn": "হন"
                 },
                 {
-                  "t": "friendly",
-                  "bn": "বন্ধুভাবাপন্ন"
+                  "t": "generous",
+                  "bn": "উদার"
                 }
               ],
               "tags": {
@@ -1603,12 +2265,12 @@
             },
             {
               "id": "en-oth-trait-004",
-              "concept_id": "c-he-is-diligent",
+              "concept_id": "c-he-is-humble",
               "type": "sentence",
               "level": "A2",
-              "target": "He is diligent.",
-              "bn": "সে পরিশ্রমী।",
-              "bn_pron": "হি ইজ ডিলিজেন্ট।",
+              "target": "He is humble.",
+              "bn": "সে বিনয়ী।",
+              "bn_pron": "হি ইজ হাম্বল।",
               "tokens": [
                 {
                   "t": "He",
@@ -1619,8 +2281,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "diligent",
-                  "bn": "পরিশ্রমী"
+                  "t": "humble",
+                  "bn": "বিনয়ী"
                 }
               ],
               "tags": {
@@ -1631,12 +2293,12 @@
             },
             {
               "id": "en-oth-trait-005",
-              "concept_id": "c-he-is-diplomatic",
+              "concept_id": "c-he-is-patient",
               "type": "sentence",
               "level": "A2",
-              "target": "He is diplomatic.",
-              "bn": "সে কৌশলী।",
-              "bn_pron": "হি ইজ ডিপ্লোম্যাটিক।",
+              "target": "He is patient.",
+              "bn": "সে ধৈর্যশীল।",
+              "bn_pron": "হি ইজ পেশেন্ট।",
               "tokens": [
                 {
                   "t": "He",
@@ -1647,8 +2309,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "diplomatic",
-                  "bn": "কৌশলী"
+                  "t": "patient",
+                  "bn": "ধৈর্যশীল"
                 }
               ],
               "tags": {
@@ -1659,24 +2321,24 @@
             },
             {
               "id": "en-oth-trait-006",
-              "concept_id": "c-he-is-ambitious",
+              "concept_id": "c-he-is-energetic",
               "type": "sentence",
               "level": "A2",
-              "target": "He is ambitious.",
-              "bn": "সে উচ্চাকাঙ্ক্ষী।",
-              "bn_pron": "হি ইজ অ্যাম্বিশাস।",
+              "target": "He is energetic.",
+              "bn": "তিনি উদ্যমী।",
+              "bn_pron": "হি ইজ এনার্জেটিক।",
               "tokens": [
                 {
                   "t": "He",
-                  "bn": "সে"
+                  "bn": "তিনি"
                 },
                 {
                   "t": "is",
-                  "bn": "হয়"
+                  "bn": "হন"
                 },
                 {
-                  "t": "ambitious",
-                  "bn": "উচ্চাকাঙ্ক্ষী"
+                  "t": "energetic",
+                  "bn": "উদ্যমী"
                 }
               ],
               "tags": {
@@ -1687,12 +2349,12 @@
             },
             {
               "id": "en-oth-trait-007",
-              "concept_id": "c-boy-is-dynamic",
+              "concept_id": "c-boy-is-intelligent",
               "type": "sentence",
               "level": "A2",
-              "target": "The boy is dynamic.",
-              "bn": "ছেলেটি গতিশীল ও কর্মচঞ্চল।",
-              "bn_pron": "দ্য বয় ইজ ডাইনামিক।",
+              "target": "The boy is intelligent.",
+              "bn": "ছেলেটি বুদ্ধিমান।",
+              "bn_pron": "দ্য বয় ইজ ইন্টেলিজেন্ট।",
               "tokens": [
                 {
                   "t": "The",
@@ -1707,8 +2369,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "dynamic",
-                  "bn": "গতিশীল"
+                  "t": "intelligent",
+                  "bn": "বুদ্ধিমান"
                 }
               ],
               "tags": {
@@ -1719,12 +2381,12 @@
             },
             {
               "id": "en-oth-trait-008",
-              "concept_id": "c-boy-is-funny",
+              "concept_id": "c-boy-is-confident",
               "type": "sentence",
               "level": "A2",
-              "target": "The boy is funny.",
-              "bn": "ছেলেটি রসিক।",
-              "bn_pron": "দ্য বয় ইজ ফানি।",
+              "target": "The boy is confident.",
+              "bn": "ছেলেটি আত্মবিশ্বাসী।",
+              "bn_pron": "দ্য বয় ইজ কনফিডেন্ট।",
               "tokens": [
                 {
                   "t": "The",
@@ -1739,8 +2401,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "funny",
-                  "bn": "রসিক"
+                  "t": "confident",
+                  "bn": "আত্মবিশ্বাসী"
                 }
               ],
               "tags": {
@@ -1751,12 +2413,12 @@
             },
             {
               "id": "en-oth-trait-009",
-              "concept_id": "c-boy-is-brave",
+              "concept_id": "c-boy-is-curious",
               "type": "sentence",
               "level": "A2",
-              "target": "The boy is brave.",
-              "bn": "ছেলেটি সাহসী।",
-              "bn_pron": "দ্য বয় ইজ ব্রেভ।",
+              "target": "The boy is curious.",
+              "bn": "ছেলেটি কৌতূহলী।",
+              "bn_pron": "দ্য বয় ইজ কিউরিয়াস।",
               "tokens": [
                 {
                   "t": "The",
@@ -1771,8 +2433,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "brave",
-                  "bn": "সাহসী"
+                  "t": "curious",
+                  "bn": "কৌতূহলী"
                 }
               ],
               "tags": {
@@ -1783,12 +2445,12 @@
             },
             {
               "id": "en-oth-trait-010",
-              "concept_id": "c-girl-is-broad-minded",
+              "concept_id": "c-girl-is-talented",
               "type": "sentence",
               "level": "A2",
-              "target": "The girl is broad-minded.",
-              "bn": "মেয়েটি উদার মনের।",
-              "bn_pron": "দ্য গার্ল ইজ ব্রড-মাইন্ডেড।",
+              "target": "The girl is talented.",
+              "bn": "মেয়েটি প্রতিভাবান।",
+              "bn_pron": "দ্য গার্ল ইজ ট্যালেন্টেড।",
               "tokens": [
                 {
                   "t": "The",
@@ -1803,8 +2465,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "broad-minded",
-                  "bn": "উদার মনের"
+                  "t": "talented",
+                  "bn": "প্রতিভাবান"
                 }
               ],
               "tags": {
@@ -1815,12 +2477,12 @@
             },
             {
               "id": "en-oth-trait-011",
-              "concept_id": "c-girl-is-creative",
+              "concept_id": "c-girl-is-optimistic",
               "type": "sentence",
               "level": "A2",
-              "target": "The girl is creative.",
-              "bn": "মেয়েটি সৃজনশীল।",
-              "bn_pron": "দ্য গার্ল ইজ ক্রিয়েটিভ।",
+              "target": "The girl is optimistic.",
+              "bn": "মেয়েটি আশাবাদী।",
+              "bn_pron": "দ্য গার্ল ইজ অপটিমিস্টিক।",
               "tokens": [
                 {
                   "t": "The",
@@ -1835,8 +2497,8 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "creative",
-                  "bn": "সৃজনশীল"
+                  "t": "optimistic",
+                  "bn": "আশাবাদী"
                 }
               ],
               "tags": {
@@ -1847,12 +2509,12 @@
             },
             {
               "id": "en-oth-trait-012",
-              "concept_id": "c-girl-is-adventurous",
+              "concept_id": "c-girl-is-sincere",
               "type": "sentence",
               "level": "A2",
-              "target": "The girl is adventurous.",
-              "bn": "মেয়েটি রোমাঞ্চপ্রিয়।",
-              "bn_pron": "দ্য গার্ল ইজ অ্যাডভেঞ্চারাস।",
+              "target": "The girl is sincere.",
+              "bn": "মেয়েটি আন্তরিক।",
+              "bn_pron": "দ্য গার্ল ইজ সিনসিয়ার।",
               "tokens": [
                 {
                   "t": "The",
@@ -1867,14 +2529,616 @@
                   "bn": "হয়"
                 },
                 {
-                  "t": "adventurous",
-                  "bn": "রোমাঞ্চপ্রিয়"
+                  "t": "sincere",
+                  "bn": "আন্তরিক"
                 }
               ],
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
                 "tense": "present_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l06",
+          "order": 6,
+          "badge": "Very Important for Spoken English",
+          "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
+          "title_bn": "বাক্যের ৬ রূপ: ব্যক্তিত্ব ও গুণাবলী (অতি গুরুত্বপূর্ণ)",
+          "title_target": "6 Sentence Forms: Personality Traits (Very Important)",
+          "intro_bn": "ব্যক্তিত্ব ও গুণাবলী প্রকাশের বাক্যগুলোকে ৬টি রূপে সাবলীলভাবে পরিবর্তন করে প্রশ্ন ও উত্তর তৈরির স্পোকেন ড্রিল। আত্মবিশ্বাসের সাথে ইংরেজি বলতে এই প্যাটার্নটি বারবার অনুশীলন করুন।",
+          "structure": [
+            "Subject + Be-verb + Adjective",
+            "Subject + Be-verb + not + Adjective",
+            "Be-verb + Subject + Adjective?",
+            "Be-verb + Subject + not + Adjective?",
+            "Why + Be-verb + Subject + Adjective?",
+            "Why + Be-verb + Subject + not + Adjective?"
+          ],
+          "source_section": "Foundations: 6-Pattern Transformation Drill",
+          "items": [
+            {
+              "id": "en-drill-trait-001",
+              "concept_id": "c-i-am-punctual-aff",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am punctual.",
+              "bn": "আমি সময়নিষ্ঠ।",
+              "bn_pron": "আই অ্যাম পাংকচুয়াল।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "punctual",
+                  "bn": "সময়নিষ্ঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-trait-002",
+              "concept_id": "c-i-am-punctual-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I am not punctual.",
+              "bn": "আমি সময়নিষ্ঠ নই।",
+              "bn_pron": "আই অ্যাম নট পাংকচুয়াল।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "punctual",
+                  "bn": "সময়নিষ্ঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-trait-003",
+              "concept_id": "c-i-am-punctual-int",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Am I punctual?",
+              "bn": "আমি কি সময়নিষ্ঠ?",
+              "bn_pron": "অ্যাম আই পাংকচুয়াল?",
+              "tokens": [
+                {
+                  "t": "Am",
+                  "bn": "হই কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "punctual",
+                  "bn": "সময়নিষ্ঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-trait-004",
+              "concept_id": "c-i-am-punctual-int-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Am I not punctual?",
+              "bn": "আমি কি সময়নিষ্ঠ নই?",
+              "bn_pron": "অ্যাম আই নট পাংকচুয়াল?",
+              "tokens": [
+                {
+                  "t": "Am",
+                  "bn": "হই কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "punctual",
+                  "bn": "সময়নিষ্ঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-trait-005",
+              "concept_id": "c-i-am-punctual-wh",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Why am I punctual?",
+              "bn": "আমি কেন সময়নিষ্ঠ?",
+              "bn_pron": "হোয়াই অ্যাম আই পাংকচুয়াল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "punctual",
+                  "bn": "সময়নিষ্ঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-trait-006",
+              "concept_id": "c-i-am-punctual-wh-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Why am I not punctual?",
+              "bn": "আমি কেন সময়নিষ্ঠ নই?",
+              "bn_pron": "হোয়াই অ্যাম আই নট পাংকচুয়াল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "punctual",
+                  "bn": "সময়নিষ্ঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-trait-007",
+              "concept_id": "c-you-are-responsible-aff",
+              "type": "sentence",
+              "level": "A2",
+              "target": "You are responsible.",
+              "bn": "তুমি দায়িত্বশীল।",
+              "bn_pron": "ইউ আর রেসপন্সিবল।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "responsible",
+                  "bn": "দায়িত্বশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-trait-008",
+              "concept_id": "c-you-are-responsible-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "You are not responsible.",
+              "bn": "তুমি দায়িত্বশীল নও।",
+              "bn_pron": "ইউ আর নট রেসপন্সিবল।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "responsible",
+                  "bn": "দায়িত্বশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-trait-009",
+              "concept_id": "c-you-are-responsible-int",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Are you responsible?",
+              "bn": "তুমি কি দায়িত্বশীল?",
+              "bn_pron": "আর ইউ রেসপন্সিবল?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "হও কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "responsible",
+                  "bn": "দায়িত্বশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-trait-010",
+              "concept_id": "c-you-are-responsible-int-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Are you not responsible?",
+              "bn": "তুমি কি দায়িত্বশীল নও?",
+              "bn_pron": "আর ইউ নট রেসপন্সিবল?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "হও কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "responsible",
+                  "bn": "দায়িত্বশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-trait-011",
+              "concept_id": "c-you-are-responsible-wh",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Why are you responsible?",
+              "bn": "তুমি কেন দায়িত্বশীল?",
+              "bn_pron": "হোয়াই আর ইউ রেসপন্সিবল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "responsible",
+                  "bn": "দায়িত্বশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-trait-012",
+              "concept_id": "c-you-are-responsible-wh-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Why are you not responsible?",
+              "bn": "তুমি কেন দায়িত্বশীল নও?",
+              "bn_pron": "হোয়াই আর ইউ নট রেসপন্সিবল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হও"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "responsible",
+                  "bn": "দায়িত্বশীল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-trait-013",
+              "concept_id": "c-he-is-dedicated-aff",
+              "type": "sentence",
+              "level": "A2",
+              "target": "He is dedicated.",
+              "bn": "সে নিবেদিতপ্রাণ।",
+              "bn_pron": "হি ইজ ডেডিকেটেড।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "dedicated",
+                  "bn": "নিবেদিতপ্রাণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-trait-014",
+              "concept_id": "c-he-is-dedicated-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "He is not dedicated.",
+              "bn": "সে নিবেদিতপ্রাণ নয়।",
+              "bn_pron": "হি ইজ নট ডেডিকেটেড।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "dedicated",
+                  "bn": "নিবেদিতপ্রাণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-drill-trait-015",
+              "concept_id": "c-he-is-dedicated-int",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Is he dedicated?",
+              "bn": "সে কি নিবেদিতপ্রাণ?",
+              "bn_pron": "ইজ হি ডেডিকেটেড?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "dedicated",
+                  "bn": "নিবেদিতপ্রাণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-trait-016",
+              "concept_id": "c-he-is-dedicated-int-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Is he not dedicated?",
+              "bn": "সে কি নিবেদিতপ্রাণ নয়?",
+              "bn_pron": "ইজ হি নট ডেডিকেটেড?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "dedicated",
+                  "bn": "নিবেদিতপ্রাণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "yes_no"
+              }
+            },
+            {
+              "id": "en-drill-trait-017",
+              "concept_id": "c-he-is-dedicated-wh",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Why is he dedicated?",
+              "bn": "সে কেন নিবেদিতপ্রাণ?",
+              "bn_pron": "হোয়াই ইজ হি ডেডিকেটেড?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "dedicated",
+                  "bn": "নিবেদিতপ্রাণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-drill-trait-018",
+              "concept_id": "c-he-is-dedicated-wh-neg",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Why is he not dedicated?",
+              "bn": "সে কেন নিবেদিতপ্রাণ নয়?",
+              "bn_pron": "হোয়াই ইজ হি নট ডেডিকেটেড?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "dedicated",
+                  "bn": "নিবেদিতপ্রাণ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "question": "wh",
+                "wh": "why"
               }
             }
           ]

@@ -31,6 +31,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
 import com.gigabyte.bookstore.learning.data.LessonSummary
 import com.gigabyte.bookstore.learning.domain.model.LessonState
 import com.gigabyte.bookstore.presentation.components.AppBackground
@@ -89,6 +94,24 @@ private fun LessonRow(lesson: LessonSummary, onClick: () -> Unit) {
             )
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
+                val isVeryImportant = lesson.titleTarget?.contains("Very Important", ignoreCase = true) == true ||
+                    lesson.titleBn?.contains("অতি গুরুত্বপূর্ণ") == true
+                if (isVeryImportant) {
+                    Surface(
+                        color = Color(0xFFE11D48).copy(alpha = 0.12f),
+                        border = BorderStroke(1.dp, Color(0xFFE11D48).copy(alpha = 0.4f)),
+                        shape = RoundedCornerShape(4.dp),
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    ) {
+                        Text(
+                            text = "🔥 VERY IMPORTANT FOR SPOKEN ENGLISH",
+                            fontSize = 9.5.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFE11D48),
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                }
                 Text(
                     "${lesson.order}. ${lesson.titleBn ?: lesson.titleTarget.orEmpty()}",
                     style = MaterialTheme.typography.titleSmall,
