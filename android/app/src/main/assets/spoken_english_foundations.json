@@ -40,8 +40,8 @@
     }
   ],
   "stats": {
-    "lessons": 12,
-    "items": 153
+    "lessons": 16,
+    "items": 267
   },
   "parts": [
     {
@@ -6609,6 +6609,4518 @@
                 "sentence_type": "interrogative",
                 "wh": "whose",
                 "topic": "possession"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p4",
+      "order": 4,
+      "level": "A1",
+      "title_bn": "অবস্থান, প্রিপজিশন ও দক্ষতা প্রকাশ (Location, Prepositions & Skills)",
+      "title_target": "Location, Prepositions & Skills (Good at / Bad at)",
+      "lessons": [
+        {
+          "id": "en-foundations-l13",
+          "order": 13,
+          "title_bn": "স্থান ও অবস্থান নির্দেশক বাক্য (Location & Prepositions of Place)",
+          "title_target": "Location & Prepositions of Place",
+          "intro_bn": "দৈনন্দিন জীবনে ব্যক্তি ও বস্তুর অবস্থান নির্দেশ করতে 'at', 'in', 'on', 'under', 'near' ইত্যাদি প্রিপজিশন সহ Be-Verb এর সহজ ও কার্যকর ব্যবহার।",
+          "structure": [
+            "[Subject] + [am/is/are] + [at / in / on / under / near] + [Place/Object]"
+          ],
+          "items": [
+            {
+              "id": "en-loc-001",
+              "concept_id": "c-loc-i-at-work",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am at work.",
+              "bn": "আমি কাজে আছি।",
+              "bn_pron": "আই অ্যাম অ্যাট ওয়ার্ক।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "আছি / হই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work",
+                  "bn": "কাজ"
+                }
+              ],
+              "tags": {
+                "preposition": "at",
+                "location": "work"
+              }
+            },
+            {
+              "id": "en-loc-002",
+              "concept_id": "c-loc-i-at-office",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am at the office.",
+              "bn": "আমি অফিসে আছি।",
+              "bn_pron": "আই অ্যাম অ্যাট দ্য অফিস।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "আছি"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office",
+                  "bn": "অফিস"
+                }
+              ],
+              "tags": {
+                "preposition": "at",
+                "location": "office"
+              }
+            },
+            {
+              "id": "en-loc-003",
+              "concept_id": "c-loc-he-at-home",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is at home.",
+              "bn": "সে বাড়িতে আছে।",
+              "bn_pron": "হি ইজ অ্যাট হোম।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে / তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে / আছেন"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home",
+                  "bn": "বাড়ি"
+                }
+              ],
+              "tags": {
+                "preposition": "at",
+                "location": "home"
+              }
+            },
+            {
+              "id": "en-loc-004",
+              "concept_id": "c-loc-man-in-car",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The man is in the car.",
+              "bn": "লোকটি গাড়ির ভিতরে আছে।",
+              "bn_pron": "দ্য ম্যান ইজ ইন দ্য কার।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "man",
+                  "bn": "লোক"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "car"
+              }
+            },
+            {
+              "id": "en-loc-005",
+              "concept_id": "c-loc-book-on-table",
+              "type": "sentence",
+              "level": "A1",
+              "target": "My book is on the table.",
+              "bn": "আমার বইটি টেবিলের উপরে আছে।",
+              "bn_pron": "মাই বুক ইজ অন দ্য টেবিল।",
+              "tokens": [
+                {
+                  "t": "My",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "book",
+                  "bn": "বইটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "preposition": "on",
+                "location": "table"
+              }
+            },
+            {
+              "id": "en-loc-006",
+              "concept_id": "c-loc-she-in-kitchen",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is in the kitchen.",
+              "bn": "সে রান্নাঘরে আছে।",
+              "bn_pron": "শি ইজ ইন দ্য কিচেন।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে / তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen",
+                  "bn": "রান্নাঘর"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "kitchen"
+              }
+            },
+            {
+              "id": "en-loc-007",
+              "concept_id": "c-loc-we-at-school",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are at school.",
+              "bn": "আমরা স্কুলে আছি।",
+              "bn_pron": "উই আর অ্যাট স্কুল।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছি"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school",
+                  "bn": "স্কুল"
+                }
+              ],
+              "tags": {
+                "preposition": "at",
+                "location": "school"
+              }
+            },
+            {
+              "id": "en-loc-008",
+              "concept_id": "c-loc-they-in-meeting-room",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are in the meeting room.",
+              "bn": "তারা মিটিং রুমে আছে।",
+              "bn_pron": "দে আর ইন দ্য মিটিং রুম।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "meeting",
+                  "bn": "মিটিং / সভা"
+                },
+                {
+                  "t": "room",
+                  "bn": "কক্ষ"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "meeting_room"
+              }
+            },
+            {
+              "id": "en-loc-009",
+              "concept_id": "c-loc-phone-in-pocket",
+              "type": "sentence",
+              "level": "A1",
+              "target": "My phone is in my pocket.",
+              "bn": "আমার ফোনটি আমার পকেটে আছে।",
+              "bn_pron": "মাই ফোন ইজ ইন মাই পকেট।",
+              "tokens": [
+                {
+                  "t": "My",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "phone",
+                  "bn": "ফোনটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "pocket",
+                  "bn": "পকেট"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "pocket"
+              }
+            },
+            {
+              "id": "en-loc-010",
+              "concept_id": "c-loc-keys-on-shelf",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The keys are on the shelf.",
+              "bn": "চাবিগুলো তাকের উপরে আছে।",
+              "bn_pron": "দ্য কিজ আর অন দ্য শেলফ।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf",
+                  "bn": "তাক"
+                }
+              ],
+              "tags": {
+                "preposition": "on",
+                "location": "shelf"
+              }
+            },
+            {
+              "id": "en-loc-011",
+              "concept_id": "c-loc-cat-under-chair",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The cat is under the chair.",
+              "bn": "বিড়ালটি চেয়ারের নিচে আছে।",
+              "bn_pron": "দ্য ক্যাট ইজ আন্ডার দ্য চেয়ার।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "cat",
+                  "bn": "বিড়াল"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "under",
+                  "bn": "নিচে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "chair",
+                  "bn": "চেয়ার"
+                }
+              ],
+              "tags": {
+                "preposition": "under",
+                "location": "chair"
+              }
+            },
+            {
+              "id": "en-loc-012",
+              "concept_id": "c-loc-students-in-classroom",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The students are in the classroom.",
+              "bn": "ছাত্রছাত্রীরা শ্রেণিকক্ষে আছে।",
+              "bn_pron": "দ্য স্টুডেন্টস আর ইন দ্য ক্লাসরুম।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "students",
+                  "bn": "ছাত্রছাত্রীরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "classroom",
+                  "bn": "শ্রেণিকক্ষ"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "classroom"
+              }
+            },
+            {
+              "id": "en-loc-013",
+              "concept_id": "c-loc-bank-near-market",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The bank is near the market.",
+              "bn": "ব্যাংকটি বাজারের কাছে আছে।",
+              "bn_pron": "দ্য ব্যাংক ইজ নিয়ার দ্য মার্কেট।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "bank",
+                  "bn": "ব্যাংক"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "near",
+                  "bn": "কাছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "market",
+                  "bn": "বাজার"
+                }
+              ],
+              "tags": {
+                "preposition": "near",
+                "location": "market"
+              }
+            },
+            {
+              "id": "en-loc-014",
+              "concept_id": "c-loc-brother-at-hospital",
+              "type": "sentence",
+              "level": "A1",
+              "target": "His brother is at the hospital.",
+              "bn": "তার ভাই হাসপাতালে আছে।",
+              "bn_pron": "হিজ ব্রাদার ইজ অ্যাট দ্য হসপিটাল।",
+              "tokens": [
+                {
+                  "t": "His",
+                  "bn": "তার"
+                },
+                {
+                  "t": "brother",
+                  "bn": "ভাই"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "hospital",
+                  "bn": "হাসপাতাল"
+                }
+              ],
+              "tags": {
+                "preposition": "at",
+                "location": "hospital"
+              }
+            },
+            {
+              "id": "en-loc-015",
+              "concept_id": "c-loc-clock-on-wall",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The clock is on the wall.",
+              "bn": "ঘড়িটি দেয়ালের উপরে আছে।",
+              "bn_pron": "দ্য ক্লক ইজ অন দ্য ওয়াল।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "clock",
+                  "bn": "ঘড়ি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "wall",
+                  "bn": "দেয়াল"
+                }
+              ],
+              "tags": {
+                "preposition": "on",
+                "location": "wall"
+              }
+            },
+            {
+              "id": "en-loc-016",
+              "concept_id": "c-loc-laptop-on-desk",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The laptop is on the desk.",
+              "bn": "ল্যাপটপটি ডেস্কের উপরে আছে।",
+              "bn_pron": "দ্য ল্যাপটপ ইজ অন দ্য ডেস্ক।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "laptop",
+                  "bn": "ল্যাপটপ"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "desk",
+                  "bn": "ডেস্ক"
+                }
+              ],
+              "tags": {
+                "preposition": "on",
+                "location": "desk"
+              }
+            },
+            {
+              "id": "en-loc-017",
+              "concept_id": "c-loc-children-in-playground",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The children are in the playground.",
+              "bn": "শিশুরা খেলার মাঠে আছে।",
+              "bn_pron": "দ্য চিলড্রেন আর ইন দ্য প্লেগ্রাউন্ড।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground",
+                  "bn": "খেলার মাঠ"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "playground"
+              }
+            },
+            {
+              "id": "en-loc-018",
+              "concept_id": "c-loc-father-at-station",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Our father is at the railway station.",
+              "bn": "আমাদের বাবা রেলওয়ে স্টেশনে আছেন।",
+              "bn_pron": "আওয়ার ফাদার ইজ অ্যাট দ্য রেলওয়ে স্টেশন।",
+              "tokens": [
+                {
+                  "t": "Our",
+                  "bn": "আমাদের"
+                },
+                {
+                  "t": "father",
+                  "bn": "বাবা"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছেন"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "railway",
+                  "bn": "রেলওয়ে"
+                },
+                {
+                  "t": "station",
+                  "bn": "স্টেশন"
+                }
+              ],
+              "tags": {
+                "preposition": "at",
+                "location": "railway_station"
+              }
+            },
+            {
+              "id": "en-loc-019",
+              "concept_id": "c-loc-money-in-wallet",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The money is in the wallet.",
+              "bn": "টাকাগুলো ওয়ালেটের ভিতরে আছে।",
+              "bn_pron": "দ্য মানি ইজ ইন দ্য ওয়ালেট।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "money",
+                  "bn": "টাকা"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "wallet",
+                  "bn": "ওয়ালেট / মানিব্যাগ"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "wallet"
+              }
+            },
+            {
+              "id": "en-loc-020",
+              "concept_id": "c-loc-bird-in-tree",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The bird is in the tree.",
+              "bn": "পাখিটি গাছে আছে।",
+              "bn_pron": "দ্য বার্ড ইজ ইন দ্য ট্রি।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "bird",
+                  "bn": "পাখি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / মধ্যে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "tree",
+                  "bn": "গাছ"
+                }
+              ],
+              "tags": {
+                "preposition": "in",
+                "location": "tree"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l14",
+          "order": 14,
+          "title_bn": "স্থানসূচক বাক্যের ৬ রূপান্তর (অতি গুরুত্বপূর্ণ) (6-Type Location Transformations)",
+          "title_target": "6-Type Location Transformations (Very Important)",
+          "intro_bn": "স্থান ও অবস্থান বোঝাতে একটি বাক্যকে ৬টি ধরনে (হ্যাঁ-বোধক, না-বোধক, প্রশ্নবোধক, প্রশ্ন-না-বোধক, ডব্লিউএইচ প্রশ্ন ও ডব্লিউএইচ না-বোধক) রূপান্তরের স্পোকেন ড্রিল।",
+          "structure": [
+            "1. Affirmative: S + be + Prep + Place",
+            "2. Negative: S + be + not + Prep + Place",
+            "3. Interrogative: Be + S + Prep + Place?",
+            "4. Intro-Negative: Be + S + not + Prep + Place?",
+            "5. WH-Question: WH + be + S + Prep + Place?",
+            "6. WH-Negative: WH + be + S + not + Prep + Place?"
+          ],
+          "items": [
+            {
+              "id": "en-trans-loc-001",
+              "concept_id": "c-trans-i-work-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am at work.",
+              "bn": "আমি কাজে আছি।",
+              "bn_pron": "আই অ্যাম অ্যাট ওয়ার্ক।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "আছি"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work",
+                  "bn": "কাজ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-002",
+              "concept_id": "c-trans-i-work-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am not at work.",
+              "bn": "আমি কাজে নেই।",
+              "bn_pron": "আই অ্যাম নট অ্যাট ওয়ার্ক।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work",
+                  "bn": "কাজ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-003",
+              "concept_id": "c-trans-i-work-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Am I at work?",
+              "bn": "আমি কি কাজে আছি?",
+              "bn_pron": "অ্যাম আই অ্যাট ওয়ার্ক?",
+              "tokens": [
+                {
+                  "t": "Am",
+                  "bn": "কি আছি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work?",
+                  "bn": "কাজ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-004",
+              "concept_id": "c-trans-i-work-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Am I not at work?",
+              "bn": "আমি কি কাজে নেই?",
+              "bn_pron": "অ্যাম আই নট অ্যাট ওয়ার্ক?",
+              "tokens": [
+                {
+                  "t": "Am",
+                  "bn": "কি আছি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work?",
+                  "bn": "কাজ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-005",
+              "concept_id": "c-trans-i-work-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why am I at work?",
+              "bn": "আমি কেন কাজে আছি?",
+              "bn_pron": "হোয়াই অ্যাম আই অ্যাট ওয়ার্ক?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "am",
+                  "bn": "আছি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work?",
+                  "bn": "কাজ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-006",
+              "concept_id": "c-trans-i-work-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why am I not at work?",
+              "bn": "আমি কেন কাজে নেই?",
+              "bn_pron": "হোয়াই অ্যাম আই নট অ্যাট ওয়ার্ক?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "work?",
+                  "bn": "কাজ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-007",
+              "concept_id": "c-trans-he-office-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is at the office.",
+              "bn": "সে অফিসে আছে।",
+              "bn_pron": "হি ইজ অ্যাট দ্য অফিস।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office",
+                  "bn": "অফিস"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-008",
+              "concept_id": "c-trans-he-office-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is not at the office.",
+              "bn": "সে অফিসে নেই।",
+              "bn_pron": "হি ইজ নট অ্যাট দ্য অফিস।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office",
+                  "bn": "অফিস"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-009",
+              "concept_id": "c-trans-he-office-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he at the office?",
+              "bn": "সে কি অফিসে আছে?",
+              "bn_pron": "ইজ হি অ্যাট দ্য অফিস?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office?",
+                  "bn": "অফিস?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-010",
+              "concept_id": "c-trans-he-office-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he not at the office?",
+              "bn": "সে কি অফিসে নেই?",
+              "bn_pron": "ইজ হি নট অ্যাট দ্য অফিস?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office?",
+                  "bn": "অফিস?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-011",
+              "concept_id": "c-trans-he-office-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is he at the office?",
+              "bn": "সে কেন অফিসে আছে?",
+              "bn_pron": "হোয়াই ইজ হি অ্যাট দ্য অফিস?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office?",
+                  "bn": "অফিস?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-012",
+              "concept_id": "c-trans-he-office-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is he not at the office?",
+              "bn": "সে কেন অফিসে নেই?",
+              "bn_pron": "হোয়াই ইজ হি নট অ্যাট দ্য অফিস?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "office?",
+                  "bn": "অফিস?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-013",
+              "concept_id": "c-trans-they-home-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are at home.",
+              "bn": "তারা বাড়িতে আছে।",
+              "bn_pron": "দে আর অ্যাট হোম।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home",
+                  "bn": "বাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-014",
+              "concept_id": "c-trans-they-home-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are not at home.",
+              "bn": "তারা বাড়িতে নেই।",
+              "bn_pron": "দে আর নট অ্যাট হোম।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home",
+                  "bn": "বাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-015",
+              "concept_id": "c-trans-they-home-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are they at home?",
+              "bn": "তারা কি বাড়িতে আছে?",
+              "bn_pron": "আর দে অ্যাট হোম?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home?",
+                  "bn": "বাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-016",
+              "concept_id": "c-trans-they-home-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are they not at home?",
+              "bn": "তারা কি বাড়িতে নেই?",
+              "bn_pron": "আর দে নট অ্যাট হোম?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home?",
+                  "bn": "বাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-017",
+              "concept_id": "c-trans-they-home-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are they at home?",
+              "bn": "তারা কেন বাড়িতে আছে?",
+              "bn_pron": "হোয়াই আর দে অ্যাট হোম?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home?",
+                  "bn": "বাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-018",
+              "concept_id": "c-trans-they-home-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are they not at home?",
+              "bn": "তারা কেন বাড়িতে নেই?",
+              "bn_pron": "হোয়াই আর দে নট অ্যাট হোম?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "home?",
+                  "bn": "বাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-019",
+              "concept_id": "c-trans-book-table-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The book is on the table.",
+              "bn": "বইটি টেবিলের উপরে আছে।",
+              "bn_pron": "দ্য বুক ইজ অন দ্য টেবিল।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-020",
+              "concept_id": "c-trans-book-table-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The book is not on the table.",
+              "bn": "বইটি টেবিলের উপরে নেই।",
+              "bn_pron": "দ্য বুক ইজ নট অন দ্য টেবিল।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-021",
+              "concept_id": "c-trans-book-table-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the book on the table?",
+              "bn": "বইটি কি টেবিলের উপরে আছে?",
+              "bn_pron": "ইজ দ্য বুক অন দ্য টেবিল?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table?",
+                  "bn": "টেবিল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-022",
+              "concept_id": "c-trans-book-table-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the book not on the table?",
+              "bn": "বইটি কি টেবিলের উপরে নেই?",
+              "bn_pron": "ইজ দ্য বুক নট অন দ্য টেবিল?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table?",
+                  "bn": "টেবিল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-023",
+              "concept_id": "c-trans-book-table-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is the book on the table?",
+              "bn": "বইটি কেন টেবিলের উপরে আছে?",
+              "bn_pron": "হোয়াই ইজ দ্য বুক অন দ্য টেবিল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table?",
+                  "bn": "টেবিল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-024",
+              "concept_id": "c-trans-book-table-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is the book not on the table?",
+              "bn": "বইটি কেন টেবিলের উপরে নেই?",
+              "bn_pron": "হোয়াই ইজ দ্য বুক নট অন দ্য টেবিল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "table?",
+                  "bn": "টেবিল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-025",
+              "concept_id": "c-trans-she-kitchen-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is in the kitchen.",
+              "bn": "সে রান্নাঘরে আছে।",
+              "bn_pron": "শি ইজ ইন দ্য কিচেন।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen",
+                  "bn": "রান্নাঘর"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-026",
+              "concept_id": "c-trans-she-kitchen-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is not in the kitchen.",
+              "bn": "সে রান্নাঘরে নেই।",
+              "bn_pron": "শি ইজ নট ইন দ্য কিচেন।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen",
+                  "bn": "রান্নাঘর"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-027",
+              "concept_id": "c-trans-she-kitchen-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is she in the kitchen?",
+              "bn": "সে কি রান্নাঘরে আছে?",
+              "bn_pron": "ইজ শি ইন দ্য কিচেন?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen?",
+                  "bn": "রান্নাঘর?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-028",
+              "concept_id": "c-trans-she-kitchen-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is she not in the kitchen?",
+              "bn": "সে কি রান্নাঘরে নেই?",
+              "bn_pron": "ইজ শি নট ইন দ্য কিচেন?",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen?",
+                  "bn": "রান্নাঘর?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-029",
+              "concept_id": "c-trans-she-kitchen-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is she in the kitchen?",
+              "bn": "সে কেন রান্নাঘরে আছে?",
+              "bn_pron": "হোয়াই ইজ শি ইন দ্য কিচেন?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen?",
+                  "bn": "রান্নাঘর?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-030",
+              "concept_id": "c-trans-she-kitchen-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why is she not in the kitchen?",
+              "bn": "সে কেন রান্নাঘরে নেই?",
+              "bn_pron": "হোয়াই ইজ শি নট ইন দ্য কিচেন?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "kitchen?",
+                  "bn": "রান্নাঘর?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-031",
+              "concept_id": "c-trans-we-school-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are at school.",
+              "bn": "আমরা স্কুলে আছি।",
+              "bn_pron": "উই আর অ্যাট স্কুল।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছি"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school",
+                  "bn": "স্কুল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-032",
+              "concept_id": "c-trans-we-school-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are not at school.",
+              "bn": "আমরা স্কুলে নেই।",
+              "bn_pron": "উই আর নট অ্যাট স্কুল।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হই"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school",
+                  "bn": "স্কুল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-033",
+              "concept_id": "c-trans-we-school-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are we at school?",
+              "bn": "আমরা কি স্কুলে আছি?",
+              "bn_pron": "আর উই অ্যাট স্কুল?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছি"
+                },
+                {
+                  "t": "we",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school?",
+                  "bn": "স্কুল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-034",
+              "concept_id": "c-trans-we-school-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are we not at school?",
+              "bn": "আমরা কি স্কুলে নেই?",
+              "bn_pron": "আর উই নট অ্যাট স্কুল?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছি"
+                },
+                {
+                  "t": "we",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school?",
+                  "bn": "স্কুল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-035",
+              "concept_id": "c-trans-we-school-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are we at school?",
+              "bn": "আমরা কেন স্কুলে আছি?",
+              "bn_pron": "হোয়াই আর উই অ্যাট স্কুল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছি"
+                },
+                {
+                  "t": "we",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school?",
+                  "bn": "স্কুল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-036",
+              "concept_id": "c-trans-we-school-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are we not at school?",
+              "bn": "আমরা কেন স্কুলে নেই?",
+              "bn_pron": "হোয়াই আর উই নট অ্যাট স্কুল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হই"
+                },
+                {
+                  "t": "we",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "school?",
+                  "bn": "স্কুল?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-037",
+              "concept_id": "c-trans-you-car-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are in the car.",
+              "bn": "আপনি গাড়ির ভিতরে আছেন।",
+              "bn_pron": "ইউ আর ইন দ্য কার।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "আপনি / তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছেন / আছো"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-038",
+              "concept_id": "c-trans-you-car-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are not in the car.",
+              "bn": "আপনি গাড়ির ভিতরে নেই।",
+              "bn_pron": "ইউ আর নট ইন দ্য কার।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "আপনি / তুমি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-039",
+              "concept_id": "c-trans-you-car-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you in the car?",
+              "bn": "আপনি কি গাড়ির ভিতরে আছেন?",
+              "bn_pron": "আর ইউ ইন দ্য কার?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছেন"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car?",
+                  "bn": "গাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-040",
+              "concept_id": "c-trans-you-car-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you not in the car?",
+              "bn": "আপনি কি গাড়ির ভিতরে নেই?",
+              "bn_pron": "আর ইউ নট ইন দ্য কার?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছেন"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car?",
+                  "bn": "গাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-041",
+              "concept_id": "c-trans-you-car-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are you in the car?",
+              "bn": "আপনি কেন গাড়ির ভিতরে আছেন?",
+              "bn_pron": "হোয়াই আর ইউ ইন দ্য কার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছেন"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car?",
+                  "bn": "গাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-042",
+              "concept_id": "c-trans-you-car-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are you not in the car?",
+              "bn": "আপনি কেন গাড়ির ভিতরে নেই?",
+              "bn_pron": "হোয়াই আর ইউ নট ইন দ্য কার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "car?",
+                  "bn": "গাড়ি?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-043",
+              "concept_id": "c-trans-keys-shelf-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The keys are on the shelf.",
+              "bn": "চাবিগুলো তাকের উপরে আছে।",
+              "bn_pron": "দ্য কিজ আর অন দ্য শেলফ।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf",
+                  "bn": "তাক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-044",
+              "concept_id": "c-trans-keys-shelf-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The keys are not on the shelf.",
+              "bn": "চাবিগুলো তাকের উপরে নেই।",
+              "bn_pron": "দ্য কিজ আর নট অন দ্য শেলফ।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf",
+                  "bn": "তাক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-045",
+              "concept_id": "c-trans-keys-shelf-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are the keys on the shelf?",
+              "bn": "চাবিগুলো কি তাকের উপরে আছে?",
+              "bn_pron": "আর দ্য কিজ অন দ্য শেলফ?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf?",
+                  "bn": "তাক?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-046",
+              "concept_id": "c-trans-keys-shelf-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are the keys not on the shelf?",
+              "bn": "চাবিগুলো কি তাকের উপরে নেই?",
+              "bn_pron": "আর দ্য কিজ নট অন দ্য শেলফ?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf?",
+                  "bn": "তাক?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-047",
+              "concept_id": "c-trans-keys-shelf-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are the keys on the shelf?",
+              "bn": "চাবিগুলো কেন তাকের উপরে আছে?",
+              "bn_pron": "হোয়াই আর দ্য কিজ অন দ্য শেলফ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf?",
+                  "bn": "তাক?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-048",
+              "concept_id": "c-trans-keys-shelf-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are the keys not on the shelf?",
+              "bn": "চাবিগুলো কেন তাকের উপরে নেই?",
+              "bn_pron": "হোয়াই আর দ্য কিজ নট অন দ্য শেলফ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "shelf?",
+                  "bn": "তাক?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-049",
+              "concept_id": "c-trans-children-playground-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The children are in the playground.",
+              "bn": "শিশুরা খেলার মাঠে আছে।",
+              "bn_pron": "দ্য চিলড্রেন আর ইন দ্য প্লেগ্রাউন্ড।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground",
+                  "bn": "খেলার মাঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-050",
+              "concept_id": "c-trans-children-playground-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "The children are not in the playground.",
+              "bn": "শিশুরা খেলার মাঠে নেই।",
+              "bn_pron": "দ্য চিলড্রেন আর নট ইন দ্য প্লেগ্রাউন্ড।",
+              "tokens": [
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground",
+                  "bn": "খেলার মাঠ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-051",
+              "concept_id": "c-trans-children-playground-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are the children in the playground?",
+              "bn": "শিশুরা কি খেলার মাঠে আছে?",
+              "bn_pron": "আর দ্য চিলড্রেন ইন দ্য প্লেগ্রাউন্ড?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground?",
+                  "bn": "খেলার মাঠ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-052",
+              "concept_id": "c-trans-children-playground-int-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are the children not in the playground?",
+              "bn": "শিশুরা কি খেলার মাঠে নেই?",
+              "bn_pron": "আর দ্য চিলড্রেন নট ইন দ্য প্লেগ্রাউন্ড?",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "কি আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground?",
+                  "bn": "খেলার মাঠ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "tense": "present_simple"
+              }
+            },
+            {
+              "id": "en-trans-loc-053",
+              "concept_id": "c-trans-children-playground-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are the children in the playground?",
+              "bn": "শিশুরা কেন খেলার মাঠে আছে?",
+              "bn_pron": "হোয়াই আর দ্য চিলড্রেন ইন দ্য প্লেগ্রাউন্ড?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground?",
+                  "bn": "খেলার মাঠ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "question": "wh",
+                "wh": "why"
+              }
+            },
+            {
+              "id": "en-trans-loc-054",
+              "concept_id": "c-trans-children-playground-wh-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are the children not in the playground?",
+              "bn": "শিশুরা কেন খেলার মাঠে নেই?",
+              "bn_pron": "হোয়াই আর দ্য চিলড্রেন নট ইন দ্য প্লেগ্রাউন্ড?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "children",
+                  "bn": "শিশুরা"
+                },
+                {
+                  "t": "not",
+                  "bn": "না / নেই"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ / ভিতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "playground?",
+                  "bn": "খেলার মাঠ?"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "negative",
+                "question": "wh",
+                "wh": "why"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l15",
+          "order": 15,
+          "title_bn": "\"Good At\" দিয়ে দক্ষতা প্রকাশ (Expressing Skills with \"Good At\")",
+          "title_target": "Expressing Skills with \"Good At\"",
+          "intro_bn": "কোনো বিষয়ে ভালো বা কোনো কাজে পারদর্শিতা ও দক্ষতা প্রকাশ করতে 'Good at' এর সাবলীল স্পোকেন ব্যবহার।",
+          "structure": [
+            "[Subject] + [am/is/are] + good at + [Noun / Verb(-ing)]"
+          ],
+          "items": [
+            {
+              "id": "en-goodat-001",
+              "concept_id": "c-goodat-i-english",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am good at English.",
+              "bn": "আমি ইংরেজিতে ভালো।",
+              "bn_pron": "আই অ্যাম গুড অ্যাট ইংলিশ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "ভালো / দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "English",
+                  "bn": "ইংরেজি"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "I",
+                "category": "language"
+              }
+            },
+            {
+              "id": "en-goodat-002",
+              "concept_id": "c-goodat-i-swimming",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am good at swimming.",
+              "bn": "আমি সাঁতারে দক্ষ।",
+              "bn_pron": "আই অ্যাম গুড অ্যাট সুইমিং।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "swimming",
+                  "bn": "সাঁতার"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "I",
+                "category": "sports"
+              }
+            },
+            {
+              "id": "en-goodat-003",
+              "concept_id": "c-goodat-i-storytelling",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am good at storytelling.",
+              "bn": "আমি গল্প বলায় দক্ষ।",
+              "bn_pron": "আই অ্যাম গুড অ্যাট স্টোরিটেলিং।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "storytelling",
+                  "bn": "গল্প বলা"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "I",
+                "category": "arts"
+              }
+            },
+            {
+              "id": "en-goodat-004",
+              "concept_id": "c-goodat-you-drawing",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are good at drawing.",
+              "bn": "তুমি আঁকায় দক্ষ।",
+              "bn_pron": "ইউ আর গুড অ্যাট ড্রয়িং।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "drawing",
+                  "bn": "আঁকা"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "you",
+                "category": "arts"
+              }
+            },
+            {
+              "id": "en-goodat-005",
+              "concept_id": "c-goodat-you-public-speaking",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are good at public speaking.",
+              "bn": "তুমি বক্তব্য দেওয়ায় দক্ষ।",
+              "bn_pron": "ইউ আর গুড অ্যাট পাবলিক স্পিকিং।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "public",
+                  "bn": "জনসম্মুখে"
+                },
+                {
+                  "t": "speaking",
+                  "bn": "বক্তব্য / কথা বলা"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "you",
+                "category": "communication"
+              }
+            },
+            {
+              "id": "en-goodat-006",
+              "concept_id": "c-goodat-she-cooking",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is good at cooking.",
+              "bn": "সে রান্নায় দক্ষ।",
+              "bn_pron": "শি ইজ গুড অ্যাট কুকিং।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "cooking",
+                  "bn": "রান্না"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "she",
+                "category": "daily_skills"
+              }
+            },
+            {
+              "id": "en-goodat-007",
+              "concept_id": "c-goodat-he-cricket",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is good at playing cricket.",
+              "bn": "সে ক্রিকেট খেলায় দক্ষ।",
+              "bn_pron": "হি ইজ গুড অ্যাট প্লেইং ক্রিকেট।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "playing",
+                  "bn": "খেলা"
+                },
+                {
+                  "t": "cricket",
+                  "bn": "ক্রিকেট"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "he",
+                "category": "sports"
+              }
+            },
+            {
+              "id": "en-goodat-008",
+              "concept_id": "c-goodat-i-math",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am good at mathematics.",
+              "bn": "আমি গণিতে ভালো।",
+              "bn_pron": "আই অ্যাম গুড অ্যাট ম্যাথমেটিকস।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "ভালো"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "mathematics",
+                  "bn": "গণিত"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "I",
+                "category": "academics"
+              }
+            },
+            {
+              "id": "en-goodat-009",
+              "concept_id": "c-goodat-he-singing",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is good at singing.",
+              "bn": "সে গান গাওয়ায় দক্ষ।",
+              "bn_pron": "হি ইজ গুড অ্যাট সিঙ্গিং।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "singing",
+                  "bn": "গান গাওয়া"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "he",
+                "category": "music"
+              }
+            },
+            {
+              "id": "en-goodat-010",
+              "concept_id": "c-goodat-she-dancing",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is good at dancing.",
+              "bn": "সে নাচে পারদর্শী।",
+              "bn_pron": "শি ইজ গুড অ্যাট ড্যান্সিং।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "পারদর্শী"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "dancing",
+                  "bn": "নাচ"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "she",
+                "category": "arts"
+              }
+            },
+            {
+              "id": "en-goodat-011",
+              "concept_id": "c-goodat-we-problem-solving",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are good at problem-solving.",
+              "bn": "আমরা সমস্যা সমাধানে দক্ষ।",
+              "bn_pron": "উই আর গুড অ্যাট প্রবলেম সলভিং।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "problem-solving",
+                  "bn": "সমস্যা সমাধান"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "we",
+                "category": "thinking"
+              }
+            },
+            {
+              "id": "en-goodat-012",
+              "concept_id": "c-goodat-they-football",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are good at football.",
+              "bn": "তারা ফুটবল খেলায় দক্ষ।",
+              "bn_pron": "দে আর গুড অ্যাট ফুটবল।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "football",
+                  "bn": "ফুটবল"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "they",
+                "category": "sports"
+              }
+            },
+            {
+              "id": "en-goodat-013",
+              "concept_id": "c-goodat-you-photography",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are good at photography.",
+              "bn": "তুমি ছবি তোলায় পারদর্শী।",
+              "bn_pron": "ইউ আর গুড অ্যাট ফটোগ্রাফি।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "good",
+                  "bn": "পারদর্শী"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "photography",
+                  "bn": "ছবি তোলা / ফটোগ্রাফি"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "you",
+                "category": "arts"
+              }
+            },
+            {
+              "id": "en-goodat-014",
+              "concept_id": "c-goodat-he-programming",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is good at computer programming.",
+              "bn": "সে কম্পিউটার প্রোগ্রামিংয়ে দক্ষ।",
+              "bn_pron": "হি ইজ গুড অ্যাট কম্পিউটার প্রোগ্রামিং।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "computer",
+                  "bn": "কম্পিউটার"
+                },
+                {
+                  "t": "programming",
+                  "bn": "প্রোগ্রামিং"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "he",
+                "category": "technology"
+              }
+            },
+            {
+              "id": "en-goodat-015",
+              "concept_id": "c-goodat-she-painting-landscapes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is good at painting landscapes.",
+              "bn": "সে প্রাকৃতিক দৃশ্য আঁকায় দক্ষ।",
+              "bn_pron": "শি ইজ গুড অ্যাট পেইন্টিং ল্যান্ডস্কেপস।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "painting",
+                  "bn": "রং করা / আঁকা"
+                },
+                {
+                  "t": "landscapes",
+                  "bn": "প্রাকৃতিক দৃশ্যগুলো"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "she",
+                "category": "arts"
+              }
+            },
+            {
+              "id": "en-goodat-016",
+              "concept_id": "c-goodat-we-teamwork",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are good at teamwork.",
+              "bn": "আমরা দলগত কাজে দক্ষ।",
+              "bn_pron": "উই আর গুড অ্যাট টিমওয়ার্ক।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "teamwork",
+                  "bn": "দলগত কাজ"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "we",
+                "category": "collaboration"
+              }
+            },
+            {
+              "id": "en-goodat-017",
+              "concept_id": "c-goodat-they-chess",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are good at chess.",
+              "bn": "তারা দাবা খেলায় পারদর্শী।",
+              "bn_pron": "দে আর গুড অ্যাট চেস।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "পারদর্শী"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "chess",
+                  "bn": "দাবা"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "they",
+                "category": "games"
+              }
+            },
+            {
+              "id": "en-goodat-018",
+              "concept_id": "c-goodat-i-driving",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am good at driving.",
+              "bn": "আমি গাড়ি চালনায় দক্ষ।",
+              "bn_pron": "আই অ্যাম গুড অ্যাট ড্রাইভিং।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "driving",
+                  "bn": "গাড়ি চালনা"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "I",
+                "category": "daily_skills"
+              }
+            },
+            {
+              "id": "en-goodat-019",
+              "concept_id": "c-goodat-you-debate",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are good at debate.",
+              "bn": "তুমি বিতর্কে দক্ষ।",
+              "bn_pron": "ইউ আর গুড অ্যাট ডিবেট।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "debate",
+                  "bn": "বিতর্ক"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "you",
+                "category": "communication"
+              }
+            },
+            {
+              "id": "en-goodat-020",
+              "concept_id": "c-goodat-she-gardening",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is good at gardening.",
+              "bn": "সে বাগান করায় দক্ষ।",
+              "bn_pron": "শি ইজ গুড অ্যাট গার্ডেনিং।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "good",
+                  "bn": "দক্ষ"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "gardening",
+                  "bn": "বাগান করা"
+                }
+              ],
+              "tags": {
+                "pattern": "good_at",
+                "subject": "she",
+                "category": "daily_skills"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l16",
+          "order": 16,
+          "title_bn": "\"Bad At\" দিয়ে দুর্বলতা প্রকাশ (Expressing Weaknesses with \"Bad At\")",
+          "title_target": "Expressing Weaknesses with \"Bad At\"",
+          "intro_bn": "কোনো কাজ বা বিষয়ে নিজের বা অন্যের দুর্বলতা, অনীহা বা অপটুতা প্রকাশ করতে 'Bad at' এর সহজ ও কার্যকর ব্যবহার।",
+          "structure": [
+            "[Subject] + [am/is/are] + bad at + [Noun / Verb(-ing)]"
+          ],
+          "items": [
+            {
+              "id": "en-badat-001",
+              "concept_id": "c-badat-i-running",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am bad at running.",
+              "bn": "আমি দৌড়াতে দুর্বল।",
+              "bn_pron": "আই অ্যাম ব্যাড অ্যাট রানিং।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল / অপটু"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "running",
+                  "bn": "দৌড়ানো"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "I",
+                "category": "fitness"
+              }
+            },
+            {
+              "id": "en-badat-002",
+              "concept_id": "c-badat-i-remembering-names",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am bad at remembering names.",
+              "bn": "আমি নাম মনে রাখতে কাঁচা।",
+              "bn_pron": "আই অ্যাম ব্যাড অ্যাট রিমেম্বারিং নেমস।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা / দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "remembering",
+                  "bn": "মনে রাখা"
+                },
+                {
+                  "t": "names",
+                  "bn": "নামগুলো"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "I",
+                "category": "memory"
+              }
+            },
+            {
+              "id": "en-badat-003",
+              "concept_id": "c-badat-you-managing-time",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are bad at managing time.",
+              "bn": "তুমি সময় ব্যবস্থাপনায় দুর্বল।",
+              "bn_pron": "ইউ আর ব্যাড অ্যাট ম্যানেজিং টাইম।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "managing",
+                  "bn": "ব্যবস্থাপনা"
+                },
+                {
+                  "t": "time",
+                  "bn": "সময়"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "you",
+                "category": "productivity"
+              }
+            },
+            {
+              "id": "en-badat-004",
+              "concept_id": "c-badat-he-spelling",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is bad at spelling.",
+              "bn": "সে বানানে কাঁচা।",
+              "bn_pron": "হি ইজ ব্যাড অ্যাট স্পেলিং।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "spelling",
+                  "bn": "বানান"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "he",
+                "category": "language"
+              }
+            },
+            {
+              "id": "en-badat-005",
+              "concept_id": "c-badat-she-bargaining",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is bad at bargaining.",
+              "bn": "সে দরদামে কাঁচা।",
+              "bn_pron": "শি ইজ ব্যাড অ্যাট বার্গেনিং।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "bargaining",
+                  "bn": "দরদাম করা"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "she",
+                "category": "shopping"
+              }
+            },
+            {
+              "id": "en-badat-006",
+              "concept_id": "c-badat-they-keeping-secrets",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are bad at keeping secrets.",
+              "bn": "তারা গোপন কথা রাখতে দুর্বল।",
+              "bn_pron": "দে আর ব্যাড অ্যাট কিপিং সিক্রেটস।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "keeping",
+                  "bn": "রাখা"
+                },
+                {
+                  "t": "secrets",
+                  "bn": "গোপন কথা"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "they",
+                "category": "social"
+              }
+            },
+            {
+              "id": "en-badat-007",
+              "concept_id": "c-badat-we-singing-in-tune",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are bad at singing in tune.",
+              "bn": "আমরা সুরে গান গাওয়ায় দুর্বল।",
+              "bn_pron": "উই আর ব্যাড অ্যাট সিঙ্গিং ইন টিউন।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "singing",
+                  "bn": "গান গাওয়া"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ"
+                },
+                {
+                  "t": "tune",
+                  "bn": "সুর"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "we",
+                "category": "music"
+              }
+            },
+            {
+              "id": "en-badat-008",
+              "concept_id": "c-badat-i-waking-early",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am bad at waking up early.",
+              "bn": "আমি ভোরে ওঠায় অলস / দুর্বল।",
+              "bn_pron": "আই অ্যাম ব্যাড অ্যাট ওয়াকিং আপ আর্লি।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "অলস / দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "waking",
+                  "bn": "ওঠা"
+                },
+                {
+                  "t": "up",
+                  "bn": "জেগে"
+                },
+                {
+                  "t": "early",
+                  "bn": "ভোরে / সকাল"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "I",
+                "category": "habits"
+              }
+            },
+            {
+              "id": "en-badat-009",
+              "concept_id": "c-badat-he-driving-rain",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is bad at driving in the rain.",
+              "bn": "সে বৃষ্টিতে গাড়ি চালাতে অপটু।",
+              "bn_pron": "হি ইজ ব্যাড অ্যাট ড্রাইভিং ইন দ্য রেইন।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "অপটু / দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "driving",
+                  "bn": "গাড়ি চালানো"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "rain",
+                  "bn": "বৃষ্টি"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "he",
+                "category": "daily_skills"
+              }
+            },
+            {
+              "id": "en-badat-010",
+              "concept_id": "c-badat-she-stress",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is bad at handling stress.",
+              "bn": "সে মানসিক চাপ সামলাতে দুর্বল।",
+              "bn_pron": "শি ইজ ব্যাড অ্যাট হ্যান্ডলিং স্ট্রেস।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "handling",
+                  "bn": "সামলানো"
+                },
+                {
+                  "t": "stress",
+                  "bn": "মানসিক চাপ"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "she",
+                "category": "psychology"
+              }
+            },
+            {
+              "id": "en-badat-011",
+              "concept_id": "c-badat-you-decisions",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are bad at making quick decisions.",
+              "bn": "তুমি দ্রুত সিদ্ধান্ত নিতে দুর্বল।",
+              "bn_pron": "ইউ আর ব্যাড অ্যাট মেকিং কুইক ডিসিশনস।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "making",
+                  "bn": "নেওয়া"
+                },
+                {
+                  "t": "quick",
+                  "bn": "দ্রুত"
+                },
+                {
+                  "t": "decisions",
+                  "bn": "সিদ্ধান্তগুলো"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "you",
+                "category": "thinking"
+              }
+            },
+            {
+              "id": "en-badat-012",
+              "concept_id": "c-badat-they-multitasking",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are bad at multi-tasking.",
+              "bn": "তারা একসাথে একাধিক কাজ করায় দুর্বল।",
+              "bn_pron": "দে আর ব্যাড অ্যাট মাল্টি-টাস্কিং।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "multi-tasking",
+                  "bn": "একাধিক কাজ করা"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "they",
+                "category": "productivity"
+              }
+            },
+            {
+              "id": "en-badat-013",
+              "concept_id": "c-badat-i-portraits",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am bad at drawing portraits.",
+              "bn": "আমি মানুষের মুখচ্ছবি আঁকায় কাঁচা।",
+              "bn_pron": "আই অ্যাম ব্যাড অ্যাট ড্রয়িং পোর্ট্রেটস।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "drawing",
+                  "bn": "আঁকা"
+                },
+                {
+                  "t": "portraits",
+                  "bn": "প্রতিকৃতি / মুখচ্ছবি"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "I",
+                "category": "arts"
+              }
+            },
+            {
+              "id": "en-badat-014",
+              "concept_id": "c-badat-he-directions",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is bad at remembering directions.",
+              "bn": "সে পথঘাট মনে রাখতে দুর্বল।",
+              "bn_pron": "হি ইজ ব্যাড অ্যাট রিমেম্বারিং ডিরেকশনস।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "remembering",
+                  "bn": "মনে রাখা"
+                },
+                {
+                  "t": "directions",
+                  "bn": "পথঘাট / দিকনির্দেশনা"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "he",
+                "category": "memory"
+              }
+            },
+            {
+              "id": "en-badat-015",
+              "concept_id": "c-badat-she-public-speaking",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She is bad at speaking in public.",
+              "bn": "সে সবার সামনে কথা বলায় দুর্বল।",
+              "bn_pron": "শি ইজ ব্যাড অ্যাট স্পিকিং ইন পাবলিক।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "speaking",
+                  "bn": "কথা বলা"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ"
+                },
+                {
+                  "t": "public",
+                  "bn": "জনসম্মুখে"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "she",
+                "category": "communication"
+              }
+            },
+            {
+              "id": "en-badat-016",
+              "concept_id": "c-badat-we-fixing-devices",
+              "type": "sentence",
+              "level": "A1",
+              "target": "We are bad at fixing electrical devices.",
+              "bn": "আমরা বৈদ্যুতিক যন্ত্র মেরামতে কাঁচা।",
+              "bn_pron": "উই আর ব্যাড অ্যাট ফিক্সিং ইলেকট্রিক্যাল ডিভাইসেস।",
+              "tokens": [
+                {
+                  "t": "We",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "fixing",
+                  "bn": "মেরামত করা"
+                },
+                {
+                  "t": "electrical",
+                  "bn": "বৈদ্যুতিক"
+                },
+                {
+                  "t": "devices",
+                  "bn": "যন্ত্রগুলো"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "we",
+                "category": "technical"
+              }
+            },
+            {
+              "id": "en-badat-017",
+              "concept_id": "c-badat-you-badminton",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You are bad at playing badminton.",
+              "bn": "তুমি ব্যাডমিন্টন খেলায় দুর্বল।",
+              "bn_pron": "ইউ আর ব্যাড অ্যাট প্লেইং ব্যাডমিন্টন।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তুমি / আপনি"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "bad",
+                  "bn": "দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "playing",
+                  "bn": "খেলা"
+                },
+                {
+                  "t": "badminton",
+                  "bn": "ব্যাডমিন্টন"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "you",
+                "category": "sports"
+              }
+            },
+            {
+              "id": "en-badat-018",
+              "concept_id": "c-badat-they-saving-money",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They are bad at saving money.",
+              "bn": "তারা টাকা জমাতে কাঁচা।",
+              "bn_pron": "দে আর ব্যাড অ্যাট সেভিং মানি।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "saving",
+                  "bn": "জমানো / সঞ্চয়"
+                },
+                {
+                  "t": "money",
+                  "bn": "টাকা"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "they",
+                "category": "finance"
+              }
+            },
+            {
+              "id": "en-badat-019",
+              "concept_id": "c-badat-i-guitar",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I am bad at playing the guitar.",
+              "bn": "আমি গিটার বাজানোয় অপটু।",
+              "bn_pron": "আই অ্যাম ব্যাড অ্যাট প্লেইং দ্য গিটার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "bad",
+                  "bn": "অপটু / দুর্বল"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "playing",
+                  "bn": "বাজানো"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "guitar",
+                  "bn": "গিটার"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "I",
+                "category": "music"
+              }
+            },
+            {
+              "id": "en-badat-020",
+              "concept_id": "c-badat-he-cooking-spicy",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He is bad at cooking spicy food.",
+              "bn": "সে ঝাল খাবার রান্নায় কাঁচা।",
+              "bn_pron": "হি ইজ ব্যাড অ্যাট কুকিং স্পাইসি ফুড।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "bad",
+                  "bn": "কাঁচা"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "cooking",
+                  "bn": "রান্না"
+                },
+                {
+                  "t": "spicy",
+                  "bn": "ঝাল"
+                },
+                {
+                  "t": "food",
+                  "bn": "খাবার"
+                }
+              ],
+              "tags": {
+                "pattern": "bad_at",
+                "subject": "he",
+                "category": "daily_skills"
               }
             }
           ]
