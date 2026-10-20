@@ -31,14 +31,56 @@ object LessonQueueBuilder {
 
         // English and Bangla are spoken the same number of times: each repeat is an EN → BN pair.
         val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
-        for (speed in englishSpeeds(item, ladder, settings.repeatCount)) {
-            steps += PlaybackStep.Speak(item.target, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
-            if (bn != null) steps += PlaybackStep.Speak(bn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+        val qa = splitQa(item.target, bn)
+        val speeds = englishSpeeds(item, ladder, settings.repeatCount)
+
+        if (qa != null) {
+            // Sequential Q&A: [EN Question] -> [BN Question] -> [EN Answer] -> [BN Answer]
+            for (speed in speeds) {
+                steps += PlaybackStep.Speak(qa.questionEn, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+                if (qa.questionBn != null) {
+                    steps += PlaybackStep.Speak(qa.questionBn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                }
+                steps += PlaybackStep.Speak(qa.answerEn, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+                if (qa.answerBn != null) {
+                    steps += PlaybackStep.Speak(qa.answerBn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                }
+            }
+        } else {
+            // Standard single sentence EN -> BN pair
+            for (speed in speeds) {
+                steps += PlaybackStep.Speak(item.target, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+                if (bn != null) steps += PlaybackStep.Speak(bn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+            }
         }
 
         val pauseMs = settings.gapMs ?: ladder.filter { it.isPause }.sumOf { it.pauseMs }
         if (pauseMs > 0) steps += PlaybackStep.Pause(pauseMs, itemIndex)
         return steps
+    }
+
+    internal data class QaSplit(
+        val questionEn: String,
+        val questionBn: String?,
+        val answerEn: String,
+        val answerBn: String?
+    )
+
+    internal fun splitQa(target: String, bn: String?): QaSplit? {
+        val qIdx = target.indexOf('?')
+        if (qIdx == -1 || qIdx >= target.length - 2) return null
+        val questionEn = target.substring(0, qIdx + 1).trim()
+        val answerEn = target.substring(qIdx + 1).trim()
+        if (questionEn.isEmpty() || answerEn.isEmpty()) return null
+
+        val bnIdx = bn?.indexOf('?') ?: -1
+        val (questionBn, answerBn) = if (bn != null && bnIdx != -1 && bnIdx < bn.length - 1) {
+            bn.substring(0, bnIdx + 1).trim() to bn.substring(bnIdx + 1).trim()
+        } else {
+            null to bn
+        }
+
+        return QaSplit(questionEn, questionBn, answerEn, answerBn)
     }
 
     /**

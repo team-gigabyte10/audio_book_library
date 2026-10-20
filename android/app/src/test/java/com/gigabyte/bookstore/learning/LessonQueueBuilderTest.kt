@@ -98,4 +98,47 @@ class LessonQueueBuilderTest {
         assertEquals(LadderStep.DEFAULT, LadderStep.decode(null))
         assertEquals(LadderStep.DEFAULT, LadderStep.decode("garbage"))
     }
+
+    @Test
+    fun `splitQa splits target and bn questions and answers cleanly`() {
+        val qa = LessonQueueBuilder.splitQa("What is this? It's a pen.", "এটি কী? এটি একটি কলম।")
+        assertEquals("What is this?", qa?.questionEn)
+        assertEquals("এটি কী?", qa?.questionBn)
+        assertEquals("It's a pen.", qa?.answerEn)
+        assertEquals("এটি একটি কলম।", qa?.answerBn)
+    }
+
+    @Test
+    fun `QA items play EN Question, BN Question, EN Answer, BN Answer in sequence`() {
+        val qaItem = item(
+            target = "What is this? It's a pen.",
+            bn = "এটি কী? এটি একটি কলম।"
+        )
+        val steps = LessonQueueBuilder.buildItem(qaItem, 0, LadderStep.DEFAULT, LearnSettings(repeatCount = 1))
+        val speaks = ladderSpeaks(steps)
+        assertEquals(4, speaks.size)
+        assertEquals("What is this?", speaks[0].text)
+        assertEquals(SpeechLang.EN, speaks[0].lang)
+        assertEquals("এটি কী?", speaks[1].text)
+        assertEquals(SpeechLang.BN, speaks[1].lang)
+        assertEquals("It's a pen.", speaks[2].text)
+        assertEquals(SpeechLang.EN, speaks[2].lang)
+        assertEquals("এটি একটি কলম।", speaks[3].text)
+        assertEquals(SpeechLang.BN, speaks[3].lang)
+    }
+
+    @Test
+    fun `QA items without bnAudio play EN Question then EN Answer only`() {
+        val qaItem = item(
+            target = "What is this? It's a pen.",
+            bn = "এটি কী? এটি একটি কলম।"
+        )
+        val steps = LessonQueueBuilder.buildItem(qaItem, 0, LadderStep.DEFAULT, LearnSettings(repeatCount = 1, bnAudio = false))
+        val speaks = ladderSpeaks(steps)
+        assertEquals(2, speaks.size)
+        assertEquals("What is this?", speaks[0].text)
+        assertEquals(SpeechLang.EN, speaks[0].lang)
+        assertEquals("It's a pen.", speaks[1].text)
+        assertEquals(SpeechLang.EN, speaks[1].lang)
+    }
 }
