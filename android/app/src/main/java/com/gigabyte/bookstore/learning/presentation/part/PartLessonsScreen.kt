@@ -22,6 +22,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -54,7 +55,8 @@ import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 fun PartLessonsScreen(
     viewModel: PartLessonsViewModel,
     onBackClick: () -> Unit,
-    onOpenLesson: (String) -> Unit
+    onOpenLesson: (String) -> Unit,
+    onOpenIntro: (String) -> Unit = {}
 ) {
     val lessons by viewModel.lessons.collectAsStateWithLifecycle()
     val part by viewModel.part.collectAsStateWithLifecycle()
@@ -132,6 +134,36 @@ fun PartLessonsScreen(
                             theme = theme,
                             onClick = { onOpenLesson(lesson.id) }
                         )
+                    }
+
+                    // Bottom of Lesson 4: Self Presentation Monologue
+                    if (part?.order == 1) {
+                        item(key = "monologue_self_presentation") {
+                            SpeechMonologueCard(
+                                badgeText = "🎙️ অংশ ০১ সমাপনী স্পিচ",
+                                actionText = "ইংলিশ স্পিচ শুনুন",
+                                title = "🗣️ আত্মপরিচয় উপস্থাপনা (Self Presentation)",
+                                subtitle = "১২টি বাক্যে সম্পূর্ণ আত্মপরিচয় কেবল ইংরেজিতে শুনুন এবং সাবলীলভাবে অনুশীলন করুন।",
+                                pills = listOf("🇬🇧 Only English", "🎧 Natural Audio", "⚡ 12 Sentences"),
+                                accentColor = Color(0xFF2E7D32),
+                                onClick = { onOpenIntro("self_presentation.md") }
+                            )
+                        }
+                    }
+
+                    // Bottom of Lesson 17: Daily Activities Monologue
+                    if (part?.order == 4) {
+                        item(key = "monologue_daily_activities") {
+                            SpeechMonologueCard(
+                                badgeText = "🎙️ অংশ ০৪ সমাপনী স্পিচ",
+                                actionText = "ইংলিশ স্পিচ শুনুন",
+                                title = "🗣️ দৈনন্দিন কাজকর্মের বর্ণনা (Daily Activities)",
+                                subtitle = "সকাল থেকে রাত পর্যন্ত আপনার দৈনন্দিন রুটিন ইংরেজিতে সাবলীলভাবে বলার একক অনুশীলন।",
+                                pills = listOf("🇬🇧 Only English", "🎧 Natural Audio", "⚡ 13 Sentences"),
+                                accentColor = Color(0xFF6D28D9),
+                                onClick = { onOpenIntro("daily_activities.md") }
+                            )
+                        }
                     }
 
                     item {
@@ -319,6 +351,126 @@ private fun PartLessonCard(
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SpeechMonologueCard(
+    badgeText: String,
+    actionText: String,
+    title: String,
+    subtitle: String,
+    pills: List<String>,
+    accentColor: Color,
+    onClick: () -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.5.dp, accentColor.copy(alpha = 0.5f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            accentColor.copy(alpha = 0.16f),
+                            accentColor.copy(alpha = 0.05f)
+                        )
+                    )
+                )
+                .padding(16.dp)
+        ) {
+            Column {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Surface(
+                        color = accentColor,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = badgeText,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                    Surface(
+                        color = accentColor.copy(alpha = 0.18f),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        ) {
+                            Icon(
+                                Icons.Default.PlayArrow,
+                                contentDescription = null,
+                                tint = accentColor,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(Modifier.width(4.dp))
+                            Text(
+                                text = actionText,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = accentColor
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Text(
+                    text = title,
+                    fontSize = 17.sp,
+                    lineHeight = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Text(
+                    text = subtitle,
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    pills.forEach { pillText ->
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text(
+                                text = pillText,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                            )
+                        }
+                    }
                 }
             }
         }

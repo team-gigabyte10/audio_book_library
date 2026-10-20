@@ -170,14 +170,7 @@ fun CourseSyllabusScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // 1. Self Presentation Speech Card (Only English monologue)
-                    item {
-                        SelfPresentationCard(
-                            onClick = { onOpenIntro("self_presentation.md") }
-                        )
-                    }
-
-                    // 3. Section Title
+                    // Section Title
                     item {
                         Text(
                             text = "কোর্সের সিলেবাস ও লেসনসমূহ",

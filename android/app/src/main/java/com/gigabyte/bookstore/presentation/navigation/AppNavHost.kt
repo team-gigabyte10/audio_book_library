@@ -501,7 +501,8 @@ fun AppNavHost(
             PartLessonsScreen(
                 viewModel = partViewModel,
                 onBackClick = { navController.popBackStack() },
-                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) }
+                onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
+                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
             )
         }
 

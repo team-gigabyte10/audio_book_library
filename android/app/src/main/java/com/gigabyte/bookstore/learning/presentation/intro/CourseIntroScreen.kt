@@ -85,7 +85,8 @@ fun CourseIntroScreen(
     val audio = app.lessonAudio
     val coroutineScope = rememberCoroutineScope()
 
-    val isEnglishOnly = assetFileName.contains("self_presentation", ignoreCase = true)
+    val isEnglishOnly = assetFileName.contains("self_presentation", ignoreCase = true) ||
+            assetFileName.contains("daily_activit", ignoreCase = true)
     val targetLang = if (isEnglishOnly) SpeechLang.EN else SpeechLang.BN
     val baseRate = if (isEnglishOnly) 1.05f else 1.15f
 
@@ -175,8 +176,16 @@ fun CourseIntroScreen(
         }
     }
 
-    val pageTitle = if (isEnglishOnly) "সেলফ প্রেজেন্টেশন (English Only)" else "📖 কোর্স পরিচিতি ও গাইডলাইন"
-    val pageSubtitle = if (isEnglishOnly) "Complete English Self Presentation" else "ভয়েস রিডিংসহ পূর্ণাঙ্গ অডিও গাইড"
+    val pageTitle = when {
+        assetFileName.contains("daily_activit", ignoreCase = true) -> "দৈনন্দিন রুটিন (English Monologue)"
+        assetFileName.contains("self_presentation", ignoreCase = true) -> "সেলফ প্রেজেন্টেশন (English Only)"
+        else -> "📖 কোর্স পরিচিতি ও গাইডলাইন"
+    }
+    val pageSubtitle = when {
+        assetFileName.contains("daily_activit", ignoreCase = true) -> "Daily Activities Spoken Monologue"
+        assetFileName.contains("self_presentation", ignoreCase = true) -> "Complete English Self Presentation"
+        else -> "ভয়েস রিডিংসহ পূর্ণাঙ্গ অডিও গাইড"
+    }
 
     Scaffold(
         topBar = {

@@ -40,8 +40,8 @@
     }
   ],
   "stats": {
-    "lessons": 16,
-    "items": 267
+    "lessons": 17,
+    "items": 287
   },
   "parts": [
     {
@@ -11121,6 +11121,1595 @@
                 "pattern": "bad_at",
                 "subject": "he",
                 "category": "daily_skills"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l17",
+          "order": 17,
+          "title_bn": "প্রশ্নোত্তর ও সংশোধন (Interrogative & Contrastive Q&A)",
+          "title_target": "Interrogative & Contrastive Q&A Drills",
+          "intro_bn": "স্পোকেন ইংলিশে দ্রুত প্রশ্ন করা এবং সরাসরি হ্যাঁ অথবা 'No, ... but ...' দিয়ে বিপরীতমুখী সঠিক উত্তর দেওয়ার ২০টি কার্যকর প্রশ্নোত্তর চর্চা।",
+          "structure": [
+            "Q: Be + Subject + Complement / Location / V-ing?",
+            "Ans: Yes, S + be ... / No, S + be not [A], but S + be [B]."
+          ],
+          "items": [
+            {
+              "id": "en-qa-001",
+              "concept_id": "c-qa-shemul-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you Mr. Shemul? Yes, I'm Mr. Shemul.",
+              "bn": "আপনি কি জনাব শিমুল? হ্যাঁ, আমি জনাব শিমুল।",
+              "bn_pron": "আর ইউ মিস্টার শিমুল? ইয়েস, আইম মিস্টার শিমুল।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "হন কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "Mr.",
+                  "bn": "জনাব"
+                },
+                {
+                  "t": "Shemul",
+                  "bn": "শিমুল"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি হই"
+                },
+                {
+                  "t": "Mr.",
+                  "bn": "জনাব"
+                },
+                {
+                  "t": "Shemul",
+                  "bn": "শিমুল"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "identity_yes"
+              }
+            },
+            {
+              "id": "en-qa-002",
+              "concept_id": "c-qa-kamal-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he Mr. Kamal? No, he is Mr. Imran.",
+              "bn": "তিনি কি জনাব কামাল? না, তিনি জনাব ইমরান।",
+              "bn_pron": "ইজ হি মিস্টার কামাল? নো, হি ইজ মিস্টার ইমরান।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হন কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "Mr.",
+                  "bn": "জনাব"
+                },
+                {
+                  "t": "Kamal",
+                  "bn": "কামাল"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "Mr.",
+                  "bn": "জনাব"
+                },
+                {
+                  "t": "Imran",
+                  "bn": "ইমরান"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "identity_contrast"
+              }
+            },
+            {
+              "id": "en-qa-003",
+              "concept_id": "c-qa-nasreen-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is she Mrs. Nasreen? No, she isn't Mrs. Nasreen, but she is Mrs. Salma.",
+              "bn": "তিনি কি মিসেস নাসরীন? না, তিনি মিসেস নাসরীন নন, বরং তিনি মিসেস সালমা।",
+              "bn_pron": "ইজ শি মিসেজ নাসরিন? নো, শি ইজন্ট মিসেজ নাসরিন, বাট শি ইজ মিসেজ সালমা।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হন কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "Mrs.",
+                  "bn": "মিসেস"
+                },
+                {
+                  "t": "Nasreen",
+                  "bn": "নাসরীন"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "she",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নন"
+                },
+                {
+                  "t": "Mrs.",
+                  "bn": "মিসেস"
+                },
+                {
+                  "t": "Nasreen",
+                  "bn": "নাসরীন"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "she",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হন"
+                },
+                {
+                  "t": "Mrs.",
+                  "bn": "মিসেস"
+                },
+                {
+                  "t": "Salma",
+                  "bn": "সালমা"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "identity_contrast"
+              }
+            },
+            {
+              "id": "en-qa-004",
+              "concept_id": "c-qa-students-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are they students? No, they aren't students, but they are teachers.",
+              "bn": "তারা কি ছাত্রছাত্রী? না, তারা ছাত্রছাত্রী নয়, বরং তারা শিক্ষক।",
+              "bn_pron": "আর দে স্টুডেন্টস? নো, দে আরন্ট স্টুডেন্টস, বাট দে আর টিচার্স।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "students",
+                  "bn": "ছাত্রছাত্রী"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "aren't",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "students",
+                  "bn": "ছাত্রছাত্রী"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "teachers",
+                  "bn": "শিক্ষক"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "role_contrast"
+              }
+            },
+            {
+              "id": "en-qa-005",
+              "concept_id": "c-qa-pen-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this a pen? Yes, it's a pen.",
+              "bn": "এটি কি একটি কলম? হ্যাঁ, এটি একটি কলম।",
+              "bn_pron": "ইজ দিজ আ পেন? ইয়েস, ইটস আ পেন।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "object_yes"
+              }
+            },
+            {
+              "id": "en-qa-006",
+              "concept_id": "c-qa-notebook-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is that a notebook? No, that isn't a notebook, but it's a textbook.",
+              "bn": "ওটি কি একটি খাতা? না, ওটি খাতা নয়, বরং ওটি একটি পাঠ্যবই।",
+              "bn_pron": "ইজ দ্যাট আ নোটবুক? নো, দ্যাট ইজন্ট আ নোটবুক, বাট ইটস আ টেক্সটবুক।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "notebook",
+                  "bn": "খাতা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "notebook",
+                  "bn": "খাতা"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "textbook",
+                  "bn": "পাঠ্যবই"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "object_contrast"
+              }
+            },
+            {
+              "id": "en-qa-007",
+              "concept_id": "c-qa-table-behind-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this table behind me? No, the table isn't behind me, but it's in front of me.",
+              "bn": "এই টেবিলটি কি আমার পেছনে? না, টেবিলটি আমার পেছনে নয়, বরং এটি আমার সামনে।",
+              "bn_pron": "ইজ দিজ টেবিল বিহাইন্ড মি? নো, দ্য টেবিল ইজন্ট বিহাইন্ড মি, বাট ইটস ইন ফ্রন্ট অব মি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিলটি"
+                },
+                {
+                  "t": "behind",
+                  "bn": "পেছনে"
+                },
+                {
+                  "t": "me",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "the",
+                  "bn": "টেবিলটি"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "behind",
+                  "bn": "পেছনে"
+                },
+                {
+                  "t": "me",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "in front of",
+                  "bn": "সামনে"
+                },
+                {
+                  "t": "me",
+                  "bn": "আমার"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "location_contrast"
+              }
+            },
+            {
+              "id": "en-qa-008",
+              "concept_id": "c-qa-clock-front-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the clock in front of you? No, the clock isn't in front of me, but it's behind me.",
+              "bn": "ঘড়িটি কি আপনার সামনে? না, ঘড়িটি আমার সামনে নয়, বরং এটি আমার পেছনে।",
+              "bn_pron": "ইজ দ্য ক্লক ইন ফ্রন্ট অব ইউ? নো, দ্য ক্লক ইজন্ট ইন ফ্রন্ট অব মি, বাট ইটস বিহাইন্ড মি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "হয় কি"
+                },
+                {
+                  "t": "the",
+                  "bn": "ঘড়িটি"
+                },
+                {
+                  "t": "clock",
+                  "bn": "ঘড়ি"
+                },
+                {
+                  "t": "in front of",
+                  "bn": "সামনে"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "the",
+                  "bn": "ঘড়িটি"
+                },
+                {
+                  "t": "clock",
+                  "bn": "ঘড়ি"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "in front of",
+                  "bn": "সামনে"
+                },
+                {
+                  "t": "me",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "behind",
+                  "bn": "পেছনে"
+                },
+                {
+                  "t": "me",
+                  "bn": "আমার"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "location_contrast"
+              }
+            },
+            {
+              "id": "en-qa-009",
+              "concept_id": "c-qa-cat-under-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the cat under the chair? No, the cat isn't under the chair, but it's on the chair.",
+              "bn": "বিড়ালটি কি চেয়ারের নিচে? না, বিড়ালটি চেয়ারের নিচে নয়, বরং এটি চেয়ারের উপরে।",
+              "bn_pron": "ইজ দ্য ক্যাট আন্ডার দ্য চেয়ার? নো, দ্য ক্যাট ইজন্ট আন্ডার দ্য চেয়ার, বাট ইটস অন দ্য চেয়ার।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "আছে কি"
+                },
+                {
+                  "t": "the",
+                  "bn": "বিড়ালটি"
+                },
+                {
+                  "t": "cat",
+                  "bn": "বিড়াল"
+                },
+                {
+                  "t": "under",
+                  "bn": "নিচে"
+                },
+                {
+                  "t": "the",
+                  "bn": "চেয়ারটির"
+                },
+                {
+                  "t": "chair",
+                  "bn": "চেয়ার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "the",
+                  "bn": "বিড়ালটি"
+                },
+                {
+                  "t": "cat",
+                  "bn": "বিড়াল"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "under",
+                  "bn": "নিচে"
+                },
+                {
+                  "t": "the",
+                  "bn": "চেয়ারটির"
+                },
+                {
+                  "t": "chair",
+                  "bn": "চেয়ার"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "চেয়ারটির"
+                },
+                {
+                  "t": "chair",
+                  "bn": "চেয়ার"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "location_contrast"
+              }
+            },
+            {
+              "id": "en-qa-010",
+              "concept_id": "c-qa-bag-floor-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is your bag on the floor? No, my bag isn't on the floor, but it's on the table.",
+              "bn": "আপনার ব্যাগটি কি মেঝের উপরে? না, আমার ব্যাগ মেঝের উপরে নয়, বরং এটি টেবিলের উপরে।",
+              "bn_pron": "ইজ ইয়োর ব্যাগ অন দ্য ফ্লোর? নো, মাই ব্যাগ ইজন্ট অন দ্য ফ্লোর, বাট ইটস অন দ্য টেবিল।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "আছে কি"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগটি"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "মেঝের"
+                },
+                {
+                  "t": "floor",
+                  "bn": "মেঝে"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগটি"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "মেঝের"
+                },
+                {
+                  "t": "floor",
+                  "bn": "মেঝে"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টেবিলের"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "location_contrast"
+              }
+            },
+            {
+              "id": "en-qa-011",
+              "concept_id": "c-qa-keys-drawer-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are the keys inside the drawer? No, the keys aren't inside the drawer, but they're on the desk.",
+              "bn": "চাবিগুলো কি ড্রয়ারের ভেতরে? না, চাবিগুলো ড্রয়ারের ভেতরে নয়, বরং সেগুলো ডেস্কের উপরে।",
+              "bn_pron": "আর দ্য কিজ ইনসাইড দ্য ড্রয়ার? নো, দ্য কিজ আরন্ট ইনসাইড দ্য ড্রয়ার, বাট দে আর অন দ্য ডেস্ক।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "আছে কি"
+                },
+                {
+                  "t": "the",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "inside",
+                  "bn": "ভেতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "ড্রয়ারটির"
+                },
+                {
+                  "t": "drawer",
+                  "bn": "ড্রয়ার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "the",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "aren't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "inside",
+                  "bn": "ভেতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "ড্রয়ারটির"
+                },
+                {
+                  "t": "drawer",
+                  "bn": "ড্রয়ার"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "they're",
+                  "bn": "সেগুলো আছে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "ডেস্কের"
+                },
+                {
+                  "t": "desk",
+                  "bn": "ডেস্ক"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "location_contrast"
+              }
+            },
+            {
+              "id": "en-qa-012",
+              "concept_id": "c-qa-stand-floor-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you standing on the floor? No, I'm not standing on the floor, but I'm sitting on the chair.",
+              "bn": "আপনি কি মেঝের উপর দাঁড়িয়ে আছেন? না, আমি মেঝের উপর দাঁড়িয়ে নেই, বরং আমি চেয়ারের উপর বসে আছি।",
+              "bn_pron": "আর ইউ স্ট্যান্ডিং অন দ্য ফ্লোর? নো, আইম নট স্ট্যান্ডিং অন দ্য ফ্লোর, বাট আইম সিটিং অন দ্য চেয়ার।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "আছেন কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "standing",
+                  "bn": "দাঁড়িয়ে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "মেঝের"
+                },
+                {
+                  "t": "floor",
+                  "bn": "মেঝে"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "standing",
+                  "bn": "দাঁড়িয়ে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "মেঝের"
+                },
+                {
+                  "t": "floor",
+                  "bn": "মেঝে"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "sitting",
+                  "bn": "বসে আছি"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "চেয়ারের"
+                },
+                {
+                  "t": "chair",
+                  "bn": "চেয়ার"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "posture_contrast"
+              }
+            },
+            {
+              "id": "en-qa-013",
+              "concept_id": "c-qa-sit-sofa-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he sitting on the sofa? No, he isn't sitting on the sofa, but he is standing near the door.",
+              "bn": "সে কি সোফায় বসে আছে? না, সে সোফায় বসে নেই, বরং সে দরজার কাছে দাঁড়িয়ে আছে।",
+              "bn_pron": "ইজ হি সিটিং অন দ্য সোফা? নো, হি ইজন্ট সিটিং অন দ্য সোফা, বাট হি ইজ স্ট্যান্ডিং নিয়ার দ্য ডোর।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "আছে কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "sitting",
+                  "bn": "বসে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "সোফার"
+                },
+                {
+                  "t": "sofa",
+                  "bn": "সোফা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "sitting",
+                  "bn": "বসে"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "সোফার"
+                },
+                {
+                  "t": "sofa",
+                  "bn": "সোফা"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "he",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "standing",
+                  "bn": "দাঁড়িয়ে"
+                },
+                {
+                  "t": "near",
+                  "bn": "কাছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "দরজার"
+                },
+                {
+                  "t": "door",
+                  "bn": "দরজা"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "posture_contrast"
+              }
+            },
+            {
+              "id": "en-qa-014",
+              "concept_id": "c-qa-sit-room-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are they sitting in the room? No, they aren't sitting in the room, but they are waiting outside.",
+              "bn": "তারা কি রুমের ভেতরে বসে আছে? না, তারা রুমের ভেতরে বসে নেই, বরং তারা বাইরে অপেক্ষা করছে।",
+              "bn_pron": "আর দে সিটিং ইন দ্য রুম? নো, দে আরন্ট সিটিং ইন দ্য রুম, বাট দে আর ওয়েটিং আউটসাইড।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "আছে কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "sitting",
+                  "bn": "বসে"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভেতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "রুমের"
+                },
+                {
+                  "t": "room",
+                  "bn": "রুম"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "aren't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "sitting",
+                  "bn": "বসে"
+                },
+                {
+                  "t": "in",
+                  "bn": "ভেতরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "রুমের"
+                },
+                {
+                  "t": "room",
+                  "bn": "রুম"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "they",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "are",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "waiting",
+                  "bn": "অপেক্ষা করছে"
+                },
+                {
+                  "t": "outside",
+                  "bn": "বাইরে"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "posture_contrast"
+              }
+            },
+            {
+              "id": "en-qa-015",
+              "concept_id": "c-qa-taking-pen-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you taking the pen from the table? No, you aren't taking the pen from the table, but you're putting the book on the table.",
+              "bn": "আপনি কি টেবিল থেকে কলমটি নিচ্ছেন? না, আপনি টেবিল থেকে কলমটি নিচ্ছেন না, বরং আপনি টেবিলের উপর বইটি রাখছেন।",
+              "bn_pron": "আর ইউ টেকিং দ্য পেন ফ্রম দ্য টেবিল? নো, ইউ আরন্ট টেকিং দ্য পেন ফ্রম দ্য টেবিল, বাট ইউ আর পুটিং দ্য বুক অন দ্য টেবিল।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "করছেন কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "taking",
+                  "bn": "নিচ্ছেন"
+                },
+                {
+                  "t": "the",
+                  "bn": "কলমটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                },
+                {
+                  "t": "from",
+                  "bn": "থেকে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টেবিলের"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "aren't",
+                  "bn": "না"
+                },
+                {
+                  "t": "taking",
+                  "bn": "নিচ্ছেন"
+                },
+                {
+                  "t": "the",
+                  "bn": "কলমটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                },
+                {
+                  "t": "from",
+                  "bn": "থেকে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টেবিলের"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "you're",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "putting",
+                  "bn": "রাখছেন"
+                },
+                {
+                  "t": "the",
+                  "bn": "বইটি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                },
+                {
+                  "t": "on",
+                  "bn": "উপরে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টেবিলের"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "action_contrast"
+              }
+            },
+            {
+              "id": "en-qa-016",
+              "concept_id": "c-qa-open-door-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you opening the door? No, I'm not opening the door, but I'm closing the window.",
+              "bn": "আপনি কি দরজা খুলছেন? না, আমি দরজা খুলছি না, বরং আমি জানালা বন্ধ করছি।",
+              "bn_pron": "আর ইউ ওপেনিং দ্য ডোর? নো, আইম নট ওপেনিং দ্য ডোর, বাট আইম ক্লোজিং দ্য উইন্ডো।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "করছেন কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "opening",
+                  "bn": "খুলছেন"
+                },
+                {
+                  "t": "the",
+                  "bn": "দরজাটি"
+                },
+                {
+                  "t": "door",
+                  "bn": "দরজা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "opening",
+                  "bn": "খুলছি"
+                },
+                {
+                  "t": "the",
+                  "bn": "দরজাটি"
+                },
+                {
+                  "t": "door",
+                  "bn": "দরজা"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "closing",
+                  "bn": "বন্ধ করছি"
+                },
+                {
+                  "t": "the",
+                  "bn": "জানালাটি"
+                },
+                {
+                  "t": "window",
+                  "bn": "জানালা"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "action_contrast"
+              }
+            },
+            {
+              "id": "en-qa-017",
+              "concept_id": "c-qa-write-letter-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is she writing a letter? No, she isn't writing a letter, but she is reading a newspaper.",
+              "bn": "সে কি চিঠি লিখছে? না, সে চিঠি লিখছে না, বরং সে একটি সংবাদপত্র পড়ছে।",
+              "bn_pron": "ইজ শি রাইটিং আ লেটার? নো, শি ইজন্ট রাইটিং আ লেটার, বাট শি ইজ রিডিং আ নিউজপেপার।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "করছে কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "writing",
+                  "bn": "লিখছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "letter",
+                  "bn": "চিঠি"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "না"
+                },
+                {
+                  "t": "writing",
+                  "bn": "লিখছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "letter",
+                  "bn": "চিঠি"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "she",
+                  "bn": "সে"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "reading",
+                  "bn": "পড়ছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "newspaper",
+                  "bn": "সংবাদপত্র"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "action_contrast"
+              }
+            },
+            {
+              "id": "en-qa-018",
+              "concept_id": "c-qa-phone-pocket-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you putting your phone into your pocket? No, I'm not putting my phone into my pocket, but I'm taking my keys out of my pocket.",
+              "bn": "আপনি কি আপনার ফোন পকেটে রাখছেন? না, আমি আমার ফোন পকেটে রাখছি না, বরং আমি পকেট থেকে চাবি বের করছি।",
+              "bn_pron": "আর ইউ পুটিং ইয়োর ফোন ইনটু ইয়োর পকেট? নো, আইম নট পুটিং মাই ফোন ইনটু মাই পকেট, বাট আইম টেকিং মাই কিজ আউট অব মাই পকেট।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "করছেন কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "putting",
+                  "bn": "রাখছেন"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "phone",
+                  "bn": "ফোন"
+                },
+                {
+                  "t": "into",
+                  "bn": "ভেতরে"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "pocket",
+                  "bn": "পকেট"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "putting",
+                  "bn": "রাখছি"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "phone",
+                  "bn": "ফোন"
+                },
+                {
+                  "t": "into",
+                  "bn": "ভেতরে"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "pocket",
+                  "bn": "পকেট"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "taking",
+                  "bn": "বের করছি"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "keys",
+                  "bn": "চাবিগুলো"
+                },
+                {
+                  "t": "out of",
+                  "bn": "হতে"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "pocket",
+                  "bn": "পকেট"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "action_contrast"
+              }
+            },
+            {
+              "id": "en-qa-019",
+              "concept_id": "c-qa-going-market-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is he going to the market? No, he isn't going to the market, but he is coming back home.",
+              "bn": "তিনি কি বাজারে যাচ্ছেন? না, তিনি বাজারে যাচ্ছেন না, বরং তিনি বাড়ি ফিরে আসছেন।",
+              "bn_pron": "ইজ হি গোয়িং টু দ্য মার্কেট? নো, হি ইজন্ট গোয়িং টু দ্য মার্কেট, বাট হি ইজ কামিং ব্যাক হোম।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "করছেন কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "going",
+                  "bn": "যাচ্ছেন"
+                },
+                {
+                  "t": "to",
+                  "bn": "অভিমুখে"
+                },
+                {
+                  "t": "the",
+                  "bn": "বাজারের"
+                },
+                {
+                  "t": "market",
+                  "bn": "বাজার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "isn't",
+                  "bn": "না"
+                },
+                {
+                  "t": "going",
+                  "bn": "যাচ্ছেন"
+                },
+                {
+                  "t": "to",
+                  "bn": "অভিমুখে"
+                },
+                {
+                  "t": "the",
+                  "bn": "বাজারের"
+                },
+                {
+                  "t": "market",
+                  "bn": "বাজার"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "আছেন"
+                },
+                {
+                  "t": "coming",
+                  "bn": "আসছেন"
+                },
+                {
+                  "t": "back",
+                  "bn": "ফিরে"
+                },
+                {
+                  "t": "home",
+                  "bn": "বাড়ি"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "action_contrast"
+              }
+            },
+            {
+              "id": "en-qa-020",
+              "concept_id": "c-qa-drink-tea-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you drinking tea? No, I'm not drinking tea, but I'm drinking water.",
+              "bn": "আপনি কি চা পান করছেন? না, আমি চা পান করছি না, বরং আমি পানি পান করছি।",
+              "bn_pron": "আর ইউ ড্রিংকিং টি? নো, আইম নট ড্রিংকিং টি, বাট আইম ড্রিংকিং ওয়াটার।",
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": "করছেন কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "drinking",
+                  "bn": "পান করছেন"
+                },
+                {
+                  "t": "tea",
+                  "bn": "চা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "drinking",
+                  "bn": "পান করছি"
+                },
+                {
+                  "t": "tea",
+                  "bn": "চা"
+                },
+                {
+                  "t": "but",
+                  "bn": "বরং"
+                },
+                {
+                  "t": "I'm",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "drinking",
+                  "bn": "পান করছি"
+                },
+                {
+                  "t": "water",
+                  "bn": "পানি"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_contrast",
+                "pattern": "action_contrast"
               }
             }
           ]
