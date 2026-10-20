@@ -517,8 +517,9 @@ private fun SyllabusLessonCard(
                 Spacer(modifier = Modifier.width(12.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
+                    val orderFormatted = if (lesson.order < 10) "0${lesson.order}" else "${lesson.order}"
                     Text(
-                        text = "লেসন 0${lesson.order}: ${lesson.titleTarget.orEmpty()}",
+                        text = "লেসন $orderFormatted: ${lesson.titleTarget.orEmpty()}",
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface

@@ -40,7 +40,7 @@
     }
   ],
   "stats": {
-    "lessons": 7,
+    "lessons": 8,
     "items": 103
   },
   "parts": [
@@ -1197,9 +1197,9 @@
           "order": 3,
           "badge": "Very Important for Spoken English",
           "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
-          "title_bn": "উচ্চারণ ও জড়তা দূরীকরণে ১০টি টাং টুইস্টার (অতি গুরুত্বপূর্ণ)",
-          "title_target": "10 Tongue Twisters for Pronunciation (Very Important)",
-          "intro_bn": "অনর্গল ইংরেজি বলার প্রধান বাধা হলো মুখের ও জিভের জড়তা। দ্রুত ও পরিষ্কার উচ্চারণের জন্য এই ১০টি টাং টুইস্টার প্রথমে ধীরে, তারপর স্বাভাবিক গতিতে এবং সবশেষে দ্রুত বলার অনুশীলন করুন। এটি আপনার বাচনভঙ্গিকে স্পষ্ট ও সাবলীল করবে।",
+          "title_bn": "উচ্চারণ ও জড়তা দূরীকরণে ৫টি টাং টুইস্টার (অতি গুরুত্বপূর্ণ)",
+          "title_target": "5 Tongue Twisters for Pronunciation (Very Important)",
+          "intro_bn": "অনর্গল ইংরেজি বলার প্রধান বাধা হলো মুখের ও জিভের জড়তা। পরিষ্কার উচ্চারণের জন্য এই ৫টি টাং টুইস্টার প্রথমে ধীরে, তারপর স্বাভাবিক গতিতে এবং সবশেষে দ্রুত বলার অনুশীলন করুন।",
           "structure": [
             "Read Slowly for Clear Pronunciation",
             "Repeat at Natural Speaking Pace",
@@ -1500,270 +1500,6 @@
               "tags": {
                 "category": "tongue_twister",
                 "phoneme_focus": "/th/ dental",
-                "drill_type": "pronunciation"
-              }
-            },
-            {
-              "id": "en-twister-006",
-              "concept_id": "c-twister-red-lorry-yellow-lorry",
-              "type": "sentence",
-              "level": "A2",
-              "target": "Red lorry, yellow lorry, red lorry, yellow lorry.",
-              "bn": "লাল লরি, হলুদ লরি, লাল লরি, হলুদ লরি।",
-              "bn_pron": "রেড লরি, ইয়োলো লরি, রেড লরি, ইয়োলো লরি।",
-              "tokens": [
-                {
-                  "t": "Red",
-                  "bn": "লাল"
-                },
-                {
-                  "t": "lorry",
-                  "bn": "লরি/ট্রাক"
-                },
-                {
-                  "t": "yellow",
-                  "bn": "হলুদ"
-                },
-                {
-                  "t": "lorry",
-                  "bn": "লরি/ট্রাক"
-                },
-                {
-                  "t": "red",
-                  "bn": "লাল"
-                },
-                {
-                  "t": "lorry",
-                  "bn": "লরি/ট্রাক"
-                },
-                {
-                  "t": "yellow",
-                  "bn": "হলুদ"
-                },
-                {
-                  "t": "lorry",
-                  "bn": "লরি/ট্রাক"
-                }
-              ],
-              "tags": {
-                "category": "tongue_twister",
-                "phoneme_focus": "/r/ vs /l/",
-                "drill_type": "pronunciation"
-              }
-            },
-            {
-              "id": "en-twister-007",
-              "concept_id": "c-twister-very-well-willpower",
-              "type": "sentence",
-              "level": "A2",
-              "target": "Very well, very well, we will win with willpower.",
-              "bn": "খুব ভালো, খুব ভালো, আমরা ইচ্ছাশক্তি দিয়ে জয়ী হব।",
-              "bn_pron": "ভেরি ওয়েল, ভেরি ওয়েল, উই উইল উইন উইথ উইলপাওয়ার।",
-              "tokens": [
-                {
-                  "t": "Very",
-                  "bn": "খুব"
-                },
-                {
-                  "t": "well",
-                  "bn": "ভালো"
-                },
-                {
-                  "t": "very",
-                  "bn": "খুব"
-                },
-                {
-                  "t": "well",
-                  "bn": "ভালো"
-                },
-                {
-                  "t": "we",
-                  "bn": "আমরা"
-                },
-                {
-                  "t": "will",
-                  "bn": "হব"
-                },
-                {
-                  "t": "win",
-                  "bn": "জয়ী"
-                },
-                {
-                  "t": "with",
-                  "bn": "দিয়ে"
-                },
-                {
-                  "t": "willpower",
-                  "bn": "ইচ্ছাশক্তি"
-                }
-              ],
-              "tags": {
-                "category": "tongue_twister",
-                "phoneme_focus": "/v/ vs /w/",
-                "drill_type": "pronunciation"
-              }
-            },
-            {
-              "id": "en-twister-008",
-              "concept_id": "c-twister-can-you-can-a-can",
-              "type": "sentence",
-              "level": "A2",
-              "target": "Can you can a can as a canner can can a can?",
-              "bn": "তুমি কি একটি ক্যান প্রক্রিয়াজাত করতে পারো যেমন একজন ক্যানার পারে?",
-              "bn_pron": "ক্যান ইউ ক্যান আ ক্যান অ্যাজ আ ক্যানার ক্যান ক্যান আ ক্যান?",
-              "tokens": [
-                {
-                  "t": "Can",
-                  "bn": "পারো কি"
-                },
-                {
-                  "t": "you",
-                  "bn": "তুমি"
-                },
-                {
-                  "t": "can",
-                  "bn": "কৌটায় ভরা"
-                },
-                {
-                  "t": "a",
-                  "bn": "একটি"
-                },
-                {
-                  "t": "can",
-                  "bn": "কৌটা"
-                },
-                {
-                  "t": "as",
-                  "bn": "যেমন"
-                },
-                {
-                  "t": "a",
-                  "bn": "একজন"
-                },
-                {
-                  "t": "canner",
-                  "bn": "কৌটাজাতকারী"
-                },
-                {
-                  "t": "can",
-                  "bn": "পারে"
-                },
-                {
-                  "t": "can",
-                  "bn": "কৌটায় ভরতে"
-                },
-                {
-                  "t": "a",
-                  "bn": "একটি"
-                },
-                {
-                  "t": "can",
-                  "bn": "কৌটা"
-                }
-              ],
-              "tags": {
-                "category": "tongue_twister",
-                "phoneme_focus": "/k/ & /ae/",
-                "drill_type": "pronunciation"
-              }
-            },
-            {
-              "id": "en-twister-009",
-              "concept_id": "c-twister-fresh-fried-fish",
-              "type": "sentence",
-              "level": "A2",
-              "target": "Fresh fried fish, fish fresh fried, fried fish fresh.",
-              "bn": "তাজা ভাজা মাছ, মাছ তাজা ভাজা, ভাজা মাছ তাজা।",
-              "bn_pron": "ফ্রেশ ফ্রাইড ফিশ, ফিশ ফ্রেশ ফ্রাইড, ফ্রাইড ফিশ ফ্রেশ।",
-              "tokens": [
-                {
-                  "t": "Fresh",
-                  "bn": "তাজা"
-                },
-                {
-                  "t": "fried",
-                  "bn": "ভাজা"
-                },
-                {
-                  "t": "fish",
-                  "bn": "মাছ"
-                },
-                {
-                  "t": "fish",
-                  "bn": "মাছ"
-                },
-                {
-                  "t": "fresh",
-                  "bn": "তাজা"
-                },
-                {
-                  "t": "fried",
-                  "bn": "ভাজা"
-                },
-                {
-                  "t": "fried",
-                  "bn": "ভাজা"
-                },
-                {
-                  "t": "fish",
-                  "bn": "মাছ"
-                },
-                {
-                  "t": "fresh",
-                  "bn": "তাজা"
-                }
-              ],
-              "tags": {
-                "category": "tongue_twister",
-                "phoneme_focus": "/f/ & /sh/",
-                "drill_type": "pronunciation"
-              }
-            },
-            {
-              "id": "en-twister-010",
-              "concept_id": "c-twister-thirty-three-thirsty-feathers",
-              "type": "sentence",
-              "level": "A2",
-              "target": "Thirty-three thirsty feathers fluttered through the thick fog.",
-              "bn": "তেত্রিশটি তৃষ্ণার্ত পালক ঘন কুয়াশার মধ্য দিয়ে উড়ে গেল।",
-              "bn_pron": "থার্টি-থ্রি থার্স্টি ফেদার্স ফ্লাটার্ড থ্রু দ্য থিক ফগ।",
-              "tokens": [
-                {
-                  "t": "Thirty-three",
-                  "bn": "তেত্রিশ"
-                },
-                {
-                  "t": "thirsty",
-                  "bn": "তৃষ্ণার্ত"
-                },
-                {
-                  "t": "feathers",
-                  "bn": "পালকসমূহ"
-                },
-                {
-                  "t": "fluttered",
-                  "bn": "ডানা ঝাপটে উড়ে গেল"
-                },
-                {
-                  "t": "through",
-                  "bn": "মধ্য দিয়ে"
-                },
-                {
-                  "t": "the",
-                  "bn": "নির্দিষ্ট"
-                },
-                {
-                  "t": "thick",
-                  "bn": "ঘন"
-                },
-                {
-                  "t": "fog",
-                  "bn": "কুয়াশা"
-                }
-              ],
-              "tags": {
-                "category": "tongue_twister",
-                "phoneme_focus": "/th/ & /f/",
                 "drill_type": "pronunciation"
               }
             }
@@ -3121,6 +2857,287 @@
         {
           "id": "en-foundations-l07",
           "order": 7,
+          "badge": "Very Important for Spoken English",
+          "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
+          "title_bn": "অনর্গল ও দ্রুত কথা বলার ৫টি টাং টুইস্টার (অতি গুরুত্বপূর্ণ)",
+          "title_target": "5 Tongue Twisters for Fluency & Speed (Very Important)",
+          "intro_bn": "কথা বলার সময় শব্দ আটকে যাওয়া বা সঠিক উচ্চারণ না আসার সমস্যা দূর করতে এই ৫টি টাং টুইস্টার প্রতিদিন ৩ বার করে জোরে মুখে উচ্চারণ করুন। এটি আপনার বাচনভঙ্গিকে অত্যন্ত আকর্ষণীয় ও সাবলীল করবে।",
+          "structure": [
+            "Read Slowly for Clear Pronunciation",
+            "Repeat at Natural Speaking Pace",
+            "Speed Up 3 Times Without Pausing"
+          ],
+          "source_section": "Foundations: Tongue Twisters & Pronunciation Drills",
+          "items": [
+            {
+              "id": "en-twister-006",
+              "concept_id": "c-twister-red-lorry-yellow-lorry",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Red lorry, yellow lorry, red lorry, yellow lorry.",
+              "bn": "লাল লরি, হলুদ লরি, লাল লরি, হলুদ লরি।",
+              "bn_pron": "রেড লরি, ইয়োলো লরি, রেড লরি, ইয়োলো লরি।",
+              "tokens": [
+                {
+                  "t": "Red",
+                  "bn": "লাল"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                },
+                {
+                  "t": "yellow",
+                  "bn": "হলুদ"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                },
+                {
+                  "t": "red",
+                  "bn": "লাল"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                },
+                {
+                  "t": "yellow",
+                  "bn": "হলুদ"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/r/ vs /l/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-007",
+              "concept_id": "c-twister-very-well-willpower",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Very well, very well, we will win with willpower.",
+              "bn": "খুব ভালো, খুব ভালো, আমরা ইচ্ছাশক্তি দিয়ে জয়ী হব।",
+              "bn_pron": "ভেরি ওয়েল, ভেরি ওয়েল, উই উইল উইন উইথ উইলপাওয়ার।",
+              "tokens": [
+                {
+                  "t": "Very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "well",
+                  "bn": "ভালো"
+                },
+                {
+                  "t": "very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "well",
+                  "bn": "ভালো"
+                },
+                {
+                  "t": "we",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "will",
+                  "bn": "হব"
+                },
+                {
+                  "t": "win",
+                  "bn": "জয়ী"
+                },
+                {
+                  "t": "with",
+                  "bn": "দিয়ে"
+                },
+                {
+                  "t": "willpower",
+                  "bn": "ইচ্ছাশক্তি"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/v/ vs /w/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-008",
+              "concept_id": "c-twister-can-you-can-a-can",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Can you can a can as a canner can can a can?",
+              "bn": "তুমি কি একটি ক্যান প্রক্রিয়াজাত করতে পারো যেমন একজন ক্যানার পারে?",
+              "bn_pron": "ক্যান ইউ ক্যান আ ক্যান অ্যাজ আ ক্যানার ক্যান ক্যান আ ক্যান?",
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": "পারো কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটায় ভরা"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটা"
+                },
+                {
+                  "t": "as",
+                  "bn": "যেমন"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "canner",
+                  "bn": "কৌটাজাতকারী"
+                },
+                {
+                  "t": "can",
+                  "bn": "পারে"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটায় ভরতে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/k/ & /ae/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-009",
+              "concept_id": "c-twister-fresh-fried-fish",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Fresh fried fish, fish fresh fried, fried fish fresh.",
+              "bn": "তাজা ভাজা মাছ, মাছ তাজা ভাজা, ভাজা মাছ তাজা।",
+              "bn_pron": "ফ্রেশ ফ্রাইড ফিশ, ফিশ ফ্রেশ ফ্রাইড, ফ্রাইড ফিশ ফ্রেশ।",
+              "tokens": [
+                {
+                  "t": "Fresh",
+                  "bn": "তাজা"
+                },
+                {
+                  "t": "fried",
+                  "bn": "ভাজা"
+                },
+                {
+                  "t": "fish",
+                  "bn": "মাছ"
+                },
+                {
+                  "t": "fish",
+                  "bn": "মাছ"
+                },
+                {
+                  "t": "fresh",
+                  "bn": "তাজা"
+                },
+                {
+                  "t": "fried",
+                  "bn": "ভাজা"
+                },
+                {
+                  "t": "fried",
+                  "bn": "ভাজা"
+                },
+                {
+                  "t": "fish",
+                  "bn": "মাছ"
+                },
+                {
+                  "t": "fresh",
+                  "bn": "তাজা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/f/ & /sh/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-010",
+              "concept_id": "c-twister-thirty-three-thirsty-feathers",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Thirty-three thirsty feathers fluttered through the thick fog.",
+              "bn": "তেত্রিশটি তৃষ্ণার্ত পালক ঘন কুয়াশার মধ্য দিয়ে উড়ে গেল।",
+              "bn_pron": "থার্টি-থ্রি থার্স্টি ফেদার্স ফ্লাটার্ড থ্রু দ্য থিক ফগ।",
+              "tokens": [
+                {
+                  "t": "Thirty-three",
+                  "bn": "তেত্রিশ"
+                },
+                {
+                  "t": "thirsty",
+                  "bn": "তৃষ্ণার্ত"
+                },
+                {
+                  "t": "feathers",
+                  "bn": "পালকসমূহ"
+                },
+                {
+                  "t": "fluttered",
+                  "bn": "ডানা ঝাপটে উড়ে গেল"
+                },
+                {
+                  "t": "through",
+                  "bn": "মধ্য দিয়ে"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "thick",
+                  "bn": "ঘন"
+                },
+                {
+                  "t": "fog",
+                  "bn": "কুয়াশা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/th/ & /f/",
+                "drill_type": "pronunciation"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l08",
+          "order": 8,
           "badge": "Very Important for Spoken English",
           "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
           "title_bn": "বাক্যের ৬ রূপ: ব্যক্তিত্ব ও গুণাবলী (অতি গুরুত্বপূর্ণ)",
