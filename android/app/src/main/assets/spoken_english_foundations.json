@@ -40,8 +40,8 @@
     }
   ],
   "stats": {
-    "lessons": 8,
-    "items": 103
+    "lessons": 12,
+    "items": 153
   },
   "parts": [
     {
@@ -3733,6 +3733,2882 @@
                 "tense": "present_simple",
                 "question": "wh",
                 "wh": "why"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p3",
+      "order": 3,
+      "level": "A1",
+      "title_bn": "দৈনন্দিন বস্তু ও প্রশ্নোত্তর (Objects, Demonstratives & Q&A)",
+      "title_target": "Daily Objects & Practical Q&A",
+      "lessons": [
+        {
+          "id": "en-foundations-l09",
+          "order": 9,
+          "title_bn": "সহজ প্রশ্নোত্তর: এটি কী? (What is this? & Object Identifications)",
+          "title_target": "What is this? & Object Identifications",
+          "intro_bn": "দৈনন্দিন জীবনের বিভিন্ন পরিচিত বস্তু চেনা এবং 'What is this/that?' দিয়ে প্রশ্ন করা ও সঠিক উত্তর দেওয়ার বাস্তবসম্মত অনুশীলন।",
+          "structure": [
+            "Q: What is this/that?",
+            "Ans: It is a/an + [Object]."
+          ],
+          "items": [
+            {
+              "id": "en-obj-qa-001",
+              "concept_id": "c-what-is-pen",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is this? It's a pen.",
+              "bn": "এটি কী? এটি একটি কলম।",
+              "bn_pron": "হোয়াট ইজ দিজ? ইটস আ পেন।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_this",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-002",
+              "concept_id": "c-what-is-table",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is this? It's a table.",
+              "bn": "এটি কী? এটি একটি টেবিল।",
+              "bn_pron": "হোয়াট ইজ দিজ? ইটস আ টেবিল।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_this",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-003",
+              "concept_id": "c-what-is-picture",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is that? It's a picture.",
+              "bn": "ওটি কী? ওটি একটি ছবি।",
+              "bn_pron": "হোয়াট ইজ দ্যাট? ইটস আ পিকচার।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "picture",
+                  "bn": "ছবি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_that",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-004",
+              "concept_id": "c-what-is-book",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is this? It's a book.",
+              "bn": "এটি কী? এটি একটি বই।",
+              "bn_pron": "হোয়াট ইজ দিজ? ইটস আ বুক।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "book",
+                  "bn": "বই"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_this",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-005",
+              "concept_id": "c-what-is-wall-clock",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is that? It's a wall clock.",
+              "bn": "ওটি কী? ওটি একটি দেয়াল ঘড়ি।",
+              "bn_pron": "হোয়াট ইজ দ্যাট? ইটস আ ওয়াল ক্লক।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "wall",
+                  "bn": "দেয়াল"
+                },
+                {
+                  "t": "clock",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_that",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-006",
+              "concept_id": "c-what-is-mobile-phone",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is this? It's a mobile phone.",
+              "bn": "এটি কী? এটি একটি মোবাইল ফোন।",
+              "bn_pron": "হোয়াট ইজ দিজ? ইটস আ মোবাইল ফোন।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                },
+                {
+                  "t": "phone",
+                  "bn": "ফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_this",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-007",
+              "concept_id": "c-what-is-wooden-chair",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is that? It's a wooden chair.",
+              "bn": "ওটি কী? ওটি একটি কাঠের চেয়ার।",
+              "bn_pron": "হোয়াট ইজ দ্যাট? ইটস আ উডেন চেয়ার।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "wooden",
+                  "bn": "কাঠের"
+                },
+                {
+                  "t": "chair",
+                  "bn": "চেয়ার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_that",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-008",
+              "concept_id": "c-what-is-laptop",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is this? It's a laptop computer.",
+              "bn": "এটি কী? এটি একটি ল্যাপটপ কম্পিউটার।",
+              "bn_pron": "হোয়াট ইজ দিজ? ইটস আ ল্যাপটপ কম্পিউটার।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "laptop",
+                  "bn": "ল্যাপটপ"
+                },
+                {
+                  "t": "computer",
+                  "bn": "কম্পিউটার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_this",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-009",
+              "concept_id": "c-what-is-white-board",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is that? It's a white board.",
+              "bn": "ওটি কী? ওটি একটি সাদা বোর্ড।",
+              "bn_pron": "হোয়াট ইজ দ্যাট? ইটস আ হোয়াইট বোর্ড।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "white",
+                  "bn": "সাদা"
+                },
+                {
+                  "t": "board",
+                  "bn": "বোর্ড"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_that",
+                "topic": "objects"
+              }
+            },
+            {
+              "id": "en-obj-qa-010",
+              "concept_id": "c-what-is-umbrella",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is this? It's an umbrella.",
+              "bn": "এটি কী? এটি একটি ছাতা।",
+              "bn_pron": "হোয়াট ইজ দিজ? ইটস অ্যান আমব্রেলা।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "It's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "an",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "umbrella",
+                  "bn": "ছাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "pattern": "what_is_this",
+                "topic": "objects"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l10",
+          "order": 10,
+          "title_bn": "হ্যাঁ/না প্রশ্নোত্তর ও সংশোধন (Yes/No Q&A with Corrections)",
+          "title_target": "Yes/No Q&A with Corrections",
+          "intro_bn": "যেকোনো বস্তু, স্থান বা পরিস্থিতি সম্পর্কে 'Is this...?' দিয়ে প্রশ্ন করে 'Yes, it is...' অথবা 'No, it is not..., it is...' দিয়ে ভুল সংশোধন করে সঠিক উত্তর দেওয়ার স্পোকেন ড্রিল।",
+          "structure": [
+            "Q: Is this [Object/Place/Adj]?",
+            "Ans 1: Yes, it is [Object/Adj].",
+            "Ans 2: No, it is not [A], it is [B]."
+          ],
+          "items": [
+            {
+              "id": "en-yn-qa-001",
+              "concept_id": "c-yn-pencil-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this a pencil? Yes, it's a pencil.",
+              "bn": "এটি কি একটি পেনসিল? হ্যাঁ, এটি একটি পেনসিল।",
+              "bn_pron": "ইজ দিজ আ পেন্সিল? ইয়েস, ইটস আ পেন্সিল।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pencil",
+                  "bn": "পেনসিল"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pencil",
+                  "bn": "পেনসিল"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-002",
+              "concept_id": "c-yn-pencil-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this a pencil? No, it's not a pencil; it's a pen.",
+              "bn": "এটি কি একটি পেনসিল? না, এটি পেনসিল নয়; এটি একটি কলম।",
+              "bn_pron": "ইজ দিজ আ পেন্সিল? নো, ইটস নট আ পেন্সিল; ইটস আ পেন।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pencil",
+                  "bn": "পেনসিল"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pencil",
+                  "bn": "পেনসিল"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-003",
+              "concept_id": "c-yn-room-short-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this room short? Yes, this room is short.",
+              "bn": "এই ঘরটি কি খাটো? হ্যাঁ, এই ঘরটি খাটো।",
+              "bn_pron": "ইজ দিজ রুম শর্ট? ইয়েস, দিজ রুম ইজ শর্ট।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "room",
+                  "bn": "ঘরটি"
+                },
+                {
+                  "t": "short",
+                  "bn": "খাটো"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "room",
+                  "bn": "ঘরটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "short",
+                  "bn": "খাটো"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-004",
+              "concept_id": "c-yn-room-short-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this room short? No, it's not short; it's spacious and high.",
+              "bn": "এই ঘরটি কি খাটো? না, এটি খাটো নয়; এটি প্রশস্ত ও উঁচু।",
+              "bn_pron": "ইজ দিজ রুম শর্ট? নো, ইটস নট শর্ট; ইটস স্পেশাস অ্যান্ড হাই।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "room",
+                  "bn": "ঘরটি"
+                },
+                {
+                  "t": "short",
+                  "bn": "খাটো"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "short",
+                  "bn": "খাটো"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "spacious",
+                  "bn": "প্রশস্ত"
+                },
+                {
+                  "t": "and",
+                  "bn": "এবং"
+                },
+                {
+                  "t": "high",
+                  "bn": "উঁচু"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-005",
+              "concept_id": "c-yn-table-small-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this table small? Yes, it's a small table.",
+              "bn": "এই টেবিলটি কি ছোট? হ্যাঁ, এটি একটি ছোট টেবিল।",
+              "bn_pron": "ইজ দিজ টেবিল স্মল? ইয়েস, ইটস আ স্মল টেবিল।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিলটি"
+                },
+                {
+                  "t": "small",
+                  "bn": "ছোট"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "small",
+                  "bn": "ছোট"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-006",
+              "concept_id": "c-yn-table-small-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this table small? No, it is not small; it's quite large.",
+              "bn": "এই টেবিলটি কি ছোট? না, এটি ছোট নয়; এটি বেশ বড়।",
+              "bn_pron": "ইজ দিজ টেবিল স্মল? নো, ইট ইজ নট স্মল; ইটস কোয়াইট লার্জ।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিলটি"
+                },
+                {
+                  "t": "small",
+                  "bn": "ছোট"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "small",
+                  "bn": "ছোট"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "quite",
+                  "bn": "বেশ"
+                },
+                {
+                  "t": "large",
+                  "bn": "বড়"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-007",
+              "concept_id": "c-yn-dhaka-village-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is Dhaka a village? No, Dhaka is not a village; it's a mega city.",
+              "bn": "ঢাকা কি একটি গ্রাম? না, ঢাকা কোনো গ্রাম নয়; এটি একটি মেগা শহর।",
+              "bn_pron": "ইজ ঢাকা আ ভিলেজ? নো, ঢাকা ইজ নট আ ভিলেজ; ইটস আ মেগা সিটি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "Dhaka",
+                  "bn": "ঢাকা"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "village",
+                  "bn": "গ্রাম"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Dhaka",
+                  "bn": "ঢাকা"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "village",
+                  "bn": "গ্রাম"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "mega",
+                  "bn": "মেগা / বিশাল"
+                },
+                {
+                  "t": "city",
+                  "bn": "শহর"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-008",
+              "concept_id": "c-yn-dhaka-capital-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is Dhaka the capital of Bangladesh? Yes, it is the capital city.",
+              "bn": "ঢাকা কি বাংলাদেশের রাজধানী? হ্যাঁ, এটি রাজধানী শহর।",
+              "bn_pron": "ইজ ঢাকা দ্য ক্যাপিটাল অব বাংলাদেশ? ইয়েস, ইট ইজ দ্য ক্যাপিটাল সিটি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "Dhaka",
+                  "bn": "ঢাকা"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "capital",
+                  "bn": "রাজধানী"
+                },
+                {
+                  "t": "of",
+                  "bn": "এর"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশ"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "capital",
+                  "bn": "রাজধানী"
+                },
+                {
+                  "t": "city",
+                  "bn": "শহর"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-009",
+              "concept_id": "c-yn-notebook-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is that a notebook? Yes, it's my notebook.",
+              "bn": "ওটি কি একটি খাতা? হ্যাঁ, ওটি আমার খাতা।",
+              "bn_pron": "ইজ দ্যাট আ নোটবুক? ইয়েস, ইটস মাই নোটবুক।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "notebook",
+                  "bn": "খাতা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "notebook",
+                  "bn": "খাতা"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-010",
+              "concept_id": "c-yn-notebook-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is that a notebook? No, it's not a notebook; it's a textbook.",
+              "bn": "ওটি কি একটি খাতা? না, ওটি খাতা নয়; ওটি একটি পাঠ্যবই।",
+              "bn_pron": "ইজ দ্যাট আ নোটবুক? নো, ইটস নট আ নোটবুক; ইটস আ টেক্সটবুক।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওটি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "notebook",
+                  "bn": "খাতা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "notebook",
+                  "bn": "খাতা"
+                },
+                {
+                  "t": "it's",
+                  "bn": "ওটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "textbook",
+                  "bn": "পাঠ্যবই"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-011",
+              "concept_id": "c-yn-cup-clean-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this cup clean? Yes, it is clean.",
+              "bn": "এই কাপটি কি পরিষ্কার? হ্যাঁ, এটি পরিষ্কার।",
+              "bn_pron": "ইজ দিজ কাপ ক্লিন? ইয়েস, ইট ইজ ক্লিন।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "cup",
+                  "bn": "কাপটি"
+                },
+                {
+                  "t": "clean",
+                  "bn": "পরিষ্কার"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "clean",
+                  "bn": "পরিষ্কার"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-012",
+              "concept_id": "c-yn-cup-clean-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this cup clean? No, it's not clean; it's dirty.",
+              "bn": "এই কাপটি কি পরিষ্কার? না, এটি পরিষ্কার নয়; এটি ময়লা।",
+              "bn_pron": "ইজ দিজ কাপ ক্লিন? নো, ইটস নট ক্লিন; ইটস ডার্টি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "cup",
+                  "bn": "কাপটি"
+                },
+                {
+                  "t": "clean",
+                  "bn": "পরিষ্কার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "clean",
+                  "bn": "পরিষ্কার"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "dirty",
+                  "bn": "ময়লা / অপরিষ্কার"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-013",
+              "concept_id": "c-yn-water-cold-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is that water cold? Yes, it is cold water.",
+              "bn": "ওই পানি কি ঠান্ডা? হ্যাঁ, এটি ঠান্ডা পানি।",
+              "bn_pron": "ইজ দ্যাট ওয়াটার কোল্ড? ইয়েস, ইট ইজ কোল্ড ওয়াটার।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওই"
+                },
+                {
+                  "t": "water",
+                  "bn": "পানি"
+                },
+                {
+                  "t": "cold",
+                  "bn": "ঠান্ডা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "cold",
+                  "bn": "ঠান্ডা"
+                },
+                {
+                  "t": "water",
+                  "bn": "পানি"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-014",
+              "concept_id": "c-yn-water-cold-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is that water cold? No, it's not cold; it's warm.",
+              "bn": "ওই পানি কি ঠান্ডা? না, এটি ঠান্ডা নয়; এটি হালকা গরম।",
+              "bn_pron": "ইজ দ্যাট ওয়াটার কোল্ড? নো, ইটস নট কোল্ড; ইটস ওয়ার্ম।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওই"
+                },
+                {
+                  "t": "water",
+                  "bn": "পানি"
+                },
+                {
+                  "t": "cold",
+                  "bn": "ঠান্ডা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "cold",
+                  "bn": "ঠান্ডা"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "warm",
+                  "bn": "হালকা গরম"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-015",
+              "concept_id": "c-yn-door-open-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the door open? Yes, the door is open.",
+              "bn": "দরজাটি কি খোলা? হ্যাঁ, দরজাটি খোলা।",
+              "bn_pron": "ইজ দ্য ডোর ওপেন? ইয়েস, দ্য ডোর ইজ ওপেন।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "door",
+                  "bn": "দরজা"
+                },
+                {
+                  "t": "open",
+                  "bn": "খোলা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "door",
+                  "bn": "দরজা"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "open",
+                  "bn": "খোলা"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-016",
+              "concept_id": "c-yn-door-open-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the door open? No, it is not open; it is locked.",
+              "bn": "দরজাটি কি খোলা? না, এটি খোলা নয়; এটি তালাবদ্ধ।",
+              "bn_pron": "ইজ দ্য ডোর ওপেন? নো, ইট ইজ নট ওপেন; ইট ইজ লকড।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "door",
+                  "bn": "দরজা"
+                },
+                {
+                  "t": "open",
+                  "bn": "খোলা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "open",
+                  "bn": "খোলা"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "locked",
+                  "bn": "তালাবদ্ধ"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-017",
+              "concept_id": "c-yn-clock-working-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this clock working? Yes, it's working properly.",
+              "bn": "এই ঘড়িটি কি চলছে? হ্যাঁ, এটি সঠিকভাবে চলছে।",
+              "bn_pron": "ইজ দিজ ক্লক ওয়ার্কিং? ইয়েস, ইটস ওয়ার্কিং প্রপারলি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "clock",
+                  "bn": "ঘড়িটি"
+                },
+                {
+                  "t": "working",
+                  "bn": "চলছে"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "working",
+                  "bn": "চলছে"
+                },
+                {
+                  "t": "properly",
+                  "bn": "সঠিকভাবে"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            },
+            {
+              "id": "en-yn-qa-018",
+              "concept_id": "c-yn-clock-working-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this clock working? No, it is not working; the battery is dead.",
+              "bn": "এই ঘড়িটি কি চলছে? না, এটি চলছে না; ব্যাটারি শেষ হয়ে গেছে।",
+              "bn_pron": "ইজ দিজ ক্লক ওয়ার্কিং? নো, ইট ইজ নট ওয়ার্কিং; দ্য ব্যাটারি ইজ ডেড।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "clock",
+                  "bn": "ঘড়িটি"
+                },
+                {
+                  "t": "working",
+                  "bn": "চলছে"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "working",
+                  "bn": "চলছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "battery",
+                  "bn": "ব্যাটারি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "dead",
+                  "bn": "নিষ্ক্রিয় / শেষ"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-019",
+              "concept_id": "c-yn-sreemangal-metropolis-no",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is Sreemangal a busy metropolis? No, it's not a metropolis; it's a scenic town.",
+              "bn": "শ্রীমঙ্গল কি একটি ব্যস্ত মহানগর? না, এটি মহানগর নয়; এটি একটি মনোরম শহর।",
+              "bn_pron": "ইজ শ্রীমঙ্গল আ বিজি মেট্রোপলিস? নো, ইটস নট আ মেট্রোপলিস; ইটস আ সিনিক টাউন।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "Sreemangal",
+                  "bn": "শ্রীমঙ্গল"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "busy",
+                  "bn": "ব্যস্ত"
+                },
+                {
+                  "t": "metropolis",
+                  "bn": "মহানগর"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "not",
+                  "bn": "নয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "metropolis",
+                  "bn": "মহানগর"
+                },
+                {
+                  "t": "it's",
+                  "bn": "এটি হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "scenic",
+                  "bn": "মনোরম / নৈসর্গিক"
+                },
+                {
+                  "t": "town",
+                  "bn": "শহর"
+                }
+              ],
+              "tags": {
+                "polarity": "negative_correction",
+                "pattern": "yn_correction"
+              }
+            },
+            {
+              "id": "en-yn-qa-020",
+              "concept_id": "c-yn-sreemangal-tea-yes",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is Sreemangal famous for tea gardens? Yes, it is the tea capital of Bangladesh.",
+              "bn": "শ্রীমঙ্গল কি চা বাগানের জন্য বিখ্যাত? হ্যাঁ, এটি বাংলাদেশের চায়ের রাজধানী।",
+              "bn_pron": "ইজ শ্রীমঙ্গল ফেমাস ফর টি গার্ডেনস? ইয়েস, ইট ইজ দ্য টি ক্যাপিটাল অব বাংলাদেশ।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "Sreemangal",
+                  "bn": "শ্রীমঙ্গল"
+                },
+                {
+                  "t": "famous",
+                  "bn": "বিখ্যাত"
+                },
+                {
+                  "t": "for",
+                  "bn": "জন্য"
+                },
+                {
+                  "t": "tea",
+                  "bn": "চা"
+                },
+                {
+                  "t": "gardens",
+                  "bn": "বাগানগুলো"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "it",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "tea",
+                  "bn": "চা"
+                },
+                {
+                  "t": "capital",
+                  "bn": "রাজধানী"
+                },
+                {
+                  "t": "of",
+                  "bn": "এর"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশ"
+                }
+              ],
+              "tags": {
+                "polarity": "affirmative",
+                "pattern": "yn_affirmative"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l11",
+          "order": 11,
+          "title_bn": "বা / অথবা দিয়ে বিকল্প প্রশ্ন (Alternative Questions with 'or')",
+          "title_target": "Alternative Questions with 'or'",
+          "intro_bn": "দুটি বিকল্পের মধ্যে বাছাই করার জন্য 'or' (বা/অথবা) ব্যবহার করে প্রশ্ন করা এবং সরাসরি একটি বিকল্প বেছে নিয়ে উত্তর দেওয়ার প্র্যাকটিস।",
+          "structure": [
+            "Q: Is [Subject] [Option A] or [Option B]?",
+            "Ans: It is [Chosen Option]."
+          ],
+          "items": [
+            {
+              "id": "en-alt-qa-001",
+              "concept_id": "c-alt-table-long-short",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this table long or short? It is a long table.",
+              "bn": "এই টেবিলটি কি লম্বা নাকি খাটো? এটি একটি লম্বা টেবিল।",
+              "bn_pron": "ইজ দিজ টেবিল লং অর শর্ট? ইট ইজ আ লং টেবিল।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিলটি"
+                },
+                {
+                  "t": "long",
+                  "bn": "লম্বা"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি / অথবা"
+                },
+                {
+                  "t": "short",
+                  "bn": "খাটো"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "long",
+                  "bn": "লম্বা"
+                },
+                {
+                  "t": "table",
+                  "bn": "টেবিল"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "dimensions"
+              }
+            },
+            {
+              "id": "en-alt-qa-002",
+              "concept_id": "c-alt-rajshahi-large-small",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is Rajshahi city large or small? Rajshahi is a clean and moderately large city.",
+              "bn": "রাজশাহী শহর কি বড় নাকি ছোট? রাজশাহী একটি পরিষ্কার ও মাঝারি আকারের বড় শহর।",
+              "bn_pron": "ইজ রাজশাহী সিটি লার্জ অর স্মল? রাজশাহী ইজ আ ক্লিন অ্যান্ড মডারেটলি লার্জ সিটি।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "Rajshahi",
+                  "bn": "রাজশাহী"
+                },
+                {
+                  "t": "city",
+                  "bn": "শহর"
+                },
+                {
+                  "t": "large",
+                  "bn": "বড়"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি / অথবা"
+                },
+                {
+                  "t": "small",
+                  "bn": "ছোট"
+                },
+                {
+                  "t": "Rajshahi",
+                  "bn": "রাজশাহী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "clean",
+                  "bn": "পরিষ্কার"
+                },
+                {
+                  "t": "and",
+                  "bn": "এবং"
+                },
+                {
+                  "t": "moderately",
+                  "bn": "মাঝারি আকারের"
+                },
+                {
+                  "t": "large",
+                  "bn": "বড়"
+                },
+                {
+                  "t": "city",
+                  "bn": "শহর"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "cities"
+              }
+            },
+            {
+              "id": "en-alt-qa-003",
+              "concept_id": "c-alt-road-wide-narrow",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this road wide or narrow? It is a wide road.",
+              "bn": "এই রাস্তাটি কি প্রশস্ত নাকি সরু? এটি একটি প্রশস্ত রাস্তা।",
+              "bn_pron": "ইজ দিজ রোড ওয়াইড অর ন্যারো? ইট ইজ আ ওয়াইড রোড।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "road",
+                  "bn": "রাস্তাটি"
+                },
+                {
+                  "t": "wide",
+                  "bn": "প্রশস্ত"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "narrow",
+                  "bn": "সরু"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "wide",
+                  "bn": "প্রশস্ত"
+                },
+                {
+                  "t": "road",
+                  "bn": "রাস্তা"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "streets"
+              }
+            },
+            {
+              "id": "en-alt-qa-004",
+              "concept_id": "c-alt-tea-hot-cold",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this tea hot or cold? It is piping hot.",
+              "bn": "এই চা কি গরম নাকি ঠান্ডা? এটি ধোঁয়া ওঠা গরম।",
+              "bn_pron": "ইজ দিজ টি হট অর কোল্ড? ইট ইজ পাইপিং হট।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "tea",
+                  "bn": "চা"
+                },
+                {
+                  "t": "hot",
+                  "bn": "গরম"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "cold",
+                  "bn": "ঠান্ডা"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "piping",
+                  "bn": "ধোঁয়া ওঠা"
+                },
+                {
+                  "t": "hot",
+                  "bn": "গরম"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "food_drink"
+              }
+            },
+            {
+              "id": "en-alt-qa-005",
+              "concept_id": "c-alt-box-heavy-light",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is that box heavy or light? It is very light.",
+              "bn": "ওই বাক্সটি কি ভারী নাকি হালকা? এটি খুব হালকা।",
+              "bn_pron": "ইজ দ্যাট বক্স হেভি অর লাইট? ইট ইজ ভেরি লাইট।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওই"
+                },
+                {
+                  "t": "box",
+                  "bn": "বাক্সটি"
+                },
+                {
+                  "t": "heavy",
+                  "bn": "ভারী"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "light",
+                  "bn": "হালকা"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "light",
+                  "bn": "হালকা"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "weight"
+              }
+            },
+            {
+              "id": "en-alt-qa-006",
+              "concept_id": "c-alt-shirt-cheap-expensive",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this shirt cheap or expensive? It is quite expensive.",
+              "bn": "এই শার্টটি কি সস্তা নাকি দামি? এটি বেশ দামি।",
+              "bn_pron": "ইজ দিজ শার্ট চিপ অর এক্সপেনসিভ? ইট ইজ কোয়াইট এক্সপেনসিভ।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "shirt",
+                  "bn": "শার্টটি"
+                },
+                {
+                  "t": "cheap",
+                  "bn": "সস্তা"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "expensive",
+                  "bn": "দামি"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "quite",
+                  "bn": "বেশ"
+                },
+                {
+                  "t": "expensive",
+                  "bn": "দামি"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "shopping"
+              }
+            },
+            {
+              "id": "en-alt-qa-007",
+              "concept_id": "c-alt-knife-sharp-blunt",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is the knife sharp or blunt? The knife is sharp.",
+              "bn": "ছুরিটি কি ধারালো নাকি ভোঁতা? ছুরিটি ধারালো।",
+              "bn_pron": "ইজ দ্য নাইফ শার্প অর ব্লান্ট? দ্য নাইফ ইজ শার্প।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "knife",
+                  "bn": "ছুরি"
+                },
+                {
+                  "t": "sharp",
+                  "bn": "ধারালো"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "blunt",
+                  "bn": "ভোঁতা"
+                },
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "knife",
+                  "bn": "ছুরি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "sharp",
+                  "bn": "ধারালো"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "tools"
+              }
+            },
+            {
+              "id": "en-alt-qa-008",
+              "concept_id": "c-alt-suitcase-new-old",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is your suitcase new or old? It is brand new.",
+              "bn": "আপনার সুটকেসটি কি নতুন নাকি পুরানো? এটি একদম নতুন।",
+              "bn_pron": "ইজ ইউর স্যুটকেস নিউ অর ওল্ড? ইট ইজ ব্র্যান্ড নিউ।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "suitcase",
+                  "bn": "সুটকেসটি"
+                },
+                {
+                  "t": "new",
+                  "bn": "নতুন"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "old",
+                  "bn": "পুরানো"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "brand",
+                  "bn": "একদম"
+                },
+                {
+                  "t": "new",
+                  "bn": "নতুন"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "belongings"
+              }
+            },
+            {
+              "id": "en-alt-qa-009",
+              "concept_id": "c-alt-coxsbazar-crowded-quiet",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is Cox's Bazar sea beach crowded or quiet today? It is very crowded today.",
+              "bn": "কক্সবাজার সমুদ্র সৈকত আজ কি জনাকীর্ণ নাকি শান্ত? আজ এটি খুব জনাকীর্ণ।",
+              "bn_pron": "ইজ কক্সবাজার সি বিচ ক্রাউডেড অর কোয়ায়েট টুডে? ইট ইজ ভেরি ক্রাউডেড টুডে।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "Cox's",
+                  "bn": "কক্স"
+                },
+                {
+                  "t": "Bazar",
+                  "bn": "বাজার"
+                },
+                {
+                  "t": "sea",
+                  "bn": "সমুদ্র"
+                },
+                {
+                  "t": "beach",
+                  "bn": "সৈকত"
+                },
+                {
+                  "t": "crowded",
+                  "bn": "জনাকীর্ণ / ভিড়পূর্ণ"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "quiet",
+                  "bn": "শান্ত / নীরব"
+                },
+                {
+                  "t": "today",
+                  "bn": "আজ"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "crowded",
+                  "bn": "জনাকীর্ণ"
+                },
+                {
+                  "t": "today",
+                  "bn": "আজ"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "places"
+              }
+            },
+            {
+              "id": "en-alt-qa-010",
+              "concept_id": "c-alt-exercise-easy-difficult",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is this exercise easy or difficult? It is very easy to practice.",
+              "bn": "এই অনুশীলনটি কি সহজ নাকি কঠিন? এটি চর্চা করা খুব সহজ।",
+              "bn_pron": "ইজ দিজ এক্সারসাইজ ইজি অর ডিফিকাল্ট? ইট ইজ ভেরি ইজি টু প্র্যাকটিস।",
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": "কি হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এই"
+                },
+                {
+                  "t": "exercise",
+                  "bn": "অনুশীলনটি"
+                },
+                {
+                  "t": "easy",
+                  "bn": "সহজ"
+                },
+                {
+                  "t": "or",
+                  "bn": "নাকি"
+                },
+                {
+                  "t": "difficult",
+                  "bn": "কঠিন"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "easy",
+                  "bn": "সহজ"
+                },
+                {
+                  "t": "to",
+                  "bn": "করতে"
+                },
+                {
+                  "t": "practice",
+                  "bn": "চর্চা"
+                }
+              ],
+              "tags": {
+                "pattern": "choice_or",
+                "topic": "learning"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l12",
+          "order": 12,
+          "title_bn": "গুরুত্বপূর্ণ ডব্লিউএইচ প্রশ্ন ও উত্তর (Essential WH-Questions & Answers)",
+          "title_target": "Essential WH-Questions & Answers",
+          "intro_bn": "বাস্তব জীবনের কথোপকথনে সবচেয়ে প্রয়োজনীয় ডব্লিউএইচ (Who, Where, What, When, Why, How, Which, Whose) প্রশ্ন ও সাবলীল উত্তরের অনুশীলন।",
+          "structure": [
+            "Q: [WH-Word] + is/does + [Subject]...?",
+            "Ans: [Full informative response]."
+          ],
+          "items": [
+            {
+              "id": "en-wh-qa-001",
+              "concept_id": "c-wh-who-is-he",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Who is he? He is my elder brother.",
+              "bn": "তিনি কে? তিনি আমার বড় ভাই।",
+              "bn_pron": "হু ইজ হি? হি ইজ মাই এল্ডার ব্রাদার।",
+              "tokens": [
+                {
+                  "t": "Who",
+                  "bn": "কে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "he",
+                  "bn": "তিনি / সে"
+                },
+                {
+                  "t": "He",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "my",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "elder",
+                  "bn": "বড়"
+                },
+                {
+                  "t": "brother",
+                  "bn": "ভাই"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "who",
+                "topic": "people"
+              }
+            },
+            {
+              "id": "en-wh-qa-002",
+              "concept_id": "c-wh-who-is-gentleman",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Who is that gentleman? He is our honorable headmaster.",
+              "bn": "ওই ভদ্রলোক কে? তিনি আমাদের মাননীয় প্রধান শিক্ষক।",
+              "bn_pron": "হু ইজ দ্যাট জেন্টলম্যান? হি ইজ আওয়ার অনারেবল হেডমাস্টার।",
+              "tokens": [
+                {
+                  "t": "Who",
+                  "bn": "কে"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "that",
+                  "bn": "ওই"
+                },
+                {
+                  "t": "gentleman",
+                  "bn": "ভদ্রলোক"
+                },
+                {
+                  "t": "He",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "our",
+                  "bn": "আমাদের"
+                },
+                {
+                  "t": "honorable",
+                  "bn": "মাননীয়"
+                },
+                {
+                  "t": "headmaster",
+                  "bn": "প্রধান শিক্ষক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "who",
+                "topic": "people"
+              }
+            },
+            {
+              "id": "en-wh-qa-003",
+              "concept_id": "c-wh-where-house-located",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Where is your house located? My house is located near the central park.",
+              "bn": "আপনার বাড়িটি কোথায় অবস্থিত? আমার বাড়িটি সেন্ট্রাল পার্কের কাছে অবস্থিত।",
+              "bn_pron": "হোয়ার ইজ ইউর হাউজ লোকেটেড? মাই হাউজ ইজ লোকেটেড নিয়ার দ্য সেন্ট্রাল পার্ক।",
+              "tokens": [
+                {
+                  "t": "Where",
+                  "bn": "কোথায়"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "house",
+                  "bn": "বাড়িটি"
+                },
+                {
+                  "t": "located",
+                  "bn": "অবস্থিত"
+                },
+                {
+                  "t": "My",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "house",
+                  "bn": "বাড়িটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "located",
+                  "bn": "অবস্থিত"
+                },
+                {
+                  "t": "near",
+                  "bn": "কাছে"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "central",
+                  "bn": "কেন্দ্রীয়"
+                },
+                {
+                  "t": "park",
+                  "bn": "পার্ক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "where",
+                "topic": "location"
+              }
+            },
+            {
+              "id": "en-wh-qa-004",
+              "concept_id": "c-wh-where-office",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Where is your office? My office is situated in Motijheel.",
+              "bn": "আপনার অফিস কোথায়? আমার অফিস মতিঝিলে অবস্থিত।",
+              "bn_pron": "হোয়ার ইজ ইউর অফিস? মাই অফিস ইজ সিচুয়েটেড ইন মতিঝিল।",
+              "tokens": [
+                {
+                  "t": "Where",
+                  "bn": "কোথায়"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "office",
+                  "bn": "অফিস"
+                },
+                {
+                  "t": "My",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "office",
+                  "bn": "অফিস"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "situated",
+                  "bn": "অবস্থিত"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ"
+                },
+                {
+                  "t": "Motijheel",
+                  "bn": "মতিঝিল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "where",
+                "topic": "location"
+              }
+            },
+            {
+              "id": "en-wh-qa-005",
+              "concept_id": "c-wh-what-profession",
+              "type": "sentence",
+              "level": "A1",
+              "target": "What is your primary profession? I am a professional software engineer.",
+              "bn": "আপনার প্রধান পেশা কী? আমি একজন পেশাদার সফটওয়্যার ইঞ্জিনিয়ার।",
+              "bn_pron": "হোয়াট ইজ ইউর প্রাইমারি প্রফেশন? আই অ্যাম আ প্রফেশনাল সফটওয়্যার ইঞ্জিনিয়ার।",
+              "tokens": [
+                {
+                  "t": "What",
+                  "bn": "কী"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "primary",
+                  "bn": "প্রধান"
+                },
+                {
+                  "t": "profession",
+                  "bn": "পেশা"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "professional",
+                  "bn": "পেশাদার"
+                },
+                {
+                  "t": "software",
+                  "bn": "সফটওয়্যার"
+                },
+                {
+                  "t": "engineer",
+                  "bn": "প্রকৌশলী / ইঞ্জিনিয়ার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "what",
+                "topic": "career"
+              }
+            },
+            {
+              "id": "en-wh-qa-006",
+              "concept_id": "c-wh-when-class-starts",
+              "type": "sentence",
+              "level": "A1",
+              "target": "When does your class start? My class starts at ten in the morning.",
+              "bn": "আপনার ক্লাস কখন শুরু হয়? আমার ক্লাস সকাল দশটায় শুরু হয়।",
+              "bn_pron": "হোয়েন ডাজ ইউর ক্লাস স্টার্ট? মাই ক্লাস স্টার্টস অ্যাট টেন ইন দ্য মর্নিং।",
+              "tokens": [
+                {
+                  "t": "When",
+                  "bn": "কখন"
+                },
+                {
+                  "t": "does",
+                  "bn": "করে"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "class",
+                  "bn": "ক্লাস"
+                },
+                {
+                  "t": "start",
+                  "bn": "শুরু"
+                },
+                {
+                  "t": "My",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "class",
+                  "bn": "ক্লাস"
+                },
+                {
+                  "t": "starts",
+                  "bn": "শুরু হয়"
+                },
+                {
+                  "t": "at",
+                  "bn": "এ"
+                },
+                {
+                  "t": "ten",
+                  "bn": "দশটা"
+                },
+                {
+                  "t": "in",
+                  "bn": "এ"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "morning",
+                  "bn": "সকাল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "when",
+                "topic": "time"
+              }
+            },
+            {
+              "id": "en-wh-qa-007",
+              "concept_id": "c-wh-why-late",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why are you so late today? I am late because of heavy traffic congestion.",
+              "bn": "আজ আপনার এত দেরি হলো কেন? তীব্র যানজটের কারণে আমার দেরি হয়েছে।",
+              "bn_pron": "হোয়াই আর ইউ সো লেট টুডে? আই অ্যাম লেট বিকজ অব হেভি ট্রাফিক কনজেশন।",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "are",
+                  "bn": "হন"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনি"
+                },
+                {
+                  "t": "so",
+                  "bn": "এত"
+                },
+                {
+                  "t": "late",
+                  "bn": "দেরি"
+                },
+                {
+                  "t": "today",
+                  "bn": "আজ"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "am",
+                  "bn": "হই"
+                },
+                {
+                  "t": "late",
+                  "bn": "দেরি"
+                },
+                {
+                  "t": "because",
+                  "bn": "কারণ"
+                },
+                {
+                  "t": "of",
+                  "bn": "এর"
+                },
+                {
+                  "t": "heavy",
+                  "bn": "তীব্র / ভারী"
+                },
+                {
+                  "t": "traffic",
+                  "bn": "ট্রাফিক"
+                },
+                {
+                  "t": "congestion",
+                  "bn": "যানজট"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "why",
+                "topic": "reason"
+              }
+            },
+            {
+              "id": "en-wh-qa-008",
+              "concept_id": "c-wh-how-mother-feeling",
+              "type": "sentence",
+              "level": "A1",
+              "target": "How is your mother feeling now? She is feeling much better today, thank you.",
+              "bn": "আপনার মা এখন কেমন অনুভব করছেন? তিনি আজ অনেক ভালো অনুভব করছেন, ধন্যবাদ।",
+              "bn_pron": "হাউ ইজ ইউর মাদার ফিলিং নাও? শি ইজ ফিলিং মাচ বেটার টুডে, থ্যাংক ইউ।",
+              "tokens": [
+                {
+                  "t": "How",
+                  "bn": "কেমন"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "mother",
+                  "bn": "মা"
+                },
+                {
+                  "t": "feeling",
+                  "bn": "অনুভব করছেন"
+                },
+                {
+                  "t": "now",
+                  "bn": "এখন"
+                },
+                {
+                  "t": "She",
+                  "bn": "তিনি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "feeling",
+                  "bn": "অনুভব করছেন"
+                },
+                {
+                  "t": "much",
+                  "bn": "অনেক"
+                },
+                {
+                  "t": "better",
+                  "bn": "ভালো"
+                },
+                {
+                  "t": "today",
+                  "bn": "আজ"
+                },
+                {
+                  "t": "thank",
+                  "bn": "ধন্যবাদ"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনাকে"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "how",
+                "topic": "health"
+              }
+            },
+            {
+              "id": "en-wh-qa-009",
+              "concept_id": "c-wh-which-bag",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Which one is your personal laptop bag? The black leather backpack is mine.",
+              "bn": "কোনটি আপনার ব্যক্তিগত ল্যাপটপ ব্যাগ? কালো চামড়ার ব্যাকপ্যাকটি আমার।",
+              "bn_pron": "হুইচ ওয়ান ইজ ইউর পার্সোনাল ল্যাপটপ ব্যাগ? দ্য ব্ল্যাক লেদার ব্যাকপ্যাক ইজ মাইন।",
+              "tokens": [
+                {
+                  "t": "Which",
+                  "bn": "কোনটি"
+                },
+                {
+                  "t": "one",
+                  "bn": "টি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "your",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "personal",
+                  "bn": "ব্যক্তিগত"
+                },
+                {
+                  "t": "laptop",
+                  "bn": "ল্যাপটপ"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                },
+                {
+                  "t": "The",
+                  "bn": "টি"
+                },
+                {
+                  "t": "black",
+                  "bn": "কালো"
+                },
+                {
+                  "t": "leather",
+                  "bn": "চামড়ার"
+                },
+                {
+                  "t": "backpack",
+                  "bn": "ব্যাকপ্যাক"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "mine",
+                  "bn": "আমার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "which",
+                "topic": "selection"
+              }
+            },
+            {
+              "id": "en-wh-qa-010",
+              "concept_id": "c-wh-whose-pen",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Whose pen is this on the desk? It is our teacher's blue ink pen.",
+              "bn": "ডেস্কের ওপর এটি কার কলম? এটি আমাদের শিক্ষকের নীল কালির কলম।",
+              "bn_pron": "হুজ পেন ইজ দিজ অন দ্য ডেস্ক? ইটস আওয়ার টিচার্স ব্লু ইংক পেন।",
+              "tokens": [
+                {
+                  "t": "Whose",
+                  "bn": "কার"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "this",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "on",
+                  "bn": "ওপর"
+                },
+                {
+                  "t": "the",
+                  "bn": "টি"
+                },
+                {
+                  "t": "desk",
+                  "bn": "ডেস্ক"
+                },
+                {
+                  "t": "It",
+                  "bn": "এটি"
+                },
+                {
+                  "t": "is",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "our",
+                  "bn": "আমাদের"
+                },
+                {
+                  "t": "teacher's",
+                  "bn": "শিক্ষকের"
+                },
+                {
+                  "t": "blue",
+                  "bn": "নীল"
+                },
+                {
+                  "t": "ink",
+                  "bn": "কালির"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "wh": "whose",
+                "topic": "possession"
               }
             }
           ]
