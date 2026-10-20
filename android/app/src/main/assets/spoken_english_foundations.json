@@ -40,8 +40,8 @@
     }
   ],
   "stats": {
-    "lessons": 6,
-    "items": 93
+    "lessons": 7,
+    "items": 103
   },
   "parts": [
     {
@@ -1197,6 +1197,583 @@
           "order": 3,
           "badge": "Very Important for Spoken English",
           "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
+          "title_bn": "উচ্চারণ ও জড়তা দূরীকরণে ১০টি টাং টুইস্টার (অতি গুরুত্বপূর্ণ)",
+          "title_target": "10 Tongue Twisters for Pronunciation (Very Important)",
+          "intro_bn": "অনর্গল ইংরেজি বলার প্রধান বাধা হলো মুখের ও জিভের জড়তা। দ্রুত ও পরিষ্কার উচ্চারণের জন্য এই ১০টি টাং টুইস্টার প্রথমে ধীরে, তারপর স্বাভাবিক গতিতে এবং সবশেষে দ্রুত বলার অনুশীলন করুন। এটি আপনার বাচনভঙ্গিকে স্পষ্ট ও সাবলীল করবে।",
+          "structure": [
+            "Read Slowly for Clear Pronunciation",
+            "Repeat at Natural Speaking Pace",
+            "Speed Up 3 Times Without Pausing"
+          ],
+          "source_section": "Foundations: Tongue Twisters & Pronunciation Drills",
+          "items": [
+            {
+              "id": "en-twister-001",
+              "concept_id": "c-twister-she-sells-seashells",
+              "type": "sentence",
+              "level": "A2",
+              "target": "She sells seashells by the seashore.",
+              "bn": "সে সমুদ্র সৈকতে ঝিনুকের খোলস বিক্রি করে।",
+              "bn_pron": "শী সেলস সীশেলস বাই দ্য সীশোর।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "সে (মহিলা)"
+                },
+                {
+                  "t": "sells",
+                  "bn": "বিক্রি করে"
+                },
+                {
+                  "t": "seashells",
+                  "bn": "ঝিনুকের খোলস"
+                },
+                {
+                  "t": "by",
+                  "bn": "পাশে"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "seashore",
+                  "bn": "সমুদ্র সৈকত"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/s/ vs /sh/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-002",
+              "concept_id": "c-twister-peter-piper",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Peter Piper picked a peck of pickled peppers.",
+              "bn": "পিটার পাইপার এক খাঁচি আচারযুক্ত মরিচ তুলেছিল।",
+              "bn_pron": "পিটার পাইপার পিকড আ পেক অব পিকল্ড পেপার্স।",
+              "tokens": [
+                {
+                  "t": "Peter",
+                  "bn": "পিটার"
+                },
+                {
+                  "t": "Piper",
+                  "bn": "পাইপার"
+                },
+                {
+                  "t": "picked",
+                  "bn": "তুলেছিল"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "peck",
+                  "bn": "খাঁচি"
+                },
+                {
+                  "t": "of",
+                  "bn": "এর"
+                },
+                {
+                  "t": "pickled",
+                  "bn": "আচারযুক্ত"
+                },
+                {
+                  "t": "peppers",
+                  "bn": "মরিচসমূহ"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/p/ aspiration",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-003",
+              "concept_id": "c-twister-betty-botter",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Betty Botter bought some butter, but the butter was bitter.",
+              "bn": "বেটি বটার কিছু মাখন কিনেছিল, কিন্তু মাখনটি ছিল তিতা।",
+              "bn_pron": "বেটি বটার বট সাম বাটার, বাট দ্য বাটার ওয়াজ বিটার।",
+              "tokens": [
+                {
+                  "t": "Betty",
+                  "bn": "বেটি"
+                },
+                {
+                  "t": "Botter",
+                  "bn": "বটার"
+                },
+                {
+                  "t": "bought",
+                  "bn": "কিনেছিল"
+                },
+                {
+                  "t": "some",
+                  "bn": "কিছু"
+                },
+                {
+                  "t": "butter",
+                  "bn": "মাখন"
+                },
+                {
+                  "t": "but",
+                  "bn": "কিন্তু"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "butter",
+                  "bn": "মাখন"
+                },
+                {
+                  "t": "was",
+                  "bn": "ছিল"
+                },
+                {
+                  "t": "bitter",
+                  "bn": "তিতা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/b/ & /t/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-004",
+              "concept_id": "c-twister-woodchuck",
+              "type": "sentence",
+              "level": "A2",
+              "target": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+              "bn": "একটি কাঠবিড়াল কত কাঠ কাটত যদি সে কাঠ কাটতে পারত?",
+              "bn_pron": "হাউ মাচ উড উড আ উডচাক চাক ইফ আ উডচাক কুড চাক উড?",
+              "tokens": [
+                {
+                  "t": "How",
+                  "bn": "কত"
+                },
+                {
+                  "t": "much",
+                  "bn": "বেশি"
+                },
+                {
+                  "t": "wood",
+                  "bn": "কাঠ"
+                },
+                {
+                  "t": "would",
+                  "bn": "কাটত"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "woodchuck",
+                  "bn": "কাঠবিড়াল"
+                },
+                {
+                  "t": "chuck",
+                  "bn": "ছুড়ে ফেলা বা কাটা"
+                },
+                {
+                  "t": "if",
+                  "bn": "যদি"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "woodchuck",
+                  "bn": "কাঠবিড়াল"
+                },
+                {
+                  "t": "could",
+                  "bn": "পারত"
+                },
+                {
+                  "t": "chuck",
+                  "bn": "কাটতে"
+                },
+                {
+                  "t": "wood",
+                  "bn": "কাঠ"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/w/ & /ch/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-005",
+              "concept_id": "c-twister-thought-a-thought",
+              "type": "sentence",
+              "level": "A2",
+              "target": "I thought a thought, but the thought I thought was not the thought I thought I thought.",
+              "bn": "আমি একটি চিন্তা ভাবলাম, কিন্তু আমি যা ভেবেছিলাম তা সেই চিন্তা ছিল না।",
+              "bn_pron": "আই থট আ থট, বাট দ্য থট আই থট ওয়াজ নট দ্য থট আই থট আই থট।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "thought",
+                  "bn": "ভাবলাম"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "thought",
+                  "bn": "চিন্তা"
+                },
+                {
+                  "t": "but",
+                  "bn": "কিন্তু"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "thought",
+                  "bn": "চিন্তা"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "thought",
+                  "bn": "ভাবলাম"
+                },
+                {
+                  "t": "was",
+                  "bn": "ছিল"
+                },
+                {
+                  "t": "not",
+                  "bn": "না"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "thought",
+                  "bn": "চিন্তা"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "thought",
+                  "bn": "ভেবেছিলাম"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "thought",
+                  "bn": "ভেবেছিলাম"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/th/ dental",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-006",
+              "concept_id": "c-twister-red-lorry-yellow-lorry",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Red lorry, yellow lorry, red lorry, yellow lorry.",
+              "bn": "লাল লরি, হলুদ লরি, লাল লরি, হলুদ লরি।",
+              "bn_pron": "রেড লরি, ইয়োলো লরি, রেড লরি, ইয়োলো লরি।",
+              "tokens": [
+                {
+                  "t": "Red",
+                  "bn": "লাল"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                },
+                {
+                  "t": "yellow",
+                  "bn": "হলুদ"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                },
+                {
+                  "t": "red",
+                  "bn": "লাল"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                },
+                {
+                  "t": "yellow",
+                  "bn": "হলুদ"
+                },
+                {
+                  "t": "lorry",
+                  "bn": "লরি/ট্রাক"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/r/ vs /l/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-007",
+              "concept_id": "c-twister-very-well-willpower",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Very well, very well, we will win with willpower.",
+              "bn": "খুব ভালো, খুব ভালো, আমরা ইচ্ছাশক্তি দিয়ে জয়ী হব।",
+              "bn_pron": "ভেরি ওয়েল, ভেরি ওয়েল, উই উইল উইন উইথ উইলপাওয়ার।",
+              "tokens": [
+                {
+                  "t": "Very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "well",
+                  "bn": "ভালো"
+                },
+                {
+                  "t": "very",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "well",
+                  "bn": "ভালো"
+                },
+                {
+                  "t": "we",
+                  "bn": "আমরা"
+                },
+                {
+                  "t": "will",
+                  "bn": "হব"
+                },
+                {
+                  "t": "win",
+                  "bn": "জয়ী"
+                },
+                {
+                  "t": "with",
+                  "bn": "দিয়ে"
+                },
+                {
+                  "t": "willpower",
+                  "bn": "ইচ্ছাশক্তি"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/v/ vs /w/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-008",
+              "concept_id": "c-twister-can-you-can-a-can",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Can you can a can as a canner can can a can?",
+              "bn": "তুমি কি একটি ক্যান প্রক্রিয়াজাত করতে পারো যেমন একজন ক্যানার পারে?",
+              "bn_pron": "ক্যান ইউ ক্যান আ ক্যান অ্যাজ আ ক্যানার ক্যান ক্যান আ ক্যান?",
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": "পারো কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তুমি"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটায় ভরা"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটা"
+                },
+                {
+                  "t": "as",
+                  "bn": "যেমন"
+                },
+                {
+                  "t": "a",
+                  "bn": "একজন"
+                },
+                {
+                  "t": "canner",
+                  "bn": "কৌটাজাতকারী"
+                },
+                {
+                  "t": "can",
+                  "bn": "পারে"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটায় ভরতে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "can",
+                  "bn": "কৌটা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/k/ & /ae/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-009",
+              "concept_id": "c-twister-fresh-fried-fish",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Fresh fried fish, fish fresh fried, fried fish fresh.",
+              "bn": "তাজা ভাজা মাছ, মাছ তাজা ভাজা, ভাজা মাছ তাজা।",
+              "bn_pron": "ফ্রেশ ফ্রাইড ফিশ, ফিশ ফ্রেশ ফ্রাইড, ফ্রাইড ফিশ ফ্রেশ।",
+              "tokens": [
+                {
+                  "t": "Fresh",
+                  "bn": "তাজা"
+                },
+                {
+                  "t": "fried",
+                  "bn": "ভাজা"
+                },
+                {
+                  "t": "fish",
+                  "bn": "মাছ"
+                },
+                {
+                  "t": "fish",
+                  "bn": "মাছ"
+                },
+                {
+                  "t": "fresh",
+                  "bn": "তাজা"
+                },
+                {
+                  "t": "fried",
+                  "bn": "ভাজা"
+                },
+                {
+                  "t": "fried",
+                  "bn": "ভাজা"
+                },
+                {
+                  "t": "fish",
+                  "bn": "মাছ"
+                },
+                {
+                  "t": "fresh",
+                  "bn": "তাজা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/f/ & /sh/",
+                "drill_type": "pronunciation"
+              }
+            },
+            {
+              "id": "en-twister-010",
+              "concept_id": "c-twister-thirty-three-thirsty-feathers",
+              "type": "sentence",
+              "level": "A2",
+              "target": "Thirty-three thirsty feathers fluttered through the thick fog.",
+              "bn": "তেত্রিশটি তৃষ্ণার্ত পালক ঘন কুয়াশার মধ্য দিয়ে উড়ে গেল।",
+              "bn_pron": "থার্টি-থ্রি থার্স্টি ফেদার্স ফ্লাটার্ড থ্রু দ্য থিক ফগ।",
+              "tokens": [
+                {
+                  "t": "Thirty-three",
+                  "bn": "তেত্রিশ"
+                },
+                {
+                  "t": "thirsty",
+                  "bn": "তৃষ্ণার্ত"
+                },
+                {
+                  "t": "feathers",
+                  "bn": "পালকসমূহ"
+                },
+                {
+                  "t": "fluttered",
+                  "bn": "ডানা ঝাপটে উড়ে গেল"
+                },
+                {
+                  "t": "through",
+                  "bn": "মধ্য দিয়ে"
+                },
+                {
+                  "t": "the",
+                  "bn": "নির্দিষ্ট"
+                },
+                {
+                  "t": "thick",
+                  "bn": "ঘন"
+                },
+                {
+                  "t": "fog",
+                  "bn": "কুয়াশা"
+                }
+              ],
+              "tags": {
+                "category": "tongue_twister",
+                "phoneme_focus": "/th/ & /f/",
+                "drill_type": "pronunciation"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l04",
+          "order": 4,
+          "badge": "Very Important for Spoken English",
+          "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
           "title_bn": "বাক্যের ৬ রূপ: পেশা ও পরিচয় (অতি গুরুত্বপূর্ণ)",
           "title_target": "6 Sentence Forms: Professions (Very Important)",
           "intro_bn": "যেকোনো বাক্যকে অনর্গল ইংরেজিতে বলতে হলে এর ৬টি রূপ (Affirmative, Negative, Interrogative, Intro-Negative, WH-Question, WH-Negative) পরিবর্তনের দক্ষতা অর্জন করতে হবে। Be-verb দিয়ে পেশা ও পরিচয়ের প্রতিটি রূপ দ্রুত মুখে উচ্চারণ করে অনুশীলন করুন।",
@@ -1876,8 +2453,8 @@
       "title_target": "Personality & Character Traits",
       "lessons": [
         {
-          "id": "en-foundations-l04",
-          "order": 4,
+          "id": "en-foundations-l05",
+          "order": 5,
           "title_bn": "আমার ব্যক্তিত্ব (I am + Adjective)",
           "title_target": "My Personality (I am + Adjective)",
           "intro_bn": "নিজের বৈশিষ্ট্য বা স্বভাব প্রকাশ করতে Be-Verb (am) এর পরে সরাসরি Adjective বসে। এতে কোনো article (a/an) প্রয়োজন হয় না।",
@@ -2169,8 +2746,8 @@
           ]
         },
         {
-          "id": "en-foundations-l05",
-          "order": 5,
+          "id": "en-foundations-l06",
+          "order": 6,
           "title_bn": "অন্যদের গুণাবলী (You, He, The Boy, The Girl)",
           "title_target": "Others' Personality Traits",
           "intro_bn": "অন্যদের ব্যক্তিত্ব বর্ণনা করতে Subject অনুসারে উপযুক্ত be-verb (is/are) ব্যবহার করে Adjective যোগ করা হয়।",
@@ -2542,8 +3119,8 @@
           ]
         },
         {
-          "id": "en-foundations-l06",
-          "order": 6,
+          "id": "en-foundations-l07",
+          "order": 7,
           "badge": "Very Important for Spoken English",
           "badge_bn": "স্পোকেন ইংলিশের জন্য অতি গুরুত্বপূর্ণ",
           "title_bn": "বাক্যের ৬ রূপ: ব্যক্তিত্ব ও গুণাবলী (অতি গুরুত্বপূর্ণ)",

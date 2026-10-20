@@ -550,7 +550,9 @@ private fun SyllabusLessonCard(
             ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     Pill(text = "💬 ${lesson.itemCount}টি বাক্য")
-                    if (isVeryImportant) {
+                    if (lesson.titleTarget?.contains("Tongue Twister", ignoreCase = true) == true) {
+                        Pill(text = "🗣️ উচ্চারণ ড্রিল")
+                    } else if (isVeryImportant) {
                         Pill(text = "⚡ ৬ রূপের ড্রিল")
                     } else if (lesson.bestScore > 0) {
                         Pill(text = "🏆 স্কোর: ${lesson.bestScore}%")
