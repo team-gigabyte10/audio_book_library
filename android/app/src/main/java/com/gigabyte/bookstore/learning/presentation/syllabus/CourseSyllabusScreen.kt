@@ -67,16 +67,18 @@ import com.gigabyte.bookstore.learning.data.content.ContentState
 import com.gigabyte.bookstore.learning.domain.model.LessonState
 import com.gigabyte.bookstore.learning.presentation.home.LearnHomeViewModel
 import com.gigabyte.bookstore.presentation.components.AppBackground
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Place
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
-private data class SyllabusPartTheme(
+data class SyllabusPartTheme(
     val accentColor: Color,
     val badgeBgColor: Color,
     val icon: ImageVector
 )
 
-private fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
+fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
     1 -> SyllabusPartTheme(
         accentColor = Color(0xFF1565C0),
         badgeBgColor = Color(0xFF0D47A1),
@@ -92,6 +94,11 @@ private fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
         badgeBgColor = Color(0xFF92400E),
         icon = Icons.Default.RecordVoiceOver
     )
+    4 -> SyllabusPartTheme(
+        accentColor = Color(0xFF6D28D9),
+        badgeBgColor = Color(0xFF4C1D95),
+        icon = Icons.Default.Place
+    )
     else -> SyllabusPartTheme(
         accentColor = Color(0xFF6D28D9),
         badgeBgColor = Color(0xFF4C1D95),
@@ -103,13 +110,13 @@ private fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
 fun CourseSyllabusScreen(
     viewModel: LearnHomeViewModel,
     onBackClick: () -> Unit,
+    onOpenPart: (String) -> Unit,
     onOpenLesson: (String) -> Unit,
     onOpenIntro: (String) -> Unit
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var expandedParts by remember { mutableStateOf(emptySet<String>()) }
 
     Scaffold(
         topBar = {
@@ -182,40 +189,23 @@ fun CourseSyllabusScreen(
                         )
                     }
 
-                    // 4. Syllabus Groups: Each Part with Expand & Collapse support
+                    // 4. Syllabus Groups: Each Part opens a dedicated page
                     syllabus.forEach { item ->
                         val part = item.part
-                        val lessons = item.lessons
                         val theme = getSyllabusPartTheme(part.order)
-                        val isExpanded = expandedParts.contains(part.id)
 
                         item(key = "part_${part.id}") {
                             SyllabusPartHeaderCard(
                                 part = part,
                                 theme = theme,
-                                isExpanded = isExpanded,
-                                onToggleExpand = {
+                                onClick = {
                                     if (part.isEnabled) {
-                                        expandedParts = if (isExpanded) {
-                                            expandedParts - part.id
-                                        } else {
-                                            expandedParts + part.id
-                                        }
+                                        onOpenPart(part.id)
                                     } else {
                                         Toast.makeText(context, "এই অংশটি শীঘ্রই আসছে", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             )
-                        }
-
-                        if (isExpanded) {
-                            items(lessons, key = { it.id }) { lesson ->
-                                SyllabusLessonCard(
-                                    lesson = lesson,
-                                    partTheme = theme,
-                                    onClick = { onOpenLesson(lesson.id) }
-                                )
-                            }
                         }
                     }
 
@@ -353,8 +343,7 @@ private fun Pill(text: String) {
 private fun SyllabusPartHeaderCard(
     part: PartSummary,
     theme: SyllabusPartTheme,
-    isExpanded: Boolean,
-    onToggleExpand: () -> Unit
+    onClick: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -363,7 +352,7 @@ private fun SyllabusPartHeaderCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onToggleExpand)
+            .clickable(onClick = onClick)
     ) {
         Box(
             modifier = Modifier
@@ -398,8 +387,6 @@ private fun SyllabusPartHeaderCard(
                 Spacer(modifier = Modifier.width(14.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
-
-
                     Text(
                         text = part.titleBn.orEmpty(),
                         fontSize = 17.sp,
@@ -437,8 +424,8 @@ private fun SyllabusPartHeaderCard(
                     }
                     Spacer(modifier = Modifier.height(6.dp))
                     Icon(
-                        imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-                        contentDescription = if (isExpanded) "সংকুচিত করুন" else "প্রসারিত করুন",
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = "লেসনসমূহ দেখুন",
                         tint = theme.accentColor,
                         modifier = Modifier.size(24.dp)
                     )

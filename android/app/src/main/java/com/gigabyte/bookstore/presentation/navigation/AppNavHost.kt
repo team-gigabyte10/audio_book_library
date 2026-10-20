@@ -469,6 +469,7 @@ fun AppNavHost(
             CourseSyllabusScreen(
                 viewModel = learnViewModel,
                 onBackClick = { navController.popBackStack() },
+                onOpenPart = { partId -> navController.navigate(Screen.LearnPart.createRoute(partId)) },
                 onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
             )

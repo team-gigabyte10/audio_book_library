@@ -5,6 +5,7 @@ import com.gigabyte.bookstore.learning.data.db.ItemEntity
 import com.gigabyte.bookstore.learning.data.db.LearningDao
 import com.gigabyte.bookstore.learning.data.db.LessonEntity
 import com.gigabyte.bookstore.learning.data.db.LessonProgressEntity
+import com.gigabyte.bookstore.learning.data.db.PartEntity
 import com.gigabyte.bookstore.learning.domain.model.LadderStep
 import com.gigabyte.bookstore.learning.domain.model.LessonItem
 import com.gigabyte.bookstore.learning.domain.model.LessonState
@@ -134,6 +135,8 @@ class LearningRepository(private val dao: LearningDao) {
                 PartWithLessons(part = partSummary, lessons = partLessons)
             }
         }
+
+    suspend fun getPart(partId: String): PartEntity? = dao.getPart(partId)
 
     suspend fun getPartTitle(partId: String): String? = dao.getPart(partId)?.let { it.titleBn ?: it.titleTarget }
 

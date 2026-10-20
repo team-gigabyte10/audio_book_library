@@ -20,10 +20,17 @@ class PartLessonsViewModel(application: Application, partId: String) : AndroidVi
     val lessons: StateFlow<List<LessonSummary>?> = app.learningRepository.observeLessons(partId)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
+    private val _part = MutableStateFlow<com.gigabyte.bookstore.learning.data.db.PartEntity?>(null)
+    val part: StateFlow<com.gigabyte.bookstore.learning.data.db.PartEntity?> = _part.asStateFlow()
+
     private val _title = MutableStateFlow("")
     val title: StateFlow<String> = _title.asStateFlow()
 
     init {
-        viewModelScope.launch { _title.value = app.learningRepository.getPartTitle(partId).orEmpty() }
+        viewModelScope.launch {
+            val p = app.learningRepository.getPart(partId)
+            _part.value = p
+            _title.value = p?.let { it.titleBn ?: it.titleTarget }.orEmpty()
+        }
     }
 }
