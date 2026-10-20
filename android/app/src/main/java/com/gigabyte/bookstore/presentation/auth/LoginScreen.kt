@@ -33,7 +33,7 @@ fun LoginScreen(
     onNavigateToRegister: () -> Unit,
     viewModel: LoginViewModel = viewModel()
 ) {
-    var email by rememberSaveable { mutableStateOf(viewModel.lastEmail) }
+    var email by rememberSaveable { mutableStateOf(viewModel.lastEmail.ifBlank { "nayemislam9@gmail.com" }) }
     val uiState by viewModel.uiState.collectAsState()
     val focusManager = LocalFocusManager.current
 

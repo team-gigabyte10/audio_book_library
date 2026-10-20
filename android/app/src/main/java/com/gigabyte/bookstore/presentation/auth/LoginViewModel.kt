@@ -26,7 +26,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
     /** Pre-fills the email of the last account used on this phone, if any. */
-    val lastEmail: String = appPreferences.userEmail.value
+    val lastEmail: String = appPreferences.userEmail.value.ifBlank { "nayemislam9@gmail.com" }
 
     fun login(email: String) {
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches()) {
