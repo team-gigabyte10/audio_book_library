@@ -1,5 +1,11 @@
 package com.gigabyte.bookstore.learning.presentation.lesson
 
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -389,6 +395,16 @@ private fun ItemCard(
                 )
             }
 
+            val isGoodAt = remember(item.target, item.conceptId) {
+                item.conceptId.contains("goodat", ignoreCase = true) || item.target.contains("good at", ignoreCase = true)
+            }
+            val isBadAt = remember(item.target, item.conceptId) {
+                item.conceptId.contains("badat", ignoreCase = true) || item.target.contains("bad at", ignoreCase = true)
+            }
+            if (isGoodAt || isBadAt) {
+                SixWayPracticeAlertCard(isGoodAt = isGoodAt, targetSentence = item.target)
+            }
+
             if (revealTarget && item.tokens.size > 1) {
                 Text("শব্দে ট্যাপ করে আলাদা করে শুনুন", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -726,6 +742,17 @@ private fun SpeedDrillChallengeCard(
                 }
             }
 
+            val isGoodAt = remember(item.target, item.conceptId) {
+                item.conceptId.contains("goodat", ignoreCase = true) || item.target.contains("good at", ignoreCase = true)
+            }
+            val isBadAt = remember(item.target, item.conceptId) {
+                item.conceptId.contains("badat", ignoreCase = true) || item.target.contains("bad at", ignoreCase = true)
+            }
+            if (isGoodAt || isBadAt) {
+                Spacer(Modifier.height(12.dp))
+                SixWayPracticeAlertCard(isGoodAt = isGoodAt, targetSentence = item.target)
+            }
+
             Spacer(Modifier.height(14.dp))
 
             // Timer & Repetition Indicators
@@ -933,4 +960,203 @@ private fun SpeedDrillChallengeCard(
             }
         }
     }
+}
+
+@Composable
+private fun SixWayPracticeAlertCard(isGoodAt: Boolean, targetSentence: String) {
+    val infiniteTransition = rememberInfiniteTransition(label = "red_alert_transition")
+    val borderAlpha by infiniteTransition.animateFloat(
+        initialValue = 0.4f,
+        targetValue = 1.0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 800, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "border_alpha"
+    )
+
+    val redAlertColor = Color(0xFFDC2626) // Deep vibrant red
+    val patterns = remember(targetSentence, isGoodAt) {
+        buildSixWayPatterns(target = targetSentence, isGoodAt = isGoodAt)
+    }
+
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = redAlertColor.copy(alpha = 0.06f),
+        border = BorderStroke(1.5.dp, redAlertColor.copy(alpha = borderAlpha)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(14.dp)
+        ) {
+            // Animated Red Alert Header Badge
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = redAlertColor.copy(alpha = borderAlpha)
+                ) {
+                    Text(
+                        text = "🚨 RED ALERT",
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = Color.White,
+                        modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                    )
+                }
+
+                Text(
+                    text = "প্রতিটি বাক্য অর্থসহ নিজে নিজে ৬ ভাবে প্রাক্টিস করুন",
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = redAlertColor,
+                    modifier = Modifier.weight(1f)
+                )
+            }
+
+            Spacer(Modifier.height(10.dp))
+
+            // Transformation Box
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                border = BorderStroke(1.dp, redAlertColor.copy(alpha = 0.25f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(5.dp)
+                ) {
+                    patterns.forEachIndexed { index, sentence ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Surface(
+                                shape = CircleShape,
+                                color = redAlertColor.copy(alpha = 0.15f),
+                                modifier = Modifier.size(20.dp)
+                            ) {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Text(
+                                        text = "${index + 1}",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = redAlertColor
+                                    )
+                                }
+                            }
+                            Spacer(Modifier.width(10.dp))
+                            Text(
+                                text = sentence,
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun buildSixWayPatterns(target: String, isGoodAt: Boolean): List<String> {
+    val clean = target.trim().removeSuffix(".").removeSuffix("?").removeSuffix("!").trim()
+    val adj = if (isGoodAt) "good" else "bad"
+
+    val regex = Regex(
+        pattern = """^(.+?)\s+(am|is|are|'m|'re|'s)\s+(?:good|bad)\s+at\s+(.+)$""",
+        option = RegexOption.IGNORE_CASE
+    )
+    val match = regex.find(clean)
+
+    val (subj, verb, topic) = if (match != null) {
+        val s = match.groupValues[1].trim()
+        val v = match.groupValues[2].trim().lowercase()
+        val t = match.groupValues[3].trim()
+        Triple(s, v, t)
+    } else {
+        Triple("I", "am", "English")
+    }
+
+    val subjLower = subj.lowercase()
+    val pos: String
+    val neg: String
+    val beVerb: String
+    val qSubj: String
+
+    when (subjLower) {
+        "i" -> {
+            pos = "I'm"
+            neg = "I'm not"
+            beVerb = "am"
+            qSubj = "I"
+        }
+        "you" -> {
+            pos = "You're"
+            neg = "You're not"
+            beVerb = "are"
+            qSubj = "you"
+        }
+        "we" -> {
+            pos = "We're"
+            neg = "We're not"
+            beVerb = "are"
+            qSubj = "we"
+        }
+        "they" -> {
+            pos = "They're"
+            neg = "They're not"
+            beVerb = "are"
+            qSubj = "they"
+        }
+        "he" -> {
+            pos = "He's"
+            neg = "He's not"
+            beVerb = "is"
+            qSubj = "he"
+        }
+        "she" -> {
+            pos = "She's"
+            neg = "She's not"
+            beVerb = "is"
+            qSubj = "she"
+        }
+        "it" -> {
+            pos = "It's"
+            neg = "It's not"
+            beVerb = "is"
+            qSubj = "it"
+        }
+        else -> {
+            val isPlural = verb in listOf("are", "'re")
+            val vStr = if (isPlural) "are" else "is"
+            pos = "$subj $vStr"
+            neg = "$subj $vStr not"
+            beVerb = vStr
+            qSubj = subj
+        }
+    }
+
+    val qBe = beVerb.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+
+    return listOf(
+        "$pos $adj at $topic",
+        "$neg $adj at $topic",
+        "$qBe $qSubj $adj at $topic?",
+        "$qBe $qSubj not $adj at $topic?",
+        "How $beVerb $qSubj $adj at $topic?",
+        "Why $beVerb $qSubj not $adj at $topic?"
+    )
 }

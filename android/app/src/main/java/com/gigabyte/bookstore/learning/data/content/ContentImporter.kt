@@ -35,23 +35,22 @@ class ContentImporter(
     /** Returns true if an import ran. [onProgress] gets (lessonsImported, totalLessons or 0). */
     suspend fun ensureImported(onProgress: (Int, Int) -> Unit = { _, _ -> }): Boolean = withContext(Dispatchers.IO) {
         val meta = dao.getMeta()
+        val hash = hashAsset()
         when {
             meta == null -> {
                 import(onProgress)
                 true
             }
-            meta.appVersionCode == appVersionCode -> false
-            else -> {
-                // App updated: only re-import if the asset itself changed.
-                val hash = hashAsset()
-                if (hash == meta.contentHash) {
-                    dao.upsertMeta(meta.copy(appVersionCode = appVersionCode))
-                    false
-                } else {
-                    import(onProgress)
-                    true
-                }
+            meta.contentHash != hash -> {
+                // Content asset changed: re-import content and update hash
+                import(onProgress)
+                true
             }
+            meta.appVersionCode != appVersionCode -> {
+                dao.upsertMeta(meta.copy(appVersionCode = appVersionCode))
+                false
+            }
+            else -> false
         }
     }
 

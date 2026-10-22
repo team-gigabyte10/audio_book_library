@@ -74,6 +74,9 @@ class BanglaAudiobookApp : Application() {
         applicationScope.launch(Dispatchers.IO) {
             repository.removeBuiltInBooksIfNeeded()
         }
+
+        // Ensure English learning content is imported/updated on launch
+        learningContent.ensureLoaded()
     }
 
 

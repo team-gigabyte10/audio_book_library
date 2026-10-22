@@ -175,7 +175,7 @@ fun PartLessonsScreen(
                             }
                         }
 
-                    // Bottom of Lesson 17: Daily Activities Monologue
+                    // Bottom of Lesson 17: Daily Activities Monologue & Mini Presentations
                     if (part?.order == 4) {
                         item(key = "monologue_daily_activities") {
                             SpeechMonologueCard(
@@ -186,6 +186,18 @@ fun PartLessonsScreen(
                                 pills = listOf("🇬🇧 Only English", "🎧 Natural Audio", "⚡ 13 Sentences"),
                                 accentColor = Color(0xFF6D28D9),
                                 onClick = { onOpenIntro("daily_activities.md") }
+                            )
+                        }
+
+                        item(key = "monologue_mini_presentations") {
+                            SpeechMonologueCard(
+                                badgeText = "🎙️ মিনি প্রেজেন্টেশন স্পিচ",
+                                actionText = "প্রেজেন্টেশন শুনুন",
+                                title = "📱 টেকনোলজি উপস্থাপনা (Mini Presentations)",
+                                subtitle = "Cell Phone, Laptop এবং Facebook ID নিয়ে সহজ ও সাবলীল স্পোকেন ইংলিশ প্রেজেন্টেশন।",
+                                pills = listOf("🇬🇧 Only English", "🎧 Natural Audio", "⚡ 3 Topics"),
+                                accentColor = Color(0xFF0284C7),
+                                onClick = { onOpenIntro("mini_presentations.md") }
                             )
                         }
                     }

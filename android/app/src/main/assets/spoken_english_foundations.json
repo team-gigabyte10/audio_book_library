@@ -40,8 +40,8 @@
     }
   ],
   "stats": {
-    "lessons": 27,
-    "items": 387
+    "lessons": 29,
+    "items": 467
   },
   "parts": [
     {
@@ -16876,9 +16876,10 @@
           "order": 15,
           "title_bn": "\"Good At\" দিয়ে দক্ষতা প্রকাশ (Expressing Skills with \"Good At\")",
           "title_target": "Expressing Skills with \"Good At\"",
-          "intro_bn": "কোনো বিষয়ে ভালো বা কোনো কাজে পারদর্শিতা ও দক্ষতা প্রকাশ করতে 'Good at' এর সাবলীল স্পোকেন ব্যবহার।",
+          "intro_bn": "কোনো বিষয়ে ভালো বা কোনো কাজে পারদর্শিতা ও দক্ষতা প্রকাশ করতে 'Good at' এর সাবলীল স্পোকেন ব্যবহার। 🚨 বিশেষ নির্দেশ: প্রতিটি বাক্য নিজে নিজে ৬ ভাবে প্রাক্টিস করুন।",
           "structure": [
-            "[Subject] + [am/is/are] + good at + [Noun / Verb(-ing)]"
+            "[Subject] + [am/is/are] + good at + [Noun / Verb(-ing)]",
+            "🚨 ৬ ভাবে প্রাক্টিস: 1. I'm good at english | 2. i'm not good at english | 3. am i good at english? | 4. am i not good at english | 5. how am i good at english? | 6. why am i not good at english?"
           ],
           "items": [
             {
@@ -17624,9 +17625,10 @@
           "order": 16,
           "title_bn": "\"Bad At\" দিয়ে দুর্বলতা প্রকাশ (Expressing Weaknesses with \"Bad At\")",
           "title_target": "Expressing Weaknesses with \"Bad At\"",
-          "intro_bn": "কোনো কাজ বা বিষয়ে নিজের বা অন্যের দুর্বলতা, অনীহা বা অপটুতা প্রকাশ করতে 'Bad at' এর সহজ ও কার্যকর ব্যবহার।",
+          "intro_bn": "কোনো কাজ বা বিষয়ে নিজের বা অন্যের দুর্বলতা, অনীহা বা অপটুতা প্রকাশ করতে 'Bad at' এর সহজ ও কার্যকর ব্যবহার। 🚨 বিশেষ নির্দেশ: প্রতিটি বাক্য নিজে নিজে ৬ ভাবে প্রাক্টিস করুন।",
           "structure": [
-            "[Subject] + [am/is/are] + bad at + [Noun / Verb(-ing)]"
+            "[Subject] + [am/is/are] + bad at + [Noun / Verb(-ing)]",
+            "🚨 ৬ ভাবে প্রাক্টিস: 1. I'm bad at english | 2. i'm not bad at english | 3. am i bad at english? | 4. am i not bad at english | 5. how am i bad at english? | 6. why am i not bad at english?"
           ],
           "items": [
             {
@@ -20036,6 +20038,3884 @@
               "tags": {
                 "polarity": "negative_contrast",
                 "pattern": "action_contrast"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l18",
+          "order": 18,
+          "title_bn": "মালিকানা ও অধিকার প্রকাশের ৬টি রূপ (Have / Has Transformations)",
+          "title_target": "6-Type Possession Transformations (Have / Has)",
+          "intro_bn": "নিজের বা অন্যের কোনো জিনিস থাকা বা অধিকার প্রকাশ করতে 'have' বা 'has' ব্যবহার করা হয় (I/You/We/They এর সাথে 'have' এবং He/She/It এর সাথে 'has')। দৈনন্দিন স্পোকেন ইংলিশে দ্রুত ও অনর্গল কথা বলার জন্য এই ৬টি রূপের রূপান্তর অনুশীলন করা অত্যন্ত জরুরি: Affirmative, Negative, Interrogative, Intro-Negative, WH-Question এবং WH-Negative।",
+          "structure": [
+            "1. Affirmative: S + have/has + Object",
+            "2. Negative: S + don't/doesn't have + Object",
+            "3. Interrogative: Do/Does + S + have + Object?",
+            "4. Intro-Negative: Don't/Doesn't + S + have + Object?",
+            "5. WH-Question: Why do/does + S + have + Object?",
+            "6. WH-Negative: Why don't/doesn't + S + have + Object?"
+          ],
+          "items": [
+            {
+              "id": "en-trans-have-001",
+              "concept_id": "c-trans-have-i-car-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I have a car.",
+              "bn": "আমার একটি গাড়ি আছে।",
+              "bn_pron": "আই হ্যাভ আ কার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-002",
+              "concept_id": "c-trans-have-i-car-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I don't have a car.",
+              "bn": "আমার কোনো গাড়ি নেই।",
+              "bn_pron": "আই ডোন্ট হ্যাভ আ কার।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-003",
+              "concept_id": "c-trans-have-i-car-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do I have a car?",
+              "bn": "আমার কি কোনো গাড়ি আছে?",
+              "bn_pron": "ডু আই হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-004",
+              "concept_id": "c-trans-have-i-car-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Don't I have a car?",
+              "bn": "আমার কি কোনো গাড়ি নেই?",
+              "bn_pron": "ডোন্ট আই হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Don't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-005",
+              "concept_id": "c-trans-have-i-car-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why do I have a car?",
+              "bn": "আমার কেন একটি গাড়ি আছে?",
+              "bn_pron": "হোয়াই ডু আই হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-006",
+              "concept_id": "c-trans-have-i-car-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why don't I have a car?",
+              "bn": "আমার কেন কোনো গাড়ি নেই?",
+              "bn_pron": "হোয়াই ডোন্ট আই হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-007",
+              "concept_id": "c-trans-have-you-bag-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You have a bag.",
+              "bn": "তোমার একটি ব্যাগ আছে।",
+              "bn_pron": "ইউ হ্যাভ আ ব্যাগ।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-008",
+              "concept_id": "c-trans-have-you-bag-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You don't have a bag.",
+              "bn": "তোমার কোনো ব্যাগ নেই।",
+              "bn_pron": "ইউ ডোন্ট হ্যাভ আ ব্যাগ।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-009",
+              "concept_id": "c-trans-have-you-bag-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a bag?",
+              "bn": "তোমার কি কোনো ব্যাগ আছে?",
+              "bn_pron": "ডু ইউ হ্যাভ আ ব্যাগ?",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-010",
+              "concept_id": "c-trans-have-you-bag-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Don't you have a bag?",
+              "bn": "তোমার কি কোনো ব্যাগ নেই?",
+              "bn_pron": "ডোন্ট ইউ হ্যাভ আ ব্যাগ?",
+              "tokens": [
+                {
+                  "t": "Don't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-011",
+              "concept_id": "c-trans-have-you-bag-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why do you have a bag?",
+              "bn": "তোমার কেন একটি ব্যাগ আছে?",
+              "bn_pron": "হোয়াই ডু ইউ হ্যাভ আ ব্যাগ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-012",
+              "concept_id": "c-trans-have-you-bag-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why don't you have a bag?",
+              "bn": "তোমার কেন কোনো ব্যাগ নেই?",
+              "bn_pron": "হোয়াই ডোন্ট ইউ হ্যাভ আ ব্যাগ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-013",
+              "concept_id": "c-trans-have-he-pen-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He has a pen.",
+              "bn": "তার একটি কলম আছে।",
+              "bn_pron": "হি হ্যাজ আ পেন।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-014",
+              "concept_id": "c-trans-have-he-pen-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He doesn't have a pen.",
+              "bn": "তার কোনো কলম নেই।",
+              "bn_pron": "হি ডাজন্ট হ্যাভ আ পেন।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-015",
+              "concept_id": "c-trans-have-he-pen-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does he have a pen?",
+              "bn": "তার কি কোনো কলম আছে?",
+              "bn_pron": "ডাজ হি হ্যাভ আ পেন?",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-016",
+              "concept_id": "c-trans-have-he-pen-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Doesn't he have a pen?",
+              "bn": "তার কি কোনো কলম নেই?",
+              "bn_pron": "ডাজন্ট হি হ্যাভ আ পেন?",
+              "tokens": [
+                {
+                  "t": "Doesn't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-017",
+              "concept_id": "c-trans-have-he-pen-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why does he have a pen?",
+              "bn": "তার কেন একটি কলম আছে?",
+              "bn_pron": "হোয়াই ডাজ হি হ্যাভ আ পেন?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-018",
+              "concept_id": "c-trans-have-he-pen-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why doesn't he have a pen?",
+              "bn": "তার কেন কোনো কলম নেই?",
+              "bn_pron": "হোয়াই ডাজন্ট হি হ্যাভ আ পেন?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "pen",
+                  "bn": "কলম"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-019",
+              "concept_id": "c-trans-have-she-watch-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She has a watch.",
+              "bn": "তার একটি ঘড়ি আছে।",
+              "bn_pron": "শী হ্যাজ আ ওয়াচ।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-020",
+              "concept_id": "c-trans-have-she-watch-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She doesn't have a watch.",
+              "bn": "তার কোনো ঘড়ি নেই।",
+              "bn_pron": "শী ডাজন্ট হ্যাভ আ ওয়াচ।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-021",
+              "concept_id": "c-trans-have-she-watch-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does she have a watch?",
+              "bn": "তার কি কোনো ঘড়ি আছে?",
+              "bn_pron": "ডাজ শী হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-022",
+              "concept_id": "c-trans-have-she-watch-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Doesn't she have a watch?",
+              "bn": "তার কি কোনো ঘড়ি নেই?",
+              "bn_pron": "ডাজন্ট শী হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Doesn't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-023",
+              "concept_id": "c-trans-have-she-watch-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why does she have a watch?",
+              "bn": "তার কেন একটি ঘড়ি আছে?",
+              "bn_pron": "হোয়াই ডাজ শী হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-024",
+              "concept_id": "c-trans-have-she-watch-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why doesn't she have a watch?",
+              "bn": "তার কেন কোনো ঘড়ি নেই?",
+              "bn_pron": "হোয়াই ডাজন্ট শী হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-025",
+              "concept_id": "c-trans-have-they-bicycle-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They have a bicycle.",
+              "bn": "তাদের একটি বাইসাইকেল আছে।",
+              "bn_pron": "দে হ্যাভ আ বাইসাইকেল।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-026",
+              "concept_id": "c-trans-have-they-bicycle-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They don't have a bicycle.",
+              "bn": "তাদের কোনো বাইসাইকেল নেই।",
+              "bn_pron": "দে ডোন্ট হ্যাভ আ বাইসাইকেল।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-027",
+              "concept_id": "c-trans-have-they-bicycle-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do they have a bicycle?",
+              "bn": "তাদের কি কোনো বাইসাইকেল আছে?",
+              "bn_pron": "ডু দে হ্যাভ আ বাইসাইকেল?",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-028",
+              "concept_id": "c-trans-have-they-bicycle-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Don't they have a bicycle?",
+              "bn": "তাদের কি কোনো বাইসাইকেল নেই?",
+              "bn_pron": "ডোন্ট দে হ্যাভ আ বাইসাইকেল?",
+              "tokens": [
+                {
+                  "t": "Don't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-029",
+              "concept_id": "c-trans-have-they-bicycle-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why do they have a bicycle?",
+              "bn": "তাদের কেন একটি বাইসাইকেল আছে?",
+              "bn_pron": "হোয়াই ডু দে হ্যাভ আ বাইসাইকেল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-030",
+              "concept_id": "c-trans-have-they-bicycle-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why don't they have a bicycle?",
+              "bn": "তাদের কেন কোনো বাইসাইকেল নেই?",
+              "bn_pron": "হোয়াই ডোন্ট দে হ্যাভ আ বাইসাইকেল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-031",
+              "concept_id": "c-trans-have-you-bike-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You have a bike.",
+              "bn": "তোমার একটি বাইক আছে।",
+              "bn_pron": "ইউ হ্যাভ আ বাইক।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bike",
+                  "bn": "বাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-032",
+              "concept_id": "c-trans-have-you-bike-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "You don't have a bike.",
+              "bn": "তোমার কোনো বাইক নেই।",
+              "bn_pron": "ইউ ডোন্ট হ্যাভ আ বাইক।",
+              "tokens": [
+                {
+                  "t": "You",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bike",
+                  "bn": "বাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-033",
+              "concept_id": "c-trans-have-you-bike-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a bike?",
+              "bn": "তোমার কি কোনো বাইক আছে?",
+              "bn_pron": "ডু ইউ হ্যাভ আ বাইক?",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bike",
+                  "bn": "বাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-034",
+              "concept_id": "c-trans-have-you-bike-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Don't you have a bike?",
+              "bn": "তোমার কি কোনো বাইক নেই?",
+              "bn_pron": "ডোন্ট ইউ হ্যাভ আ বাইক?",
+              "tokens": [
+                {
+                  "t": "Don't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bike",
+                  "bn": "বাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-035",
+              "concept_id": "c-trans-have-you-bike-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why do you have a bike?",
+              "bn": "তোমার কেন একটি বাইক আছে?",
+              "bn_pron": "হোয়াই ডু ইউ হ্যাভ আ বাইক?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bike",
+                  "bn": "বাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-036",
+              "concept_id": "c-trans-have-you-bike-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why don't you have a bike?",
+              "bn": "তোমার কেন কোনো বাইক নেই?",
+              "bn_pron": "হোয়াই ডোন্ট ইউ হ্যাভ আ বাইক?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "you",
+                  "bn": "তোমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bike",
+                  "bn": "বাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-037",
+              "concept_id": "c-trans-have-he-gold-iphone-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He has a gold-plated iPhone.",
+              "bn": "তার একটি গোল্ড প্লেটেড আইফোন আছে।",
+              "bn_pron": "হি হ্যাজ আ গোল্ড-প্লেটেড আইফোন।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "gold-plated",
+                  "bn": "গোল্ড প্লেটেড"
+                },
+                {
+                  "t": "iPhone",
+                  "bn": "আইফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-038",
+              "concept_id": "c-trans-have-he-gold-iphone-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "He doesn't have a gold-plated iPhone.",
+              "bn": "তার কোনো গোল্ড প্লেটেড আইফোন নেই।",
+              "bn_pron": "হি ডাজন্ট হ্যাভ আ গোল্ড-প্লেটেড আইফোন।",
+              "tokens": [
+                {
+                  "t": "He",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "gold-plated",
+                  "bn": "গোল্ড প্লেটেড"
+                },
+                {
+                  "t": "iPhone",
+                  "bn": "আইফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-039",
+              "concept_id": "c-trans-have-he-gold-iphone-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does he have a gold-plated iPhone?",
+              "bn": "তার কি কোনো গোল্ড প্লেটেড আইফোন আছে?",
+              "bn_pron": "ডাজ হি হ্যাভ আ গোল্ড-প্লেটেড আইফোন?",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "gold-plated",
+                  "bn": "গোল্ড প্লেটেড"
+                },
+                {
+                  "t": "iPhone",
+                  "bn": "আইফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-040",
+              "concept_id": "c-trans-have-he-gold-iphone-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Doesn't he have a gold-plated iPhone?",
+              "bn": "তার কি কোনো গোল্ড প্লেটেড আইফোন নেই?",
+              "bn_pron": "ডাজন্ট হি হ্যাভ আ গোল্ড-প্লেটেড আইফোন?",
+              "tokens": [
+                {
+                  "t": "Doesn't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "gold-plated",
+                  "bn": "গোল্ড প্লেটেড"
+                },
+                {
+                  "t": "iPhone",
+                  "bn": "আইফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-041",
+              "concept_id": "c-trans-have-he-gold-iphone-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why does he have a gold-plated iPhone?",
+              "bn": "তার কেন একটি গোল্ড প্লেটেড আইফোন আছে?",
+              "bn_pron": "হোয়াই ডাজ হি হ্যাভ আ গোল্ড-প্লেটেড আইফোন?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "gold-plated",
+                  "bn": "গোল্ড প্লেটেড"
+                },
+                {
+                  "t": "iPhone",
+                  "bn": "আইফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-042",
+              "concept_id": "c-trans-have-he-gold-iphone-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why doesn't he have a gold-plated iPhone?",
+              "bn": "তার কেন কোনো গোল্ড প্লেটেড আইফোন নেই?",
+              "bn_pron": "হোয়াই ডাজন্ট হি হ্যাভ আ গোল্ড-প্লেটেড আইফোন?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "gold-plated",
+                  "bn": "গোল্ড প্লেটেড"
+                },
+                {
+                  "t": "iPhone",
+                  "bn": "আইফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-043",
+              "concept_id": "c-trans-have-she-mobile-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She has a mobile.",
+              "bn": "তার একটি মোবাইল আছে।",
+              "bn_pron": "শী হ্যাজ আ মোবাইল।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-044",
+              "concept_id": "c-trans-have-she-mobile-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "She doesn't have a mobile.",
+              "bn": "তার কোনো মোবাইল নেই।",
+              "bn_pron": "শী ডাজন্ট হ্যাভ আ মোবাইল।",
+              "tokens": [
+                {
+                  "t": "She",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-045",
+              "concept_id": "c-trans-have-she-mobile-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does she have a mobile?",
+              "bn": "তার কি কোনো মোবাইল আছে?",
+              "bn_pron": "ডাজ শী হ্যাভ আ মোবাইল?",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-046",
+              "concept_id": "c-trans-have-she-mobile-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Doesn't she have a mobile?",
+              "bn": "তার কি কোনো মোবাইল নেই?",
+              "bn_pron": "ডাজন্ট শী হ্যাভ আ মোবাইল?",
+              "tokens": [
+                {
+                  "t": "Doesn't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-047",
+              "concept_id": "c-trans-have-she-mobile-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why does she have a mobile?",
+              "bn": "তার কেন একটি মোবাইল আছে?",
+              "bn_pron": "হোয়াই ডাজ শী হ্যাভ আ মোবাইল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-048",
+              "concept_id": "c-trans-have-she-mobile-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why doesn't she have a mobile?",
+              "bn": "তার কেন কোনো মোবাইল নেই?",
+              "bn_pron": "হোয়াই ডাজন্ট শী হ্যাভ আ মোবাইল?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "mobile",
+                  "bn": "মোবাইল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-049",
+              "concept_id": "c-trans-have-i-watch-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I have a watch.",
+              "bn": "আমার একটি ঘড়ি আছে।",
+              "bn_pron": "আই হ্যাভ আ ওয়াচ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-050",
+              "concept_id": "c-trans-have-i-watch-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "I don't have a watch.",
+              "bn": "আমার কোনো ঘড়ি নেই।",
+              "bn_pron": "আই ডোন্ট হ্যাভ আ ওয়াচ।",
+              "tokens": [
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-051",
+              "concept_id": "c-trans-have-i-watch-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do I have a watch?",
+              "bn": "আমার কি কোনো ঘড়ি আছে?",
+              "bn_pron": "ডু আই হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-052",
+              "concept_id": "c-trans-have-i-watch-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Don't I have a watch?",
+              "bn": "আমার কি কোনো ঘড়ি নেই?",
+              "bn_pron": "ডোন্ট আই হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Don't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-053",
+              "concept_id": "c-trans-have-i-watch-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why do I have a watch?",
+              "bn": "আমার কেন একটি ঘড়ি আছে?",
+              "bn_pron": "হোয়াই ডু আই হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-054",
+              "concept_id": "c-trans-have-i-watch-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why don't I have a watch?",
+              "bn": "আমার কেন কোনো ঘড়ি নেই?",
+              "bn_pron": "হোয়াই ডোন্ট আই হ্যাভ আ ওয়াচ?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-055",
+              "concept_id": "c-trans-have-they-car-aff",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They have a car.",
+              "bn": "তাদের একটি গাড়ি আছে।",
+              "bn_pron": "দে হ্যাভ আ কার।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-056",
+              "concept_id": "c-trans-have-they-car-neg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "They don't have a car.",
+              "bn": "তাদের কোনো গাড়ি নেই।",
+              "bn_pron": "দে ডোন্ট হ্যাভ আ কার।",
+              "tokens": [
+                {
+                  "t": "They",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-057",
+              "concept_id": "c-trans-have-they-car-int",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do they have a car?",
+              "bn": "তাদের কি কোনো গাড়ি আছে?",
+              "bn_pron": "ডু দে হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-058",
+              "concept_id": "c-trans-have-they-car-intneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Don't they have a car?",
+              "bn": "তাদের কি কোনো গাড়ি নেই?",
+              "bn_pron": "ডোন্ট দে হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Don't",
+                  "bn": "নেই কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "interrogative_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-059",
+              "concept_id": "c-trans-have-they-car-wh",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why do they have a car?",
+              "bn": "তাদের কেন একটি গাড়ি আছে?",
+              "bn_pron": "হোয়াই ডু দে হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "pattern": "possession_have"
+              }
+            },
+            {
+              "id": "en-trans-have-060",
+              "concept_id": "c-trans-have-they-car-whneg",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Why don't they have a car?",
+              "bn": "তাদের কেন কোনো গাড়ি নেই?",
+              "bn_pron": "হোয়াই ডোন্ট দে হ্যাভ আ কার?",
+              "tokens": [
+                {
+                  "t": "Why",
+                  "bn": "কেন"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "wh_negative",
+                "polarity": "negative",
+                "pattern": "possession_have"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l19",
+          "order": 19,
+          "title_bn": "মালিকানা সংক্রান্ত প্রশ্নোত্তর ড্রিল (Yes / No Answers)",
+          "title_target": "Possession Q&A Drills (Yes / No Responses)",
+          "intro_bn": "দৈনন্দিন কথোপকথনে কোনো ব্যক্তি, সত্তা বা দেশের কোনো বস্তু বা বৈশিষ্ট্য আছে কি না জানতে 'Do you have...?' অথবা 'Does he/she/Name/Country have...?' দিয়ে প্রশ্ন করা হয়। এই পাঠে ২০টি ব্যবহারিক প্রশ্ন এবং তাদের হ্যাঁ-বোধক (Yes) ও না-বোধক (No) উত্তর অনুশীলনের মাধ্যমে অনর্গল প্রশ্ন ও উত্তর দেওয়ার দক্ষতা তৈরি হবে।",
+          "structure": [
+            "1. Question (You/They): Do + S + have + Object?",
+            "2. Yes Answer (You/They): Yes, S + have + Object.",
+            "3. No Answer (You/They): No, S + don't have + Object.",
+            "4. Question (He/She/Name/Country): Does + S + have + Object?",
+            "5. Yes Answer (He/She/Name/Country): Yes, S + has + Object.",
+            "6. No Answer (He/She/Name/Country): No, S + doesn't have + Object."
+          ],
+          "items": [
+            {
+              "id": "en-qa-have-001",
+              "concept_id": "c-qa-have-you-computer",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a computer? Yes, I have a computer. No, I don't have a computer.",
+              "bn": "আপনার কি একটি কম্পিউটার আছে? হ্যাঁ, আমার একটি কম্পিউটার আছে। না, আমার কোনো কম্পিউটার নেই।",
+              "bn_pron": "ডু ইউ হ্যাভ আ কম্পিউটার? ইয়েস, আই হ্যাভ আ কম্পিউটার। নো, আই ডোন্ট হ্যাভ আ কম্পিউটার।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "computer",
+                  "bn": "কম্পিউটার"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "computer",
+                  "bn": "কম্পিউটার"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "computer",
+                  "bn": "কম্পিউটার"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "you"
+              }
+            },
+            {
+              "id": "en-qa-have-002",
+              "concept_id": "c-qa-have-you-smartphone",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a smartphone? Yes, I have a smartphone. No, I don't have a smartphone.",
+              "bn": "আপনার কি একটি স্মার্টফোন আছে? হ্যাঁ, আমার একটি স্মার্টফোন আছে। না, আমার কোনো স্মার্টফোন নেই।",
+              "bn_pron": "ডু ইউ হ্যাভ আ স্মার্টফোন? ইয়েস, আই হ্যাভ আ স্মার্টফোন। নো, আই ডোন্ট হ্যাভ আ স্মার্টফোন।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "smartphone",
+                  "bn": "স্মার্টফোন"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "smartphone",
+                  "bn": "স্মার্টফোন"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "smartphone",
+                  "bn": "স্মার্টফোন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "you"
+              }
+            },
+            {
+              "id": "en-qa-have-003",
+              "concept_id": "c-qa-have-you-passport",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a passport? Yes, I have a passport. No, I don't have a passport.",
+              "bn": "আপনার কি একটি পাসপোর্ট আছে? হ্যাঁ, আমার একটি পাসপোর্ট আছে। না, আমার কোনো পাসপোর্ট নেই।",
+              "bn_pron": "ডু ইউ হ্যাভ আ পাসপোর্ট? ইয়েস, আই হ্যাভ আ পাসপোর্ট। নো, আই ডোন্ট হ্যাভ আ পাসপোর্ট।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "passport",
+                  "bn": "পাসপোর্ট"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "passport",
+                  "bn": "পাসপোর্ট"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "passport",
+                  "bn": "পাসপোর্ট"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "you"
+              }
+            },
+            {
+              "id": "en-qa-have-004",
+              "concept_id": "c-qa-have-you-car",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a car? Yes, I have a car. No, I don't have a car.",
+              "bn": "আপনার কি একটি গাড়ি আছে? হ্যাঁ, আমার একটি গাড়ি আছে। না, আমার কোনো গাড়ি নেই।",
+              "bn_pron": "ডু ইউ হ্যাভ আ কার? ইয়েস, আই হ্যাভ আ কার। নো, আই ডোন্ট হ্যাভ আ কার।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "you",
+                  "bn": "আপনার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "I",
+                  "bn": "আমার"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "you"
+              }
+            },
+            {
+              "id": "en-qa-have-005",
+              "concept_id": "c-qa-have-he-job",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does he have a job? Yes, he has a job. No, he doesn't have a job.",
+              "bn": "তার কি একটি চাকরি আছে? হ্যাঁ, তার একটি চাকরি আছে। না, তার কোনো চাকরি নেই।",
+              "bn_pron": "ডাজ হি হ্যাভ আ জব? ইয়েস, হি হ্যাজ আ জব। নো, হি ডাজন্ট হ্যাভ আ জব।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "job",
+                  "bn": "চাকরি"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "job",
+                  "bn": "চাকরি"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "job",
+                  "bn": "চাকরি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "he"
+              }
+            },
+            {
+              "id": "en-qa-have-006",
+              "concept_id": "c-qa-have-he-laptop",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does he have a laptop? Yes, he has a laptop. No, he doesn't have a laptop.",
+              "bn": "তার কি একটি ল্যাপটপ আছে? হ্যাঁ, তার একটি ল্যাপটপ আছে। না, তার কোনো ল্যাপটপ নেই।",
+              "bn_pron": "ডাজ হি হ্যাভ আ ল্যাপটপ? ইয়েস, হি হ্যাজ আ ল্যাপটপ। নো, হি ডাজন্ট হ্যাভ আ ল্যাপটপ।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "laptop",
+                  "bn": "ল্যাপটপ"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "laptop",
+                  "bn": "ল্যাপটপ"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "he",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "laptop",
+                  "bn": "ল্যাপটপ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "he"
+              }
+            },
+            {
+              "id": "en-qa-have-007",
+              "concept_id": "c-qa-have-she-bicycle",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does she have a bicycle? Yes, she has a bicycle. No, she doesn't have a bicycle.",
+              "bn": "তার কি একটি বাইসাইকেল আছে? হ্যাঁ, তার একটি বাইসাইকেল আছে। না, তার কোনো বাইসাইকেল নেই।",
+              "bn_pron": "ডাজ শী হ্যাভ আ বাইসাইকেল? ইয়েস, শী হ্যাজ আ বাইসাইকেল। নো, শী ডাজন্ট হ্যাভ আ বাইসাইকেল।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bicycle",
+                  "bn": "বাইসাইকেল"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "she"
+              }
+            },
+            {
+              "id": "en-qa-have-008",
+              "concept_id": "c-qa-have-she-watch",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does she have a watch? Yes, she has a watch. No, she doesn't have a watch.",
+              "bn": "তার কি একটি ঘড়ি আছে? হ্যাঁ, তার একটি ঘড়ি আছে। না, তার কোনো ঘড়ি নেই।",
+              "bn_pron": "ডাজ শী হ্যাভ আ ওয়াচ? ইয়েস, শী হ্যাজ আ ওয়াচ। নো, শী ডাজন্ট হ্যাভ আ ওয়াচ।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "she",
+                  "bn": "তার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "watch",
+                  "bn": "ঘড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "she"
+              }
+            },
+            {
+              "id": "en-qa-have-009",
+              "concept_id": "c-qa-have-they-garden",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do they have a garden? Yes, they have a garden. No, they don't have a garden.",
+              "bn": "তাদের কি একটি বাগান আছে? হ্যাঁ, তাদের একটি বাগান আছে। না, তাদের কোনো বাগান নেই।",
+              "bn_pron": "ডু দে হ্যাভ আ গার্ডেন? ইয়েস, দে হ্যাভ আ গার্ডেন। নো, দে ডোন্ট হ্যাভ আ গার্ডেন।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "garden",
+                  "bn": "বাগান"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "garden",
+                  "bn": "বাগান"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "garden",
+                  "bn": "বাগান"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "they"
+              }
+            },
+            {
+              "id": "en-qa-have-010",
+              "concept_id": "c-qa-have-they-tickets",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do they have tickets? Yes, they have tickets. No, they don't have tickets.",
+              "bn": "তাদের কি টিকিট আছে? হ্যাঁ, তাদের টিকিট আছে। না, তাদের কোনো টিকিট নেই।",
+              "bn_pron": "ডু দে হ্যাভ টিকেটস? ইয়েস, দে হ্যাভ টিকেটস। নো, দে ডোন্ট হ্যাভ টিকেটস।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "tickets",
+                  "bn": "টিকিট"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "tickets",
+                  "bn": "টিকিট"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "tickets",
+                  "bn": "টিকিট"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "they"
+              }
+            },
+            {
+              "id": "en-qa-have-011",
+              "concept_id": "c-qa-have-they-car",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do they have a car? Yes, they have a car. No, they don't have a car.",
+              "bn": "তাদের কি একটি গাড়ি আছে? হ্যাঁ, তাদের একটি গাড়ি আছে। না, তাদের কোনো গাড়ি নেই।",
+              "bn_pron": "ডু দে হ্যাভ আ কার? ইয়েস, দে হ্যাভ আ কার। নো, দে ডোন্ট হ্যাভ আ কার।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "car",
+                  "bn": "গাড়ি"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "they"
+              }
+            },
+            {
+              "id": "en-qa-have-012",
+              "concept_id": "c-qa-have-they-internet",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do they have internet access? Yes, they have internet access. No, they don't have internet access.",
+              "bn": "তাদের কি ইন্টারনেট সুবিধা আছে? হ্যাঁ, তাদের ইন্টারনেট সুবিধা আছে। না, তাদের ইন্টারনেট সুবিধা নেই।",
+              "bn_pron": "ডু দে হ্যাভ ইন্টারনেট এক্সেস? ইয়েস, দে হ্যাভ ইন্টারনেট এক্সেস। নো, দে ডোন্ট হ্যাভ ইন্টারনেট এক্সেস।",
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": "কি"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "internet",
+                  "bn": "ইন্টারনেট"
+                },
+                {
+                  "t": "access",
+                  "bn": "সুবিধা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "internet",
+                  "bn": "ইন্টারনেট"
+                },
+                {
+                  "t": "access",
+                  "bn": "সুবিধা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "they",
+                  "bn": "তাদের"
+                },
+                {
+                  "t": "don't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "internet",
+                  "bn": "ইন্টারনেট"
+                },
+                {
+                  "t": "access",
+                  "bn": "সুবিধা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "they"
+              }
+            },
+            {
+              "id": "en-qa-have-013",
+              "concept_id": "c-qa-have-rahim-camera",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Rahim have a camera? Yes, Rahim has a camera. No, Rahim doesn't have a camera.",
+              "bn": "রহিমের কি একটি ক্যামেরা আছে? হ্যাঁ, রহিমের একটি ক্যামেরা আছে। না, রহিমের কোনো ক্যামেরা নেই।",
+              "bn_pron": "ডাজ রহিম হ্যাভ আ ক্যামেরা? ইয়েস, রহিম হ্যাজ আ ক্যামেরা। নো, রহিম ডাজন্ট হ্যাভ আ ক্যামেরা।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Rahim",
+                  "bn": "রহিমের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "camera",
+                  "bn": "ক্যামেরা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Rahim",
+                  "bn": "রহিমের"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "camera",
+                  "bn": "ক্যামেরা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Rahim",
+                  "bn": "রহিমের"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "camera",
+                  "bn": "ক্যামেরা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "name"
+              }
+            },
+            {
+              "id": "en-qa-have-014",
+              "concept_id": "c-qa-have-sara-umbrella",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Sara have an umbrella? Yes, Sara has an umbrella. No, Sara doesn't have an umbrella.",
+              "bn": "সারার কি একটি ছাতা আছে? হ্যাঁ, সারার একটি ছাতা আছে। না, সারার কোনো ছাতা নেই।",
+              "bn_pron": "ডাজ সারা হ্যাভ অ্যান আমব্রেলা? ইয়েস, সারা হ্যাজ অ্যান আমব্রেলা। নো, সারা ডাজন্ট হ্যাভ অ্যান আমব্রেলা।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Sara",
+                  "bn": "সারার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "an",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "umbrella",
+                  "bn": "ছাতা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Sara",
+                  "bn": "সারার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "an",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "umbrella",
+                  "bn": "ছাতা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Sara",
+                  "bn": "সারার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "an",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "umbrella",
+                  "bn": "ছাতা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "name"
+              }
+            },
+            {
+              "id": "en-qa-have-015",
+              "concept_id": "c-qa-have-tanvir-motorbike",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Tanvir have a motorbike? Yes, Tanvir has a motorbike. No, Tanvir doesn't have a motorbike.",
+              "bn": "তানভীরের কি একটি মোটরবাইক আছে? হ্যাঁ, তানভীরের একটি মোটরবাইক আছে। না, তানভীরের কোনো মোটরবাইক নেই।",
+              "bn_pron": "ডাজ তানভীর হ্যাভ আ মোটরবাইক? ইয়েস, তানভীর হ্যাজ আ মোটরবাইক। নো, তানভীর ডাজন্ট হ্যাভ আ মোটরবাইক।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Tanvir",
+                  "bn": "তানভীরের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "motorbike",
+                  "bn": "মোটরবাইক"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Tanvir",
+                  "bn": "তানভীরের"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "motorbike",
+                  "bn": "মোটরবাইক"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Tanvir",
+                  "bn": "তানভীরের"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "motorbike",
+                  "bn": "মোটরবাইক"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "name"
+              }
+            },
+            {
+              "id": "en-qa-have-016",
+              "concept_id": "c-qa-have-nadia-bag",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Nadia have a bag? Yes, Nadia has a bag. No, Nadia doesn't have a bag.",
+              "bn": "নাদিয়ার কি একটি ব্যাগ আছে? হ্যাঁ, নাদিয়ার একটি ব্যাগ আছে। না, নাদিয়ার কোনো ব্যাগ নেই।",
+              "bn_pron": "ডাজ নাদিয়া হ্যাভ আ ব্যাগ? ইয়েস, নাদিয়া হ্যাজ আ ব্যাগ। নো, নাদিয়া ডাজন্ট হ্যাভ আ ব্যাগ।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Nadia",
+                  "bn": "নাদিয়ার"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Nadia",
+                  "bn": "নাদিয়ার"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Nadia",
+                  "bn": "নাদিয়ার"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "bag",
+                  "bn": "ব্যাগ"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "name"
+              }
+            },
+            {
+              "id": "en-qa-have-017",
+              "concept_id": "c-qa-have-bangladesh-flag",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Bangladesh have a national flag? Yes, Bangladesh has a national flag. No, Bangladesh doesn't have a national flag.",
+              "bn": "বাংলাদেশের কি একটি জাতীয় পতাকা আছে? হ্যাঁ, বাংলাদেশের একটি জাতীয় পতাকা আছে। না, বাংলাদেশের কোনো জাতীয় পতাকা নেই।",
+              "bn_pron": "ডাজ বাংলাদেশ হ্যাভ আ ন্যাশনাল ফ্ল্যাগ? ইয়েস, বাংলাদেশ হ্যাজ আ ন্যাশনাল ফ্ল্যাগ। নো, বাংলাদেশ ডাজন্ট হ্যাভ আ ন্যাশনাল ফ্ল্যাগ।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "national",
+                  "bn": "জাতীয়"
+                },
+                {
+                  "t": "flag",
+                  "bn": "পতাকা"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশের"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "national",
+                  "bn": "জাতীয়"
+                },
+                {
+                  "t": "flag",
+                  "bn": "পতাকা"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশের"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "national",
+                  "bn": "জাতীয়"
+                },
+                {
+                  "t": "flag",
+                  "bn": "পতাকা"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "country"
+              }
+            },
+            {
+              "id": "en-qa-have-018",
+              "concept_id": "c-qa-have-bangladesh-beach",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Bangladesh have a sea beach? Yes, Bangladesh has a sea beach. No, Bangladesh doesn't have a sea beach.",
+              "bn": "বাংলাদেশের কি একটি সমুদ্র সৈকত আছে? হ্যাঁ, বাংলাদেশের একটি সমুদ্র সৈকত আছে। না, বাংলাদেশের কোনো সমুদ্র সৈকত নেই।",
+              "bn_pron": "ডাজ বাংলাদেশ হ্যাভ আ সি বিচ? ইয়েস, বাংলাদেশ হ্যাজ আ সি বিচ। নো, বাংলাদেশ ডাজন্ট হ্যাভ আ সি বিচ।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "sea",
+                  "bn": "সমুদ্র"
+                },
+                {
+                  "t": "beach",
+                  "bn": "সৈকত"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশের"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "একটি"
+                },
+                {
+                  "t": "sea",
+                  "bn": "সমুদ্র"
+                },
+                {
+                  "t": "beach",
+                  "bn": "সৈকত"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Bangladesh",
+                  "bn": "বাংলাদেশের"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "a",
+                  "bn": "কোনো"
+                },
+                {
+                  "t": "sea",
+                  "bn": "সমুদ্র"
+                },
+                {
+                  "t": "beach",
+                  "bn": "সৈকত"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "country"
+              }
+            },
+            {
+              "id": "en-qa-have-019",
+              "concept_id": "c-qa-have-japan-bullet-train",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Japan have bullet trains? Yes, Japan has bullet trains. No, Japan doesn't have bullet trains.",
+              "bn": "জাপানের কি বুলেট ট্রেন আছে? হ্যাঁ, জাপানের বুলেট ট্রেন আছে। না, জাপানের কোনো বুলেট ট্রেন নেই।",
+              "bn_pron": "ডাজ জাপান হ্যাভ বুলেট ট্রেনস? ইয়েস, জাপান হ্যাজ বুলেট ট্রেনস। নো, জাপান ডাজন্ট হ্যাভ বুলেট ট্রেনস।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Japan",
+                  "bn": "জাপানের"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "bullet",
+                  "bn": "বুলেট"
+                },
+                {
+                  "t": "trains",
+                  "bn": "ট্রেন"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Japan",
+                  "bn": "জাপানের"
+                },
+                {
+                  "t": "has",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "bullet",
+                  "bn": "বুলেট"
+                },
+                {
+                  "t": "trains",
+                  "bn": "ট্রেন"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Japan",
+                  "bn": "জাপানের"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "নেই"
+                },
+                {
+                  "t": "have",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "bullet",
+                  "bn": "বুলেট"
+                },
+                {
+                  "t": "trains",
+                  "bn": "ট্রেন"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "country"
+              }
+            },
+            {
+              "id": "en-qa-have-020",
+              "concept_id": "c-qa-have-canada-snowfall",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Does Canada have snowfall? Yes, Canada has snowfall. No, Canada doesn't have snowfall.",
+              "bn": "কানাডায় কি তুষারপাত হয়? হ্যাঁ, কানাডায় তুষারপাত হয়। না, কানাডায় কোনো তুষারপাত হয় না।",
+              "bn_pron": "ডাজ কানাডা হ্যাভ স্নোফল? ইয়েস, কানাডা হ্যাজ স্নোফল। নো, কানাডা ডাজন্ট হ্যাভ স্নোফল।",
+              "tokens": [
+                {
+                  "t": "Does",
+                  "bn": "কি"
+                },
+                {
+                  "t": "Canada",
+                  "bn": "কানাডায়"
+                },
+                {
+                  "t": "have",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "snowfall",
+                  "bn": "তুষারপাত"
+                },
+                {
+                  "t": "Yes",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "Canada",
+                  "bn": "কানাডায়"
+                },
+                {
+                  "t": "has",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "snowfall",
+                  "bn": "তুষারপাত"
+                },
+                {
+                  "t": "No",
+                  "bn": "না"
+                },
+                {
+                  "t": "Canada",
+                  "bn": "কানাডায়"
+                },
+                {
+                  "t": "doesn't",
+                  "bn": "না"
+                },
+                {
+                  "t": "have",
+                  "bn": "হয়"
+                },
+                {
+                  "t": "snowfall",
+                  "bn": "তুষারপাত"
+                }
+              ],
+              "tags": {
+                "sentence_type": "qa_drill",
+                "polarity": "mixed",
+                "pattern": "possession_qa",
+                "category": "country"
               }
             }
           ]

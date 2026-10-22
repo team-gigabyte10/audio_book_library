@@ -86,7 +86,8 @@ fun CourseIntroScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val isEnglishOnly = assetFileName.contains("self_presentation", ignoreCase = true) ||
-            assetFileName.contains("daily_activit", ignoreCase = true)
+            assetFileName.contains("daily_activit", ignoreCase = true) ||
+            assetFileName.contains("presentation", ignoreCase = true)
     val targetLang = if (isEnglishOnly) SpeechLang.EN else SpeechLang.BN
     val baseRate = if (isEnglishOnly) 1.05f else 1.15f
 
@@ -179,11 +180,13 @@ fun CourseIntroScreen(
     val pageTitle = when {
         assetFileName.contains("daily_activit", ignoreCase = true) -> "দৈনন্দিন রুটিন (English Monologue)"
         assetFileName.contains("self_presentation", ignoreCase = true) -> "সেলফ প্রেজেন্টেশন (English Only)"
+        assetFileName.contains("presentation", ignoreCase = true) -> "মিনি প্রেজেন্টেশন (English Monologue)"
         else -> "📖 কোর্স পরিচিতি ও গাইডলাইন"
     }
     val pageSubtitle = when {
         assetFileName.contains("daily_activit", ignoreCase = true) -> "Daily Activities Spoken Monologue"
         assetFileName.contains("self_presentation", ignoreCase = true) -> "Complete English Self Presentation"
+        assetFileName.contains("presentation", ignoreCase = true) -> "Cell Phone, Laptop & Facebook ID"
         else -> "ভয়েস রিডিংসহ পূর্ণাঙ্গ অডিও গাইড"
     }
 

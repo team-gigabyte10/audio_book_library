@@ -27,6 +27,7 @@ class PartLessonsViewModel(application: Application, partId: String) : AndroidVi
     val title: StateFlow<String> = _title.asStateFlow()
 
     init {
+        app.learningContent.ensureLoaded()
         viewModelScope.launch {
             val p = app.learningRepository.getPart(partId)
             _part.value = p
