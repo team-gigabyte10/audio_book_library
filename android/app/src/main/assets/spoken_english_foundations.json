@@ -41,8 +41,8 @@
     }
   ],
   "stats": {
-    "lessons": 60,
-    "items": 760
+    "lessons": 80,
+    "items": 932
   },
   "parts": [
     {
@@ -36078,6 +36078,3626 @@
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p13",
+      "order": 13,
+      "level": "A2",
+      "title_bn": "সাধারণ অতীত কাল — Past Simple (Was/Were & Did/Didn't)",
+      "title_target": "Past Simple Tense (Was/Were & Did/Didn't)",
+      "lessons": [
+        {
+          "id": "en-foundations-l61",
+          "order": 1,
+          "title_bn": "অতীতের অবস্থা ও পরিচয় — 'Was / Were' (Past States & Identity)",
+          "title_target": "Past States & Identity (Was / Were)",
+          "intro_bn": "অতীতে কোনো ব্যক্তি বা বস্তুর অবস্থা, পেশা বা অবস্থান কেমন ছিল তা প্রকাশ করতে 'was / were' ব্যবহৃত হয়। গঠন: I / He / She / It + was; We / You / They + were।",
+          "structure": [
+            "I / He / She / It / Singular + was + Adjective / Noun / Place",
+            "We / You / They / Plural + were + Adjective / Noun / Place"
+          ],
+          "items": [
+            {
+              "id": "en-p13-l61-001",
+              "order": 1,
+              "target": "I was very busy yesterday afternoon.",
+              "bn": "আমি গতকাল বিকেলে খুব ব্যস্ত ছিলাম।",
+              "pron_bn": "আই ওয়াজ ভেরি বিজি ইয়েস্টারডে আফটারনুন।",
+              "ipa": "I was very busy yesterday afternoon.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-002",
+              "order": 2,
+              "target": "He was sick last week and stayed in bed.",
+              "bn": "সে গত সপ্তাহে অসুস্থ ছিল এবং বিছানায় বিশ্রাম নিয়েছিল।",
+              "pron_bn": "হি ওয়াজ সিক লাস্ট উইক অ্যান্ড સ્ટેইড ইন বেড।",
+              "ipa": "He was sick last week and stayed in bed.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-003",
+              "order": 3,
+              "target": "They were at home yesterday evening.",
+              "bn": "তারা গতকাল সন্ধ্যায় বাড়িতে ছিল।",
+              "pron_bn": "দে ওয়্যার অ্যাট হোম ইয়েস্টারডে ইভনিং।",
+              "ipa": "They were at home yesterday evening.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-004",
+              "order": 4,
+              "target": "She was a dedicated school teacher before moving abroad.",
+              "bn": "বিদেশে যাওয়ার আগে তিনি একজন নিবেদিতপ্রাণ শিক্ষক ছিলেন।",
+              "pron_bn": "শি ওয়াজ আ ডেডিকেটেড স্কুল টিচার বিফোর মুভিং অ্যাব্রড।",
+              "ipa": "She was a dedicated school teacher before moving abroad.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-005",
+              "order": 5,
+              "target": "The weather was very pleasant and sunny yesterday.",
+              "bn": "গতকাল আবহাওয়া খুব মনোরম এবং রৌদ্রোজ্জ্বল ছিল।",
+              "pron_bn": "দ্য ওয়েদার ওয়াজ ভেরি প্লেজেন্ট অ্যান্ড সানি ইয়েস্টারডে।",
+              "ipa": "The weather was very pleasant and sunny yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-006",
+              "order": 6,
+              "target": "Were you sick yesterday? Yes, I was sick yesterday. No, I was not sick.",
+              "bn": "আপনি কি গতকাল অসুস্থ ছিলেন? হ্যাঁ, আমি গতকাল অসুস্থ ছিলাম। না, আমি অসুস্থ ছিলাম না।",
+              "pron_bn": "ওয়্যার ইউ সিক ইয়েস্টারডে? ইয়েস, আই ওয়াজ সিক ইয়েস্টারডে। নো, আই ওয়াজ নট সিক।",
+              "ipa": "Were you sick yesterday? Yes, I was sick yesterday. No, I was not sick.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-007",
+              "order": 7,
+              "target": "Were they in the office on Sunday? Yes, they were in the office. No, they were not.",
+              "bn": "তারা কি রবিবারে অফিসে ছিল? হ্যাঁ, তারা অফিসে ছিল। না, তারা ছিল না।",
+              "pron_bn": "ওয়্যার দে ইন দি অফিস অন সানডে? ইয়েস, দে ওয়্যার ইন দি অফিস। নো, দে ওয়্যার নট।",
+              "ipa": "Were they in the office on Sunday? Yes, they were in the office. No, they were not.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l61-008",
+              "order": 8,
+              "target": "Where were you yesterday morning? I was at the central library.",
+              "bn": "আপনি গতকাল সকালে কোথায় ছিলেন? আমি সেন্ট্রাল লাইব্রেরিতে ছিলাম।",
+              "pron_bn": "হোয়ার ওয়্যার ইউ ইয়েস্টারডে মর্নিং? আই ওয়াজ অ্যাট দ্য সেন্ট্রাল লাইব্রেরি।",
+              "ipa": "Where were you yesterday morning? I was at the central library.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l62",
+          "order": 2,
+          "title_bn": "অতীতের সমাপ্ত কাজ — 'Subject + V2' (Completed Past Actions)",
+          "title_target": "Completed Past Actions (Subject + V2)",
+          "intro_bn": "অতীতের কোনো নির্দিষ্ট সময়ে শেষ হওয়া কাজ বোঝাতে মূল Verb-এর Past form (V2) ব্যবহৃত হয়। যেমন: went, came, bought, watched, called।",
+          "structure": [
+            "Subject + V2 (went, saw, played, bought, cooked)",
+            "Time markers: yesterday, last night, two days ago, last month"
+          ],
+          "items": [
+            {
+              "id": "en-p13-l62-001",
+              "order": 1,
+              "target": "She went shopping with her sister last Saturday.",
+              "bn": "তিনি গত শনিবার তার বোনের সাথে কেনাকাটা করতে গিয়েছিলেন।",
+              "pron_bn": "শি ওয়েন্ট শপিং উইথ হার সিস্টার লাস্ট স্যাটারডে।",
+              "ipa": "She went shopping with her sister last Saturday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-002",
+              "order": 2,
+              "target": "We got up early yesterday and went for a long morning walk.",
+              "bn": "আমরা গতকাল খুব ভোরে ঘুম থেকে উঠে প্রাতঃভ্রমণে গিয়েছিলাম।",
+              "pron_bn": "উই গট আপ আর্লি ইয়েস্টারডে অ্যান্ড ওয়েন্ট ফর আ লং মর্নিং ওয়াক।",
+              "ipa": "We got up early yesterday and went for a long morning walk.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-003",
+              "order": 3,
+              "target": "I met my old school friend at the railway station.",
+              "bn": "রেলওয়ে স্টেশনে আমার পুরানো স্কুল বন্ধুর সাথে দেখা হয়েছিল।",
+              "pron_bn": "আই মেট মাই ওল্ড স্কুল ফ্রেন্ড অ্যাট দ্য রেলওয়ে স্টেশন।",
+              "ipa": "I met my old school friend at the railway station.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-004",
+              "order": 4,
+              "target": "He bought a brand new smartphone two days ago.",
+              "bn": "সে দুই দিন আগে একটি একদম নতুন স্মার্টফোন কিনেছিল।",
+              "pron_bn": "হি বট আ ব্র্যান্ড নিউ স্মার্টফোন টু ডেইজ এগো।",
+              "ipa": "He bought a brand new smartphone two days ago.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-005",
+              "order": 5,
+              "target": "She cooked delicious biryani for all the invited guests.",
+              "bn": "তিনি সকল আমন্ত্রিত অতিথিদের জন্য সুস্বাদু বিরিয়ানি রান্না করেছিলেন।",
+              "pron_bn": "শি কুক্ট ডেলিশাস বিরিয়ানি ফর অল দি ইনভাইটেড গেস্টস।",
+              "ipa": "She cooked delicious biryani for all the invited guests.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-006",
+              "order": 6,
+              "target": "We watched an inspiring documentary last night.",
+              "bn": "আমরা গত রাতে একটি অনুপ্রেরণামূলক ডকুমেন্টারি দেখেছি।",
+              "pron_bn": "উই ওয়াচড অ্যান ইন্সপায়ারিং ডকুমেন্টারি লাস্ট নাইট।",
+              "ipa": "We watched an inspiring documentary last night.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-007",
+              "order": 7,
+              "target": "They reached the international airport on time yesterday.",
+              "bn": "তারা গতকাল সময়মতো আন্তর্জাতিক বিমানবন্দরে পৌঁছেছিল।",
+              "pron_bn": "দে রীচড দি ইন্টারন্যাশনাল এয়ারপোর্ট অন টাইম ইয়েস্টারডে।",
+              "ipa": "They reached the international airport on time yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l62-008",
+              "order": 8,
+              "target": "I finished reading the entire book in just three days.",
+              "bn": "আমি মাত্র তিন দিনে পুরো বইটি পড়া শেষ করেছিলাম।",
+              "pron_bn": "আই ফিনিশড রিডিং দি এনটায়ার বুক ইন জাস্ট থ্রি ডেইজ।",
+              "ipa": "I finished reading the entire book in just three days.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l63",
+          "order": 3,
+          "title_bn": "অতীতের না-বোধক বাক্য — 'Didn't + V1' (Negative Past Simple)",
+          "title_target": "Negative Past Simple (Didn't + V1)",
+          "intro_bn": "অতীতে কোনো কাজ করা হয়নি বোঝাতে 'did not' বা সংক্ষেপে 'didn't' এবং এরপরে মূল Verb-এর Base form (V1) বসে। কখনোই didn't-এর পর V2 বসবে না!",
+          "structure": [
+            "Subject + didn't + Verb (Base form V1)",
+            "Note: didn't go (went নয়), didn't see (saw নয়)"
+          ],
+          "items": [
+            {
+              "id": "en-p13-l63-001",
+              "order": 1,
+              "target": "I didn't receive your phone call yesterday.",
+              "bn": "আমি গতকাল আপনার ফোন কল পাইনি।",
+              "pron_bn": "আই ডিডন্ট রিসিভ ইয়োর ফোন কল ইয়েস্টারডে।",
+              "ipa": "I didn't receive your phone call yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-002",
+              "order": 2,
+              "target": "She didn't go shopping with her friends last month.",
+              "bn": "তিনি গত মাসে বন্ধুদের সাথে কেনাকাটা করতে যাননি।",
+              "pron_bn": "শি ডিডন্ট গো শপিং উইথ হার ফ্রেন্ডস লাস্ট মান্থ।",
+              "ipa": "She didn't go shopping with her friends last month.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-003",
+              "order": 3,
+              "target": "We didn't get up late yesterday morning.",
+              "bn": "আমরা গতকাল সকালে দেরিতে উঠিনি।",
+              "pron_bn": "উই ডিডন্ট গেট আপ লেইট ইয়েস্টারডে মর্নিং।",
+              "ipa": "We didn't get up late yesterday morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-004",
+              "order": 4,
+              "target": "He didn't tell me about the schedule change.",
+              "bn": "তিনি সময়সূচি পরিবর্তনের ব্যাপারে আমাকে কিছু জানাননি।",
+              "pron_bn": "হি ডিডন্ট টেল মি অ্যাবাউট দ্য শিডিউল চেইঞ্জ।",
+              "ipa": "He didn't tell me about the schedule change.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-005",
+              "order": 5,
+              "target": "They didn't attend the annual general meeting yesterday.",
+              "bn": "তারা গতকাল বার্ষিক সাধারণ সভায় উপস্থিত হননি।",
+              "pron_bn": "দে ডিডন্ট অ্যাটেন্ড দি অ্যানুয়াল জেনারেল মিটিং ইয়েস্টারডে।",
+              "ipa": "They didn't attend the annual general meeting yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-006",
+              "order": 6,
+              "target": "I didn't understand that complex grammar rule at first.",
+              "bn": "আমি প্রথমে সেই জটিল ব্যাকরণ নিয়মটি বুঝতে পারিনি।",
+              "pron_bn": "আই ডিডন্ট আন্ডারস্ট্যান্ড দ্যাট কমপ্লেক্স গ্রামার রুল অ্যাট ফার্স্ট।",
+              "ipa": "I didn't understand that complex grammar rule at first.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-007",
+              "order": 7,
+              "target": "She didn't buy that expensive blue dress from the mall.",
+              "bn": "সে মল থেকে সেই দামি নীল পোশাকটি কেনেনি।",
+              "pron_bn": "শি ডিডন্ট বাই দ্যাট এক্সপেন্সিভ ব্লু ড্রেস ফ্রম দ্য মল।",
+              "ipa": "She didn't buy that expensive blue dress from the mall.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l63-008",
+              "order": 8,
+              "target": "We didn't face any trouble on our way back home.",
+              "bn": "বাড়ি ফেরার পথে আমরা কোনো সমস্যায় পড়িনি।",
+              "pron_bn": "উই ডিডন্ট ফেইস অ্যানি ট্রাবল অন আওয়ার ওয়ে ব্যাক হোম।",
+              "ipa": "We didn't face any trouble on our way back home.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l64",
+          "order": 4,
+          "title_bn": "অতীতের প্রশ্ন ও প্রশ্নোত্তর — 'Did you + V1...?' (Past Simple Q&A Drills)",
+          "title_target": "Past Questions & Answers (Did you + V1...?)",
+          "intro_bn": "অতীতে কেউ কোনো কাজ করেছিল কি না জানতে 'Did + Subject + V1...?' দিয়ে প্রশ্ন করা হয়। হ্যাঁ-বোধক উত্তরে V2 এবং না-বোধক উত্তরে didn't + V1 ব্যবহৃত হয়।",
+          "structure": [
+            "Did + Subject + Verb (V1)...?",
+            "Yes, Subject + V2 ... / No, Subject + didn't + V1..."
+          ],
+          "items": [
+            {
+              "id": "en-p13-l64-001",
+              "order": 1,
+              "target": "Did she go shopping last weekend? Yes, she went shopping. No, she didn't go shopping.",
+              "bn": "সে কি গত সপ্তাহে কেনাকাটা করতে গিয়েছিল? হ্যাঁ, সে কেনাকাটা করতে গিয়েছিল। না, সে যায়নি।",
+              "pron_bn": "ডিড শি গো শপিং লাস্ট উইকেন্ড? ইয়েস, শি ওয়েন্ট শপিং। নো, শি ডিডন্ট গো শপিং।",
+              "ipa": "Did she go shopping last weekend? Yes, she went shopping. No, she didn't go shopping.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-002",
+              "order": 2,
+              "target": "Did you get up early yesterday? Yes, I got up early. No, I didn't get up early.",
+              "bn": "তুমি কি কাল ভোরে উঠেছিলে? হ্যাঁ, আমি ভোরে উঠেছিলাম। না, আমি ভোরে উঠিনি।",
+              "pron_bn": "ডিড ইউ গেট আপ আর্লি ইয়েস্টারডে? ইয়েস, আই গট আপ আর্লি। নো, আই ডিডন্ট গেট আপ আর্লি।",
+              "ipa": "Did you get up early yesterday? Yes, I got up early. No, I didn't get up early.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-003",
+              "order": 3,
+              "target": "Did you watch the cricket match yesterday? Yes, I watched the match. No, I didn't watch it.",
+              "bn": "তুমি কি গতকাল ক্রিকেট ম্যাচটি দেখেছিলে? হ্যাঁ, আমি ম্যাচটি দেখেছি। না, আমি দেখিনি।",
+              "pron_bn": "ডিড ইউ ওয়াচ দ্য ক্রিকেট ম্যাচ ইয়েস্টারডে? ইয়েস, আই ওয়াচড দ্য ম্যাচ। নো, আই ডিডন্ট ওয়াচ ইট।",
+              "ipa": "Did you watch the cricket match yesterday? Yes, I watched the match. No, I didn't watch it.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-004",
+              "order": 4,
+              "target": "Did he call you last night? Yes, he called me. No, he didn't call me.",
+              "bn": "সে কি গত রাতে তোমাকে ফোন করেছিল? হ্যাঁ, সে আমাকে ফোন করেছিল। না, সে আমাকে ফোন করেনি।",
+              "pron_bn": "ডিড হি কল ইউ লাস্ট নাইট? ইয়েস, হি কল্ড মি। নো, হি ডিডন্ট কল মি।",
+              "ipa": "Did he call you last night? Yes, he called me. No, he didn't call me.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-005",
+              "order": 5,
+              "target": "Did they enjoy the beach party? Yes, they enjoyed it very much. No, they didn't enjoy it.",
+              "bn": "তারা কি সমুদ্র সৈকতের পার্টি উপভোগ করেছিল? হ্যাঁ, তারা খুব উপভোগ করেছিল। না, তারা উপভোগ করেনি।",
+              "pron_bn": "ডিড দে এনজয় দ্য বিচ পার্টি? ইয়েস, দে এনজয়েড ইট ভেরি মাচ। নো, দে ডিডন্ট এনজয় ইট।",
+              "ipa": "Did they enjoy the beach party? Yes, they enjoyed it very much. No, they didn't enjoy it.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-006",
+              "order": 6,
+              "target": "Did you sleep well last night? Yes, I slept very well. No, I didn't sleep well.",
+              "bn": "গত রাতে আপনার ঘুম ভালো হয়েছিল? হ্যাঁ, আমার খুব ভালো ঘুম হয়েছিল। না, আমার ঘুম ভালো হয়নি।",
+              "pron_bn": "ডিড ইউ স্লিপ ওয়েল লাস্ট নাইট? ইয়েস, আই স্লেপ্ট ভেরি ওয়েল। নো, আই ডিডন্ট স্লিপ ওয়েল।",
+              "ipa": "Did you sleep well last night? Yes, I slept very well. No, I didn't sleep well.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-007",
+              "order": 7,
+              "target": "Did it rain heavily in your area yesterday? Yes, it rained heavily. No, it didn't rain.",
+              "bn": "গতকাল কি আপনার এলাকায় ভারী বৃষ্টি হয়েছিল? হ্যাঁ, ভারী বৃষ্টি হয়েছিল। না, বৃষ্টি হয়নি।",
+              "pron_bn": "ডিড ইট রেইন হেভিলি ইন ইয়োর এরিয়া ইয়েস্টারডে? ইয়েস, ইট রেইন্ড হেভিলি। নো, ইট ডিডন্ট রেইন।",
+              "ipa": "Did it rain heavily in your area yesterday? Yes, it rained heavily. No, it didn't rain.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l64-008",
+              "order": 8,
+              "target": "Did you find your lost wallet? Yes, I found it under the table. No, I didn't find it yet.",
+              "bn": "তুমি কি তোমার হারিয়ে যাওয়া মানিব্যাগ খুঁজে পেয়েছ? হ্যাঁ, আমি টেবিলের নিচে পেয়েছি। না, আমি এখনও খুঁজে পাইনি।",
+              "pron_bn": "ডিড ইউ ফাইন্ড ইয়োর লস্ট ওয়ালেট? ইয়েস, আই ফাউন্ড ইট আন্ডার দ্য টেবিল। নো, আই ডিডন্ট ফাইন্ড ইট ইয়েট।",
+              "ipa": "Did you find your lost wallet? Yes, I found it under the table. No, I didn't find it yet.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l65",
+          "order": 5,
+          "title_bn": "অতীতের তথ্যমূলক প্রশ্ন — 'Wh- Questions with Did' (Seeking Past Info)",
+          "title_target": "Wh- Questions in the Past (Where, When, Why, What did you...?)",
+          "intro_bn": "অতীতে কী, কখন, কোথায়, কেন, কীভাবে ঘটেছিল তা জানতে Wh-words (What, When, Where, Why, How) এর সাথে 'did + Subject + V1' ব্যবহার করা হয়।",
+          "structure": [
+            "Wh-word + did + Subject + Verb (V1)...?",
+            "Answer: Subject + V2 (Past Form)..."
+          ],
+          "items": [
+            {
+              "id": "en-p13-l65-001",
+              "order": 1,
+              "target": "Where did you go yesterday evening? I went to the shopping mall.",
+              "bn": "আপনি গতকাল সন্ধ্যায় কোথায় গিয়েছিলেন? আমি শপিং মলে গিয়েছিলাম।",
+              "pron_bn": "হোয়ার ডিড ইউ গো ইয়েস্টারডে ইভনিং? আই ওয়েন্ট টু দ্য শপিং মল।",
+              "ipa": "Where did you go yesterday evening? I went to the shopping mall.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-002",
+              "order": 2,
+              "target": "What did you buy at the supermarket? I bought fresh fruits and vegetables.",
+              "bn": "আপনি সুপারমার্কেটে কী কিনেছিলেন? আমি তাজা ফল ও শাকসবজি কিনেছিলাম।",
+              "pron_bn": "হোয়াট ডিড ইউ বাই অ্যাট দ্য সুপারমার্কেট? আই বট ফ্রেশ ফ্রুটস অ্যান্ড ভেজিটেবলস।",
+              "ipa": "What did you buy at the supermarket? I bought fresh fruits and vegetables.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-003",
+              "order": 3,
+              "target": "When did they arrive at the venue? They arrived at six in the evening.",
+              "bn": "তারা কখন অনুষ্ঠানস্থলে পৌঁছেছিলেন? তারা সন্ধ্যা ছয়টায় পৌঁছেছিলেন।",
+              "pron_bn": "হোয়েন ডিড দে অ্যারাইভ অ্যাট দ্য ভেনিউ? দে অ্যারাইভড অ্যাট সিক্স ইন দি ইভনিং।",
+              "ipa": "When did they arrive at the venue? They arrived at six in the evening.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-004",
+              "order": 4,
+              "target": "Why did you miss the morning bus? Because I got up a little late.",
+              "bn": "আপনি সকালের বাস মিস করেছিলেন কেন? কারণ আমি একটু দেরিতে ঘুম থেকে উঠেছিলাম।",
+              "pron_bn": "হোয়াই ডিড ইউ মিস দ্য মর্নিং বাস? বিকজ আই গট আপ আ লিটল লেইট।",
+              "ipa": "Why did you miss the morning bus? Because I got up a little late.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-005",
+              "order": 5,
+              "target": "How did you learn to speak English so well? I practiced speaking every single day.",
+              "bn": "আপনি এত সুন্দর ইংরেজি বলা কীভাবে শিখলেন? আমি প্রতিদিন কথা বলার অনুশীলন করেছি।",
+              "pron_bn": "হাউ ডিড ইউ লার্ন টু স্পিক ইংলিশ সো ওয়েল? আই প্র্যাকটিসড স্পিকিং এভরি সিঙ্গেল ডে।",
+              "ipa": "How did you learn to speak English so well? I practiced speaking every single day.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-006",
+              "order": 6,
+              "target": "Who did you meet at the office conference? I met our new marketing director.",
+              "bn": "অফিসের সম্মেলনে আপনি কার সাথে দেখা করেছিলেন? আমি আমাদের নতুন মার্কেটিং পরিচালকের সাথে দেখা করেছিলাম।",
+              "pron_bn": "হু ডিড ইউ মিট অ্যাট দি অফিস কনফারেন্স? আই মেট আওয়ার নিউ মার্কেটিং ডিরেক্টর।",
+              "ipa": "Who did you meet at the office conference? I met our new marketing director.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-007",
+              "order": 7,
+              "target": "What time did you go to bed last night? I went to bed around midnight.",
+              "bn": "গত রাতে আপনি কয়টায় ঘুমাতে গিয়েছিলেন? আমি প্রায় মধ্যরাতে ঘুমাতে গিয়েছিলাম।",
+              "pron_bn": "হোয়াট টাইম ডিড ইউ গো টু বেড লাস্ট নাইট? আই ওয়েন্ট টু বেড অ্যারাউন্ড মিডনাইট।",
+              "ipa": "What time did you go to bed last night? I went to bed around midnight.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            },
+            {
+              "id": "en-p13-l65-008",
+              "order": 8,
+              "target": "How much did this leather jacket cost? It cost three thousand taka.",
+              "bn": "এই চামড়ার জ্যাকেটের দাম কত ছিল? এর দাম ছিল তিন হাজার টাকা।",
+              "pron_bn": "হাউ মাচ ডিড দিজ লেদার জ্যাকেট কস্ট? ইট কস্ট থ্রি থাউজেন্ড টাকা।",
+              "ipa": "How much did this leather jacket cost? It cost three thousand taka.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_simple",
+                "tense": "past_simple"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p14",
+      "order": 14,
+      "level": "A2",
+      "title_bn": "অতীত ঘটমান কাল ও বাধাগ্রস্ত কাজ (Past Continuous & When/While)",
+      "title_target": "Past Continuous & Interrupted Actions",
+      "lessons": [
+        {
+          "id": "en-foundations-l66",
+          "order": 1,
+          "title_bn": "অতীতে চলমান কাজ — 'Was / Were + Verb-ING' (Past Continuous)",
+          "title_target": "Ongoing Past Actions (Was / Were + Verb-ING)",
+          "intro_bn": "অতীতের কোনো নির্দিষ্ট সময়ে কোনো কাজ কিছুক্ষণ ধরে চলছিল বোঝাতে Past Continuous Tense ব্যবহৃত হয়। গঠন: Subject + was/were + Verb-ING।",
+          "structure": [
+            "I / He / She / It + was + Verb-ING",
+            "We / You / They + were + Verb-ING"
+          ],
+          "items": [
+            {
+              "id": "en-p14-l66-001",
+              "order": 1,
+              "target": "She was cooking delicious dinner in the kitchen.",
+              "bn": "সে রান্নাঘরে সুস্বাদু রাতের খাবার রান্না করছিল।",
+              "pron_bn": "শি ওয়াজ কুকিং ডেলিশাস ডিনার ইন দ্য কিচেন।",
+              "ipa": "She was cooking delicious dinner in the kitchen.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-002",
+              "order": 2,
+              "target": "I was reading an interesting storybook at eight pm.",
+              "bn": "রাত আটটায় আমি একটি মজার গল্পের বই পড়ছিলাম।",
+              "pron_bn": "আই ওয়াজ রিডিং অ্যান ইন্টারেস্টিং স্টোরিবুক অ্যাট এইট পিএম।",
+              "ipa": "I was reading an interesting storybook at eight pm.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-003",
+              "order": 3,
+              "target": "They were playing cricket in the open field all afternoon.",
+              "bn": "তারা পুরো বিকেল জুড়ে উন্মুক্ত মাঠে ক্রিকেট খেলছিল।",
+              "pron_bn": "দে ওয়্যার প্লেয়িং ক্রিকেট ইন দি ওপেন ফিল্ড অল আফটারনুন।",
+              "ipa": "They were playing cricket in the open field all afternoon.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-004",
+              "order": 4,
+              "target": "He was preparing his final presentation slides last night.",
+              "bn": "সে গত রাতে তার চূড়ান্ত প্রেজেন্টেশন স্লাইড তৈরি করছিল।",
+              "pron_bn": "হি ওয়াজ প্রিপেয়ারিং হিজ ফাইনাল প্রেজেন্টেশন স্লাইডস লাস্ট নাইট।",
+              "ipa": "He was preparing his final presentation slides last night.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-005",
+              "order": 5,
+              "target": "It was raining heavily when we stepped outside.",
+              "bn": "আমরা যখন বাইরে পা রেখেছিলাম তখন মুষলধারে বৃষ্টি হচ্ছিল।",
+              "pron_bn": "ইট ওয়াজ রেইনিং হেভিলি হোয়েন উই স্টেপড আউটসাইড।",
+              "ipa": "It was raining heavily when we stepped outside.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-006",
+              "order": 6,
+              "target": "We were having lunch together at the restaurant.",
+              "bn": "আমরা রেস্তোরাঁয় একসাথে দুপুরের খাবার খাচ্ছিলাম।",
+              "pron_bn": "উই ওয়্যার হ্যাভিং লাঞ্চ টুগেদার অ্যাট দ্য রেস্টুরেন্ট।",
+              "ipa": "We were having lunch together at the restaurant.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-007",
+              "order": 7,
+              "target": "She was waiting for the city bus at the stoppage.",
+              "bn": "সে বাস স্টপেজে শহরের বাসের জন্য অপেক্ষা করছিল।",
+              "pron_bn": "শি ওয়াজ ওয়েটিং ফর দ্য সিটি বাস অ্যাট দ্য স্টপেজ।",
+              "ipa": "She was waiting for the city bus at the stoppage.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l66-008",
+              "order": 8,
+              "target": "The children were sleeping peacefully in their bedroom.",
+              "bn": "বাচ্চারা তাদের শোবার ঘরে শান্তভাবে ঘুমাচ্ছিল।",
+              "pron_bn": "দ্য চিলড্রেন ওয়্যার স্লিপিং পিসফুলি ইন দেয়ার বেডরুম।",
+              "ipa": "The children were sleeping peacefully in their bedroom.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l67",
+          "order": 2,
+          "title_bn": "অতীতে চলমান না-বোধক — 'Wasn't / Weren't + Verb-ING' (Negative)",
+          "title_target": "Negative Ongoing Past Actions (Wasn't / Weren't + ING)",
+          "intro_bn": "অতীতে কোনো নির্দিষ্ট সময়ে কাজ চলছিল না বোঝাতে 'was not' (wasn't) বা 'were not' (weren't) এবং Verb-ING বসে।",
+          "structure": [
+            "I / He / She / It + wasn't + Verb-ING",
+            "We / You / They + weren't + Verb-ING"
+          ],
+          "items": [
+            {
+              "id": "en-p14-l67-001",
+              "order": 1,
+              "target": "She wasn't cooking when I arrived at her house.",
+              "bn": "আমি যখন তার বাড়িতে পৌঁছাই তখন সে রান্না করছিল না।",
+              "pron_bn": "শি ওয়াজন্ট কুকিং হোয়েন আই অ্যারাইভড অ্যাট হার হাউজ।",
+              "ipa": "She wasn't cooking when I arrived at her house.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-002",
+              "order": 2,
+              "target": "I wasn't sleeping when you called me last night.",
+              "bn": "গত রাতে তুমি যখন আমাকে ফোন করেছিলে তখন আমি ঘুমাচ্ছিলাম না।",
+              "pron_bn": "আই ওয়াজন্ট স্লিপিং হোয়েন ইউ কল্ড মি লাস্ট নাইট।",
+              "ipa": "I wasn't sleeping when you called me last night.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-003",
+              "order": 3,
+              "target": "They weren't paying attention to the teacher's lecture.",
+              "bn": "তারা শিক্ষকের বক্তব্যের দিকে মনোযোগ দিচ্ছিল না।",
+              "pron_bn": "দে ওয়্যারন্ট পেয়িং অ্যাটেনশন টু দ্য টিচার্স লেকচার।",
+              "ipa": "They weren't paying attention to the teacher's lecture.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-004",
+              "order": 4,
+              "target": "He wasn't working on his computer yesterday evening.",
+              "bn": "গতকাল সন্ধ্যায় সে কম্পিউটারে কাজ করছিল না।",
+              "pron_bn": "হি ওয়াজন্ট ওয়ার্কিং অন হিজ কম্পিউটার ইয়েস্টারডে ইভনিং।",
+              "ipa": "He wasn't working on his computer yesterday evening.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-005",
+              "order": 5,
+              "target": "It wasn't raining when we left the office building.",
+              "bn": "আমরা যখন অফিস ভবন থেকে বের হই তখন বৃষ্টি হচ্ছিল না।",
+              "pron_bn": "ইট ওয়াজন্ট রেইনিং হোয়েন উই লেফট দি অফিস বিল্ডিং।",
+              "ipa": "It wasn't raining when we left the office building.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-006",
+              "order": 6,
+              "target": "We weren't watching television at that exact moment.",
+              "bn": "আমরা ঠিক সেই মুহূর্তে টেলিভিশন দেখছিলাম না।",
+              "pron_bn": "উই ওয়্যারন্ট ওয়াচিং টেলিভিশন অ্যাট দ্যাট এক্স্যাক্ট মোমেন্ট।",
+              "ipa": "We weren't watching television at that exact moment.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-007",
+              "order": 7,
+              "target": "She wasn't driving the car when the accident occurred.",
+              "bn": "দুর্ঘটনা ঘটার সময় সে গাড়ি চালাচ্ছিল না।",
+              "pron_bn": "শি ওয়াজন্ট ড্রাইভিং দ্য কার হোয়েন দি অ্যাক্সিডেন্ট অকার্ড।",
+              "ipa": "She wasn't driving the car when the accident occurred.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l67-008",
+              "order": 8,
+              "target": "They weren't arguing about anything serious.",
+              "bn": "তারা গুরুতর কিছু নিয়ে তর্ক করছিল না।",
+              "pron_bn": "দে ওয়্যারন্ট আর্গুয়িং অ্যাবাউট অ্যানিথিং সিরিয়াস।",
+              "ipa": "They weren't arguing about anything serious.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l68",
+          "order": 3,
+          "title_bn": "'When' ও 'While' এর ব্যবহার (Interrupted Past Actions)",
+          "title_target": "Interrupted Past Actions ('When' & 'While')",
+          "intro_bn": "অতীতে একটি কাজ চলাকালে হঠাৎ অন্য একটি কাজ ঘটলে চলমান অংশটি Past Continuous এবং হঠাৎ ঘটা অংশটি Past Simple হয়। 'While' এর পর সাধারণত চলমান এবং 'When' এর পর সাধারণত হঠাৎ ঘটা অংশ বসে।",
+          "structure": [
+            "Past Continuous + when + Past Simple (I was reading when the phone rang)",
+            "While + Past Continuous + Past Simple (While I was walking, I found a wallet)"
+          ],
+          "items": [
+            {
+              "id": "en-p14-l68-001",
+              "order": 1,
+              "target": "I was reading a book when the phone suddenly rang.",
+              "bn": "আমি একটি বই পড়ছিলাম যখন হঠাৎ ফোনটি বেজে উঠল।",
+              "pron_bn": "আই ওয়াজ রিডিং আ বুক হোয়েন দ্য ফোন সাডেনলি র‍্যাং।",
+              "ipa": "I was reading a book when the phone suddenly rang.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-002",
+              "order": 2,
+              "target": "While I was walking in the park, I found a leather wallet.",
+              "bn": "পার্কে হাঁটার সময় আমি একটি চামড়ার মানিব্যাগ পেয়েছিলাম।",
+              "pron_bn": "হোয়াইল আই ওয়াজ ওয়াকিং ইন দ্য পার্ক, আই ফাউন্ড আ লেদার ওয়ালেট।",
+              "ipa": "While I was walking in the park, I found a leather wallet.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-003",
+              "order": 3,
+              "target": "She was driving to work when her car broke down.",
+              "bn": "সে গাড়িতে চড়ে অফিসে যাচ্ছিল যখন তার গাড়িটি বিকল হয়ে পড়েছিল।",
+              "pron_bn": "শি ওয়াজ ড্রাইভিং টু ওয়ার্ক হোয়েন হার কার ব্রোক ডাউন।",
+              "ipa": "She was driving to work when her car broke down.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-004",
+              "order": 4,
+              "target": "While we were having dinner, the electricity went out.",
+              "bn": "আমরা যখন রাতের খাবার খাচ্ছিলাম, তখন বিদ্যুৎ চলে গিয়েছিল।",
+              "pron_bn": "হোয়াইল উই ওয়্যার হ্যাভিং ডিনার, দি ইলেকট্রিসিটি ওয়েন্ট আউট।",
+              "ipa": "While we were having dinner, the electricity went out.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-005",
+              "order": 5,
+              "target": "He was crossing the busy street when he saw his teacher.",
+              "bn": "সে ব্যস্ত রাস্তা পার হচ্ছিল যখন সে তার শিক্ষককে দেখতে পেয়েছিল।",
+              "pron_bn": "হি ওয়াজ ক্রসিং দ্য বিজি স্ট্রিট হোয়েন হি স হিজ টিচার।",
+              "ipa": "He was crossing the busy street when he saw his teacher.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-006",
+              "order": 6,
+              "target": "While she was cooking, she burned her hand slightly.",
+              "bn": "রান্না করার সময় সে তার হাত সামান্য পুড়িয়ে ফেলেছিল।",
+              "pron_bn": "হোয়াইল শি ওয়াজ কুকিং, শি বার্নড হার হ্যান্ড স্লাইটলি।",
+              "ipa": "While she was cooking, she burned her hand slightly.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-007",
+              "order": 7,
+              "target": "They were watching a football match when the guests arrived.",
+              "bn": "তারা ফুটবল ম্যাচ দেখছিল যখন অতিথিরা এসে পৌঁছেছিল।",
+              "pron_bn": "দে ওয়্যার ওয়াচিং আ ফুটবল ম্যাচ হোয়েন দ্য গেস্টস অ্যারাইভড।",
+              "ipa": "They were watching a football match when the guests arrived.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l68-008",
+              "order": 8,
+              "target": "What were you doing when the earthquake occurred?",
+              "bn": "ভূমিকম্পটি ঘটার সময় আপনি কী করছিলেন?",
+              "pron_bn": "হোয়াট ওয়্যার ইউ ডুইং হোয়েন দি আর্থকোয়েক অকার্ড?",
+              "ipa": "What were you doing when the earthquake occurred?",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l69",
+          "order": 4,
+          "title_bn": "অতীতের চলমান প্রশ্নোত্তর — 'Were you doing...?' (Continuous Q&A)",
+          "title_target": "Past Continuous Questions & Answers",
+          "intro_bn": "অতীতে কেউ কোনো কাজ করছিল কি না জানতে 'Was/Were + Subject + Verb-ING...?' দিয়ে প্রশ্ন করা হয়।",
+          "structure": [
+            "Was / Were + Subject + Verb-ING...?",
+            "What were you doing at (time)...?"
+          ],
+          "items": [
+            {
+              "id": "en-p14-l69-001",
+              "order": 1,
+              "target": "Was she cooking dinner when you came home? Yes, she was cooking. No, she wasn't cooking.",
+              "bn": "তুমি বাসায় এলে সে কি রাতের খাবার রান্না করছিল? হ্যাঁ, সে রান্না করছিল। না, সে রান্না করছিল না।",
+              "pron_bn": "ওয়াজ শি কুকিং ডিনার হোয়েন ইউ কেইম হোম? ইয়েস, শি ওয়াজ কুকিং। নো, শি ওয়াজন্ট কুকিং।",
+              "ipa": "Was she cooking dinner when you came home? Yes, she was cooking. No, she wasn't cooking.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-002",
+              "order": 2,
+              "target": "Were you sleeping when I called you? Yes, I was sleeping. No, I was not sleeping.",
+              "bn": "আমি যখন ফোন করেছিলাম আপনি কি ঘুমাচ্ছিলেন? হ্যাঁ, আমি ঘুমাচ্ছিলাম। না, আমি ঘুমাচ্ছিলাম না।",
+              "pron_bn": "ওয়্যার ইউ স্লিপিং হোয়েন আই কল্ড ইউ? ইয়েস, আই ওয়াজ স্লিপিং। নো, আই ওয়াজ নট স্লিপিং।",
+              "ipa": "Were you sleeping when I called you? Yes, I was sleeping. No, I was not sleeping.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-003",
+              "order": 3,
+              "target": "What were you doing yesterday at eight pm? I was preparing my office presentation.",
+              "bn": "গতকাল রাত আটটায় আপনি কী করছিলেন? আমি আমার অফিসের প্রেজেন্টেশন তৈরি করছিলাম।",
+              "pron_bn": "হোয়াট ওয়্যার ইউ ডুইং ইয়েস্টারডে অ্যাট এইট পিএম? আই ওয়াজ প্রিপেয়ারিং মাই অফিস প্রেজেন্টেশন।",
+              "ipa": "What were you doing yesterday at eight pm? I was preparing my office presentation.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-004",
+              "order": 4,
+              "target": "Were they waiting for you at the station? Yes, they were waiting for me.",
+              "bn": "তারা কি স্টেশনে আপনার জন্য অপেক্ষা করছিল? হ্যাঁ, তারা আমার জন্য অপেক্ষা করছিল।",
+              "pron_bn": "ওয়্যার দে ওয়েটিং ফর ইউ অ্যাট দ্য স্টেশন? ইয়েস, দে ওয়্যার ওয়েটিং ফর মি।",
+              "ipa": "Were they waiting for you at the station? Yes, they were waiting for me.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-005",
+              "order": 5,
+              "target": "Where were you going when I saw you yesterday? I was going to the supermarket.",
+              "bn": "গতকাল যখন আপনাকে দেখলাম আপনি কোথায় যাচ্ছিলেন? আমি সুপারমার্কেটে যাচ্ছিলাম।",
+              "pron_bn": "হোয়ার ওয়্যার ইউ গোয়িং হোয়েন আই স ইউ ইয়েস্টারডে? আই ওয়াজ গোয়িং টু দ্য সুপারমার্কেট।",
+              "ipa": "Where were you going when I saw you yesterday? I was going to the supermarket.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-006",
+              "order": 6,
+              "target": "Was it raining heavily when you left the house? Yes, it was raining heavily.",
+              "bn": "বাড়ি থেকে বের হওয়ার সময় কি মুষলধারে বৃষ্টি হচ্ছিল? হ্যাঁ, মুষলধারে বৃষ্টি হচ্ছিল।",
+              "pron_bn": "ওয়াজ ইট রেইনিং হেভিলি হোয়েন ইউ লেফট দ্য হাউজ? ইয়েস, ইট ওয়াজ রেইনিং হেভিলি।",
+              "ipa": "Was it raining heavily when you left the house? Yes, it was raining heavily.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-007",
+              "order": 7,
+              "target": "Who were you talking to on the phone? I was talking to my elder brother.",
+              "bn": "ফোনে আপনি কার সাথে কথা বলছিলেন? আমি আমার বড় ভাইয়ের সাথে কথা বলছিলাম।",
+              "pron_bn": "হু ওয়্যার ইউ টকিং টু অন দ্য ফোন? আই ওয়াজ টকিং টু মাই এল্ডার ব্রাদার।",
+              "ipa": "Who were you talking to on the phone? I was talking to my elder brother.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            },
+            {
+              "id": "en-p14-l69-008",
+              "order": 8,
+              "target": "Were you working late at the office yesterday? Yes, I was working until nine pm.",
+              "bn": "গতকাল আপনি কি অফিসে দেরিতে কাজ করছিলেন? হ্যাঁ, আমি রাত নয়টা পর্যন্ত কাজ করছিলাম।",
+              "pron_bn": "ওয়্যার ইউ ওয়ার্কিং লেইট অ্যাট দি অফিস ইয়েস্টারডে? ইয়েস, আই ওয়াজ ওয়ার্কিং আনটিল নাইন পিএম।",
+              "ipa": "Were you working late at the office yesterday? Yes, I was working until nine pm.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_continuous",
+                "tense": "past_continuous"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p15",
+      "order": 15,
+      "level": "A2",
+      "title_bn": "অতীতের ইচ্ছা, বাধ্যবাধকতা ও অভ্যাস (Used to, Had to, Wanted to, Could)",
+      "title_target": "Past Modals & Habits (Used to, Had to, Could)",
+      "lessons": [
+        {
+          "id": "en-foundations-l70",
+          "order": 1,
+          "title_bn": "অতীতের অভ্যাস — 'Used to + V1' (Past Habits)",
+          "title_target": "Past Habits (Used to + Verb V1)",
+          "intro_bn": "অতীতে নিয়মিত কোনো কাজ করা হতো কিন্তু বর্তমানে আর করা হয় না এমন অভ্যাস বোঝাতে 'used to + Verb (V1)' বসে।",
+          "structure": [
+            "Subject + used to + Verb (Base form V1)",
+            "Negative: didn't use to + Verb (V1)"
+          ],
+          "items": [
+            {
+              "id": "en-p15-l70-001",
+              "order": 1,
+              "target": "I used to play cricket every single afternoon in my school days.",
+              "bn": "স্কুলজীবনে আমি প্রতিদিন বিকেলে ক্রিকেট খেলতাম।",
+              "pron_bn": "আই ইউজড টু প্লে ক্রিকেট এভরি সিঙ্গেল আফটারনুন ইন মাই স্কুল ডেইজ।",
+              "ipa": "I used to play cricket every single afternoon in my school days.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-002",
+              "order": 2,
+              "target": "He used to live in Sylhet before moving to Dhaka.",
+              "bn": "ঢাকায় আসার আগে তিনি সিলেটে বসবাস করতেন।",
+              "pron_bn": "হি ইউজড টু লিভ ইন সিলেট বিফোর মুভিং টু ঢাকা।",
+              "ipa": "He used to live in Sylhet before moving to Dhaka.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-003",
+              "order": 3,
+              "target": "She used to wake up very early in the morning.",
+              "bn": "তিনি খুব ভোরে ঘুম থেকে উঠতেন।",
+              "pron_bn": "শি ইউজড টু ওয়েক আপ ভেরি আর্লি ইন দ্য মর্নিং।",
+              "ipa": "She used to wake up very early in the morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-004",
+              "order": 4,
+              "target": "We used to swim in the village pond every summer.",
+              "bn": "প্রতি গ্রীষ্মে আমরা গ্রামের পুকুরে সাঁতার কাটতাম।",
+              "pron_bn": "উই ইউজড টু সুইম ইন দ্য ভিলেজ পন্ড এভরি সামার।",
+              "ipa": "We used to swim in the village pond every summer.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-005",
+              "order": 5,
+              "target": "They used to travel to Cox's Bazar every winter.",
+              "bn": "প্রতি শীতে তারা কক্সবাজার ঘুরতে যেত।",
+              "pron_bn": "দে ইউজড টু ট্রাভেল টু কক্সবাজার এভরি উইন্টার।",
+              "ipa": "They used to travel to Cox's Bazar every winter.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-006",
+              "order": 6,
+              "target": "I didn't use to like vegetables when I was a child.",
+              "bn": "ছোটবেলায় আমি শাকসবজি পছন্দ করতাম না।",
+              "pron_bn": "আই ডিডন্ট ইউজ টু লাইক ভেজিটেবলস হোয়েন আই ওয়াজ আ চাইল্ড।",
+              "ipa": "I didn't use to like vegetables when I was a child.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-007",
+              "order": 7,
+              "target": "Did you use to practice English regularly? Yes, I used to practice every day.",
+              "bn": "আপনি কি নিয়মিত ইংরেজি অনুশীলন করতেন? হ্যাঁ, আমি প্রতিদিন অনুশীলন করতাম।",
+              "pron_bn": "ডিড ইউ ইউজ টু প্র্যাকটিস ইংলিশ রেগুলারলি? ইয়েস, আই ইউজড টু প্র্যাকটিস এভরি ডে।",
+              "ipa": "Did you use to practice English regularly? Yes, I used to practice every day.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l70-008",
+              "order": 8,
+              "target": "My grandfather used to walk five kilometers every morning.",
+              "bn": "আমার দাদা প্রতিদিন সকালে পাঁচ কিলোমিটার হাঁটতেন।",
+              "pron_bn": "মাই গ্র্যান্ডফাদার ইউজড টু ওয়াক ফাইভ কিলোমিটার্স এভরি মর্নিং।",
+              "ipa": "My grandfather used to walk five kilometers every morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l71",
+          "order": 2,
+          "title_bn": "অতীতের বাধ্যবাধকতা — 'Had to + V1' (Past Obligations)",
+          "title_target": "Past Obligations (Had to + Verb V1)",
+          "intro_bn": "অতীতে কোনো কিছু করতে হয়েছিল বা বাধ্যবাধকতা ছিল বোঝাতে 'have to / has to' এর অতীত রূপ 'had to + Verb (V1)' বসে। না-বোধকে 'didn't have to' বসে।",
+          "structure": [
+            "Subject + had to + Verb (Base form V1)",
+            "Negative: didn't have to + Verb (V1)"
+          ],
+          "items": [
+            {
+              "id": "en-p15-l71-001",
+              "order": 1,
+              "target": "I had to wake up at five in the morning yesterday.",
+              "bn": "গতকাল সকালে আমাকে পাঁচটায় ঘুম থেকে উঠতে হয়েছিল।",
+              "pron_bn": "আই হ্যাড টু ওয়েক আপ অ্যাট ফাইভ ইন দ্য মর্নিং ইয়েস্টারডে।",
+              "ipa": "I had to wake up at five in the morning yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-002",
+              "order": 2,
+              "target": "He had to submit his report by noon.",
+              "bn": "দুপুরের মধ্যে তাকে তার প্রতিবেদন জমা দিতে হয়েছিল।",
+              "pron_bn": "হি হ্যাড টু সাবমিট হিজ রিপোর্ট বাই নুন।",
+              "ipa": "He had to submit his report by noon.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-003",
+              "order": 3,
+              "target": "We had to cancel our family trip due to heavy rain.",
+              "bn": "ভারী বৃষ্টির কারণে আমাদের পারিবারিক ভ্রমণ বাতিল করতে হয়েছিল।",
+              "pron_bn": "উই হ্যাড টু ক্যানসেল আওয়ার ফ্যামিলি ট্রিপ ডিউ টু হেভি রেইন।",
+              "ipa": "We had to cancel our family trip due to heavy rain.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-004",
+              "order": 4,
+              "target": "She had to take medicine three times a day last week.",
+              "bn": "গত সপ্তাহে তাকে দিনে তিনবার ওষুধ খেতে হয়েছিল।",
+              "pron_bn": "শি হ্যাড টু টেক মেডিসিন থ্রি টাইমস আ ডে লাস্ট উইক।",
+              "ipa": "She had to take medicine three times a day last week.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-005",
+              "order": 5,
+              "target": "They had to wait for two hours at the train station.",
+              "bn": "তাদের ট্রেন স্টেশনে দুই ঘণ্টা অপেক্ষা করতে হয়েছিল।",
+              "pron_bn": "দে হ্যাড টু ওয়েট ফর টু আওয়ার্স অ্যাট দ্য ট্রেন স্টেশন।",
+              "ipa": "They had to wait for two hours at the train station.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-006",
+              "order": 6,
+              "target": "I didn't have to pay any extra fee for the service.",
+              "bn": "এই সেবার জন্য আমাকে কোনো অতিরিক্ত ফি দিতে হয়নি।",
+              "pron_bn": "আই ডিডন্ট হ্যাভ টু পে অ্যানি এক্সট্রা ফি ফর দ্য সার্ভিস।",
+              "ipa": "I didn't have to pay any extra fee for the service.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-007",
+              "order": 7,
+              "target": "Did you have to work overtime yesterday? Yes, I had to work late. No, I didn't have to work late.",
+              "bn": "গতকাল কি আপনাকে ওভারটাইম কাজ করতে হয়েছিল? হ্যাঁ, আমাকে রাত পর্যন্ত কাজ করতে হয়েছিল। না, করতে হয়নি।",
+              "pron_bn": "ডিড ইউ হ্যাভ টু ওয়ার্ক ওভারটাইম ইয়েস্টারডে? ইয়েস, আই হ্যাড টু ওয়ার্ক লেইট। নো, আই ডিডন্ট হ্যাভ টু ওয়ার্ক লেইট।",
+              "ipa": "Did you have to work overtime yesterday? Yes, I had to work late. No, I didn't have to work late.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l71-008",
+              "order": 8,
+              "target": "Why did you have to leave early? Because I had an urgent appointment.",
+              "bn": "আপনাকে তাড়াতাড়ি চলে যেতে হয়েছিল কেন? কারণ আমার জরুরি অ্যাপয়েন্টমেন্ট ছিল।",
+              "pron_bn": "হোয়াই ডিড ইউ হ্যাভ টু লিভ আর্লি? বিকজ আই হ্যাড অ্যান আর্জেন্ট অ্যাপয়েন্টমেন্ট।",
+              "ipa": "Why did you have to leave early? Because I had an urgent appointment.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l72",
+          "order": 3,
+          "title_bn": "অতীতের ইচ্ছা ও প্রয়োজন — 'Wanted to' ও 'Needed to'",
+          "title_target": "Past Desires & Needs (Wanted to & Needed to)",
+          "intro_bn": "অতীতে কিছু করার ইচ্ছা ছিল বোঝাতে 'wanted to' এবং দরকার বা প্রয়োজন ছিল বোঝাতে 'needed to' বসে।",
+          "structure": [
+            "Subject + wanted to / needed to + Verb (V1)",
+            "Negative: didn't want to / didn't need to + Verb (V1)"
+          ],
+          "items": [
+            {
+              "id": "en-p15-l72-001",
+              "order": 1,
+              "target": "I wanted to meet you yesterday, but I was extremely busy.",
+              "bn": "আমি গতকাল আপনার সাথে দেখা করতে চেয়েছিলাম, কিন্তু আমি অত্যন্ত ব্যস্ত ছিলাম।",
+              "pron_bn": "আই ওয়ান্টেড টু মিট ইউ ইয়েস্টারডে, বাট আই ওয়াজ এক্সট্রিমলি বিজি।",
+              "ipa": "I wanted to meet you yesterday, but I was extremely busy.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-002",
+              "order": 2,
+              "target": "He wanted to buy that laptop, but it was too expensive.",
+              "bn": "সে সেই ল্যাপটপটি কিনতে চেয়েছিল, কিন্তু এটি খুব দামি ছিল।",
+              "pron_bn": "হি ওয়ান্টেড টু বাই দ্যাট ল্যাপটপ, বাট ইট ওয়াজ টু এক্সপেন্সিভ।",
+              "ipa": "He wanted to buy that laptop, but it was too expensive.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-003",
+              "order": 3,
+              "target": "I needed to talk to my manager regarding the project.",
+              "bn": "প্রজেক্টের ব্যাপারে আমার ম্যানেজারের সাথে কথা বলা প্রয়োজন ছিল।",
+              "pron_bn": "আই নিডেড টু টক টু মাই ম্যানেজার রিগার্ডিং দ্য প্রজেক্ট।",
+              "ipa": "I needed to talk to my manager regarding the project.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-004",
+              "order": 4,
+              "target": "She needed to buy some emergency medicine last night.",
+              "bn": "গত রাতে তার কিছু জরুরি ওষুধ কেনা দরকার ছিল।",
+              "pron_bn": "শি নিডেড টু বাই সাম ইমার্জেন্সি মেডিসিন লাস্ট নাইট।",
+              "ipa": "She needed to buy some emergency medicine last night.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-005",
+              "order": 5,
+              "target": "They didn't want to disclose the confidential information.",
+              "bn": "তারা গোপনীয় তথ্য প্রকাশ করতে চায়নি।",
+              "pron_bn": "দে ডিডন্ট ওয়ান্ট টু ডিসক্লোজ দ্য কনফিডেনশিয়াল ইনফরমেশন।",
+              "ipa": "They didn't want to disclose the confidential information.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-006",
+              "order": 6,
+              "target": "We didn't need to hire a taxi because my brother picked us up.",
+              "bn": "আমাদের ট্যাক্সি ভাড়া করার প্রয়োজন হয়নি কারণ আমার ভাই আমাদের নিতে এসেছিল।",
+              "pron_bn": "উই ডিডন্ট নিড টু হায়ার আ ট্যাক্সি বিকজ মাই ব্রাদার পিক্ট আস আপ।",
+              "ipa": "We didn't need to hire a taxi because my brother picked us up.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-007",
+              "order": 7,
+              "target": "What did you want to say to me? I wanted to thank you for your help.",
+              "bn": "আপনি আমাকে কী বলতে চেয়েছিলেন? আমি আপনার সাহায্যের জন্য ধন্যবাদ জানাতে চেয়েছিলাম।",
+              "pron_bn": "হোয়াট ডিড ইউ ওয়ান্ট টু সে টু মি? আই ওয়ান্টেড টু থ্যাংক ইউ ফর ইয়োর হেল্প।",
+              "ipa": "What did you want to say to me? I wanted to thank you for your help.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l72-008",
+              "order": 8,
+              "target": "Did you need any help yesterday? No, I managed everything myself.",
+              "bn": "গতকাল আপনার কি কোনো সাহায্যের দরকার ছিল? না, আমি নিজেই সব সামলে নিয়েছি।",
+              "pron_bn": "ডিড ইউ নিড অ্যানি হেল্প ইয়েস্টারডে? নো, আই ম্যানেজড এভরিথিং মাইসেলফ।",
+              "ipa": "Did you need any help yesterday? No, I managed everything myself.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l73",
+          "order": 4,
+          "title_bn": "অতীতের সামর্থ্য — 'Could / Couldn't' (Past Ability)",
+          "title_target": "Past Ability & Inability (Could / Couldn't + V1)",
+          "intro_bn": "অতীতে কোনো কাজ করার সামর্থ্য ছিল ('পারতাম') বোঝাতে 'could' এবং পারতাম না বা সম্ভব হয়নি বোঝাতে 'couldn't' বসে।",
+          "structure": [
+            "Subject + could / couldn't + Verb (Base form V1)",
+            "Could you...? (অতীতের সামর্থ্য বা ভদ্র অনুরোধ)"
+          ],
+          "items": [
+            {
+              "id": "en-p15-l73-001",
+              "order": 1,
+              "target": "I could swim very fast when I was younger.",
+              "bn": "আমি যখন ছোট ছিলাম তখন খুব দ্রুত সাঁতার কাটতে পারতাম।",
+              "pron_bn": "আই কুড সুইম ভেরি ফাস্ট হোয়েন আই ওয়াজ ইয়ঙ্গার।",
+              "ipa": "I could swim very fast when I was younger.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-002",
+              "order": 2,
+              "target": "She could speak three foreign languages fluently.",
+              "bn": "তিনি সাবলীলভাবে তিনটি বিদেশি ভাষায় কথা বলতে পারতেন।",
+              "pron_bn": "শি কুড স্পিক থ্রি ফরেন ল্যাঙ্গুয়েজেস ফ্লুয়েন্টলি।",
+              "ipa": "She could speak three foreign languages fluently.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-003",
+              "order": 3,
+              "target": "I couldn't attend the meeting because of a traffic jam.",
+              "bn": "ট্রাফিক জ্যামের কারণে আমি সভায় উপস্থিত হতে পারিনি।",
+              "pron_bn": "আই কুডন্ট অ্যাটেন্ড দ্য মিটিং বিকজ অব আ ট্রাফিক জ্যাম।",
+              "ipa": "I couldn't attend the meeting because of a traffic jam.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-004",
+              "order": 4,
+              "target": "He couldn't sleep well last night due to loud noise.",
+              "bn": "প্রচণ্ড শব্দের কারণে গত রাতে তিনি ভালো ঘুমাতে পারেননি।",
+              "pron_bn": "হি কুডন্ট স্লিপ ওয়েল লাস্ট নাইট ডিউ টু লাউড নয়েজ।",
+              "ipa": "He couldn't sleep well last night due to loud noise.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-005",
+              "order": 5,
+              "target": "We couldn't find your address easily yesterday.",
+              "bn": "গতকাল আমরা সহজেই আপনার ঠিকানা খুঁজে পাইনি।",
+              "pron_bn": "উই কুডন্ট ফাইন্ড ইয়োর অ্যাড্রেস ইজিলি ইয়েস্টারডে।",
+              "ipa": "We couldn't find your address easily yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-006",
+              "order": 6,
+              "target": "Could you hear my voice clearly on the call? Yes, I could hear you clearly. No, I couldn't hear you.",
+              "bn": "ফোনে কি আপনি আমার কণ্ঠ স্পষ্টভাবে শুনতে পেরেছিলেন? হ্যাঁ, পরিষ্কার শুনতে পেরেছিলাম। না, শুনতে পারিনি।",
+              "pron_bn": "কুড ইউ হেয়ার মাই ভয়েস ক্লিয়ারলি অন দ্য কল? ইয়েস, আই কুড হেয়ার ইউ ক্লিয়ারলি। নো, আই কুডন্ট হেয়ার ইউ।",
+              "ipa": "Could you hear my voice clearly on the call? Yes, I could hear you clearly. No, I couldn't hear you.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-007",
+              "order": 7,
+              "target": "They couldn't finish the construction work on time.",
+              "bn": "তারা সময়মতো নির্মাণ কাজ শেষ করতে পারেনি।",
+              "pron_bn": "দে কুডন্ট ফিনিশ দ্য কনস্ট্রাকশন ওয়ার্ক অন টাইম।",
+              "ipa": "They couldn't finish the construction work on time.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            },
+            {
+              "id": "en-p15-l73-008",
+              "order": 8,
+              "target": "Could you understand what he said in the lecture? Yes, I could understand everything.",
+              "bn": "লেকচারে তিনি কী বলেছিলেন তা কি আপনি বুঝতে পেরেছিলেন? হ্যাঁ, আমি সবকিছু বুঝতে পেরেছিলাম।",
+              "pron_bn": "কুড ইউ আন্ডারস্ট্যান্ড হোয়াট হি সেইড ইন দ্য লেকচার? ইয়েস, আই কুড আন্ডারস্ট্যান্ড এভরিথিং।",
+              "ipa": "Could you understand what he said in the lecture? Yes, I could understand everything.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_modals",
+                "tense": "past_modals"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p16",
+      "order": 16,
+      "level": "B1",
+      "title_bn": "পুরাঘটিত অতীত কাল (Past Perfect Tense: Had + V3)",
+      "title_target": "Past Perfect Tense (Had + V3 & Before / After)",
+      "lessons": [
+        {
+          "id": "en-foundations-l74",
+          "order": 1,
+          "title_bn": "দুটি অতীত কাজের পূর্ববর্তী কাজ — 'Had + V3' (Past Perfect)",
+          "title_target": "Earlier Past Action (Subject + Had + V3)",
+          "intro_bn": "অতীতে দুটি কাজ ঘটে থাকলে তাদের মধ্যে অপেক্ষাকৃত পূর্ববর্তী কাজটি Past Perfect (had + V3) এবং পরবর্তী কাজটি Past Simple (V2) হয়।",
+          "structure": [
+            "Earlier Action: Subject + had + V3 (Past Participle)",
+            "Later Action: Subject + V2 (Past Simple)"
+          ],
+          "items": [
+            {
+              "id": "en-p16-l74-001",
+              "order": 1,
+              "target": "She had done her homework before I came to visit her.",
+              "bn": "আমি তার সাথে দেখা করতে আসার আগেই সে বাড়ির কাজ শেষ করেছিল।",
+              "pron_bn": "শি হ্যাড ডান হার হোমওয়ার্ক বিফোর আই কেইম টু ভিজিট হার।",
+              "ipa": "She had done her homework before I came to visit her.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-002",
+              "order": 2,
+              "target": "The train had already left when we reached the platform.",
+              "bn": "আমরা যখন প্ল্যাটফর্মে পৌঁছাই তখন ট্রেনটি ইতিমধ্যেই ছেড়ে গিয়েছিল।",
+              "pron_bn": "দ্য ট্রেন হ্যাড অলরেডি লেফট হোয়েন উই রীচড দ্য প্ল্যাটফর্ম।",
+              "ipa": "The train had already left when we reached the platform.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-003",
+              "order": 3,
+              "target": "I had finished my dinner before eight o'clock yesterday.",
+              "bn": "গতকাল রাত আটটার আগেই আমি আমার রাতের খাবার শেষ করেছিলাম।",
+              "pron_bn": "আই হ্যাড ফিনিশড মাই ডিনার বিফোর এইট ও'ক্লক ইয়েস্টারডে।",
+              "ipa": "I had finished my dinner before eight o'clock yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-004",
+              "order": 4,
+              "target": "They had sold their house before moving to another country.",
+              "bn": "অন্য দেশে যাওয়ার আগেই তারা তাদের বাড়ি বিক্রি করে দিয়েছিল।",
+              "pron_bn": "দে হ্যাড সোল্ড দেয়ার হাউজ বিফোর মুভিং টু অ্যানাদার কান্ট্রি।",
+              "ipa": "They had sold their house before moving to another country.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-005",
+              "order": 5,
+              "target": "He had already informed the manager before submitting the leave letter.",
+              "bn": "ছুটির দরখাস্ত জমা দেওয়ার আগেই তিনি ম্যানেজারকে জানিয়েছিলেন।",
+              "pron_bn": "হি হ্যাড অলরেডি ইনফর্মড দ্য ম্যানেজার বিফোর সাবমিটিং দ্য লিভ লেটার।",
+              "ipa": "He had already informed the manager before submitting the leave letter.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-006",
+              "order": 6,
+              "target": "We had completed our project before the deadline arrived.",
+              "bn": "সময়সীমা আসার আগেই আমরা আমাদের প্রজেক্ট সম্পন্ন করেছিলাম।",
+              "pron_bn": "উই হ্যাড কমপ্লিটেড আওয়ার প্রজেক্ট বিফোর দ্য ডেডলাইন অ্যারাইভড।",
+              "ipa": "We had completed our project before the deadline arrived.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-007",
+              "order": 7,
+              "target": "Had she done her homework before you arrived? Yes, she had already done it. No, she hadn't done it.",
+              "bn": "তুমি আসার আগেই কি সে বাড়ির কাজ শেষ করেছিল? হ্যাঁ, সে আগেই শেষ করেছিল। না, সে করেনি।",
+              "pron_bn": "হ্যাড শি ডান হার হোমওয়ার্ক বিফোর ইউ অ্যারাইভড? ইয়েস, শি হ্যাড অলরেডি ডান ইট। নো, শি হ্যাডন্ট ডান ইট।",
+              "ipa": "Had she done her homework before you arrived? Yes, she had already done it. No, she hadn't done it.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l74-008",
+              "order": 8,
+              "target": "The patient had recovered before the specialist doctor arrived.",
+              "bn": "বিশেষজ্ঞ চিকিৎসক আসার আগেই রোগী সুস্থ হয়ে উঠেছিল।",
+              "pron_bn": "দ্য পেশেন্ট হ্যাড রিকভার্ড বিফোর দ্য স্পেশালিস্ট ডক্টর অ্যারাইভড।",
+              "ipa": "The patient had recovered before the specialist doctor arrived.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l75",
+          "order": 2,
+          "title_bn": "'Before' ও 'After' এর সঠিক ব্যবহার (Rules of Before & After)",
+          "title_target": "Using 'Before' & 'After' in Past Perfect",
+          "intro_bn": "গোল্ডেন রুল: 'Before' এর পূর্বে Past Perfect (had + V3) বসে এবং 'After' এর পরে Past Perfect (had + V3) বসে।",
+          "structure": [
+            "Past Perfect + BEFORE + Past Simple",
+            "Past Simple + AFTER + Past Perfect"
+          ],
+          "items": [
+            {
+              "id": "en-p16-l75-001",
+              "order": 1,
+              "target": "The movie had started before we entered the hall.",
+              "bn": "আমরা হলে প্রবেশের পূর্বেই সিনেমা শুরু হয়ে গিয়েছিল।",
+              "pron_bn": "দ্য মুভি হ্যাড স্টার্টেড বিফোর উই এন্টার্ড দ্য হল।",
+              "ipa": "The movie had started before we entered the hall.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-002",
+              "order": 2,
+              "target": "We entered the cinema hall after the movie had started.",
+              "bn": "সিনেমা শুরু হওয়ার পর আমরা সিনেমা হলে প্রবেশ করেছিলাম।",
+              "pron_bn": "উই এন্টার্ড দ্য সিনেমা হল আফটার দ্য মুভি হ্যাড স্টার্টেড।",
+              "ipa": "We entered the cinema hall after the movie had started.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-003",
+              "order": 3,
+              "target": "I had locked all the doors before I went to bed.",
+              "bn": "ঘুমাতে যাওয়ার আগেই আমি সব দরজা তালা দিয়েছিলাম।",
+              "pron_bn": "আই হ্যাড লকড অল দ্য ডোরস বিফোর আই ওয়েন্ট টু বেড।",
+              "ipa": "I had locked all the doors before I went to bed.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-004",
+              "order": 4,
+              "target": "He called me after he had reached the hotel.",
+              "bn": "হোটেলে পৌঁছানোর পর সে আমাকে ফোন করেছিল।",
+              "pron_bn": "হি কল্ড মি আফটার হি হ্যাড রীচড দ্য হোটেল।",
+              "ipa": "He called me after he had reached the hotel.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-005",
+              "order": 5,
+              "target": "She had prepared breakfast before everyone woke up.",
+              "bn": "সবার ঘুম ভাঙার আগেই সে সকালের নাস্তা তৈরি করেছিল।",
+              "pron_bn": "শি হ্যাড প্রিপেয়ার্ড ব্রেকফাস্ট বিফোর এভরিওয়ান ওক আপ।",
+              "ipa": "She had prepared breakfast before everyone woke up.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-006",
+              "order": 6,
+              "target": "They departed after the rain had stopped.",
+              "bn": "বৃষ্টি থামার পর তারা রওনা হয়েছিল।",
+              "pron_bn": "দে ডিপার্টেড আফটার দ্য রেইন হ্যাড স্টপড।",
+              "ipa": "They departed after the rain had stopped.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-007",
+              "order": 7,
+              "target": "I had never seen him before that memorable conference.",
+              "bn": "সেই স্মরণীয় সম্মেলনের আগে আমি তাকে কখনো দেখিনি।",
+              "pron_bn": "আই হ্যাড নেভার সিন হিম বিফোর দ্যাট মেমোরেবল কনফারেন্স।",
+              "ipa": "I had never seen him before that memorable conference.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l75-008",
+              "order": 8,
+              "target": "She went home after she had completed her duty.",
+              "bn": "দায়িত্ব শেষ করার পর সে বাড়ি গিয়েছিল।",
+              "pron_bn": "শি ওয়েন্ট হোম আফটার শি হ্যাড কমপ্লিটেড হার ডিউটি।",
+              "ipa": "She went home after she had completed her duty.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l76",
+          "order": 3,
+          "title_bn": "'By the time' ও অতীতের অভিজ্ঞতা (Past Perfect with 'By the time')",
+          "title_target": "Past Perfect with 'By the time' & Prior Experiences",
+          "intro_bn": "অতীতে নির্দিষ্ট সময়ের মধ্যে বা অন্য কোনো ঘটনা ঘটার আগ পর্যন্ত কাজ শেষ হয়েছিল বোঝাতে 'by the time' এবং অভিজ্ঞতা প্রকাশে 'had never / had already' বসে।",
+          "structure": [
+            "By the time + Past Simple, Subject + had + V3",
+            "Subject + had never + V3 + before"
+          ],
+          "items": [
+            {
+              "id": "en-p16-l76-001",
+              "order": 1,
+              "target": "By the time he arrived, the meeting had already ended.",
+              "bn": "তিনি পৌঁছানোর আগেই সভা শেষ হয়ে গিয়েছিল।",
+              "pron_bn": "বাই দ্য টাইম হি অ্যারাইভড, দ্য মিটিং হ্যাড অলরেডি এন্ডেড।",
+              "ipa": "By the time he arrived, the meeting had already ended.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-002",
+              "order": 2,
+              "target": "By the time the police came, the thieves had fled.",
+              "bn": "পুলিশ আসার আগেই চোরেরা পালিয়ে গিয়েছিল।",
+              "pron_bn": "বাই দ্য টাইম দ্য পুলিশ কেইম, দ্য থিভস হ্যাড ফ্লেড।",
+              "ipa": "By the time the police came, the thieves had fled.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-003",
+              "order": 3,
+              "target": "I had never tasted such authentic cuisine before that trip.",
+              "bn": "সেই ভ্রমণের আগে আমি কখনো এমন আসল খাবার খাইনি।",
+              "pron_bn": "আই হ্যাড নেভার টেস্টেড সাচ অথেনটিক ক্যুইজিন বিফোর দ্যাট ট্রিপ।",
+              "ipa": "I had never tasted such authentic cuisine before that trip.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-004",
+              "order": 4,
+              "target": "By the time she called me, I had already fixed the bug.",
+              "bn": "তিনি আমাকে ফোন করার আগেই আমি বাগটি ঠিক করে ফেলেছিলাম।",
+              "pron_bn": "বাই দ্য টাইম শি কল্ড মি, আই হ্যাড অলরেডি ফিক্সড দ্য বাগ।",
+              "ipa": "By the time she called me, I had already fixed the bug.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-005",
+              "order": 5,
+              "target": "She had never flown in an airplane before last year.",
+              "bn": "গত বছরের আগে তিনি কখনো বিমানে ওঠেননি।",
+              "pron_bn": "শি হ্যাড নেভার ফ্লোন ইন অ্যান এয়ারপ্লেন বিফোর লাস্ট ইয়ার।",
+              "ipa": "She had never flown in an airplane before last year.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-006",
+              "order": 6,
+              "target": "By midnight, all the invited guests had departed safely.",
+              "bn": "মধ্যরাতের মধ্যে সকল আমন্ত্রিত অতিথি নিরাপদে প্রস্থান করেছিলেন।",
+              "pron_bn": "বাই মিডনাইট, অল দি ইনভাইটেড গেস্টস হ্যাড ডিপার্টেড সেফলি।",
+              "ipa": "By midnight, all the invited guests had departed safely.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-007",
+              "order": 7,
+              "target": "Had you visited the city before moving there? Yes, I had visited it once.",
+              "bn": "সেখানে বসবাসের আগে আপনি কি শহরটি ঘুরে দেখেছিলেন? হ্যাঁ, আমি একবার দেখেছিলাম।",
+              "pron_bn": "হ্যাড ইউ ভিজিটেড দ্য সিটি বিফোর মুভিং দেয়ার? ইয়েস, আই হ্যাড ভিজিটেড ইট ওয়ান্স।",
+              "ipa": "Had you visited the city before moving there? Yes, I had visited it once.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            },
+            {
+              "id": "en-p16-l76-008",
+              "order": 8,
+              "target": "By the time we got the tickets, the show had started.",
+              "bn": "আমরা টিকিট পাওয়ার আগেই প্রদর্শনী শুরু হয়ে গিয়েছিল।",
+              "pron_bn": "বাই দ্য টাইম উই গট দ্য টিকেটস, দ্য শো হ্যাড স্টার্টেড।",
+              "ipa": "By the time we got the tickets, the show had started.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect",
+                "tense": "past_perfect"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p17",
+      "order": 17,
+      "level": "B1",
+      "title_bn": "পুরাঘটিত ঘটমান অতীত কাল (Past Perfect Continuous Tense)",
+      "title_target": "Past Perfect Continuous (Had been + Verb-ING)",
+      "lessons": [
+        {
+          "id": "en-foundations-l77",
+          "order": 1,
+          "title_bn": "নির্দিষ্ট সময় ধরে চলা অতীত কাজ — 'Had been + Verb-ING'",
+          "title_target": "Ongoing Action Before Past Event (Had been + Verb-ING)",
+          "intro_bn": "অতীতে কোনো কাজ বিশেষ কোনো সময়ের পূর্ব হতে আরম্ভ হয়ে সেই সময় পর্যন্ত চলছিল বোঝালে Past Perfect Continuous Tense হয়।",
+          "structure": [
+            "Subject + had been + Verb-ING + for (2 hours / 3 months)",
+            "Subject + had been + Verb-ING + since (morning / Monday)"
+          ],
+          "items": [
+            {
+              "id": "en-p17-l77-001",
+              "order": 1,
+              "target": "She had been cooking in the kitchen for hours when I came home.",
+              "bn": "আমি যখন বাড়ি আসি তখন সে কয়েক ঘণ্টা ধরে রান্নাঘরে রান্না করছিল।",
+              "pron_bn": "শি হ্যাড বিন কুকিং ইন দ্য কিচেন ফর আওয়ার্স হোয়েন আই কেইম হোম।",
+              "ipa": "She had been cooking in the kitchen for hours when I came home.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-002",
+              "order": 2,
+              "target": "He had been waiting for the bus for forty minutes before it finally arrived.",
+              "bn": "বাস আসার আগে সে চল্লিশ মিনিট ধরে অপেক্ষা করছিল।",
+              "pron_bn": "হি হ্যাড বিন ওয়েটিং ফর দ্য বাস ফর ফোরটি মিনিট্স বিফোর ইট ফাইনালি অ্যারাইভড।",
+              "ipa": "He had been waiting for the bus for forty minutes before it finally arrived.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-003",
+              "order": 3,
+              "target": "They had been working on the software for six months before launching it.",
+              "bn": "সফটওয়্যারটি লঞ্চ করার আগে তারা ছয় মাস ধরে এটিতে কাজ করছিল।",
+              "pron_bn": "দে হ্যাড বিন ওয়ার্কিং অন দ্য সফটওয়্যার ফর সিক্স মান্থস বিফোর লঞ্চিং ইট।",
+              "ipa": "They had been working on the software for six months before launching it.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-004",
+              "order": 4,
+              "target": "It had been raining continuously since morning before the sun broke through.",
+              "bn": "সূর্য ওঠার আগে সকাল থেকেই একটানা বৃষ্টি হচ্ছিল।",
+              "pron_bn": "ইট হ্যাড বিন রেইনিং কন্টিনিউয়াসলি সিন্স মর্নিং বিফোর দ্য সান ব্রোক থ্রু।",
+              "ipa": "It had been raining continuously since morning before the sun broke through.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-005",
+              "order": 5,
+              "target": "Had she been cooking for hours when you came home? Yes, she had been cooking. No, she hadn't.",
+              "bn": "তুমি বাড়ি এলে সে কি কয়েক ঘণ্টা ধরে রান্না করছিল? হ্যাঁ, সে রান্না করছিল। না, করছিল না।",
+              "pron_bn": "হ্যাড শি বিন কুকিং ফর আওয়ার্স হোয়েন ইউ কেইম হোম? ইয়েস, শি হ্যাড বিন কুকিং। নো, শি হ্যাডন্ট।",
+              "ipa": "Had she been cooking for hours when you came home? Yes, she had been cooking. No, she hadn't.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-006",
+              "order": 6,
+              "target": "I had been living in that apartment for three years before I moved to Dhanmondi.",
+              "bn": "ধানমন্ডিতে যাওয়ার আগে আমি তিন বছর ওই অ্যাপার্টমেন্টে থাকছিলাম।",
+              "pron_bn": "আই হ্যাড বিন লিভিং ইন দ্যাট অ্যাপার্টমেন্ট ফর থ্রি ইয়ার্স বিফোর আই মুভড টু ধানমন্ডি।",
+              "ipa": "I had been living in that apartment for three years before I moved to Dhanmondi.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-007",
+              "order": 7,
+              "target": "How long had you been studying before you took the break? I had been studying for three hours.",
+              "bn": "বিরতি নেওয়ার আগে আপনি কতক্ষণ ধরে পড়াশোনা করছিলেন? আমি তিন ঘণ্টা ধরে পড়ছিলাম।",
+              "pron_bn": "হাউ লং হ্যাড ইউ বিন স্টাডিয়িং বিফোর ইউ টুক দ্য ব্রেক? আই হ্যাড বিন স্টাডিয়িং ফর থ্রি আওয়ার্স।",
+              "ipa": "How long had you been studying before you took the break? I had been studying for three hours.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p17-l77-008",
+              "order": 8,
+              "target": "His eyes were red because he had been staring at the computer screen all day.",
+              "bn": "তার চোখ লাল ছিল কারণ সে সারাদিন কম্পিউটার স্ক্রিনের দিকে তাকিয়ে ছিল।",
+              "pron_bn": "হিজ আইজ ওয়্যার রেড বিকজ হি হ্যাড বিন স্টেয়ারিং অ্যাট দ্য কম্পিউটার স্ক্রিন অল ডে।",
+              "ipa": "His eyes were red because he had been staring at the computer screen all day.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_perfect_continuous",
+                "tense": "past_perfect_continuous"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p18",
+      "order": 18,
+      "level": "B1",
+      "title_bn": "অতীত কালের কর্মবাচ্য (Past Passive Voice: Was/Were + V3)",
+      "title_target": "Past Passive Voice (Was/Were + V3 & Was/Were being + V3)",
+      "lessons": [
+        {
+          "id": "en-foundations-l78",
+          "order": 1,
+          "title_bn": "সাধারণ অতীত কর্মবাচ্য — 'Was / Were + V3' (Past Simple Passive)",
+          "title_target": "Past Simple Passive (Was / Were + V3)",
+          "intro_bn": "অতীতে কর্তা ছাড়া কোনো কাজ কারো দ্বারা সম্পন্ন হয়েছিল বোঝাতে Past Simple Passive বসে। গঠন: Subject + was/were + V3 (Past Participle)।",
+          "structure": [
+            "Singular Subject + was + V3",
+            "Plural Subject + were + V3"
+          ],
+          "items": [
+            {
+              "id": "en-p18-l78-001",
+              "order": 1,
+              "target": "Parents were sent there safely.",
+              "bn": "বাবা-মাকে সেখানে নিরাপদে পাঠানো হয়েছিল।",
+              "pron_bn": "প্যারেন্টস ওয়্যার সেন্ট দেয়ার সেফলি।",
+              "ipa": "Parents were sent there safely.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-002",
+              "order": 2,
+              "target": "He was given an honorable award for his outstanding work.",
+              "bn": "অসামান্য কাজের জন্য তাকে একটি সম্মানজনক পুরস্কার দেওয়া হয়েছিল।",
+              "pron_bn": "হি ওয়াজ গিভেন অ্যান অনারেবল অ্যাওয়ার্ড ফর হিজ আউটস্ট্যান্ডিং ওয়ার্ক।",
+              "ipa": "He was given an honorable award for his outstanding work.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-003",
+              "order": 3,
+              "target": "The historic bridge was built over fifty years ago.",
+              "bn": "ঐতিহাসিক সেতুটি পঞ্চাশ বছরেরও বেশি সময় আগে নির্মিত হয়েছিল।",
+              "pron_bn": "দ্য হিস্টোরিক ব্রিজ ওয়াজ বিল্ট ওভার ফিফটি ইয়ার্স এগো।",
+              "ipa": "The historic bridge was built over fifty years ago.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-004",
+              "order": 4,
+              "target": "The official email was sent to all team members yesterday.",
+              "bn": "গতকাল সকল দলের সদস্যকে অফিশিয়াল ইমেইল পাঠানো হয়েছিল।",
+              "pron_bn": "দি অফিশিয়াল ইমেইল ওয়াজ সেন্ট টু অল টিম মেম্বার্স ইয়েস্টারডে।",
+              "ipa": "The official email was sent to all team members yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-005",
+              "order": 5,
+              "target": "The stolen laptop was recovered by the local police.",
+              "bn": "চুরি যাওয়া ল্যাপটপটি স্থানীয় পুলিশ উদ্ধার করেছিল।",
+              "pron_bn": "দ্য স্টোলেন ল্যাপটপ ওয়াজ রিকভার্ড বাই দ্য লোকাল পুলিশ।",
+              "ipa": "The stolen laptop was recovered by the local police.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-006",
+              "order": 6,
+              "target": "All our questions were answered clearly by the speaker.",
+              "bn": "বক্তা আমাদের সকল প্রশ্নের পরিষ্কার উত্তর দিয়েছিলেন।",
+              "pron_bn": "অল আওয়ার কোয়েশ্চেনস ওয়্যার অ্যানসার্ড ক্লিয়ারলি বাই দ্য স্পিকার।",
+              "ipa": "All our questions were answered clearly by the speaker.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-007",
+              "order": 7,
+              "target": "Was the important message delivered on time? Yes, it was delivered on time.",
+              "bn": "জরুরি বার্তাটি কি সময়মতো পৌঁছে দেওয়া হয়েছিল? হ্যাঁ, সময়মতো পৌঁছে দেওয়া হয়েছিল।",
+              "pron_bn": "ওয়াজ দি ইম্পরট্যান্ট মেসেজ ডেলিভার্ড অন টাইম? ইয়েস, ইট ওয়াজ ডেলিভার্ড অন টাইম।",
+              "ipa": "Was the important message delivered on time? Yes, it was delivered on time.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l78-008",
+              "order": 8,
+              "target": "Where was this classical song composed? It was composed in Chittagong.",
+              "bn": "এই কালজয়ী গানটি কোথায় সুর করা হয়েছিল? এটি চট্টগ্রামে সুর করা হয়েছিল।",
+              "pron_bn": "হোয়ার ওয়াজ দিজ ক্লাসিক্যাল সং কম্পোজড? ইট ওয়াজ কম্পোজড ইন চিটাগং।",
+              "ipa": "Where was this classical song composed? It was composed in Chittagong.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l79",
+          "order": 2,
+          "title_bn": "চলমান অতীত কর্মবাচ্য — 'Was / Were being + V3' (Past Continuous Passive)",
+          "title_target": "Past Continuous Passive (Was / Were being + V3)",
+          "intro_bn": "অতীতে কোনো কাজ কারো দ্বারা করা হচ্ছিল বোঝাতে Past Continuous Passive বসে। গঠন: Subject + was/were being + V3।",
+          "structure": [
+            "Singular Subject + was being + V3",
+            "Plural Subject + were being + V3"
+          ],
+          "items": [
+            {
+              "id": "en-p18-l79-001",
+              "order": 1,
+              "target": "The damaged car was being repaired at the workshop.",
+              "bn": "ওয়ার্কশপে ক্ষতিগ্রস্ত গাড়িটি মেরামত করা হচ্ছিল।",
+              "pron_bn": "দ্য ড্যামেজড কার ওয়াজ বিয়িং রিপেয়ার্ড অ্যাট দ্য ওয়ার্কশপ।",
+              "ipa": "The damaged car was being repaired at the workshop.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-002",
+              "order": 2,
+              "target": "A new highway was being constructed across the district.",
+              "bn": "জেলাভিত্তিক একটি নতুন মহাসড়ক নির্মাণ করা হচ্ছিল।",
+              "pron_bn": "আ নিউ হাইওয়ে ওয়াজ বিয়িং কনস্ট্রাক্টেড অ্যাক্রস দ্য ডিস্ট্রিক্ট।",
+              "ipa": "A new highway was being constructed across the district.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-003",
+              "order": 3,
+              "target": "Delicious dinner was being prepared for all the visitors.",
+              "bn": "সকল দর্শনার্থীদের জন্য সুস্বাদু রাতের খাবার তৈরি করা হচ্ছিল।",
+              "pron_bn": "ডেলিশাস ডিনার ওয়াজ বিয়িং প্রিপেয়ার্ড ফর অল দ্য ভিজিটরস।",
+              "ipa": "Delicious dinner was being prepared for all the visitors.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-004",
+              "order": 4,
+              "target": "The criminal suspects were being tracked carefully by the cyber police.",
+              "bn": "সাইবার পুলিশ সন্দেহভাজন অপরাধীদের অত্যন্ত সতর্কতার সাথে ট্র্যাক করছিল।",
+              "pron_bn": "দ্য ক্রিমিনাল সাসপেক্টস ওয়্যার বিয়িং ট্র্যাক্ট কেয়ারফুলি বাই দ্য সাইবার পুলিশ।",
+              "ipa": "The criminal suspects were being tracked carefully by the cyber police.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-005",
+              "order": 5,
+              "target": "The official documents were being verified by the embassy.",
+              "bn": "দূতাবাস কর্তৃক অফিশিয়াল কাগজপত্র যাচাই করা হচ্ছিল।",
+              "pron_bn": "দি অফিশিয়াল ডকুমেন্টস ওয়্যার বিয়িং ভেরিফাইড বাই দি অ্যাম্বাসি।",
+              "ipa": "The official documents were being verified by the embassy.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-006",
+              "order": 6,
+              "target": "The old building was being painted white yesterday.",
+              "bn": "গতকাল পুরানো ভবনটি সাদা রঙ করা হচ্ছিল।",
+              "pron_bn": "দি ওল্ড বিল্ডিং ওয়াজ বিয়িং পেইন্টেড হোয়াইট ইয়েস্টারডে।",
+              "ipa": "The old building was being painted white yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-007",
+              "order": 7,
+              "target": "Was the issue being discussed in the board meeting? Yes, it was being discussed actively.",
+              "bn": "বোর্ড সভায় কি বিষয়টি নিয়ে আলোচনা করা হচ্ছিল? হ্যাঁ, সক্রিয়ভাবে আলোচনা করা হচ্ছিল।",
+              "pron_bn": "ওয়াজ দি ইস্যু বিয়িং ডিসকাসড ইন দ্য বোর্ড মিটিং? ইয়েস, ইট ওয়াজ বিয়িং ডিসকাসড অ্যাক্টিভলি।",
+              "ipa": "Was the issue being discussed in the board meeting? Yes, it was being discussed actively.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            },
+            {
+              "id": "en-p18-l79-008",
+              "order": 8,
+              "target": "Many trees were being planted along the main road.",
+              "bn": "প্রধান সড়কের পাশে অনেক গাছ লাগানো হচ্ছিল।",
+              "pron_bn": "মেনি ট্রিজ ওয়্যার বিয়িং প্ল্যান্টেড অ্যালং দ্য মেইন রোড।",
+              "ipa": "Many trees were being planted along the main road.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "past_passive",
+                "tense": "past_passive"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p19",
+      "order": 19,
+      "level": "A2",
+      "title_bn": "অতীত কাল ভয়েস পেয়ার প্র্যাকটিস (Past Voice Q&A Practice)",
+      "title_target": "Past Tense Interactive Voice Practice",
+      "lessons": [
+        {
+          "id": "en-foundations-l80",
+          "order": 1,
+          "title_bn": "অতীত কাল ভয়েস পেয়ার প্র্যাকটিস (Past Voice Q&A Practice)",
+          "title_target": "Past Tense Interactive Voice Practice",
+          "intro_bn": "মাইক্রোফোনে ট্যাপ করে অতীত প্রশ্ন শুনুন এবং ইংরেজিতে উত্তর দিন। হ্যাঁ-বোধক উত্তর 'Yes' দিয়ে এবং না-বোধক উত্তর 'No' দিয়ে শুরু করুন। আমাদের এআই সিস্টেম আপনার উচ্চারণ ও সঠিক অতীত ফর্ম (V2 / didn't) মূল্যায়ন করবে।",
+          "structure": [
+            "Question: Did you + V1...? / Were you + V-ing...?",
+            "Yes Answer: Yes, I + V2... / Yes, I was + V-ing...",
+            "No Answer: No, I didn't + V1... / No, I wasn't + V-ing..."
+          ],
+          "items": [
+            {
+              "id": "en-p19-pair-001",
+              "concept_id": "c-en-p19-pair-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you lock the front door before leaving?",
+              "bn": "বের হওয়ার আগে কি সদর দরজা তালা দিয়েছিলে?",
+              "bn_pron": "ডিড ইউ লক দ্য ফ্রন্ট ডোর বিফোর লিভিং?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "lock",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "front",
+                  "bn": ""
+                },
+                {
+                  "t": "door",
+                  "bn": ""
+                },
+                {
+                  "t": "before",
+                  "bn": ""
+                },
+                {
+                  "t": "leaving?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I locked the front door.",
+                "bn": "No, I didn't lock the front door."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-002",
+              "concept_id": "c-en-p19-pair-002",
+              "order": 2,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Were you sleeping when I called you last night?",
+              "bn": "গত রাতে যখন ফোন করেছিলাম আপনি কি ঘুমাচ্ছিলেন?",
+              "bn_pron": "ওয়্যার ইউ স্লিপিং হোয়েন আই কল্ড ইউ লাস্ট নাইট?",
+              "tokens": [
+                {
+                  "t": "Were",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "sleeping",
+                  "bn": ""
+                },
+                {
+                  "t": "when",
+                  "bn": ""
+                },
+                {
+                  "t": "I",
+                  "bn": ""
+                },
+                {
+                  "t": "called",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "last",
+                  "bn": ""
+                },
+                {
+                  "t": "night?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I was sleeping when you called.",
+                "bn": "No, I wasn't sleeping when you called."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-003",
+              "concept_id": "c-en-p19-pair-003",
+              "order": 3,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you finish your assigned task yesterday?",
+              "bn": "গতকাল কি তোমার নির্ধারিত কাজ শেষ করেছিলে?",
+              "bn_pron": "ডিড ইউ ফিনিশ ইয়োর অ্যাসাইন্ড টাস্ক ইয়েস্টারডে?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "finish",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "assigned",
+                  "bn": ""
+                },
+                {
+                  "t": "task",
+                  "bn": ""
+                },
+                {
+                  "t": "yesterday?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I finished my task yesterday.",
+                "bn": "No, I didn't finish my task yesterday."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-004",
+              "concept_id": "c-en-p19-pair-004",
+              "order": 4,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you have to work late at the office yesterday?",
+              "bn": "গতকাল কি অফিসে আপনাকে রাত পর্যন্ত কাজ করতে হয়েছিল?",
+              "bn_pron": "ডিড ইউ হ্যাভ টু ওয়ার্ক লেইট অ্যাট দি অফিস ইয়েস্টারডে?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "have",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "work",
+                  "bn": ""
+                },
+                {
+                  "t": "late",
+                  "bn": ""
+                },
+                {
+                  "t": "at",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "office",
+                  "bn": ""
+                },
+                {
+                  "t": "yesterday?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I had to work late yesterday.",
+                "bn": "No, I didn't have to work late."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-005",
+              "concept_id": "c-en-p19-pair-005",
+              "order": 5,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Could you hear my voice clearly on the phone call?",
+              "bn": "ফোনে কি আমার কণ্ঠ স্পষ্টভাবে শুনতে পেরেছিলেন?",
+              "bn_pron": "কুড ইউ হেয়ার মাই ভয়েস ক্লিয়ারলি অন দ্য ফোন কল?",
+              "tokens": [
+                {
+                  "t": "Could",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "hear",
+                  "bn": ""
+                },
+                {
+                  "t": "my",
+                  "bn": ""
+                },
+                {
+                  "t": "voice",
+                  "bn": ""
+                },
+                {
+                  "t": "clearly",
+                  "bn": ""
+                },
+                {
+                  "t": "on",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "phone",
+                  "bn": ""
+                },
+                {
+                  "t": "call?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I could hear your voice clearly.",
+                "bn": "No, I couldn't hear your voice clearly."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-006",
+              "concept_id": "c-en-p19-pair-006",
+              "order": 6,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did she go shopping with her friends last weekend?",
+              "bn": "গত সপ্তাহে সে কি বন্ধুদের সাথে কেনাকাটা করতে গিয়েছিল?",
+              "bn_pron": "ডিড শি গো শপিং উইথ হার ফ্রেন্ডস লাস্ট উইকেন্ড?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "she",
+                  "bn": ""
+                },
+                {
+                  "t": "go",
+                  "bn": ""
+                },
+                {
+                  "t": "shopping",
+                  "bn": ""
+                },
+                {
+                  "t": "with",
+                  "bn": ""
+                },
+                {
+                  "t": "her",
+                  "bn": ""
+                },
+                {
+                  "t": "friends",
+                  "bn": ""
+                },
+                {
+                  "t": "last",
+                  "bn": ""
+                },
+                {
+                  "t": "weekend?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, she went shopping with her friends.",
+                "bn": "No, she didn't go shopping last weekend."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-007",
+              "concept_id": "c-en-p19-pair-007",
+              "order": 7,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Were they waiting for you at the railway station?",
+              "bn": "তারা কি রেলওয়ে স্টেশনে আপনার জন্য অপেক্ষা করছিল?",
+              "bn_pron": "ওয়্যার দে ওয়েটিং ফর ইউ অ্যাট দ্য রেলওয়ে স্টেশন?",
+              "tokens": [
+                {
+                  "t": "Were",
+                  "bn": ""
+                },
+                {
+                  "t": "they",
+                  "bn": ""
+                },
+                {
+                  "t": "waiting",
+                  "bn": ""
+                },
+                {
+                  "t": "for",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "at",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "railway",
+                  "bn": ""
+                },
+                {
+                  "t": "station?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, they were waiting for me at the station.",
+                "bn": "No, they weren't waiting for me."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-008",
+              "concept_id": "c-en-p19-pair-008",
+              "order": 8,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you watch the cricket match last night?",
+              "bn": "গত রাতে কি ক্রিকেট ম্যাচটি দেখেছিলে?",
+              "bn_pron": "ডিড ইউ ওয়াচ দ্য ক্রিকেট ম্যাচ লাস্ট নাইট?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "watch",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "cricket",
+                  "bn": ""
+                },
+                {
+                  "t": "match",
+                  "bn": ""
+                },
+                {
+                  "t": "last",
+                  "bn": ""
+                },
+                {
+                  "t": "night?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I watched the cricket match last night.",
+                "bn": "No, I didn't watch the cricket match."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-009",
+              "concept_id": "c-en-p19-pair-009",
+              "order": 9,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you get up early yesterday morning?",
+              "bn": "গতকাল সকালে কি আপনি ভোরে উঠেছিলেন?",
+              "bn_pron": "ডিড ইউ গেট আপ আর্লি ইয়েস্টারডে মর্নিং?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "get",
+                  "bn": ""
+                },
+                {
+                  "t": "up",
+                  "bn": ""
+                },
+                {
+                  "t": "early",
+                  "bn": ""
+                },
+                {
+                  "t": "yesterday",
+                  "bn": ""
+                },
+                {
+                  "t": "morning?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I got up early yesterday morning.",
+                "bn": "No, I didn't get up early yesterday."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-010",
+              "concept_id": "c-en-p19-pair-010",
+              "order": 10,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you meet your old school friend yesterday?",
+              "bn": "গতকাল কি আপনার পুরানো স্কুল বন্ধুর সাথে দেখা হয়েছিল?",
+              "bn_pron": "ডিড ইউ মিট ইয়োর ওল্ড স্কুল ফ্রেন্ড ইয়েস্টারডে?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "meet",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "old",
+                  "bn": ""
+                },
+                {
+                  "t": "school",
+                  "bn": ""
+                },
+                {
+                  "t": "friend",
+                  "bn": ""
+                },
+                {
+                  "t": "yesterday?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I met my old school friend yesterday.",
+                "bn": "No, I didn't meet my old friend."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-011",
+              "concept_id": "c-en-p19-pair-011",
+              "order": 11,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Had the train already left before you reached the station?",
+              "bn": "স্টেশনে পৌঁছানোর আগেই কি ট্রেনটি চলে গিয়েছিল?",
+              "bn_pron": "হ্যাড দ্য ট্রেন অলরেডি লেফট বিফোর ইউ রীচড দ্য স্টেশন?",
+              "tokens": [
+                {
+                  "t": "Had",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "train",
+                  "bn": ""
+                },
+                {
+                  "t": "already",
+                  "bn": ""
+                },
+                {
+                  "t": "left",
+                  "bn": ""
+                },
+                {
+                  "t": "before",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "reached",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "station?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, the train had already left.",
+                "bn": "No, the train had not left yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-012",
+              "concept_id": "c-en-p19-pair-012",
+              "order": 12,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you use to play cricket in your childhood?",
+              "bn": "ছোটবেলায় কি তুমি ক্রিকেট খেলতে?",
+              "bn_pron": "ডিড ইউ ইউজ টু প্লে ক্রিকেট ইন ইয়োর চাইল্ডহুড?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "use",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "play",
+                  "bn": ""
+                },
+                {
+                  "t": "cricket",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "childhood?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I used to play cricket in my childhood.",
+                "bn": "No, I didn't use to play cricket."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-013",
+              "concept_id": "c-en-p19-pair-013",
+              "order": 13,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you buy that new smartphone two days ago?",
+              "bn": "দুই দিন আগে কি তুমি সেই নতুন স্মার্টফোনটি কিনেছিলে?",
+              "bn_pron": "ডিড ইউ বাই দ্যাট নিউ স্মার্টফোন টু ডেইজ এগো?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "buy",
+                  "bn": ""
+                },
+                {
+                  "t": "that",
+                  "bn": ""
+                },
+                {
+                  "t": "new",
+                  "bn": ""
+                },
+                {
+                  "t": "smartphone",
+                  "bn": ""
+                },
+                {
+                  "t": "two",
+                  "bn": ""
+                },
+                {
+                  "t": "days",
+                  "bn": ""
+                },
+                {
+                  "t": "ago?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I bought that new smartphone.",
+                "bn": "No, I didn't buy that smartphone."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-014",
+              "concept_id": "c-en-p19-pair-014",
+              "order": 14,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Was it raining heavily when you left the house?",
+              "bn": "বাড়ি থেকে বের হওয়ার সময় কি মুষলধারে বৃষ্টি হচ্ছিল?",
+              "bn_pron": "ওয়াজ ইট রেইনিং হেভিলি হোয়েন ইউ লেফট দ্য হাউজ?",
+              "tokens": [
+                {
+                  "t": "Was",
+                  "bn": ""
+                },
+                {
+                  "t": "it",
+                  "bn": ""
+                },
+                {
+                  "t": "raining",
+                  "bn": ""
+                },
+                {
+                  "t": "heavily",
+                  "bn": ""
+                },
+                {
+                  "t": "when",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "left",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "house?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, it was raining heavily.",
+                "bn": "No, it was not raining heavily."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-015",
+              "concept_id": "c-en-p19-pair-015",
+              "order": 15,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you receive my official email yesterday afternoon?",
+              "bn": "গতকাল বিকেলে কি আপনি আমার অফিশিয়াল ইমেইল পেয়েছিলেন?",
+              "bn_pron": "ডিড ইউ রিসিভ মাই অফিশিয়াল ইমেইল ইয়েস্টারডে আফটারনুন?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "receive",
+                  "bn": ""
+                },
+                {
+                  "t": "my",
+                  "bn": ""
+                },
+                {
+                  "t": "official",
+                  "bn": ""
+                },
+                {
+                  "t": "email",
+                  "bn": ""
+                },
+                {
+                  "t": "yesterday",
+                  "bn": ""
+                },
+                {
+                  "t": "afternoon?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I received your email yesterday.",
+                "bn": "No, I didn't receive your email yesterday."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-016",
+              "concept_id": "c-en-p19-pair-016",
+              "order": 16,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Could you solve that difficult math problem easily?",
+              "bn": "তুমি কি সেই কঠিন গণিত সমস্যাটি সহজে সমাধান করতে পেরেছিলে?",
+              "bn_pron": "কুড ইউ সলভ দ্যাট ডিফিকাল্ট ম্যাথ প্রবলেম ইজিলি?",
+              "tokens": [
+                {
+                  "t": "Could",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "solve",
+                  "bn": ""
+                },
+                {
+                  "t": "that",
+                  "bn": ""
+                },
+                {
+                  "t": "difficult",
+                  "bn": ""
+                },
+                {
+                  "t": "math",
+                  "bn": ""
+                },
+                {
+                  "t": "problem",
+                  "bn": ""
+                },
+                {
+                  "t": "easily?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I could solve it easily.",
+                "bn": "No, I couldn't solve it easily."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-017",
+              "concept_id": "c-en-p19-pair-017",
+              "order": 17,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you need any extra help during the exam?",
+              "bn": "পরীক্ষার সময় আপনার কি বাড়তি সাহায্যের প্রয়োজন ছিল?",
+              "bn_pron": "ডিড ইউ নিড অ্যানি এক্সট্রা হেল্প ডিউরিং দি এক্সাম?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "need",
+                  "bn": ""
+                },
+                {
+                  "t": "any",
+                  "bn": ""
+                },
+                {
+                  "t": "extra",
+                  "bn": ""
+                },
+                {
+                  "t": "help",
+                  "bn": ""
+                },
+                {
+                  "t": "during",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "exam?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I needed some extra help.",
+                "bn": "No, I didn't need any help."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-018",
+              "concept_id": "c-en-p19-pair-018",
+              "order": 18,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Were you cooking dinner when the guests arrived?",
+              "bn": "অতিথিরা পৌঁছালে তুমি কি রাতের খাবার রান্না করছিলে?",
+              "bn_pron": "ওয়্যার ইউ কুকিং ডিনার হোয়েন দ্য গেস্টস অ্যারাইভড?",
+              "tokens": [
+                {
+                  "t": "Were",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "cooking",
+                  "bn": ""
+                },
+                {
+                  "t": "dinner",
+                  "bn": ""
+                },
+                {
+                  "t": "when",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "guests",
+                  "bn": ""
+                },
+                {
+                  "t": "arrived?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I was cooking dinner when they arrived.",
+                "bn": "No, I wasn't cooking dinner when they arrived."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-019",
+              "concept_id": "c-en-p19-pair-019",
+              "order": 19,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you sleep well throughout the night?",
+              "bn": "সারারাত কি আপনার ভালো ঘুম হয়েছিল?",
+              "bn_pron": "ডিড ইউ স্লিপ ওয়েল থ্রুআউট দ্য নাইট?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "sleep",
+                  "bn": ""
+                },
+                {
+                  "t": "well",
+                  "bn": ""
+                },
+                {
+                  "t": "throughout",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "night?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I slept very well throughout the night.",
+                "bn": "No, I didn't sleep well last night."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p19-pair-020",
+              "concept_id": "c-en-p19-pair-020",
+              "order": 20,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Did you find your lost car keys under the table?",
+              "bn": "টেবিলের নিচে কি তোমার হারিয়ে যাওয়া গাড়ির চাবি খুঁজে পেয়েছিলে?",
+              "bn_pron": "ডিড ইউ ফাইন্ড ইয়োর লস্ট কার কিজ আন্ডার দ্য টেবিল?",
+              "tokens": [
+                {
+                  "t": "Did",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "find",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "lost",
+                  "bn": ""
+                },
+                {
+                  "t": "car",
+                  "bn": ""
+                },
+                {
+                  "t": "keys",
+                  "bn": ""
+                },
+                {
+                  "t": "under",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "table?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "past"
+              },
+              "example": {
+                "target": "Yes, I found my car keys under the table.",
+                "bn": "No, I didn't find my keys under the table."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
             }
           ]
         }
