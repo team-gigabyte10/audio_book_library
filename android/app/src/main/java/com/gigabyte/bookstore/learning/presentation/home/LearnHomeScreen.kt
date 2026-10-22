@@ -21,7 +21,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -45,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.widget.Toast
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.learning.data.content.ContentState
@@ -61,7 +64,15 @@ fun LearnHomeScreen(
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
+    val isSpeaking by viewModel.isSpeaking.collectAsStateWithLifecycle()
     val context = LocalContext.current
+
+    DisposableEffect(Unit) {
+        viewModel.playWelcomeGreeting()
+        onDispose {
+            viewModel.stopWelcomeGreeting()
+        }
+    }
 
     val activeParts = remember(syllabus) { syllabus.filter { it.part.isEnabled } }
     val partCount = activeParts.size.coerceAtLeast(4)
@@ -117,7 +128,17 @@ fun LearnHomeScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // 1. Course Introduction & Audio Guidelines Card
+                    // 1. Welcome & Spoken Practice Advice Banner
+                    item {
+                        WelcomeBanner(
+                            text = "আপনার স্পোকেন দক্ষতা বাড়াতে এই app এর সাথে সাথে বেশি বেশি প্রাক্টিস করুন, ধন্যবাদ।",
+                            isSpeaking = isSpeaking,
+                            onPlayTts = { viewModel.playWelcomeGreeting(force = true) },
+                            onStopTts = { viewModel.stopWelcomeGreeting() }
+                        )
+                    }
+
+                    // 2. Course Introduction & Audio Guidelines Card
                     item {
                         CourseIntroHeroCard(
                             onClick = { onOpenIntro("Intro.md") }
@@ -510,6 +531,99 @@ private fun UpcomingCourseCard(
                             )
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun WelcomeBanner(
+    text: String,
+    isSpeaking: Boolean,
+    onPlayTts: () -> Unit,
+    onStopTts: () -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, Color(0xFF00796B).copy(alpha = 0.35f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.horizontalGradient(
+                        colors = listOf(
+                            Color(0xFF00796B).copy(alpha = 0.12f),
+                            Color(0xFF004D40).copy(alpha = 0.05f)
+                        )
+                    )
+                )
+                .padding(14.dp)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Surface(
+                    shape = CircleShape,
+                    color = Color(0xFF00796B).copy(alpha = 0.15f),
+                    modifier = Modifier.size(42.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text(
+                            text = if (isSpeaking) "🔊" else "🎙️",
+                            fontSize = 20.sp
+                        )
+                    }
+                }
+
+                Spacer(Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "স্বাগতম বার্তা",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF00796B)
+                        )
+                        if (isSpeaking) {
+                            Spacer(Modifier.width(6.dp))
+                            Text(
+                                text = "• ভয়েস চলছে...",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = Color(0xFF10B981)
+                            )
+                        }
+                    }
+                    Spacer(Modifier.height(3.dp))
+                    Text(
+                        text = text,
+                        fontSize = 13.sp,
+                        lineHeight = 18.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                Spacer(Modifier.width(8.dp))
+
+                IconButton(
+                    onClick = {
+                        if (isSpeaking) onStopTts() else onPlayTts()
+                    },
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Icon(
+                        imageVector = if (isSpeaking) Icons.Default.Stop else Icons.AutoMirrored.Filled.VolumeUp,
+                        contentDescription = if (isSpeaking) "থামান" else "শুনুন",
+                        tint = Color(0xFF00796B)
+                    )
                 }
             }
         }
