@@ -104,9 +104,34 @@ fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
         badgeBgColor = Color(0xFF9F1239),
         icon = Icons.Default.RecordVoiceOver
     )
+    6 -> SyllabusPartTheme(
+        accentColor = Color(0xFF0284C7),
+        badgeBgColor = Color(0xFF0369A1),
+        icon = Icons.Default.PlayCircle
+    )
+    7 -> SyllabusPartTheme(
+        accentColor = Color(0xFF059669),
+        badgeBgColor = Color(0xFF047857),
+        icon = Icons.Default.PlayArrow
+    )
+    8 -> SyllabusPartTheme(
+        accentColor = Color(0xFFEA580C),
+        badgeBgColor = Color(0xFFC2410C),
+        icon = Icons.Default.AutoStories
+    )
+    9 -> SyllabusPartTheme(
+        accentColor = Color(0xFF7C3AED),
+        badgeBgColor = Color(0xFF6D28D9),
+        icon = Icons.Default.CheckCircle
+    )
+    10 -> SyllabusPartTheme(
+        accentColor = Color(0xFF0D9488),
+        badgeBgColor = Color(0xFF0F766E),
+        icon = Icons.Default.RecordVoiceOver
+    )
     else -> SyllabusPartTheme(
-        accentColor = Color(0xFF6D28D9),
-        badgeBgColor = Color(0xFF4C1D95),
+        accentColor = Color(0xFF4338CA),
+        badgeBgColor = Color(0xFF3730A3),
         icon = Icons.Default.Headphones
     )
 }
