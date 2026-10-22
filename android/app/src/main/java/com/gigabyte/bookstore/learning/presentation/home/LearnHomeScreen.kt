@@ -43,6 +43,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.learning.data.content.ContentState
 import com.gigabyte.bookstore.presentation.components.AppBackground
@@ -57,6 +60,13 @@ fun LearnHomeScreen(
     onOpenIntro: (String) -> Unit
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
+    val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
+    val context = LocalContext.current
+
+    val activeParts = remember(syllabus) { syllabus.filter { it.part.isEnabled } }
+    val partCount = activeParts.size.coerceAtLeast(4)
+    val lessonCount = activeParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
+    val sentenceCount = activeParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
 
     Scaffold(
         topBar = {
@@ -114,10 +124,39 @@ fun LearnHomeScreen(
                         )
                     }
 
-                    // 2. Main Course Card: "সহজ নিয়মে কথা বলুন (Be-Verbs & Self Presentation)"
+                    // 2. Present Tens (বর্তমান কাল) - Main Active Course Card
                     item {
                         MainCourseCard(
+                            partCount = partCount,
+                            lessonCount = lessonCount,
+                            sentenceCount = sentenceCount,
                             onClick = onOpenCourse
+                        )
+                    }
+
+                    // 3. Past Tens (অতীত কাল)
+                    item {
+                        UpcomingCourseCard(
+                            tag = "🇬🇧 Past Tens (অতীত কাল)",
+                            title = "অতীতের কথা বলুন (Was/Were, Had & Past Actions)",
+                            description = "অতীতের অভ্যাস, স্মৃতি, অভিজ্ঞতা ও অতীতের কাজ বর্ণনার সহজ স্পোকেন রুলস ও অডিও ড্রিল।",
+                            accentColor = Color(0xFF5E35B1),
+                            onClick = {
+                                Toast.makeText(context, "Past Tens (অতীত কাল) কোর্সটি প্রস্তুত হচ্ছে, খুব শীঘ্রই উন্মুক্ত করা হবে!", Toast.LENGTH_SHORT).show()
+                            }
+                        )
+                    }
+
+                    // 4. Future Tens (ভবিষ্যৎ কাল)
+                    item {
+                        UpcomingCourseCard(
+                            tag = "🇬🇧 Future Tens (ভবিষ্যৎ কাল)",
+                            title = "ভবিষ্যতের কথা বলুন (Will, Shall & Future Plans)",
+                            description = "ভবিষ্যতের পরিকল্পনা, প্রতিশ্রুতি ও সম্ভাবনা প্রকাশের আধুনিক স্পোকেন স্ট্রাকচার।",
+                            accentColor = Color(0xFFC2410C),
+                            onClick = {
+                                Toast.makeText(context, "Future Tens (ভবিষ্যৎ কাল) কোর্সটি প্রস্তুত হচ্ছে, খুব শীঘ্রই উন্মুক্ত করা হবে!", Toast.LENGTH_SHORT).show()
+                            }
                         )
                     }
 
@@ -233,8 +272,16 @@ private fun CourseIntroHeroCard(
     }
 }
 
+private fun Int.toBanglaDigits(): String {
+    val bnDigits = charArrayOf('০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯')
+    return this.toString().map { if (it in '0'..'9') bnDigits[it - '0'] else it }.joinToString("")
+}
+
 @Composable
 private fun MainCourseCard(
+    partCount: Int,
+    lessonCount: Int,
+    sentenceCount: Int,
     onClick: () -> Unit
 ) {
     Card(
@@ -270,7 +317,7 @@ private fun MainCourseCard(
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "🇬🇧 স্পোকেন ইংলিশ ফাউন্ডেশন",
+                            text = "🇬🇧 Present Tens (বর্তমান কাল)",
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
@@ -288,7 +335,7 @@ private fun MainCourseCard(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "সহজ নিয়মে কথা বলুন (Be-Verbs & Self Presentation)",
+                    text = "সহজ নিয়মে কথা বলুন (Present Tens: Be-Verbs, Q&A & Presentation)",
                     fontSize = 19.sp,
                     lineHeight = 26.sp,
                     fontWeight = FontWeight.Bold,
@@ -298,7 +345,7 @@ private fun MainCourseCard(
                 Spacer(modifier = Modifier.height(6.dp))
 
                 Text(
-                    text = "পেশা, ব্যক্তিত্বের বৈশিষ্ট্য ও সম্পূর্ণ আত্মপরিচয় উপস্থাপনা নেটিভ অডিও দিয়ে অনুশীলন করুন।",
+                    text = "পেশা, ব্যক্তিত্ব, দৈনন্দিন বস্তু, অবস্থান, প্রশ্ন-উত্তর, গুড অ্যাট/ব্যাড অ্যাট ও সম্পূর্ণ প্রেজেন্টেশন বর্তমান কালে সাবলীলভাবে অনুশীলন করুন।",
                     fontSize = 13.sp,
                     lineHeight = 18.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -315,9 +362,9 @@ private fun MainCourseCard(
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        InfoPill(text = "📚 ২টি অংশ")
-                        InfoPill(text = "🎧 ৪টি লেসন")
-                        InfoPill(text = "💬 ৫৭টি বাক্য")
+                        InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ")
+                        InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন")
+                        InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য")
                     }
 
                     Surface(
@@ -340,6 +387,126 @@ private fun MainCourseCard(
                                 contentDescription = null,
                                 tint = Color.White,
                                 modifier = Modifier.size(14.dp)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun UpcomingCourseCard(
+    tag: String,
+    title: String,
+    description: String,
+    accentColor: Color,
+    onClick: () -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.5.dp, accentColor.copy(alpha = 0.45f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            accentColor.copy(alpha = 0.16f),
+                            accentColor.copy(alpha = 0.05f)
+                        )
+                    )
+                )
+                .padding(18.dp)
+        ) {
+            Column {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Surface(
+                        color = accentColor,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = tag,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
+                        )
+                    }
+
+                    Surface(
+                        color = accentColor.copy(alpha = 0.15f),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = "⏳ শীঘ্রই আসছে",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = accentColor,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Text(
+                    text = title,
+                    fontSize = 18.sp,
+                    lineHeight = 25.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+
+                Spacer(modifier = Modifier.height(6.dp))
+
+                Text(
+                    text = description,
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        InfoPill(text = "📚 ৪টি অংশ")
+                        InfoPill(text = "🎧 ২০টি লেসন")
+                        InfoPill(text = "⚡ প্রস্তুতি চলছে")
+                    }
+
+                    Surface(
+                        color = accentColor.copy(alpha = 0.15f),
+                        shape = RoundedCornerShape(10.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                        ) {
+                            Text(
+                                text = "শীঘ্রই উন্মুক্ত",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = accentColor
                             )
                         }
                     }

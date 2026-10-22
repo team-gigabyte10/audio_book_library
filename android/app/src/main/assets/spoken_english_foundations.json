@@ -4,10 +4,10 @@
     "id": "en-spoken-foundations",
     "target_lang": "en",
     "base_lang": "bn",
-    "title_bn": "স্পোকেন ইংলিশ ফাউন্ডেশন কোর্স",
-    "title_target": "Spoken English Foundation Course",
+    "title_bn": "স্পোকেন ইংলিশ: Present Tens (বর্তমান কাল)",
+    "title_target": "Spoken English: Present Tense Foundations",
     "source": "Curated Spoken English Curriculum",
-    "note": "Profession identities, subject variations, personality traits with be-verbs, and self-presentation."
+    "note": "বর্তমান কালের Be-Verbs, দৈনন্দিন প্রশ্নোত্তর, প্রিপজিশন, গুড অ্যাট/ব্যাড অ্যাট ও আত্মপরিচয় প্রেজেন্টেশন।"
   },
   "ladder_default": [
     {
