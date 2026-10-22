@@ -42,7 +42,7 @@
   ],
   "stats": {
     "lessons": 60,
-    "items": 748
+    "items": 760
   },
   "parts": [
     {
@@ -34010,11 +34010,1579 @@
       "id": "en-foundations-p10",
       "order": 10,
       "level": "A2",
+      "title_bn": "পুরাঘটিত ঘটমান বর্তমান কাল (Present Perfect Continuous Tense)",
+      "title_target": "Present Perfect Continuous (Have / Has been + Verb-ING)",
+      "lessons": [
+        {
+          "id": "en-foundations-l52",
+          "order": 1,
+          "title_bn": "নির্দিষ্ট সময় ধরে চলা কাজ — 'For' এর ব্যবহার (Duration with For)",
+          "title_target": "Duration with 'For' (Have / Has been + Verb-ING)",
+          "intro_bn": "কোনো কাজ পূর্বে শুরু হয়ে নির্দিষ্ট সময় বা ঘণ্টা ধরে এখনও চলছে বোঝাতে 'have/has + been + Verb-ING' এবং সময়ের ব্যাপ্তির পূর্বে 'for' বসে। যেমন: for 2 hours, for 3 days।",
+          "structure": [
+            "I / You / We / They + have been + Verb-ING + for (2 hours / 3 days)",
+            "He / She / It / Name + has been + Verb-ING + for (2 hours / 3 days)"
+          ],
+          "items": [
+            {
+              "id": "en-p10-l52-001",
+              "order": 1,
+              "target": "I have been waiting here for two hours.",
+              "bn": "আমি এখানে দুই ঘণ্টা ধরে অপেক্ষা করছি।",
+              "pron_bn": "আই হ্যাভ বিন ওয়েটিং হেয়ার ফর টু আওয়ার্স।",
+              "ipa": "I have been waiting here for two hours.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-002",
+              "order": 2,
+              "target": "He has been working at this software company for three years.",
+              "bn": "সে তিন বছর ধরে এই সফটওয়্যার কোম্পানিতে কাজ করছে।",
+              "pron_bn": "হি হ্যাজ বিন ওয়ার্কিং অ্যাট দিজ সফটওয়্যার কোম্পানি ফর থ্রি ইয়ার্স।",
+              "ipa": "He has been working at this software company for three years.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-003",
+              "order": 3,
+              "target": "She has been studying English for six months.",
+              "bn": "তিনি ছয় মাস ধরে ইংরেজি শিখছেন।",
+              "pron_bn": "শি হ্যাজ বিন স্টাডিয়িং ইংলিশ ফর সিক্স মান্থস।",
+              "ipa": "She has been studying English for six months.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-004",
+              "order": 4,
+              "target": "They have been playing football for an hour in the field.",
+              "bn": "তারা মাঠে এক ঘণ্টা ধরে ফুটবল খেলছে।",
+              "pron_bn": "দে হ্যাভ বিন প্লেয়িং ফুটবল ফর অ্যান আওয়ার ইন দ্য ফিল্ড।",
+              "ipa": "They have been playing football for an hour in the field.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-005",
+              "order": 5,
+              "target": "It has been raining continuously for four hours.",
+              "bn": "চার ঘণ্টা ধরে একটানা বৃষ্টি হচ্ছে।",
+              "pron_bn": "ইট হ্যাজ বিন রেইনিং কন্টিনিউয়াসলি ফর ফোর আওয়ার্স।",
+              "ipa": "It has been raining continuously for four hours.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-006",
+              "order": 6,
+              "target": "We have been living in this neighborhood for five years.",
+              "bn": "আমরা পাঁচ বছর ধরে এই এলাকায় বসবাস করছি।",
+              "pron_bn": "উই হ্যাভ বিন লিভিং ইন দিজ নেইবারহুড ফর ফাইভ ইয়ার্স।",
+              "ipa": "We have been living in this neighborhood for five years.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-007",
+              "order": 7,
+              "target": "He hasn't been feeling well for the past two days.",
+              "bn": "বিগত দুই দিন ধরে তার শরীর ভালো লাগছে না।",
+              "pron_bn": "হি হ্যাজন্ট বিন ফিলিং ওয়েল ফর দ্য পাস্ট টু ডেইজ।",
+              "ipa": "He hasn't been feeling well for the past two days.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l52-008",
+              "order": 8,
+              "target": "I have been reading this informative book for two hours.",
+              "bn": "আমি দুই ঘণ্টা ধরে এই তথ্যবহুল বইটি পড়ছি।",
+              "pron_bn": "আই হ্যাভ বিন রিডিং দিজ ইনফরম্যাটিভ বুক ফর টু আওয়ার্স।",
+              "ipa": "I have been reading this informative book for two hours.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l53",
+          "order": 2,
+          "title_bn": "শুরুর বিন্দু থেকে চলা কাজ — 'Since' এর ব্যবহার (Starting Point with Since)",
+          "title_target": "Starting Point with 'Since' (Have / Has been + Verb-ING)",
+          "intro_bn": "অতীতের কোনো নির্দিষ্ট দিন, সাল বা সময় থেকে কাজ শুরু হয়ে এখনও চলছে বোঝাতে 'since' বসে। যেমন: since morning, since Monday, since 2021।",
+          "structure": [
+            "Subject + have / has + been + Verb-ING + since (morning / yesterday / 2020)",
+            "Negative: haven't / hasn't + been + Verb-ING + since..."
+          ],
+          "items": [
+            {
+              "id": "en-p10-l53-001",
+              "order": 1,
+              "target": "It has been raining heavily since early morning.",
+              "bn": "সকাল থেকেই মুষলধারে বৃষ্টি হচ্ছে।",
+              "pron_bn": "ইট হ্যাজ বিন রেইনিং হেভিলি সিন্স আর্লি মর্নিং।",
+              "ipa": "It has been raining heavily since early morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-002",
+              "order": 2,
+              "target": "She has been cooking in the kitchen since noon.",
+              "bn": "সে দুপুর থেকেই রান্নাঘরে রান্না করছে।",
+              "pron_bn": "শি হ্যাজ বিন কুকিং ইন দ্য কিচেন সিন্স নুন।",
+              "ipa": "She has been cooking in the kitchen since noon.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-003",
+              "order": 3,
+              "target": "I have been preparing for this exam since last month.",
+              "bn": "আমি গত মাস থেকে এই পরীক্ষার প্রস্তুতি নিচ্ছি।",
+              "pron_bn": "আই হ্যাভ বিন প্রিপেয়ারিং ফর দিজ এক্সাম সিন্স লাস্ট মান্থ।",
+              "ipa": "I have been preparing for this exam since last month.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-004",
+              "order": 4,
+              "target": "They have been living here since 2018.",
+              "bn": "তারা ২০১৮ সাল থেকে এখানে বসবাস করছে।",
+              "pron_bn": "দে হ্যাভ বিন লিভিং হেয়ার সিন্স টুয়েন্টি এইটিন।",
+              "ipa": "They have been living here since 2018.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-005",
+              "order": 5,
+              "target": "He has been practicing spoken English since yesterday.",
+              "bn": "তিনি গতকাল থেকে স্পোকেন ইংলিশ অনুশীলন করছেন।",
+              "pron_bn": "হি হ্যাজ বিন প্র্যাকটিসড স্পোকেন ইংলিশ সিন্স ইয়েস্টারডে।",
+              "ipa": "He has been practicing spoken English since yesterday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-006",
+              "order": 6,
+              "target": "We have been planning this family trip since January.",
+              "bn": "আমরা জানুয়ারি মাস থেকে এই পারিবারিক ভ্রমণের পরিকল্পনা করছি।",
+              "pron_bn": "উই হ্যাভ বিন প্ল্যানিং দিজ ফ্যামিলি ট্রিপ সিন্স জানুয়ারি।",
+              "ipa": "We have been planning this family trip since January.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-007",
+              "order": 7,
+              "target": "She hasn't been taking her medicine properly since Friday.",
+              "bn": "শুক্রবার থেকে সে নিয়মিত ওষুধ খাচ্ছে না।",
+              "pron_bn": "শি হ্যাজন্ট বিন টেকিং হার মেডিসিন প্রপারলি সিন্স ফ্রাইডে।",
+              "ipa": "She hasn't been taking her medicine properly since Friday.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l53-008",
+              "order": 8,
+              "target": "The baby has been sleeping peacefully since nine o'clock.",
+              "bn": "শিশুটির নয়টা থেকে শান্তভাবে ঘুমাচ্ছে।",
+              "pron_bn": "দ্য বেবি হ্যাজ বিন স্লিপিং পিসফুলি সিন্স নাইন ও'ক্লক।",
+              "ipa": "The baby has been sleeping peacefully since nine o'clock.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l54",
+          "order": 3,
+          "title_bn": "সময়কাল জিজ্ঞাসা — 'How long have you been...?' (Duration Questions)",
+          "title_target": "Duration Questions (How long have you been + Verb-ING...?)",
+          "intro_bn": "কেউ কতক্ষণ বা কতদিন ধরে কোনো কাজ করছে তা জানতে 'How long have you been + Verb-ING...?' দিয়ে প্রশ্ন করা হয়।",
+          "structure": [
+            "How long + have / has + Subject + been + Verb-ING...?",
+            "Answer: Subject + have/has been + Verb-ING + for/since..."
+          ],
+          "items": [
+            {
+              "id": "en-p10-l54-001",
+              "order": 1,
+              "target": "How long have you been waiting here? I have been waiting for thirty minutes.",
+              "bn": "আপনি কতক্ষণ ধরে এখানে অপেক্ষা করছেন? আমি ত্রিশ মিনিট ধরে অপেক্ষা করছি।",
+              "pron_bn": "হাউ লং হ্যাভ ইউ বিন ওয়েটিং হেয়ার? আই হ্যাভ বিন ওয়েটিং ফর থার্টি মিনিট্স।",
+              "ipa": "How long have you been waiting here? I have been waiting for thirty minutes.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-002",
+              "order": 2,
+              "target": "How long has he been working on this project? He has been working on it for two weeks.",
+              "bn": "তিনি কতদিন ধরে এই প্রজেক্টে কাজ করছেন? তিনি দুই সপ্তাহ ধরে এতে কাজ করছেন।",
+              "pron_bn": "হাউ লং হ্যাজ হি বিন ওয়ার্কিং অন দিজ প্রজেক্ট? হি হ্যাজ বিন ওয়ার্কিং অন ইট ফর টু উইকস।",
+              "ipa": "How long has he been working on this project? He has been working on it for two weeks.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-003",
+              "order": 3,
+              "target": "How long have you been learning English? I have been learning English for three months.",
+              "bn": "আপনি কতদিন ধরে ইংরেজি শিখছেন? আমি তিন মাস ধরে ইংরেজি শিখছি।",
+              "pron_bn": "হাউ লং হ্যাভ ইউ বিন লার্নিং ইংলিশ? আই হ্যাভ বিন লার্নিং ইংলিশ ফর থ্রি মান্থস।",
+              "ipa": "How long have you been learning English? I have been learning English for three months.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-004",
+              "order": 4,
+              "target": "How long has it been raining? It has been raining since early morning.",
+              "bn": "কতক্ষণ ধরে বৃষ্টি হচ্ছে? সকাল থেকে বৃষ্টি হচ্ছে।",
+              "pron_bn": "হাউ লং হ্যাজ ইট বিন রেইনিং? ইট হ্যাজ বিন রেইনিং সিন্স আর্লি মর্নিং।",
+              "ipa": "How long has it been raining? It has been raining since early morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-005",
+              "order": 5,
+              "target": "Has he been waiting here for two hours? Yes, he has been waiting for two hours. No, he hasn't been waiting that long.",
+              "bn": "সে কি এখানে দুই ঘণ্টা ধরে অপেক্ষা করছে? হ্যাঁ, সে দুই ঘণ্টা ধরে অপেক্ষা করছে। না, সে এতক্ষণ ধরে অপেক্ষা করছে না।",
+              "pron_bn": "হ্যাজ হি বিন ওয়েটিং হেয়ার ফর টু আওয়ার্স? ইয়েস, হি হ্যাজ বিন ওয়েটিং ফর টু আওয়ার্স। নো, হি হ্যাজন্ট বিন ওয়েটিং দ্যাট লং।",
+              "ipa": "Has he been waiting here for two hours? Yes, he has been waiting for two hours. No, he hasn't been waiting that long.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-006",
+              "order": 6,
+              "target": "Have you been practicing regularly? Yes, I have been practicing every single day.",
+              "bn": "আপনি কি নিয়মিত অনুশীলন করছেন? হ্যাঁ, আমি প্রতিদিন অনুশীলন করছি।",
+              "pron_bn": "হ্যাভ ইউ বিন প্র্যাকটিসিং রেগুলারলি? ইয়েস, আই হ্যাভ বিন প্র্যাকটিসিং এভরি সিঙ্গেল ডে।",
+              "ipa": "Have you been practicing regularly? Yes, I have been practicing every single day.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-007",
+              "order": 7,
+              "target": "How long have they been discussing this issue? They have been discussing it for one hour.",
+              "bn": "তারা কতক্ষণ ধরে এই বিষয়টি আলোচনা করছেন? তারা এক ঘণ্টা ধরে আলোচনা করছেন।",
+              "pron_bn": "হাউ লং হ্যাভ দে বিন ডিসকাসিং দিজ ইস্যু? দে হ্যাভ বিন ডিসকাসিং ইট ফর ওয়ান আওয়ার।",
+              "ipa": "How long have they been discussing this issue? They have been discussing it for one hour.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l54-008",
+              "order": 8,
+              "target": "What have you been doing since morning? I have been completing my office assignments.",
+              "bn": "সকাল থেকে আপনি কী করছেন? আমি আমার অফিসের দায়িত্বসমূহ সম্পন্ন করছি।",
+              "pron_bn": "হোয়াট হ্যাভ ইউ বিন ডুইং সিন্স মর্নিং? আই হ্যাভ বিন কমপ্লিটিং মাই অফিস অ্যাসাইনমেন্টস।",
+              "ipa": "What have you been doing since morning? I have been completing my office assignments.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l55",
+          "order": 4,
+          "title_bn": "পার্থক্য নিরূপণ — Continuous বনাম Perfect Continuous (Comparison)",
+          "title_target": "Present Continuous vs Present Perfect Continuous",
+          "intro_bn": "শুধুমাত্র বর্তমানে কাজ চলছে বোঝালে Present Continuous (am/is/are + ING) বসে। কিন্তু কাজটি কতক্ষণ বা কখন থেকে চলছে (সময়কাল) উল্লেখ থাকলে অবশ্যই Present Perfect Continuous (have/has been + ING) বসবে।",
+          "structure": [
+            "Now only: I am waiting (এখন আমি অপেক্ষা করছি)",
+            "With time: I have been waiting for 20 minutes (২০ মিনিট ধরে অপেক্ষা করছি)"
+          ],
+          "items": [
+            {
+              "id": "en-p10-l55-001",
+              "order": 1,
+              "target": "She is cooking right now. She has been cooking for two hours.",
+              "bn": "সে এখন রান্না করছে। সে দুই ঘণ্টা ধরে রান্না করছে।",
+              "pron_bn": "শি ইজ কুকিং রাইট নাও। শি হ্যাজ বিন কুকিং ফর টু আওয়ার্স।",
+              "ipa": "She is cooking right now. She has been cooking for two hours.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-002",
+              "order": 2,
+              "target": "It is raining now. It has been raining since early morning.",
+              "bn": "এখন বৃষ্টি হচ্ছে। সকাল থেকে বৃষ্টি হচ্ছে।",
+              "pron_bn": "ইট ইজ রেইনিং নাও। ইট হ্যাজ বিন রেইনিং সিন্স আর্লি মর্নিং।",
+              "ipa": "It is raining now. It has been raining since early morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-003",
+              "order": 3,
+              "target": "I am studying now. I have been studying English for six months.",
+              "bn": "আমি এখন পড়াশোনা করছি। আমি ছয় মাস ধরে ইংরেজি শিখছি।",
+              "pron_bn": "আই অ্যাম স্টাডিয়িং নাও। আই হ্যাভ বিন স্টাডিয়িং ইংলিশ ফর সিক্স মান্থস।",
+              "ipa": "I am studying now. I have been studying English for six months.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-004",
+              "order": 4,
+              "target": "They are playing cricket. They have been playing for over an hour.",
+              "bn": "তারা ক্রিকেট খেলছে। তারা এক ঘণ্টারও বেশি সময় ধরে খেলছে।",
+              "pron_bn": "দে আর প্লেয়িং ক্রিকেট। দে হ্যাভ বিন প্লেয়িং ফর ওভার অ্যান আওয়ার।",
+              "ipa": "They are playing cricket. They have been playing for over an hour.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-005",
+              "order": 5,
+              "target": "He is working today. He has been working at this company since 2021.",
+              "bn": "তিনি আজ কাজ করছেন। তিনি ২০২১ সাল থেকে এই কোম্পানিতে কাজ করছেন।",
+              "pron_bn": "হি ইজ ওয়ার্কিং টুডে। হি হ্যাজ বিন ওয়ার্কিং অ্যাট দিজ কোম্পানি সিন্স টুয়েন্টি-টুয়েন্টি-ওয়ান।",
+              "ipa": "He is working today. He has been working at this company since 2021.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-006",
+              "order": 6,
+              "target": "We are discussing the matter. We have been discussing it since morning.",
+              "bn": "আমরা বিষয়টি নিয়ে আলোচনা করছি। আমরা সকাল থেকে এটি নিয়ে আলোচনা করছি।",
+              "pron_bn": "উই আর ডিসকাসিং দ্য ম্যাটার। উই হ্যাভ বিন ডিসকাসিং ইট সিন্স মর্নিং।",
+              "ipa": "We are discussing the matter. We have been discussing it since morning.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-007",
+              "order": 7,
+              "target": "Why are your eyes red? Because I have been working on the screen for five hours.",
+              "bn": "আপনার চোখ লাল কেন? কারণ আমি পাঁচ ঘণ্টা ধরে স্ক্রিনে কাজ করছি।",
+              "pron_bn": "হোয়াই আর ইয়োর আইজ রেড? বিকজ আই হ্যাভ বিন ওয়ার্কিং অন দ্য স্ক্রিন ফর ফাইভ আওয়ার্স।",
+              "ipa": "Why are your eyes red? Because I have been working on the screen for five hours.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            },
+            {
+              "id": "en-p10-l55-008",
+              "order": 8,
+              "target": "Are you tired? Yes, I have been cleaning the whole house all afternoon.",
+              "bn": "আপনি কি ক্লান্ত? হ্যাঁ, আমি পুরো বিকেল ধরে পুরো বাড়ি পরিষ্কার করছি।",
+              "pron_bn": "আর ইউ টায়ার্ড? ইয়েস, আই হ্যাভ বিন ক্লিনিং দ্য হোল হাউজ অল আফটারনুন।",
+              "ipa": "Are you tired? Yes, I have been cleaning the whole house all afternoon.",
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "present_perfect_continuous",
+                "tense": "present_perfect_continuous"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p11",
+      "order": 11,
+      "level": "A2",
+      "title_bn": "প্রেজেন্ট পারফেক্ট ভয়েস পেয়ার প্র্যাকটিস (Voice Q&A Practice)",
+      "title_target": "Present Perfect Voice Interactive Pair Practice",
+      "lessons": [
+        {
+          "id": "en-foundations-l56",
+          "order": 1,
+          "title_bn": "প্রেজেন্ট পারফেক্ট ভয়েস পেয়ার প্র্যাকটিস (Voice Q&A Practice)",
+          "title_target": "Present Perfect Interactive Voice Practice",
+          "intro_bn": "মাইক্রোফোনে ট্যাপ করে প্রশ্ন শুনুন এবং ইংরেজিতে উত্তর দিন। হ্যাঁ-বোধক উত্তর 'Yes' দিয়ে এবং না-বোধক উত্তর 'No' দিয়ে শুরু করুন। আমাদের এআই সিস্টেম আপনার উচ্চারণ ও ব্যাকরণ মূল্যায়ন করবে।",
+          "structure": [
+            "Question: Have you + V3...?",
+            "Yes Answer: Yes, I have + V3...",
+            "No Answer: No, I haven't + V3 + yet..."
+          ],
+          "items": [
+            {
+              "id": "en-p11-pair-001",
+              "concept_id": "c-en-p11-pair-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you finished your homework?",
+              "bn": "তুমি কি তোমার বাড়ির কাজ শেষ করেছ?",
+              "bn_pron": "হ্যাভ ইউ ফিনিশড ইয়োর হোমওয়ার্ক?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "finished",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "homework?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have finished my homework.",
+                "bn": "No, I haven't finished my homework yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-002",
+              "concept_id": "c-en-p11-pair-002",
+              "order": 2,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you taken your morning medicine?",
+              "bn": "আপনি কি আপনার সকালের ওষুধ খেয়েছেন?",
+              "bn_pron": "হ্যাভ ইউ টেকেন ইয়োর মর্নিং মেডিসিন?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "taken",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "morning",
+                  "bn": ""
+                },
+                {
+                  "t": "medicine?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have taken my medicine.",
+                "bn": "No, I haven't taken my medicine yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-003",
+              "concept_id": "c-en-p11-pair-003",
+              "order": 3,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you ever been to Cox's Bazar?",
+              "bn": "আপনি কি কখনো কক্সবাজার গিয়েছেন?",
+              "bn_pron": "হ্যাভ ইউ এভার বিন টু কক্সবাজার?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ever",
+                  "bn": ""
+                },
+                {
+                  "t": "been",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "Cox's",
+                  "bn": ""
+                },
+                {
+                  "t": "Bazar?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have been to Cox's Bazar twice.",
+                "bn": "No, I have never been to Cox's Bazar."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-004",
+              "concept_id": "c-en-p11-pair-004",
+              "order": 4,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you eaten your lunch yet?",
+              "bn": "আপনি কি দুপুরের খাবার খেয়েছেন?",
+              "bn_pron": "হ্যাভ ইউ ইটেন ইয়োর লাঞ্চ ইয়েট?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "eaten",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "lunch",
+                  "bn": ""
+                },
+                {
+                  "t": "yet?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have already eaten my lunch.",
+                "bn": "No, I haven't eaten my lunch yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-005",
+              "concept_id": "c-en-p11-pair-005",
+              "order": 5,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you seen my car keys?",
+              "bn": "তুমি কি আমার গাড়ির চাবি দেখেছ?",
+              "bn_pron": "হ্যাভ ইউ সিন মাই কার কিজ?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "seen",
+                  "bn": ""
+                },
+                {
+                  "t": "my",
+                  "bn": ""
+                },
+                {
+                  "t": "car",
+                  "bn": ""
+                },
+                {
+                  "t": "keys?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have seen your keys on the table.",
+                "bn": "No, I haven't seen your keys anywhere."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-006",
+              "concept_id": "c-en-p11-pair-006",
+              "order": 6,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you received my official email?",
+              "bn": "আপনি কি আমার অফিশিয়াল ইমেইল পেয়েছেন?",
+              "bn_pron": "হ্যাভ ইউ রিসিভড মাই অফিশিয়াল ইমেইল?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "received",
+                  "bn": ""
+                },
+                {
+                  "t": "my",
+                  "bn": ""
+                },
+                {
+                  "t": "official",
+                  "bn": ""
+                },
+                {
+                  "t": "email?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have received your email.",
+                "bn": "No, I haven't received your email yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-007",
+              "concept_id": "c-en-p11-pair-007",
+              "order": 7,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you ever eaten Japanese sushi?",
+              "bn": "আপনি কি কখনো জাপানি সুশি খেয়েছেন?",
+              "bn_pron": "হ্যাভ ইউ এভার ইটেন জাপানিজ সুশি?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ever",
+                  "bn": ""
+                },
+                {
+                  "t": "eaten",
+                  "bn": ""
+                },
+                {
+                  "t": "Japanese",
+                  "bn": ""
+                },
+                {
+                  "t": "sushi?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have eaten Japanese sushi before.",
+                "bn": "No, I have never tried Japanese sushi."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-008",
+              "concept_id": "c-en-p11-pair-008",
+              "order": 8,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you spoken with your team manager today?",
+              "bn": "আপনি কি আজ আপনার টিম ম্যানেজারের সাথে কথা বলেছেন?",
+              "bn_pron": "হ্যাভ ইউ স্পোকেন উইথ ইয়োর টিম ম্যানেজার টুডে?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "spoken",
+                  "bn": ""
+                },
+                {
+                  "t": "with",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "team",
+                  "bn": ""
+                },
+                {
+                  "t": "manager",
+                  "bn": ""
+                },
+                {
+                  "t": "today?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have spoken with my manager today.",
+                "bn": "No, I haven't spoken with my manager yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-009",
+              "concept_id": "c-en-p11-pair-009",
+              "order": 9,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you locked the front door properly?",
+              "bn": "তুমি কি সদর দরজাটি ঠিকমতো তালা দিয়েছ?",
+              "bn_pron": "হ্যাভ ইউ লকড দ্য ফ্রন্ট ডোর প্রপারলি?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "locked",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "front",
+                  "bn": ""
+                },
+                {
+                  "t": "door",
+                  "bn": ""
+                },
+                {
+                  "t": "properly?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have locked the front door.",
+                "bn": "No, I haven't locked the front door yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-010",
+              "concept_id": "c-en-p11-pair-010",
+              "order": 10,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you ever travelled abroad by plane?",
+              "bn": "আপনি কি কখনো বিমানে করে বিদেশ ভ্রমণ করেছেন?",
+              "bn_pron": "হ্যাভ ইউ এভার ট্রাভেল্ড অ্যাব্রড বাই প্লেন?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ever",
+                  "bn": ""
+                },
+                {
+                  "t": "travelled",
+                  "bn": ""
+                },
+                {
+                  "t": "abroad",
+                  "bn": ""
+                },
+                {
+                  "t": "by",
+                  "bn": ""
+                },
+                {
+                  "t": "plane?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have travelled abroad by plane.",
+                "bn": "No, I have never travelled abroad by plane."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-011",
+              "concept_id": "c-en-p11-pair-011",
+              "order": 11,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you watched the new English movie yet?",
+              "bn": "তুমি কি নতুন ইংরেজি সিনেমাটি দেখেছ?",
+              "bn_pron": "হ্যাভ ইউ ওয়াচড দ্য নিউ ইংলিশ মুভি ইয়েট?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "watched",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "new",
+                  "bn": ""
+                },
+                {
+                  "t": "English",
+                  "bn": ""
+                },
+                {
+                  "t": "movie",
+                  "bn": ""
+                },
+                {
+                  "t": "yet?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have already watched the movie.",
+                "bn": "No, I haven't watched the movie yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-012",
+              "concept_id": "c-en-p11-pair-012",
+              "order": 12,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you cleaned your bedroom today?",
+              "bn": "তুমি কি আজ তোমার শোবার ঘর পরিষ্কার করেছ?",
+              "bn_pron": "হ্যাভ ইউ ক্লিন্ড ইয়োর বেডরুম টুডে?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "cleaned",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "bedroom",
+                  "bn": ""
+                },
+                {
+                  "t": "today?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have cleaned my bedroom today.",
+                "bn": "No, I haven't cleaned my bedroom yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-013",
+              "concept_id": "c-en-p11-pair-013",
+              "order": 13,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you practiced your spoken English lesson?",
+              "bn": "আপনি কি আপনার স্পোকেন ইংলিশ লেসন অনুশীলন করেছেন?",
+              "bn_pron": "হ্যাভ ইউ প্র্যাকটিসড ইয়োর স্পোকেন ইংলিশ লেসন?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "practiced",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "spoken",
+                  "bn": ""
+                },
+                {
+                  "t": "English",
+                  "bn": ""
+                },
+                {
+                  "t": "lesson?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have practiced my spoken English lesson.",
+                "bn": "No, I haven't practiced my lesson yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-014",
+              "concept_id": "c-en-p11-pair-014",
+              "order": 14,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you heard the breaking news?",
+              "bn": "তুমি কি ব্রেকিং নিউজ শুনেছ?",
+              "bn_pron": "হ্যাভ ইউ হার্ড দ্য ব্রেকিং নিউজ?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "heard",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "breaking",
+                  "bn": ""
+                },
+                {
+                  "t": "news?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have heard the breaking news.",
+                "bn": "No, I haven't heard the news yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-015",
+              "concept_id": "c-en-p11-pair-015",
+              "order": 15,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you decided where to spend the vacation?",
+              "bn": "ছুটি কোথায় কাটাবেন তা কি সিদ্ধান্ত নিয়েছেন?",
+              "bn_pron": "হ্যাভ ইউ ডিসাইডেড হোয়ার টু স্পেন্ড দ্য ভ্যাকেশন?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "decided",
+                  "bn": ""
+                },
+                {
+                  "t": "where",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "spend",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "vacation?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have decided where to spend it.",
+                "bn": "No, I haven't decided where to spend it yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-016",
+              "concept_id": "c-en-p11-pair-016",
+              "order": 16,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you lived in this city for a long time?",
+              "bn": "আপনি কি দীর্ঘদিন ধরে এই শহরে বসবাস করছেন?",
+              "bn_pron": "হ্যাভ ইউ লিভড ইন দিজ সিটি ফর আ লং টাইম?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "lived",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "this",
+                  "bn": ""
+                },
+                {
+                  "t": "city",
+                  "bn": ""
+                },
+                {
+                  "t": "for",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "long",
+                  "bn": ""
+                },
+                {
+                  "t": "time?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have lived here for five years.",
+                "bn": "No, I have only lived here for a few months."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-017",
+              "concept_id": "c-en-p11-pair-017",
+              "order": 17,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you ever met a famous personality?",
+              "bn": "আপনি কি কখনো কোনো বিখ্যাত ব্যক্তিত্বের সাথে দেখা করেছেন?",
+              "bn_pron": "হ্যাভ ইউ এভার মেট আ ফেমাস পারসোনালিটি?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ever",
+                  "bn": ""
+                },
+                {
+                  "t": "met",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "famous",
+                  "bn": ""
+                },
+                {
+                  "t": "personality?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have met a famous personality before.",
+                "bn": "No, I have never met any famous personality."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-018",
+              "concept_id": "c-en-p11-pair-018",
+              "order": 18,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you charged your mobile phone battery?",
+              "bn": "তুমি কি তোমার মোবাইল ফোনের ব্যাটারি চার্জ দিয়েছ?",
+              "bn_pron": "হ্যাভ ইউ চার্জড ইয়োর মোবাইল ফোন ব্যাটারি?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "charged",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "mobile",
+                  "bn": ""
+                },
+                {
+                  "t": "phone",
+                  "bn": ""
+                },
+                {
+                  "t": "battery?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have charged my phone battery.",
+                "bn": "No, I haven't charged my phone battery yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-019",
+              "concept_id": "c-en-p11-pair-019",
+              "order": 19,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you been waiting here for a long time?",
+              "bn": "আপনি কি এখানে অনেকক্ষণ ধরে অপেক্ষা করছেন?",
+              "bn_pron": "হ্যাভ ইউ বিন ওয়েটিং হেয়ার ফর আ লং টাইম?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "been",
+                  "bn": ""
+                },
+                {
+                  "t": "waiting",
+                  "bn": ""
+                },
+                {
+                  "t": "here",
+                  "bn": ""
+                },
+                {
+                  "t": "for",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "long",
+                  "bn": ""
+                },
+                {
+                  "t": "time?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have been waiting for thirty minutes.",
+                "bn": "No, I haven't been waiting that long."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            },
+            {
+              "id": "en-p11-pair-020",
+              "concept_id": "c-en-p11-pair-020",
+              "order": 20,
+              "type": "sentence",
+              "level": "A2",
+              "target": "Have you paid the monthly electricity bill?",
+              "bn": "আপনি কি মাসিক বিদ্যুৎ বিল পরিশোধ করেছেন?",
+              "bn_pron": "হ্যাভ ইউ পেইড দ্য মান্থলি ইলেকট্রিসিটি বিল?",
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "paid",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "monthly",
+                  "bn": ""
+                },
+                {
+                  "t": "electricity",
+                  "bn": ""
+                },
+                {
+                  "t": "bill?",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa",
+                "tense": "present_perfect"
+              },
+              "example": {
+                "target": "Yes, I have paid the electricity bill.",
+                "bn": "No, I haven't paid the electricity bill yet."
+              },
+              "status": "reviewed",
+              "reviewFlags": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p12",
+      "order": 12,
+      "level": "A2",
       "title_bn": "বর্তমান কালের কর্মবাচ্য (Present Passive Voice — is/are + V3)",
       "title_target": "Present Passive Voice (is/are + V3 & is/are being + V3)",
       "lessons": [
         {
-          "id": "en-foundations-l52",
+          "id": "en-foundations-l57",
           "order": 1,
           "title_bn": "সাধারণ বর্তমান কর্মবাচ্য — 'is / are + V3' (Present Simple Passive)",
           "title_target": "Present Simple Passive (is / are + V3)",
@@ -34025,7 +35593,7 @@
           ],
           "items": [
             {
-              "id": "en-p10-l52-001",
+              "id": "en-p12-l57-001",
               "order": 1,
               "target": "English is spoken all over the world.",
               "bn": "সারা বিশ্বে ইংরেজি বলা হয়।",
@@ -34039,7 +35607,7 @@
               }
             },
             {
-              "id": "en-p10-l52-002",
+              "id": "en-p12-l57-002",
               "order": 2,
               "target": "Rice is grown in large quantities in Bangladesh.",
               "bn": "বাংলাদেশে প্রচুর পরিমাণে ধান উৎপাদিত হয়।",
@@ -34053,7 +35621,7 @@
               }
             },
             {
-              "id": "en-p10-l52-003",
+              "id": "en-p12-l57-003",
               "order": 3,
               "target": "Hot tea is served to all the guests.",
               "bn": "সকল অতিথিকে গরম চা পরিবেশন করা হয়।",
@@ -34067,7 +35635,7 @@
               }
             },
             {
-              "id": "en-p10-l52-004",
+              "id": "en-p12-l57-004",
               "order": 4,
               "target": "He is given a handsome monthly salary.",
               "bn": "তাকে ভালো অঙ্কের মাসিক বেতন দেওয়া হয়।",
@@ -34081,7 +35649,7 @@
               }
             },
             {
-              "id": "en-p10-l52-005",
+              "id": "en-p12-l57-005",
               "order": 5,
               "target": "Official emails are sent every single morning.",
               "bn": "প্রতিদিন সকালে অফিশিয়াল ইমেইল পাঠানো হয়।",
@@ -34095,7 +35663,7 @@
               }
             },
             {
-              "id": "en-p10-l52-006",
+              "id": "en-p12-l57-006",
               "order": 6,
               "target": "Original books are sold in this bookstore.",
               "bn": "এই বইয়ের দোকানে আসল বই বিক্রি করা হয়।",
@@ -34109,7 +35677,7 @@
               }
             },
             {
-              "id": "en-p10-l52-007",
+              "id": "en-p12-l57-007",
               "order": 7,
               "target": "Is English spoken here? Yes, English is spoken here. No, English is not spoken here.",
               "bn": "এখানে কি ইংরেজি বলা হয়? হ্যাঁ, এখানে ইংরেজি বলা হয়। না, এখানে ইংরেজি বলা হয় না।",
@@ -34123,7 +35691,7 @@
               }
             },
             {
-              "id": "en-p10-l52-008",
+              "id": "en-p12-l57-008",
               "order": 8,
               "target": "The bright moon is seen clearly in the clear night sky.",
               "bn": "মেঘমুক্ত রাতের আকাশে উজ্জ্বল চাঁদ স্পষ্টভাবে দেখা যায়।",
@@ -34139,7 +35707,7 @@
           ]
         },
         {
-          "id": "en-foundations-l53",
+          "id": "en-foundations-l58",
           "order": 2,
           "title_bn": "চলমান বর্তমান কর্মবাচ্য — 'is / are being + V3' (Present Continuous Passive)",
           "title_target": "Present Continuous Passive (is / are being + V3)",
@@ -34150,7 +35718,7 @@
           ],
           "items": [
             {
-              "id": "en-p10-l53-001",
+              "id": "en-p12-l58-001",
               "order": 1,
               "target": "The damaged road is being repaired right now.",
               "bn": "ক্ষতিগ্রস্ত রাস্তাটি এই মুহূর্তে মেরামত করা হচ্ছে।",
@@ -34164,7 +35732,7 @@
               }
             },
             {
-              "id": "en-p10-l53-002",
+              "id": "en-p12-l58-002",
               "order": 2,
               "target": "A modern bridge is being built over the river.",
               "bn": "নদীর ওপর একটি আধুনিক সেতু তৈরি করা হচ্ছে।",
@@ -34178,7 +35746,7 @@
               }
             },
             {
-              "id": "en-p10-l53-003",
+              "id": "en-p12-l58-003",
               "order": 3,
               "target": "An urgent meeting is being held in the main conference room.",
               "bn": "প্রধান সম্মেলন কক্ষে একটি জরুরি বৈঠক অনুষ্ঠিত হচ্ছে।",
@@ -34192,7 +35760,7 @@
               }
             },
             {
-              "id": "en-p10-l53-004",
+              "id": "en-p12-l58-004",
               "order": 4,
               "target": "The suspicious activities are being tracked by the cyber security team.",
               "bn": "সন্দেহজনক কার্যক্রম সাইবার নিরাপত্তা দল দ্বারা পর্যবেক্ষণ করা হচ্ছে।",
@@ -34206,7 +35774,7 @@
               }
             },
             {
-              "id": "en-p10-l53-005",
+              "id": "en-p12-l58-005",
               "order": 5,
               "target": "Delicious dinner is being prepared in the kitchen.",
               "bn": "রান্নাঘরে সুস্বাদু রাতের খাবার তৈরি করা হচ্ছে।",
@@ -34220,7 +35788,7 @@
               }
             },
             {
-              "id": "en-p10-l53-006",
+              "id": "en-p12-l58-006",
               "order": 6,
               "target": "Our official documents are being verified very carefully.",
               "bn": "আমাদের অফিশিয়াল কাগজপত্র অত্যন্ত সতর্কতার সাথে যাচাই করা হচ্ছে।",
@@ -34234,7 +35802,7 @@
               }
             },
             {
-              "id": "en-p10-l53-007",
+              "id": "en-p12-l58-007",
               "order": 7,
               "target": "Is the car being washed right now? Yes, it is being washed. No, it is not being washed.",
               "bn": "গাড়িটি কি এখন ধোয়া হচ্ছে? হ্যাঁ, এটি ধোয়া হচ্ছে। না, এটি ধোয়া হচ্ছে না।",
@@ -34248,7 +35816,7 @@
               }
             },
             {
-              "id": "en-p10-l53-008",
+              "id": "en-p12-l58-008",
               "order": 8,
               "target": "Many new residential buildings are being constructed in this area.",
               "bn": "এই এলাকায় অনেক নতুন আবাসিক ভবন নির্মাণ করা হচ্ছে।",
@@ -34264,7 +35832,7 @@
           ]
         },
         {
-          "id": "en-foundations-l54",
+          "id": "en-foundations-l59",
           "order": 3,
           "title_bn": "দৈনন্দিন প্যাসিভ প্রশ্নোত্তর — 'Is it made / Are you...?' (Passive Q&A Drills)",
           "title_target": "Everyday Passive Questions & Answers",
@@ -34275,7 +35843,7 @@
           ],
           "items": [
             {
-              "id": "en-p10-l54-001",
+              "id": "en-p12-l59-001",
               "order": 1,
               "target": "Where is this cotton shirt made? It is made in Bangladesh.",
               "bn": "এই সুতি শার্টটি কোথায় তৈরি? এটি বাংলাদেশে তৈরি।",
@@ -34289,7 +35857,7 @@
               }
             },
             {
-              "id": "en-p10-l54-002",
+              "id": "en-p12-l59-002",
               "order": 2,
               "target": "Are credit cards accepted here? Yes, credit cards are accepted here. No, only cash is accepted.",
               "bn": "এখানে কি ক্রেডিট কার্ড গ্রহণ করা হয়? হ্যাঁ, এখানে ক্রেডিট কার্ড নেওয়া হয়। না, শুধু নগদ টাকা নেওয়া হয়।",
@@ -34303,7 +35871,7 @@
               }
             },
             {
-              "id": "en-p10-l54-003",
+              "id": "en-p12-l59-003",
               "order": 3,
               "target": "How is this traditional dish cooked? It is cooked with fresh aromatic spices.",
               "bn": "এই ঐতিহ্যবাহী খাবারটি কীভাবে রান্না করা হয়? এটি তাজা সুগন্ধি মশলা দিয়ে রান্না করা হয়।",
@@ -34317,7 +35885,7 @@
               }
             },
             {
-              "id": "en-p10-l54-004",
+              "id": "en-p12-l59-004",
               "order": 4,
               "target": "Is home delivery included in the price? Yes, free home delivery is included.",
               "bn": "মূল্যের মধ্যে কি হোম ডেলিভারি অন্তর্ভুক্ত? হ্যাঁ, বিনামূল্যে হোম ডেলিভারি অন্তর্ভুক্ত।",
@@ -34331,7 +35899,7 @@
               }
             },
             {
-              "id": "en-p10-l54-005",
+              "id": "en-p12-l59-005",
               "order": 5,
               "target": "Are all spoken English classes conducted online? Yes, all classes are conducted live online.",
               "bn": "সকল স্পোকেন ইংলিশ ক্লাস কি অনলাইনে হয়? হ্যাঁ, সব ক্লাস সরাসরি অনলাইনে পরিচালিত হয়।",
@@ -34345,7 +35913,7 @@
               }
             },
             {
-              "id": "en-p10-l54-006",
+              "id": "en-p12-l59-006",
               "order": 6,
               "target": "When are the daily newspapers delivered? They are delivered early every morning.",
               "bn": "দৈনিক পত্রিকা কখন দেওয়া হয়? প্রতিদিন ভোরে পত্রিকা পৌঁছে দেওয়া হয়।",
@@ -34359,7 +35927,7 @@
               }
             },
             {
-              "id": "en-p10-l54-007",
+              "id": "en-p12-l59-007",
               "order": 7,
               "target": "Who is invited to the award ceremony? All registered members are invited.",
               "bn": "পুরস্কার বিতরণী অনুষ্ঠানে কাকে আমন্ত্রণ জানানো হয়েছে? সকল নিবন্ধিত সদস্যকে আমন্ত্রণ জানানো হয়েছে।",
@@ -34373,7 +35941,7 @@
               }
             },
             {
-              "id": "en-p10-l54-008",
+              "id": "en-p12-l59-008",
               "order": 8,
               "target": "Is complimentary breakfast provided at this hotel? Yes, breakfast is served from seven am.",
               "bn": "এই হোটেলে কি কমপ্লিমেন্টারি নাস্তা দেওয়া হয়? হ্যাঁ, সকাল সাতটা থেকে নাস্তা পরিবেশন করা হয়।",
@@ -34389,7 +35957,7 @@
           ]
         },
         {
-          "id": "en-foundations-l55",
+          "id": "en-foundations-l60",
           "order": 4,
           "title_bn": "দাপ্তরিক ও আনুষ্ঠানিক প্যাসিভ বাক্য (Passive in Professional Settings)",
           "title_target": "Passive in Professional & Official Settings",
@@ -34400,7 +35968,7 @@
           ],
           "items": [
             {
-              "id": "en-p10-l55-001",
+              "id": "en-p12-l60-001",
               "order": 1,
               "target": "You are cordially invited to attend our annual corporate conference.",
               "bn": "আমাদের বার্ষিক করপোরেট সম্মেলনে অংশ নিতে আপনাকে আন্তরিকভাবে আমন্ত্রণ জানানো হচ্ছে।",
@@ -34414,7 +35982,7 @@
               }
             },
             {
-              "id": "en-p10-l55-002",
+              "id": "en-p12-l60-002",
               "order": 2,
               "target": "All employees are requested to wear their identity cards at all times.",
               "bn": "সকল কর্মচারীকে সার্বক্ষণিক তাদের পরিচয়পত্র পরিধান করার অনুরোধ করা হচ্ছে।",
@@ -34428,7 +35996,7 @@
               }
             },
             {
-              "id": "en-p10-l55-003",
+              "id": "en-p12-l60-003",
               "order": 3,
               "target": "Mobile phones are not allowed inside the confidential meeting room.",
               "bn": "গোপনীয় সভা কক্ষের ভেতরে মোবাইল ফোন ব্যবহারের অনুমতি নেই।",
@@ -34442,7 +36010,7 @@
               }
             },
             {
-              "id": "en-p10-l55-004",
+              "id": "en-p12-l60-004",
               "order": 4,
               "target": "The monthly sales report is submitted on time every month.",
               "bn": "প্রতি মাসে সময়মতো মাসিক বিক্রয় প্রতিবেদন জমা দেওয়া হয়।",
@@ -34456,7 +36024,7 @@
               }
             },
             {
-              "id": "en-p10-l55-005",
+              "id": "en-p12-l60-005",
               "order": 5,
               "target": "All passengers are informed that the departure is on schedule.",
               "bn": "সকল যাত্রীকে জানানো যাচ্ছে যে বিমান সঠিক সময়ে ছেড়ে যাবে।",
@@ -34470,7 +36038,7 @@
               }
             },
             {
-              "id": "en-p10-l55-006",
+              "id": "en-p12-l60-006",
               "order": 6,
               "target": "Smoking is strictly prohibited on the entire hospital campus.",
               "bn": "পুরো হাসপাতাল প্রাঙ্গণে ধূমপান সম্পূর্ণ নিষিদ্ধ।",
@@ -34484,7 +36052,7 @@
               }
             },
             {
-              "id": "en-p10-l55-007",
+              "id": "en-p12-l60-007",
               "order": 7,
               "target": "You are required to submit a valid photo identification document.",
               "bn": "একটি বৈধ ছবিযুক্ত পরিচয়পত্র জমা দেওয়া আপনার জন্য আবশ্যক।",
@@ -34498,7 +36066,7 @@
               }
             },
             {
-              "id": "en-p10-l55-008",
+              "id": "en-p12-l60-008",
               "order": 8,
               "target": "The monthly salary is directly deposited into your bank account.",
               "bn": "মাসিক বেতন সরাসরি আপনার ব্যাংক অ্যাকাউন্টে জমা দেওয়া হয়।",
@@ -34509,640 +36077,6 @@
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "en-foundations-p11",
-      "order": 11,
-      "level": "A2",
-      "title_bn": "সাধারণ অতীত কাল — Past Simple (Was/Were & Did/Didn't)",
-      "title_target": "Past Simple Tense (Was/Were & Did/Didn't with V2)",
-      "lessons": [
-        {
-          "id": "en-foundations-l56",
-          "order": 1,
-          "title_bn": "অতীতের অবস্থা ও পরিচয় — 'Was / Were' (Past States & Identity)",
-          "title_target": "Past States & Identity (Was / Were)",
-          "intro_bn": "অতীতে কোনো ব্যক্তি বা বস্তুর অবস্থা, পেশা বা অবস্থান কেমন ছিল তা প্রকাশ করতে 'was / were' ব্যবহৃত হয়। গঠন: I / He / She / It + was; We / You / They + were।",
-          "structure": [
-            "I / He / She / It / Singular + was + Adjective / Noun / Place",
-            "We / You / They / Plural + were + Adjective / Noun / Place"
-          ],
-          "items": [
-            {
-              "id": "en-p11-l56-001",
-              "order": 1,
-              "target": "I was very busy yesterday afternoon.",
-              "bn": "আমি গতকাল বিকেলে খুব ব্যস্ত ছিলাম।",
-              "pron_bn": "আই ওয়াজ ভেরি বিজি ইয়েস্টারডে আফটারনুন।",
-              "ipa": "I was very busy yesterday afternoon.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-002",
-              "order": 2,
-              "target": "He was sick last week and stayed in bed.",
-              "bn": "সে গত সপ্তাহে অসুস্থ ছিল এবং বিছানায় বিশ্রাম নিয়েছিল।",
-              "pron_bn": "হি ওয়াজ সিক লাস্ট উইক অ্যান্ড સ્ટેইড ইন বেড।",
-              "ipa": "He was sick last week and stayed in bed.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-003",
-              "order": 3,
-              "target": "They were at home yesterday evening.",
-              "bn": "তারা গতকাল সন্ধ্যায় বাড়িতে ছিল।",
-              "pron_bn": "দে ওয়্যার অ্যাট হোম ইয়েস্টারডে ইভনিং।",
-              "ipa": "They were at home yesterday evening.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-004",
-              "order": 4,
-              "target": "She was a dedicated high school teacher before moving abroad.",
-              "bn": "বিদেশে যাওয়ার আগে তিনি একজন নিবেদিতপ্রাণ উচ্চ বিদ্যালয়ের শিক্ষক ছিলেন।",
-              "pron_bn": "শি ওয়াজ আ ডেডিকেটেড হাই স্কুল টিচার বিফোর মুভিং অ্যাব্রড।",
-              "ipa": "She was a dedicated high school teacher before moving abroad.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-005",
-              "order": 5,
-              "target": "The weather was very pleasant and sunny yesterday.",
-              "bn": "গতকাল আবহাওয়া খুব মনোরম এবং রৌদ্রোজ্জ্বল ছিল।",
-              "pron_bn": "দ্য ওয়েদার ওয়াজ ভেরি প্লেজেন্ট অ্যান্ড সানি ইয়েস্টারডে।",
-              "ipa": "The weather was very pleasant and sunny yesterday.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-006",
-              "order": 6,
-              "target": "Were you sick yesterday? Yes, I was sick yesterday. No, I was not sick.",
-              "bn": "আপনি কি গতকাল অসুস্থ ছিলেন? হ্যাঁ, আমি গতকাল অসুস্থ ছিলাম। না, আমি অসুস্থ ছিলাম না।",
-              "pron_bn": "ওয়্যার ইউ সিক ইয়েস্টারডে? ইয়েস, আই ওয়াজ সিক ইয়েস্টারডে। নো, আই ওয়াজ নট সিক।",
-              "ipa": "Were you sick yesterday? Yes, I was sick yesterday. No, I was not sick.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-007",
-              "order": 7,
-              "target": "Were they in the office on Sunday? Yes, they were in the office. No, they were not.",
-              "bn": "তারা কি রবিবারে অফিসে ছিল? হ্যাঁ, তারা অফিসে ছিল। না, তারা ছিল না।",
-              "pron_bn": "ওয়্যার দে ইন দি অফিস অন সানডে? ইয়েস, দে ওয়্যার ইন দি অফিস। নো, দে ওয়্যার নট।",
-              "ipa": "Were they in the office on Sunday? Yes, they were in the office. No, they were not.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l56-008",
-              "order": 8,
-              "target": "Where were you yesterday morning? I was at the central library.",
-              "bn": "আপনি গতকাল সকালে কোথায় ছিলেন? আমি সেন্ট্রাল লাইব্রেরিতে ছিলাম।",
-              "pron_bn": "হোয়ার ওয়্যার ইউ ইয়েস্টারডে মর্নিং? আই ওয়াজ অ্যাট দ্য সেন্ট্রাল লাইব্রেরি।",
-              "ipa": "Where were you yesterday morning? I was at the central library.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            }
-          ]
-        },
-        {
-          "id": "en-foundations-l57",
-          "order": 2,
-          "title_bn": "অতীতের সমাপ্ত কাজ — 'Subject + V2' (Affirmative Past Simple)",
-          "title_target": "Completed Past Actions (Subject + V2)",
-          "intro_bn": "অতীতের কোনো নির্দিষ্ট সময়ে শেষ হওয়া কাজ বোঝাতে মূল Verb-এর Past form (V2) ব্যবহৃত হয়। যেমন: went, came, bought, watched, called।",
-          "structure": [
-            "Subject + V2 (went, saw, played, bought, cooked)",
-            "Time markers: yesterday, last night, two days ago, last month"
-          ],
-          "items": [
-            {
-              "id": "en-p11-l57-001",
-              "order": 1,
-              "target": "She went shopping with her sister last Saturday.",
-              "bn": "তিনি গত শনিবার তার বোনের সাথে কেনাকাটা করতে গিয়েছিলেন।",
-              "pron_bn": "শি ওয়েন্ট শপিং উইথ হার সিস্টার লাস্ট স্যাটারডে।",
-              "ipa": "She went shopping with her sister last Saturday.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-002",
-              "order": 2,
-              "target": "We got up early yesterday and went for a long morning walk.",
-              "bn": "আমরা গতকাল খুব ভোরে ঘুম থেকে উঠে দীর্ঘ প্রাতঃভ্রমণে গিয়েছিলাম।",
-              "pron_bn": "উই গট আপ আর্লি ইয়েস্টারডে অ্যান্ড ওয়েন্ট ফর আ লং মর্নিং ওয়াক।",
-              "ipa": "We got up early yesterday and went for a long morning walk.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-003",
-              "order": 3,
-              "target": "I met my old school friend at the railway station.",
-              "bn": "রেলওয়ে স্টেশনে আমার পুরানো স্কুল বন্ধুর সাথে দেখা হয়েছিল।",
-              "pron_bn": "আই মেট মাই ওল্ড স্কুল ফ্রেন্ড অ্যাট দ্য রেলওয়ে স্টেশন।",
-              "ipa": "I met my old school friend at the railway station.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-004",
-              "order": 4,
-              "target": "He bought a brand new smartphone two days ago.",
-              "bn": "সে দুই দিন আগে একটি একদম নতুন স্মার্টফোন কিনেছিল।",
-              "pron_bn": "হি বট আ ব্র্যান্ড নিউ স্মার্টফোন টু ডেইজ এগো।",
-              "ipa": "He bought a brand new smartphone two days ago.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-005",
-              "order": 5,
-              "target": "She cooked delicious biryani for all the invited guests.",
-              "bn": "তিনি সকল আমন্ত্রিত অতিথিদের জন্য সুস্বাদু বিরিয়ানি রান্না করেছিলেন।",
-              "pron_bn": "শি কুক্ট ডেলিশাস বিরিয়ানি ফর অল দি ইনভাইটেড গেস্টস।",
-              "ipa": "She cooked delicious biryani for all the invited guests.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-006",
-              "order": 6,
-              "target": "We watched an inspiring documentary last night.",
-              "bn": "আমরা গত রাতে একটি অনুপ্রেরণামূলক ডকুমেন্টারি দেখেছি।",
-              "pron_bn": "উই ওয়াচড অ্যান ইন্সপায়ারিং ডকুমেন্টারি লাস্ট নাইট।",
-              "ipa": "We watched an inspiring documentary last night.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-007",
-              "order": 7,
-              "target": "They reached the international airport on time yesterday.",
-              "bn": "তারা গতকাল সময়মতো আন্তর্জাতিক বিমানবন্দরে পৌঁছেছিল।",
-              "pron_bn": "দে রীচড দি ইন্টারন্যাশনাল এয়ারপোর্ট অন টাইম ইয়েস্টারডে।",
-              "ipa": "They reached the international airport on time yesterday.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l57-008",
-              "order": 8,
-              "target": "I finished reading the entire book in just three days.",
-              "bn": "আমি মাত্র তিন দিনে পুরো বইটি পড়া শেষ করেছিলাম।",
-              "pron_bn": "আই ফিনিশড রিডিং দি এনটায়ার বুক ইন জাস্ট থ্রি ডেইজ।",
-              "ipa": "I finished reading the entire book in just three days.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            }
-          ]
-        },
-        {
-          "id": "en-foundations-l58",
-          "order": 3,
-          "title_bn": "অতীতের না-বোধক বাক্য — 'Didn't + V1' (Negative Past Simple)",
-          "title_target": "Negative Past Simple (Didn't + V1)",
-          "intro_bn": "অতীতে কোনো কাজ করা হয়নি বোঝাতে 'did not' বা সংক্ষেপে 'didn't' এবং এরপরে মূল Verb-এর Base form (V1) বসে। কখনোই didn't-এর পর V2 বসবে না!",
-          "structure": [
-            "Subject + didn't + Verb (Base form V1)",
-            "Note: didn't go (went নয়), didn't see (saw নয়)"
-          ],
-          "items": [
-            {
-              "id": "en-p11-l58-001",
-              "order": 1,
-              "target": "I didn't receive your phone call yesterday.",
-              "bn": "আমি গতকাল আপনার ফোন কল পাইনি।",
-              "pron_bn": "আই ডিডন্ট রিসিভ ইয়োর ফোন কল ইয়েস্টারডে।",
-              "ipa": "I didn't receive your phone call yesterday.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-002",
-              "order": 2,
-              "target": "She didn't go shopping with her friends last month.",
-              "bn": "তিনি গত মাসে বন্ধুদের সাথে কেনাকাটা করতে যাননি।",
-              "pron_bn": "শি ডিডন্ট গো শপিং উইথ হার ফ্রেন্ডস লাস্ট মান্থ।",
-              "ipa": "She didn't go shopping with her friends last month.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-003",
-              "order": 3,
-              "target": "We didn't get up late yesterday morning.",
-              "bn": "আমরা গতকাল সকালে দেরিতে উঠিনি।",
-              "pron_bn": "উই ডিডন্ট গেট আপ লেইট ইয়েস্টারডে মর্নিং।",
-              "ipa": "We didn't get up late yesterday morning.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-004",
-              "order": 4,
-              "target": "He didn't tell me about the schedule change.",
-              "bn": "তিনি সময়সূচি পরিবর্তনের ব্যাপারে আমাকে কিছু জানাননি।",
-              "pron_bn": "হি ডিডন্ট টেল মি অ্যাবাউট দ্য শিডিউল চেইঞ্জ।",
-              "ipa": "He didn't tell me about the schedule change.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-005",
-              "order": 5,
-              "target": "They didn't attend the annual general meeting yesterday.",
-              "bn": "তারা গতকাল বার্ষিক সাধারণ সভায় উপস্থিত হননি।",
-              "pron_bn": "দে ডিডন্ট অ্যাটেন্ড দি অ্যানুয়াল জেনারেল মিটিং ইয়েস্টারডে।",
-              "ipa": "They didn't attend the annual general meeting yesterday.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-006",
-              "order": 6,
-              "target": "I didn't understand that complex grammar rule at first.",
-              "bn": "আমি প্রথমে সেই জটিল ব্যাকরণ নিয়মটি বুঝতে পারিনি।",
-              "pron_bn": "আই ডিডন্ট আন্ডারস্ট্যান্ড দ্যাট কমপ্লেক্স গ্রামার রুল অ্যাট ফার্স্ট।",
-              "ipa": "I didn't understand that complex grammar rule at first.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-007",
-              "order": 7,
-              "target": "She didn't buy that expensive blue dress from the mall.",
-              "bn": "সে মল থেকে সেই দামি নীল পোশাকটি কেনেনি।",
-              "pron_bn": "শি ডিডন্ট বাই দ্যাট এক্সপেন্সিভ ব্লু ড্রেস ফ্রম দ্য মল।",
-              "ipa": "She didn't buy that expensive blue dress from the mall.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l58-008",
-              "order": 8,
-              "target": "We didn't face any trouble on our way back home.",
-              "bn": "বাড়ি ফেরার পথে আমরা কোনো সমস্যায় পড়িনি।",
-              "pron_bn": "উই ডিডন্ট ফেইস অ্যানি ট্রাবল অন আওয়ার ওয়ে ব্যাক হোম।",
-              "ipa": "We didn't face any trouble on our way back home.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            }
-          ]
-        },
-        {
-          "id": "en-foundations-l59",
-          "order": 4,
-          "title_bn": "অতীতের প্রশ্ন ও প্রশ্নোত্তর — 'Did you + V1...?' (Past Simple Q&A Drills)",
-          "title_target": "Past Questions & Answers (Did you + V1...?)",
-          "intro_bn": "অতীতে কেউ কোনো কাজ করেছিল কি না জানতে 'Did + Subject + V1...?' দিয়ে প্রশ্ন করা হয়। হ্যাঁ-বোধক উত্তরে V2 এবং না-বোধক উত্তরে didn't + V1 ব্যবহৃত হয়।",
-          "structure": [
-            "Did + Subject + Verb (V1)...?",
-            "Yes, Subject + V2 ... / No, Subject + didn't + V1..."
-          ],
-          "items": [
-            {
-              "id": "en-p11-l59-001",
-              "order": 1,
-              "target": "Did she go shopping last weekend? Yes, she went shopping. No, she didn't go shopping.",
-              "bn": "সে কি গত সপ্তাহে কেনাকাটা করতে গিয়েছিল? হ্যাঁ, সে কেনাকাটা করতে গিয়েছিল। না, সে যায়নি।",
-              "pron_bn": "ডিড শি গো শপিং লাস্ট উইকেন্ড? ইয়েস, শি ওয়েন্ট শপিং। নো, শি ডিডন্ট গো শপিং।",
-              "ipa": "Did she go shopping last weekend? Yes, she went shopping. No, she didn't go shopping.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-002",
-              "order": 2,
-              "target": "Did you get up early yesterday? Yes, I got up early. No, I didn't get up early.",
-              "bn": "তুমি কি কাল ভোরে উঠেছিলে? হ্যাঁ, আমি ভোরে উঠেছিলাম। না, আমি ভোরে উঠিনি।",
-              "pron_bn": "ডিড ইউ গেট আপ আর্লি ইয়েস্টারডে? ইয়েস, আই গট আপ আর্লি। নো, আই ডিডন্ট গেট আপ আর্লি।",
-              "ipa": "Did you get up early yesterday? Yes, I got up early. No, I didn't get up early.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-003",
-              "order": 3,
-              "target": "Did you watch the cricket match yesterday? Yes, I watched the match. No, I didn't watch it.",
-              "bn": "তুমি কি গতকাল ক্রিকেট ম্যাচটি দেখেছিলে? হ্যাঁ, আমি ম্যাচটি দেখেছি। না, আমি দেখিনি।",
-              "pron_bn": "ডিড ইউ ওয়াচ দ্য ক্রিকেট ম্যাচ ইয়েস্টারডে? ইয়েস, আই ওয়াচড দ্য ম্যাচ। নো, আই ডিডন্ট ওয়াচ ইট।",
-              "ipa": "Did you watch the cricket match yesterday? Yes, I watched the match. No, I didn't watch it.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-004",
-              "order": 4,
-              "target": "Did he call you last night? Yes, he called me. No, he didn't call me.",
-              "bn": "সে কি গত রাতে তোমাকে ফোন করেছিল? হ্যাঁ, সে আমাকে ফোন করেছিল। না, সে আমাকে ফোন করেনি।",
-              "pron_bn": "ডিড হি কল ইউ লাস্ট নাইট? ইয়েস, হি কল্ড মি। নো, হি ডিডন্ট কল মি।",
-              "ipa": "Did he call you last night? Yes, he called me. No, he didn't call me.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-005",
-              "order": 5,
-              "target": "Did they enjoy the beach party? Yes, they enjoyed it very much. No, they didn't enjoy it.",
-              "bn": "তারা কি সমুদ্র সৈকতের পার্টি উপভোগ করেছিল? হ্যাঁ, তারা খুব উপভোগ করেছিল। না, তারা উপভোগ করেনি।",
-              "pron_bn": "ডিড দে এনজয় দ্য বিচ পার্টি? ইয়েস, দে এনজয়েড ইট ভেরি মাচ। নো, দে ডিডন্ট এনজয় ইট।",
-              "ipa": "Did they enjoy the beach party? Yes, they enjoyed it very much. No, they didn't enjoy it.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-006",
-              "order": 6,
-              "target": "Did you sleep well last night? Yes, I slept very well. No, I didn't sleep well.",
-              "bn": "গত রাতে আপনার ঘুম ভালো হয়েছিল? হ্যাঁ, আমার খুব ভালো ঘুম হয়েছিল। না, আমার ঘুম ভালো হয়নি।",
-              "pron_bn": "ডিড ইউ স্লিপ ওয়েল লাস্ট নাইট? ইয়েস, আই স্লেপ্ট ভেরি ওয়েল। নো, আই ডিডন্ট স্লিপ ওয়েল।",
-              "ipa": "Did you sleep well last night? Yes, I slept very well. No, I didn't sleep well.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-007",
-              "order": 7,
-              "target": "Did it rain heavily in your area yesterday? Yes, it rained heavily. No, it didn't rain.",
-              "bn": "গতকাল কি আপনার এলাকায় ভারী বৃষ্টি হয়েছিল? হ্যাঁ, ভারী বৃষ্টি হয়েছিল। না, বৃষ্টি হয়নি।",
-              "pron_bn": "ডিড ইট রেইন হেভিলি ইন ইয়োর এরিয়া ইয়েস্টারডে? ইয়েস, ইট রেইন্ড হেভিলি। নো, ইট ডিডন্ট রেইন।",
-              "ipa": "Did it rain heavily in your area yesterday? Yes, it rained heavily. No, it didn't rain.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l59-008",
-              "order": 8,
-              "target": "Did you find your lost wallet? Yes, I found it under the table. No, I didn't find it yet.",
-              "bn": "তুমি কি তোমার হারিয়ে যাওয়া মানিব্যাগ খুঁজে পেয়েছ? হ্যাঁ, আমি টেবিলের নিচে পেয়েছি। না, আমি এখনও খুঁজে পাইনি।",
-              "pron_bn": "ডিড ইউ ফাইন্ড ইয়োর লস্ট ওয়ালেট? ইয়েস, আই ফাউন্ড ইট আন্ডার দ্য টেবিল। নো, আই ডিডন্ট ফাইন্ড ইট ইয়েট।",
-              "ipa": "Did you find your lost wallet? Yes, I found it under the table. No, I didn't find it yet.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            }
-          ]
-        },
-        {
-          "id": "en-foundations-l60",
-          "order": 5,
-          "title_bn": "অতীতের তথ্যমূলক প্রশ্ন — 'Wh- Questions with Did' (Seeking Past Info)",
-          "title_target": "Wh- Questions in the Past (Where, When, Why, What did you...?)",
-          "intro_bn": "অতীতে কী, কখন, কোথায়, কেন, কীভাবে ঘটেছিল তা জানতে Wh-words (What, When, Where, Why, How) এর সাথে 'did + Subject + V1' ব্যবহার করা হয়।",
-          "structure": [
-            "Wh-word + did + Subject + Verb (V1)...?",
-            "Answer: Subject + V2 (Past Form)..."
-          ],
-          "items": [
-            {
-              "id": "en-p11-l60-001",
-              "order": 1,
-              "target": "Where did you go yesterday evening? I went to the shopping mall.",
-              "bn": "আপনি গতকাল সন্ধ্যায় কোথায় গিয়েছিলেন? আমি শপিং মলে গিয়েছিলাম।",
-              "pron_bn": "হোয়ার ডিড ইউ গো ইয়েস্টারডে ইভনিং? আই ওয়েন্ট টু দ্য শপিং মল।",
-              "ipa": "Where did you go yesterday evening? I went to the shopping mall.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-002",
-              "order": 2,
-              "target": "What did you buy at the supermarket? I bought fresh fruits and vegetables.",
-              "bn": "আপনি সুপারমার্কেটে কী কিনেছিলেন? আমি তাজা ফল ও শাকসবজি কিনেছিলাম।",
-              "pron_bn": "হোয়াট ডিড ইউ বাই অ্যাট দ্য সুপারমার্কেট? আই বট ফ্রেশ ফ্রুটস অ্যান্ড ভেজিটেবলস।",
-              "ipa": "What did you buy at the supermarket? I bought fresh fruits and vegetables.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-003",
-              "order": 3,
-              "target": "When did they arrive at the venue? They arrived at six in the evening.",
-              "bn": "তারা কখন অনুষ্ঠানস্থলে পৌঁছেছিলেন? তারা সন্ধ্যা ছয়টায় পৌঁছেছিলেন।",
-              "pron_bn": "হোয়েন ডিড দে অ্যারাইভ অ্যাট দ্য ভেনিউ? দে অ্যারাইভড অ্যাট সিক্স ইন দি ইভনিং।",
-              "ipa": "When did they arrive at the venue? They arrived at six in the evening.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-004",
-              "order": 4,
-              "target": "Why did you miss the morning bus? Because I got up a little late.",
-              "bn": "আপনি সকালের বাস মিস করেছিলেন কেন? কারণ আমি একটু দেরিতে ঘুম থেকে উঠেছিলাম।",
-              "pron_bn": "হোয়াই ডিড ইউ মিস দ্য মর্নিং বাস? বিকজ আই গট আপ আ লিটল লেইট।",
-              "ipa": "Why did you miss the morning bus? Because I got up a little late.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-005",
-              "order": 5,
-              "target": "How did you learn to speak English so well? I practiced speaking every single day.",
-              "bn": "আপনি এত সুন্দর ইংরেজি বলা কীভাবে শিখলেন? আমি প্রতিদিন কথা বলার অনুশীলন করেছি।",
-              "pron_bn": "হাউ ডিড ইউ লার্ন টু স্পিক ইংলিশ সো ওয়েল? আই প্র্যাকটিসড স্পিকিং এভরি সিঙ্গেল ডে।",
-              "ipa": "How did you learn to speak English so well? I practiced speaking every single day.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-006",
-              "order": 6,
-              "target": "Who did you meet at the office conference? I met our new marketing director.",
-              "bn": "অফিসের সম্মেলনে আপনি কার সাথে দেখা করেছিলেন? আমি আমাদের নতুন মার্কেটিং পরিচালকের সাথে দেখা করেছিলাম।",
-              "pron_bn": "হু ডিড ইউ মিট অ্যাট দি অফিস কনফারেন্স? আই মেট আওয়ার নিউ মার্কেটিং ডিরেক্টর।",
-              "ipa": "Who did you meet at the office conference? I met our new marketing director.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-007",
-              "order": 7,
-              "target": "What time did you go to bed last night? I went to bed around midnight.",
-              "bn": "গত রাতে আপনি কয়টায় ঘুমাতে গিয়েছিলেন? আমি প্রায় মধ্যরাতে ঘুমাতে গিয়েছিলাম।",
-              "pron_bn": "হোয়াট টাইম ডিড ইউ গো টু বেড লাস্ট নাইট? আই ওয়েন্ট টু বেড অ্যারাউন্ড মিডনাইট।",
-              "ipa": "What time did you go to bed last night? I went to bed around midnight.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
-              }
-            },
-            {
-              "id": "en-p11-l60-008",
-              "order": 8,
-              "target": "How much did this leather jacket cost? It cost three thousand taka.",
-              "bn": "এই চামড়ার জ্যাকেটের দাম কত ছিল? এর দাম ছিল তিন হাজার টাকা।",
-              "pron_bn": "হাউ মাচ ডিড দিজ লেদার জ্যাকেট কস্ট? ইট কস্ট থ্রি থাউজেন্ড টাকা।",
-              "ipa": "How much did this leather jacket cost? It cost three thousand taka.",
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "past_simple",
-                "tense": "past"
               }
             }
           ]
