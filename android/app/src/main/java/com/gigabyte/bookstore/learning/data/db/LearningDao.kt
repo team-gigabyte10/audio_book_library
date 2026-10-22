@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
  * Content-quality gate (plan §6), kept in one place for every query:
  * show an item if it was reviewed, or if it has no review flags and has a Bangla meaning.
  */
-private const val VISIBLE_ITEM = "(i.status = 'reviewed' OR (i.reviewFlags = '' AND i.bn IS NOT NULL AND TRIM(i.bn) != ''))"
+private const val VISIBLE_ITEM = "(i.status = 'reviewed' OR i.speaker = 'pair_practice' OR (i.reviewFlags = '' AND i.bn IS NOT NULL AND TRIM(i.bn) != ''))"
 
 @Dao
 interface LearningDao {

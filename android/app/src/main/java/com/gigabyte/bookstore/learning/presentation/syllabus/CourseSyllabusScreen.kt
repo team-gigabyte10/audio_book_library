@@ -99,6 +99,11 @@ fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
         badgeBgColor = Color(0xFF4C1D95),
         icon = Icons.Default.Place
     )
+    5 -> SyllabusPartTheme(
+        accentColor = Color(0xFFE11D48),
+        badgeBgColor = Color(0xFF9F1239),
+        icon = Icons.Default.RecordVoiceOver
+    )
     else -> SyllabusPartTheme(
         accentColor = Color(0xFF6D28D9),
         badgeBgColor = Color(0xFF4C1D95),

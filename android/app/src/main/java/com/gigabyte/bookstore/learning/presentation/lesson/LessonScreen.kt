@@ -251,21 +251,33 @@ fun LessonScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Spacer(Modifier.height(8.dp))
-                        if (uiState.mode == LessonMode.LISTEN) {
+                        val currentItem = items[index]
+                        if (currentItem.speaker == "pair_practice") {
+                            PairPracticeVoiceCard(
+                                item = currentItem,
+                                onSpeakQuestion = { viewModel.speakText(currentItem.target) },
+                                onSpeakYes = { currentItem.exampleTarget?.let { viewModel.speakText(it) } },
+                                onSpeakNo = { currentItem.exampleBn?.let { viewModel.speakText(it) } },
+                                onSpeakText = { viewModel.speakText(it) },
+                                onNext = viewModel::next,
+                                hasNext = index < items.lastIndex,
+                                onPauseAudio = viewModel::pause
+                            )
+                        } else if (uiState.mode == LessonMode.LISTEN) {
                             SpeakingPromptBanner(isPlaying = playerState.isPlaying)
                             Spacer(Modifier.height(10.dp))
                             ItemCard(
-                                item = items[index],
+                                item = currentItem,
                                 currentStep = playerState.currentStep,
                                 revealTarget = true,
                                 onSpeakToken = viewModel::speakToken,
-                                onSpeakTarget = { viewModel.speakText(items[index].target) }
+                                onSpeakTarget = { viewModel.speakText(currentItem.target) }
                             )
                         } else {
                             // "নিজে বলুন" tab: 10x Speed Drill Timer Challenge with English sentence & Bangla meaning
                             SpeedDrillChallengeCard(
-                                item = items[index],
-                                onSpeakTarget = { viewModel.speakText(items[index].target) },
+                                item = currentItem,
+                                onSpeakTarget = { viewModel.speakText(currentItem.target) },
                                 onNextItem = viewModel::next,
                                 hasNextItem = index < items.lastIndex,
                                 onStartChallenge = viewModel::pause

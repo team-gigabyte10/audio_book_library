@@ -41,8 +41,8 @@
     }
   ],
   "stats": {
-    "lessons": 29,
-    "items": 467
+    "lessons": 34,
+    "items": 517
   },
   "parts": [
     {
@@ -23918,6 +23918,2429 @@
                 "pattern": "possession_qa",
                 "category": "country"
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-foundations-p5",
+      "order": 5,
+      "level": "A1",
+      "title_bn": "জোড়ায় কথোপকথন ও ভয়েস প্র্যাকটিস (Pair Practice with Voice)",
+      "title_target": "Pair Practice: Interactive Voice Q&A",
+      "lessons": [
+        {
+          "id": "en-foundations-l30",
+          "order": 1,
+          "title_bn": "হোমটাউন ও পরিবেশ (Hometown & Living)",
+          "title_target": "Hometown & Living (Pair Practice)",
+          "intro_bn": "অ্যাপের সাথে জোড়ায় অনুশীলন করুন। প্রশ্ন শুনে মাইক্রোফোন ট্যাপ করে Yes অথবা No উত্তরটি ইংরেজিতে বলুন।",
+          "structure": [
+            "Q: Is there...? / Do you...? -> Ans: Yes, ... / No, ..."
+          ],
+          "items": [
+            {
+              "id": "en-pair-001",
+              "concept_id": "c-en-pair-001",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is there a river in your home-town?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": ""
+                },
+                {
+                  "t": "there",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "river",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "home-town",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, there's a river in my home-town.",
+                "bn": "No, there isn't a river in my home-town."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-002",
+              "concept_id": "c-en-pair-002",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you live in a big city?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "live",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "big",
+                  "bn": ""
+                },
+                {
+                  "t": "city",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I live in a big city.",
+                "bn": "No, I don't live in a big city."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-003",
+              "concept_id": "c-en-pair-003",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is there a park near your house?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": ""
+                },
+                {
+                  "t": "there",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "park",
+                  "bn": ""
+                },
+                {
+                  "t": "near",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "house",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, there's a park near my house.",
+                "bn": "No, there isn't a park near my house."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-004",
+              "concept_id": "c-en-pair-004",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have your own room?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "have",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "own",
+                  "bn": ""
+                },
+                {
+                  "t": "room",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I have my own room.",
+                "bn": "No, I don't have my own room."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-005",
+              "concept_id": "c-en-pair-005",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is your neighborhood noisy?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "neighborhood",
+                  "bn": ""
+                },
+                {
+                  "t": "noisy",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, my neighborhood is noisy.",
+                "bn": "No, my neighborhood isn't noisy."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-006",
+              "concept_id": "c-en-pair-006",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are there many trees around your home?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": ""
+                },
+                {
+                  "t": "there",
+                  "bn": ""
+                },
+                {
+                  "t": "many",
+                  "bn": ""
+                },
+                {
+                  "t": "trees",
+                  "bn": ""
+                },
+                {
+                  "t": "around",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "home",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, there are many trees around my home.",
+                "bn": "No, there aren't many trees around my home."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-007",
+              "concept_id": "c-en-pair-007",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you know your neighbors well?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "know",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "neighbors",
+                  "bn": ""
+                },
+                {
+                  "t": "well",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I know my neighbors well.",
+                "bn": "No, I don't know my neighbors well."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-008",
+              "concept_id": "c-en-pair-008",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is there a hospital near your home?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": ""
+                },
+                {
+                  "t": "there",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "hospital",
+                  "bn": ""
+                },
+                {
+                  "t": "near",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "home",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, there's a hospital near my home.",
+                "bn": "No, there isn't a hospital near my home."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-009",
+              "concept_id": "c-en-pair-009",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a garden in front of your house?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "have",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "garden",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "front",
+                  "bn": ""
+                },
+                {
+                  "t": "of",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "house",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I have a garden in front of my house.",
+                "bn": "No, I don't have a garden in front of my house."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-010",
+              "concept_id": "c-en-pair-010",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Is public transport easily available in your area?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Is",
+                  "bn": ""
+                },
+                {
+                  "t": "public",
+                  "bn": ""
+                },
+                {
+                  "t": "transport",
+                  "bn": ""
+                },
+                {
+                  "t": "easily",
+                  "bn": ""
+                },
+                {
+                  "t": "available",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "area",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, public transport is easily available in my area.",
+                "bn": "No, public transport isn't easily available in my area."
+              },
+              "status": "reviewed"
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l31",
+          "order": 2,
+          "title_bn": "দৈনন্দিন অভ্যাস ও রুটিন (Daily Habits & Routines)",
+          "title_target": "Daily Habits & Routines (Pair Practice)",
+          "intro_bn": "দৈনন্দিন রুটিন নিয়ে প্রশ্নোত্তর অনুশীলন করুন। প্রশ্ন শুনে Yes বা No উত্তর মুখে বলুন।",
+          "structure": [
+            "Q: Do you...? / Are you...? -> Ans: Yes, I... / No, I don't..."
+          ],
+          "items": [
+            {
+              "id": "en-pair-011",
+              "concept_id": "c-en-pair-011",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you wake up early in the morning?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "wake",
+                  "bn": ""
+                },
+                {
+                  "t": "up",
+                  "bn": ""
+                },
+                {
+                  "t": "early",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "morning",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I wake up early in the morning.",
+                "bn": "No, I don't wake up early in the morning."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-012",
+              "concept_id": "c-en-pair-012",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you exercise every day?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "exercise",
+                  "bn": ""
+                },
+                {
+                  "t": "every",
+                  "bn": ""
+                },
+                {
+                  "t": "day",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I exercise every day.",
+                "bn": "No, I don't exercise every day."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-013",
+              "concept_id": "c-en-pair-013",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you drink coffee in the morning?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "drink",
+                  "bn": ""
+                },
+                {
+                  "t": "coffee",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "morning",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I drink coffee in the morning.",
+                "bn": "No, I don't drink coffee in the morning."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-014",
+              "concept_id": "c-en-pair-014",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you take a nap in the afternoon?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "take",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "nap",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "afternoon",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I take a nap in the afternoon.",
+                "bn": "No, I don't take a nap in the afternoon."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-015",
+              "concept_id": "c-en-pair-015",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you read books before going to bed?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "read",
+                  "bn": ""
+                },
+                {
+                  "t": "books",
+                  "bn": ""
+                },
+                {
+                  "t": "before",
+                  "bn": ""
+                },
+                {
+                  "t": "going",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "bed",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I read books before going to bed.",
+                "bn": "No, I don't read books before going to bed."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-016",
+              "concept_id": "c-en-pair-016",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you go for a walk in the evening?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "go",
+                  "bn": ""
+                },
+                {
+                  "t": "for",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "walk",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "evening",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I go for a walk in the evening.",
+                "bn": "No, I don't go for a walk in the evening."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-017",
+              "concept_id": "c-en-pair-017",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you busy on weekends?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "busy",
+                  "bn": ""
+                },
+                {
+                  "t": "on",
+                  "bn": ""
+                },
+                {
+                  "t": "weekends",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I'm busy on weekends.",
+                "bn": "No, I'm not busy on weekends."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-018",
+              "concept_id": "c-en-pair-018",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you cook your own meals?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "cook",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "own",
+                  "bn": ""
+                },
+                {
+                  "t": "meals",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I cook my own meals.",
+                "bn": "No, I don't cook my own meals."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-019",
+              "concept_id": "c-en-pair-019",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you watch television regularly?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "watch",
+                  "bn": ""
+                },
+                {
+                  "t": "television",
+                  "bn": ""
+                },
+                {
+                  "t": "regularly",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I watch television regularly.",
+                "bn": "No, I don't watch television regularly."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-020",
+              "concept_id": "c-en-pair-020",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you sleep for at least eight hours?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "sleep",
+                  "bn": ""
+                },
+                {
+                  "t": "for",
+                  "bn": ""
+                },
+                {
+                  "t": "at",
+                  "bn": ""
+                },
+                {
+                  "t": "least",
+                  "bn": ""
+                },
+                {
+                  "t": "eight",
+                  "bn": ""
+                },
+                {
+                  "t": "hours",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I sleep for at least eight hours.",
+                "bn": "No, I don't sleep for at least eight hours."
+              },
+              "status": "reviewed"
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l32",
+          "order": 3,
+          "title_bn": "খাবার ও পানীয় পছন্দ (Food, Drinks & Preferences)",
+          "title_target": "Food & Preferences (Pair Practice)",
+          "intro_bn": "খাবার ও রুচি সংক্রান্ত প্রশ্নোত্তরের ভয়েস প্র্যাকটিস করুন।",
+          "structure": [
+            "Q: Do you like...? / Can you...? -> Ans: Yes, I... / No, I don't..."
+          ],
+          "items": [
+            {
+              "id": "en-pair-021",
+              "concept_id": "c-en-pair-021",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like spicy food?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "spicy",
+                  "bn": ""
+                },
+                {
+                  "t": "food",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like spicy food.",
+                "bn": "No, I don't like spicy food."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-022",
+              "concept_id": "c-en-pair-022",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you prefer tea over coffee?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "prefer",
+                  "bn": ""
+                },
+                {
+                  "t": "tea",
+                  "bn": ""
+                },
+                {
+                  "t": "over",
+                  "bn": ""
+                },
+                {
+                  "t": "coffee",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I prefer tea over coffee.",
+                "bn": "No, I don't prefer tea over coffee."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-023",
+              "concept_id": "c-en-pair-023",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you eat fast food often?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "eat",
+                  "bn": ""
+                },
+                {
+                  "t": "fast",
+                  "bn": ""
+                },
+                {
+                  "t": "food",
+                  "bn": ""
+                },
+                {
+                  "t": "often",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I eat fast food often.",
+                "bn": "No, I don't eat fast food often."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-024",
+              "concept_id": "c-en-pair-024",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you a vegetarian?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "vegetarian",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I'm a vegetarian.",
+                "bn": "No, I'm not a vegetarian."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-025",
+              "concept_id": "c-en-pair-025",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like eating sweet dishes?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "eating",
+                  "bn": ""
+                },
+                {
+                  "t": "sweet",
+                  "bn": ""
+                },
+                {
+                  "t": "dishes",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like eating sweet dishes.",
+                "bn": "No, I don't like eating sweet dishes."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-026",
+              "concept_id": "c-en-pair-026",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you drink enough water every day?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "drink",
+                  "bn": ""
+                },
+                {
+                  "t": "enough",
+                  "bn": ""
+                },
+                {
+                  "t": "water",
+                  "bn": ""
+                },
+                {
+                  "t": "every",
+                  "bn": ""
+                },
+                {
+                  "t": "day",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I drink enough water every day.",
+                "bn": "No, I don't drink enough water every day."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-027",
+              "concept_id": "c-en-pair-027",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Have you ever tried Italian food?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ever",
+                  "bn": ""
+                },
+                {
+                  "t": "tried",
+                  "bn": ""
+                },
+                {
+                  "t": "Italian",
+                  "bn": ""
+                },
+                {
+                  "t": "food",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I've tried Italian food.",
+                "bn": "No, I haven't tried Italian food."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-028",
+              "concept_id": "c-en-pair-028",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you enjoy eating fruits?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "enjoy",
+                  "bn": ""
+                },
+                {
+                  "t": "eating",
+                  "bn": ""
+                },
+                {
+                  "t": "fruits",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I enjoy eating fruits.",
+                "bn": "No, I don't enjoy eating fruits."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-029",
+              "concept_id": "c-en-pair-029",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you often eat dinner outside?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "often",
+                  "bn": ""
+                },
+                {
+                  "t": "eat",
+                  "bn": ""
+                },
+                {
+                  "t": "dinner",
+                  "bn": ""
+                },
+                {
+                  "t": "outside",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I often eat dinner outside.",
+                "bn": "No, I don't often eat dinner outside."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-030",
+              "concept_id": "c-en-pair-030",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Can you make a cup of tea?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "make",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "cup",
+                  "bn": ""
+                },
+                {
+                  "t": "of",
+                  "bn": ""
+                },
+                {
+                  "t": "tea",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I can make a cup of tea.",
+                "bn": "No, I can't make a cup of tea."
+              },
+              "status": "reviewed"
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l33",
+          "order": 4,
+          "title_bn": "ভ্রমণ ও যাতায়াত (Travel & Transportation)",
+          "title_target": "Travel & Transportation (Pair Practice)",
+          "intro_bn": "ভ্রমণ ও যানবাহন সম্পর্কিত প্রশ্ন শুনুন ও ভয়েস দিয়ে উত্তর দিন।",
+          "structure": [
+            "Q: Do you like traveling...? -> Ans: Yes, I like... / No, I don't..."
+          ],
+          "items": [
+            {
+              "id": "en-pair-031",
+              "concept_id": "c-en-pair-031",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like traveling to new places?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "traveling",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "new",
+                  "bn": ""
+                },
+                {
+                  "t": "places",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like traveling to new places.",
+                "bn": "No, I don't like traveling to new places."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-032",
+              "concept_id": "c-en-pair-032",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Can you ride a bicycle?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ride",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "bicycle",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I can ride a bicycle.",
+                "bn": "No, I can't ride a bicycle."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-033",
+              "concept_id": "c-en-pair-033",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you have a driving license?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "have",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "driving",
+                  "bn": ""
+                },
+                {
+                  "t": "license",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I have a driving license.",
+                "bn": "No, I don't have a driving license."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-034",
+              "concept_id": "c-en-pair-034",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Have you ever traveled by plane?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ever",
+                  "bn": ""
+                },
+                {
+                  "t": "traveled",
+                  "bn": ""
+                },
+                {
+                  "t": "by",
+                  "bn": ""
+                },
+                {
+                  "t": "plane",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I've traveled by plane.",
+                "bn": "No, I haven't traveled by plane."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-035",
+              "concept_id": "c-en-pair-035",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you prefer the sea over mountains?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "prefer",
+                  "bn": ""
+                },
+                {
+                  "t": "the",
+                  "bn": ""
+                },
+                {
+                  "t": "sea",
+                  "bn": ""
+                },
+                {
+                  "t": "over",
+                  "bn": ""
+                },
+                {
+                  "t": "mountains",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I prefer the sea over mountains.",
+                "bn": "No, I don't prefer the sea over mountains."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-036",
+              "concept_id": "c-en-pair-036",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like rain and monsoon weather?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "rain",
+                  "bn": ""
+                },
+                {
+                  "t": "and",
+                  "bn": ""
+                },
+                {
+                  "t": "monsoon",
+                  "bn": ""
+                },
+                {
+                  "t": "weather",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like rain and monsoon weather.",
+                "bn": "No, I don't like rain and monsoon weather."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-037",
+              "concept_id": "c-en-pair-037",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you enjoy listening to music while traveling?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "enjoy",
+                  "bn": ""
+                },
+                {
+                  "t": "listening",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "music",
+                  "bn": ""
+                },
+                {
+                  "t": "while",
+                  "bn": ""
+                },
+                {
+                  "t": "traveling",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I enjoy listening to music while traveling.",
+                "bn": "No, I don't enjoy listening to music while traveling."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-038",
+              "concept_id": "c-en-pair-038",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Have you visited any historical places?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Have",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "visited",
+                  "bn": ""
+                },
+                {
+                  "t": "any",
+                  "bn": ""
+                },
+                {
+                  "t": "historical",
+                  "bn": ""
+                },
+                {
+                  "t": "places",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I've visited historical places.",
+                "bn": "No, I haven't visited historical places."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-039",
+              "concept_id": "c-en-pair-039",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like going on long train journeys?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "going",
+                  "bn": ""
+                },
+                {
+                  "t": "on",
+                  "bn": ""
+                },
+                {
+                  "t": "long",
+                  "bn": ""
+                },
+                {
+                  "t": "train",
+                  "bn": ""
+                },
+                {
+                  "t": "journeys",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like going on long train journeys.",
+                "bn": "No, I don't like going on long train journeys."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-040",
+              "concept_id": "c-en-pair-040",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you usually pack light for trips?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "usually",
+                  "bn": ""
+                },
+                {
+                  "t": "pack",
+                  "bn": ""
+                },
+                {
+                  "t": "light",
+                  "bn": ""
+                },
+                {
+                  "t": "for",
+                  "bn": ""
+                },
+                {
+                  "t": "trips",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I usually pack light for trips.",
+                "bn": "No, I don't usually pack light for trips."
+              },
+              "status": "reviewed"
+            }
+          ]
+        },
+        {
+          "id": "en-foundations-l34",
+          "order": 5,
+          "title_bn": "দক্ষতা, প্রযুক্তি ও শখ (Skills, Tech & Hobbies)",
+          "title_target": "Skills & Hobbies (Pair Practice)",
+          "intro_bn": "বিভিন্ন স্কিল ও হবি নিয়ে প্রশ্ন শুনে নিজের উত্তর মুখে বলুন।",
+          "structure": [
+            "Q: Can you...? / Are you...? -> Ans: Yes, I can... / No, I can't..."
+          ],
+          "items": [
+            {
+              "id": "en-pair-041",
+              "concept_id": "c-en-pair-041",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Can you speak English fluently?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "speak",
+                  "bn": ""
+                },
+                {
+                  "t": "English",
+                  "bn": ""
+                },
+                {
+                  "t": "fluently",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I can speak English fluently.",
+                "bn": "No, I can't speak English fluently yet."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-042",
+              "concept_id": "c-en-pair-042",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you use a computer every day?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "use",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "computer",
+                  "bn": ""
+                },
+                {
+                  "t": "every",
+                  "bn": ""
+                },
+                {
+                  "t": "day",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I use a computer every day.",
+                "bn": "No, I don't use a computer every day."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-043",
+              "concept_id": "c-en-pair-043",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Can you swim?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "swim",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I can swim.",
+                "bn": "No, I can't swim."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-044",
+              "concept_id": "c-en-pair-044",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like playing outdoor sports?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "playing",
+                  "bn": ""
+                },
+                {
+                  "t": "outdoor",
+                  "bn": ""
+                },
+                {
+                  "t": "sports",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like playing outdoor sports.",
+                "bn": "No, I don't like playing outdoor sports."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-045",
+              "concept_id": "c-en-pair-045",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Can you play any musical instrument?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Can",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "play",
+                  "bn": ""
+                },
+                {
+                  "t": "any",
+                  "bn": ""
+                },
+                {
+                  "t": "musical",
+                  "bn": ""
+                },
+                {
+                  "t": "instrument",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I can play a musical instrument.",
+                "bn": "No, I can't play any musical instrument."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-046",
+              "concept_id": "c-en-pair-046",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you spend a lot of time on social media?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "spend",
+                  "bn": ""
+                },
+                {
+                  "t": "a",
+                  "bn": ""
+                },
+                {
+                  "t": "lot",
+                  "bn": ""
+                },
+                {
+                  "t": "of",
+                  "bn": ""
+                },
+                {
+                  "t": "time",
+                  "bn": ""
+                },
+                {
+                  "t": "on",
+                  "bn": ""
+                },
+                {
+                  "t": "social",
+                  "bn": ""
+                },
+                {
+                  "t": "media",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I spend a lot of time on social media.",
+                "bn": "No, I don't spend a lot of time on social media."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-047",
+              "concept_id": "c-en-pair-047",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you interested in photography?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "interested",
+                  "bn": ""
+                },
+                {
+                  "t": "in",
+                  "bn": ""
+                },
+                {
+                  "t": "photography",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I'm interested in photography.",
+                "bn": "No, I'm not interested in photography."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-048",
+              "concept_id": "c-en-pair-048",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you practice speaking English every day?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "practice",
+                  "bn": ""
+                },
+                {
+                  "t": "speaking",
+                  "bn": ""
+                },
+                {
+                  "t": "English",
+                  "bn": ""
+                },
+                {
+                  "t": "every",
+                  "bn": ""
+                },
+                {
+                  "t": "day",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I practice speaking English every day.",
+                "bn": "No, I don't practice speaking English every day."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-049",
+              "concept_id": "c-en-pair-049",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Do you like watching English movies?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Do",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "like",
+                  "bn": ""
+                },
+                {
+                  "t": "watching",
+                  "bn": ""
+                },
+                {
+                  "t": "English",
+                  "bn": ""
+                },
+                {
+                  "t": "movies",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I like watching English movies.",
+                "bn": "No, I don't like watching English movies."
+              },
+              "status": "reviewed"
+            },
+            {
+              "id": "en-pair-050",
+              "concept_id": "c-en-pair-050",
+              "type": "sentence",
+              "level": "A1",
+              "target": "Are you ready to improve your English today?",
+              "bn": null,
+              "bn_pron": null,
+              "tokens": [
+                {
+                  "t": "Are",
+                  "bn": ""
+                },
+                {
+                  "t": "you",
+                  "bn": ""
+                },
+                {
+                  "t": "ready",
+                  "bn": ""
+                },
+                {
+                  "t": "to",
+                  "bn": ""
+                },
+                {
+                  "t": "improve",
+                  "bn": ""
+                },
+                {
+                  "t": "your",
+                  "bn": ""
+                },
+                {
+                  "t": "English",
+                  "bn": ""
+                },
+                {
+                  "t": "today",
+                  "bn": ""
+                }
+              ],
+              "speaker": "pair_practice",
+              "tags": {
+                "sentence_type": "pair_practice",
+                "practice_type": "voice_qa"
+              },
+              "example": {
+                "target": "Yes, I'm ready to improve my English today.",
+                "bn": "No, I'm not ready yet."
+              },
+              "status": "reviewed"
             }
           ]
         }
