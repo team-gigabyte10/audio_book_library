@@ -149,6 +149,7 @@ fun getSyllabusPartTheme(order: Int): SyllabusPartTheme = when (order) {
 @Composable
 fun CourseSyllabusScreen(
     viewModel: LearnHomeViewModel,
+    courseType: String = "present",
     onBackClick: () -> Unit,
     onOpenPart: (String) -> Unit,
     onOpenLesson: (String) -> Unit,
@@ -158,20 +159,42 @@ fun CourseSyllabusScreen(
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
+    val isPast = courseType.equals("past", ignoreCase = true)
+    val isFuture = courseType.equals("future", ignoreCase = true)
+
+    val courseTitleBn = when {
+        isPast -> "অতীতের কথা বলুন (Past Tense)"
+        isFuture -> "ভবিষ্যতের কথা বলুন (Future Tense)"
+        else -> "সহজ নিয়মে কথা বলুন (Present Tense)"
+    }
+    val courseSubtitle = when {
+        isPast -> "Was/Were, Had, Did/Didn't & Past Stories"
+        isFuture -> "Will, Shall, Be Going To & Future Plans"
+        else -> "Be-Verbs, Q&A & Daily Conversations"
+    }
+
+    val filteredSyllabus = remember(syllabus, courseType) {
+        when {
+            isPast -> syllabus.filter { it.part.id.startsWith("past-") }
+            isFuture -> syllabus.filter { it.part.id.startsWith("fut-") }
+            else -> syllabus.filter { it.part.id.startsWith("en-") }
+        }
+    }
+
     Scaffold(
         topBar = {
             ThemedTopAppBar(
                 title = {
                     Column {
                         Text(
-                            text = "সহজ নিয়মে কথা বলুন",
+                            text = courseTitleBn,
                             fontWeight = FontWeight.Bold,
                             fontSize = 17.sp,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
                         Text(
-                            text = "Be-Verbs & Self Presentation",
+                            text = courseSubtitle,
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -223,7 +246,7 @@ fun CourseSyllabusScreen(
                     }
 
                     // 4. Syllabus Groups: Each Part opens a dedicated page
-                    syllabus.forEach { item ->
+                    filteredSyllabus.forEach { item ->
                         val part = item.part
                         val theme = getSyllabusPartTheme(part.order)
 

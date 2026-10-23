@@ -26,8 +26,7 @@ class ContentImporter(
     private val context: Context,
     private val database: LearningDatabase,
     private val appVersionCode: Int,
-    private val assetName: String = ASSET_NAME,
-    private val openAsset: () -> InputStream = { context.assets.open(assetName) }
+    private val assetNames: List<String> = ASSET_NAMES
 ) {
 
     private val dao = database.learningDao()
@@ -35,7 +34,7 @@ class ContentImporter(
     /** Returns true if an import ran. [onProgress] gets (lessonsImported, totalLessons or 0). */
     suspend fun ensureImported(onProgress: (Int, Int) -> Unit = { _, _ -> }): Boolean = withContext(Dispatchers.IO) {
         val meta = dao.getMeta()
-        val hash = hashAsset()
+        val hash = hashAssets()
         when {
             meta == null -> {
                 import(onProgress)
@@ -61,52 +60,80 @@ class ContentImporter(
             dao.clearLessons()
             dao.clearParts()
 
-            val hashing = HashingSource.sha256(openAsset().source())
-            hashing.buffer().use { buffered ->
-                var totalLessons = 0
-                var imported = 0
-                val header = parser.parse(buffered, object : EscbContentSink {
-                    override suspend fun onTotalLessons(total: Int) {
-                        totalLessons = total
-                        onProgress(0, total)
-                    }
+            var totalLessons = 0
+            var imported = 0
+            var primaryHeader: CourseHeader? = null
 
-                    override suspend fun onPart(part: PartEntity) {
-                        dao.insertParts(listOf(part))
-                    }
+            for (assetName in assetNames) {
+                try {
+                    context.assets.open(assetName).source().buffer().use { buffered ->
+                        val header = parser.parse(buffered, object : EscbContentSink {
+                            override suspend fun onTotalLessons(total: Int) {
+                                totalLessons += total
+                                onProgress(imported, totalLessons)
+                            }
 
-                    override suspend fun onLesson(lesson: LessonEntity, items: List<ItemEntity>) {
-                        dao.insertLessons(listOf(lesson))
-                        if (items.isNotEmpty()) dao.insertItems(items)
-                        imported++
-                        if (imported % 25 == 0 || imported == totalLessons) onProgress(imported, totalLessons)
-                    }
-                })
-                // Drain trailing bytes so the hash covers the whole file.
-                buffered.readAll(blackholeSink())
+                            override suspend fun onPart(part: PartEntity) {
+                                dao.insertParts(listOf(part))
+                            }
 
-                dao.upsertMeta(
-                    ContentMetaEntity(
-                        schemaVersion = header.schemaVersion,
-                        contentHash = hashing.hash.hex(),
-                        appVersionCode = appVersionCode,
-                        ladder = LadderStep.encode(header.ladder),
-                        titleBn = header.titleBn,
-                        titleTarget = header.titleTarget,
-                        importedAt = System.currentTimeMillis()
-                    )
-                )
+                            override suspend fun onLesson(lesson: LessonEntity, items: List<ItemEntity>) {
+                                dao.insertLessons(listOf(lesson))
+                                if (items.isNotEmpty()) dao.insertItems(items)
+                                imported++
+                                if (imported % 15 == 0 || imported == totalLessons) {
+                                    onProgress(imported, totalLessons)
+                                }
+                            }
+                        })
+                        if (primaryHeader == null) {
+                            primaryHeader = header
+                        }
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.e("ContentImporter", "Failed to import $assetName", e)
+                }
             }
+
+            val hash = hashAssets()
+            dao.upsertMeta(
+                ContentMetaEntity(
+                    schemaVersion = primaryHeader?.schemaVersion ?: 1,
+                    contentHash = hash,
+                    appVersionCode = appVersionCode,
+                    ladder = LadderStep.encode(primaryHeader?.ladder ?: LadderStep.DEFAULT),
+                    titleBn = "স্পোকেন ইংলিশ মাস্টারক্লাস",
+                    titleTarget = "Spoken English Masterclass",
+                    importedAt = System.currentTimeMillis()
+                )
+            )
         }
     }
 
-    private fun hashAsset(): String {
-        val hashing = HashingSource.sha256(openAsset().source())
-        hashing.buffer().use { it.readAll(blackholeSink()) }
-        return hashing.hash.hex()
+    private fun hashAssets(): String {
+        val md = java.security.MessageDigest.getInstance("SHA-256")
+        for (name in assetNames) {
+            try {
+                context.assets.open(name).use { input ->
+                    val buf = ByteArray(8192)
+                    var read: Int
+                    while (input.read(buf).also { read = it } != -1) {
+                        md.update(buf, 0, read)
+                    }
+                }
+            } catch (e: Exception) {
+                md.update(name.toByteArray())
+            }
+        }
+        return md.digest().joinToString("") { "%02x".format(it) }
     }
 
     companion object {
         const val ASSET_NAME = "spoken_english_foundations.json"
+        val ASSET_NAMES = listOf(
+            "spoken_english_foundations.json",
+            "spoken_english_past_tense.json",
+            "spoken_english_future_tense.json"
+        )
     }
 }

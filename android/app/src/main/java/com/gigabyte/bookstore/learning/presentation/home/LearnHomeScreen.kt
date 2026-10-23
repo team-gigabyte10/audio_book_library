@@ -59,7 +59,7 @@ import com.gigabyte.bookstore.ui.theme.GoldenAccent
 fun LearnHomeScreen(
     viewModel: LearnHomeViewModel,
     onBackClick: () -> Unit,
-    onOpenCourse: () -> Unit,
+    onOpenCourse: (String) -> Unit,
     onOpenIntro: (String) -> Unit
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
@@ -74,10 +74,20 @@ fun LearnHomeScreen(
         }
     }
 
-    val activeParts = remember(syllabus) { syllabus.filter { it.part.isEnabled } }
-    val partCount = activeParts.size.coerceAtLeast(4)
-    val lessonCount = activeParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
-    val sentenceCount = activeParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
+    val presentParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-") && it.part.isEnabled } }
+    val presentPartCount = presentParts.size.coerceAtLeast(1)
+    val presentLessonCount = presentParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
+    val presentSentenceCount = presentParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
+
+    val pastParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("past-") && it.part.isEnabled } }
+    val pastPartCount = pastParts.size.coerceAtLeast(1)
+    val pastLessonCount = pastParts.sumOf { it.lessons.size }.let { if (it > 0) it else 35 }
+    val pastSentenceCount = pastParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 260 }
+
+    val futureParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("fut-") && it.part.isEnabled } }
+    val futurePartCount = futureParts.size.coerceAtLeast(1)
+    val futureLessonCount = futureParts.sumOf { it.lessons.size }.let { if (it > 0) it else 31 }
+    val futureSentenceCount = futureParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 230 }
 
     Scaffold(
         topBar = {
@@ -148,36 +158,42 @@ fun LearnHomeScreen(
                     // 2. Present Tens (বর্তমান কাল) - Main Active Course Card
                     item {
                         MainCourseCard(
-                            partCount = partCount,
-                            lessonCount = lessonCount,
-                            sentenceCount = sentenceCount,
-                            onClick = onOpenCourse
+                            tag = "🇬🇧 Present Tens (বর্তমান কাল)",
+                            title = "সহজ নিয়মে কথা বলুন (Present Tens: Be-Verbs, Q&A & Presentation)",
+                            description = "পেশা, ব্যক্তিত্ব, দৈনন্দিন বস্তু, অবস্থান, প্রশ্ন-উত্তর, গুড অ্যাট/ব্যাড অ্যাট ও সম্পূর্ণ প্রেজেন্টেশন বর্তমান কালে সাবলীলভাবে অনুশীলন করুন।",
+                            accentColor = Color(0xFF00796B),
+                            partCount = presentPartCount,
+                            lessonCount = presentLessonCount,
+                            sentenceCount = presentSentenceCount,
+                            onClick = { onOpenCourse("present") }
                         )
                     }
 
                     // 3. Past Tens (অতীত কাল)
                     item {
-                        UpcomingCourseCard(
+                        MainCourseCard(
                             tag = "🇬🇧 Past Tens (অতীত কাল)",
                             title = "অতীতের কথা বলুন (Was/Were, Had & Past Actions)",
                             description = "অতীতের অভ্যাস, স্মৃতি, অভিজ্ঞতা ও অতীতের কাজ বর্ণনার সহজ স্পোকেন রুলস ও অডিও ড্রিল।",
                             accentColor = Color(0xFF5E35B1),
-                            onClick = {
-                                Toast.makeText(context, "Past Tens (অতীত কাল) কোর্সটি প্রস্তুত হচ্ছে, খুব শীঘ্রই উন্মুক্ত করা হবে!", Toast.LENGTH_SHORT).show()
-                            }
+                            partCount = pastPartCount,
+                            lessonCount = pastLessonCount,
+                            sentenceCount = pastSentenceCount,
+                            onClick = { onOpenCourse("past") }
                         )
                     }
 
                     // 4. Future Tens (ভবিষ্যৎ কাল)
                     item {
-                        UpcomingCourseCard(
+                        MainCourseCard(
                             tag = "🇬🇧 Future Tens (ভবিষ্যৎ কাল)",
                             title = "ভবিষ্যতের কথা বলুন (Will, Shall & Future Plans)",
                             description = "ভবিষ্যতের পরিকল্পনা, প্রতিশ্রুতি ও সম্ভাবনা প্রকাশের আধুনিক স্পোকেন স্ট্রাকচার।",
                             accentColor = Color(0xFFC2410C),
-                            onClick = {
-                                Toast.makeText(context, "Future Tens (ভবিষ্যৎ কাল) কোর্সটি প্রস্তুত হচ্ছে, খুব শীঘ্রই উন্মুক্ত করা হবে!", Toast.LENGTH_SHORT).show()
-                            }
+                            partCount = futurePartCount,
+                            lessonCount = futureLessonCount,
+                            sentenceCount = futureSentenceCount,
+                            onClick = { onOpenCourse("future") }
                         )
                     }
 
@@ -300,15 +316,20 @@ private fun Int.toBanglaDigits(): String {
 
 @Composable
 private fun MainCourseCard(
+    tag: String,
+    title: String,
+    description: String,
+    accentColor: Color,
     partCount: Int,
     lessonCount: Int,
     sentenceCount: Int,
+    badgeText: String = "১০০% ফ্রি",
     onClick: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(1.5.dp, Color(0xFF00796B).copy(alpha = 0.5f)),
+        border = BorderStroke(1.5.dp, accentColor.copy(alpha = 0.5f)),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         modifier = Modifier
             .fillMaxWidth()
@@ -320,8 +341,8 @@ private fun MainCourseCard(
                 .background(
                     Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFF00796B).copy(alpha = 0.18f),
-                            Color(0xFF004D40).copy(alpha = 0.08f)
+                            accentColor.copy(alpha = 0.18f),
+                            accentColor.copy(alpha = 0.08f)
                         )
                     )
                 )
@@ -334,11 +355,11 @@ private fun MainCourseCard(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Surface(
-                        color = Color(0xFF00796B),
+                        color = accentColor,
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "🇬🇧 Present Tens (বর্তমান কাল)",
+                            text = tag,
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
@@ -346,7 +367,7 @@ private fun MainCourseCard(
                         )
                     }
                     Text(
-                        text = "১০০% ফ্রি",
+                        text = badgeText,
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
                         color = GoldenAccent
@@ -356,7 +377,7 @@ private fun MainCourseCard(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "সহজ নিয়মে কথা বলুন (Present Tens: Be-Verbs, Q&A & Presentation)",
+                    text = title,
                     fontSize = 19.sp,
                     lineHeight = 26.sp,
                     fontWeight = FontWeight.Bold,
@@ -366,7 +387,7 @@ private fun MainCourseCard(
                 Spacer(modifier = Modifier.height(6.dp))
 
                 Text(
-                    text = "পেশা, ব্যক্তিত্ব, দৈনন্দিন বস্তু, অবস্থান, প্রশ্ন-উত্তর, গুড অ্যাট/ব্যাড অ্যাট ও সম্পূর্ণ প্রেজেন্টেশন বর্তমান কালে সাবলীলভাবে অনুশীলন করুন।",
+                    text = description,
                     fontSize = 13.sp,
                     lineHeight = 18.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -389,7 +410,7 @@ private fun MainCourseCard(
                     }
 
                     Surface(
-                        color = Color(0xFF00796B),
+                        color = accentColor,
                         shape = RoundedCornerShape(10.dp)
                     ) {
                         Row(

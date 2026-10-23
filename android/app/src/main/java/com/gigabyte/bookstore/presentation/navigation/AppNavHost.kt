@@ -457,17 +457,25 @@ fun AppNavHost(
             LearnHomeScreen(
                 viewModel = learnViewModel,
                 onBackClick = { navController.popBackStack() },
-                onOpenCourse = { navController.navigate(Screen.CourseSyllabus.route) },
+                onOpenCourse = { course -> navController.navigate(Screen.CourseSyllabus.createRoute(course)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
             )
         }
 
-        composable(Screen.CourseSyllabus.route) {
+        composable(
+            route = Screen.CourseSyllabus.route,
+            arguments = listOf(navArgument("course") {
+                type = NavType.StringType
+                defaultValue = "present"
+            })
+        ) { backStackEntry ->
+            val course = backStackEntry.arguments?.getString("course") ?: "present"
             val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
                 LearnHomeViewModel(application)
             })
             CourseSyllabusScreen(
                 viewModel = learnViewModel,
+                courseType = course,
                 onBackClick = { navController.popBackStack() },
                 onOpenPart = { partId -> navController.navigate(Screen.LearnPart.createRoute(partId)) },
                 onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
@@ -568,7 +576,7 @@ fun AppNavHost(
                     navController.navigate(Screen.LearnLesson.createRoute(lessonId))
                 },
                 onOpenCourseSyllabus = {
-                    navController.navigate(Screen.CourseSyllabus.route)
+                    navController.navigate(Screen.CourseSyllabus.createRoute("present"))
                 },
                 onOpenIntro = { asset ->
                     navController.navigate(Screen.LearnIntro.createRoute(asset))
