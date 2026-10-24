@@ -271,7 +271,8 @@ fun LessonScreen(
                                 currentStep = playerState.currentStep,
                                 revealTarget = true,
                                 onSpeakToken = viewModel::speakToken,
-                                onSpeakTarget = { viewModel.speakText(currentItem.target) }
+                                onSpeakTarget = { viewModel.speakText(currentItem.target) },
+                                onSpeakText = { viewModel.speakText(it) }
                             )
                         } else {
                             // "নিজে বলুন" tab: 10x Speed Drill Timer Challenge with English sentence & Bangla meaning
@@ -368,7 +369,8 @@ private fun ItemCard(
     currentStep: PlaybackStep?,
     revealTarget: Boolean,
     onSpeakToken: (Token) -> Unit,
-    onSpeakTarget: () -> Unit
+    onSpeakTarget: () -> Unit,
+    onSpeakText: (String) -> Unit = {}
 ) {
     val speakingBn = (currentStep as? PlaybackStep.Speak)?.lang == SpeechLang.BN
     val speakingRate = (currentStep as? PlaybackStep.Speak)?.takeIf { it.lang == SpeechLang.EN || it.lang == SpeechLang.JA }?.rate
@@ -434,14 +436,22 @@ private fun ItemCard(
                 )
             }
 
-            val isGoodAt = remember(item.target, item.conceptId) {
-                item.conceptId.contains("goodat", ignoreCase = true) || item.target.contains("good at", ignoreCase = true)
+            val isJapanese = remember(item.id, item.target) {
+                item.id.startsWith("jp-") || item.target.any { it in '\u3040'..'\u309F' || it in '\u30A0'..'\u30FF' || it in '\u4E00'..'\u9FAF' }
             }
-            val isBadAt = remember(item.target, item.conceptId) {
-                item.conceptId.contains("badat", ignoreCase = true) || item.target.contains("bad at", ignoreCase = true)
-            }
-            if (isGoodAt || isBadAt) {
-                SixWayPracticeAlertCard(isGoodAt = isGoodAt, targetSentence = item.target)
+
+            if (isJapanese) {
+                JapaneseSixWayPracticeAlertCard(targetSentence = item.target, onSpeakText = onSpeakText)
+            } else {
+                val isGoodAt = remember(item.target, item.conceptId) {
+                    item.conceptId.contains("goodat", ignoreCase = true) || item.target.contains("good at", ignoreCase = true)
+                }
+                val isBadAt = remember(item.target, item.conceptId) {
+                    item.conceptId.contains("badat", ignoreCase = true) || item.target.contains("bad at", ignoreCase = true)
+                }
+                if (isGoodAt || isBadAt) {
+                    SixWayPracticeAlertCard(isGoodAt = isGoodAt, targetSentence = item.target)
+                }
             }
 
             if (revealTarget && item.tokens.size > 1) {
@@ -1227,3 +1237,190 @@ private fun buildSixWayPatterns(target: String, isGoodAt: Boolean): List<String>
         "Why $beVerb $qSubj not $adj at $topic?"
     )
 }
+
+data class JapaneseTransformation(
+    val label: String,
+    val japanese: String,
+    val meaning: String
+)
+
+@Composable
+private fun JapaneseSixWayPracticeAlertCard(
+    targetSentence: String,
+    onSpeakText: (String) -> Unit
+) {
+    val infiniteTransition = rememberInfiniteTransition(label = "jp_alert_transition")
+    val borderAlpha by infiniteTransition.animateFloat(
+        initialValue = 0.4f,
+        targetValue = 1.0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 800, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "jp_border_alpha"
+    )
+
+    val redAlertColor = Color(0xFFC62828) // Japanese Hinomaru Crimson
+    val patterns = remember(targetSentence) {
+        buildJapaneseSixWayPatterns(target = targetSentence)
+    }
+
+    if (patterns.isEmpty()) return
+
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = redAlertColor.copy(alpha = 0.06f),
+        border = BorderStroke(1.5.dp, redAlertColor.copy(alpha = borderAlpha)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(14.dp)
+        ) {
+            // Header
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = redAlertColor.copy(alpha = borderAlpha)
+                ) {
+                    Text(
+                        text = "🇯🇵 6-WAY DRILL",
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = Color.White,
+                        modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                    )
+                }
+
+                Text(
+                    text = "জাপানিজে ৬ ভাবে মুখে বলার দ্রুত রিফ্লেক্স তৈরি করুন",
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = redAlertColor,
+                    modifier = Modifier.weight(1f)
+                )
+            }
+
+            Spacer(Modifier.height(10.dp))
+
+            // Transformation Box
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
+                border = BorderStroke(1.dp, redAlertColor.copy(alpha = 0.25f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    patterns.forEachIndexed { index, item ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { onSpeakText(item.japanese) }
+                                .padding(vertical = 2.dp)
+                        ) {
+                            Surface(
+                                shape = CircleShape,
+                                color = redAlertColor.copy(alpha = 0.15f),
+                                modifier = Modifier.size(22.dp)
+                            ) {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Text(
+                                        text = "${index + 1}",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = redAlertColor
+                                    )
+                                }
+                            }
+                            Spacer(Modifier.width(10.dp))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = item.japanese,
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Text(
+                                    text = "${item.label} · ${item.meaning}",
+                                    fontSize = 11.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            IconButton(
+                                onClick = { onSpeakText(item.japanese) },
+                                modifier = Modifier.size(28.dp)
+                            ) {
+                                Icon(
+                                    Icons.AutoMirrored.Filled.VolumeUp,
+                                    contentDescription = "উচ্চারণ শুনুন",
+                                    tint = redAlertColor,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun buildJapaneseSixWayPatterns(target: String): List<JapaneseTransformation> {
+    val t = target.trim().removeSuffix("。").removeSuffix("?").removeSuffix("！").trim()
+    val results = mutableListOf<JapaneseTransformation>()
+
+    when {
+        t.contains("でした") -> {
+            val base = t.replace("でした", "").trim()
+            results.add(JapaneseTransformation("অতীত হ্যাঁ (+)", "$base でした。", "অতীতে ছিল / হয়েছিল"))
+            results.add(JapaneseTransformation("অতীত না (-)", "$base ではありませんでした。", "অতীতে ছিল না / হয়নি"))
+            results.add(JapaneseTransformation("অতীত প্রশ্ন (?)", "$base でしたか。", "অতীতে কি ছিল?"))
+            results.add(JapaneseTransformation("অতীত নেগেটিভ প্রশ্ন (-?)", "$base ではありませんでしたか。", "অতীতে কি ছিল না?"))
+            results.add(JapaneseTransformation("অতীত জিজ্ঞাসা (WH?)", "$base は どうでしたか。", "কেমন ছিল?"))
+            results.add(JapaneseTransformation("অতীত বিকল্প (Choice)", "$base でしたか、そうではありませんでしたか。", "ছিল নাকি ছিল না?"))
+        }
+        t.contains("ました") -> {
+            val base = t.replace("ました", "").trim()
+            results.add(JapaneseTransformation("অতীত হ্যাঁ (+)", "$base ました。", "অতীতে করেছিলাম"))
+            results.add(JapaneseTransformation("অতীত না (-)", "$base ませんでした。", "অতীতে করিনি"))
+            results.add(JapaneseTransformation("অতীত প্রশ্ন (?)", "$base ましたか。", "করেছিলেন কি?"))
+            results.add(JapaneseTransformation("অতীত নেগেটিভ প্রশ্ন (-?)", "$base ませんでしたか。", "করেননি কি?"))
+            results.add(JapaneseTransformation("অতীত জিজ্ঞাসা (WH?)", "何をしたか / $base ましたか。", "কী করেছিলেন?"))
+            results.add(JapaneseTransformation("অতীত বিকল্প (Choice)", "$base ましたか、しませんでしたか。", "করেছিলেন নাকি করেননি?"))
+        }
+        t.contains("です") -> {
+            val base = t.replace("です", "").trim()
+            results.add(JapaneseTransformation("হ্যাঁ-বোধক (+)", "$base です。", "হয় / আছি"))
+            results.add(JapaneseTransformation("না-বোধক (-)", "$base ではありません。", "নয় / নেই"))
+            results.add(JapaneseTransformation("প্রশ্নবোধক (?)", "$base ですか。", "কি?"))
+            results.add(JapaneseTransformation("নেগেটিভ প্রশ্ন (-?)", "$base ではありませんか。", "নয় কি?"))
+            results.add(JapaneseTransformation("তথ্য জিজ্ঞাসা (WH?)", "$base は 何/だれ ですか。", "কে বা কী?"))
+            results.add(JapaneseTransformation("বিকল্প নির্বাচন (Choice)", "$base ですか、ちがいますか。", "নাকি অন্য কিছু?"))
+        }
+        t.contains("ます") -> {
+            val base = t.replace("ます", "").trim()
+            results.add(JapaneseTransformation("হ্যাঁ-বোধক (+)", "$base ます。", "করি / করব"))
+            results.add(JapaneseTransformation("না-বোধক (-)", "$base ません。", "করি না / করব না"))
+            results.add(JapaneseTransformation("প্রশ্নবোধক (?)", "$base ますか。", "করেন কি?"))
+            results.add(JapaneseTransformation("নেগেটিভ প্রশ্ন (-?)", "$base ませんか。", "করবেন না কি? (আমন্ত্রণ)"))
+            results.add(JapaneseTransformation("তথ্য জিজ্ঞাসা (WH?)", "何を $base ますか。", "কী করবেন?"))
+            results.add(JapaneseTransformation("বিকল্প নির্বাচন (Choice)", "$base ますか、しませんか。", "করবেন নাকি করবেন না?"))
+        }
+    }
+    return results
+}
+
