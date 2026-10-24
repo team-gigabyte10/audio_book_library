@@ -271,11 +271,7 @@ fun CourseSyllabusScreen(
                                 part = part,
                                 theme = theme,
                                 onClick = {
-                                    if (part.isEnabled) {
-                                        onOpenPart(part.id)
-                                    } else {
-                                        Toast.makeText(context, "এই অংশটি শীঘ্রই আসছে", Toast.LENGTH_SHORT).show()
-                                    }
+                                    onOpenPart(part.id)
                                 }
                             )
                         }

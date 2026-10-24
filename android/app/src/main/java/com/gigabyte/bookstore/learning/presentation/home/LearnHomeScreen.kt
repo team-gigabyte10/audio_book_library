@@ -60,6 +60,7 @@ import com.gigabyte.bookstore.ui.theme.GoldenAccent
 @Composable
 fun LearnHomeScreen(
     viewModel: LearnHomeViewModel,
+    initialLanguage: String = "english",
     onBackClick: () -> Unit,
     onOpenCourse: (String) -> Unit,
     onOpenIntro: (String) -> Unit
@@ -68,7 +69,7 @@ fun LearnHomeScreen(
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val isSpeaking by viewModel.isSpeaking.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var selectedLanguage by remember { mutableStateOf("english") }
+    var selectedLanguage by remember(initialLanguage) { mutableStateOf(initialLanguage) }
     val isJapanese = selectedLanguage == "japanese"
 
     DisposableEffect(Unit) {

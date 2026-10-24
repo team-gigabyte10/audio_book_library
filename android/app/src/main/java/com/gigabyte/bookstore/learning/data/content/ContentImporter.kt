@@ -35,8 +35,9 @@ class ContentImporter(
     suspend fun ensureImported(onProgress: (Int, Int) -> Unit = { _, _ -> }): Boolean = withContext(Dispatchers.IO) {
         val meta = dao.getMeta()
         val hash = hashAssets()
+        val hasJapanese = dao.getPart("jp-foundations-p1") != null
         when {
-            meta == null -> {
+            meta == null || !hasJapanese -> {
                 import(onProgress)
                 true
             }

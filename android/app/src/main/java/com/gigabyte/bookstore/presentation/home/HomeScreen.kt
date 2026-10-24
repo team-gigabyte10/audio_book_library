@@ -107,6 +107,7 @@ fun HomeScreen(
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
     onNavigateToLearnEnglish: () -> Unit = {},
+    onNavigateToLearnJapanese: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
@@ -318,7 +319,8 @@ fun HomeScreen(
                                             onSelectCourse = { selectedCourse = it },
                                             onNavigateToLibrary = onNavigateToLibrary,
                                             onNavigateToBook = onNavigateToBook,
-                                            onNavigateToLearnEnglish = onNavigateToLearnEnglish
+                                            onNavigateToLearnEnglish = onNavigateToLearnEnglish,
+                                            onNavigateToLearnJapanese = onNavigateToLearnJapanese
                                         )
                                     }
                                 )
@@ -406,9 +408,7 @@ fun HomeScreen(
                                 accentColor = Color(0xFFC62828),
                                 statsText = "🎧 ${japaneseCourse?.lessonCount ?: 12}টি অডিও লেসন · JLPT প্রস্তুতি",
                                 ctaText = "কোর্সটি শুরু করুন",
-                                onClick = {
-                                    japaneseCourse?.let { selectedCourse = it }
-                                },
+                                onClick = onNavigateToLearnJapanese,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }
@@ -490,10 +490,15 @@ private fun handleBannerClick(
     onSelectCourse: (Course) -> Unit,
     onNavigateToLibrary: () -> Unit,
     onNavigateToBook: (String) -> Unit,
-    onNavigateToLearnEnglish: () -> Unit = {}
+    onNavigateToLearnEnglish: () -> Unit = {},
+    onNavigateToLearnJapanese: () -> Unit = {}
 ) {
     if (banner.id == "banner_spoken_english" || banner.targetId == "learn_english" || banner.actionType == "learn" || banner.actionType == "english") {
         onNavigateToLearnEnglish()
+        return
+    }
+    if (banner.id == "banner_japanese_jlpt" || banner.targetId == "learn_japanese" || banner.actionType == "japanese") {
+        onNavigateToLearnJapanese()
         return
     }
     when (banner.actionType) {

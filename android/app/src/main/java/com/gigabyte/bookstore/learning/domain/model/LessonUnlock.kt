@@ -8,7 +8,7 @@ enum class LessonState { AVAILABLE, IN_PROGRESS, DONE }
  * - A quiz score >= [PASS_SCORE] marks a lesson DONE.
  */
 object LessonUnlock {
-    const val MIN_VISIBLE_ITEMS = 3
+    const val MIN_VISIBLE_ITEMS = 1
     const val PASS_SCORE = 70
 
     const val STATE_IN_PROGRESS = "IN_PROGRESS"

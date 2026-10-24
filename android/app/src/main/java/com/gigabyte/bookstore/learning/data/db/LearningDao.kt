@@ -47,12 +47,12 @@ interface LearningDao {
 
     // ---- content reads ----
 
-    /** lessonCount = lessons with at least MIN_VISIBLE_ITEMS (3) visible items, i.e. what the learner sees. */
+    /** lessonCount = lessons with at least MIN_VISIBLE_ITEMS (1) visible items, i.e. what the learner sees. */
     @Query(
         """
         SELECT p.*, (
             SELECT COUNT(*) FROM lessons l WHERE l.partId = p.id
-            AND (SELECT COUNT(*) FROM items i WHERE i.lessonId = l.id AND $VISIBLE_ITEM) >= 3
+            AND (SELECT COUNT(*) FROM items i WHERE i.lessonId = l.id AND $VISIBLE_ITEM) >= 1
         ) AS lessonCount
         FROM parts p ORDER BY p.sort_order
         """

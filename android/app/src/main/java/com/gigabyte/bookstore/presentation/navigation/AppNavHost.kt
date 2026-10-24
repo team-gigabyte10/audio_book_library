@@ -180,7 +180,10 @@ fun AppNavHost(
                     navController.navigate(Screen.BookCategories.createRoute(bundleId))
                 },
                 onNavigateToLearnEnglish = {
-                    navController.navigate(Screen.Learn.route)
+                    navController.navigate(Screen.Learn.createRoute("english"))
+                },
+                onNavigateToLearnJapanese = {
+                    navController.navigate(Screen.Learn.createRoute("japanese"))
                 },
                 onNavigateToLastRead = {
                     navController.navigate(Screen.LastRead.route)
@@ -449,13 +452,20 @@ fun AppNavHost(
             )
         }
 
-        // 11. English learning module: home (intro + course cards) → course syllabus (parts/lessons) → lesson → quiz
-        composable(Screen.Learn.route) {
+        composable(
+            route = Screen.Learn.route,
+            arguments = listOf(navArgument("lang") {
+                type = NavType.StringType
+                defaultValue = "english"
+            })
+        ) { backStackEntry ->
+            val lang = backStackEntry.arguments?.getString("lang") ?: "english"
             val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
                 LearnHomeViewModel(application)
             })
             LearnHomeScreen(
                 viewModel = learnViewModel,
+                initialLanguage = lang,
                 onBackClick = { navController.popBackStack() },
                 onOpenCourse = { course -> navController.navigate(Screen.CourseSyllabus.createRoute(course)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
