@@ -121,9 +121,15 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
     fun pause() = player.pause()
 
-    fun speakToken(token: Token) = player.speakOnce(token.text, SpeechLang.EN)
+    private val isJapanese: Boolean
+        get() = lessonId.startsWith("jp-") || _uiState.value.content?.ladder?.any { it.play == SpeechLang.JA } == true
 
-    fun speakText(text: String) = player.speakOnce(text, SpeechLang.EN, rate = 1.05f)
+    val targetLang: SpeechLang
+        get() = if (isJapanese) SpeechLang.JA else SpeechLang.EN
+
+    fun speakToken(token: Token) = player.speakOnce(token.text, targetLang)
+
+    fun speakText(text: String) = player.speakOnce(text, targetLang, rate = 1.05f)
 
     fun setBnAudio(enabled: Boolean) = preferences.setLearnBnAudio(enabled)
     fun setWordByWord(enabled: Boolean) = preferences.setLearnWordByWord(enabled)
@@ -161,14 +167,16 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     }
 
     /** Speak drill (lesson template step 5): show the Bangla, leave a gap to answer aloud, then play the answer. */
-    private fun speakSteps(content: LessonContent): List<PlaybackStep> =
-        content.items.flatMapIndexed { index, item ->
+    private fun speakSteps(content: LessonContent): List<PlaybackStep> {
+        val activeTargetLang = content.ladder.firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: targetLang
+        return content.items.flatMapIndexed { index, item ->
             listOf(
                 PlaybackStep.Pause(SPEAK_GAP_MS, index),
-                PlaybackStep.Speak(item.target, SpeechLang.EN, 1.0f, index, PlaybackStep.Phase.LADDER),
+                PlaybackStep.Speak(item.target, activeTargetLang, 1.0f, index, PlaybackStep.Phase.LADDER),
                 PlaybackStep.Pause(1_000L, index)
             )
         }
+    }
 
     override fun onCleared() {
         player.release()

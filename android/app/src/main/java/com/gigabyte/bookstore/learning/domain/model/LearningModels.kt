@@ -80,6 +80,7 @@ data class LessonItem(
     val level: Level,
     val target: String,
     val bn: String?,
+    val bnPron: String? = null,
     val tokens: List<Token>,
     val exampleTarget: String? = null,
     val exampleBn: String? = null,

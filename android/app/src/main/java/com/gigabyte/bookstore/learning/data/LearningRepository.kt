@@ -234,6 +234,7 @@ fun ItemEntity.toLessonItem(): LessonItem {
         level = Level.parse(level),
         target = target,
         bn = bn,
+        bnPron = bnPron,
         tokens = texts.mapIndexed { i, t -> Token(t, glosses.getOrNull(i)?.takeIf { it.isNotBlank() }) },
         exampleTarget = exampleTarget,
         exampleBn = exampleBn,
