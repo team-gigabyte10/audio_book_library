@@ -4,11 +4,11 @@
     "id": "jp-spoken-casual-fluency",
     "target_lang": "ja",
     "base_lang": "bn",
-    "title_bn": "জাপানিজ স্পোকেন: Casual & Fluency (JLPT N4 কথ্য ভাষা)",
-    "title_target": "Spoken Japanese: Casual Fluency Masterclass",
-    "source": "Curated from N4 Japanese Study Series & Spoken English Framework",
-    "note": "বন্ধুমহলের সাধারণ কথ্য রূপ (Plain Form: タ形・辞書形・ナイ形), সামর্থ্য (可能動詞), উপহার ও উপকার আদান-প্রদান (あげる/もらう/くれる), শর্ত (〜たら/〜なら), মতামত (〜と思います), এবং কর্মবাচ্য (受身形)।",
-    "welcome_text": "জাপানিজ স্পোকেন Casual Fluency ক্লাসে স্বাগতম! বন্ধুদের সাথে সাবলীল অনানুষ্ঠানিক জাপানিজে কথা বলা ও জটিল ভাব প্রকাশের কৌশল শিখুন।"
+    "title_bn": "জাপানিজ স্পোকেন: Casual Fluency (JLPT N4 কথ্য ভাষা)",
+    "title_target": "Spoken Japanese: Casual Fluency & Plain Forms (JLPT N4)",
+    "source": "Curated from N4 Extended Master Complete & Spoken Japanese Audio Framework",
+    "note": "বন্ধুমহলের সাধারণ কথ্য রূপ (Plain Form: 辞書形・ナイ形・タ形), সামর্থ্য (可能動詞: 話せる/できる), ৪টি শর্তের ব্যবহার (たら/なら/ば/と), ইচ্ছা ও ভবিষ্যৎ পরিকল্পনা (〜つもり/〜予定/〜ことにする), মতামত ও উদ্ধৃতি (〜と思う/〜と言う), উপদেশ (〜たほうがいい), কর্মবাচ্য ও প্রযোজক ক্রিয়া (受身形・使役形), এবং ৬-রূপান্তর ড্রিল।",
+    "welcome_text": "জাপানিজ স্পোকেন Casual Fluency ক্লাসে স্বাগতম! বন্ধুদের সাথে সাবলীল অনানুষ্ঠানিক জাপানিজে কথা বলা এবং জটিল মনোভাব প্রকাশের কৌশল রপ্ত করুন।"
   },
   "ladder_default": [
     {
@@ -37,8 +37,8 @@
     }
   ],
   "stats": {
-    "lessons": 14,
-    "items": 41
+    "lessons": 22,
+    "items": 59
   },
   "parts": [
     {
@@ -53,7 +53,7 @@
           "order": 1,
           "title_bn": "সাধারণ বর্তমান ও ভবিষ্যৎ প্লেইন রূপ (Dictionary Form)",
           "title_target": "Casual Present Affirmative (Dictionary Form)",
-          "intro_bn": "বন্ধুবান্ধব বা সমবয়সীদের সাথে কথা বলার সময় মার্জিত '〜ます' বাদ দিয়ে ক্রিয়ার ডিকশনারি রূপ (Dictionary Form) ব্যবহৃত হয়। যেমন: 食べます -> 食べる, 行きます -> 行く।",
+          "intro_bn": "বন্ধুবান্ধব বা সমবয়সীদের সাথে কথা বলার সময় মার্জিত '〜ます' বাদ দিয়ে ক্রিয়ার মূল ডিকশনারি রূপ (Dictionary Form) ব্যবহৃত হয়। যেমন: 食べます -> 食べる, 行きます -> 行く।",
           "structure": [
             "Casual / Plain Form: Verb (Dictionary Form)"
           ],
@@ -64,7 +64,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あした とうきょうへ いく。",
+              "target": "明日 東京へ 行く。",
               "target_kana": "あしたとうきょうえいく。",
               "romaji": "Ashita Toukyou e iku.",
               "bn": "কাল টোকিও যাব। (ইনফরমাল)",
@@ -72,28 +72,22 @@
               "ipa": "Ashita Toukyou e iku.",
               "tokens": [
                 {
-                  "t": "あした",
+                  "t": "明日",
                   "romaji": "ashita",
                   "kanji": "明日",
                   "bn": "আগামীকাল"
                 },
                 {
-                  "t": "とうきょう",
-                  "romaji": "toukyou",
-                  "kanji": "東京",
-                  "bn": "টোকিও"
+                  "t": "東京へ",
+                  "romaji": "Toukyou e",
+                  "kanji": "東京へ",
+                  "bn": "টোকিওর দিকে"
                 },
                 {
-                  "t": "へ",
-                  "romaji": "e",
-                  "kanji": "へ",
-                  "bn": "দিকে"
-                },
-                {
-                  "t": "いく",
+                  "t": "行く",
                   "romaji": "iku",
                   "kanji": "行く",
-                  "bn": "যাব (Casual)"
+                  "bn": "যাব"
                 }
               ],
               "status": "reviewed",
@@ -111,7 +105,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "いまから ごはん たべる。",
+              "target": "今から ご飯 食べる。",
               "target_kana": "いまからごはんたべる。",
               "romaji": "Ima kara gohan taberu.",
               "bn": "এখন খাবার খাব।",
@@ -119,19 +113,19 @@
               "ipa": "Ima kara gohan taberu.",
               "tokens": [
                 {
-                  "t": "いまから",
+                  "t": "今から",
                   "romaji": "ima kara",
                   "kanji": "今から",
                   "bn": "এখন থেকে"
                 },
                 {
-                  "t": "ごはん",
+                  "t": "ご飯",
                   "romaji": "gohan",
                   "kanji": "ご飯",
-                  "bn": "ভাত/খাবার"
+                  "bn": "খাবার"
                 },
                 {
-                  "t": "たべる",
+                  "t": "食べる",
                   "romaji": "taberu",
                   "kanji": "食べる",
                   "bn": "খাব"
@@ -152,7 +146,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "こんばん えいが みる？ うん、みる。",
+              "target": "今晩 映画 見る？ うん、見る。",
               "target_kana": "こんばんえいがみる？うん、みる。",
               "romaji": "Konban eiga miru? Un, miru.",
               "bn": "আজ রাতে সিনেমা দেখবি? হ্যাঁ, দেখব।",
@@ -160,22 +154,16 @@
               "ipa": "Konban eiga miru? Un, miru.",
               "tokens": [
                 {
-                  "t": "こんばん",
+                  "t": "今晩",
                   "romaji": "konban",
                   "kanji": "今晩",
                   "bn": "আজ রাত"
                 },
                 {
-                  "t": "えいが",
-                  "romaji": "eiga",
-                  "kanji": "映画",
-                  "bn": "সিনেমা"
-                },
-                {
-                  "t": "みる",
-                  "romaji": "miru",
-                  "kanji": "見る",
-                  "bn": "দেখবি?"
+                  "t": "映画見る？",
+                  "romaji": "eiga miru?",
+                  "kanji": "映画見る？",
+                  "bn": "সিনেমা দেখবি?"
                 },
                 {
                   "t": "うん",
@@ -184,7 +172,7 @@
                   "bn": "হ্যাঁ (Casual)"
                 },
                 {
-                  "t": "みる",
+                  "t": "見る",
                   "romaji": "miru",
                   "kanji": "見る",
                   "bn": "দেখব"
@@ -217,18 +205,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きょうは どこへも いかない。",
+              "target": "今日は どこへも 行かない。",
               "target_kana": "きょうわどこえもいかない。",
               "romaji": "Kyou wa doko e mo ikanai.",
               "bn": "আজ কোথাও যাব না।",
-              "bn_pron": "কিয়োও ওয়া দোকো এ মো ইকনাই।",
+              "bn_pron": "কিওও ওয়া দোকো এ মো ইকনাই।",
               "ipa": "Kyou wa doko e mo ikanai.",
               "tokens": [
                 {
-                  "t": "きょうは どこへも いかない。",
-                  "romaji": "Kyou wa doko e mo ikanai.",
-                  "kanji": "きょうは どこへも いかない。",
-                  "bn": "আজ কোথাও যাব না।"
+                  "t": "今日は",
+                  "romaji": "kyou wa",
+                  "kanji": "今日は",
+                  "bn": "আজ"
+                },
+                {
+                  "t": "どこへも",
+                  "romaji": "doko e mo",
+                  "kanji": "どこへも",
+                  "bn": "কোথাও"
+                },
+                {
+                  "t": "行かない",
+                  "romaji": "ikanai",
+                  "kanji": "行かない",
+                  "bn": "যাব না"
                 }
               ],
               "status": "reviewed",
@@ -246,7 +246,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "おさけは のまない。",
+              "target": "お酒は 飲まない。",
               "target_kana": "おさけわのまない。",
               "romaji": "Osake wa nomanai.",
               "bn": "মদ খাই না।",
@@ -254,10 +254,16 @@
               "ipa": "Osake wa nomanai.",
               "tokens": [
                 {
-                  "t": "おさけは のまない。",
-                  "romaji": "Osake wa nomanai.",
-                  "kanji": "おさけは のまない。",
-                  "bn": "মদ খাই না।"
+                  "t": "お酒は",
+                  "romaji": "osake wa",
+                  "kanji": "お酒は",
+                  "bn": "মদ"
+                },
+                {
+                  "t": "飲まない",
+                  "romaji": "nomanai",
+                  "kanji": "飲まない",
+                  "bn": "পান করি না"
                 }
               ],
               "status": "reviewed",
@@ -275,18 +281,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あさごはん たべないの？ うん、たべない。",
-              "target_kana": "あさごはんたべないの？うん、たべない。",
+              "target": "朝ご飯 食べないの？ うん、食べない。",
+              "target_kana": "あさはんたべないの？うん、たべない。",
               "romaji": "Asagohan tabenai no? Un, tabenai.",
               "bn": "সকালের নাস্তা খাবি না? না, খাব না।",
               "bn_pron": "আসাগোহান তাবেনাই নো? উন, তাবেনাই।",
               "ipa": "Asagohan tabenai no? Un, tabenai.",
               "tokens": [
                 {
-                  "t": "あさごはん たべないの？ うん、たべない。",
-                  "romaji": "Asagohan tabenai no? Un, tabenai.",
-                  "kanji": "あさごはん たべないの？ うん、たべない。",
-                  "bn": "সকালের নাস্তা খাবি না? না, খাব না।"
+                  "t": "朝ご飯",
+                  "romaji": "asagohan",
+                  "kanji": "朝ご飯",
+                  "bn": "নাস্তা"
+                },
+                {
+                  "t": "食べないの？",
+                  "romaji": "tabenai no?",
+                  "kanji": "食べないの？",
+                  "bn": "খাবি না?"
+                },
+                {
+                  "t": "うん",
+                  "romaji": "un",
+                  "kanji": "うん",
+                  "bn": "হ্যাঁ/না (Casual)"
+                },
+                {
+                  "t": "食べない",
+                  "romaji": "tabenai",
+                  "kanji": "食べない",
+                  "bn": "খাব না"
                 }
               ],
               "status": "reviewed",
@@ -303,9 +327,9 @@
         {
           "id": "jp-cas-l03",
           "order": 3,
-          "title_bn": "সাধারণ অতীত প্লেইন রূপ (Casual Past: Ta-Form)",
+          "title_bn": "সাধারণ অতীত প্লেইন রূপ (Casual Past: Ta-Form & Nakatta)",
           "title_target": "Casual Past Affirmative & Negative (Ta-Form / Nakatta)",
-          "intro_bn": "বন্ধুমহলে অতীতের কাজ বলতে '〜ました' এর স্থানে '〜た' (Ta-form) এবং না-বোধকে '〜なかった' (nakatta) বসে। যেমন: 行った (গেছিলাম), 食べなかった (খাইনি)।",
+          "intro_bn": "বন্ধুমহলে অতীতের কাজ বলতে '〜ました' এর স্থানে '〜た' (Ta-form) এবং না-বোধকে '〜なかった' (nakatta) বসে।",
           "structure": [
             "Casual Past: Verb-た / Verb-なかった"
           ],
@@ -316,7 +340,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのう おもしろい えいがを みた。",
+              "target": "きのう 面白い 映画を 見た。",
               "target_kana": "きのうおもしろいえいがをみた。",
               "romaji": "Kinou omoshiroi eiga o mita.",
               "bn": "গতকাল একটি মজার সিনেমা দেখলাম।",
@@ -324,10 +348,28 @@
               "ipa": "Kinou omoshiroi eiga o mita.",
               "tokens": [
                 {
-                  "t": "きのう おもしろい えいがを みた。",
-                  "romaji": "Kinou omoshiroi eiga o mita.",
-                  "kanji": "きのう おもしろい えいがを みた。",
-                  "bn": "গতকাল একটি মজার সিনেমা দেখলাম।"
+                  "t": "きのう",
+                  "romaji": "kinou",
+                  "kanji": "昨日",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "面白い",
+                  "romaji": "omoshiroi",
+                  "kanji": "面白い",
+                  "bn": "মজার"
+                },
+                {
+                  "t": "映画を",
+                  "romaji": "eiga o",
+                  "kanji": "映画を",
+                  "bn": "সিনেমা"
+                },
+                {
+                  "t": "見た",
+                  "romaji": "mita",
+                  "kanji": "見た",
+                  "bn": "দেখলাম"
                 }
               ],
               "status": "reviewed",
@@ -345,7 +387,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうは べんきょうしなかった。",
+              "target": "きのうは 勉強しなかった。",
               "target_kana": "きのうわべんきょうしなかった。",
               "romaji": "Kinou wa benkyou shinakatta.",
               "bn": "গতকাল পড়িনি।",
@@ -353,10 +395,16 @@
               "ipa": "Kinou wa benkyou shinakatta.",
               "tokens": [
                 {
-                  "t": "きのうは べんきょうしなかった。",
-                  "romaji": "Kinou wa benkyou shinakatta.",
-                  "kanji": "きのうは べんきょうしなかった。",
-                  "bn": "গতকাল পড়িনি।"
+                  "t": "きのうは",
+                  "romaji": "kinou wa",
+                  "kanji": "昨日は",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "勉強しなかった",
+                  "romaji": "benkyou shinakatta",
+                  "kanji": "勉強しなかった",
+                  "bn": "পড়িনি"
                 }
               ],
               "status": "reviewed",
@@ -374,7 +422,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "テスト どうだった？ むずかしかった。",
+              "target": "テスト どうだった？ 難しかった。",
               "target_kana": "てすとどうだった？むずかしかった。",
               "romaji": "Tesuto dou datta? Muzukashikatta.",
               "bn": "পরীক্ষা কেমন হয়েছিল? কঠিন ছিল।",
@@ -382,10 +430,22 @@
               "ipa": "Tesuto dou datta? Muzukashikatta.",
               "tokens": [
                 {
-                  "t": "テスト どうだった？ むずかしかった。",
-                  "romaji": "Tesuto dou datta? Muzukashikatta.",
-                  "kanji": "テスト どうだった？ むずかしかった。",
-                  "bn": "পরীক্ষা কেমন হয়েছিল? কঠিন ছিল।"
+                  "t": "テスト",
+                  "romaji": "tesuto",
+                  "kanji": "テスト",
+                  "bn": "পরীক্ষা"
+                },
+                {
+                  "t": "どうだった？",
+                  "romaji": "dou datta?",
+                  "kanji": "どうだった？",
+                  "bn": "কেমন ছিল?"
+                },
+                {
+                  "t": "難しかった",
+                  "romaji": "muzukashikatta",
+                  "kanji": "難しかった",
+                  "bn": "কঠিন ছিল"
                 }
               ],
               "status": "reviewed",
@@ -420,7 +480,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "かれは にほんへ いく。",
+              "target": "彼は 日本へ 行く。",
               "target_kana": "かれわにほんえいく。",
               "romaji": "Kare wa Nihon e iku.",
               "bn": "১. হ্যাঁ-বোধক: সে জাপানে যাবে।",
@@ -428,9 +488,9 @@
               "ipa": "Kare wa Nihon e iku.",
               "tokens": [
                 {
-                  "t": "かれは にほんへ いく。",
+                  "t": "彼は 日本へ 行く。",
                   "romaji": "Kare wa Nihon e iku.",
-                  "kanji": "かれは にほんへ いく。",
+                  "kanji": "彼は 日本へ 行く。",
                   "bn": "১. হ্যাঁ-বোধক: সে জাপানে যাবে।"
                 }
               ],
@@ -449,7 +509,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "かれは にほんへ いかない。",
+              "target": "彼は 日本へ 行かない。",
               "target_kana": "かれわにほんえいかない。",
               "romaji": "Kare wa Nihon e ikanai.",
               "bn": "২. না-বোধক: সে জাপানে যাবে না।",
@@ -457,9 +517,9 @@
               "ipa": "Kare wa Nihon e ikanai.",
               "tokens": [
                 {
-                  "t": "かれは にほんへ いかない。",
+                  "t": "彼は 日本へ 行かない。",
                   "romaji": "Kare wa Nihon e ikanai.",
-                  "kanji": "かれは にほんへ いかない。",
+                  "kanji": "彼は 日本へ 行かない。",
                   "bn": "২. না-বোধক: সে জাপানে যাবে না।"
                 }
               ],
@@ -478,7 +538,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "かれは にほんへ いく？",
+              "target": "彼は 日本へ 行く？",
               "target_kana": "かれわにほんえいく？",
               "romaji": "Kare wa Nihon e iku?",
               "bn": "৩. প্রশ্নবোধক: সে কি জাপানে যাবে?",
@@ -486,9 +546,9 @@
               "ipa": "Kare wa Nihon e iku?",
               "tokens": [
                 {
-                  "t": "かれは にほんへ いく？",
+                  "t": "彼は 日本へ 行く？",
                   "romaji": "Kare wa Nihon e iku?",
-                  "kanji": "かれは にほんへ いく？",
+                  "kanji": "彼は 日本へ 行く？",
                   "bn": "৩. প্রশ্নবোধক: সে কি জাপানে যাবে?"
                 }
               ],
@@ -507,7 +567,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "かれは にほんへ いかないの？",
+              "target": "彼は 日本へ 行かないの？",
               "target_kana": "かれわにほんえいかないの？",
               "romaji": "Kare wa Nihon e ikanai no?",
               "bn": "৪. না-বোধক প্রশ্ন: সে কি জাপানে যাবে না?",
@@ -515,9 +575,9 @@
               "ipa": "Kare wa Nihon e ikanai no?",
               "tokens": [
                 {
-                  "t": "かれは にほんへ いかないの？",
+                  "t": "彼は 日本へ 行かないの？",
                   "romaji": "Kare wa Nihon e ikanai no?",
-                  "kanji": "かれは にほんへ いかないの？",
+                  "kanji": "彼は 日本へ 行かないの？",
                   "bn": "৪. না-বোধক প্রশ্ন: সে কি জাপানে যাবে না?"
                 }
               ],
@@ -536,7 +596,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "かれは いつ にほんへ いく？ らいげつ いくよ。",
+              "target": "彼は いつ 日本へ 行く？ 来月 行くよ。",
               "target_kana": "かれわいつにほんえいく？らいげついくよ。",
               "romaji": "Kare wa itsu Nihon e iku? Raigetsu iku yo.",
               "bn": "৫. WH-প্রশ্ন: সে কবে জাপান যাবে? আগামী মাসে যাবে।",
@@ -544,9 +604,9 @@
               "ipa": "Kare wa itsu Nihon e iku? Raigetsu iku yo.",
               "tokens": [
                 {
-                  "t": "かれは いつ にほんへ いく？ らいげつ いくよ。",
+                  "t": "彼は いつ 日本へ 行く？ 来月 行くよ。",
                   "romaji": "Kare wa itsu Nihon e iku? Raigetsu iku yo.",
-                  "kanji": "かれは いつ にほんへ いく？ らいげつ いくよ。",
+                  "kanji": "彼は いつ 日本へ 行く？ 来月 行くよ。",
                   "bn": "৫. WH-প্রশ্ন: সে কবে জাপান যাবে? আগামী মাসে যাবে।"
                 }
               ],
@@ -565,7 +625,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "バスで いく？ でんしゃで いく？",
+              "target": "バスで 行く？ 電車で 行く？",
               "target_kana": "ばすでいく？でんしゃでいく？",
               "romaji": "Basu de iku? Densha de iku?",
               "bn": "৬. বিকল্প প্রশ্ন: বাসে যাবি, নাকি ট্রেনে?",
@@ -573,9 +633,9 @@
               "ipa": "Basu de iku? Densha de iku?",
               "tokens": [
                 {
-                  "t": "バスで いく？ でんしゃで いく？",
+                  "t": "バスで 行く？ 電車で 行く？",
                   "romaji": "Basu de iku? Densha de iku?",
-                  "kanji": "バスで いく？ でんしゃで いく？",
+                  "kanji": "バスで 行く？ 電車で 行く？",
                   "bn": "৬. বিকল্প প্রশ্ন: বাসে যাবি, নাকি ট্রেনে?"
                 }
               ],
@@ -602,11 +662,13 @@
         {
           "id": "jp-cas-l05",
           "order": 1,
-          "title_bn": "সামর্থ্য প্রকাশ — '可能動詞' ও '〜ことが できます' (Can / Able to)",
-          "title_target": "Potential Verbs & Ability (Hanaseru / Koto ga dekiru)",
-          "intro_bn": "কোনো কাজ করতে পারি বা আমার সামর্থ্য আছে প্রকাশ করতে ক্রিয়াপদের পোটেনশিয়াল রূপ (可能動詞) অথবা 'Verb-辞書形 + ことが できます' বসে। কর্মের পর 'を' এর বদলে 'が' বসে।",
+          "title_bn": "সামর্থ্য ক্রিয়ার গঠন — '可能動詞' (Potential Verb Formation)",
+          "title_target": "Potential Verb Conjugation (Group 1, 2, and 3)",
+          "intro_bn": "কোনো কাজ করতে পারা বোঝাতে পোটেনশিয়াল ভার্ব বসে। গ্রুপ ১: u-ধ্বনি -> eる (話す -> 話せる, 飲む -> 飲める)। গ্রুপ ২: る -> られる (食べる -> 食べられる)। গ্রুপ ৩: する -> できる, 来る -> 来られる।",
           "structure": [
-            "Noun + が + Potential Verb-ます / Verb (Dic) + ことが できます"
+            "Group 1: u → eru (話す → 話せる, 買う → 買える)",
+            "Group 2: ru → rareru (食べる → 食べられる, 見る → 見られる)",
+            "Group 3: する → できる, くる → こられる"
           ],
           "items": [
             {
@@ -615,7 +677,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしは にほんごが すこし はなせます。",
+              "target": "わたしは 日本語が 少し 話せます。",
               "target_kana": "わたしわにほんごがすこしはなせます。",
               "romaji": "Watashi wa nihongo ga sukoshi hanasemasu.",
               "bn": "আমি কিছুটা জাপানি ভাষায় কথা বলতে পারি।",
@@ -623,10 +685,28 @@
               "ipa": "Watashi wa nihongo ga sukoshi hanasemasu.",
               "tokens": [
                 {
-                  "t": "わたしは にほんごが すこし はなせます。",
-                  "romaji": "Watashi wa nihongo ga sukoshi hanasemasu.",
-                  "kanji": "わたしは にほんごが すこし はなせます。",
-                  "bn": "আমি কিছুটা জাপানি ভাষায় কথা বলতে পারি।"
+                  "t": "わたしは",
+                  "romaji": "watashi wa",
+                  "kanji": "私は",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "日本語が",
+                  "romaji": "nihongo ga",
+                  "kanji": "日本語が",
+                  "bn": "জাপানি ভাষা"
+                },
+                {
+                  "t": "少し",
+                  "romaji": "sukoshi",
+                  "kanji": "少し",
+                  "bn": "একটু/কিছুটা"
+                },
+                {
+                  "t": "話せます",
+                  "romaji": "hanasemasu",
+                  "kanji": "話せます",
+                  "bn": "কথা বলতে পারি"
                 }
               ],
               "status": "reviewed",
@@ -644,18 +724,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "かれは じどうしゃを うんてんする ことが できます。",
-              "target_kana": "かれわじどうしゃをうんてんすることができる。",
-              "romaji": "Kare wa jidousha o unten suru koto ga dekimasu.",
-              "bn": "সে গাড়ি চালাতে পারে।",
-              "bn_pron": "কারে ওয়া জিদোওশা ও উনতেন সুরু কোতো গা দেকিমাসু।",
-              "ipa": "Kare wa jidousha o unten suru koto ga dekimasu.",
+              "target": "生魚が 食べられますか。はい、食べられます。",
+              "target_kana": "なまざかながたべられますか。はい、たべられます。",
+              "romaji": "Namazakana ga taberaremasu ka. Hai, taberaremasu.",
+              "bn": "কাঁচা মাছ খেতে পারেন? হ্যাঁ, পারি।",
+              "bn_pron": "নামাজাকানা গা তাবেরারেমাসু কা? হাই, তাবেরারেমাসু।",
+              "ipa": "Namazakana ga taberaremasu ka. Hai, taberaremasu.",
               "tokens": [
                 {
-                  "t": "かれは じどうしゃを うんてんする ことが できます。",
-                  "romaji": "Kare wa jidousha o unten suru koto ga dekimasu.",
-                  "kanji": "かれは じどうしゃを うんてんする ことが できます。",
-                  "bn": "সে গাড়ি চালাতে পারে।"
+                  "t": "生魚が",
+                  "romaji": "namazakana ga",
+                  "kanji": "生魚が",
+                  "bn": "কাঁচা মাছ"
+                },
+                {
+                  "t": "食べられますか",
+                  "romaji": "taberaremasu ka",
+                  "kanji": "食べられますか",
+                  "bn": "খেতে পারেন কি"
+                },
+                {
+                  "t": "はい",
+                  "romaji": "hai",
+                  "kanji": "はい",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "食べられます",
+                  "romaji": "taberaremasu",
+                  "kanji": "食べられます",
+                  "bn": "খেতে পারি"
                 }
               ],
               "status": "reviewed",
@@ -673,18 +771,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "にほんの おんせんで ゆっくり やすむ ことが できます。",
-              "target_kana": "にほんのおんせんでゆっくりやすむことができる。",
-              "romaji": "Nihon no onsen de yukkuri yasumu koto ga dekimasu.",
-              "bn": "জাপানের উষ্ণ প্রস্রবণে শান্তিতে বিশ্রাম নেওয়া যায়।",
-              "bn_pron": "নিহোন নো ওনসেন দে ইউক্কুরি ইয়াসুমু কোতো গা দেকিমাসু।",
-              "ipa": "Nihon no onsen de yukkuri yasumu koto ga dekimasu.",
+              "target": "あした パーティーに 来られますか。",
+              "target_kana": "あしたぱーてぃーにこられますか。",
+              "romaji": "Ashita paatii ni koraremasu ka.",
+              "bn": "কাল পার্টিতে আসতে পারবেন কি?",
+              "bn_pron": "আশিতা পাতিই নি কোরোরেমাসু কা?",
+              "ipa": "Ashita paatii ni koraremasu ka.",
               "tokens": [
                 {
-                  "t": "にほんの おんせんで ゆっくり やすむ ことが できます。",
-                  "romaji": "Nihon no onsen de yukkuri yasumu koto ga dekimasu.",
-                  "kanji": "にほんの おんせんで ゆっくり やすむ ことが できます。",
-                  "bn": "জাপানের উষ্ণ প্রস্রবণে শান্তিতে বিশ্রাম নেওয়া যায়।"
+                  "t": "あした",
+                  "romaji": "ashita",
+                  "kanji": "明日",
+                  "bn": "আগামীকাল"
+                },
+                {
+                  "t": "パーティーに",
+                  "romaji": "paatii ni",
+                  "kanji": "パーティーに",
+                  "bn": "পার্টিতে"
+                },
+                {
+                  "t": "来られますか",
+                  "romaji": "koraremasu ka",
+                  "kanji": "来られますか",
+                  "bn": "আসতে পারবেন কি"
                 }
               ],
               "status": "reviewed",
@@ -701,11 +811,11 @@
         {
           "id": "jp-cas-l06",
           "order": 2,
-          "title_bn": "অক্ষমতা ও সীমাবদ্ধতা (Inability: Can't do)",
+          "title_bn": "অক্ষমতা ও সীমাবদ্ধতা (Expressing Inability)",
           "title_target": "Expressing Inability (Hanasenai / Koto ga dekimasen)",
-          "intro_bn": "কোনো কাজ করতে পারি না বোঝাতে '〜ません' বা '〜ない' বসে। যেমন: 漢字が 書けません (কাঞ্জি লিখতে পারি না)।",
+          "intro_bn": "কোনো কাজ করতে অক্ষম হলে পোটেনশিয়াল ভার্বকে না-বোধক করতে হয়: 話せない (বলতে পারি না), 泳げない (সাঁতার কাটতে পারি না)।",
           "structure": [
-            "Noun + が + Potential Verb-ません"
+            "Noun + が + Potential Verb-ません / ない"
           ],
           "items": [
             {
@@ -714,7 +824,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしは かんじが あまり かけません。",
+              "target": "わたしは 漢字が あまり 書けません。",
               "target_kana": "わたしわかんじがあまりかけません。",
               "romaji": "Watashi wa kanji ga amari kakemasen.",
               "bn": "আমি খুব একটা কাঞ্জি লিখতে পারি না।",
@@ -722,10 +832,28 @@
               "ipa": "Watashi wa kanji ga amari kakemasen.",
               "tokens": [
                 {
-                  "t": "わたしは かんじが あまり かけません。",
-                  "romaji": "Watashi wa kanji ga amari kakemasen.",
-                  "kanji": "わたしは かんじが あまり かけません。",
-                  "bn": "আমি খুব একটা কাঞ্জি লিখতে পারি না।"
+                  "t": "わたしは",
+                  "romaji": "watashi wa",
+                  "kanji": "私は",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "漢字が",
+                  "romaji": "kanji ga",
+                  "kanji": "漢字が",
+                  "bn": "কাঞ্জি"
+                },
+                {
+                  "t": "あまり",
+                  "romaji": "amari",
+                  "kanji": "あまり",
+                  "bn": "তেমন একটা"
+                },
+                {
+                  "t": "書けません",
+                  "romaji": "kakemasen",
+                  "kanji": "書けません",
+                  "bn": "লিখতে পারি না"
                 }
               ],
               "status": "reviewed",
@@ -743,7 +871,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "およぐ ことが できません。",
+              "target": "泳ぐ ことが できません。",
               "target_kana": "およぐことができません。",
               "romaji": "Oyogu koto ga dekimasen.",
               "bn": "সাঁতার কাটতে পারি না।",
@@ -751,10 +879,16 @@
               "ipa": "Oyogu koto ga dekimasen.",
               "tokens": [
                 {
-                  "t": "およぐ ことが できません。",
-                  "romaji": "Oyogu koto ga dekimasen.",
-                  "kanji": "およぐ ことが できません。",
-                  "bn": "সাঁতার কাটতে পারি না।"
+                  "t": "泳ぐことが",
+                  "romaji": "oyogu koto ga",
+                  "kanji": "泳ぐことが",
+                  "bn": "সাঁতার কাটার সক্ষমতা"
+                },
+                {
+                  "t": "できません",
+                  "romaji": "dekimasen",
+                  "kanji": "できません",
+                  "bn": "পারি না"
                 }
               ],
               "status": "reviewed",
@@ -767,46 +901,47 @@
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "jp-casual-p3",
-      "order": 3,
-      "level": "A2",
-      "title_bn": "উপহার ও উপকার আদান-প্রদান (Giving & Receiving: あげる / もらう / くれる)",
-      "title_target": "Giving & Receiving Favors (Ageru, Morau, Kureru)",
-      "lessons": [
+        },
         {
           "id": "jp-cas-l07",
-          "order": 1,
-          "title_bn": "উপহার ও জিনিস আদান-প্রদান (Giving & Receiving Things)",
-          "title_target": "Giving & Receiving Items (Ageru, Morau, Kureru)",
-          "intro_bn": "জাপানিজে কাউকে দেওয়া 'あげる' (ageru), কারো কাছ থেকে পাওয়া 'もらう' (morau) এবং অন্য কেউ আমাকে দিলে 'くれる' (kureru) ব্যবহৃত হয়।",
+          "order": 3,
+          "title_bn": "পরিস্থিতিগত সুবিধা ও উপলভ্যতা (Circumstantial Possibility)",
+          "title_target": "Circumstantial Possibility (Where one can do X)",
+          "intro_bn": "কোনো নির্দিষ্ট স্থানে কোনো সেবা পাওয়া যায় বা সুবিধা ভোগ করা যায় বোঝাতে পোটেনশিয়াল রূপ বসে।",
           "structure": [
-            "A wa B ni [Item] o agemasu (A gives to B)",
-            "A wa B ni/kara [Item] o moraimasu (A receives from B)",
-            "Person wa watashi ni [Item] o kuremasu (Someone gives to me)"
+            "Place で + Noun が + Potential Verb"
           ],
           "items": [
             {
-              "id": "jp-cas-p3-l7-001",
-              "concept_id": "c-jp-cas-p3-l7-001",
+              "id": "jp-cas-p2-l7-001",
+              "concept_id": "c-jp-cas-p2-l7-001",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしは ともだちに たんじょうびプレゼントを あげました。",
-              "target_kana": "わたしわともだちにたんじょうびぷれぜんとをあげました。",
-              "romaji": "Watashi wa tomodachi ni tanjoubi purezento o agemashita.",
-              "bn": "আমি বন্ধুকে জন্মদিনের উপহার দিয়েছিলাম।",
-              "bn_pron": "ওয়াতাশি ওয়া তোমোদাচি নি তানজোওবি পুরেজেনতো ও আগেমাশিতা।",
-              "ipa": "Watashi wa tomodachi ni tanjoubi purezento o agemashita.",
+              "target": "この カフェで 無料の Wi-Fiが 使えます。",
+              "target_kana": "このかふぇでむりょうのわいふぁいがつかえます。",
+              "romaji": "Kono kafe de muryou no waifai ga tsukaemasu.",
+              "bn": "এই ক্যাফেতে ফ্রি ওয়াইফাই ব্যবহার করা যায়।",
+              "bn_pron": "কোনো কাফে দে মুরিয়োও নো ওয়াইফাই গা তসুকায়েমাসু।",
+              "ipa": "Kono kafe de muryou no waifai ga tsukaemasu.",
               "tokens": [
                 {
-                  "t": "わたしは ともだちに たんじょうびプレゼントを あげました。",
-                  "romaji": "Watashi wa tomodachi ni tanjoubi purezento o agemashita.",
-                  "kanji": "わたしは ともだちに たんじょうびプレゼントを あげました。",
-                  "bn": "আমি বন্ধুকে জন্মদিনের উপহার দিয়েছিলাম।"
+                  "t": "このカフェで",
+                  "romaji": "kono kafe de",
+                  "kanji": "このカフェで",
+                  "bn": "এই ক্যাফেতে"
+                },
+                {
+                  "t": "無料のWi-Fiが",
+                  "romaji": "muryou no waifai ga",
+                  "kanji": "無料のWi-Fiが",
+                  "bn": "বিনামূল্যে ওয়াইফাই"
+                },
+                {
+                  "t": "使えます",
+                  "romaji": "tsukaemasu",
+                  "kanji": "使えます",
+                  "bn": "ব্যবহার করা যায়"
                 }
               ],
               "status": "reviewed",
@@ -819,52 +954,41 @@
               }
             },
             {
-              "id": "jp-cas-p3-l7-002",
-              "concept_id": "c-jp-cas-p3-l7-002",
+              "id": "jp-cas-p2-l7-002",
+              "concept_id": "c-jp-cas-p2-l7-002",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "せんせいに べんりな じしょを もらいました。",
-              "target_kana": "せんせいにべんりなじしょをもらいました。",
-              "romaji": "Sensei ni benri na jisho o moraimashita.",
-              "bn": "শিক্ষকের কাছ থেকে একটি উপকারী অভিধান পেয়েছিলাম।",
-              "bn_pron": "সেনসেই নি বেনরি না জিশো ও মোরাইমাশিতা।",
-              "ipa": "Sensei ni benri na jisho o moraimashita.",
+              "target": "駅の 前の コンビニで 切符が 買えます。",
+              "target_kana": "えきのまえのこんびにできっぷがかえます。",
+              "romaji": "Eki no mae no konbini de kippu ga kaemasu.",
+              "bn": "স্টেশনের সামনের কনভেনিয়েন্স স্টোরে টিকিট কেনা যায়।",
+              "bn_pron": "একি নো মায়ে নো কোনবিনি দে কিপ্পু গা কায়েমাশু।",
+              "ipa": "Eki no mae no konbini de kippu ga kaemasu.",
               "tokens": [
                 {
-                  "t": "せんせいに べんりな じしょを もらいました。",
-                  "romaji": "Sensei ni benri na jisho o moraimashita.",
-                  "kanji": "せんせいに べんりな じしょを もらいました。",
-                  "bn": "শিক্ষকের কাছ থেকে একটি উপকারী অভিধান পেয়েছিলাম।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            },
-            {
-              "id": "jp-cas-p3-l7-003",
-              "concept_id": "c-jp-cas-p3-l7-003",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "たなかさんが わたしに かさを くれました。",
-              "target_kana": "たなかさんがわたしにかさをくれました。",
-              "romaji": "Tanaka-san ga watashi ni kasa o kuremashita.",
-              "bn": "তানাকা বাবু আমাকে ছাতা দিয়েছিলেন।",
-              "bn_pron": "তানাকা-সান গা ওয়াতাশি নি কাসা ও কুরেমাশিতা।",
-              "ipa": "Tanaka-san ga watashi ni kasa o kuremashita.",
-              "tokens": [
+                  "t": "駅の前の",
+                  "romaji": "eki no mae no",
+                  "kanji": "駅の前の",
+                  "bn": "স্টেশনের সামনের"
+                },
                 {
-                  "t": "たなかさんが わたしに かさを くれました。",
-                  "romaji": "Tanaka-san ga watashi ni kasa o kuremashita.",
-                  "kanji": "たなかさんが わたしに かさを くれました。",
-                  "bn": "তানাকা বাবু আমাকে ছাতা দিয়েছিলেন।"
+                  "t": "コンビニで",
+                  "romaji": "konbini de",
+                  "kanji": "コンビニで",
+                  "bn": "কনভেনিয়েন্স স্টোরে"
+                },
+                {
+                  "t": "切符が",
+                  "romaji": "kippu ga",
+                  "kanji": "切符が",
+                  "bn": "টিকিট"
+                },
+                {
+                  "t": "買えます",
+                  "romaji": "kaemasu",
+                  "kanji": "買えます",
+                  "bn": "কেনা যায়"
                 }
               ],
               "status": "reviewed",
@@ -877,15 +1001,24 @@
               }
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "jp-casual-p3",
+      "order": 3,
+      "level": "A2",
+      "title_bn": "জাপানিজের ৪টি শর্তের নিয়ম (The 4 Japanese Conditionals: たら・なら・ば・と)",
+      "title_target": "The 4 Conditionals (~tara, ~nara, ~ba, ~to)",
+      "lessons": [
         {
           "id": "jp-cas-l08",
-          "order": 2,
-          "title_bn": "উপকার ও কাজের সাহায্য করা (Giving & Receiving Favors: Verb-て あげる/もらう/くれる)",
-          "title_target": "Actions of Favor (~te ageru / morau / kureru)",
-          "intro_bn": "কারো কোনো কাজ করে দেওয়া বা কারো সাহায্য পাওয়া প্রকাশ করতে ক্রিয়ার তে-ফর্মের সাথে 'あげる', 'もらう', 'くれる' বসে।",
+          "order": 1,
+          "title_bn": "শর্ত ও সময় — '〜たら' (General Conditional: If / Once)",
+          "title_target": "Conditionals with ~tara (If / Once)",
+          "intro_bn": "দৈনন্দিন স্পোকেন জাপানিজে সবচেয়ে বেশি ব্যবহৃত শর্ত হলো '〜たら'। যদি কোনো ঘটনা ঘটে বা ঘটার পর কিছু করব বোঝাতে এটি বসে।",
           "structure": [
-            "Verb-て + あげます / もらいます / くれます"
+            "Verb-たら、Result Sentence"
           ],
           "items": [
             {
@@ -894,18 +1027,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしは ともだちに にほんごを おしえて あげました。",
-              "target_kana": "わたしわともだちににほんごをおしえてあげました。",
-              "romaji": "Watashi wa tomodachi ni nihongo o oshiete agemashita.",
-              "bn": "আমি বন্ধুকে জাপানি ভাষা শিখিয়ে দিয়েছিলাম।",
-              "bn_pron": "ওয়াতাশি ওয়া তোমোদাচি নি নিহঙ্গো ও ওশিয়েতে আগেমাশিতা।",
-              "ipa": "Watashi wa tomodachi ni nihongo o oshiete agemashita.",
+              "target": "明日 雨が 降ったら、うちで 休みます。",
+              "target_kana": "あしたあめがふったら、うちでやすみます。",
+              "romaji": "Ashita ame ga futtara, uchi de yasumimasu.",
+              "bn": "আগামীকাল বৃষ্টি হলে বাড়িতে বিশ্রাম নেব।",
+              "bn_pron": "আশিতা আমে গা ফুত্তারা, উচি দে ইয়াসুমিমাসু।",
+              "ipa": "Ashita ame ga futtara, uchi de yasumimasu.",
               "tokens": [
                 {
-                  "t": "わたしは ともだちに にほんごを おしえて あげました。",
-                  "romaji": "Watashi wa tomodachi ni nihongo o oshiete agemashita.",
-                  "kanji": "わたしは ともだちに にほんごを おしえて あげました。",
-                  "bn": "আমি বন্ধুকে জাপানি ভাষা শিখিয়ে দিয়েছিলাম।"
+                  "t": "明日",
+                  "romaji": "ashita",
+                  "kanji": "明日",
+                  "bn": "আগামীকাল"
+                },
+                {
+                  "t": "雨が降ったら",
+                  "romaji": "ame ga futtara",
+                  "kanji": "雨が降ったら",
+                  "bn": "বৃষ্টি হলে"
+                },
+                {
+                  "t": "うちで",
+                  "romaji": "uchi de",
+                  "kanji": "うちで",
+                  "bn": "বাড়িতে"
+                },
+                {
+                  "t": "休みます",
+                  "romaji": "yasumimasu",
+                  "kanji": "休みます",
+                  "bn": "বিশ্রাম নেব"
                 }
               ],
               "status": "reviewed",
@@ -923,18 +1074,24 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "ともだちに みちを あんないして もらいました。",
-              "target_kana": "ともだちにみちをあんないしてもらいました。",
-              "romaji": "Tomodachi ni michi o annai shite moraimashita.",
-              "bn": "বন্ধুকে দিয়ে পথ দেখিয়ে নিয়েছিলাম।",
-              "bn_pron": "তোমোদাচি নি মিচি ও আন্নাই শিতে মোরাইমাশিতা।",
-              "ipa": "Tomodachi ni michi o annai shite moraimashita.",
+              "target": "駅に 着いたら、電話して ください。",
+              "target_kana": "えきについたら、でんわしてください。",
+              "romaji": "Eki ni tsuitara, denwa shite kudasai.",
+              "bn": "স্টেশনে পৌঁছালে ফোন করবেন দয়া করে।",
+              "bn_pron": "একি নি তসুইতারা, দেনওয়া শিতে কুদাসাই।",
+              "ipa": "Eki ni tsuitara, denwa shite kudasai.",
               "tokens": [
                 {
-                  "t": "ともだちに みちを あんないして もらいました。",
-                  "romaji": "Tomodachi ni michi o annai shite moraimashita.",
-                  "kanji": "ともだちに みちを あんないして もらいました。",
-                  "bn": "বন্ধুকে দিয়ে পথ দেখিয়ে নিয়েছিলাম।"
+                  "t": "駅に着いたら",
+                  "romaji": "eki ni tsuitara",
+                  "kanji": "駅に着いたら",
+                  "bn": "স্টেশনে পৌঁছালে"
+                },
+                {
+                  "t": "電話してください",
+                  "romaji": "denwa shite kudasai",
+                  "kanji": "電話してください",
+                  "bn": "ফোন করবেন দয়া করে"
                 }
               ],
               "status": "reviewed",
@@ -952,18 +1109,324 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "たなかさんは えきまで くるまで おくって くれました。",
-              "target_kana": "たなかさんわえきまでくるまでおくってくれました。",
-              "romaji": "Tanaka-san wa eki made kuruma de okutte kuremashita.",
-              "bn": "তানাকা বাবু আমাকে স্টেশন পর্যন্ত গাড়িতে পৌঁছে দিয়েছিলেন।",
-              "bn_pron": "তানাকা-সান ওয়া একি মাদে কুরুমা দে ওকুত্তে কুরেমাশিতা।",
-              "ipa": "Tanaka-san wa eki made kuruma de okutte kuremashita.",
+              "target": "お金が あったら、世界旅行に 行きたいです。",
+              "target_kana": "おかねがあったら、せかいりょこうにいきたいです。",
+              "romaji": "Okane ga attara, sekai ryokou ni ikitai desu.",
+              "bn": "টাকা থাকলে বিশ্বভ্রমণে যেতে চাই।",
+              "bn_pron": "ওকানে গা আত্তারা, সেকাই রিওকোও নি ইকিতাই দেস।",
+              "ipa": "Okane ga attara, sekai ryokou ni ikitai desu.",
               "tokens": [
                 {
-                  "t": "たなかさんは えきまで くるまで おくって くれました。",
-                  "romaji": "Tanaka-san wa eki made kuruma de okutte kuremashita.",
-                  "kanji": "たなかさんは えきまで くるまで おくって くれました。",
-                  "bn": "তানাকা বাবু আমাকে স্টেশন পর্যন্ত গাড়িতে পৌঁছে দিয়েছিলেন।"
+                  "t": "お金があったら",
+                  "romaji": "okane ga attara",
+                  "kanji": "お金があったら",
+                  "bn": "টাকা থাকলে"
+                },
+                {
+                  "t": "世界旅行に",
+                  "romaji": "sekai ryokou ni",
+                  "kanji": "世界旅行に",
+                  "bn": "বিশ্বভ্রমণে"
+                },
+                {
+                  "t": "行きたいです",
+                  "romaji": "ikitai desu",
+                  "kanji": "行きたいです",
+                  "bn": "যেতে চাই"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l09",
+          "order": 2,
+          "title_bn": "প্রসঙ্গ সাপেক্ষে পরামর্শ — '〜なら' (Contextual Conditional)",
+          "title_target": "Contextual Conditionals (~nara: In that case...)",
+          "intro_bn": "অন্যের কথার সূত্র ধরে কোনো বিষয়ে পরামর্শ বা মতামত দিতে 'Noun / Sentence + なら' বসে।",
+          "structure": [
+            "Topic / Idea + なら + Recommendation"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p3-l9-001",
+              "concept_id": "c-jp-cas-p3-l9-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "日本へ 行くなら、京都が おすすめです。",
+              "target_kana": "にほんえいくなら、きょうとがおすすめす。",
+              "romaji": "Nihon e iku nara, Kyouto ga osusume desu.",
+              "bn": "জাপানে যদি যান, তবে কিয়োটো সবচেয়ে উত্তম প্রস্তাবনা।",
+              "bn_pron": "নিহোন এ ইকু নারা, কিওওতো গা ওসুসুমে দেস।",
+              "ipa": "Nihon e iku nara, Kyouto ga osusume desu.",
+              "tokens": [
+                {
+                  "t": "日本へ行くなら",
+                  "romaji": "Nihon e iku nara",
+                  "kanji": "日本へ行くなら",
+                  "bn": "জাপানে যদি যান"
+                },
+                {
+                  "t": "京都が",
+                  "romaji": "Kyouto ga",
+                  "kanji": "京都が",
+                  "bn": "কিয়োটো"
+                },
+                {
+                  "t": "おすすめです",
+                  "romaji": "osusume desu",
+                  "kanji": "おすすめです",
+                  "bn": "উত্তম প্রস্তাব"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p3-l9-002",
+              "concept_id": "c-jp-cas-p3-l9-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "パソコンなら、秋葉原の 店が 安いですよ。",
+              "target_kana": "ぱそこんなら、あきはばらのみせやすいですよ。",
+              "romaji": "Pasokon nara, Akihabara no mise ga yasui desu yo.",
+              "bn": "কম্পিউটারের ব্যাপার হলে আকিহাবারার দোকানগুলো সস্তা।",
+              "bn_pron": "পাসোকোন নারা, আকিহাবারা নো মিসে গা ইয়াসুই দেসু ইয়ো।",
+              "ipa": "Pasokon nara, Akihabara no mise ga yasui desu yo.",
+              "tokens": [
+                {
+                  "t": "パソコンなら",
+                  "romaji": "pasokon nara",
+                  "kanji": "パソコンなら",
+                  "bn": "কম্পিউটারের কথা বললে"
+                },
+                {
+                  "t": "秋葉原の店が",
+                  "romaji": "Akihabara no mise ga",
+                  "kanji": "秋葉原の店が",
+                  "bn": "আকিহাবারার দোকান"
+                },
+                {
+                  "t": "安いです",
+                  "romaji": "yasui desu",
+                  "kanji": "安いです",
+                  "bn": "সস্তা"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l10",
+          "order": 3,
+          "title_bn": "যৌক্তিক শর্ত — '〜ば' (Hypothetical Conditional)",
+          "title_target": "Hypothetical Conditional (~ba form)",
+          "intro_bn": "যদি যৌক্তিক বা কাল্পনিক শর্ত পূরণ হয় তবে ফলাফল ঘটবে: ক্রিয়ার e-ধ্বনি + ば (安ければ = যদি সস্তা হয়; 行けば = যদি যাই)।",
+          "structure": [
+            "Verb (ba-form) / い-Adj (kereba)、Result"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p3-l10-001",
+              "concept_id": "c-jp-cas-p3-l10-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "安ければ、たくさん 買います。",
+              "target_kana": "やすければ、たくさんかいます。",
+              "romaji": "Yasukereba, takusan kaimasu.",
+              "bn": "যদি সস্তা হয়, তবে অনেক কিনব।",
+              "bn_pron": "ইয়াসুকেরোবা, তাকুসান কাইমাসু।",
+              "ipa": "Yasukereba, takusan kaimasu.",
+              "tokens": [
+                {
+                  "t": "安ければ",
+                  "romaji": "yasukereba",
+                  "kanji": "安ければ",
+                  "bn": "সস্তা হলে"
+                },
+                {
+                  "t": "たくさん",
+                  "romaji": "takusan",
+                  "kanji": "たくさん",
+                  "bn": "অনেক"
+                },
+                {
+                  "t": "買います",
+                  "romaji": "kaimasu",
+                  "kanji": "買います",
+                  "bn": "কিনব"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p3-l10-002",
+              "concept_id": "c-jp-cas-p3-l10-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "毎日 練習すれば、上手に なりますよ。",
+              "target_kana": "まいにちれんしゅうすれば、じょうずになりますよ。",
+              "romaji": "Mainichi renshuu sureba, jouzu ni narimasu yo.",
+              "bn": "প্রতিদিন অনুশীলন করলে পারদর্শী হয়ে উঠবেন।",
+              "bn_pron": "মাইনিচি রেনশুউ সুরেবা, জোওজু নি নারিমাসু ইয়ো।",
+              "ipa": "Mainichi renshuu sureba, jouzu ni narimasu yo.",
+              "tokens": [
+                {
+                  "t": "毎日",
+                  "romaji": "mainichi",
+                  "kanji": "毎日",
+                  "bn": "প্রতিদিন"
+                },
+                {
+                  "t": "練習すれば",
+                  "romaji": "renshuu sureba",
+                  "kanji": "練習すれば",
+                  "bn": "অনুশীলন করলে"
+                },
+                {
+                  "t": "上手に",
+                  "romaji": "jouzu ni",
+                  "kanji": "上手に",
+                  "bn": "দক্ষ/পারদর্শী"
+                },
+                {
+                  "t": "なります",
+                  "romaji": "narimasu",
+                  "kanji": "なります",
+                  "bn": "হয়ে উঠবেন"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l11",
+          "order": 4,
+          "title_bn": "অনিবার্য প্রাকৃতিক ফলাফল — '〜と' (Natural Inevitability)",
+          "title_target": "Natural & Inevitable Consequence (~to)",
+          "intro_bn": "কোনো কাজ করলে প্রাকৃতিকভাবে বা স্বয়ংক্রিয়ভাবে নিশ্চিত ফল ঘটে (যেমন: এই বোতাম চাপলে দরজা খোলে, বসন্ত এলে ফুল ফোটে)।",
+          "structure": [
+            "Verb (Dic) + と、Natural Result"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p3-l11-001",
+              "concept_id": "c-jp-cas-p3-l11-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "この ボタンを 押すと、おつりが 出ます。",
+              "target_kana": "このぼたんをおすと、おつりがでます。",
+              "romaji": "Kono botan o osu to, otsuri ga demasu.",
+              "bn": "এই বোতামটি চাপলেই অবশিষ্ট ভাঙতি টাকা বের হবে।",
+              "bn_pron": "কোনো বোতান ও ওসু তো, ওতসুরি গা দেমাসু।",
+              "ipa": "Kono botan o osu to, otsuri ga demasu.",
+              "tokens": [
+                {
+                  "t": "このボタンを",
+                  "romaji": "kono botan o",
+                  "kanji": "このボタンを",
+                  "bn": "এই বোতামটি"
+                },
+                {
+                  "t": "押すと",
+                  "romaji": "osu to",
+                  "kanji": "押すと",
+                  "bn": "চাপলেই"
+                },
+                {
+                  "t": "おつりが",
+                  "romaji": "otsuri ga",
+                  "kanji": "おつりが",
+                  "bn": "ভাঙতি টাকা"
+                },
+                {
+                  "t": "出ます",
+                  "romaji": "demasu",
+                  "kanji": "出ます",
+                  "bn": "বের হয়"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p3-l11-002",
+              "concept_id": "c-jp-cas-p3-l11-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "春に なると、桜が 咲きます。",
+              "target_kana": "はるになると、さくらがさきます。",
+              "romaji": "Haru ni naru to, sakura ga sakimasu.",
+              "bn": "বসন্ত এলেই চেরি ফুল ফোটে।",
+              "bn_pron": "হারু নি নারু তো, সাকুরা গা সাকিমাসু।",
+              "ipa": "Haru ni naru to, sakura ga sakimasu.",
+              "tokens": [
+                {
+                  "t": "春になると",
+                  "romaji": "haru ni naru to",
+                  "kanji": "春になると",
+                  "bn": "বসন্ত এলেই"
+                },
+                {
+                  "t": "桜が",
+                  "romaji": "sakura ga",
+                  "kanji": "桜が",
+                  "bn": "চেরি ফুল"
+                },
+                {
+                  "t": "咲きます",
+                  "romaji": "sakimasu",
+                  "kanji": "咲きます",
+                  "bn": "ফোটে"
                 }
               ],
               "status": "reviewed",
@@ -983,286 +1446,17 @@
       "id": "jp-casual-p4",
       "order": 4,
       "level": "A2",
-      "title_bn": "শর্ত, অনুমান ও মতামত (Conditionals, Opinions & Advice)",
-      "title_target": "Conditionals, Opinions & Advice (~tara, ~to omoimasu, ~hou ga ii)",
+      "title_bn": "ইচ্ছা, সিদ্ধান্ত ও ভবিষ্যৎ পরিকল্পনা (Intentions, Decisions & Future Plans)",
+      "title_target": "Intentions & Decisions (~tsumori, ~yotei, ~koto ni suru)",
       "lessons": [
         {
-          "id": "jp-cas-l09",
-          "order": 1,
-          "title_bn": "শর্ত ও যদি — '〜たら' (Conditionals: If / When)",
-          "title_target": "Conditionals with ~tara (If / Once)",
-          "intro_bn": "যদি কোনো কাজ ঘটে বা যখন ঘটবে বোঝাতে Ta-form এর পর 'ら' (tara) বসে। যেমন: 雨が 降ったら (বৃষ্টি হলে)।",
-          "structure": [
-            "Verb-たら、Result Sentence"
-          ],
-          "items": [
-            {
-              "id": "jp-cas-p4-l9-001",
-              "concept_id": "c-jp-cas-p4-l9-001",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "あした あめが ふったら、うちで やすみます。",
-              "target_kana": "あしたあめがふったら、うちでやすみます。",
-              "romaji": "Ashita ame ga futtara, uchi de yasumimasu.",
-              "bn": "আগামীকাল বৃষ্টি হলে বাড়িতে বিশ্রাম নেব।",
-              "bn_pron": "আশিতা আমে গা ফdistributionত্তারা, উচি দে ইয়াসুমিমাসু।",
-              "ipa": "Ashita ame ga futtara, uchi de yasumimasu.",
-              "tokens": [
-                {
-                  "t": "あした あめが ふったら、うちで やすみます。",
-                  "romaji": "Ashita ame ga futtara, uchi de yasumimasu.",
-                  "kanji": "あした あめが ふったら、うちで やすみます。",
-                  "bn": "আগামীকাল বৃষ্টি হলে বাড়িতে বিশ্রাম নেব।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            },
-            {
-              "id": "jp-cas-p4-l9-002",
-              "concept_id": "c-jp-cas-p4-l9-002",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "おかねが あったら、りょこうに いきたいです。",
-              "target_kana": "おかねがあったら、りょこうにいきたいです。",
-              "romaji": "Okane ga attara, ryokou ni ikitai desu.",
-              "bn": "টাকা থাকলে ভ্রমণে যেতে চাই।",
-              "bn_pron": "ওকানে গা আত্তারা, রিওকোও নি ইকিতাই দেস।",
-              "ipa": "Okane ga attara, ryokou ni ikitai desu.",
-              "tokens": [
-                {
-                  "t": "おかねが あったら、りょこうに いきたいです。",
-                  "romaji": "Okane ga attara, ryokou ni ikitai desu.",
-                  "kanji": "おかねが あったら、りょこうに いきたいです。",
-                  "bn": "টাকা থাকলে ভ্রমণে যেতে চাই।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            },
-            {
-              "id": "jp-cas-p4-l9-003",
-              "concept_id": "c-jp-cas-p4-l9-003",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "じかんが なかったら、タクシーで いきましょう。",
-              "target_kana": "じかんがなかったら、たくしーでいきましょう。",
-              "romaji": "Jikan ga nakattara, takushii de ikimashou.",
-              "bn": "সময় না থাকলে ট্যাক্সিতে যাই চলুন।",
-              "bn_pron": "জিকান গা নাকাত্তারা, তাকুশিই দে ইকিমাশোও।",
-              "ipa": "Jikan ga nakattara, takushii de ikimashou.",
-              "tokens": [
-                {
-                  "t": "じかんが なかったら、タクシーで いきましょう。",
-                  "romaji": "Jikan ga nakattara, takushii de ikimashou.",
-                  "kanji": "じかんが なかったら、タクシーで いきましょう。",
-                  "bn": "সময় না থাকলে ট্যাক্সিতে যাই চলুন।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            }
-          ]
-        },
-        {
-          "id": "jp-cas-l10",
-          "order": 2,
-          "title_bn": "প্রসঙ্গ সাপেক্ষে শর্ত — '〜なら' (If it's the case that...)",
-          "title_target": "Contextual Conditionals (~nara)",
-          "intro_bn": "শ্রোতার কথার প্রসঙ্গে পরামর্শ দিতে বা শর্ত আরোপ করতে 'Noun + なら' বসে। যেমন: 日本へ 行くなら (জাপানে যাওয়ার কথা হলে)।",
-          "structure": [
-            "Noun / Sentence + なら + Recommendation"
-          ],
-          "items": [
-            {
-              "id": "jp-cas-p4-l10-001",
-              "concept_id": "c-jp-cas-p4-l10-001",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "にほんへ いくなら、きょうとが おすすめです。",
-              "target_kana": "にほんえいくなら、きょうとがおすすめす。",
-              "romaji": "Nihon e iku nara, Kyouto ga osusume desu.",
-              "bn": "জাপানে যদি যান, তবে কিয়োটো সবচেয়ে উত্তম প্রস্তাবনা।",
-              "bn_pron": "নিহোন এ ইকু নারা, কিওওতো গা ওসুসুমে দেস।",
-              "ipa": "Nihon e iku nara, Kyouto ga osusume desu.",
-              "tokens": [
-                {
-                  "t": "にほんへ いくなら、きょうとが おすすめです。",
-                  "romaji": "Nihon e iku nara, Kyouto ga osusume desu.",
-                  "kanji": "にほんへ いくなら、きょうとが おすすめです。",
-                  "bn": "জাপানে যদি যান, তবে কিয়োটো সবচেয়ে উত্তম প্রস্তাবনা।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            },
-            {
-              "id": "jp-cas-p4-l10-002",
-              "concept_id": "c-jp-cas-p4-l10-002",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "パソコンなら、この みせが いちばん やすいです。",
-              "target_kana": "ぱそこんなら、このみせがいちばんやすいです。",
-              "romaji": "Pasokon nara, kono mise ga ichiban yasui desu.",
-              "bn": "ল্যাপটপের ব্যাপারে হলে এই দোকানটি সবচেয়ে সস্তা।",
-              "bn_pron": "পাসোকোন নারা, কোনো মিসে গা ইচিবান ইয়াসুই দেস।",
-              "ipa": "Pasokon nara, kono mise ga ichiban yasui desu.",
-              "tokens": [
-                {
-                  "t": "パソコンなら、この みせが いちばん やすいです。",
-                  "romaji": "Pasokon nara, kono mise ga ichiban yasui desu.",
-                  "kanji": "パソコンなら、この みせが いちばん やすいです。",
-                  "bn": "ল্যাপটপের ব্যাপারে হলে এই দোকানটি সবচেয়ে সস্তা।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            }
-          ]
-        },
-        {
-          "id": "jp-cas-l11",
-          "order": 3,
-          "title_bn": "নিজের মতামত প্রকাশ — '〜と 思います' (I think that...)",
-          "title_target": "Expressing Thoughts & Opinions (~to omoimasu)",
-          "intro_bn": "নিজের মতামত বা ধারণা প্রকাশ করতে প্লেইন ফর্ম বাক্যের শেষে '〜と おもいます' (I think that...) বসে।",
-          "structure": [
-            "Plain Form Sentence + と おもいます"
-          ],
-          "items": [
-            {
-              "id": "jp-cas-p4-l11-001",
-              "concept_id": "c-jp-cas-p4-l11-001",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "あしたは あめが ふると おもいます。",
-              "target_kana": "あしたわあめがふるとおもいます。",
-              "romaji": "Ashita wa ame ga furu to omoimasu.",
-              "bn": "আমার মনে হয় কাল বৃষ্টি হবে।",
-              "bn_pron": "আশিতা ওয়া আমে গা ফুরু তো ওমোইমাসু।",
-              "ipa": "Ashita wa ame ga furu to omoimasu.",
-              "tokens": [
-                {
-                  "t": "あしたは あめが ふると おもいます。",
-                  "romaji": "Ashita wa ame ga furu to omoimasu.",
-                  "kanji": "あしたは あめが ふると おもいます。",
-                  "bn": "আমার মনে হয় কাল বৃষ্টি হবে।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            },
-            {
-              "id": "jp-cas-p4-l11-002",
-              "concept_id": "c-jp-cas-p4-l11-002",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "にほんの ぶっかは たかいと おもいます。",
-              "target_kana": "にほんのぶっかわたかいとおもいます。",
-              "romaji": "Nihon no bukka wa takai to omoimasu.",
-              "bn": "আমার মনে হয় জাপানের জিনিসপত্রের দাম অনেক বেশি।",
-              "bn_pron": "নিহোন নো বুক্কা ওয়া তাকাই তো ওমোইমাসু।",
-              "ipa": "Nihon no bukka wa takai to omoimasu.",
-              "tokens": [
-                {
-                  "t": "にほんの ぶっかは たかいと おもいます。",
-                  "romaji": "Nihon no bukka wa takai to omoimasu.",
-                  "kanji": "にほんの ぶっかは たかいと おもいます。",
-                  "bn": "আমার মনে হয় জাপানের জিনিসপত্রের দাম অনেক বেশি।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            },
-            {
-              "id": "jp-cas-p4-l11-003",
-              "concept_id": "c-jp-cas-p4-l11-003",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "たなかさんは あした こないと おもいます。",
-              "target_kana": "たなかさんわあしたこないとおもいます。",
-              "romaji": "Tanaka-san wa ashita konai to omoimasu.",
-              "bn": "আমার ধারণা তানাকা বাবু কাল আসবেন না।",
-              "bn_pron": "তানাকা-সান ওয়া আশিতা কোনাই তো ওমোইমাসু।",
-              "ipa": "Tanaka-san wa ashita konai to omoimasu.",
-              "tokens": [
-                {
-                  "t": "たなかさんは あした こないと おもいます。",
-                  "romaji": "Tanaka-san wa ashita konai to omoimasu.",
-                  "kanji": "たなかさんは あした こないと おもいます。",
-                  "bn": "আমার ধারণা তানাকা বাবু কাল আসবেন না।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "negative",
-                "tense": "present_simple",
-                "jlpt": "N4"
-              }
-            }
-          ]
-        },
-        {
           "id": "jp-cas-l12",
-          "order": 4,
-          "title_bn": "উপদেশ ও পরামর্শ — '〜た ほうが いいです' (Had better / Should)",
-          "title_target": "Giving Advice (~ta hou ga ii desu)",
-          "intro_bn": "কাউকে কোনো কিছু করার পরামর্শ দিতে 'Verb-た ほうが いいです' (করাই ভালো) এবং না করার পরামর্শে 'Verb-ない ほうが いいです' বসে।",
+          "order": 1,
+          "title_bn": "প্রস্তাব ও ইচ্ছা — '意向形' (Volitional Form: 行こう / 食べよう)",
+          "title_target": "Volitional Form (Let's do...)",
+          "intro_bn": "বন্ধুমহলে 'চলুন এটা করি' বলতে 〜ましょう এর ইনফরমাল রূপ হলো ভলিশনাল ফর্ম (Volitional Form)। যেমন: 行こう (চল যাই), 食べよう (চল খাই)।",
           "structure": [
-            "Verb-た ほうが いいです (করাই ভালো)",
-            "Verb-ない ほうが いいです (না করাই ভালো)"
+            "Group 1: o-sound + う (行こう), Group 2: よう (食べよう), する → しよう"
           ],
           "items": [
             {
@@ -1271,18 +1465,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "はやく びょういんへ いった ほうが いいですよ。",
-              "target_kana": "はやくびょういんえいったほうがいいですよ。",
-              "romaji": "Hayaku byouin e itta hou ga ii desu yo.",
-              "bn": "তাড়াতাড়ি হাসপাতালে যাওয়াই ভালো হবে কিন্তু।",
-              "bn_pron": "হায়াকু বিয়োওইন এ ইত্তা হোও গা ইই দেসু ইয়ো।",
-              "ipa": "Hayaku byouin e itta hou ga ii desu yo.",
+              "target": "いっしょに コーヒーを 飲もう。",
+              "target_kana": "いっしょにこーひーをのもう。",
+              "romaji": "Issho ni koohii o nomou.",
+              "bn": "একসাথে কফি খাই চল।",
+              "bn_pron": "ইশশো নি কোওহিই ও নোমোও।",
+              "ipa": "Issho ni koohii o nomou.",
               "tokens": [
                 {
-                  "t": "はやく びょういんへ いった ほうが いいですよ。",
-                  "romaji": "Hayaku byouin e itta hou ga ii desu yo.",
-                  "kanji": "はやく びょういんへ いった ほうが いいですよ。",
-                  "bn": "তাড়াতাড়ি হাসপাতালে যাওয়াই ভালো হবে কিন্তু।"
+                  "t": "いっしょに",
+                  "romaji": "issho ni",
+                  "kanji": "一緒に",
+                  "bn": "একসাথে"
+                },
+                {
+                  "t": "コーヒーを",
+                  "romaji": "koohii o",
+                  "kanji": "コーヒーを",
+                  "bn": "কফি"
+                },
+                {
+                  "t": "飲もう",
+                  "romaji": "nomou",
+                  "kanji": "飲もう",
+                  "bn": "পান করি চল"
                 }
               ],
               "status": "reviewed",
@@ -1300,7 +1506,635 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あまり むりを しない ほうが いいです。",
+              "target": "週末 海へ 行こうと 思っています。",
+              "target_kana": "しゅうまつうみえいこうとおもっています。",
+              "romaji": "Shuumatsu umi e ikou to omotte imasu.",
+              "bn": "সাপ্তাহিক ছুটিতে সমুদ্রে যাব বলে ভাবছি।",
+              "bn_pron": "শুউমাতসু উমি এ ইকোও তো ওমোত্তে ইমাসু।",
+              "ipa": "Shuumatsu umi e ikou to omotte imasu.",
+              "tokens": [
+                {
+                  "t": "週末",
+                  "romaji": "shuumatsu",
+                  "kanji": "週末",
+                  "bn": "সাপ্তাহিক ছুটি"
+                },
+                {
+                  "t": "海へ行こうと",
+                  "romaji": "umi e ikou to",
+                  "kanji": "海へ行こうと",
+                  "bn": "সমুদ্রে যাব বলে"
+                },
+                {
+                  "t": "思っています",
+                  "romaji": "omotte imasu",
+                  "kanji": "思っています",
+                  "bn": "ভাবছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l13",
+          "order": 2,
+          "title_bn": "দৃঢ় ইচ্ছা ও পরিকল্পনা — '〜つもりです' (Intention: Plan to)",
+          "title_target": "Strong Personal Intention (~tsumori desu)",
+          "intro_bn": "কোনো কাজ করার ব্যক্তিগত দৃঢ় ইচ্ছা থাকলে 'Verb-辞書形 + つもりです' এবং না করার ইচ্ছা থাকলে 'Verb-ない + つもりです' বসে।",
+          "structure": [
+            "Verb (Dic / Nai) + つもりです (করার ইচ্ছে আছে / নেই)"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p4-l13-001",
+              "concept_id": "c-jp-cas-p4-l13-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "来年 日本へ 留学する つもりです。",
+              "target_kana": "らいねんにほんえりゅうがくするつもりです。",
+              "romaji": "Rainen Nihon e ryuugaku suru tsumori desu.",
+              "bn": "আগামী বছর জাপানে উচ্চশিক্ষায় যাওয়ার ইচ্ছে আছে।",
+              "bn_pron": "রাইনেন নিহোন এ রিউউগাকু সুরু তসুমোরি দেস।",
+              "ipa": "Rainen Nihon e ryuugaku suru tsumori desu.",
+              "tokens": [
+                {
+                  "t": "来年",
+                  "romaji": "rainen",
+                  "kanji": "来年",
+                  "bn": "আগামী বছর"
+                },
+                {
+                  "t": "日本へ",
+                  "romaji": "Nihon e",
+                  "kanji": "日本へ",
+                  "bn": "জাপানে"
+                },
+                {
+                  "t": "留学する",
+                  "romaji": "ryuugaku suru",
+                  "kanji": "留学する",
+                  "bn": "উচ্চশিক্ষায় পড়াশোনা"
+                },
+                {
+                  "t": "つもりです",
+                  "romaji": "tsumori desu",
+                  "kanji": "つもりです",
+                  "bn": "ইচ্ছা আছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p4-l13-002",
+              "concept_id": "c-jp-cas-p4-l13-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "今日は お酒を 飲まない つもりです。",
+              "target_kana": "きょうわおさけをのまないつもりです。",
+              "romaji": "Kyou wa osake o nomanai tsumori desu.",
+              "bn": "আজ মদ না খাওয়ার সংকল্প করেছি।",
+              "bn_pron": "কিওও ওয়া ওসাকে ও নোমানাই তসুমোরি দেস।",
+              "ipa": "Kyou wa osake o nomanai tsumori desu.",
+              "tokens": [
+                {
+                  "t": "今日は",
+                  "romaji": "kyou wa",
+                  "kanji": "今日は",
+                  "bn": "আজ"
+                },
+                {
+                  "t": "お酒を",
+                  "romaji": "osake o",
+                  "kanji": "お酒を",
+                  "bn": "মদ"
+                },
+                {
+                  "t": "飲まないつもりです",
+                  "romaji": "nomanai tsumori desu",
+                  "kanji": "飲まないつもりです",
+                  "bn": "না খাওয়ার ইচ্ছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l14",
+          "order": 3,
+          "title_bn": "নির্ধারিত সূচি ও সময়সূচি — '〜予定です' (Scheduled Plan)",
+          "title_target": "Scheduled Events & Itineraries (~yotei desu)",
+          "intro_bn": "নিজের একক সিদ্ধান্তের চেয়ে আনুষ্ঠানিক সময়সূচি বা প্রাতিষ্ঠানিক সূচি বোঝাতে '〜予定です' ব্যবহৃত হয়।",
+          "structure": [
+            "Verb (Dic) / Noun の + 予定です"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p4-l14-001",
+              "concept_id": "c-jp-cas-p4-l14-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "会議は 午後３時に 始まる 予定です。",
+              "target_kana": "かいぎわごごさんじにはじまるよていです。",
+              "romaji": "Kaigi wa gogo sanji ni hajimaru yotei desu.",
+              "bn": "মিটিং বিকেল ৩টায় শুরু হওয়ার কথা রয়েছে।",
+              "bn_pron": "কাইগি ওয়া গোগো সানজি নি হাজিমারু ইয়োতেই দেস।",
+              "ipa": "Kaigi wa gogo sanji ni hajimaru yotei desu.",
+              "tokens": [
+                {
+                  "t": "会議は",
+                  "romaji": "kaigi wa",
+                  "kanji": "会議は",
+                  "bn": "সভা/মিটিং"
+                },
+                {
+                  "t": "午後３時に",
+                  "romaji": "gogo sanji ni",
+                  "kanji": "午後３時に",
+                  "bn": "বিকেল ৩টায়"
+                },
+                {
+                  "t": "始まる予定です",
+                  "romaji": "hajimaru yotei desu",
+                  "kanji": "始まる予定です",
+                  "bn": "শুরু হওয়ার সূচি আছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p4-l14-002",
+              "concept_id": "c-jp-cas-p4-l14-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "来週 出張の 予定です。",
+              "target_kana": "らいしゅうしゅっちょうのよていです。",
+              "romaji": "Raishuu shutchou no yotei desu.",
+              "bn": "আগামী সপ্তাহে ব্যবসায়িক সফরের সূচি রয়েছে।",
+              "bn_pron": "রাইশুউ শুচ্চোও নো ইয়োতেই দেস।",
+              "ipa": "Raishuu shutchou no yotei desu.",
+              "tokens": [
+                {
+                  "t": "来週",
+                  "romaji": "raishuu",
+                  "kanji": "来週",
+                  "bn": "আগামী সপ্তাহ"
+                },
+                {
+                  "t": "出張の",
+                  "romaji": "shutchou no",
+                  "kanji": "出張の",
+                  "bn": "অফিসিয়াল ট্যুর"
+                },
+                {
+                  "t": "予定です",
+                  "romaji": "yotei desu",
+                  "kanji": "予定です",
+                  "bn": "পরিকল্পনা আছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l15",
+          "order": 4,
+          "title_bn": "সিদ্ধান্ত গ্রহণ — '〜ことにする' ও '〜ことになる' (Making Decisions)",
+          "title_target": "Decisions (~koto ni suru / ~koto ni naru)",
+          "intro_bn": "নিজে সচেতন সিদ্ধান্ত নিলে '〜ことにしました' এবং কর্তৃপক্ষ বা পরিস্থিতির নিয়মে সিদ্ধান্ত হলে '〜ことになりました' বসে।",
+          "structure": [
+            "Verb (Dic) + ことにしました (নিজে সিদ্ধান্ত নিলাম)",
+            "Verb (Dic) + ことになりました (নিয়ম বা পরিস্থিতির কারণে সিদ্ধান্ত হলো)"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p4-l15-001",
+              "concept_id": "c-jp-cas-p4-l15-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "健康の ために、毎日 運動する ことに しました。",
+              "target_kana": "けんこうのために、まいにちうんどうすることにしました。",
+              "romaji": "Kenkou no tame ni, mainichi undou suru koto ni shimashita.",
+              "bn": "স্বাস্থ্যের জন্য প্রতিদিন ব্যায়াম করার সিদ্ধান্ত নিয়েছি।",
+              "bn_pron": "কেনকোও নো তামে নি, মাইনিচি উনদোও সুরু কোতো নি শিমাশিতা।",
+              "ipa": "Kenkou no tame ni, mainichi undou suru koto ni shimashita.",
+              "tokens": [
+                {
+                  "t": "健康のために",
+                  "romaji": "kenkou no tame ni",
+                  "kanji": "健康のために",
+                  "bn": "স্বাস্থ্যের জন্য"
+                },
+                {
+                  "t": "毎日",
+                  "romaji": "mainichi",
+                  "kanji": "毎日",
+                  "bn": "প্রতিদিন"
+                },
+                {
+                  "t": "運動することにしました",
+                  "romaji": "undou suru koto ni shimashita",
+                  "kanji": "運動することにしました",
+                  "bn": "ব্যায়াম করার সিদ্ধান্ত নিয়েছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p4-l15-002",
+              "concept_id": "c-jp-cas-p4-l15-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "来月から 大阪へ 転勤する ことに なりました。",
+              "target_kana": "らいげつからおおさかえてんきんすることになりました。",
+              "romaji": "Raigetsu kara Oosaka e tenkin suru koto ni narimashita.",
+              "bn": "আগামী মাস থেকে ওসাকায় বদলি হওয়ার সিদ্ধান্ত হয়েছে (অফিসের নিয়মে)।",
+              "bn_pron": "রাইগেতসু কারা ওওসাকা এ তেনকিন সুরু কোতো নি নারিমাশিতা।",
+              "ipa": "Raigetsu kara Oosaka e tenkin suru koto ni narimashita.",
+              "tokens": [
+                {
+                  "t": "来月から",
+                  "romaji": "raigetsu kara",
+                  "kanji": "来月から",
+                  "bn": "আগামী মাস থেকে"
+                },
+                {
+                  "t": "大阪へ",
+                  "romaji": "Oosaka e",
+                  "kanji": "大阪へ",
+                  "bn": "ওসাকায়"
+                },
+                {
+                  "t": "転勤することになりました",
+                  "romaji": "tenkin suru koto ni narimashita",
+                  "kanji": "転勤することになりました",
+                  "bn": "বদলি হওয়ার সিদ্ধান্ত হয়েছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-casual-p5",
+      "order": 5,
+      "level": "A2",
+      "title_bn": "মতামত, উদ্ধৃতি ও উপদেশ (Opinions, Quotes & Advice: 〜と思う・〜と言う)",
+      "title_target": "Opinions, Quotes & Advice (~to omoimasu, ~to iimashita, ~hou ga ii)",
+      "lessons": [
+        {
+          "id": "jp-cas-l16",
+          "order": 1,
+          "title_bn": "নিজের মতামত প্রকাশ — '〜と 思います' (I think that...)",
+          "title_target": "Expressing Thoughts & Opinions (~to omoimasu)",
+          "intro_bn": "নিজের অভিমত বা অনুমান প্রকাশ করতে প্লেইন ফর্ম বাক্যের শেষে '〜と 思います' (I think that...) বসে।",
+          "structure": [
+            "Plain Form Sentence + と 思います"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p5-l16-001",
+              "concept_id": "c-jp-cas-p5-l16-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "明日は 雨が 降ると 思います。",
+              "target_kana": "あしたわあめがふるとおもいます。",
+              "romaji": "Ashita wa ame ga furu to omoimasu.",
+              "bn": "আমার মনে হয় কাল বৃষ্টি হবে।",
+              "bn_pron": "আশিতা ওয়া আমে গা ফুরু তো ওমোইমাসু।",
+              "ipa": "Ashita wa ame ga furu to omoimasu.",
+              "tokens": [
+                {
+                  "t": "明日は",
+                  "romaji": "ashita wa",
+                  "kanji": "明日は",
+                  "bn": "আগামীকাল"
+                },
+                {
+                  "t": "雨が降ると",
+                  "romaji": "ame ga furu to",
+                  "kanji": "雨が降ると",
+                  "bn": "বৃষ্টি হবে বলে"
+                },
+                {
+                  "t": "思います",
+                  "romaji": "omoimasu",
+                  "kanji": "思います",
+                  "bn": "মনে করি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p5-l16-002",
+              "concept_id": "c-jp-cas-p5-l16-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "日本の 物価は 高いと 思います。",
+              "target_kana": "にほんのぶっかわたかいとおもいます。",
+              "romaji": "Nihon no bukka wa takai to omoimasu.",
+              "bn": "আমার মনে হয় জাপানের জিনিসপত্রের দাম অনেক বেশি।",
+              "bn_pron": "নিহোন নো বুক্কা ওয়া তাকাই তো ওমোইমাসু।",
+              "ipa": "Nihon no bukka wa takai to omoimasu.",
+              "tokens": [
+                {
+                  "t": "日本の物価は",
+                  "romaji": "Nihon no bukka wa",
+                  "kanji": "日本の物価は",
+                  "bn": "জাপানের দ্রব্যমূল্য"
+                },
+                {
+                  "t": "高いと",
+                  "romaji": "takai to",
+                  "kanji": "高いと",
+                  "bn": "বেশি বলে"
+                },
+                {
+                  "t": "思います",
+                  "romaji": "omoimasu",
+                  "kanji": "思います",
+                  "bn": "মনে করি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p5-l16-003",
+              "concept_id": "c-jp-cas-p5-l16-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "田中さんは 明日 来ないと 思います。",
+              "target_kana": "たなかさんわあしたこないとおもいます。",
+              "romaji": "Tanaka-san wa ashita konai to omoimasu.",
+              "bn": "আমার ধারণা তানাকা বাবু কাল আসবেন না।",
+              "bn_pron": "তানাকা-সান ওয়া আশিতা কোনাই তো ওমোইমাসু।",
+              "ipa": "Tanaka-san wa ashita konai to omoimasu.",
+              "tokens": [
+                {
+                  "t": "田中さんは",
+                  "romaji": "Tanaka-san wa",
+                  "kanji": "田中さんは",
+                  "bn": "তানাকা বাবু"
+                },
+                {
+                  "t": "明日",
+                  "romaji": "ashita",
+                  "kanji": "明日",
+                  "bn": "কাল"
+                },
+                {
+                  "t": "来ないと",
+                  "romaji": "konai to",
+                  "kanji": "来ないと",
+                  "bn": "আসবেন না বলে"
+                },
+                {
+                  "t": "思います",
+                  "romaji": "omoimasu",
+                  "kanji": "思います",
+                  "bn": "মনে হয়"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l17",
+          "order": 2,
+          "title_bn": "উদ্ধৃতি ও বক্তব্য প্রকাশ — '〜と 言いました' (Direct & Indirect Quotations)",
+          "title_target": "Quotation & Hearsay (~to iimashita)",
+          "intro_bn": "অন্য কারো কথা সরাসরি বা পরোক্ষভাবে উল্লেখ করতে উদ্ধৃতির পর '〜と 言いました' (বলেছিলেন) বসে।",
+          "structure": [
+            "Quote (Plain / Polite) + と 言いました"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p5-l17-001",
+              "concept_id": "c-jp-cas-p5-l17-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "先生は「宿題を して ください」と 言いました。",
+              "target_kana": "せんせいわ「しゅくだいをしてください」といいました。",
+              "romaji": "Sensei wa \"shukudai o shite kudasai\" to iimashita.",
+              "bn": "শিক্ষক বলেছিলেন, \"হোমওয়ার্ক করুন দয়া করে।\"",
+              "bn_pron": "সেনসেই ওয়া শুকুদাই ও শিতে কুদাসাই তো ইইমাশিতা।",
+              "ipa": "Sensei wa \"shukudai o shite kudasai\" to iimashita.",
+              "tokens": [
+                {
+                  "t": "先生は",
+                  "romaji": "sensei wa",
+                  "kanji": "先生は",
+                  "bn": "শিক্ষক"
+                },
+                {
+                  "t": "宿題をしてくだいと",
+                  "romaji": "shukudai o shite kudasai to",
+                  "kanji": "宿題をしてくださいと",
+                  "bn": "হোমওয়ার্ক করুন বলে"
+                },
+                {
+                  "t": "言いました",
+                  "romaji": "iimashita",
+                  "kanji": "言いました",
+                  "bn": "বলেছিলেন"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p5-l17-002",
+              "concept_id": "c-jp-cas-p5-l17-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "彼は あした 来られないと 言っていました。",
+              "target_kana": "かれわあしたこられないといっていました。",
+              "romaji": "Kare wa ashita korarenai to itte imashita.",
+              "bn": "সে বলছিল যে কাল নাকি আসতে পারবে না।",
+              "bn_pron": "কারে ওয়া আশিতা কোরোরেলাই তো ইত্তে ইমাশিতা।",
+              "ipa": "Kare wa ashita korarenai to itte imashita.",
+              "tokens": [
+                {
+                  "t": "彼は",
+                  "romaji": "kare wa",
+                  "kanji": "彼は",
+                  "bn": "সে"
+                },
+                {
+                  "t": "あした来られないと",
+                  "romaji": "ashita korarenai to",
+                  "kanji": "明日来られないと",
+                  "bn": "কাল আসতে পারবে না বলে"
+                },
+                {
+                  "t": "言っていました",
+                  "romaji": "itte imashita",
+                  "kanji": "言っていました",
+                  "bn": "বলছিল"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l18",
+          "order": 3,
+          "title_bn": "উপদেশ ও পরামর্শ — '〜た ほうが いいです' (Giving Advice)",
+          "title_target": "Giving Advice (~ta hou ga ii desu)",
+          "intro_bn": "কাউকে কোনো কিছু করার পরামর্শ দিতে 'Verb-た ほうが いいです' (করাই ভালো) এবং না করার পরামর্শে 'Verb-ない ほうが いいです' বসে।",
+          "structure": [
+            "Verb-た ほうが いいです (করাই ভালো)",
+            "Verb-ない ほうが いいです (না করাই ভালো)"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p5-l18-001",
+              "concept_id": "c-jp-cas-p5-l18-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "早く 病院へ 行った ほうが いいですよ。",
+              "target_kana": "はやくびょういんえいったほうがいいですよ。",
+              "romaji": "Hayaku byouin e itta hou ga ii desu yo.",
+              "bn": "তাড়াতাড়ি হাসপাতালে যাওয়াই ভালো হবে কিন্তু।",
+              "bn_pron": "হায়াকু বিয়োওইন এ ইত্তা হোও গা ইই দেসু ইয়ো।",
+              "ipa": "Hayaku byouin e itta hou ga ii desu yo.",
+              "tokens": [
+                {
+                  "t": "早く",
+                  "romaji": "hayaku",
+                  "kanji": "早く",
+                  "bn": "তাড়াতাড়ি"
+                },
+                {
+                  "t": "病院へ行ったほうが",
+                  "romaji": "byouin e itta hou ga",
+                  "kanji": "病院へ行ったほうが",
+                  "bn": "হাসপাতালে যাওয়াই"
+                },
+                {
+                  "t": "いいですよ",
+                  "romaji": "ii desu yo",
+                  "kanji": "いいですよ",
+                  "bn": "ভালো হবে কিন্তু"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p5-l18-002",
+              "concept_id": "c-jp-cas-p5-l18-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "あまり 無理を しない ほうが いいです。",
               "target_kana": "あまりむりをしないほうがいいです。",
               "romaji": "Amari muri o shinai hou ga ii desu.",
               "bn": "অতিরিক্ত চাপ না নেওয়াই ভালো।",
@@ -1308,10 +2142,22 @@
               "ipa": "Amari muri o shinai hou ga ii desu.",
               "tokens": [
                 {
-                  "t": "あまり むりを しない ほうが いいです。",
-                  "romaji": "Amari muri o shinai hou ga ii desu.",
-                  "kanji": "あまり むりを しない ほうが いいです。",
-                  "bn": "অতিরিক্ত চাপ না নেওয়াই ভালো।"
+                  "t": "あまり",
+                  "romaji": "amari",
+                  "kanji": "あまり",
+                  "bn": "বেশি"
+                },
+                {
+                  "t": "無理をしないほうが",
+                  "romaji": "muri o shinai hou ga",
+                  "kanji": "無理をしないほうが",
+                  "bn": "অতিরিক্ত চাপ না নেওয়াই"
+                },
+                {
+                  "t": "いいです",
+                  "romaji": "ii desu",
+                  "kanji": "いいです",
+                  "bn": "উত্তম"
                 }
               ],
               "status": "reviewed",
@@ -1328,40 +2174,52 @@
       ]
     },
     {
-      "id": "jp-casual-p5",
-      "order": 5,
+      "id": "jp-casual-p6",
+      "order": 6,
       "level": "A2",
-      "title_bn": "কর্মবাচ্য ও প্রযোজক ক্রিয়া (Passive & Causative: 受身形 & 使役形)",
-      "title_target": "Passive Voice & Causative Requests (Ukemikei & Shiekikei)",
+      "title_bn": "কর্মবাচ্য, প্রযোজক ক্রিয়া ও কথ্য সংলাপ (Passive, Causative & Dialogues)",
+      "title_target": "Passive, Causative Requests & Master 6-Way Fluency Drill",
       "lessons": [
         {
-          "id": "jp-cas-l13",
+          "id": "jp-cas-l19",
           "order": 1,
-          "title_bn": "স্পোকেন প্যাসিভ রূপ — '受身形' (Passive Voice: Raremashite)",
-          "title_target": "Passive Voice (Ukemikei: ~rareru)",
-          "intro_bn": "কর্তা নিজে সরাসরি কাজ না করে অন্য কারো কাজের শিকার হলে প্যাসিভ ভয়েস বসে (যেমন: শিক্ষক আমাকে প্রশংসা করেছিলেন / চোর আমার মানিব্যাগ নিয়েছিল)।",
+          "title_bn": "কর্মবাচ্য রূপ — '受身形' (Passive Voice: ~rareru)",
+          "title_target": "Passive Voice (Ukemikei)",
+          "intro_bn": "অন্য কারো কাজের শিকার হলে প্যাসিভ ভয়েস বসে (যেমন: শিক্ষক আমাকে প্রশংসা করেছিলেন, বৃষ্টিতে ভিজেছিলাম)।",
           "structure": [
             "Victim は + Agent に + Passive Verb-ました"
           ],
           "items": [
             {
-              "id": "jp-cas-p5-l13-001",
-              "concept_id": "c-jp-cas-p5-l13-001",
+              "id": "jp-cas-p6-l19-001",
+              "concept_id": "c-jp-cas-p6-l19-001",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしは せんせいに ほめられました。",
+              "target": "わたしは 先生に 褒められました。",
               "target_kana": "わたしわせんせいにほめられました。",
               "romaji": "Watashi wa sensei ni homeraremashita.",
-              "bn": "আমি শিক্ষকের দ্বারা প্রশংসিত হয়েছিলাম। (শিক্ষক আমার প্রশংসা করেছিলেন)",
+              "bn": "আমি শিক্ষকের দ্বারা প্রশংসিত হয়েছিলাম।",
               "bn_pron": "ওয়াতাশি ওয়া সেনসেই নি হোমেরারেমাশিতা।",
               "ipa": "Watashi wa sensei ni homeraremashita.",
               "tokens": [
                 {
-                  "t": "わたしは せんせいに ほめられました。",
-                  "romaji": "Watashi wa sensei ni homeraremashita.",
-                  "kanji": "わたしは せんせいに ほめられました。",
-                  "bn": "আমি শিক্ষকের দ্বারা প্রশংসিত হয়েছিলাম। (শিক্ষক আমার প্রশংসা করেছিলেন)"
+                  "t": "わたしは",
+                  "romaji": "watashi wa",
+                  "kanji": "私は",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "先生に",
+                  "romaji": "sensei ni",
+                  "kanji": "先生に",
+                  "bn": "শিক্ষকের নিকট"
+                },
+                {
+                  "t": "褒められました",
+                  "romaji": "homeraremashita",
+                  "kanji": "褒められました",
+                  "bn": "প্রশংসিত হয়েছি"
                 }
               ],
               "status": "reviewed",
@@ -1374,12 +2232,12 @@
               }
             },
             {
-              "id": "jp-cas-p5-l13-002",
-              "concept_id": "c-jp-cas-p5-l13-002",
+              "id": "jp-cas-p6-l19-002",
+              "concept_id": "c-jp-cas-p6-l19-002",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "でんしゃの なかで あしを ふまれました。",
+              "target": "電車の中で 足を 踏まれました。",
               "target_kana": "でんしゃのなかであしをふまれました。",
               "romaji": "Densha no naka de ashi o fumaremashita.",
               "bn": "ট্রেনের ভেতর কেউ আমার পায়ে পাড়া দিয়েছিল।",
@@ -1387,10 +2245,22 @@
               "ipa": "Densha no naka de ashi o fumaremashita.",
               "tokens": [
                 {
-                  "t": "でんしゃの なかで あしを ふまれました。",
-                  "romaji": "Densha no naka de ashi o fumaremashita.",
-                  "kanji": "でんしゃの なかで あしを ふまれました。",
-                  "bn": "ট্রেনের ভেতর কেউ আমার পায়ে পাড়া দিয়েছিল।"
+                  "t": "電車の中で",
+                  "romaji": "densha no naka de",
+                  "kanji": "電車の中で",
+                  "bn": "ট্রেনের মধ্যে"
+                },
+                {
+                  "t": "足を",
+                  "romaji": "ashi o",
+                  "kanji": "足を",
+                  "bn": "পায়ে"
+                },
+                {
+                  "t": "踏まれました",
+                  "romaji": "fumaremashita",
+                  "kanji": "踏まれました",
+                  "bn": "পাড়া খেয়েছি"
                 }
               ],
               "status": "reviewed",
@@ -1403,23 +2273,29 @@
               }
             },
             {
-              "id": "jp-cas-p5-l13-003",
-              "concept_id": "c-jp-cas-p5-l13-003",
+              "id": "jp-cas-p6-l19-003",
+              "concept_id": "c-jp-cas-p6-l19-003",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あめに ふられて、びしょぬれに なりました。",
-              "target_kana": "あめにふられて、びしょぬれになりました。",
-              "romaji": "Ame ni furarete, bishonure ni narimashita.",
-              "bn": "বৃষ্টির পানিতে ভিজে একাকার হয়ে গেলাম।",
-              "bn_pron": "আমে নি ফুরারেতে, বিশোনুরে নি নারিমাশিতা।",
-              "ipa": "Ame ni furarete, bishonure ni narimashita.",
+              "target": "雨に 降られて、濡れて しまいました。",
+              "target_kana": "あめにふられて、ぬれてしまいました。",
+              "romaji": "Ame ni furarete, nurete shimaimashita.",
+              "bn": "বৃষ্টিতে ভিজে একাকার হয়ে গিয়েছি।",
+              "bn_pron": "আমে নি ফুরারেতে, নুরেতে শিমাইমাশিতা।",
+              "ipa": "Ame ni furarete, nurete shimaimashita.",
               "tokens": [
                 {
-                  "t": "あめに ふられて、びしょぬれに なりました。",
-                  "romaji": "Ame ni furarete, bishonure ni narimashita.",
-                  "kanji": "あめに ふられて、びしょぬれに なりました。",
-                  "bn": "বৃষ্টির পানিতে ভিজে একাকার হয়ে গেলাম।"
+                  "t": "雨に降られて",
+                  "romaji": "ame ni furarete",
+                  "kanji": "雨に降られて",
+                  "bn": "বৃষ্টিতে ভিজে"
+                },
+                {
+                  "t": "濡れてしまいました",
+                  "romaji": "nurete shimaimashita",
+                  "kanji": "濡れてしまいました",
+                  "bn": "ভিজে শেষ হয়েছি"
                 }
               ],
               "status": "reviewed",
@@ -1434,9 +2310,9 @@
           ]
         },
         {
-          "id": "jp-cas-l14",
+          "id": "jp-cas-l20",
           "order": 2,
-          "title_bn": "অনুমতি চাওয়া প্রযোজক রূপে — '〜させて ください' (Let me do...)",
+          "title_bn": "অনুমতি চাওয়া প্রযোজক রূপে — '〜させて ください' (Causative Requests)",
           "title_target": "Causative Requests (~sasete kudasai)",
           "intro_bn": "আমাকে কোনো কাজ করার অনুমতি দিন বা আমাকে করতে দিন বোঝাতে কজেটিভ রূপের সাথে 'させて ください' বসে।",
           "structure": [
@@ -1444,23 +2320,35 @@
           ],
           "items": [
             {
-              "id": "jp-cas-p5-l14-001",
-              "concept_id": "c-jp-cas-p5-l14-001",
+              "id": "jp-cas-p6-l20-001",
+              "concept_id": "c-jp-cas-p6-l20-001",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きょうは はやく かえらせて ください。",
+              "target": "今日は 早く 帰らせて ください。",
               "target_kana": "きょうわはやくかえらせてください。",
               "romaji": "Kyou wa hayaku kaerasete kudasai.",
               "bn": "আজ আমাকে একটু তাড়াতাড়ি বাড়ি ফিরতে দিন।",
-              "bn_pron": "কিয়োও ওয়া হায়াকু কায়েরাসেতে কুদাসাই।",
+              "bn_pron": "কিওও ওয়া হায়াকু কায়েরাসেতে কুদাসাই।",
               "ipa": "Kyou wa hayaku kaerasete kudasai.",
               "tokens": [
                 {
-                  "t": "きょうは はやく かえらせて ください。",
-                  "romaji": "Kyou wa hayaku kaerasete kudasai.",
-                  "kanji": "きょうは はやく かえらせて ください。",
-                  "bn": "আজ আমাকে একটু তাড়াতাড়ি বাড়ি ফিরতে দিন।"
+                  "t": "今日は",
+                  "romaji": "kyou wa",
+                  "kanji": "今日は",
+                  "bn": "আজ"
+                },
+                {
+                  "t": "早く",
+                  "romaji": "hayaku",
+                  "kanji": "早く",
+                  "bn": "তাড়াতাড়ি"
+                },
+                {
+                  "t": "帰らせてください",
+                  "romaji": "kaerasete kudasai",
+                  "kanji": "帰らせてください",
+                  "bn": "ফিরতে দিন"
                 }
               ],
               "status": "reviewed",
@@ -1473,12 +2361,12 @@
               }
             },
             {
-              "id": "jp-cas-p5-l14-002",
-              "concept_id": "c-jp-cas-p5-l14-002",
+              "id": "jp-cas-p6-l20-002",
+              "concept_id": "c-jp-cas-p6-l20-002",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしに その しごとを やらせて ください。",
+              "target": "わたしに その 仕事を やらせて ください。",
               "target_kana": "わたしにそのしごとをやらせてください。",
               "romaji": "Watashi ni sono shigoto o yarasete kudasai.",
               "bn": "আমাকে ওই কাজটি করতে দিন।",
@@ -1486,16 +2374,289 @@
               "ipa": "Watashi ni sono shigoto o yarasete kudasai.",
               "tokens": [
                 {
-                  "t": "わたしに その しごとを やらせて ください。",
-                  "romaji": "Watashi ni sono shigoto o yarasete kudasai.",
-                  "kanji": "わたしに その しごとを やらせて ください。",
-                  "bn": "আমাকে ওই কাজটি করতে দিন।"
+                  "t": "わたしに",
+                  "romaji": "watashi ni",
+                  "kanji": "私に",
+                  "bn": "আমাকে"
+                },
+                {
+                  "t": "その仕事を",
+                  "romaji": "sono shigoto o",
+                  "kanji": "その仕事を",
+                  "bn": "ওই কাজটি"
+                },
+                {
+                  "t": "やらせてください",
+                  "romaji": "yarasete kudasai",
+                  "kanji": "やらせてください",
+                  "bn": "করতে দিন"
                 }
               ],
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l21",
+          "order": 3,
+          "title_bn": "বন্ধুমহলে সপ্তাহান্তের পরিকল্পনা সংলাপ (Weekend Casual Dialogue)",
+          "title_target": "Casual Weekend Chat (Interactive Dialogue)",
+          "intro_bn": "বন্ধুদের মধ্যে অনানুষ্ঠানিক কথোপকথনের বাস্তব নমুনা।",
+          "structure": [
+            "Casual Peer Dialogue between Friends"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p6-l21-001",
+              "concept_id": "c-jp-cas-p6-l21-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A2",
+              "target": "Ａ：今週末 何か 予定 ある？ Ｂ：ううん、特に ないよ。どうして？",
+              "target_kana": "こんしゅうまつなにかよていある？ううん、とくにないよ。どうして？",
+              "romaji": "A: Konshuumatsu nanika yotei aru? B: Uun, tokuni nai yo. Doushite?",
+              "bn": "A: এই সাপ্তাহিক ছুটিতে কোনো পরিকল্পনা আছে কি তোর? B: না রে, তেমন কিছু নেই। কেন বল তো?",
+              "bn_pron": "এ: কোনশুউমাতসু নানিকা ইয়োতেই আরু? বি: উউউন, তোকুনি নাই ইয়ো। দোওশিতে?",
+              "ipa": "A: Konshuumatsu nanika yotei aru? B: Uun, tokuni nai yo. Doushite?",
+              "tokens": [
+                {
+                  "t": "Ａ：今週末 何か 予定 ある？ Ｂ：ううん、特に ないよ。どうして？",
+                  "romaji": "A: Konshuumatsu nanika yotei aru? B: Uun, tokuni nai yo. Doushite?",
+                  "kanji": "Ａ：今週末 何か 予定 ある？ Ｂ：ううん、特に ないよ。どうして？",
+                  "bn": "A: এই সাপ্তাহিক ছুটিতে কোনো পরিকল্পনা আছে কি তোর? B: না রে, তেমন কিছু নেই। কেন বল তো?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p6-l21-002",
+              "concept_id": "c-jp-cas-p6-l21-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A2",
+              "target": "Ａ：新しい ラーメン屋 行かない？ Ｂ：いいね！ぜひ 行こう！",
+              "target_kana": "あたらしいらーめんやいかない？いいね！ぜひいこう！",
+              "romaji": "A: Atarashii raamen-ya ikanai? B: Ii ne! Zehi ikou!",
+              "bn": "A: নতুন রামেন দোকানে যাবি নাকি? B: দারুণ তো! চল অবশ্যই যাব!",
+              "bn_pron": "এ: আতারাসিই রাআমেন-ইয়া ইকনাই? বি: ইই নে! জেহি ইকোও!",
+              "ipa": "A: Atarashii raamen-ya ikanai? B: Ii ne! Zehi ikou!",
+              "tokens": [
+                {
+                  "t": "Ａ：新しい ラーメン屋 行かない？ Ｂ：いいね！ぜひ 行こう！",
+                  "romaji": "A: Atarashii raamen-ya ikanai? B: Ii ne! Zehi ikou!",
+                  "kanji": "Ａ：新しい ラーメン屋 行かない？ Ｂ：いいね！ぜひ 行こう！",
+                  "bn": "A: নতুন রামেন দোকানে যাবি নাকি? B: দারুণ তো! চল অবশ্যই যাব!"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-cas-l22",
+          "order": 4,
+          "title_bn": "স্পোকেন ফ্লুয়েন্সি ৬-রূপান্তর মাস্টার ড্রিল (Casual Fluency 6 Transformations)",
+          "title_target": "Master 6-Way Oral Transformation: Potential & Fluency",
+          "intro_bn": "সামর্থ্য ও ইনফরমাল কথোপকথনের দ্রুত ৬-রূপান্তর ড্রিল।",
+          "structure": [
+            "১. হ্যাঁ-বোধক (+): 日本語が 話せる。",
+            "২. না-বোধক (-): 日本語が 話せない。",
+            "৩. প্রশ্নবোধক (?): 日本語が 話せる？",
+            "৪. না-বোধক প্রশ্ন (-?): 日本語が 話せないの？",
+            "৫. WH-প্রশ্ন (WH?): どのくらい 日本語が 話せる？",
+            "৬. বিকল্প প্রশ্ন (Alt?): 日本語が 話せる？ 英語が 話せる？"
+          ],
+          "items": [
+            {
+              "id": "jp-cas-p6-l22-001",
+              "concept_id": "c-jp-cas-p6-l22-001",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本語が 話せる。",
+              "target_kana": "にほんごがはなせる。",
+              "romaji": "Nihongo ga hanaseru.",
+              "bn": "১. হ্যাঁ-বোধক: জাপানি ভাষা বলতে পারি।",
+              "bn_pron": "নিহঙ্গো গা হানাসেরু।",
+              "ipa": "Nihongo ga hanaseru.",
+              "tokens": [
+                {
+                  "t": "日本語が 話せる。",
+                  "romaji": "Nihongo ga hanaseru.",
+                  "kanji": "日本語が 話せる。",
+                  "bn": "১. হ্যাঁ-বোধক: জাপানি ভাষা বলতে পারি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p6-l22-002",
+              "concept_id": "c-jp-cas-p6-l22-002",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本語が 話せない。",
+              "target_kana": "にほんごがはなせない。",
+              "romaji": "Nihongo ga hanasenai.",
+              "bn": "২. না-বোধক: জাপানি ভাষা বলতে পারি না।",
+              "bn_pron": "নিহঙ্গো গা হানাসেনাই।",
+              "ipa": "Nihongo ga hanasenai.",
+              "tokens": [
+                {
+                  "t": "日本語が 話せない。",
+                  "romaji": "Nihongo ga hanasenai.",
+                  "kanji": "日本語が 話せない。",
+                  "bn": "২. না-বোধক: জাপানি ভাষা বলতে পারি না।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p6-l22-003",
+              "concept_id": "c-jp-cas-p6-l22-003",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本語が 話せる？",
+              "target_kana": "にほんごがはなせる？",
+              "romaji": "Nihongo ga hanaseru?",
+              "bn": "৩. প্রশ্নবোধক: জাপানি ভাষা বলতে পারিস?",
+              "bn_pron": "নিহঙ্গো গা হানাসেরু?",
+              "ipa": "Nihongo ga hanaseru?",
+              "tokens": [
+                {
+                  "t": "日本語が 話せる？",
+                  "romaji": "Nihongo ga hanaseru?",
+                  "kanji": "日本語が 話せる？",
+                  "bn": "৩. প্রশ্নবোধক: জাপানি ভাষা বলতে পারিস?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p6-l22-004",
+              "concept_id": "c-jp-cas-p6-l22-004",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本語が 話せないの？",
+              "target_kana": "にほんごがはなせないの？",
+              "romaji": "Nihongo ga hanasenai no?",
+              "bn": "৪. না-বোধক প্রশ্ন: জাপানি ভাষা বলতে পারিস না?",
+              "bn_pron": "নিহঙ্গো গা হানাসেনাই নো?",
+              "ipa": "Nihongo ga hanasenai no?",
+              "tokens": [
+                {
+                  "t": "日本語が 話せないの？",
+                  "romaji": "Nihongo ga hanasenai no?",
+                  "kanji": "日本語が 話せないの？",
+                  "bn": "৪. না-বোধক প্রশ্ন: জাপানি ভাষা বলতে পারিস না?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "negative_interrogative",
+                "polarity": "negative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p6-l22-005",
+              "concept_id": "c-jp-cas-p6-l22-005",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "どのくらい 日本語が 話せる？ 少し 話せるよ。",
+              "target_kana": "どのくらいにほんごがはなせる？すこしはなせるよ。",
+              "romaji": "Dono kurai nihongo ga hanaseru? Sukoshi hanaseru yo.",
+              "bn": "৫. WH-প্রশ্ন: কতটা জাপানি বলতে পারিস? একটু পারি।",
+              "bn_pron": "দোনো কুরাই নিহঙ্গো গা হানাসেরু? সুকোশি হানাসেরু ইয়ো।",
+              "ipa": "Dono kurai nihongo ga hanaseru? Sukoshi hanaseru yo.",
+              "tokens": [
+                {
+                  "t": "どのくらい 日本語が 話せる？ 少し 話せるよ。",
+                  "romaji": "Dono kurai nihongo ga hanaseru? Sukoshi hanaseru yo.",
+                  "kanji": "どのくらい 日本語が 話せる？ 少し 話せるよ。",
+                  "bn": "৫. WH-প্রশ্ন: কতটা জাপানি বলতে পারিস? একটু পারি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N4"
+              }
+            },
+            {
+              "id": "jp-cas-p6-l22-006",
+              "concept_id": "c-jp-cas-p6-l22-006",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本語が 話せる？ 英語が 話せる？",
+              "target_kana": "にほんごがはなせる？えいごがはなせる？",
+              "romaji": "Nihongo ga hanaseru? Eigo ga hanaseru?",
+              "bn": "৬. বিকল্প প্রশ্ন: জাপানি বলতে পারিস, নাকি ইংরেজি?",
+              "bn_pron": "নিহঙ্গো গা হানাসেরু? এইগো গা হানাসেরু?",
+              "ipa": "Nihongo ga hanaseru? Eigo ga hanaseru?",
+              "tokens": [
+                {
+                  "t": "日本語が 話せる？ 英語が 話せる？",
+                  "romaji": "Nihongo ga hanaseru? Eigo ga hanaseru?",
+                  "kanji": "日本語が 話せる？ 英語が 話せる？",
+                  "bn": "৬. বিকল্প প্রশ্ন: জাপানি বলতে পারিস, নাকি ইংরেজি?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "alternative_question",
                 "polarity": "affirmative",
                 "tense": "present_simple",
                 "jlpt": "N4"

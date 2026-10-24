@@ -4,11 +4,11 @@
     "id": "jp-spoken-past-tense",
     "target_lang": "ja",
     "base_lang": "bn",
-    "title_bn": "জাপানিজ স্পোকেন: Past Tense (অতীত কাল ও অভিজ্ঞতা)",
-    "title_target": "Spoken Japanese: Past Tense & Life Experience",
-    "source": "Curated from N5-N4 Japanese Study Series & Spoken English Framework",
-    "note": "অতীতের অবস্থা ও পরিচয় (でした/ではありませんでした), অতীত কাজ (〜ました/〜ませんでした), অতীত ঘটমান (〜ていました), জীবনের অভিজ্ঞতা (〜たことがあります), সম্পূর্ণতা (〜てしまいました), এবং অতীত ৬-রূপান্তর ড্রিল।",
-    "welcome_text": "জাপানিজ স্পোকেন Past Tense মাস্টারক্লাসে স্বাগতম! অতীতের স্মৃতি, ঘটে যাওয়া ঘটনা ও জীবনের অভিজ্ঞতা সাবলীল জাপানিজে প্রকাশ করার অনুশীলন শুরু করুন।"
+    "title_bn": "জাপানিজ স্পোকেন: Past Tense ও জীবনের অভিজ্ঞতা (N5/N4)",
+    "title_target": "Spoken Japanese: Past Tense, Te-Form & Life Experiences",
+    "source": "Curated from N5-N4 Extended Master Complete & Spoken Japanese Audio Framework",
+    "note": "অতীত অবস্থা (でした/ではありませんでした), বিশেষণের অতীত (〜かった/〜でした), ক্রিয়ার সমাপ্তি (〜ました), তে-ফর্ম সংযোগ (Te-form), ঘটমান অতীত (〜ていました), জীবনের অভিজ্ঞতা (〜たことがあります), উপকার আদান-প্রদান (〜てあげる/くれる/もらう), প্রস্তুতি ও সমাপ্তি (〜ておく/てしまう/てみる), এবং অতীত ৬-রূপান্তর ড্রিল।",
+    "welcome_text": "জাপানিজ স্পোকেন Course 2-এ স্বাগতম! অতীতের স্মৃতি, ঘটে যাওয়া ঘটনা, জীবনের অভিজ্ঞতা ও একের পর এক কাজের ধারাবাহিকতা সাবলীলভাবে প্রকাশ করার জন্য প্রস্তুত হন।"
   },
   "ladder_default": [
     {
@@ -37,8 +37,8 @@
     }
   ],
   "stats": {
-    "lessons": 20,
-    "items": 62
+    "lessons": 24,
+    "items": 81
   },
   "parts": [
     {
@@ -53,7 +53,7 @@
           "order": 1,
           "title_bn": "অতীত পরিচয় ও অবস্থা — 'でした / ではありませんでした'",
           "title_target": "Past Identity & Copula (Deshita / Dewa arimasen deshita)",
-          "intro_bn": "অতীতে কেউ কী ছিল বা কোনো কিছু কী ছিল তা বোঝাতে 'でした' (deshita - ছিল) এবং না-বোধক করতে 'ではありませんでした' (ছিল না) বসে।",
+          "intro_bn": "অতীতে কেউ কী ছিল বা কোনো কিছু কী ছিল তা বোঝাতে 'でした' (deshita - ছিল) এবং না-বোধক করতে 'ではありませんでした / じゃありませんでした' (ছিল না) বসে।",
           "structure": [
             "Affirmative: Noun + でした (ছিল)",
             "Negative: Noun + ではありませんでした / じゃありませんでした (ছিল না)"
@@ -65,7 +65,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうは やすみでした。",
+              "target": "きのうは 休みでした。",
               "target_kana": "きのうわやすみでした。",
               "romaji": "Kinou wa yasumi deshita.",
               "bn": "গতকাল ছুটি ছিল।",
@@ -85,7 +85,7 @@
                   "bn": "হল"
                 },
                 {
-                  "t": "やすみ",
+                  "t": "休み",
                   "romaji": "yasumi",
                   "kanji": "休み",
                   "bn": "ছুটি"
@@ -112,7 +112,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "かれは きょねん だいがくせいでして。",
+              "target": "かれは 去年 大学生でした。",
               "target_kana": "かれわきょねんだいがくせいでした。",
               "romaji": "Kare wa kyonen daigakusei deshita.",
               "bn": "সে গত বছর বিশ্ববিদ্যালয়ের ছাত্র ছিল।",
@@ -132,13 +132,13 @@
                   "bn": "হল"
                 },
                 {
-                  "t": "きょねん",
+                  "t": "去年",
                   "romaji": "kyonen",
                   "kanji": "去年",
                   "bn": "গত বছর"
                 },
                 {
-                  "t": "だいがくせい",
+                  "t": "大学生",
                   "romaji": "daigakusei",
                   "kanji": "大学生",
                   "bn": "বিশ্ববিদ্যালয়ের ছাত্র"
@@ -165,7 +165,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうは げつようびじゃ ありませんでした。にちようびでした。",
+              "target": "きのうは 月曜日じゃ ありませんでした。日曜日でした。",
               "target_kana": "きのうわげつようびじゃありませんでした。にちようびでした。",
               "romaji": "Kinou wa getsuyoubi ja arimasen deshita. Nichiyoubi deshita.",
               "bn": "গতকাল সোমবার ছিল না। রবিবার ছিল।",
@@ -185,7 +185,7 @@
                   "bn": "হল"
                 },
                 {
-                  "t": "げつようび",
+                  "t": "月曜日",
                   "romaji": "getsuyoubi",
                   "kanji": "月曜日",
                   "bn": "সোমবার"
@@ -197,7 +197,7 @@
                   "bn": "ছিল না"
                 },
                 {
-                  "t": "にちようび",
+                  "t": "日曜日",
                   "romaji": "nichiyoubi",
                   "kanji": "日曜日",
                   "bn": "রবিবার"
@@ -224,7 +224,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "おとといは あめでしたか。いいえ、はれでした。",
+              "target": "おとといは 雨でしたか。いいえ、晴れでした。",
               "target_kana": "おとといわあめでしたか。いいえ、はれでした。",
               "romaji": "Ototoi wa ame deshita ka. Iie, hare deshita.",
               "bn": "গত পরশু কি বৃষ্টি ছিল? না, রৌদ্রোজ্জ্বল ছিল।",
@@ -232,10 +232,34 @@
               "ipa": "Ototoi wa ame deshita ka. Iie, hare deshita.",
               "tokens": [
                 {
-                  "t": "おとといは あめでしたか。いいえ、はれでした。",
-                  "romaji": "Ototoi wa ame deshita ka. Iie, hare deshita.",
-                  "kanji": "おとといは あめでしたか。いいえ、はれでした。",
-                  "bn": "গত পরশু কি বৃষ্টি ছিল? না, রৌদ্রোজ্জ্বল ছিল।"
+                  "t": "おととい",
+                  "romaji": "ototoi",
+                  "kanji": "一昨日",
+                  "bn": "গত পরশু"
+                },
+                {
+                  "t": "は",
+                  "romaji": "wa",
+                  "kanji": "は",
+                  "bn": "হল"
+                },
+                {
+                  "t": "雨でしたか",
+                  "romaji": "ame deshita ka",
+                  "kanji": "雨でしたか",
+                  "bn": "বৃষ্টি ছিল কি"
+                },
+                {
+                  "t": "いいえ",
+                  "romaji": "iie",
+                  "kanji": "いいえ",
+                  "bn": "না"
+                },
+                {
+                  "t": "晴れでした",
+                  "romaji": "hare deshita",
+                  "kanji": "晴れでした",
+                  "bn": "রোদ ছিল"
                 }
               ],
               "status": "reviewed",
@@ -254,10 +278,11 @@
           "order": 2,
           "title_bn": "い-বিশেষণের অতীত রূপ (i-Adjectives: 〜かったです / 〜くなかったです)",
           "title_target": "Past i-Adjectives (~katta desu / ~kunakatta desu)",
-          "intro_bn": "i-Adjective এর অতীত রূপ করতে শেষের 'い' উঠে 'かったです' (katta desu) এবং না-বোধক করতে 'くなかったです' (kunakatta desu) বসে। যেমন: あつい (গরম) -> あつかったです (গরম ছিল)।",
+          "intro_bn": "i-Adjective এর অতীত রূপ করতে শেষের 'い' উঠে 'かったです' (katta desu) এবং না-বোধক করতে 'くなかったです' (kunakatta desu) বসে।",
           "structure": [
             "Affirmative: Stem + かったです (ছিল)",
-            "Negative: Stem + くなかったです (ছিল না)"
+            "Negative: Stem + くなかったです (ছিল না)",
+            "Irregular (いい): よかったです / よくなかったです"
           ],
           "items": [
             {
@@ -266,11 +291,11 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうは とても あつかったです。",
+              "target": "きのうは とても 暑かったです。",
               "target_kana": "きのうわとてもあつかったです。",
               "romaji": "Kinou wa totemo atsukatta desu.",
               "bn": "গতকাল খুব গরম ছিল।",
-              "bn_pron": "কিনোও ওয়া তোতেমো আতসুDefault দেশিতা।",
+              "bn_pron": "কিনোও ওয়া তোতেমো আতসুকাত্তা দেশিতা।",
               "ipa": "Kinou wa totemo atsukatta desu.",
               "tokens": [
                 {
@@ -292,7 +317,7 @@
                   "bn": "খুব"
                 },
                 {
-                  "t": "あつかったです",
+                  "t": "暑かったです",
                   "romaji": "atsukatta desu",
                   "kanji": "暑かったです",
                   "bn": "গরম ছিল"
@@ -313,7 +338,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "せんしゅうの りょこうは たのしかったです。",
+              "target": "先週の 旅行は 楽しかったです。",
               "target_kana": "せんしゅうのりょこうわたのしかったです。",
               "romaji": "Senshuu no ryokou wa tanoshikatta desu.",
               "bn": "গত সপ্তাহের ভ্রমণ আনন্দদায়ক ছিল।",
@@ -321,7 +346,7 @@
               "ipa": "Senshuu no ryokou wa tanoshikatta desu.",
               "tokens": [
                 {
-                  "t": "せんしゅう",
+                  "t": "先週",
                   "romaji": "senshuu",
                   "kanji": "先週",
                   "bn": "গত সপ্তাহ"
@@ -333,7 +358,7 @@
                   "bn": "এর"
                 },
                 {
-                  "t": "りょこう",
+                  "t": "旅行",
                   "romaji": "ryokou",
                   "kanji": "旅行",
                   "bn": "ভ্রমণ"
@@ -345,7 +370,7 @@
                   "bn": "হল"
                 },
                 {
-                  "t": "たのしかったです",
+                  "t": "楽しかったです",
                   "romaji": "tanoshikatta desu",
                   "kanji": "楽しかったです",
                   "bn": "আনন্দদায়ক ছিল"
@@ -366,7 +391,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうの テストは あまり むずかしくなかったです。",
+              "target": "きのうの テストは あまり 難しくなかったです。",
               "target_kana": "きのうのてすとわあまりむずかしくなかったです。",
               "romaji": "Kinou no tesuto wa amari muzukashikunakatta desu.",
               "bn": "গতকালের পরীক্ষাটি খুব একটা কঠিন ছিল না।",
@@ -404,7 +429,7 @@
                   "bn": "তেমন"
                 },
                 {
-                  "t": "むずかしくなかったです",
+                  "t": "難しくなかったです",
                   "romaji": "muzukashikunakatta desu",
                   "kanji": "難しくなかったです",
                   "bn": "কঠিন ছিল না"
@@ -425,7 +450,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうの えいがは おもしろかったですか。はい、とても おもしろかったです。",
+              "target": "きのうの 映画は 面白かったですか。はい、とても 面白かったです。",
               "target_kana": "きのうのえいがわおもしろかったですか。はい、とてもおもしろかったです。",
               "romaji": "Kinou no eiga wa omoshirokatta desu ka. Hai, totemo omoshirokatta desu.",
               "bn": "গতকালের সিনেমাটি কি মজার ছিল? হ্যাঁ, খুব মজার ছিল।",
@@ -433,10 +458,46 @@
               "ipa": "Kinou no eiga wa omoshirokatta desu ka. Hai, totemo omoshirokatta desu.",
               "tokens": [
                 {
-                  "t": "きのうの えいがは おもしろかったですか。はい、とても おもしろかったです。",
-                  "romaji": "Kinou no eiga wa omoshirokatta desu ka. Hai, totemo omoshirokatta desu.",
-                  "kanji": "きのうの えいがは おもしろかったですか。はい、とても おもしろかったです。",
-                  "bn": "গতকালের সিনেমাটি কি মজার ছিল? হ্যাঁ, খুব মজার ছিল।"
+                  "t": "きのう",
+                  "romaji": "kinou",
+                  "kanji": "昨日",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "の",
+                  "romaji": "no",
+                  "kanji": "の",
+                  "bn": "এর"
+                },
+                {
+                  "t": "映画",
+                  "romaji": "eiga",
+                  "kanji": "映画",
+                  "bn": "সিনেমা"
+                },
+                {
+                  "t": "は",
+                  "romaji": "wa",
+                  "kanji": "は",
+                  "bn": "হল"
+                },
+                {
+                  "t": "面白かったですか",
+                  "romaji": "omoshirokatta desu ka",
+                  "kanji": "面白かったですか",
+                  "bn": "মজার ছিল কি"
+                },
+                {
+                  "t": "とても",
+                  "romaji": "totemo",
+                  "kanji": "とても",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "面白かったです",
+                  "romaji": "omoshirokatta desu",
+                  "kanji": "面白かったです",
+                  "bn": "মজার ছিল"
                 }
               ],
               "status": "reviewed",
@@ -467,7 +528,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きょねん このまちは とても しずかでした。",
+              "target": "去年 この町は とても 静かでした。",
               "target_kana": "きょねんこのまちわとてもしずかでした。",
               "romaji": "Kyonen kono machi wa totemo shizuka deshita.",
               "bn": "গত বছর এই শহরটি খুব শান্ত ছিল।",
@@ -475,7 +536,7 @@
               "ipa": "Kyonen kono machi wa totemo shizuka deshita.",
               "tokens": [
                 {
-                  "t": "きょねん",
+                  "t": "去年",
                   "romaji": "kyonen",
                   "kanji": "去年",
                   "bn": "গত বছর"
@@ -487,7 +548,7 @@
                   "bn": "এই"
                 },
                 {
-                  "t": "まち",
+                  "t": "町",
                   "romaji": "machi",
                   "kanji": "町",
                   "bn": "শহর"
@@ -505,7 +566,7 @@
                   "bn": "খুব"
                 },
                 {
-                  "t": "しずかでした",
+                  "t": "静かでした",
                   "romaji": "shizuka deshita",
                   "kanji": "静かでした",
                   "bn": "শান্ত ছিল"
@@ -579,7 +640,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうは ひまじゃ ありませんでした。とても いそがしかったです。",
+              "target": "きのうは ひまじゃ ありませんでした。とても 忙しかったです。",
               "target_kana": "きのうわひまじゃありませんでした。とてもいそがしかったです。",
               "romaji": "Kinou wa hima ja arimasen deshita. Totemo isogashikatta desu.",
               "bn": "গতকাল অবসর ছিল না। খুব ব্যস্ত ছিলাম।",
@@ -587,10 +648,34 @@
               "ipa": "Kinou wa hima ja arimasen deshita. Totemo isogashikatta desu.",
               "tokens": [
                 {
-                  "t": "きのうは ひまじゃ ありませんでした。とても いそがしかったです。",
-                  "romaji": "Kinou wa hima ja arimasen deshita. Totemo isogashikatta desu.",
-                  "kanji": "きのうは ひまじゃ ありませんでした。とても いそがしかったです。",
-                  "bn": "গতকাল অবসর ছিল না। খুব ব্যস্ত ছিলাম।"
+                  "t": "きのう",
+                  "romaji": "kinou",
+                  "kanji": "昨日",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "は",
+                  "romaji": "wa",
+                  "kanji": "は",
+                  "bn": "হল"
+                },
+                {
+                  "t": "ひまじゃ ありませんでした",
+                  "romaji": "hima ja arimasen deshita",
+                  "kanji": "暇じゃありませんでした",
+                  "bn": "অবসর ছিল না"
+                },
+                {
+                  "t": "とても",
+                  "romaji": "totemo",
+                  "kanji": "とても",
+                  "bn": "খুব"
+                },
+                {
+                  "t": "忙しかったです",
+                  "romaji": "isogashikatta desu",
+                  "kanji": "忙しかったです",
+                  "bn": "ব্যস্ত ছিল"
                 }
               ],
               "status": "reviewed",
@@ -625,7 +710,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのうの てんきは よかったです。",
+              "target": "きのうの 天気は よかったです。",
               "target_kana": "きのうのてんきわよかったです。",
               "romaji": "Kinou no tenki wa yokatta desu.",
               "bn": "১. হ্যাঁ-বোধক: গতকালের আবহাওয়া ভালো ছিল।",
@@ -633,9 +718,9 @@
               "ipa": "Kinou no tenki wa yokatta desu.",
               "tokens": [
                 {
-                  "t": "きのうの てんきは よかったです。",
+                  "t": "きのうの 天気は よかったです。",
                   "romaji": "Kinou no tenki wa yokatta desu.",
-                  "kanji": "きのうの てんきは よかったです。",
+                  "kanji": "きのうの 天気は よかったです。",
                   "bn": "১. হ্যাঁ-বোধক: গতকালের আবহাওয়া ভালো ছিল।"
                 }
               ],
@@ -654,7 +739,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのうの てんきは よくなかったです。",
+              "target": "きのうの 天気は よくなかったです。",
               "target_kana": "きのうのてんきわよくなかったです。",
               "romaji": "Kinou no tenki wa yokunakatta desu.",
               "bn": "২. না-বোধক: গতকালের আবহাওয়া ভালো ছিল না।",
@@ -662,9 +747,9 @@
               "ipa": "Kinou no tenki wa yokunakatta desu.",
               "tokens": [
                 {
-                  "t": "きのうの てんきは よくなかったです。",
+                  "t": "きのうの 天気は よくなかったです。",
                   "romaji": "Kinou no tenki wa yokunakatta desu.",
-                  "kanji": "きのうの てんきは よくなかったです。",
+                  "kanji": "きのうの 天気は よくなかったです。",
                   "bn": "২. না-বোধক: গতকালের আবহাওয়া ভালো ছিল না।"
                 }
               ],
@@ -683,7 +768,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのうの てんきは よかったですか。",
+              "target": "きのうの 天気は よかったですか。",
               "target_kana": "きのうのてんきわよかったですか。",
               "romaji": "Kinou no tenki wa yokatta desu ka.",
               "bn": "৩. প্রশ্নবোধক: গতকালের আবহাওয়া কি ভালো ছিল?",
@@ -691,9 +776,9 @@
               "ipa": "Kinou no tenki wa yokatta desu ka.",
               "tokens": [
                 {
-                  "t": "きのうの てんきは よかったですか。",
+                  "t": "きのうの 天気は よかったですか。",
                   "romaji": "Kinou no tenki wa yokatta desu ka.",
-                  "kanji": "きのうの てんきは よかったですか。",
+                  "kanji": "きのうの 天気は よかったですか。",
                   "bn": "৩. প্রশ্নবোধক: গতকালের আবহাওয়া কি ভালো ছিল?"
                 }
               ],
@@ -712,7 +797,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのうの てんきは よくありませんでしたか。",
+              "target": "きのうの 天気は よくありませんでしたか。",
               "target_kana": "きのうのてんきわよくありませんでしたか。",
               "romaji": "Kinou no tenki wa yoku arimasen deshita ka.",
               "bn": "৪. না-বোধক প্রশ্ন: গতকালের আবহাওয়া কি ভালো ছিল না?",
@@ -720,9 +805,9 @@
               "ipa": "Kinou no tenki wa yoku arimasen deshita ka.",
               "tokens": [
                 {
-                  "t": "きのうの てんきは よくありませんでしたか。",
+                  "t": "きのうの 天気は よくありませんでしたか。",
                   "romaji": "Kinou no tenki wa yoku arimasen deshita ka.",
-                  "kanji": "きのうの てんきは よくありませんでしたか。",
+                  "kanji": "きのうの 天気は よくありませんでしたか。",
                   "bn": "৪. না-বোধক প্রশ্ন: গতকালের আবহাওয়া কি ভালো ছিল না?"
                 }
               ],
@@ -741,7 +826,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのうの てんきは どうでしたか。あめでした。",
+              "target": "きのうの 天気は どうでしたか。雨でした。",
               "target_kana": "きのうのてんきわどうでしたか。あめでした。",
               "romaji": "Kinou no tenki wa dou deshita ka. Ame deshita.",
               "bn": "৫. WH-প্রশ্ন: গতকালের আবহাওয়া কেমন ছিল? বৃষ্টি ছিল।",
@@ -749,9 +834,9 @@
               "ipa": "Kinou no tenki wa dou deshita ka. Ame deshita.",
               "tokens": [
                 {
-                  "t": "きのうの てんきは どうでしたか。あめでした。",
+                  "t": "きのうの 天気は どうでしたか。雨でした。",
                   "romaji": "Kinou no tenki wa dou deshita ka. Ame deshita.",
-                  "kanji": "きのうの てんきは どうでしたか。あめでした。",
+                  "kanji": "きのうの 天気は どうでしたか。雨でした。",
                   "bn": "৫. WH-প্রশ্ন: গতকালের আবহাওয়া কেমন ছিল? বৃষ্টি ছিল।"
                 }
               ],
@@ -770,7 +855,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのうは あつかったですか、さむかったですか。",
+              "target": "きのうは 暑かったですか、寒かったですか。",
               "target_kana": "きのうわあつかったですか、さむかったですか。",
               "romaji": "Kinou wa atsukatta desu ka, samukatta desu ka.",
               "bn": "৬. বিকল্প প্রশ্ন: গতকাল কি গরম ছিল, নাকি ঠান্ডা ছিল?",
@@ -778,9 +863,9 @@
               "ipa": "Kinou wa atsukatta desu ka, samukatta desu ka.",
               "tokens": [
                 {
-                  "t": "きのうは あつかったですか、さむかったですか。",
+                  "t": "きのうは 暑かったですか、寒かったですか。",
                   "romaji": "Kinou wa atsukatta desu ka, samukatta desu ka.",
-                  "kanji": "きのうは あつかったですか、さむかったですか。",
+                  "kanji": "きのうは 暑かったですか、寒かったですか。",
                   "bn": "৬. বিকল্প প্রশ্ন: গতকাল কি গরম ছিল, নাকি ঠান্ডা ছিল?"
                 }
               ],
@@ -820,7 +905,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "わたしは きのう ８じかん ねました。",
+              "target": "わたしは きのう ８時間 寝ました。",
               "target_kana": "わたしわきのうはちじかんねました。",
               "romaji": "Watashi wa kinou hachijikan nemashita.",
               "bn": "আমি গতকাল ৮ ঘণ্টা ঘুমিয়েছি।",
@@ -828,10 +913,34 @@
               "ipa": "Watashi wa kinou hachijikan nemashita.",
               "tokens": [
                 {
-                  "t": "わたしは きのう ８じかん ねました。",
-                  "romaji": "Watashi wa kinou hachijikan nemashita.",
-                  "kanji": "わたしは きのう ８じかん ねました。",
-                  "bn": "আমি গতকাল ৮ ঘণ্টা ঘুমিয়েছি।"
+                  "t": "わたし",
+                  "romaji": "watashi",
+                  "kanji": "私",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "は",
+                  "romaji": "wa",
+                  "kanji": "は",
+                  "bn": "হল"
+                },
+                {
+                  "t": "きのう",
+                  "romaji": "kinou",
+                  "kanji": "昨日",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "８時間",
+                  "romaji": "hachijikan",
+                  "kanji": "８時間",
+                  "bn": "৮ ঘণ্টা"
+                },
+                {
+                  "t": "寝ました",
+                  "romaji": "nemashita",
+                  "kanji": "寝ました",
+                  "bn": "ঘুমিয়েছি"
                 }
               ],
               "status": "reviewed",
@@ -849,7 +958,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あさ ７じに あさごはんを たべました。",
+              "target": "朝 ７時に 朝ご飯を 食べました。",
               "target_kana": "あさしちじにあさごはんをたべました。",
               "romaji": "Asa shichiji ni asagohan o tabemashita.",
               "bn": "সকাল ৭টায় নাস্তা খেয়েছিলাম।",
@@ -857,10 +966,28 @@
               "ipa": "Asa shichiji ni asagohan o tabemashita.",
               "tokens": [
                 {
-                  "t": "あさ ７じに あさごはんを たべました。",
-                  "romaji": "Asa shichiji ni asagohan o tabemashita.",
-                  "kanji": "あさ ７じに あさごはんを たべました。",
-                  "bn": "সকাল ৭টায় নাস্তা খেয়েছিলাম।"
+                  "t": "朝",
+                  "romaji": "asa",
+                  "kanji": "朝",
+                  "bn": "সকালে"
+                },
+                {
+                  "t": "７時に",
+                  "romaji": "shichiji ni",
+                  "kanji": "７時に",
+                  "bn": "৭টায়"
+                },
+                {
+                  "t": "朝ご飯",
+                  "romaji": "asagohan",
+                  "kanji": "朝ご飯",
+                  "bn": "সকালের নাস্তা"
+                },
+                {
+                  "t": "を食べました",
+                  "romaji": "o tabemashita",
+                  "kanji": "を食べました",
+                  "bn": "খেয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -878,7 +1005,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのう にほんごの ほんを よみました。",
+              "target": "きのう 日本語の 本を 読みました。",
               "target_kana": "きのうにほんごのほんをよみました。",
               "romaji": "Kinou nihongo no hon o yomimashita.",
               "bn": "গতকাল জাপানি বই পড়েছিলাম।",
@@ -886,10 +1013,28 @@
               "ipa": "Kinou nihongo no hon o yomimashita.",
               "tokens": [
                 {
-                  "t": "きのう にほんごの ほんを よみました。",
-                  "romaji": "Kinou nihongo no hon o yomimashita.",
-                  "kanji": "きのう にほんごの ほんを よみました。",
-                  "bn": "গতকাল জাপানি বই পড়েছিলাম।"
+                  "t": "きのう",
+                  "romaji": "kinou",
+                  "kanji": "昨日",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "日本語",
+                  "romaji": "nihongo",
+                  "kanji": "日本語",
+                  "bn": "জাপানি ভাষা"
+                },
+                {
+                  "t": "の本",
+                  "romaji": "no hon",
+                  "kanji": "の本",
+                  "bn": "এর বই"
+                },
+                {
+                  "t": "を読みました",
+                  "romaji": "o yomimashita",
+                  "kanji": "を読みました",
+                  "bn": "পড়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -907,7 +1052,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのう ともだちと サッカーを しました。",
+              "target": "きのう 友だちと サッカーを しました。",
               "target_kana": "きのうともだちとさっかーをしました。",
               "romaji": "Kinou tomodachi to sakkaa o shimashita.",
               "bn": "গতকাল বন্ধুর সাথে ফুটবল খেলেছি।",
@@ -915,10 +1060,28 @@
               "ipa": "Kinou tomodachi to sakkaa o shimashita.",
               "tokens": [
                 {
-                  "t": "きのう ともだちと サッカーを しました。",
-                  "romaji": "Kinou tomodachi to sakkaa o shimashita.",
-                  "kanji": "きのう ともだちと サッカーを しました。",
-                  "bn": "গতকাল বন্ধুর সাথে ফুটবল খেলেছি।"
+                  "t": "きのう",
+                  "romaji": "kinou",
+                  "kanji": "昨日",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "友だちと",
+                  "romaji": "tomodachi to",
+                  "kanji": "友だちと",
+                  "bn": "বন্ধুর সাথে"
+                },
+                {
+                  "t": "サッカーを",
+                  "romaji": "sakkaa o",
+                  "kanji": "サッカーを",
+                  "bn": "ফুটবল"
+                },
+                {
+                  "t": "しました",
+                  "romaji": "shimashita",
+                  "kanji": "しました",
+                  "bn": "খেলেছি"
                 }
               ],
               "status": "reviewed",
@@ -948,7 +1111,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "けさ なにも たべませんでした。",
+              "target": "けさ 何も 食べませんでした。",
               "target_kana": "けさなにもたべませんでした。",
               "romaji": "Kesa nani mo tabemasendeshita.",
               "bn": "আজ সকালে কিছুই খাইনি।",
@@ -956,10 +1119,22 @@
               "ipa": "Kesa nani mo tabemasendeshita.",
               "tokens": [
                 {
-                  "t": "けさ なにも たべませんでした。",
-                  "romaji": "Kesa nani mo tabemasendeshita.",
-                  "kanji": "けさ なにも たべませんでした。",
-                  "bn": "আজ সকালে কিছুই খাইনি।"
+                  "t": "けさ",
+                  "romaji": "kesa",
+                  "kanji": "今朝",
+                  "bn": "আজ সকালে"
+                },
+                {
+                  "t": "何も",
+                  "romaji": "nani mo",
+                  "kanji": "何も",
+                  "bn": "কিছুই"
+                },
+                {
+                  "t": "食べませんでした",
+                  "romaji": "tabemasendeshita",
+                  "kanji": "食べませんでした",
+                  "bn": "খাইনি"
                 }
               ],
               "status": "reviewed",
@@ -977,7 +1152,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうは どこへも いきませんでした。",
+              "target": "きのうは どこへも 行きませんでした。",
               "target_kana": "きのうわどこえもいきませんでした。",
               "romaji": "Kinou wa doko e mo ikimasendeshita.",
               "bn": "গতকাল কোথাও যাইনি।",
@@ -985,10 +1160,22 @@
               "ipa": "Kinou wa doko e mo ikimasendeshita.",
               "tokens": [
                 {
-                  "t": "きのうは どこへも いきませんでした。",
-                  "romaji": "Kinou wa doko e mo ikimasendeshita.",
-                  "kanji": "きのうは どこへも いきませんでした。",
-                  "bn": "গতকাল কোথাও যাইনি।"
+                  "t": "きのうは",
+                  "romaji": "kinou wa",
+                  "kanji": "昨日は",
+                  "bn": "গতকাল"
+                },
+                {
+                  "t": "どこへも",
+                  "romaji": "doko e mo",
+                  "kanji": "どこへも",
+                  "bn": "কোথাও"
+                },
+                {
+                  "t": "行きませんでした",
+                  "romaji": "ikimasendeshita",
+                  "kanji": "行きませんでした",
+                  "bn": "যাইনি"
                 }
               ],
               "status": "reviewed",
@@ -1006,7 +1193,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "ゆうべ テレビを みませんでした。はやく ねました。",
+              "target": "ゆうべ テレビを 見ませんでした。早く 寝ました。",
               "target_kana": "ゆうべてれびをみませんでした。はやくねました。",
               "romaji": "Yuube terebi o mimasendeshita. Hayaku nemashita.",
               "bn": "গত রাতে টিভি দেখিনি। তাড়াতাড়ি ঘুমিয়েছিলাম।",
@@ -1014,10 +1201,34 @@
               "ipa": "Yuube terebi o mimasendeshita. Hayaku nemashita.",
               "tokens": [
                 {
-                  "t": "ゆうべ テレビを みませんでした。はやく ねました。",
-                  "romaji": "Yuube terebi o mimasendeshita. Hayaku nemashita.",
-                  "kanji": "ゆうべ テレビを みませんでした。はやく ねました。",
-                  "bn": "গত রাতে টিভি দেখিনি। তাড়াতাড়ি ঘুমিয়েছিলাম।"
+                  "t": "ゆうべ",
+                  "romaji": "yuube",
+                  "kanji": "昨夜",
+                  "bn": "গত রাতে"
+                },
+                {
+                  "t": "テレビを",
+                  "romaji": "terebi o",
+                  "kanji": "テレビを",
+                  "bn": "টিভি"
+                },
+                {
+                  "t": "見ませんでした",
+                  "romaji": "mimasendeshita",
+                  "kanji": "見ませんでした",
+                  "bn": "দেখিনি"
+                },
+                {
+                  "t": "早く",
+                  "romaji": "hayaku",
+                  "kanji": "早く",
+                  "bn": "তাড়াতাড়ি"
+                },
+                {
+                  "t": "寝ました",
+                  "romaji": "nemashita",
+                  "kanji": "寝ました",
+                  "bn": "ঘুমিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1034,7 +1245,7 @@
         {
           "id": "jp-past-l07",
           "order": 3,
-          "title_bn": "অতীত কাজের স্থান ও মাধ্যম (Past Location & Means)",
+          "title_bn": "অতীত কাজের স্থান ও বাহন (Past Location & Means)",
           "title_target": "Past Location & Vehicle (Place de / Vehicle de)",
           "intro_bn": "অতীতে কোথায় এবং কীভাবে কাজ করেছি তা প্রকাশ করতে 'で' (de) বসে।",
           "structure": [
@@ -1048,7 +1259,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "しんかんせんで きょうとへ いきました。",
+              "target": "新幹線で 京都へ 行きました。",
               "target_kana": "しんかんせんできょうとえいきました。",
               "romaji": "Shinkansen de Kyouto e ikimashita.",
               "bn": "বুলেট ট্রেনে করে কিয়োটো গিয়েছিলাম।",
@@ -1056,10 +1267,22 @@
               "ipa": "Shinkansen de Kyouto e ikimashita.",
               "tokens": [
                 {
-                  "t": "しんかんせんで きょうとへ いきました。",
-                  "romaji": "Shinkansen de Kyouto e ikimashita.",
-                  "kanji": "しんかんせんで きょうとへ いきました。",
-                  "bn": "বুলেট ট্রেনে করে কিয়োটো গিয়েছিলাম।"
+                  "t": "新幹線で",
+                  "romaji": "shinkansen de",
+                  "kanji": "新幹線で",
+                  "bn": "বুলেট ট্রেনে"
+                },
+                {
+                  "t": "京都へ",
+                  "romaji": "Kyouto e",
+                  "kanji": "京都へ",
+                  "bn": "কিয়োটোতে"
+                },
+                {
+                  "t": "行きました",
+                  "romaji": "ikimashita",
+                  "kanji": "行きました",
+                  "bn": "গিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1077,7 +1300,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "デパートで あたらしい くつを かいました。",
+              "target": "デパートで 新しい 靴を 買いました。",
               "target_kana": "でぱーとであたらしいくつをかいました。",
               "romaji": "Depaato de atarashii kutsu o kaimashita.",
               "bn": "ডিপার্টমেন্টাল স্টোরে নতুন জুতো কিনেছিলাম।",
@@ -1085,10 +1308,28 @@
               "ipa": "Depaato de atarashii kutsu o kaimashita.",
               "tokens": [
                 {
-                  "t": "デパートで あたらしい くつを かいました。",
-                  "romaji": "Depaato de atarashii kutsu o kaimashita.",
-                  "kanji": "デパートで あたらしい くつを かいました。",
-                  "bn": "ডিপার্টমেন্টাল স্টোরে নতুন জুতো কিনেছিলাম।"
+                  "t": "デパートで",
+                  "romaji": "depaato de",
+                  "kanji": "デパートで",
+                  "bn": "ডিপার্টমেন্টাল স্টোরে"
+                },
+                {
+                  "t": "新しい",
+                  "romaji": "atarashii",
+                  "kanji": "新しい",
+                  "bn": "নতুন"
+                },
+                {
+                  "t": "靴を",
+                  "romaji": "kutsu o",
+                  "kanji": "靴を",
+                  "bn": "জুতো"
+                },
+                {
+                  "t": "買いました",
+                  "romaji": "kaimashita",
+                  "kanji": "買いました",
+                  "bn": "কিনেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1106,7 +1347,7 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きっさてんで コーヒーを のみました。",
+              "target": "喫茶店で コーヒーを 飲みました。",
               "target_kana": "きっさてんでこーひーをのみました。",
               "romaji": "Kissaten de koohii o nomimashita.",
               "bn": "ক্যাফেতে কফি পান করেছিলাম।",
@@ -1114,10 +1355,22 @@
               "ipa": "Kissaten de koohii o nomimashita.",
               "tokens": [
                 {
-                  "t": "きっさてんで コーヒーを のみました。",
-                  "romaji": "Kissaten de koohii o nomimashita.",
-                  "kanji": "きっさてんで コーヒーを のみました。",
-                  "bn": "ক্যাফেতে কফি পান করেছিলাম।"
+                  "t": "喫茶店で",
+                  "romaji": "kissaten de",
+                  "kanji": "喫茶店で",
+                  "bn": "ক্যাফেতে"
+                },
+                {
+                  "t": "コーヒーを",
+                  "romaji": "koohii o",
+                  "kanji": "コーヒーを",
+                  "bn": "কফি"
+                },
+                {
+                  "t": "飲みました",
+                  "romaji": "nomimashita",
+                  "kanji": "飲みました",
+                  "bn": "পান করেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1152,7 +1405,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのう にほんごを べんきょうしました。",
+              "target": "きのう 日本語を 勉強しました。",
               "target_kana": "きのうにほんごをべんきょうしました。",
               "romaji": "Kinou nihongo o benkyou shimashita.",
               "bn": "১. হ্যাঁ-বোধক: গতকাল জাপানি ভাষা পড়েছিলাম।",
@@ -1160,9 +1413,9 @@
               "ipa": "Kinou nihongo o benkyou shimashita.",
               "tokens": [
                 {
-                  "t": "きのう にほんごを べんきょうしました。",
+                  "t": "きのう 日本語を 勉強しました。",
                   "romaji": "Kinou nihongo o benkyou shimashita.",
-                  "kanji": "きのう にほんごを べんきょうしました。",
+                  "kanji": "きのう 日本語を 勉強しました。",
                   "bn": "১. হ্যাঁ-বোধক: গতকাল জাপানি ভাষা পড়েছিলাম।"
                 }
               ],
@@ -1181,7 +1434,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのう にほんごを べんきょうしませんでした。",
+              "target": "きのう 日本語を 勉強しませんでした。",
               "target_kana": "きのうにほんごをべんきょうしませんでした。",
               "romaji": "Kinou nihongo o benkyou shimasendeshita.",
               "bn": "২. না-বোধক: গতকাল জাপানি ভাষা পড়িনি।",
@@ -1189,9 +1442,9 @@
               "ipa": "Kinou nihongo o benkyou shimasendeshita.",
               "tokens": [
                 {
-                  "t": "きのう にほんごを べんきょうしませんでした。",
+                  "t": "きのう 日本語を 勉強しませんでした。",
                   "romaji": "Kinou nihongo o benkyou shimasendeshita.",
-                  "kanji": "きのう にほんごを べんきょうしませんでした。",
+                  "kanji": "きのう 日本語を 勉強しませんでした。",
                   "bn": "২. না-বোধক: গতকাল জাপানি ভাষা পড়িনি।"
                 }
               ],
@@ -1210,7 +1463,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのう にほんごを べんきょうしましたか。",
+              "target": "きのう 日本語を 勉強しましたか。",
               "target_kana": "きのうにほんごをべんきょうしましたか。",
               "romaji": "Kinou nihongo o benkyou shimashita ka.",
               "bn": "৩. প্রশ্নবোধক: গতকাল কি জাপানি ভাষা পড়েছিলেন?",
@@ -1218,9 +1471,9 @@
               "ipa": "Kinou nihongo o benkyou shimashita ka.",
               "tokens": [
                 {
-                  "t": "きのう にほんごを べんきょうしましたか。",
+                  "t": "きのう 日本語を 勉強しましたか。",
                   "romaji": "Kinou nihongo o benkyou shimashita ka.",
-                  "kanji": "きのう にほんごを べんきょうしましたか。",
+                  "kanji": "きのう 日本語を 勉強しましたか。",
                   "bn": "৩. প্রশ্নবোধক: গতকাল কি জাপানি ভাষা পড়েছিলেন?"
                 }
               ],
@@ -1239,7 +1492,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのう にほんごを べんきょうしませんでしたか。",
+              "target": "きのう 日本語を 勉強しませんでしたか。",
               "target_kana": "きのうにほんごをべんきょうしませんでしたか。",
               "romaji": "Kinou nihongo o benkyou shimasendeshita ka.",
               "bn": "৪. না-বোধক প্রশ্ন: গতকাল কি জাপানি ভাষা পড়েননি?",
@@ -1247,9 +1500,9 @@
               "ipa": "Kinou nihongo o benkyou shimasendeshita ka.",
               "tokens": [
                 {
-                  "t": "きのう にほんごを べんきょうしませんでしたか。",
+                  "t": "きのう 日本語を 勉強しませんでしたか。",
                   "romaji": "Kinou nihongo o benkyou shimasendeshita ka.",
-                  "kanji": "きのう にほんごを べんきょうしませんでしたか。",
+                  "kanji": "きのう 日本語を 勉強しませんでしたか。",
                   "bn": "৪. না-বোধক প্রশ্ন: গতকাল কি জাপানি ভাষা পড়েননি?"
                 }
               ],
@@ -1268,7 +1521,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのう なにを しましたか。にほんごを べんきょうしました。",
+              "target": "きのう 何を しましたか。日本語を 勉強しました。",
               "target_kana": "きのうなにをしましたか。にほんごをべんきょうしました。",
               "romaji": "Kinou nani o shimashita ka. Nihongo o benkyou shimashita.",
               "bn": "৫. WH-প্রশ্ন: গতকাল কী করেছিলেন? জাপানি ভাষা পড়েছিলাম।",
@@ -1276,9 +1529,9 @@
               "ipa": "Kinou nani o shimashita ka. Nihongo o benkyou shimashita.",
               "tokens": [
                 {
-                  "t": "きのう なにを しましたか。にほんごを べんきょうしました。",
+                  "t": "きのう 何を しましたか。日本語を 勉強しました。",
                   "romaji": "Kinou nani o shimashita ka. Nihongo o benkyou shimashita.",
-                  "kanji": "きのう なにを しましたか。にほんごを べんきょうしました。",
+                  "kanji": "きのう 何を しましたか。日本語を 勉強しました。",
                   "bn": "৫. WH-প্রশ্ন: গতকাল কী করেছিলেন? জাপানি ভাষা পড়েছিলাম।"
                 }
               ],
@@ -1297,7 +1550,7 @@
               "order": 1,
               "type": "drill",
               "level": "A2",
-              "target": "きのう べんきょうしましたか、あそびましたか。",
+              "target": "きのう 勉強しましたか、遊びましたか。",
               "target_kana": "きのうべんきょうしましたか、あそびましたか。",
               "romaji": "Kinou benkyou shimashita ka, asobimashita ka.",
               "bn": "৬. বিকল্প প্রশ্ন: গতকাল কি পড়েছিলেন, নাকি ঘুরেছিলেন?",
@@ -1305,9 +1558,9 @@
               "ipa": "Kinou benkyou shimashita ka, asobimashita ka.",
               "tokens": [
                 {
-                  "t": "きのう べんきょうしましたか、あそびましたか。",
+                  "t": "きのう 勉強しましたか、遊びましたか。",
                   "romaji": "Kinou benkyou shimashita ka, asobimashita ka.",
-                  "kanji": "きのう べんきょうしましたか、あそびましたか。",
+                  "kanji": "きのう 勉強しましたか、遊びましたか。",
                   "bn": "৬. বিকল্প প্রশ্ন: গতকাল কি পড়েছিলেন, নাকি ঘুরেছিলেন?"
                 }
               ],
@@ -1328,17 +1581,19 @@
       "id": "jp-past-p3",
       "order": 3,
       "level": "A2",
-      "title_bn": "অতীত ঘটমান ও কারণ ব্যাখ্যা (Past Continuous & Explaining Reasons)",
-      "title_target": "Past Continuous & Causal Explanations (~te imashita / ~kara)",
+      "title_bn": "তে-ফর্ম সংযোগ ও ধারাবাহিক ঘটনা (Te-Form Mastery & Sequential Chains)",
+      "title_target": "Te-Form Conjugation & Sequence (~te, ~te kara, ~ta ato de)",
       "lessons": [
         {
           "id": "jp-past-l09",
           "order": 1,
-          "title_bn": "অতীত ঘটমান কাজ — 'Verb-て いました' (Past Continuous)",
-          "title_target": "Past Continuous (Verb-te imashita)",
-          "intro_bn": "অতীতে কোনো নির্দিষ্ট সময়ে কোনো কাজ চলছিল বোঝাতে 'Verb-て いました' (করছিলাম) বসে।",
+          "title_bn": "তে-ফর্মের রূপান্তর সূত্র (Te-Form Conjugation Mastery)",
+          "title_target": "Te-Form Conjugation (Group 1, 2, and Irregular Verbs)",
+          "intro_bn": "জাপানিজ ক্রিয়ার সংযোগের মূল চাবিকাঠি হলো তে-ফর্ম (Te-form)। গ্রুপ ১ ক্রিয়ার শেষ ধ্বনি অনুসারে পরিবর্তন হয়: う・つ・る -> って, む・ぶ・ぬ -> んで, く -> いて, ぐ -> いで, す -> して। বিশেষ: 行く -> 行って।",
           "structure": [
-            "Subject + は + そのとき + Verb-て いました"
+            "Group 1: う・つ・る → って, む・ぶ・ぬ → んで, く → いて, ぐ → いで, す → して",
+            "Group 2: る বাদ দিয়ে + て (食べる → 食べて, 見る → 見て)",
+            "Irregular: する → して, 来る (くる) → 来て (きて)"
           ],
           "items": [
             {
@@ -1347,18 +1602,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "そのとき、わたしは ごはんを たべて いました。",
-              "target_kana": "そのとき、わたしわごはんをたべていました。",
-              "romaji": "Sono toki, watashi wa gohan o tabete imashita.",
-              "bn": "সেই সময় আমি ভাত খাচ্ছিলাম।",
-              "bn_pron": "সোনো তোকি, ওয়াতাশি ওয়া গোহান ও তাবেতে ইমাশিতা।",
-              "ipa": "Sono toki, watashi wa gohan o tabete imashita.",
+              "target": "買って、待って、帰って",
+              "target_kana": "かって、まって、かえって",
+              "romaji": "Katte, matte, kaette",
+              "bn": "কিনে, অপেক্ষা করে, বাড়ি ফিরে (う・つ・る → って)",
+              "bn_pron": "কাত্তে, মাত্তে, কায়েত্তে",
+              "ipa": "Katte, matte, kaette",
               "tokens": [
                 {
-                  "t": "そのとき、わたしは ごはんを たべて いました。",
-                  "romaji": "Sono toki, watashi wa gohan o tabete imashita.",
-                  "kanji": "そのとき、わたしは ごはんを たべて いました。",
-                  "bn": "সেই সময় আমি ভাত খাচ্ছিলাম।"
+                  "t": "買って",
+                  "romaji": "katte",
+                  "kanji": "買って",
+                  "bn": "কিনে (買う)"
+                },
+                {
+                  "t": "待って",
+                  "romaji": "matte",
+                  "kanji": "待って",
+                  "bn": "অপেক্ষা করে (待つ)"
+                },
+                {
+                  "t": "帰って",
+                  "romaji": "kaette",
+                  "kanji": "帰って",
+                  "bn": "ফিরে (帰る)"
                 }
               ],
               "status": "reviewed",
@@ -1366,7 +1633,7 @@
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
-                "tense": "past_continuous",
+                "tense": "past_simple",
                 "jlpt": "N5"
               }
             },
@@ -1376,18 +1643,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きのうの ごご ３じに なにを して いましたか。としょかんで ほんを よんで いました。",
-              "target_kana": "きのうのごごさんじになにをしていましたか。としょかんでほんをよんでいました。",
-              "romaji": "Kinou no gogo sanji ni nani o shite imashita ka. Toshokan de hon o yonde imashita.",
-              "bn": "গতকাল বিকেল ৩টায় কী করছিলেন? লাইব্রেরিতে বই পড়ছিলাম।",
-              "bn_pron": "কিনোও নো গোগো সানজি নি নানি ও শিতে ইমাশিতা কা? তোশোখান দে হোন ও ইয়োন্দে ইমাশিতা।",
-              "ipa": "Kinou no gogo sanji ni nani o shite imashita ka. Toshokan de hon o yonde imashita.",
+              "target": "飲んで、呼んで、死んで",
+              "target_kana": "のんで、よんで、しんで",
+              "romaji": "Nonde, yonde, shinde",
+              "bn": "পান করে, ডেকে, মারা গিয়ে (む・ぶ・ぬ → んで)",
+              "bn_pron": "নোন্দে, ইয়োন্দে, শিন্দে",
+              "ipa": "Nonde, yonde, shinde",
               "tokens": [
                 {
-                  "t": "きのうの ごご ３じに なにを して いましたか。としょかんで ほんを よんで いました。",
-                  "romaji": "Kinou no gogo sanji ni nani o shite imashita ka. Toshokan de hon o yonde imashita.",
-                  "kanji": "きのうの ごご ３じに なにを して いましたか。としょかんで ほんを よんで いました。",
-                  "bn": "গতকাল বিকেল ৩টায় কী করছিলেন? লাইব্রেরিতে বই পড়ছিলাম।"
+                  "t": "飲んで",
+                  "romaji": "nonde",
+                  "kanji": "飲んで",
+                  "bn": "পান করে (飲む)"
+                },
+                {
+                  "t": "呼んで",
+                  "romaji": "yonde",
+                  "kanji": "呼んで",
+                  "bn": "ডেকে (呼ぶ)"
+                },
+                {
+                  "t": "死んで",
+                  "romaji": "shinde",
+                  "kanji": "死んで",
+                  "bn": "মারা গিয়ে (死ぬ)"
                 }
               ],
               "status": "reviewed",
@@ -1395,7 +1674,7 @@
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
-                "tense": "past_continuous",
+                "tense": "past_simple",
                 "jlpt": "N5"
               }
             },
@@ -1405,18 +1684,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "でんわが あったとき、おふろに はいって いました。",
-              "target_kana": "でんわがあったとき、おふろにはいっていました。",
-              "romaji": "Denwa ga atta toki, ofuro ni haitte imashita.",
-              "bn": "যখন ফোন এসেছিল, তখন গোসল করছিলাম।",
-              "bn_pron": "দেনওয়া গা আত্তা তোকি, অফুরো নি হাইত্তে ইমাশিতা।",
-              "ipa": "Denwa ga atta toki, ofuro ni haitte imashita.",
+              "target": "書いて、泳いで、話して、行って",
+              "target_kana": "かいて、およいで、はなして、いって",
+              "romaji": "Kaite, oyoide, hanashite, itte",
+              "bn": "লিখে, সাঁতার কেটে, কথা বলে, গিয়ে (く・ぐ・す ও 行く)",
+              "bn_pron": "কাইতে, ওয়োওইদে, হানাশিতে, ইত্তে",
+              "ipa": "Kaite, oyoide, hanashite, itte",
               "tokens": [
                 {
-                  "t": "でんわが あったとき、おふろに はいって いました。",
-                  "romaji": "Denwa ga atta toki, ofuro ni haitte imashita.",
-                  "kanji": "でんわが あったとき、おふろに はいって いました。",
-                  "bn": "যখন ফোন এসেছিল, তখন গোসল করছিলাম।"
+                  "t": "書いて",
+                  "romaji": "kaite",
+                  "kanji": "書いて",
+                  "bn": "লিখে (書く)"
+                },
+                {
+                  "t": "泳いで",
+                  "romaji": "oyoide",
+                  "kanji": "泳いで",
+                  "bn": "সাঁতার কেটে (泳ぐ)"
+                },
+                {
+                  "t": "話して",
+                  "romaji": "hanashite",
+                  "kanji": "話して",
+                  "bn": "কথা বলে (話す)"
+                },
+                {
+                  "t": "行って",
+                  "romaji": "itte",
+                  "kanji": "行って",
+                  "bn": "গিয়ে (行く)"
                 }
               ],
               "status": "reviewed",
@@ -1424,7 +1721,54 @@
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
-                "tense": "past_continuous",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p3-l9-004",
+              "concept_id": "c-jp-past-p3-l9-004",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "食べて、見て、して、来て",
+              "target_kana": "たべて、みて、して、きて",
+              "romaji": "Tabete, mite, shite, kite",
+              "bn": "খেয়ে, দেখে, করে, এসে (গ্রুপ ২ ও অনিয়মিত)",
+              "bn_pron": "তাবেতে, মিতে, শিতে, কিতে",
+              "ipa": "Tabete, mite, shite, kite",
+              "tokens": [
+                {
+                  "t": "食べて",
+                  "romaji": "tabete",
+                  "kanji": "食べて",
+                  "bn": "খেয়ে (食べる)"
+                },
+                {
+                  "t": "見て",
+                  "romaji": "mite",
+                  "kanji": "見て",
+                  "bn": "দেখে (見る)"
+                },
+                {
+                  "t": "して",
+                  "romaji": "shite",
+                  "kanji": "して",
+                  "bn": "করে (する)"
+                },
+                {
+                  "t": "来て",
+                  "romaji": "kite",
+                  "kanji": "来て",
+                  "bn": "এসে (来る)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
                 "jlpt": "N5"
               }
             }
@@ -1433,11 +1777,11 @@
         {
           "id": "jp-past-l10",
           "order": 2,
-          "title_bn": "অতীত কারণ ব্যাখ্যা — '〜から / 〜ので' (Explaining Reasons)",
-          "title_target": "Giving Past Reasons (~kara / ~node)",
-          "intro_bn": "অতীতে কোনো ঘটনা ঘটার বা না ঘটার কারণ ব্যাখ্যা করতে বাক্যের মাঝে '〜から' বা '〜ので' (কারণ/বলে) বসে।",
+          "title_bn": "ধারাবাহিক কাজের শৃঙ্খল (Chaining Actions: 〜て、〜て、〜ました)",
+          "title_target": "Chaining Sequential Past Actions (~te, ~te, ~mashita)",
+          "intro_bn": "অতীতে একের পর এক একাধিক কাজ সম্পন্ন হলে ক্রিয়াপদগুলোকে তে-ফর্ম (Te-form) দিয়ে যুক্ত করে শেষ ক্রিয়াতে 'ました' বসে।",
           "structure": [
-            "Reason Sentence + から / ので、Result Sentence (Past)"
+            "Verb 1-て、Verb 2-て、Verb 3-ました"
           ],
           "items": [
             {
@@ -1446,18 +1790,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あたまが いたかったですから、かいしゃを やすみました。",
-              "target_kana": "あたまがいたかったですから、かいしゃをやすみました。",
-              "romaji": "Atama ga itakatta desu kara, kaisha o yasumimashita.",
-              "bn": "মাথা ব্যথা করছিল বলে অফিস থেকে ছুটি নিয়েছিলাম।",
-              "bn_pron": "আত閲া গা ইতাকাত্তা দেসু কারা, কাইশা ও ইয়াসুমিমাশিতা।",
-              "ipa": "Atama ga itakatta desu kara, kaisha o yasumimashita.",
+              "target": "朝 ６時に 起きて、シャワーを 浴びて、学校へ 行きました。",
+              "target_kana": "あさろくじにおきて、しゃわーをあびて、がっこうえいきました。",
+              "romaji": "Asa rokuji ni okite, shawaa o abite, gakkou e ikimashita.",
+              "bn": "সকালে ৬টায় উঠে, গোসল করে, স্কুলে গিয়েছিলাম।",
+              "bn_pron": "আসা রোকুজি নি ওকিতে, শাওয়াআ ও আবিতে, গাক্কোও এ ইকিমাশিতা।",
+              "ipa": "Asa rokuji ni okite, shawaa o abite, gakkou e ikimashita.",
               "tokens": [
                 {
-                  "t": "あたまが いたかったですから、かいしゃを やすみました。",
-                  "romaji": "Atama ga itakatta desu kara, kaisha o yasumimashita.",
-                  "kanji": "あたまが いたかったですから、かいしゃを やすみました。",
-                  "bn": "মাথা ব্যথা করছিল বলে অফিস থেকে ছুটি নিয়েছিলাম।"
+                  "t": "朝６時に",
+                  "romaji": "asa rokuji ni",
+                  "kanji": "朝６時に",
+                  "bn": "সকাল ৬টায়"
+                },
+                {
+                  "t": "起きて",
+                  "romaji": "okite",
+                  "kanji": "起きて",
+                  "bn": "উঠে"
+                },
+                {
+                  "t": "シャワーを浴びて",
+                  "romaji": "shawaa o abite",
+                  "kanji": "シャワーを浴びて",
+                  "bn": "গোসল করে"
+                },
+                {
+                  "t": "学校へ行きました",
+                  "romaji": "gakkou e ikimashita",
+                  "kanji": "学校へ行きました",
+                  "bn": "স্কুলে গিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1475,18 +1837,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あめが ふって いましたので、タクシーで いきました。",
-              "target_kana": "あめがふっていましたので、たくしーでいきました。",
-              "romaji": "Ame ga futte imashita node, takushii de ikimashita.",
-              "bn": "বৃষ্টি পড়ছিল বিধায় ট্যাক্সিতে গিয়েছিলাম।",
-              "bn_pron": "আমে গা ফdistributionত্তে ইমাশিতা নোদে, তাকুশিই দে ইকিমাশিতা।",
-              "ipa": "Ame ga futte imashita node, takushii de ikimashita.",
+              "target": "銀行へ 行って、お金を 下ろして、買い物に 行きました。",
+              "target_kana": "ぎんこうえいって、おかねをおろして、かいものにいきました。",
+              "romaji": "Ginkou e itte, okane o oroshite, kaimono ni ikimashita.",
+              "bn": "ব্যাংকে গিয়ে, টাকা তুলে, কেনাকাটা করতে গিয়েছিলাম।",
+              "bn_pron": "গিনকোও এ ইত্তে, ওকানে ও ওরোশিতে, কাইমোনো নি ইকিমাশিতা।",
+              "ipa": "Ginkou e itte, okane o oroshite, kaimono ni ikimashita.",
               "tokens": [
                 {
-                  "t": "あめが ふって いましたので、タクシーで いきました。",
-                  "romaji": "Ame ga futte imashita node, takushii de ikimashita.",
-                  "kanji": "あめが ふって いましたので、タクシーで いきました。",
-                  "bn": "বৃষ্টি পড়ছিল বিধায় ট্যাক্সিতে গিয়েছিলাম।"
+                  "t": "銀行へ行って",
+                  "romaji": "ginkou e itte",
+                  "kanji": "銀行へ行って",
+                  "bn": "ব্যাংকে গিয়ে"
+                },
+                {
+                  "t": "お金を下ろして",
+                  "romaji": "okane o oroshite",
+                  "kanji": "お金を下ろして",
+                  "bn": "টাকা তুলে"
+                },
+                {
+                  "t": "買い物に行きました",
+                  "romaji": "kaimono ni ikimashita",
+                  "kanji": "買い物に行きました",
+                  "bn": "কেনাকাটা করতে গিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1504,25 +1878,43 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "じかんが ありませんでしたから、あさごはんを たべませんでした。",
-              "target_kana": "じかんがありませんでしたから、あさごはんをたべませんでした。",
-              "romaji": "Jikan ga arimasendeshita kara, asagohan o tabemasendeshita.",
-              "bn": "সময় ছিল না বলে সকালের নাস্তা করিনি।",
-              "bn_pron": "জিকান গা আরিমাসেনদেশিতা কারা, আসাগোহান ও তাবেমাসেনদেশিতা।",
-              "ipa": "Jikan ga arimasendeshita kara, asagohan o tabemasendeshita.",
+              "target": "図書館で 本を 借りて、家で 読みました。",
+              "target_kana": "としょかんでほんをかりて、いえでよみました。",
+              "romaji": "Toshokan de hon o karite, ie de yomimashita.",
+              "bn": "লাইব্রেরি থেকে বই ধার নিয়ে, বাড়িতে পড়েছিলাম।",
+              "bn_pron": "তোশোখান দে হোন ও কারিতে, ইয়ে দে ইয়োমিমাশিতা।",
+              "ipa": "Toshokan de hon o karite, ie de yomimashita.",
               "tokens": [
                 {
-                  "t": "じかんが ありませんでしたから、あさごはんを たべませんでした。",
-                  "romaji": "Jikan ga arimasendeshita kara, asagohan o tabemasendeshita.",
-                  "kanji": "じかんが ありませんでしたから、あさごはんを たべませんでした。",
-                  "bn": "সময় ছিল না বলে সকালের নাস্তা করিনি।"
+                  "t": "図書館で",
+                  "romaji": "toshokan de",
+                  "kanji": "図書館で",
+                  "bn": "লাইব্রেরিতে"
+                },
+                {
+                  "t": "本を借りて",
+                  "romaji": "hon o karite",
+                  "kanji": "本を借りて",
+                  "bn": "বই ধার নিয়ে"
+                },
+                {
+                  "t": "家で",
+                  "romaji": "ie de",
+                  "kanji": "家で",
+                  "bn": "বাড়িতে"
+                },
+                {
+                  "t": "読みました",
+                  "romaji": "yomimashita",
+                  "kanji": "読みました",
+                  "bn": "পড়েছিলাম"
                 }
               ],
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "assertive",
-                "polarity": "negative",
+                "polarity": "affirmative",
                 "tense": "past_simple",
                 "jlpt": "N5"
               }
@@ -1532,11 +1924,12 @@
         {
           "id": "jp-past-l11",
           "order": 3,
-          "title_bn": "ধারাবাহিক অতীত ঘটনা (Sequential Actions: Verb-て、Verb-て、Verb-ました)",
-          "title_target": "Chaining Past Actions (~te, ~te, ~mashita)",
-          "intro_bn": "অতীতে একের পর এক একাধিক কাজ সম্পন্ন হলে ক্রিয়াপদগুলোকে তে-ফর্ম (Te-form) দিয়ে যুক্ত করে শেষ ক্রিয়াতে 'ました' বসে।",
+          "title_bn": "কাজের নির্দিষ্ট ক্রম — '〜てから' ও '〜た後で'",
+          "title_target": "Precise Action Order (~te kara / ~ta ato de)",
+          "intro_bn": "একটি কাজ সম্পন্ন করার পর অপর কাজটি করা বোঝাতে 'Verb-て から' (A করার পর B) অথবা 'Verb-た 後で' (A সম্পন্ন হওয়ার পর B) বসে।",
           "structure": [
-            "Verb 1-て、Verb 2-て、Verb 3-ました"
+            "Verb 1-て から、Verb 2 (A করে তবেই B)",
+            "Verb 1-た 後で、Verb 2 (A করার পরে B)"
           ],
           "items": [
             {
@@ -1545,18 +1938,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "あさ ６じに おきて、シャワーを あびて、がっこうへ いきました。",
-              "target_kana": "あさろくじにおきて、しゃわーをあびて、がっこうえいきました。",
-              "romaji": "Asa rokuji ni okite, shawaa o abite, gakkou e ikimashita.",
-              "bn": "সকালে ৬টায় উঠে, গোসল করে, স্কুলে গিয়েছিলাম।",
-              "bn_pron": "আসা রোকুজি নি ওকিতে, শাওয়াআ ও আবিতে, গাক্কোও এ ইকিমাশিতা।",
-              "ipa": "Asa rokuji ni okite, shawaa o abite, gakkou e ikimashita.",
+              "target": "仕事を 終わってから、友だちに 会いました。",
+              "target_kana": "しごとをおわってから、ともだちにあいました。",
+              "romaji": "Shigoto o owatte kara, tomodachi ni aimashita.",
+              "bn": "কাজ শেষ করার পর বন্ধুর সাথে দেখা করেছিলাম।",
+              "bn_pron": "শিগোতো ও ওয়াত্তে কারা, তোমোদাচি নি আইমাশিতা।",
+              "ipa": "Shigoto o owatte kara, tomodachi ni aimashita.",
               "tokens": [
                 {
-                  "t": "あさ ６じに おきて、シャワーを あびて、がっこうへ いきました。",
-                  "romaji": "Asa rokuji ni okite, shawaa o abite, gakkou e ikimashita.",
-                  "kanji": "あさ ６じに おきて、シャワーを あびて、がっこうへ いきました。",
-                  "bn": "সকালে ৬টায় উঠে, গোসল করে, স্কুলে গিয়েছিলাম।"
+                  "t": "仕事を",
+                  "romaji": "shigoto o",
+                  "kanji": "仕事を",
+                  "bn": "কাজ"
+                },
+                {
+                  "t": "終わってから",
+                  "romaji": "owatte kara",
+                  "kanji": "終わってから",
+                  "bn": "শেষ করার পর"
+                },
+                {
+                  "t": "友だちに",
+                  "romaji": "tomodachi ni",
+                  "kanji": "友だちに",
+                  "bn": "বন্ধুর সাথে"
+                },
+                {
+                  "t": "会いました",
+                  "romaji": "aimashita",
+                  "kanji": "会いました",
+                  "bn": "দেখা করেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1574,18 +1985,83 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "ぎんこうへ いって、おかねを おろして、かいものに いきました。",
-              "target_kana": "ぎんこうえいって、おかねをおろして、かいものにいきました。",
-              "romaji": "Ginkou e itte, okane o oroshite, kaimono ni ikimashita.",
-              "bn": "ব্যাংকে গিয়ে, টাকা তুলে, কেনাকাটা করতে গিয়েছিলাম।",
-              "bn_pron": "গিনকোও এ ইত্তে, ওকানে ও ওরোশিতে, কাইমোনো নি ইকিমাশিতা।",
-              "ipa": "Ginkou e itte, okane o oroshite, kaimono ni ikimashita.",
+              "target": "ご飯を 食べた後で、薬を 飲みました。",
+              "target_kana": "ごはんをたべたあとで、くすりをのみました。",
+              "romaji": "Gohan o tabeta ato de, kusuri o nomimashita.",
+              "bn": "খাওয়ার পরে ওষুধ খেয়েছিলাম।",
+              "bn_pron": "গোহান ও তাবেতা আতো দে, কুসুরি ও নোমিমাশিতা।",
+              "ipa": "Gohan o tabeta ato de, kusuri o nomimashita.",
               "tokens": [
                 {
-                  "t": "ぎんこうへ いって、おかねを おろして、かいものに いきました。",
-                  "romaji": "Ginkou e itte, okane o oroshite, kaimono ni ikimashita.",
-                  "kanji": "ぎんこうへ いって、おかねを おろして、かいものに いきました。",
-                  "bn": "ব্যাংকে গিয়ে, টাকা তুলে, কেনাকাটা করতে গিয়েছিলাম।"
+                  "t": "ご飯を",
+                  "romaji": "gohan o",
+                  "kanji": "ご飯を",
+                  "bn": "ভাত/খাবার"
+                },
+                {
+                  "t": "食べた後で",
+                  "romaji": "tabeta ato de",
+                  "kanji": "食べた後で",
+                  "bn": "খাওয়ার পরে"
+                },
+                {
+                  "t": "薬を",
+                  "romaji": "kusuri o",
+                  "kanji": "薬を",
+                  "bn": "ওষুধ"
+                },
+                {
+                  "t": "飲みました",
+                  "romaji": "nomimashita",
+                  "kanji": "飲みました",
+                  "bn": "খেয়েছিলাম"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p3-l11-003",
+              "concept_id": "c-jp-past-p3-l11-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "日本へ 来てから、ずっと 東京に 住んでいます。",
+              "target_kana": "にほんえきてから、ずっととうきょうにすんでいます。",
+              "romaji": "Nihon e kite kara, zutto Toukyou ni sunde imasu.",
+              "bn": "জাপানে আসার পর থেকে টানা টোকিওতে বসবাস করছি।",
+              "bn_pron": "নিহোন এ কিতে কারা, জুত্তো তোকিও নি সুন্দে ইমাসু।",
+              "ipa": "Nihon e kite kara, zutto Toukyou ni sunde imasu.",
+              "tokens": [
+                {
+                  "t": "日本へ来てから",
+                  "romaji": "Nihon e kite kara",
+                  "kanji": "日本へ来てから",
+                  "bn": "জাপানে আসার পর থেকে"
+                },
+                {
+                  "t": "ずっと",
+                  "romaji": "zutto",
+                  "kanji": "ずっと",
+                  "bn": "টানা/একটানা"
+                },
+                {
+                  "t": "東京に",
+                  "romaji": "Toukyou ni",
+                  "kanji": "東京に",
+                  "bn": "টোকিওতে"
+                },
+                {
+                  "t": "住んでいます",
+                  "romaji": "sunde imasu",
+                  "kanji": "住んでいます",
+                  "bn": "বসবাস করছি"
                 }
               ],
               "status": "reviewed",
@@ -1605,17 +2081,17 @@
       "id": "jp-past-p4",
       "order": 4,
       "level": "A2",
-      "title_bn": "জীবনের অভিজ্ঞতা প্রকাশ (Life Experiences: 〜たことがあります)",
-      "title_target": "Life Experiences & Activity Lists (~ta koto ga arimasu / ~tari)",
+      "title_bn": "অতীত ঘটমান ও কারণ ব্যাখ্যা (Past Continuous & Explaining Reasons)",
+      "title_target": "Past Continuous, Reasons & Simultaneous Actions (~te imashita / ~kara / ~nagara)",
       "lessons": [
         {
           "id": "jp-past-l12",
           "order": 1,
-          "title_bn": "জীবনের অভিজ্ঞতা জিজ্ঞাসা — '〜たことが ありますか'",
-          "title_target": "Asking About Life Experiences (Have you ever...?)",
-          "intro_bn": "জীবনে কখনো কোনো কিছু করার অভিজ্ঞতা আছে কি না জানতে ক্রিয়াপদের Ta-form এর সাথে '〜ことがありますか' বসে (Have you ever...?)।",
+          "title_bn": "অতীত ঘটমান কাজ — 'Verb-て いました' (Past Continuous)",
+          "title_target": "Past Continuous (Verb-te imashita)",
+          "intro_bn": "অতীতে কোনো নির্দিষ্ট সময়ে কোনো কাজ চলছিল বোঝাতে 'Verb-て いました' (করছিলাম) বসে।",
           "structure": [
-            "Verb (Ta-form) + ことが ありますか (Have you ever done...?)"
+            "Subject + は + そのとき + Verb-て いました"
           ],
           "items": [
             {
@@ -1624,18 +2100,36 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "にほんへ いったことが ありますか。",
-              "target_kana": "にほんえいったことがありますか。",
-              "romaji": "Nihon e itta koto ga arimasu ka.",
-              "bn": "আপনি কি কখনো জাপানে গিয়েছেন?",
-              "bn_pron": "নিহোন এ ইত্তা কোতো গা আরিমাসু কা?",
-              "ipa": "Nihon e itta koto ga arimasu ka.",
+              "target": "そのとき、わたしは ご飯を 食べて いました。",
+              "target_kana": "そのとき、わたしわごはんをたべていました。",
+              "romaji": "Sono toki, watashi wa gohan o tabete imashita.",
+              "bn": "সেই সময় আমি ভাত খাচ্ছিলাম।",
+              "bn_pron": "সোনো তোকি, ওয়াতাশি ওয়া গোহান ও তাবেতে ইমাশিতা।",
+              "ipa": "Sono toki, watashi wa gohan o tabete imashita.",
               "tokens": [
                 {
-                  "t": "にほんへ いったことが ありますか。",
-                  "romaji": "Nihon e itta koto ga arimasu ka.",
-                  "kanji": "にほんへ いったことが ありますか。",
-                  "bn": "আপনি কি কখনো জাপানে গিয়েছেন?"
+                  "t": "そのとき",
+                  "romaji": "sono toki",
+                  "kanji": "その時",
+                  "bn": "সেই সময়"
+                },
+                {
+                  "t": "わたしは",
+                  "romaji": "watashi wa",
+                  "kanji": "私は",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "ご飯を",
+                  "romaji": "gohan o",
+                  "kanji": "ご飯を",
+                  "bn": "ভাত"
+                },
+                {
+                  "t": "食べていました",
+                  "romaji": "tabete imashita",
+                  "kanji": "食べていました",
+                  "bn": "খাচ্ছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1643,7 +2137,7 @@
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
-                "tense": "past_simple",
+                "tense": "past_continuous",
                 "jlpt": "N5"
               }
             },
@@ -1653,18 +2147,42 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "すしを たべたことが ありますか。",
-              "target_kana": "すしをたべたことがありますか。",
-              "romaji": "Sushi o tabeta koto ga arimasu ka.",
-              "bn": "আপনি কি কখনো সুশি খেয়েছেন?",
-              "bn_pron": "সুশি ও তাবেতা কোতো গা আরিমাসু কা?",
-              "ipa": "Sushi o tabeta koto ga arimasu ka.",
+              "target": "きのうの 午後３時に 何を して いましたか。図書館で 本を 読んで いました。",
+              "target_kana": "きのうのごごさんじになにをしていましたか。としょかんでほんをよんでいました。",
+              "romaji": "Kinou no gogo sanji ni nani o shite imashita ka. Toshokan de hon o yonde imashita.",
+              "bn": "গতকাল বিকেল ৩টায় কী করছিলেন? লাইব্রেরিতে বই পড়ছিলাম।",
+              "bn_pron": "কিনোও নো গোগো সানজি নি নানি ও শিতে ইমাশিতা কা? তোশোখান দে হোন ও ইয়োন্দে ইমাশিতা।",
+              "ipa": "Kinou no gogo sanji ni nani o shite imashita ka. Toshokan de hon o yonde imashita.",
               "tokens": [
                 {
-                  "t": "すしを たべたことが ありますか。",
-                  "romaji": "Sushi o tabeta koto ga arimasu ka.",
-                  "kanji": "すしを たべたことが ありますか。",
-                  "bn": "আপনি কি কখনো সুশি খেয়েছেন?"
+                  "t": "きのうの",
+                  "romaji": "kinou no",
+                  "kanji": "昨日の",
+                  "bn": "গতকালের"
+                },
+                {
+                  "t": "午後３時に",
+                  "romaji": "gogo sanji ni",
+                  "kanji": "午後３時に",
+                  "bn": "বিকেল ৩টায়"
+                },
+                {
+                  "t": "何をしていましたか",
+                  "romaji": "nani o shite imashita ka",
+                  "kanji": "何をしていましたか",
+                  "bn": "কী করছিলেন"
+                },
+                {
+                  "t": "図書館で",
+                  "romaji": "toshokan de",
+                  "kanji": "図書館で",
+                  "bn": "লাইব্রেরিতে"
+                },
+                {
+                  "t": "本を読んでいました",
+                  "romaji": "hon o yonde imashita",
+                  "kanji": "本を読んでいました",
+                  "bn": "বই পড়ছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1672,7 +2190,7 @@
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
-                "tense": "past_simple",
+                "tense": "past_continuous",
                 "jlpt": "N5"
               }
             },
@@ -1682,18 +2200,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "ふじさんに のぼったことが ありますか。",
-              "target_kana": "ふじさんにのぼったことがありますか。",
-              "romaji": "Fuji-san ni nobotta koto ga arimasu ka.",
-              "bn": "আপনি কি কখনো ফুজি পাহাড়ে চড়েছেন?",
-              "bn_pron": "ফুজি-সান নি নোবোত্তা কোতো গা আরিমাসু কা?",
-              "ipa": "Fuji-san ni nobotta koto ga arimasu ka.",
+              "target": "電話が あったとき、お風呂に 入って いました。",
+              "target_kana": "でんわがあったとき、おふろにはいっていました。",
+              "romaji": "Denwa ga atta toki, ofuro ni haitte imashita.",
+              "bn": "যখন ফোন এসেছিল, তখন গোসল করছিলাম।",
+              "bn_pron": "দেনওয়া গা আত্তা তোকি, অফুরো নি হাইত্তে ইমাশিতা।",
+              "ipa": "Denwa ga atta toki, ofuro ni haitte imashita.",
               "tokens": [
                 {
-                  "t": "ふじさんに のぼったことが ありますか。",
-                  "romaji": "Fuji-san ni nobotta koto ga arimasu ka.",
-                  "kanji": "ふじさんに のぼったことが ありますか。",
-                  "bn": "আপনি কি কখনো ফুজি পাহাড়ে চড়েছেন?"
+                  "t": "電話があったとき",
+                  "romaji": "denwa ga atta toki",
+                  "kanji": "電話があった時",
+                  "bn": "ফোন আসার সময়"
+                },
+                {
+                  "t": "お風呂に",
+                  "romaji": "ofuro ni",
+                  "kanji": "お風呂に",
+                  "bn": "গোসলখানায়/বাথটাবে"
+                },
+                {
+                  "t": "入っていました",
+                  "romaji": "haitte imashita",
+                  "kanji": "入っていました",
+                  "bn": "গোসল করছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1701,7 +2231,7 @@
               "tags": {
                 "sentence_type": "assertive",
                 "polarity": "affirmative",
-                "tense": "past_simple",
+                "tense": "past_continuous",
                 "jlpt": "N5"
               }
             }
@@ -1710,12 +2240,11 @@
         {
           "id": "jp-past-l13",
           "order": 2,
-          "title_bn": "হ্যাঁ-বোধক ও না-বোধক অভিজ্ঞতা (Affirmative & Negative Experience)",
-          "title_target": "Sharing Past Experiences (I have / I have never)",
-          "intro_bn": "অভিজ্ঞতা থাকলে '〜たことが あります' (Yes, I have) এবং না থাকলে 'いちども ありません' (একবারও না) বলতে হয়।",
+          "title_bn": "অতীত কারণ ব্যাখ্যা — '〜から / 〜ので' (Explaining Reasons)",
+          "title_target": "Giving Past Reasons (~kara / ~node)",
+          "intro_bn": "অতীতে কোনো ঘটনা ঘটার বা না ঘটার কারণ ব্যাখ্যা করতে বাক্যের মাঝে '〜から' বা '〜ので' (কারণ/বলে) বসে।",
           "structure": [
-            "Affirmative: はい、Verb-たことが あります",
-            "Negative: いいえ、いちども Verb-たことが ありません"
+            "Reason Sentence + から / ので、Result Sentence (Past)"
           ],
           "items": [
             {
@@ -1724,18 +2253,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "はい、にほんへ いったことが あります。にど いきました。",
-              "target_kana": "はい、にほんえいったことがあります。にどいきました。",
-              "romaji": "Hai, Nihon e itta koto ga arimasu. Nido ikimashita.",
-              "bn": "হ্যাঁ, জাপানে যাওয়ার অভিজ্ঞতা আছে। দুইবার গিয়েছিলাম।",
-              "bn_pron": "হাই, নিহোন এ ইত্তা কোতো গা আরিমাসু। নিদো ইকিমাশিতা।",
-              "ipa": "Hai, Nihon e itta koto ga arimasu. Nido ikimashita.",
+              "target": "頭が 痛かったですから、会社を 休みました。",
+              "target_kana": "あたまがいたかったですから、かいしゃをやすみました。",
+              "romaji": "Atama ga itakatta desu kara, kaisha o yasumimashita.",
+              "bn": "মাথা ব্যথা করছিল বলে অফিস থেকে ছুটি নিয়েছিলাম।",
+              "bn_pron": "আতামা গা ইতাকাত্তা দেসু কারা, কাইশা ও ইয়াসুমিমাশিতা।",
+              "ipa": "Atama ga itakatta desu kara, kaisha o yasumimashita.",
               "tokens": [
                 {
-                  "t": "はい、にほんへ いったことが あります。にど いきました。",
-                  "romaji": "Hai, Nihon e itta koto ga arimasu. Nido ikimashita.",
-                  "kanji": "はい、にほんへ いったことが あります。にど いきました。",
-                  "bn": "হ্যাঁ, জাপানে যাওয়ার অভিজ্ঞতা আছে। দুইবার গিয়েছিলাম।"
+                  "t": "頭が痛かったですから",
+                  "romaji": "atama ga itakatta desu kara",
+                  "kanji": "頭が痛かったですから",
+                  "bn": "মাথা ব্যথা করছিল বলে"
+                },
+                {
+                  "t": "会社を",
+                  "romaji": "kaisha o",
+                  "kanji": "会社を",
+                  "bn": "কোম্পানি/অফিস"
+                },
+                {
+                  "t": "休みました",
+                  "romaji": "yasumimashita",
+                  "kanji": "休みました",
+                  "bn": "ছুটি নিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1753,47 +2294,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "いいえ、いちども たべたことが ありません。たべて みたいです。",
-              "target_kana": "いいえ、いちどもたべたことがありません。たべてみたいです。",
-              "romaji": "Iie, ichido mo tabeta koto ga arimasen. Tabete mitai desu.",
-              "bn": "না, একবারও খাইনি। খেয়ে দেখতে চাই।",
-              "bn_pron": "ইইয়ে, ইচিদো মো তাবেতা কোতো গা আরিমাসেন। তাবেতে মিতাই দেস।",
-              "ipa": "Iie, ichido mo tabeta koto ga arimasen. Tabete mitai desu.",
+              "target": "雨が 降って いましたので、タクシーで 行きました。",
+              "target_kana": "あめがふっていましたので、たくしーでいきました。",
+              "romaji": "Ame ga futte imashita node, takushii de ikimashita.",
+              "bn": "বৃষ্টি পড়ছিল বিধায় ট্যাক্সিতে গিয়েছিলাম।",
+              "bn_pron": "আমে গা ফুর্তে ইমাশিতা নোদে, তাকুশিই দে ইকিমাশিতা।",
+              "ipa": "Ame ga futte imashita node, takushii de ikimashita.",
               "tokens": [
                 {
-                  "t": "いいえ、いちども たべたことが ありません。たべて みたいです。",
-                  "romaji": "Iie, ichido mo tabeta koto ga arimasen. Tabete mitai desu.",
-                  "kanji": "いいえ、いちども たべたことが ありません。たべて みたいです。",
-                  "bn": "না, একবারও খাইনি। খেয়ে দেখতে চাই।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "negative",
-                "tense": "past_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-past-p4-l13-003",
-              "concept_id": "c-jp-past-p4-l13-003",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "きもので あるいたことが あります。",
-              "target_kana": "きものであるいたことがあります。",
-              "romaji": "Kimono de aruita koto ga arimasu.",
-              "bn": "কিমোনো পরিধান করে হাঁটার অভিজ্ঞতা রয়েছে।",
-              "bn_pron": "কিমোনো দে আরুইতা কোতো গা আরিমাসু।",
-              "ipa": "Kimono de aruita koto ga arimasu.",
-              "tokens": [
+                  "t": "雨が降っていましたので",
+                  "romaji": "ame ga futte imashita node",
+                  "kanji": "雨が降っていましたので",
+                  "bn": "বৃষ্টি পড়ছিল বিধায়"
+                },
                 {
-                  "t": "きもので あるいたことが あります。",
-                  "romaji": "Kimono de aruita koto ga arimasu.",
-                  "kanji": "きもので あるいたことが あります。",
-                  "bn": "কিমোনো পরিধান করে হাঁটার অভিজ্ঞতা রয়েছে।"
+                  "t": "タクシーで",
+                  "romaji": "takushii de",
+                  "kanji": "タクシーで",
+                  "bn": "ট্যাক্সিতে"
+                },
+                {
+                  "t": "行きました",
+                  "romaji": "ikimashita",
+                  "kanji": "行きました",
+                  "bn": "গিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1804,17 +2328,58 @@
                 "tense": "past_simple",
                 "jlpt": "N5"
               }
+            },
+            {
+              "id": "jp-past-p4-l13-003",
+              "concept_id": "c-jp-past-p4-l13-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "時間が ありませんでしたから、朝ご飯を 食べませんでした。",
+              "target_kana": "じかんがありませんでしたから、あさごはんをたべませんでした。",
+              "romaji": "Jikan ga arimasendeshita kara, asagohan o tabemasendeshita.",
+              "bn": "সময় ছিল না বলে সকালের নাস্তা করিনি।",
+              "bn_pron": "জিকান গা আরিমাসেনদেশিতা কারা, আসাগোহান ও তাবেমাসেনদেশিতা।",
+              "ipa": "Jikan ga arimasendeshita kara, asagohan o tabemasendeshita.",
+              "tokens": [
+                {
+                  "t": "時間がありませんでしたから",
+                  "romaji": "jikan ga arimasendeshita kara",
+                  "kanji": "時間がありませんでしたから",
+                  "bn": "সময় ছিল না বলে"
+                },
+                {
+                  "t": "朝ご飯を",
+                  "romaji": "asagohan o",
+                  "kanji": "朝ご飯を",
+                  "bn": "সকালের নাস্তা"
+                },
+                {
+                  "t": "食べませんでした",
+                  "romaji": "tabemasendeshita",
+                  "kanji": "食べませんでした",
+                  "bn": "খাইনি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
             }
           ]
         },
         {
           "id": "jp-past-l14",
           "order": 3,
-          "title_bn": "নানা কাজের নমুনা তালিকা — '〜たり、〜たり しました'",
-          "title_target": "Listing Multiple Activities (~tari, ~tari shimashita)",
-          "intro_bn": "ছুটির দিনে নানা রকম কাজের উদাহরণ দিতে 'Verb 1-たり、Verb 2-たり しました' বসে (Doing things like A and B)।",
+          "title_bn": "একই সাথে দুটি কাজ করা — '〜ながら' (Simultaneous Actions)",
+          "title_target": "Simultaneous Actions (Verb-nagara)",
+          "intro_bn": "একই সময়ে দুটি কাজ সম্পাদন করা বোঝাতে প্রথম ক্রিয়ার ます-stem এর সাথে 'ながら' বসে (যেমন: গান শুনতে শুনতে পড়াশোনা করা)।",
           "structure": [
-            "Verb 1-たり、Verb 2-たり + しました"
+            "Verb 1 (stem) + ながら + Verb 2"
           ],
           "items": [
             {
@@ -1823,18 +2388,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "やすみの ひは かいものを したり、えいがを みたり しました。",
-              "target_kana": "やすみのひわかいものをしたり、えいがをみたりしました。",
-              "romaji": "Yasumi no hi wa kaimono o shitari, eiga o mitari shimashita.",
-              "bn": "ছুটির দিনে কেনাকাটা করা, সিনেমা দেখা ইত্যাদি করেছিলাম।",
-              "bn_pron": "ইয়াসুমি নো হি ওয়া কাইমোনো ও শিতারি, এইগা ও মিতারি শিমাশিতা।",
-              "ipa": "Yasumi no hi wa kaimono o shitari, eiga o mitari shimashita.",
+              "target": "音楽を 聞きながら 勉強しました。",
+              "target_kana": "おんがくをききながらべんきょうしました。",
+              "romaji": "Ongaku o kikinagara benkyou shimashita.",
+              "bn": "গান শুনতে শুনতে পড়াশোনা করেছিলাম।",
+              "bn_pron": "ওনগাকু ও কিকিনাগারা বেনকিওও শিমাশিতা।",
+              "ipa": "Ongaku o kikinagara benkyou shimashita.",
               "tokens": [
                 {
-                  "t": "やすみの ひは かいものを したり、えいがを みたり しました。",
-                  "romaji": "Yasumi no hi wa kaimono o shitari, eiga o mitari shimashita.",
-                  "kanji": "やすみの ひは かいものを したり、えいがを みたり しました。",
-                  "bn": "ছুটির দিনে কেনাকাটা করা, সিনেমা দেখা ইত্যাদি করেছিলাম।"
+                  "t": "音楽を",
+                  "romaji": "ongaku o",
+                  "kanji": "音楽を",
+                  "bn": "গান"
+                },
+                {
+                  "t": "聞きながら",
+                  "romaji": "kikinagara",
+                  "kanji": "聞きながら",
+                  "bn": "শুনতে শুনতে"
+                },
+                {
+                  "t": "勉強しました",
+                  "romaji": "benkyou shimashita",
+                  "kanji": "勉強しました",
+                  "bn": "পড়াশোনা করেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1852,18 +2429,77 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "きょうとで おてらを みたり、おんせんに はいったり しました。",
-              "target_kana": "きょうとでおてらをみたり、おんせんにはいったりしました。",
-              "romaji": "Kyouto de otera o mitari, onsen ni haittari shimashita.",
-              "bn": "কিয়োটোতে মন্দির পরিদর্শন, উষ্ণ প্রস্রবণে গোসল ইত্যাদি করেছিলাম।",
-              "bn_pron": "কিওওতো দে ওতেরা ও মিতারি, ওনসেন নি হাইত্তারি শিমাশিতা।",
-              "ipa": "Kyouto de otera o mitari, onsen ni haittari shimashita.",
+              "target": "テレビを 見ながら ご飯を 食べました。",
+              "target_kana": "てれびをみながらごはんをたべました。",
+              "romaji": "Terebi o minagara gohan o tabemashita.",
+              "bn": "টিভি দেখতে দেখতে খাবার খেয়েছিলাম।",
+              "bn_pron": "তেরেবি ও মনাগারা গোহান ও তাবেমাশিতা।",
+              "ipa": "Terebi o minagara gohan o tabemashita.",
               "tokens": [
                 {
-                  "t": "きょうとで おてらを みたり、おんせんに はいったり しました。",
-                  "romaji": "Kyouto de otera o mitari, onsen ni haittari shimashita.",
-                  "kanji": "きょうとで おてらを みたり、おんせんに はいったり しました。",
-                  "bn": "কিয়োটোতে মন্দির পরিদর্শন, উষ্ণ প্রস্রবণে গোসল ইত্যাদি করেছিলাম।"
+                  "t": "テレビを",
+                  "romaji": "terebi o",
+                  "kanji": "テレビを",
+                  "bn": "টিভি"
+                },
+                {
+                  "t": "見ながら",
+                  "romaji": "minagara",
+                  "kanji": "見ながら",
+                  "bn": "দেখতে দেখতে"
+                },
+                {
+                  "t": "ご飯を",
+                  "romaji": "gohan o",
+                  "kanji": "ご飯を",
+                  "bn": "খাবার"
+                },
+                {
+                  "t": "食べました",
+                  "romaji": "tabemashita",
+                  "kanji": "食べました",
+                  "bn": "খেয়েছিলাম"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p4-l14-003",
+              "concept_id": "c-jp-past-p4-l14-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "友だちと コーヒーを 飲みながら 話しました。",
+              "target_kana": "ともだちとこーひーをのみながらはなしました。",
+              "romaji": "Tomodachi to koohii o nominagara hanashimashita.",
+              "bn": "বন্ধুর সাথে কফি খেতে খেতে কথা বলেছিলাম।",
+              "bn_pron": "তোমোদাচি তো কোওহিই ও নোমিনাঘারা হানাশিমাশিতা।",
+              "ipa": "Tomodachi to koohii o nominagara hanashimashita.",
+              "tokens": [
+                {
+                  "t": "友だちと",
+                  "romaji": "tomodachi to",
+                  "kanji": "友だちと",
+                  "bn": "বন্ধুর সাথে"
+                },
+                {
+                  "t": "コーヒーを飲みながら",
+                  "romaji": "koohii o nominagara",
+                  "kanji": "コーヒーを飲みながら",
+                  "bn": "কফি পান করতে করতে"
+                },
+                {
+                  "t": "話しました",
+                  "romaji": "hanashimashita",
+                  "kanji": "話しました",
+                  "bn": "কথা বলেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -1883,19 +2519,17 @@
       "id": "jp-past-p5",
       "order": 5,
       "level": "A2",
-      "title_bn": "কাজ সম্পন্নের অনুভূতি ও অনিচ্ছাকৃত ভুল (Completed Actions & Regret)",
-      "title_target": "Completed Actions & Regret (Mou ... mashita / ~te shimaimashita)",
+      "title_bn": "জীবনের অভিজ্ঞতা প্রকাশ (Life Experiences: 〜たことがあります)",
+      "title_target": "Life Experiences & Representative Activities (~ta koto ga arimasu / ~tari)",
       "lessons": [
         {
           "id": "jp-past-l15",
           "order": 1,
-          "title_bn": "ইতিমধ্যে সমাপ্ত কাজ — 'もう〜ました' (Already Finished)",
-          "title_target": "Recently Completed Actions (Mou Verb-mashita)",
-          "intro_bn": "কোনো কাজ ইতিমধ্যে শেষ হয়েছে বোঝাতে 'もう〜ました' (already done) এবং এখনও হয়নি বোঝাতে 'まだです' বসে।",
+          "title_bn": "জীবনের অভিজ্ঞতা জিজ্ঞাসা — '〜たことが ありますか'",
+          "title_target": "Asking About Life Experiences (Have you ever...?)",
+          "intro_bn": "জীবনে কখনো কোনো কিছু করার অভিজ্ঞতা আছে কি না জানতে ক্রিয়াপদের Ta-form এর সাথে '〜ことがありますか' বসে (Have you ever...?)।",
           "structure": [
-            "Q: もう Verb-ましたか",
-            "A1: はい、もう Verb-ました (Yes, already done)",
-            "A2: いいえ、まだです (No, not yet)"
+            "Verb (Ta-form) + ことが ありますか (Have you ever done...?)"
           ],
           "items": [
             {
@@ -1904,18 +2538,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "もう ひるごはんを たべましたか。はい、もう たべました。",
-              "target_kana": "もうひるごはんをたべましたか。はい、もうたべました。",
-              "romaji": "Mou hirugohan o tabemashita ka. Hai, mou tabemashita.",
-              "bn": "ইতিমধ্যে দুপুরের খাবার খেয়েছেন কি? হ্যাঁ, খেয়ে নিয়েছি।",
-              "bn_pron": "মোও হিরুগোহান ও তাবেমাশিতা কা? হাই, মোও তাবেমাশিতা।",
-              "ipa": "Mou hirugohan o tabemashita ka. Hai, mou tabemashita.",
+              "target": "日本へ 行ったことが ありますか。",
+              "target_kana": "にほんえいったことがありますか。",
+              "romaji": "Nihon e itta koto ga arimasu ka.",
+              "bn": "আপনি কি কখনো জাপানে গিয়েছেন?",
+              "bn_pron": "নিহোন এ ইত্তা কোতো গা আরিমাসু কা?",
+              "ipa": "Nihon e itta koto ga arimasu ka.",
               "tokens": [
                 {
-                  "t": "もう ひるごはんを たべましたか。はい、もう たべました。",
-                  "romaji": "Mou hirugohan o tabemashita ka. Hai, mou tabemashita.",
-                  "kanji": "もう ひるごはんを たべましたか。はい、もう たべました。",
-                  "bn": "ইতিমধ্যে দুপুরের খাবার খেয়েছেন কি? হ্যাঁ, খেয়ে নিয়েছি।"
+                  "t": "日本へ",
+                  "romaji": "Nihon e",
+                  "kanji": "日本へ",
+                  "bn": "জাপানে"
+                },
+                {
+                  "t": "行ったことが",
+                  "romaji": "itta koto ga",
+                  "kanji": "行ったことが",
+                  "bn": "যাওয়ার বিষয়"
+                },
+                {
+                  "t": "ありますか",
+                  "romaji": "arimasu ka",
+                  "kanji": "ありますか",
+                  "bn": "অভিজ্ঞতা আছে কি"
                 }
               ],
               "status": "reviewed",
@@ -1933,25 +2579,78 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "しゅくだいは もう おわりましたか。いいえ、まだです。これから します。",
-              "target_kana": "しゅくだいわもうおわりましたか。いいえ、まだです。これからします。",
-              "romaji": "Shukudai wa mou owarimashita ka. Iie, mada desu. Kore kara shimasu.",
-              "bn": "বাড়ির কাজ কি ইতিমধ্যে শেষ হয়েছে? না, এখনও হয়নি। এখন করব।",
-              "bn_pron": "শুকুদ্বাই ওয়া মোও ওয়ারিমাশিতা কা? ইইয়ে, মাদা দেস। কোরে কারা শিমাসু।",
-              "ipa": "Shukudai wa mou owarimashita ka. Iie, mada desu. Kore kara shimasu.",
+              "target": "すしを 食べたことが ありますか。",
+              "target_kana": "すしをたべたことがありますか。",
+              "romaji": "Sushi o tabeta koto ga arimasu ka.",
+              "bn": "আপনি কি কখনো সুশি খেয়েছেন?",
+              "bn_pron": "সুশি ও তাবেতা কোতো গা আরিমাসু কা?",
+              "ipa": "Sushi o tabeta koto ga arimasu ka.",
               "tokens": [
                 {
-                  "t": "しゅくだいは もう おわりましたか。いいえ、まだです。これから します。",
-                  "romaji": "Shukudai wa mou owarimashita ka. Iie, mada desu. Kore kara shimasu.",
-                  "kanji": "しゅくだいは もう おわりましたか。いいえ、まだです。これから します。",
-                  "bn": "বাড়ির কাজ কি ইতিমধ্যে শেষ হয়েছে? না, এখনও হয়নি। এখন করব।"
+                  "t": "すしを",
+                  "romaji": "sushi o",
+                  "kanji": "すしを",
+                  "bn": "সুশি"
+                },
+                {
+                  "t": "食べたことが",
+                  "romaji": "tabeta koto ga",
+                  "kanji": "食べたことが",
+                  "bn": "খাওয়ার অভিজ্ঞতা"
+                },
+                {
+                  "t": "ありますか",
+                  "romaji": "arimasu ka",
+                  "kanji": "ありますか",
+                  "bn": "আছে কি"
                 }
               ],
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "assertive",
-                "polarity": "negative",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p5-l15-003",
+              "concept_id": "c-jp-past-p5-l15-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "富士山に 登ったことが ありますか。",
+              "target_kana": "ふじさんにのぼったことがありますか。",
+              "romaji": "Fujisan ni nobotta koto ga arimasu ka.",
+              "bn": "আপনি কি কখনো ফুজি পাহাড়ে চড়েছেন?",
+              "bn_pron": "ফুজি-সান নি নোবোত্তা কোতো গা আরিমাসু কা?",
+              "ipa": "Fujisan ni nobotta koto ga arimasu ka.",
+              "tokens": [
+                {
+                  "t": "富士山に",
+                  "romaji": "Fujisan ni",
+                  "kanji": "富士山に",
+                  "bn": "ফুজি পর্বতে"
+                },
+                {
+                  "t": "登ったことが",
+                  "romaji": "nobotta koto ga",
+                  "kanji": "登ったことが",
+                  "bn": "আরোহণের অভিজ্ঞতা"
+                },
+                {
+                  "t": "ありますか",
+                  "romaji": "arimasu ka",
+                  "kanji": "ありますか",
+                  "bn": "আছে কি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
                 "tense": "past_simple",
                 "jlpt": "N5"
               }
@@ -1961,11 +2660,12 @@
         {
           "id": "jp-past-l16",
           "order": 2,
-          "title_bn": "সম্পূর্ণ সমাপ্তি ও অনিচ্ছাকৃত ভুল — '〜て しまいました'",
-          "title_target": "Completion & Regret (~te shimaimashita)",
-          "intro_bn": "কোনো কাজ সম্পূর্ণ শেষ করা বা কোনো অপ্রত্যাশিত ভুল ঘটে যাওয়া প্রকাশে '〜て しまいました' বসে।",
+          "title_bn": "হ্যাঁ-বোধক ও না-বোধক অভিজ্ঞতা (Affirmative & Negative Experience)",
+          "title_target": "Sharing Past Experiences (I have / I have never)",
+          "intro_bn": "অভিজ্ঞতা থাকলে '〜たことが あります' (Yes, I have) এবং না থাকলে '一度も〜たことが ありません' (একবারও না) বলতে হয়।",
           "structure": [
-            "Verb-て + しまいました (পুরোপুরি শেষ হলো / ভুলবশত ঘটল)"
+            "Affirmative: はい、Verb-たことが あります",
+            "Negative: いいえ、一度も Verb-たことが ありません"
           ],
           "items": [
             {
@@ -1974,18 +2674,42 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "この ほんを ぜんぶ よんで しまいました。",
-              "target_kana": "このほんをぜんぶよんでしまいました。",
-              "romaji": "Kono hon o zenbu yonde shimaimashita.",
-              "bn": "এই বইটি সম্পূর্ণ পড়ে শেষ করে ফেলেছি।",
-              "bn_pron": "কোনো হোন ও জেনবু ইয়োন্দে শিমাইমাশিতা।",
-              "ipa": "Kono hon o zenbu yonde shimaimashita.",
+              "target": "はい、日本へ 行ったことが あります。二度 行きました。",
+              "target_kana": "はい、にほんえいったことがあります。にどいきました。",
+              "romaji": "Hai, Nihon e itta koto ga arimasu. Nido ikimashita.",
+              "bn": "হ্যাঁ, জাপানে যাওয়ার অভিজ্ঞতা আছে। দুইবার গিয়েছিলাম।",
+              "bn_pron": "হাই, নিহোন এ ইত্তা কোতো গা আরিমাসু। নিদো ইকিমাশিতা।",
+              "ipa": "Hai, Nihon e itta koto ga arimasu. Nido ikimashita.",
               "tokens": [
                 {
-                  "t": "この ほんを ぜんぶ よんで しまいました。",
-                  "romaji": "Kono hon o zenbu yonde shimaimashita.",
-                  "kanji": "この ほんを ぜんぶ よんで しまいました。",
-                  "bn": "এই বইটি সম্পূর্ণ পড়ে শেষ করে ফেলেছি।"
+                  "t": "はい",
+                  "romaji": "hai",
+                  "kanji": "はい",
+                  "bn": "হ্যাঁ"
+                },
+                {
+                  "t": "日本へ行ったことが",
+                  "romaji": "Nihon e itta koto ga",
+                  "kanji": "日本へ行ったことが",
+                  "bn": "জাপানে যাওয়ার অভিজ্ঞতা"
+                },
+                {
+                  "t": "あります",
+                  "romaji": "arimasu",
+                  "kanji": "あります",
+                  "bn": "আছে"
+                },
+                {
+                  "t": "二度",
+                  "romaji": "nido",
+                  "kanji": "二度",
+                  "bn": "দুইবার"
+                },
+                {
+                  "t": "行きました",
+                  "romaji": "ikimashita",
+                  "kanji": "行きました",
+                  "bn": "গিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -2003,18 +2727,142 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "電車に かさを わすれて しまいました。",
-              "target_kana": "でんしゃにかさをわすれてしまいました。",
-              "romaji": "Densha ni kasa o wasurete shimaimashita.",
-              "bn": "ট্রেনে ছাতা ভুলে ফেলে এসেছি। (অনিচ্ছাকৃত ভুল)",
-              "bn_pron": "দেনশা নি কাসা ও ওয়াসুরেতে শিমাইমাশিতা।",
-              "ipa": "Densha ni kasa o wasurete shimaimashita.",
+              "target": "いいえ、一度も 食べたことが ありません。食べて みたいです。",
+              "target_kana": "いいえ、いちどもたべたことがありません。たべてみたいです。",
+              "romaji": "Iie, ichido mo tabeta koto ga arimasen. Tabete mitai desu.",
+              "bn": "না, একবারও খাইনি। খেয়ে দেখতে চাই।",
+              "bn_pron": "ইইয়ে, ইচিদো মো তাবেতা কোতো গা আরিমাসেন। তাবেতে মিতাই দেস।",
+              "ipa": "Iie, ichido mo tabeta koto ga arimasen. Tabete mitai desu.",
               "tokens": [
                 {
-                  "t": "電車に かさを わすれて しまいました。",
-                  "romaji": "Densha ni kasa o wasurete shimaimashita.",
-                  "kanji": "電車に かさを わすれて しまいました。",
-                  "bn": "ট্রেনে ছাতা ভুলে ফেলে এসেছি। (অনিচ্ছাকৃত ভুল)"
+                  "t": "いいえ",
+                  "romaji": "iie",
+                  "kanji": "いいえ",
+                  "bn": "না"
+                },
+                {
+                  "t": "一度も",
+                  "romaji": "ichido mo",
+                  "kanji": "一度も",
+                  "bn": "একবারও"
+                },
+                {
+                  "t": "食べたことがありません",
+                  "romaji": "tabeta koto ga arimasen",
+                  "kanji": "食べたことがありません",
+                  "bn": "খাওয়ার অভিজ্ঞতা নেই"
+                },
+                {
+                  "t": "食べてみたいです",
+                  "romaji": "tabete mitai desu",
+                  "kanji": "食べてみたいです",
+                  "bn": "খেয়ে দেখতে চাই"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p5-l16-003",
+              "concept_id": "c-jp-past-p5-l16-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "着物を 着て、京都を 歩いたことが あります。",
+              "target_kana": "きものをきて、きょうとをおあるいたことがあります。",
+              "romaji": "Kimono o kite, Kyouto o aruita koto ga arimasu.",
+              "bn": "কিমোনো পরে কিয়োটোতে হাঁটার অভিজ্ঞতা রয়েছে।",
+              "bn_pron": "কিমোনো ও কিতে, কিওওতো ও আরুইতা কোতো গা আরিমাসু।",
+              "ipa": "Kimono o kite, Kyouto o aruita koto ga arimasu.",
+              "tokens": [
+                {
+                  "t": "着物を着て",
+                  "romaji": "kimono o kite",
+                  "kanji": "着物を着て",
+                  "bn": "কিমোনো পরিধান করে"
+                },
+                {
+                  "t": "京都を",
+                  "romaji": "Kyouto o",
+                  "kanji": "京都を",
+                  "bn": "কিয়োটোতে"
+                },
+                {
+                  "t": "歩いたことが",
+                  "romaji": "aruita koto ga",
+                  "kanji": "歩いたことが",
+                  "bn": "হাঁটার অভিজ্ঞতা"
+                },
+                {
+                  "t": "あります",
+                  "romaji": "arimasu",
+                  "kanji": "あります",
+                  "bn": "আছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-past-l17",
+          "order": 3,
+          "title_bn": "নানা কাজের নমুনা তালিকা — '〜たり、〜たり しました'",
+          "title_target": "Listing Multiple Activities (~tari, ~tari shimashita)",
+          "intro_bn": "ছুটির দিনে নানা রকম কাজের উদাহরণ দিতে 'Verb 1-たり、Verb 2-たり しました' বসে (Doing things like A and B)।",
+          "structure": [
+            "Verb 1-たり、Verb 2-たり + しました"
+          ],
+          "items": [
+            {
+              "id": "jp-past-p5-l17-001",
+              "concept_id": "c-jp-past-p5-l17-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "休みの日は 買い物を したり、映画を 見たり しました。",
+              "target_kana": "やすみのひわかいものをしたり、えいがをみたりしました。",
+              "romaji": "Yasumi no hi wa kaimono o shitari, eiga o mitari shimashita.",
+              "bn": "ছুটির দিনে কেনাকাটা করা, সিনেমা দেখা ইত্যাদি করেছিলাম।",
+              "bn_pron": "ইয়াসুমি নো হি ওয়া কাইমোনো ও শিতারি, এইগা ও মিতারি শিমাশিতা।",
+              "ipa": "Yasumi no hi wa kaimono o shitari, eiga o mitari shimashita.",
+              "tokens": [
+                {
+                  "t": "休みの日は",
+                  "romaji": "yasumi no hi wa",
+                  "kanji": "休みの日は",
+                  "bn": "ছুটির দিনে"
+                },
+                {
+                  "t": "買い物をしたり",
+                  "romaji": "kaimono o shitari",
+                  "kanji": "買い物をしたり",
+                  "bn": "কেনাকাটা করা"
+                },
+                {
+                  "t": "映画を見たり",
+                  "romaji": "eiga o mitari",
+                  "kanji": "映画を見たり",
+                  "bn": "সিনেমা দেখা"
+                },
+                {
+                  "t": "しました",
+                  "romaji": "shimashita",
+                  "kanji": "しました",
+                  "bn": "ইত্যাদি করেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -2027,23 +2875,41 @@
               }
             },
             {
-              "id": "jp-past-p5-l16-003",
-              "concept_id": "c-jp-past-p5-l16-003",
+              "id": "jp-past-p5-l17-002",
+              "concept_id": "c-jp-past-p5-l17-002",
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "パスポートを なくして しまいました。たいへんです。",
-              "target_kana": "ぱすぽーとをなくしてしまいました。たいへんです。",
-              "romaji": "Pasupooto o nakushite shimaimashita. Taihen desu.",
-              "bn": "পাসপোর্ট হারিয়ে ফেলেছি। মহাবিপদ!",
-              "bn_pron": "পাসুপোওতো ও নাকুশিতে শিমাইমাশিতা। তাইহেন দেস।",
-              "ipa": "Pasupooto o nakushite shimaimashita. Taihen desu.",
+              "target": "京都で お寺を 見たり、温泉に 入ったり しました。",
+              "target_kana": "きょうとでおてらをみたり、おんせんにはいったりしました。",
+              "romaji": "Kyouto de otera o mitari, onsen ni haittari shimashita.",
+              "bn": "কিয়োটোতে মন্দির পরিদর্শন, উষ্ণ প্রস্রবণে গোসল ইত্যাদি করেছিলাম।",
+              "bn_pron": "কিওওতো দে ওতেরা ও মিতারি, ওনসেন নি হাইত্তারি শিমাশিতা।",
+              "ipa": "Kyouto de otera o mitari, onsen ni haittari shimashita.",
               "tokens": [
                 {
-                  "t": "パスポートを なくして しまいました。たいへんです。",
-                  "romaji": "Pasupooto o nakushite shimaimashita. Taihen desu.",
-                  "kanji": "パスポートを なくして しまいました。たいへんです。",
-                  "bn": "পাসপোর্ট হারিয়ে ফেলেছি। মহাবিপদ!"
+                  "t": "京都で",
+                  "romaji": "Kyouto de",
+                  "kanji": "京都で",
+                  "bn": "কিয়োটোতে"
+                },
+                {
+                  "t": "お寺を見たり",
+                  "romaji": "otera o mitari",
+                  "kanji": "お寺を見たり",
+                  "bn": "মন্দির দেখা"
+                },
+                {
+                  "t": "温泉に入ったり",
+                  "romaji": "onsen ni haittari",
+                  "kanji": "温泉に入ったり",
+                  "bn": "উষ্ণ প্রস্রবণে গোসল করা"
+                },
+                {
+                  "t": "しました",
+                  "romaji": "shimashita",
+                  "kanji": "しました",
+                  "bn": "ইত্যাদি করেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -2063,87 +2929,19 @@
       "id": "jp-past-p6",
       "order": 6,
       "level": "A2",
-      "title_bn": "অতীত অভ্যাস ও স্মৃতি (Past Habits & Recollections)",
-      "title_target": "Past Habits & Time Clauses (Yoku ~mashita / ~toki)",
+      "title_bn": "উপকার, প্রস্তুতি, সমাপ্তি ও পরীক্ষা (Favors, Preparation & Completion)",
+      "title_target": "Favors, Preparation & Completion (~te ageru/kureru/morau, ~te shimau, ~te oku, ~te miru)",
       "lessons": [
         {
-          "id": "jp-past-l17",
-          "order": 1,
-          "title_bn": "অতীতের অভ্যাস ও স্মৃতি — 'よく〜ました' (Past Habits: Used to)",
-          "title_target": "Past Habits & Recollection (Yoku Verb-mashita)",
-          "intro_bn": "অতীতে নিয়মিত কোনো কাজ করতাম বোঝাতে 'よく〜ました' (Used to do regularly) বসে।",
-          "structure": [
-            "こどものとき、よく + Verb-ました"
-          ],
-          "items": [
-            {
-              "id": "jp-past-p6-l17-001",
-              "concept_id": "c-jp-past-p6-l17-001",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "こどものとき、よく かわで およぎました。",
-              "target_kana": "こどものとき、よくかわでおよぎました。",
-              "romaji": "Kodomo no toki, yoku kawa de oyogimashita.",
-              "bn": "ছোটবেলায় নদীতে প্রায়ই সাঁতার কাটতাম।",
-              "bn_pron": "কোদোমো নো তোকি, ইয়োকু কাওয়া দে ওয়োগিমাশিতা।",
-              "ipa": "Kodomo no toki, yoku kawa de oyogimashita.",
-              "tokens": [
-                {
-                  "t": "こどものとき、よく かわで およぎました。",
-                  "romaji": "Kodomo no toki, yoku kawa de oyogimashita.",
-                  "kanji": "こどものとき、よく かわで およぎました。",
-                  "bn": "ছোটবেলায় নদীতে প্রায়ই সাঁতার কাটতাম।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "past_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-past-p6-l17-002",
-              "concept_id": "c-jp-past-p6-l17-002",
-              "order": 1,
-              "type": "sentence",
-              "level": "A2",
-              "target": "がくせいのとき、まいばん おそくまで べんきょうしました。",
-              "target_kana": "がくせいのとき、まいばんおそくまでべんきょうしました。",
-              "romaji": "Gakusei no toki, maiban osoku made benkyou shimashita.",
-              "bn": "ছাত্রাবস্থায় প্রতি রাতে গভীর রাত পর্যন্ত পড়াশোনা করতাম।",
-              "bn_pron": "গাকুসেই নো তোকি, মাইবান ওসোকু মাদে বেনকিওও শিমাশিতা।",
-              "ipa": "Gakusei no toki, maiban osoku made benkyou shimashita.",
-              "tokens": [
-                {
-                  "t": "がくせいのとき、まいばん おそくまで べんきょうしました。",
-                  "romaji": "Gakusei no toki, maiban osoku made benkyou shimashita.",
-                  "kanji": "がくせいのとき、まいばん おそくまで べんきょうしました。",
-                  "bn": "ছাত্রাবস্থায় প্রতি রাতে গভীর রাত পর্যন্ত পড়াশোনা করতাম।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "past_simple",
-                "jlpt": "N5"
-              }
-            }
-          ]
-        },
-        {
           "id": "jp-past-l18",
-          "order": 2,
-          "title_bn": "যখন অতীতে কোনো ঘটনা ঘটেছিল — '〜とき' (When... in the past)",
-          "title_target": "Past Time Clauses (~toki)",
-          "intro_bn": "অতীতে কোনো নির্দিষ্ট সময়ে কী ঘটেছিল তা প্রকাশ করতে 'Noun の とき' বা 'Verb-た とき' বসে।",
+          "order": 1,
+          "title_bn": "উপকার আদান-প্রদান — '〜てあげました / 〜てくれました / 〜てもらいました'",
+          "title_target": "Giving & Receiving Favors (~te agemashita / kuremashita / moraimashita)",
+          "intro_bn": "কাউকে উপকার করে দিলে '〜てあげました', অন্য কেউ আমাকে উপকার করে দিলে '〜てくれました', এবং কারও কাছ থেকে উপকার করিয়ে নিলে '〜てもらいました' বসে।",
           "structure": [
-            "Past Verb / Noun の + とき、Result Sentence (Past)"
+            "Person に + Verb-て あげました (আমি অন্যকে করে দিলাম)",
+            "Person が + Verb-て くれました (অন্য কেউ আমাকে করে দিল)",
+            "Person に + Verb-て もらいました (অন্য কারও কাছ থেকে করিয়ে নিলাম)"
           ],
           "items": [
             {
@@ -2152,18 +2950,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "にほんへ いったとき、さくらを みました。",
-              "target_kana": "にほんえいったとき、さくらをみました。",
-              "romaji": "Nihon e itta toki, sakura o mimashita.",
-              "bn": "যখন জাপানে গিয়েছিলাম, তখন চেরি ফুল দেখেছিলাম।",
-              "bn_pron": "নিহোন এ ইত্তা তোকি, সাকুরা ও মিমাশিতা।",
-              "ipa": "Nihon e itta toki, sakura o mimashita.",
+              "target": "妹に 日本語を 教えて あげました。",
+              "target_kana": "いもうとににほんごをおしえてあげました。",
+              "romaji": "Imouto ni nihongo o oshiete agemashita.",
+              "bn": "ছোট বোনকে জাপানি ভাষা শিখিয়ে দিয়েছিলাম।",
+              "bn_pron": "ইমোওতো নি নিহঙ্গো ও ওশিয়েতে আগেমাশিতা।",
+              "ipa": "Imouto ni nihongo o oshiete agemashita.",
               "tokens": [
                 {
-                  "t": "にほんへ いったとき、さくらを みました。",
-                  "romaji": "Nihon e itta toki, sakura o mimashita.",
-                  "kanji": "にほんへ いったとき、さくらを みました。",
-                  "bn": "যখন জাপানে গিয়েছিলাম, তখন চেরি ফুল দেখেছিলাম।"
+                  "t": "妹に",
+                  "romaji": "imouto ni",
+                  "kanji": "妹に",
+                  "bn": "ছোট বোনকে"
+                },
+                {
+                  "t": "日本語を",
+                  "romaji": "nihongo o",
+                  "kanji": "日本語を",
+                  "bn": "জাপানি ভাষা"
+                },
+                {
+                  "t": "教えてあげました",
+                  "romaji": "oshiete agemashita",
+                  "kanji": "教えてあげました",
+                  "bn": "শিখিয়ে দিয়েছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -2181,69 +2991,30 @@
               "order": 1,
               "type": "sentence",
               "level": "A2",
-              "target": "ひまなとき、よく おんがくを ききました。",
-              "target_kana": "ひまなとき、よくおんがくをききました。",
-              "romaji": "Hima na toki, yoku ongaku o kikimashita.",
-              "bn": "অবসর সময়ে প্রায়ই গান শুনতাম।",
-              "bn_pron": "হিমা না তোকি, ইয়োকু ওনগাকু ও কিকিমাশিতা।",
-              "ipa": "Hima na toki, yoku ongaku o kikimashita.",
+              "target": "友だちが 引っ越しを 手伝って くれました。",
+              "target_kana": "ともだちがひっこしをてつだってくれました。",
+              "romaji": "Tomodachi ga hikkoshi o tetsudatte kuremashita.",
+              "bn": "বন্ধু আমাকে বাসা বদলের কাজে সাহায্য করেছে।",
+              "bn_pron": "তোমোদাচি গা হিক্কোশি ও তেতসুদাত্তে কুরেমাশিতা।",
+              "ipa": "Tomodachi ga hikkoshi o tetsudatte kuremashita.",
               "tokens": [
                 {
-                  "t": "ひまなとき、よく おんがくを ききました。",
-                  "romaji": "Hima na toki, yoku ongaku o kikimashita.",
-                  "kanji": "ひまなとき、よく おんがくを ききました。",
-                  "bn": "অবসর সময়ে প্রায়ই গান শুনতাম।"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "past_simple",
-                "jlpt": "N5"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "jp-past-p7",
-      "order": 7,
-      "level": "A2",
-      "title_bn": "অতীত ইন্টারেক্টিভ ভয়েস পেয়ার প্র্যাকটিস (Past Voice Q&A)",
-      "title_target": "Interactive Past Voice Pair Practice (Pair Q&A)",
-      "lessons": [
-        {
-          "id": "jp-past-l19",
-          "order": 1,
-          "title_bn": "গতকালের কাজ নিয়ে পেয়ার ড্রিল (Yesterday's Schedule Voice Q&A)",
-          "title_target": "Yesterday's Schedule (Pair Practice)",
-          "intro_bn": "মাইক্রোফোনে ট্যাপ করে গতকালের কাজ নিয়ে প্রশ্ন শুনুন এবং উত্তর দিন।",
-          "structure": [
-            "Q: きのう なにを しましたか",
-            "A: [Action] を しました"
-          ],
-          "items": [
-            {
-              "id": "jp-past-p7-l19-001",
-              "concept_id": "c-jp-past-p7-l19-001",
-              "order": 1,
-              "type": "dialogue",
-              "level": "A2",
-              "target": "きのうは なにを しましたか。いえで にほんごを べんきょうしました。",
-              "target_kana": "きのうわなにをしましたか。いえでにほんごをべんきょうしました。",
-              "romaji": "Kinou wa nani o shimashita ka. Ie de nihongo o benkyou shimashita.",
-              "bn": "গতকাল কী করেছিলেন? বাড়িতে জাপানি ভাষা পড়েছিলাম।",
-              "bn_pron": "কিনোও ওয়া নানি ও শিমাশিতা কা? ইয়ে দে নিহঙ্গো ও বেনকিওও শিমাশিতা।",
-              "ipa": "Kinou wa nani o shimashita ka. Ie de nihongo o benkyou shimashita.",
-              "tokens": [
+                  "t": "友だちが",
+                  "romaji": "tomodachi ga",
+                  "kanji": "友だちが",
+                  "bn": "বন্ধু"
+                },
                 {
-                  "t": "きのうは なにを しましたか。いえで にほんごを べんきょうしました。",
-                  "romaji": "Kinou wa nani o shimashita ka. Ie de nihongo o benkyou shimashita.",
-                  "kanji": "きのうは なにを しましたか。いえで にほんごを べんきょうしました。",
-                  "bn": "গতকাল কী করেছিলেন? বাড়িতে জাপানি ভাষা পড়েছিলাম।"
+                  "t": "引っ越しを",
+                  "romaji": "hikkoshi o",
+                  "kanji": "引っ越しを",
+                  "bn": "বাসা বদল"
+                },
+                {
+                  "t": "手伝ってくれました",
+                  "romaji": "tetsudatte kuremashita",
+                  "kanji": "手伝ってくれました",
+                  "bn": "সাহায্য করেছে"
                 }
               ],
               "status": "reviewed",
@@ -2256,23 +3027,170 @@
               }
             },
             {
-              "id": "jp-past-p7-l19-002",
-              "concept_id": "c-jp-past-p7-l19-002",
+              "id": "jp-past-p6-l18-003",
+              "concept_id": "c-jp-past-p6-l18-003",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "A2",
-              "target": "きのうは なんじに ねましたか。１２じに ねました。",
-              "target_kana": "きのうわなんじにねましたか。じゅうにじにねました。",
-              "romaji": "Kinou wa nanji ni nemashita ka. Juuniji ni nemashita.",
-              "bn": "গতকাল কয়টায় ঘুমিয়েছিলেন? ১২টায় ঘুমিয়েছিলাম।",
-              "bn_pron": "কিনোও ওয়া নানজি নি নেমাশিতা কা? জুউনিজি নি নেমাশিতা।",
-              "ipa": "Kinou wa nanji ni nemashita ka. Juuniji ni nemashita.",
+              "target": "先生に 作文を 直して もらいました。",
+              "target_kana": "せんせいにさくぶんをなおしてもらいました。",
+              "romaji": "Sensei ni sakubun o naoshite moraimashita.",
+              "bn": "শিক্ষকের কাছ থেকে রচনা সংশোধন করিয়ে নিয়েছি।",
+              "bn_pron": "সেনসেই নি সাকুবুন ও নাওশিতে মোরাইমাশিতা।",
+              "ipa": "Sensei ni sakubun o naoshite moraimashita.",
               "tokens": [
                 {
-                  "t": "きのうは なんじに ねましたか。１２じに ねました。",
-                  "romaji": "Kinou wa nanji ni nemashita ka. Juuniji ni nemashita.",
-                  "kanji": "きのうは なんじに ねましたか。１２じに ねました。",
-                  "bn": "গতকাল কয়টায় ঘুমিয়েছিলেন? ১২টায় ঘুমিয়েছিলাম।"
+                  "t": "先生に",
+                  "romaji": "sensei ni",
+                  "kanji": "先生に",
+                  "bn": "শিক্ষকের নিকট হতে"
+                },
+                {
+                  "t": "作文を",
+                  "romaji": "sakubun o",
+                  "kanji": "作文を",
+                  "bn": "রচনা"
+                },
+                {
+                  "t": "直してもらいました",
+                  "romaji": "naoshite moraimashita",
+                  "kanji": "直してもらいました",
+                  "bn": "সংশোধন করিয়ে নিয়েছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-past-l19",
+          "order": 2,
+          "title_bn": "সম্পূর্ণ সমাপ্তি ও অনিচ্ছাকৃত ভুল — '〜て しまいました'",
+          "title_target": "Completion & Regret (~te shimaimashita)",
+          "intro_bn": "কোনো কাজ পুরোপুরি শেষ করে ফেলা অথবা অনিচ্ছাকৃত কোনো অপ্রীতিকর ভুল ঘটে যাওয়া প্রকাশে '〜て しまいました' বসে।",
+          "structure": [
+            "Verb-て + しまいました (পুরোপুরি শেষ হলো / ভুলবশত ঘটল)"
+          ],
+          "items": [
+            {
+              "id": "jp-past-p6-l19-001",
+              "concept_id": "c-jp-past-p6-l19-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "この 本を 全部 読んで しまいました。",
+              "target_kana": "このほんをぜんぶよんでしまいました。",
+              "romaji": "Kono hon o zenbu yonde shimaimashita.",
+              "bn": "এই বইটি সম্পূর্ণ পড়ে শেষ করে ফেলেছি।",
+              "bn_pron": "কোনো হোন ও জেনবু ইয়োন্দে শিমাইমাশিতা।",
+              "ipa": "Kono hon o zenbu yonde shimaimashita.",
+              "tokens": [
+                {
+                  "t": "この本を",
+                  "romaji": "kono hon o",
+                  "kanji": "この本を",
+                  "bn": "এই বইটি"
+                },
+                {
+                  "t": "全部",
+                  "romaji": "zenbu",
+                  "kanji": "全部",
+                  "bn": "সম্পূর্ণ/পুরো"
+                },
+                {
+                  "t": "読んでしまいました",
+                  "romaji": "yonde shimaimashita",
+                  "kanji": "読んでしまいました",
+                  "bn": "পড়ে শেষ করেছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p6-l19-002",
+              "concept_id": "c-jp-past-p6-l19-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "電車に 傘を 忘れて しまいました。",
+              "target_kana": "でんしゃにかさをわすれてしまいました。",
+              "romaji": "Densha ni kasa o wasurete shimaimashita.",
+              "bn": "ট্রেনে ছাতা ভুলে ফেলে এসেছি। (অনিচ্ছাকৃত ভুল)",
+              "bn_pron": "দেনশা নি কাসা ও ওয়াসুরেতে শিমাইমাশিতা।",
+              "ipa": "Densha ni kasa o wasurete shimaimashita.",
+              "tokens": [
+                {
+                  "t": "電車に",
+                  "romaji": "densha ni",
+                  "kanji": "電車に",
+                  "bn": "ট্রেনে"
+                },
+                {
+                  "t": "傘を",
+                  "romaji": "kasa o",
+                  "kanji": "傘を",
+                  "bn": "ছাতা"
+                },
+                {
+                  "t": "忘れてしまいました",
+                  "romaji": "wasurete shimaimashita",
+                  "kanji": "忘れてしまいました",
+                  "bn": "ভুলে ফেলে এসেছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p6-l19-003",
+              "concept_id": "c-jp-past-p6-l19-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "パスポートを なくして しまいました。大変です。",
+              "target_kana": "ぱすぽーとをなくしてしまいました。たいへんです。",
+              "romaji": "Pasupooto o nakushite shimaimashita. Taihen desu.",
+              "bn": "পাসপোর্ট হারিয়ে ফেলেছি। মহাবিপদ!",
+              "bn_pron": "পাসুপোওতো ও নাকুশিতে শিমাইমাশিতা। তাইহেন দেস।",
+              "ipa": "Pasupooto o nakushite shimaimashita. Taihen desu.",
+              "tokens": [
+                {
+                  "t": "パスポートを",
+                  "romaji": "pasupooto o",
+                  "kanji": "パスポートを",
+                  "bn": "পাসপোর্ট"
+                },
+                {
+                  "t": "なくしてしまいました",
+                  "romaji": "nakushite shimaimashita",
+                  "kanji": "なくしてしまいました",
+                  "bn": "হারিয়ে ফেলেছি"
+                },
+                {
+                  "t": "大変です",
+                  "romaji": "taihen desu",
+                  "kanji": "大変です",
+                  "bn": "মহাবিপদ!"
                 }
               ],
               "status": "reviewed",
@@ -2288,33 +3206,45 @@
         },
         {
           "id": "jp-past-l20",
-          "order": 2,
-          "title_bn": "ভ্রমণ ও অতীত অভিজ্ঞতা পেয়ার ড্রিল (Travel Experience Voice Q&A)",
-          "title_target": "Travel Experience (Pair Practice)",
-          "intro_bn": "ভ্রমণের অভিজ্ঞতা ও আনন্দ প্রকাশ করে কথোপকথন ড্রিল।",
+          "order": 3,
+          "title_bn": "পূর্বপ্রস্তুতি ও পরখ করে দেখা — '〜ておきました' ও '〜てみました'",
+          "title_target": "Preparation & Trial Actions (~te okimashita / ~te mimashita)",
+          "intro_bn": "ভবিষ্যতের সুবিধার জন্য আগে থেকে কিছু প্রস্তুত করে রাখলে '〜ておきました' এবং কোনো কিছু পরখ বা ট্রায়াল করে দেখলে '〜てみました' বসে।",
           "structure": [
-            "Q: どこへ いきましたか",
-            "A: [Place] へ いきました。とても たのしかったです"
+            "Verb-て + おきました (আগে থেকে প্রস্তুত করে রেখেছিলাম)",
+            "Verb-て + みました (চেষ্টা বা পরখ করে দেখলাম)"
           ],
           "items": [
             {
-              "id": "jp-past-p7-l20-001",
-              "concept_id": "c-jp-past-p7-l20-001",
+              "id": "jp-past-p6-l20-001",
+              "concept_id": "c-jp-past-p6-l20-001",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "A2",
-              "target": "せんしゅう どこへ いきましたか。うみへ いきました。とても きれいでした。",
-              "target_kana": "せんしゅうどこえいきましたか。うみえいきました。とてもきれいでした。",
-              "romaji": "Senshuu doko e ikimashita ka. Umi e ikimashita. Totemo kirei deshita.",
-              "bn": "গত সপ্তাহে কোথায় গিয়েছিলেন? সমুদ্রে গিয়েছিলাম। খুব সুন্দর ছিল।",
-              "bn_pron": "সেনশুউ দোকো এ ইকিমাশিতা কা? উমি এ ইকিমাশিতা। তোতেমো কিরেই দেশিতা।",
-              "ipa": "Senshuu doko e ikimashita ka. Umi e ikimashita. Totemo kirei deshita.",
+              "target": "旅行の 前に ホテルを 予約して おきました。",
+              "target_kana": "りょこうのまえにほてるをよやくしておきました。",
+              "romaji": "Ryokou no mae ni hoteru o yoyaku shite okimashita.",
+              "bn": "ভ্রমণের আগে হোটেল বুকিং করে রেখেছিলাম।",
+              "bn_pron": "রিওকোও নো মায়ে নি হোতেরু ও ইয়োয়াকু শিতে ওকিমাশিতা।",
+              "ipa": "Ryokou no mae ni hoteru o yoyaku shite okimashita.",
               "tokens": [
                 {
-                  "t": "せんしゅう どこへ いきましたか。うみへ いきました。とても きれいでした。",
-                  "romaji": "Senshuu doko e ikimashita ka. Umi e ikimashita. Totemo kirei deshita.",
-                  "kanji": "せんしゅう どこへ いきましたか。うみへ いきました。とても きれいでした。",
-                  "bn": "গত সপ্তাহে কোথায় গিয়েছিলেন? সমুদ্রে গিয়েছিলাম। খুব সুন্দর ছিল।"
+                  "t": "旅行の前に",
+                  "romaji": "ryokou no mae ni",
+                  "kanji": "旅行の前に",
+                  "bn": "ভ্রমণের পূর্বে"
+                },
+                {
+                  "t": "ホテルを",
+                  "romaji": "hoteru o",
+                  "kanji": "ホテルを",
+                  "bn": "হোটেল"
+                },
+                {
+                  "t": "予約しておきました",
+                  "romaji": "yoyaku shite okimashita",
+                  "kanji": "予約しておきました",
+                  "bn": "বুকিং করে রেখেছিলাম"
                 }
               ],
               "status": "reviewed",
@@ -2327,29 +3257,519 @@
               }
             },
             {
-              "id": "jp-past-p7-l20-002",
-              "concept_id": "c-jp-past-p7-l20-002",
+              "id": "jp-past-p6-l20-002",
+              "concept_id": "c-jp-past-p6-l20-002",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "A2",
-              "target": "りょこうは どうでしたか。とても たのしかったです。",
-              "target_kana": "りょこうわどうでしたか。とてもたのしかったです。",
-              "romaji": "Ryokou wa dou deshita ka. Totemo tanoshikatta desu.",
-              "bn": "ভ্রমণ কেমন হয়েছিল? খুব আনন্দদায়ক হয়েছিল।",
-              "bn_pron": "রিওকোও ওয়া দোও দেশিতা কা? তোতেমো তানোশিকাত্তা দেশিতা।",
-              "ipa": "Ryokou wa dou deshita ka. Totemo tanoshikatta desu.",
+              "target": "日本の 納豆を 初めて 食べて みました。",
+              "target_kana": "にほんのなっとうをはじめてたべてみました。",
+              "romaji": "Nihon no nattou o hajimete tabete mimashita.",
+              "bn": "প্রথমবারের মতো জাপানি নাত্তো খেয়ে দেখলাম।",
+              "bn_pron": "নিহোন নো নাত্তোও ও হাজিমেতে তাবেতে মিমাশিতা।",
+              "ipa": "Nihon no nattou o hajimete tabete mimashita.",
               "tokens": [
                 {
-                  "t": "りょこうは どうでしたか。とても たのしかったです。",
-                  "romaji": "Ryokou wa dou deshita ka. Totemo tanoshikatta desu.",
-                  "kanji": "りょこうは どうでしたか。とても たのしかったです。",
-                  "bn": "ভ্রমণ কেমন হয়েছিল? খুব আনন্দদায়ক হয়েছিল।"
+                  "t": "日本の納豆を",
+                  "romaji": "Nihon no nattou o",
+                  "kanji": "日本の納豆を",
+                  "bn": "জাপানের নাত্তো"
+                },
+                {
+                  "t": "初めて",
+                  "romaji": "hajimete",
+                  "kanji": "初めて",
+                  "bn": "প্রথমবারের মতো"
+                },
+                {
+                  "t": "食べてみました",
+                  "romaji": "tabete mimashita",
+                  "kanji": "食べてみました",
+                  "bn": "খেয়ে দেখলাম"
                 }
               ],
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p6-l20-003",
+              "concept_id": "c-jp-past-p6-l20-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "会議の 資料を もう コピーして おきました。",
+              "target_kana": "かいぎのしりょうをもうこぴーしておきました。",
+              "romaji": "Kaigi no shiryou o mou kopii shite okimashita.",
+              "bn": "মিটিংয়ের কাগজপত্র আগেই ফটোকপি করে রেখেছি।",
+              "bn_pron": "কাইগি নো শিরিওও ও মোও কোপিই শিতে ওকিমাশিতা।",
+              "ipa": "Kaigi no shiryou o mou kopii shite okimashita.",
+              "tokens": [
+                {
+                  "t": "会議の資料を",
+                  "romaji": "kaigi no shiryou o",
+                  "kanji": "会議の資料を",
+                  "bn": "মিটিংয়ের দলিলপত্র"
+                },
+                {
+                  "t": "もう",
+                  "romaji": "mou",
+                  "kanji": "もう",
+                  "bn": "ইতিমধ্যে"
+                },
+                {
+                  "t": "コピーしておきました",
+                  "romaji": "kopii shite okimashita",
+                  "kanji": "コピーしておきました",
+                  "bn": "ফটোকপি করে রেখেছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-past-l21",
+          "order": 4,
+          "title_bn": "অনুমতি ও নিষেধের অতীত অভিজ্ঞতা — '〜てもよかったです / 〜てはいけませんでした'",
+          "title_target": "Past Permission & Prohibition (~te mo yokatta desu / ~te wa ikemasen deshita)",
+          "intro_bn": "অতীতে কোনো কাজ করার অনুমতি ছিল ('〜てもよかったです') অথবা সম্পূর্ণ নিষেধ ছিল ('〜てはいけませんでした') প্রকাশ করার নিয়ম।",
+          "structure": [
+            "Verb-て + もよかったです (করার অনুমতি ছিল)",
+            "Verb-て + はいけませんでした (করা একেবারেই নিষেধ ছিল)"
+          ],
+          "items": [
+            {
+              "id": "jp-past-p6-l21-001",
+              "concept_id": "c-jp-past-p6-l21-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "美術館で 写真を 撮っても よかったです。",
+              "target_kana": "びじゅつかんでしゃしんをとってもよかったです。",
+              "romaji": "Bijutsukan de shashin o totte mo yokatta desu.",
+              "bn": "জাদুঘরে ছবি তোলার অনুমতি ছিল।",
+              "bn_pron": "বিজুতসুকান দে শাশিন ও তোত্তে মো ইয়োকাত্তা দেশিতা।",
+              "ipa": "Bijutsukan de shashin o totte mo yokatta desu.",
+              "tokens": [
+                {
+                  "t": "美術館で",
+                  "romaji": "bijutsukan de",
+                  "kanji": "美術館で",
+                  "bn": "শিল্পকলা জাদুঘরে"
+                },
+                {
+                  "t": "写真を",
+                  "romaji": "shashin o",
+                  "kanji": "写真を",
+                  "bn": "ছবি"
+                },
+                {
+                  "t": "撮ってもよかったです",
+                  "romaji": "totte mo yokatta desu",
+                  "kanji": "撮ってもよかったです",
+                  "bn": "তোলা ঠিক ছিল/অনুমোদন ছিল"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p6-l21-002",
+              "concept_id": "c-jp-past-p6-l21-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A2",
+              "target": "試験のとき、辞書を 使っては いけませんでした。",
+              "target_kana": "しけんのとき、じしょをつかってわいけませんでした。",
+              "romaji": "Shiken no toki, jisho o tsukatte wa ikemasen deshita.",
+              "bn": "পরীক্ষার সময় অভিধান ব্যবহার করা সম্পূর্ণ নিষেধ ছিল।",
+              "bn_pron": "শিকেন নো তোকি, জিশো ও তসুকাত্তে ওয়া ইকেমাসেন দেশিতা।",
+              "ipa": "Shiken no toki, jisho o tsukatte wa ikemasen deshita.",
+              "tokens": [
+                {
+                  "t": "試験のとき",
+                  "romaji": "shiken no toki",
+                  "kanji": "試験の時",
+                  "bn": "পরীক্ষার সময়"
+                },
+                {
+                  "t": "辞書を",
+                  "romaji": "jisho o",
+                  "kanji": "辞書を",
+                  "bn": "অভিধান"
+                },
+                {
+                  "t": "使ってはいけませんでした",
+                  "romaji": "tsukatte wa ikemasen deshita",
+                  "kanji": "使ってはいけませんでした",
+                  "bn": "ব্যবহার করা নিষেধ ছিল"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-past-p7",
+      "order": 7,
+      "level": "A2",
+      "title_bn": "অতীত ইন্টারেক্টিভ সংলাপ ও ৬-রূপান্তর ড্রিল (Dialogues & 6-Way Drill)",
+      "title_target": "Interactive Past Dialogues & Master 6-Way Transformation Drill",
+      "lessons": [
+        {
+          "id": "jp-past-l22",
+          "order": 1,
+          "title_bn": "গতকালের দৈনন্দিন কাজের সংলাপ (Yesterday's Routine Dialogue)",
+          "title_target": "Yesterday's Routine (Interactive Spoken Dialogue)",
+          "intro_bn": "গতকাল সারাদিনের কার্যক্রম নিয়ে পারস্পরিক সাবলীল প্রশ্ন ও উত্তরের সংলাপ।",
+          "structure": [
+            "Q: きのう 何を しましたか",
+            "A: 朝〜て、昼〜て、夜〜ました"
+          ],
+          "items": [
+            {
+              "id": "jp-past-p7-l22-001",
+              "concept_id": "c-jp-past-p7-l22-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A2",
+              "target": "Ａ：きのうの 休日は 何を しましたか。 Ｂ：朝 掃除を して、午後 友だちと 映画を 見に 行きました。",
+              "target_kana": "きのうのきゅうじつわなにをしましたか。あさそうじをして、ごごともだちとえいがをみにいきました。",
+              "romaji": "A: Kinou no kyuujitsu wa nani o shimashita ka. B: Asa souji o shite, gogo tomodachi to eiga o mi ni ikimashita.",
+              "bn": "A: গতকালের ছুটির দিনে কী করেছিলেন? B: সকালে ঘর পরিষ্কার করে, বিকেলে বন্ধুর সাথে সিনেমা দেখতে গিয়েছিলাম।",
+              "bn_pron": "এ: কিনোও নো কিউউজিতসু ওয়া নানি ও শিমাশিতা কা? বি: আসা সোওজি ও শিতে, গোগো তোমোদাচি তো এইগা ও মি নি ইকিমাশিতা।",
+              "ipa": "A: Kinou no kyuujitsu wa nani o shimashita ka. B: Asa souji o shite, gogo tomodachi to eiga o mi ni ikimashita.",
+              "tokens": [
+                {
+                  "t": "Ａ：きのうの 休日は 何を しましたか。 Ｂ：朝 掃除を して、午後 友だちと 映画を 見に 行きました。",
+                  "romaji": "A: Kinou no kyuujitsu wa nani o shimashita ka. B: Asa souji o shite, gogo tomodachi to eiga o mi ni ikimashita.",
+                  "kanji": "Ａ：きのうの 休日は 何を しましたか。 Ｂ：朝 掃除を して、午後 友だちと 映画を 見に 行きました。",
+                  "bn": "A: গতকালের ছুটির দিনে কী করেছিলেন? B: সকালে ঘর পরিষ্কার করে, বিকেলে বন্ধুর সাথে সিনেমা দেখতে গিয়েছিলাম।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l22-002",
+              "concept_id": "c-jp-past-p7-l22-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A2",
+              "target": "Ａ：映画は 面白かったですか。 Ｂ：はい、とても 面白かったです。感動しました。",
+              "target_kana": "えいがわおもしろかったですか。はい、とてもおもしろかったです。かんどうしました。",
+              "romaji": "A: Eiga wa omoshirokatta desu ka. B: Hai, totemo omoshirokatta desu. Kandou shimashita.",
+              "bn": "A: সিনেমাটি কি উপভোগ্য ছিল? B: হ্যাঁ, ভীষণ উপভোগ্য ছিল। মন ছুঁয়ে গেছে।",
+              "bn_pron": "এ: এইগা ওয়া ওমোশিরোকাত্তা দেশিতা কা? বি: হাই, তোতেমো ওমোশিরোকাত্তা দেশিতা। কানদোও শিমাশিতা।",
+              "ipa": "A: Eiga wa omoshirokatta desu ka. B: Hai, totemo omoshirokatta desu. Kandou shimashita.",
+              "tokens": [
+                {
+                  "t": "Ａ：映画は 面白かったですか。 Ｂ：はい、とても 面白かったです。感動しました。",
+                  "romaji": "A: Eiga wa omoshirokatta desu ka. B: Hai, totemo omoshirokatta desu. Kandou shimashita.",
+                  "kanji": "Ａ：映画は 面白かったですか。 Ｂ：はい、とても 面白かったです。感動しました。",
+                  "bn": "A: সিনেমাটি কি উপভোগ্য ছিল? B: হ্যাঁ, ভীষণ উপভোগ্য ছিল। মন ছুঁয়ে গেছে।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-past-l23",
+          "order": 2,
+          "title_bn": "ভ্রমণ ও অতীত স্মৃতি কথন (Travel & Life Memory Dialogue)",
+          "title_target": "Travel Experience & Memory (Interactive Dialogue)",
+          "intro_bn": "জাপানে ভ্রমণ ও অতীতের সুন্দর মুহূর্ত নিয়ে কথোপকথন ড্রিল।",
+          "structure": [
+            "Q: どこへ 行きましたか。どうでしたか",
+            "A: 〜へ 行きました。とても〜かったです"
+          ],
+          "items": [
+            {
+              "id": "jp-past-p7-l23-001",
+              "concept_id": "c-jp-past-p7-l23-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A2",
+              "target": "Ａ：先週 どこへ 行きましたか。 Ｂ：京都へ 行きました。お寺を 見たり、美味しい 和菓子を 食べたり しました。",
+              "target_kana": "せんしゅうどこえいきましたか。きょうとえいきました。おてらをみたり、おいしいわがしをたべたりしました。",
+              "romaji": "A: Senshuu doko e ikimashita ka. B: Kyouto e ikimashita. Otera o mitari, oishii wagashi o tabetari shimashita.",
+              "bn": "A: গত সপ্তাহে কোথায় গিয়েছিলেন? B: কিয়োটোতে গিয়েছিলাম। মন্দির পরিদর্শন ও সুস্বাদু ঐতিহ্যবাহী মিষ্টি উপভোগ করেছি।",
+              "bn_pron": "এ: সেনশুউ দোকো এ ইকিমাশিতা কা? বি: কিওওতো এ ইকিমাশিতা। ওতেরা ও মিতারি, ওইশিই ওয়াগাশি ও তাবেতারি শিমাশিতা।",
+              "ipa": "A: Senshuu doko e ikimashita ka. B: Kyouto e ikimashita. Otera o mitari, oishii wagashi o tabetari shimashita.",
+              "tokens": [
+                {
+                  "t": "Ａ：先週 どこへ 行きましたか。 Ｂ：京都へ 行きました。お寺を 見たり、美味しい 和菓子を 食べたり しました。",
+                  "romaji": "A: Senshuu doko e ikimashita ka. B: Kyouto e ikimashita. Otera o mitari, oishii wagashi o tabetari shimashita.",
+                  "kanji": "Ａ：先週 どこへ 行きましたか。 Ｂ：京都へ 行きました。お寺を 見たり、美味しい 和菓子を 食べたり しました。",
+                  "bn": "A: গত সপ্তাহে কোথায় গিয়েছিলেন? B: কিয়োটোতে গিয়েছিলাম। মন্দির পরিদর্শন ও সুস্বাদু ঐতিহ্যবাহী মিষ্টি উপভোগ করেছি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l23-002",
+              "concept_id": "c-jp-past-p7-l23-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A2",
+              "target": "Ａ：また 行きたいですか。 Ｂ：はい、もう一度 行きたいです。とても 綺麗でしたから。",
+              "target_kana": "またいきたいですか。はい、もういちどいきたいです。とてもきれいでしたから。",
+              "romaji": "A: Mata ikitai desu ka. B: Hai, mou ichido ikitai desu. Totemo kirei deshita kara.",
+              "bn": "A: আবার যেতে চান? B: হ্যাঁ, আরেকবার যেতে চাই। কারণ পরিবেশটি অত্যন্ত মনোরম ছিল।",
+              "bn_pron": "এ: মাতা ইকিতাই দেস কা? বি: হাই, মোও ইচিদো ইকিতাই দেস। তোতেমো কিরেয় দেশিতা কারা।",
+              "ipa": "A: Mata ikitai desu ka. B: Hai, mou ichido ikitai desu. Totemo kirei deshita kara.",
+              "tokens": [
+                {
+                  "t": "Ａ：また 行きたいですか。 Ｂ：はい、もう一度 行きたいです。とても 綺麗でしたから。",
+                  "romaji": "A: Mata ikitai desu ka. B: Hai, mou ichido ikitai desu. Totemo kirei deshita kara.",
+                  "kanji": "Ａ：また 行きたいですか。 Ｂ：はい、もう一度 行きたいです。とても 綺麗でしたから。",
+                  "bn": "A: আবার যেতে চান? B: হ্যাঁ, আরেকবার যেতে চাই। কারণ পরিবেশটি অত্যন্ত মনোরম ছিল।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-past-l24",
+          "order": 3,
+          "title_bn": "অতীত ৬-রূপান্তর চূড়ান্ত মাস্টার ড্রিল (Master 6-Way Oral Transformation)",
+          "title_target": "Master 6-Way Transformation Drill: Past Experience & Actions",
+          "intro_bn": "অতীত কালের যেকোনো বাক্যকে পলকের মধ্যে ৬টি ভিন্ন রূপে রূপান্তরের চূড়ান্ত প্র্যাকটিস।",
+          "structure": [
+            "১. হ্যাঁ-বোধক (+): 日本へ 行きました。",
+            "২. না-বোধক (-): 日本へ 行きませんでした。",
+            "৩. প্রশ্নবোধক (?): 日本へ 行きましたか。",
+            "৪. না-বোধক প্রশ্ন (-?): 日本へ 行きませんでしたか。",
+            "৫. WH-প্রশ্ন (WH?): いつ 日本へ 行きましたか。",
+            "৬. বিকল্প প্রশ্ন (Alt?): 日本へ 行きましたか、韓国へ 行きましたか。"
+          ],
+          "items": [
+            {
+              "id": "jp-past-p7-l24-001",
+              "concept_id": "c-jp-past-p7-l24-001",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本へ 行きました。",
+              "target_kana": "にほんえいきました。",
+              "romaji": "Nihon e ikimashita.",
+              "bn": "১. হ্যাঁ-বোধক: জাপানে গিয়েছিলাম।",
+              "bn_pron": "নিহোন এ ইকিমাশিতা।",
+              "ipa": "Nihon e ikimashita.",
+              "tokens": [
+                {
+                  "t": "日本へ 行きました。",
+                  "romaji": "Nihon e ikimashita.",
+                  "kanji": "日本へ 行きました。",
+                  "bn": "১. হ্যাঁ-বোধক: জাপানে গিয়েছিলাম।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l24-002",
+              "concept_id": "c-jp-past-p7-l24-002",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本へ 行きませんでした。",
+              "target_kana": "にほんえいきませんでした。",
+              "romaji": "Nihon e ikimasendeshita.",
+              "bn": "২. না-বোধক: জাপানে যাইনি।",
+              "bn_pron": "নিহোন এ ইকিমাসেনদেশিতা।",
+              "ipa": "Nihon e ikimasendeshita.",
+              "tokens": [
+                {
+                  "t": "日本へ 行きませんでした。",
+                  "romaji": "Nihon e ikimasendeshita.",
+                  "kanji": "日本へ 行きませんでした。",
+                  "bn": "২. না-বোধক: জাপানে যাইনি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "negative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l24-003",
+              "concept_id": "c-jp-past-p7-l24-003",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本へ 行きましたか。",
+              "target_kana": "にほんえいきましたか。",
+              "romaji": "Nihon e ikimashita ka.",
+              "bn": "৩. প্রশ্নবোধক: জাপানে গিয়েছিলেন কি?",
+              "bn_pron": "নিহোন এ ইকিমাশিতা কা?",
+              "ipa": "Nihon e ikimashita ka.",
+              "tokens": [
+                {
+                  "t": "日本へ 行きましたか。",
+                  "romaji": "Nihon e ikimashita ka.",
+                  "kanji": "日本へ 行きましたか。",
+                  "bn": "৩. প্রশ্নবোধক: জাপানে গিয়েছিলেন কি?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l24-004",
+              "concept_id": "c-jp-past-p7-l24-004",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本へ 行きませんでしたか。",
+              "target_kana": "にほんえいきませんでしたか。",
+              "romaji": "Nihon e ikimasendeshita ka.",
+              "bn": "৪. না-বোধক প্রশ্ন: জাপানে কি যাননি?",
+              "bn_pron": "নিহোন এ ইকিমাসেনদেশিতা কা?",
+              "ipa": "Nihon e ikimasendeshita ka.",
+              "tokens": [
+                {
+                  "t": "日本へ 行きませんでしたか。",
+                  "romaji": "Nihon e ikimasendeshita ka.",
+                  "kanji": "日本へ 行きませんでしたか。",
+                  "bn": "৪. না-বোধক প্রশ্ন: জাপানে কি যাননি?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "negative_interrogative",
+                "polarity": "negative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l24-005",
+              "concept_id": "c-jp-past-p7-l24-005",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "いつ 日本へ 行きましたか。去年 行きました。",
+              "target_kana": "いつにほんえいきましたか。きょねんいきました。",
+              "romaji": "Itsu Nihon e ikimashita ka. Kyonen ikimashita.",
+              "bn": "৫. WH-প্রশ্ন: কবে জাপানে গিয়েছিলেন? গত বছর গিয়েছিলাম।",
+              "bn_pron": "ইতসু নিহোন এ ইকিমাশিতা কা? কিওনেন ইকিমাশিতা।",
+              "ipa": "Itsu Nihon e ikimashita ka. Kyonen ikimashita.",
+              "tokens": [
+                {
+                  "t": "いつ 日本へ 行きましたか。去年 行きました。",
+                  "romaji": "Itsu Nihon e ikimashita ka. Kyonen ikimashita.",
+                  "kanji": "いつ 日本へ 行きましたか。去年 行きました。",
+                  "bn": "৫. WH-প্রশ্ন: কবে জাপানে গিয়েছিলেন? গত বছর গিয়েছিলাম।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "wh_question",
+                "polarity": "affirmative",
+                "tense": "past_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-past-p7-l24-006",
+              "concept_id": "c-jp-past-p7-l24-006",
+              "order": 1,
+              "type": "drill",
+              "level": "A2",
+              "target": "日本へ 行きましたか、韓国へ 行きましたか。",
+              "target_kana": "にほんえいきましたか、かんこくえいきましたか。",
+              "romaji": "Nihon e ikimashita ka, Kankoku e ikimashita ka.",
+              "bn": "৬. বিকল্প প্রশ্ন: জাপানে গিয়েছিলেন, নাকি দক্ষিণ কোরিয়ায় গিয়েছিলেন?",
+              "bn_pron": "নিহোন এ ইকিমাশিতা কা, কানকোকু এ ইকিমাশিতা কা?",
+              "ipa": "Nihon e ikimashita ka, Kankoku e ikimashita ka.",
+              "tokens": [
+                {
+                  "t": "日本へ 行きましたか、韓国へ 行きましたか。",
+                  "romaji": "Nihon e ikimashita ka, Kankoku e ikimashita ka.",
+                  "kanji": "日本へ 行きましたか、韓国へ 行きましたか。",
+                  "bn": "৬. বিকল্প প্রশ্ন: জাপানে গিয়েছিলেন, নাকি দক্ষিণ কোরিয়ায় গিয়েছিলেন?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "alternative_question",
                 "polarity": "affirmative",
                 "tense": "past_simple",
                 "jlpt": "N5"

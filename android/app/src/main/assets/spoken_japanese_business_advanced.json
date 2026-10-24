@@ -5,10 +5,10 @@
     "target_lang": "ja",
     "base_lang": "bn",
     "title_bn": "জাপানিজ স্পোকেন: Business & Keigo (JLPT N3/N2 মার্জিত ভাষা)",
-    "title_target": "Spoken Japanese: Business Keigo & Advanced Fluency",
-    "source": "Curated from N3-N2 Japanese Study Series & Spoken English Framework",
-    "note": "অফিসিয়াল ও বিজনেস কেইগো (尊敬語・謙譲語), টেলিফোন ও মিটিং কমিউনিকেশন, কথোপকথন সচল রাখার কৌশল (相槌), সূক্ষ্ম ভাব প্রকাশ ও জব ইন্টারভিউ প্রশ্নোত্তর।",
-    "welcome_text": "জাপানিজ স্পোকেন Business & Keigo ক্লাসে স্বাগতম! জাপানি কর্পোরেট জগতে পেশাদার যোগাযোগ ও মার্জিত বিনম্র ভাষায় কথা বলা শিখুন।"
+    "title_target": "Spoken Japanese: Business Keigo & Advanced Nuance (N3/N2)",
+    "source": "Curated from N3-N2 Extended Master Complete & Spoken Japanese Audio Framework",
+    "note": "সম্মানসূচক ভাষা (尊敬語: いらっしゃる・おっしゃる), বিনম্র ভাষা (謙譲語: 参る・申す・致す・拝見する), কুশন শব্দ (クッション言葉: 恐れ入りますが), টেলিফোন ও মিটিং আচরণবিধি, সূক্ষ্ম ব্যাকরণ (おかげで・せいで・に基づいて), লিসেনিং কৌশল (相槌: おっしゃる通りです), কর্পোরেট জব ইন্টারভিউ এবং কেইগো রূপান্তর ড্রিল।",
+    "welcome_text": "জাপানিজ স্পোকেন Business Keigo ক্লাসে স্বাগতম! জাপানি কর্পোরেট জগত ও মার্জিত পেশাদার পরিবেশে অনর্গল কথা বলার আত্মবিশ্বাস অর্জন করুন।"
   },
   "ladder_default": [
     {
@@ -37,25 +37,25 @@
     }
   ],
   "stats": {
-    "lessons": 8,
-    "items": 20
+    "lessons": 19,
+    "items": 48
   },
   "parts": [
     {
       "id": "jp-business-p1",
       "order": 1,
       "level": "B1",
-      "title_bn": "কেইগো ও বিনম্র ভাষা (Keigo Masterclass: Sonkeigo & Kenjougo)",
-      "title_target": "Keigo Masterclass: Honorific & Humble Speech",
+      "title_bn": "সম্মানসূচক ভাষা — সনকেইগো (Sonkeigo: Respectful Speech)",
+      "title_target": "Sonkeigo: Honorific Respectful Speech for Clients & Superiors",
       "lessons": [
         {
           "id": "jp-biz-l01",
           "order": 1,
-          "title_bn": "উচ্চপদস্থ ব্যক্তির সম্মানার্থে উক্তি — '尊敬語' (Sonkeigo: Respectful Speech)",
-          "title_target": "Honorific Respectful Speech (Sonkeigo)",
-          "intro_bn": "গ্রাহক, বস বা সম্মানিত ব্যক্তির কাজ প্রকাশে '尊敬語' (Sonkeigo) ব্যবহৃত হয়। যেমন: 行く/来る/いる -> いらっしゃる, 言う -> おっしゃる, 食べる -> 召し上がる।",
+          "title_bn": "বিশেষ সম্মানসূচক ক্রিয়াপদ — '尊敬語' (Special Sonkeigo Verbs)",
+          "title_target": "Special Honorific Verbs (Irassharu, Ossharu, Meshiagaru)",
+          "intro_bn": "গ্রাহক, ঊর্ধ্বতন কর্মকর্তা বা গুরুজনদের কাজ প্রকাশের জন্য বিশেষ মার্জিত রূপ ব্যবহৃত হয়। যেমন: 行く/来る/いる -> いらっしゃる, 言う -> おっしゃる, 食べる/飲む -> 召し上がる, 見る -> ご覧になる, する -> なさる।",
           "structure": [
-            "Superior Person + は + 尊敬語 (Sonkeigo Verb)"
+            "Superior Person + は + 尊敬語 (Special Sonkeigo Verb)"
           ],
           "items": [
             {
@@ -64,7 +64,7 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "しゃちょうは もう おかえりに なられました。",
+              "target": "社長は もう お帰りに なられました。",
               "target_kana": "しゃちょうわもうおかえりになられました。",
               "romaji": "Shachou wa mou okaeri ni nararemashita.",
               "bn": "কোম্পানি প্রধান (সিইও) ইতিমধ্যে বাড়ি ফিরে গিয়েছেন।",
@@ -72,16 +72,10 @@
               "ipa": "Shachou wa mou okaeri ni nararemashita.",
               "tokens": [
                 {
-                  "t": "しゃちょう",
-                  "romaji": "shachou",
-                  "kanji": "社長",
-                  "bn": "সিইও/প্রেসিডেন্ট"
-                },
-                {
-                  "t": "は",
-                  "romaji": "wa",
-                  "kanji": "は",
-                  "bn": "হল"
+                  "t": "社長は",
+                  "romaji": "shachou wa",
+                  "kanji": "社長は",
+                  "bn": "কোম্পানি প্রধান"
                 },
                 {
                   "t": "もう",
@@ -90,10 +84,16 @@
                   "bn": "ইতিমধ্যে"
                 },
                 {
-                  "t": "おかえりに なられました",
-                  "romaji": "okaeri ni nararemashita",
-                  "kanji": "お帰りになられました",
-                  "bn": "ফিরে গেছেন (সম্মানসূচক)"
+                  "t": "お帰りに",
+                  "romaji": "okaeri ni",
+                  "kanji": "お帰りに",
+                  "bn": "ফিরে"
+                },
+                {
+                  "t": "なられました",
+                  "romaji": "nararemashita",
+                  "kanji": "なられました",
+                  "bn": "গিয়েছেন (সম্মানসূচক)"
                 }
               ],
               "status": "reviewed",
@@ -111,18 +111,30 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "せんせいは なにと おっしゃいましたか。",
+              "target": "先生は 何と おっしゃいましたか。",
               "target_kana": "せんせいわないにとおっしゃいましたか。",
               "romaji": "Sensei wa nan to osshaimashita ka.",
-              "bn": "শিক্ষক কী বলেছিলেন? (বলার সম্মানসূচক রূপ: おっしゃる)",
+              "bn": "শিক্ষক মহাশয় কী বলেছিলেন? (বলার সম্মানসূচক রূপ)",
               "bn_pron": "সেনসেই ওয়া নান তো ওশ্শাইমাশিতা কা?",
               "ipa": "Sensei wa nan to osshaimashita ka.",
               "tokens": [
                 {
-                  "t": "せんせいは なにと おっしゃいましたか。",
-                  "romaji": "Sensei wa nan to osshaimashita ka.",
-                  "kanji": "せんせいは なにと おっしゃいましたか。",
-                  "bn": "শিক্ষক কী বলেছিলেন? (বলার সম্মানসূচক রূপ: おっしゃる)"
+                  "t": "先生は",
+                  "romaji": "sensei wa",
+                  "kanji": "先生は",
+                  "bn": "শিক্ষক"
+                },
+                {
+                  "t": "何と",
+                  "romaji": "nan to",
+                  "kanji": "何と",
+                  "bn": "কী"
+                },
+                {
+                  "t": "おっしゃいましたか",
+                  "romaji": "osshaimashita ka",
+                  "kanji": "おっしゃいましたか",
+                  "bn": "বলেছিলেন কি (সম্মানসূচক)"
                 }
               ],
               "status": "reviewed",
@@ -140,18 +152,77 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "どうぞ あたたかい おちゃを めしあがって ください。",
+              "target": "どうぞ 温かい お茶を 召し上がって ください。",
               "target_kana": "どうぞあたたかいおちゃをめしあがってください。",
               "romaji": "Douzo atatakai ocha o meshiagatte kudasai.",
-              "bn": "অনুগ্রহ করে গরম চা গ্রহণ করুন/খান। (খাওয়া ও পান করার সম্মানসূচক রূপ)",
-              "bn_pron": "দোওজো আতাকেকাই ওচা ও মেশিয়াগাত্তে কুদাসাই।",
+              "bn": "অনুগ্রহ করে গরম চা গ্রহণ করুন। (খাওয়া ও পানের সম্মানসূচক রূপ)",
+              "bn_pron": "দোওজো আতাতাকাই ওচা ও মেশিয়াগাত্তে কুদাসাই।",
               "ipa": "Douzo atatakai ocha o meshiagatte kudasai.",
               "tokens": [
                 {
-                  "t": "どうぞ あたたかい おちゃを めしあがって ください。",
-                  "romaji": "Douzo atatakai ocha o meshiagatte kudasai.",
-                  "kanji": "どうぞ あたたかい おちゃを めしあがって ください。",
-                  "bn": "অনুগ্রহ করে গরম চা গ্রহণ করুন/খান। (খাওয়া ও পান করার সম্মানসূচক রূপ)"
+                  "t": "どうぞ",
+                  "romaji": "douzo",
+                  "kanji": "どうぞ",
+                  "bn": "দয়া করে"
+                },
+                {
+                  "t": "温かい",
+                  "romaji": "atatakai",
+                  "kanji": "温かい",
+                  "bn": "গরম"
+                },
+                {
+                  "t": "お茶を",
+                  "romaji": "ocha o",
+                  "kanji": "お茶を",
+                  "bn": "চা"
+                },
+                {
+                  "t": "召し上がってください",
+                  "romaji": "meshiagatte kudasai",
+                  "kanji": "召し上がってください",
+                  "bn": "গ্রহণ করুন/পান করুন"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l1-004",
+              "concept_id": "c-jp-biz-p1-l1-004",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "この 新しい 資料を ご覧に なりましたか。",
+              "target_kana": "このあたらしいしりょうをごらんになりましたか。",
+              "romaji": "Kono atarashii shiryou o goran ni narimashita ka.",
+              "bn": "এই নতুন নথিপত্রগুলো কি দেখেছেন? (দেখার সম্মানসূচক রূপ)",
+              "bn_pron": "কোনো আতারাসিই শিরিওও ও গোরান নি নারিমাশিতা কা?",
+              "ipa": "Kono atarashii shiryou o goran ni narimashita ka.",
+              "tokens": [
+                {
+                  "t": "この新しい",
+                  "romaji": "kono atarashii",
+                  "kanji": "この新しい",
+                  "bn": "এই নতুন"
+                },
+                {
+                  "t": "資料を",
+                  "romaji": "shiryou o",
+                  "kanji": "資料を",
+                  "bn": "নথিপত্র"
+                },
+                {
+                  "t": "ご覧になりましたか",
+                  "romaji": "goran ni narimashita ka",
+                  "kanji": "ご覧になりましたか",
+                  "bn": "দেখেছেন কি"
                 }
               ],
               "status": "reviewed",
@@ -168,11 +239,12 @@
         {
           "id": "jp-biz-l02",
           "order": 2,
-          "title_bn": "নিজের কাজ বিনীতভাবে প্রকাশ — '謙譲語' (Kenjougo: Humble Speech)",
-          "title_target": "Humble Speech for Oneself (Kenjougo)",
-          "intro_bn": "গ্রাহক বা বসের সামনে নিজের বা নিজের দলের কাজকে বিনম্রভাবে ছোট করে প্রকাশ করতে '謙譲語' (Kenjougo) বসে। যেমন: 行く/来る -> 参る (mairu), 言う -> 申す (mousu), する -> 致す (itasu)।",
+          "title_bn": "সাধারণ সম্মানসূচক গঠন — 'お + Verb Stem + になります'",
+          "title_target": "Regular Honorific Formula (O + Stem + ni narimasu)",
+          "intro_bn": "যেসব ক্রিয়ার বিশেষ সনকেইগো রূপ নেই, সেগুলোকে সম্মানসূচক করতে 'お + Verbます-stem + になります' অথবা অনুরোধে 'お + Verbます-stem + ください' বসে।",
           "structure": [
-            "わたしは + 謙譲語 (Kenjougo Verb)"
+            "Affirmative: お + Verb-stem + に なります",
+            "Request: お + Verb-stem + ください (অনুগ্রহ করে করুন)"
           ],
           "items": [
             {
@@ -181,18 +253,30 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "わたしは ラヒムと もうします。",
-              "target_kana": "わたしわらひむともうします。",
-              "romaji": "Watashi wa Rahimu to moushimasu.",
-              "bn": "আমার নাম রহিম। (নিজের নাম বিনম্রভাবে বলার রূপ: 申します)",
-              "bn_pron": "ওয়াতাশি ওয়া রাহিমু তো মোওশিমাসু।",
-              "ipa": "Watashi wa Rahimu to moushimasu.",
+              "target": "少々 こちらで お待ちに なりますか。",
+              "target_kana": "しょうしょうこちらでおまちになりますか。",
+              "romaji": "Shoushou kochira de omachi ni narimasu ka.",
+              "bn": "অনুগ্রহ করে একটু এখানে অপেক্ষা করবেন কি?",
+              "bn_pron": "শোওশোও কোচিরা দে ওমাচি নি নারিমাসু কা?",
+              "ipa": "Shoushou kochira de omachi ni narimasu ka.",
               "tokens": [
                 {
-                  "t": "わたしは ラヒムと もうします。",
-                  "romaji": "Watashi wa Rahimu to moushimasu.",
-                  "kanji": "わたしは ラヒムと もうします。",
-                  "bn": "আমার নাম রহিম। (নিজের নাম বিনম্রভাবে বলার রূপ: 申します)"
+                  "t": "少々",
+                  "romaji": "shoushou",
+                  "kanji": "少々",
+                  "bn": "সামান্য একটু"
+                },
+                {
+                  "t": "こちらで",
+                  "romaji": "kochira de",
+                  "kanji": "こちらで",
+                  "bn": "এখানে"
+                },
+                {
+                  "t": "お待ちになりますか",
+                  "romaji": "omachi ni narimasu ka",
+                  "kanji": "お待ちになりますか",
+                  "bn": "অপেক্ষা করবেন কি"
                 }
               ],
               "status": "reviewed",
@@ -210,18 +294,30 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "あした １０じに そちらへ まいります。",
-              "target_kana": "あしたじゅうじにそちらえまいります。",
-              "romaji": "Ashita juuji ni sochira e mairimasu.",
-              "bn": "আগামীকাল সকাল ১০টায় আপনাদের ওখানে উপস্থিত হব/যাব। (বিনম্র রূপ: 参ります)",
-              "bn_pron": "আশিতা জুউজি নি সোচিরা এ মাইরিমাসু।",
-              "ipa": "Ashita juuji ni sochira e mairimasu.",
+              "target": "どうぞ こちらに お掛け ください。",
+              "target_kana": "どうぞこちらにおかけください。",
+              "romaji": "Douzo kochira ni okake kudasai.",
+              "bn": "অনুগ্রহ করে এখানে আসন গ্রহণ করুন/বসুন।",
+              "bn_pron": "দোওজো কোচিরা নি ওকেকে কুদাসাই।",
+              "ipa": "Douzo kochira ni okake kudasai.",
               "tokens": [
                 {
-                  "t": "あした １０じに そちらへ まいります。",
-                  "romaji": "Ashita juuji ni sochira e mairimasu.",
-                  "kanji": "あした １０じに そちらへ まいります。",
-                  "bn": "আগামীকাল সকাল ১০টায় আপনাদের ওখানে উপস্থিত হব/যাব। (বিনম্র রূপ: 参ります)"
+                  "t": "どうぞ",
+                  "romaji": "douzo",
+                  "kanji": "どうぞ",
+                  "bn": "দয়া করে"
+                },
+                {
+                  "t": "こちらに",
+                  "romaji": "kochira ni",
+                  "kanji": "こちらに",
+                  "bn": "এখানে"
+                },
+                {
+                  "t": "お掛けください",
+                  "romaji": "okake kudasai",
+                  "kanji": "お掛けください",
+                  "bn": "আসন গ্রহণ করুন/বসুন"
                 }
               ],
               "status": "reviewed",
@@ -239,47 +335,30 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "ただいまから プレゼンテーションを いたします。",
-              "target_kana": "ただいまからぷれぜんてーしょんをいたします。",
-              "romaji": "Tadaima kara purezenteeshon o itashimasu.",
-              "bn": "এখন থেকে প্রেজেন্টেশন শুরু করছি। (করার বিনম্র রূপ: いたします)",
-              "bn_pron": "তাদাইমা কারা পুরেজেনতেএশোন ও ইতাশিমাসু।",
-              "ipa": "Tadaima kara purezenteeshon o itashimasu.",
+              "target": "本日の 予定表を お読みに なりましたか。",
+              "target_kana": "ほんじつのよていひょうをおよみになりましたか。",
+              "romaji": "Honjitsu no yoteihyou o oyomi ni narimashita ka.",
+              "bn": "আজকের সময়সূচি কি পড়ে দেখেছেন?",
+              "bn_pron": "হোঞ্জিতসু নো ইয়োতেইহিয়োও ও ওয়োমি নি নারিমাশিতা কা?",
+              "ipa": "Honjitsu no yoteihyou o oyomi ni narimashita ka.",
               "tokens": [
                 {
-                  "t": "ただいまから プレゼンテーションを いたします。",
-                  "romaji": "Tadaima kara purezenteeshon o itashimasu.",
-                  "kanji": "ただいまから プレゼンテーションを いたします。",
-                  "bn": "এখন থেকে প্রেজেন্টেশন শুরু করছি। (করার বিনম্র রূপ: いたします)"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N3"
-              }
-            },
-            {
-              "id": "jp-biz-p1-l2-004",
-              "concept_id": "c-jp-biz-p1-l2-004",
-              "order": 1,
-              "type": "sentence",
-              "level": "B1",
-              "target": "しりょうを はいけんいたしました。",
-              "target_kana": "しりょうをはいけんいたしました。",
-              "romaji": "Shiryou o haiken itashimashita.",
-              "bn": "নথিপত্রগুলো গভীর মনোযোগের সাথে অবলোকন করেছি। (দেখার বিনম্র রূপ)",
-              "bn_pron": "শিরিওও ও হাইকেন ইতাশিমাশিতা।",
-              "ipa": "Shiryou o haiken itashimashita.",
-              "tokens": [
+                  "t": "本日の",
+                  "romaji": "honjitsu no",
+                  "kanji": "本日の",
+                  "bn": "আজকের"
+                },
                 {
-                  "t": "しりょうを はいけんいたしました。",
-                  "romaji": "Shiryou o haiken itashimashita.",
-                  "kanji": "しりょうを はいけんいたしました。",
-                  "bn": "নথিপত্রগুলো গভীর মনোযোগের সাথে অবলোকন করেছি। (দেখার বিনম্র রূপ)"
+                  "t": "予定表を",
+                  "romaji": "yoteihyou o",
+                  "kanji": "予定表を",
+                  "bn": "সময়সূচি"
+                },
+                {
+                  "t": "お読みになりましたか",
+                  "romaji": "oyomi ni narimashita ka",
+                  "kanji": "お読みになりましたか",
+                  "bn": "পড়েছেন কি"
                 }
               ],
               "status": "reviewed",
@@ -296,11 +375,11 @@
         {
           "id": "jp-biz-l03",
           "order": 3,
-          "title_bn": "অত্যন্ত বিনম্র অনুরোধ — '〜て いただけませんでしょうか'",
-          "title_target": "Ultra-polite Business Requests (~te itadakemasen deshou ka)",
-          "intro_bn": "অফিসে বা ক্লায়েন্টকে অত্যন্ত সম্মান ও বিনম্রতার সাথে অনুরোধ জানাতে '〜て いただけませんでしょうか' বসে।",
+          "title_bn": "সম্মানসূচক উপসর্গ ও সুবিধাজনক সময় জিজ্ঞাসা ('お / ご' & ご都合)",
+          "title_target": "Polite Prefixes & Inquiring Convenient Timing (Gotsugou)",
+          "intro_bn": "জাপানি শব্দের শুরুতে 'お' এবং চীনা কাঞ্জি শব্দের শুরুতে 'ご' বসে। গ্রাহকের সুবিধাজনক সময় জানতে 'ご都合はいかがでしょうか' বলা হয়।",
           "structure": [
-            "Verb-て + いただけませんでしょうか (Could you kindly please...?)"
+            "ご都合は いかがでしょうか (Is the timing convenient for you?)"
           ],
           "items": [
             {
@@ -309,18 +388,30 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "もう いちど ごせつめい していただけませんでしょうか。",
-              "target_kana": "もういちどごせつめいしていただけませんでしょうか。",
-              "romaji": "Mou ichido gosetsumei shite itadakemasen deshou ka.",
-              "bn": "অনুগ্রহ করে আরও একবার ব্যাখ্যা করে দেবেন কি?",
-              "bn_pron": "মোও ইচিদো গোসেতসুমেই শিতে ইতাদাকেমাসেন দেশোও কা?",
-              "ipa": "Mou ichido gosetsumei shite itadakemasen deshou ka.",
+              "target": "来週の 火曜日の ご都合は いかがでしょうか。",
+              "target_kana": "らいしゅうのかようびのごつごうわいかがでしょうか。",
+              "romaji": "Raishuu no kayoubi no gotsugou wa ikaga deshou ka.",
+              "bn": "আগামী সপ্তাহের মঙ্গলবার আপনার সময় সুবিধা হবে কি?",
+              "bn_pron": "রাইশুউ নো কায়োওবি নো গোতসুগোও ওয়া ইকাগা দেশোও কা?",
+              "ipa": "Raishuu no kayoubi no gotsugou wa ikaga deshou ka.",
               "tokens": [
                 {
-                  "t": "もう いちど ごせつめい していただけませんでしょうか。",
-                  "romaji": "Mou ichido gosetsumei shite itadakemasen deshou ka.",
-                  "kanji": "もう いちど ごせつめい していただけませんでしょうか。",
-                  "bn": "অনুগ্রহ করে আরও একবার ব্যাখ্যা করে দেবেন কি?"
+                  "t": "来週の火曜日の",
+                  "romaji": "raishuu no kayoubi no",
+                  "kanji": "来週の火曜日の",
+                  "bn": "আগামী সপ্তাহের মঙ্গলবারের"
+                },
+                {
+                  "t": "ご都合は",
+                  "romaji": "gotsugou wa",
+                  "kanji": "ご都合は",
+                  "bn": "সময় ও সুযোগ"
+                },
+                {
+                  "t": "いかがでしょうか",
+                  "romaji": "ikaga deshou ka",
+                  "kanji": "いかがでしょうか",
+                  "bn": "কেমন হবে"
                 }
               ],
               "status": "reviewed",
@@ -338,18 +429,24 @@
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "この しりょうを ごらん いただけませんでしょうか。",
-              "target_kana": "このしりょうをごらんいただけませんでしょうか。",
-              "romaji": "Kono shiryou o goran itadakemasen deshou ka.",
-              "bn": "এই নথিপত্রটি কি একবার একটু অনুগ্রহ করে দেখে দেবেন?",
-              "bn_pron": "কোনো শিরিওও ও গোরান ইতাদাকেমাসেন দেশোও কা?",
-              "ipa": "Kono shiryou o goran itadakemasen deshou ka.",
+              "target": "内容を ご確認 いただけますでしょうか。",
+              "target_kana": "ないようをごかくにんいただけますでしょうか。",
+              "romaji": "Naiyou o gokakunin itadakemasu deshou ka.",
+              "bn": "বিষয়বস্তুটি কি অনুগ্রহ করে একটু যাচাই করে দেখবেন?",
+              "bn_pron": "নাইয়োও ও গোকাকুনিন ইতাদাকেমাসু দেশোও কা?",
+              "ipa": "Naiyou o gokakunin itadakemasu deshou ka.",
               "tokens": [
                 {
-                  "t": "この しりょうを ごらん いただけませんでしょうか。",
-                  "romaji": "Kono shiryou o goran itadakemasen deshou ka.",
-                  "kanji": "この しりょうを ごらん いただけませんでしょうか。",
-                  "bn": "এই নথিপত্রটি কি একবার একটু অনুগ্রহ করে দেখে দেবেন?"
+                  "t": "内容を",
+                  "romaji": "naiyou o",
+                  "kanji": "内容を",
+                  "bn": "বিষয়বস্তু"
+                },
+                {
+                  "t": "ご確認いただけますでしょうか",
+                  "romaji": "gokakunin itadakemasu deshou ka",
+                  "kanji": "ご確認いただけますでしょうか",
+                  "bn": "যাচাই করে দেবেন কি"
                 }
               ],
               "status": "reviewed",
@@ -369,37 +466,49 @@
       "id": "jp-business-p2",
       "order": 2,
       "level": "B1",
-      "title_bn": "অফিস ও কর্পোরেট বিজনেস কমিউনিকেশন (Business Scenarios)",
-      "title_target": "Corporate Communications, Telephone & Apologies",
+      "title_bn": "বিনম্র ভাষা — কেনজৌগো (Kenjougo: Humble Speech)",
+      "title_target": "Kenjougo: Humble Speech for Oneself and In-Group",
       "lessons": [
         {
           "id": "jp-biz-l04",
           "order": 1,
-          "title_bn": "বিজনেস টেলিফোন কথোপকথন (Business Telephone Etiquette)",
-          "title_target": "Telephone Communication in Japanese Companies",
-          "intro_bn": "জাপানি অফিসে ফোন রিসিভ করার সময় 'お世話になっております' এবং ফোন রাখার সময় '失礼いたします' বলা আবশ্যক।",
+          "title_bn": "বিশেষ বিনম্র ক্রিয়াপদ — '謙譲語' (Special Kenjougo Verbs)",
+          "title_target": "Special Humble Verbs (Mairu, Mousu, Itasu, Haiken)",
+          "intro_bn": "গ্রাহক বা ঊর্ধ্বতন ব্যক্তির সামনে নিজের বা নিজ প্রতিষ্ঠানের কাজ বিনম্রভাবে ব্যক্ত করতে কেনজৌগো বসে। যেমন: 行く/来る -> 参る (mairu), 言う -> 申す (mousu), する -> 致す (itasu), 見る -> 拝見する (haiken suru), 食べる/もらう -> いただく (itadaku)।",
           "structure": [
-            "いつも お世話に なっております (Thank you for your continuous support)"
+            "Speaker / In-Group + は + 謙譲語 (Kenjougo Verb)"
           ],
           "items": [
             {
-              "id": "jp-biz-p2-l4-001",
-              "concept_id": "c-jp-biz-p2-l4-001",
+              "id": "jp-biz-p1-l4-001",
+              "concept_id": "c-jp-biz-p1-l4-001",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "はい、ABCしょうじで ございます。いつも おせわに なって おります。",
-              "target_kana": "はい、えーびーしーしょうじでございます。いつもおせわになっております。",
-              "romaji": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
-              "bn": "হ্যাঁ, এটি এবিসি ট্রেডিং কোম্পানি বলছি। আপনাদের নিরবচ্ছিন্ন সহযোগিতার জন্য ধন্যবাদ।",
-              "bn_pron": "হাই, এবিসি শোওজি দে গোজাইমাসু। ইতসুমো ওসেওয়া নি নাত্তে ওরিমাছু।",
-              "ipa": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
+              "target": "わたしは ラヒムと 申します。",
+              "target_kana": "わたしわらひむともうします。",
+              "romaji": "Watashi wa Rahimu to moushimasu.",
+              "bn": "আমার নাম রহিম। (নিজের নাম বিনম্রভাবে বলার রূপ)",
+              "bn_pron": "ওয়াতাশি ওয়া রাহিমু তো মোওশিমাসু।",
+              "ipa": "Watashi wa Rahimu to moushimasu.",
               "tokens": [
                 {
-                  "t": "はい、ABCしょうじで ございます。いつも おせわに なって おります。",
-                  "romaji": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
-                  "kanji": "はい、ABCしょうじで ございます。いつも おせわに なって おります。",
-                  "bn": "হ্যাঁ, এটি এবিসি ট্রেডিং কোম্পানি বলছি। আপনাদের নিরবচ্ছিন্ন সহযোগিতার জন্য ধন্যবাদ।"
+                  "t": "わたしは",
+                  "romaji": "watashi wa",
+                  "kanji": "私は",
+                  "bn": "আমি"
+                },
+                {
+                  "t": "ラヒムと",
+                  "romaji": "Rahimu to",
+                  "kanji": "ラヒムと",
+                  "bn": "রহিম নামে"
+                },
+                {
+                  "t": "申します",
+                  "romaji": "moushimasu",
+                  "kanji": "申します",
+                  "bn": "বিনীতভাবে পরিচিত/বলা"
                 }
               ],
               "status": "reviewed",
@@ -412,23 +521,35 @@
               }
             },
             {
-              "id": "jp-biz-p2-l4-002",
-              "concept_id": "c-jp-biz-p2-l4-002",
+              "id": "jp-biz-p1-l4-002",
+              "concept_id": "c-jp-biz-p1-l4-002",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "たなかぶちょうは いらっしゃいますでしょうか。",
-              "target_kana": "たなかぶちょうわいらっしゃいますでしょうか。",
-              "romaji": "Tanaka-buchou wa irasshaimasu deshou ka.",
-              "bn": "ডিপার্টমেন্ট প্রধান তানাকা বাবু কি আছেন?",
-              "bn_pron": "তানাকা-বুচোও ওয়া ইরাশ্শাইমাসু দেশোও কা?",
-              "ipa": "Tanaka-buchou wa irasshaimasu deshou ka.",
+              "target": "明日 午前１０時に そちらへ 参ります。",
+              "target_kana": "あしたごぜんじゅうじにそちらえまいります。",
+              "romaji": "Ashita gozen juuji ni sochira e mairimasu.",
+              "bn": "আগামীকাল সকাল ১০টায় আপনাদের দফতরে উপস্থিত হব।",
+              "bn_pron": "আশিতা গোজেন জুউজি নি সোচিরা এ মাইরিমাসু।",
+              "ipa": "Ashita gozen juuji ni sochira e mairimasu.",
               "tokens": [
                 {
-                  "t": "たなかぶちょうは いらっしゃいますでしょうか。",
-                  "romaji": "Tanaka-buchou wa irasshaimasu deshou ka.",
-                  "kanji": "たなかぶちょうは いらっしゃいますでしょうか。",
-                  "bn": "ডিপার্টমেন্ট প্রধান তানাকা বাবু কি আছেন?"
+                  "t": "明日午前１０時に",
+                  "romaji": "ashita gozen juuji ni",
+                  "kanji": "明日午前１０時に",
+                  "bn": "আগামীকাল সকাল ১০টায়"
+                },
+                {
+                  "t": "そちらへ",
+                  "romaji": "sochira e",
+                  "kanji": "そちらへ",
+                  "bn": "আপনাদের ওখানে"
+                },
+                {
+                  "t": "参ります",
+                  "romaji": "mairimasu",
+                  "kanji": "参ります",
+                  "bn": "উপস্থিত হব/যাব"
                 }
               ],
               "status": "reviewed",
@@ -441,23 +562,76 @@
               }
             },
             {
-              "id": "jp-biz-p2-l4-003",
-              "concept_id": "c-jp-biz-p2-l4-003",
+              "id": "jp-biz-p1-l4-003",
+              "concept_id": "c-jp-biz-p1-l4-003",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "あいにく たなかは ただいま がいしゅつして おります。",
-              "target_kana": "あいにくたなかわただいまがいしゅつしております。",
-              "romaji": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
-              "bn": "দুঃখজনকভাবে তানাকা বাবু এই মুহূর্তে বাইরে অবস্থান করছেন।",
-              "bn_pron": "আইনিকু তানাকা ওয়া তাদাইমা গাইশুতসু শিতে ওরিমাছু।",
-              "ipa": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
+              "target": "ただいまから プレゼンテーションを いたします。",
+              "target_kana": "ただいまからぷれぜんてーしょんをいたします。",
+              "romaji": "Tadaima kara purezenteeshon o itashimasu.",
+              "bn": "এখন থেকে প্রেজেন্টেশন উপস্থাপন করছি।",
+              "bn_pron": "তাদাইমা কারা পুরেজেনতেএশোন ও ইতাশিমাসু।",
+              "ipa": "Tadaima kara purezenteeshon o itashimasu.",
               "tokens": [
                 {
-                  "t": "あいにく たなかは ただいま がいしゅつして おります。",
-                  "romaji": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
-                  "kanji": "あいにく たなかは ただいま がいしゅつして おります。",
-                  "bn": "দুঃখজনকভাবে তানাকা বাবু এই মুহূর্তে বাইরে অবস্থান করছেন।"
+                  "t": "ただいまから",
+                  "romaji": "tadaima kara",
+                  "kanji": "ただ今から",
+                  "bn": "এখন থেকে"
+                },
+                {
+                  "t": "プレゼンテーションを",
+                  "romaji": "purezenteeshon o",
+                  "kanji": "プレゼンテーションを",
+                  "bn": "প্রেজেন্টেশন"
+                },
+                {
+                  "t": "いたします",
+                  "romaji": "itashimasu",
+                  "kanji": "いたします",
+                  "bn": "সম্পাদন করছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l4-004",
+              "concept_id": "c-jp-biz-p1-l4-004",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "送って いただいた 資料を 拝見いたしました。",
+              "target_kana": "おくっていただいたしりょうをはいけんいたしました。",
+              "romaji": "Okutte itadaita shiryou o haiken itashimashita.",
+              "bn": "আপনার পাঠানো নথিপত্রগুলো গভীর শ্রদ্ধায় পর্যালোচনা করেছি।",
+              "bn_pron": "ওকুত্তে ইতাদাইতা শিরিওও ও হাইকেন ইতাশিমাশিতা।",
+              "ipa": "Okutte itadaita shiryou o haiken itashimashita.",
+              "tokens": [
+                {
+                  "t": "送っていただいた",
+                  "romaji": "okutte itadaita",
+                  "kanji": "送っていただいた",
+                  "bn": "আপনার পাঠানো"
+                },
+                {
+                  "t": "資料を",
+                  "romaji": "shiryou o",
+                  "kanji": "資料を",
+                  "bn": "নথিপত্র"
+                },
+                {
+                  "t": "拝見いたしました",
+                  "romaji": "haiken itashimashita",
+                  "kanji": "拝見いたしました",
+                  "bn": "অবলোকন করেছি"
                 }
               ],
               "status": "reviewed",
@@ -474,31 +648,37 @@
         {
           "id": "jp-biz-l05",
           "order": 2,
-          "title_bn": "অফিসে ক্ষমা প্রার্থনা ও বিনম্র দুঃখপ্রকাশ (Corporate Apologies)",
-          "title_target": "Formal Corporate Apologies (Taihen Moushiwake Gozaimasen)",
-          "intro_bn": "অফিসিয়াল কোনো ত্রুটি বা দেরির ক্ষেত্রে সাধারণ 'Gomen nasai' না বলে '大変 申し訳ございません' বলতে হয়।",
+          "title_bn": "সাধারণ বিনম্র গঠন — 'お + Verb Stem + いたします'",
+          "title_target": "Regular Humble Formula (O + Stem + itashimasu)",
+          "intro_bn": "নিজের কোনো কাজের দ্বারা অপরকে সাহায্য বা সেবা প্রদান করতে বিনম্র রূপ: 'お + Verbます-stem + いたします' (যেমন: お持ちいたします = বহন করে দিচ্ছি)।",
           "structure": [
-            "大変 申し訳ございません (I sincerely apologize)"
+            "お + Verb-stem + いたします / ご + Noun + いたします"
           ],
           "items": [
             {
-              "id": "jp-biz-p2-l5-001",
-              "concept_id": "c-jp-biz-p2-l5-001",
+              "id": "jp-biz-p1-l5-001",
+              "concept_id": "c-jp-biz-p1-l5-001",
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "へんしんが おそくなり、たいへん もうしわけございません。",
-              "target_kana": "へんしんがおそくなり、たいへんもうしわけございません。",
-              "romaji": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
-              "bn": "উত্তর দিতে বিলম্ব হওয়ায় আমি আন্তরিকভাবে ক্ষমা প্রার্থনা করছি।",
-              "bn_pron": "হেনশিন গা ওসোকুনারি, তাইহেন মোওশিওয়াকে গোজাইমাসেন।",
-              "ipa": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
+              "target": "お荷物を お持ち いたしましょうか。",
+              "target_kana": "おにもつをおもちいたしましょうか。",
+              "romaji": "Onimotsu o omochi itashimashou ka.",
+              "bn": "আপনার মালামাল কি আমি বহন করে দেব?",
+              "bn_pron": "ওনিমোতসু ও ওমোচি ইতাশিমাশোও কা?",
+              "ipa": "Onimotsu o omochi itashimashou ka.",
               "tokens": [
                 {
-                  "t": "へんしんが おそくなり、たいへん もうしわけございません。",
-                  "romaji": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
-                  "kanji": "へんしんが おそくなり、たいへん もうしわけございません。",
-                  "bn": "উত্তর দিতে বিলম্ব হওয়ায় আমি আন্তরিকভাবে ক্ষমা প্রার্থনা করছি।"
+                  "t": "お荷物を",
+                  "romaji": "onimotsu o",
+                  "kanji": "お荷物を",
+                  "bn": "আপনার মালামাল"
+                },
+                {
+                  "t": "お持ちいたしましょうか",
+                  "romaji": "omochi itashimashou ka",
+                  "kanji": "お持ちいたしましょうか",
+                  "bn": "বহন করে দেব কি"
                 }
               ],
               "status": "reviewed",
@@ -511,23 +691,164 @@
               }
             },
             {
-              "id": "jp-biz-p2-l5-002",
-              "concept_id": "c-jp-biz-p2-l5-002",
+              "id": "jp-biz-p1-l5-002",
+              "concept_id": "c-jp-biz-p1-l5-002",
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "ごめいわくを おかけして、まことに もうしわけございません。",
-              "target_kana": "ごめいわくをおかけして、まことにもうしわけございません。",
-              "romaji": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
-              "bn": "আপনাদের অসুবিধায় ফেলার জন্য সত্যিই অত্যন্ত দুঃখ প্রকাশ করছি।",
-              "bn_pron": "গোমেইওয়াকু ও ওকেকে শিতে, মাকোতো নি মোওশিওয়াকে গোজাইমাসেন।",
-              "ipa": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
+              "target": "詳しい 内容を ご案内 いたします。",
+              "target_kana": "くわしいないようをごあんないいたします。",
+              "romaji": "Kuwashii naiyou o goannai itashimasu.",
+              "bn": "বিস্তারিত বিষয়বস্তু আমি বুঝিয়ে ও প্রদর্শন করে দিচ্ছি।",
+              "bn_pron": "কুওয়াশিই নাইয়োও ও গোআন্নাই ইতাশিমাসু।",
+              "ipa": "Kuwashii naiyou o goannai itashimasu.",
               "tokens": [
                 {
-                  "t": "ごめいわくを おかけして、まことに もうしわけございません。",
-                  "romaji": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
-                  "kanji": "ごめいわくを おかけして、まことに もうしわけございません。",
-                  "bn": "আপনাদের অসুবিধায় ফেলার জন্য সত্যিই অত্যন্ত দুঃখ প্রকাশ করছি।"
+                  "t": "詳しい内容を",
+                  "romaji": "kuwashii naiyou o",
+                  "kanji": "詳しい内容を",
+                  "bn": "বিস্তারিত বিষয়বস্তু"
+                },
+                {
+                  "t": "ご案内いたします",
+                  "romaji": "goannai itashimasu",
+                  "kanji": "ご案内いたします",
+                  "bn": "পরিদর্শন/ব্যাখ্যা করে দিচ্ছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l5-003",
+              "concept_id": "c-jp-biz-p1-l5-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "後ほど メールで ご連絡 いたします。",
+              "target_kana": "のちほどめーるでごれんらくいたします。",
+              "romaji": "Nochihodo meeru de gorenraku itashimasu.",
+              "bn": "কিছুক্ষণ পর ইমেইলের মাধ্যমে যোগাযোগ করে নিচ্ছি।",
+              "bn_pron": "নোচিহো দো মেরু দে গোরেনরাকু ইতাশিমাসু।",
+              "ipa": "Nochihodo meeru de gorenraku itashimasu.",
+              "tokens": [
+                {
+                  "t": "後ほど",
+                  "romaji": "nochihodo",
+                  "kanji": "後ほど",
+                  "bn": "কিছুক্ষণ পরে"
+                },
+                {
+                  "t": "メールで",
+                  "romaji": "meeru de",
+                  "kanji": "メールで",
+                  "bn": "ইমেইলে"
+                },
+                {
+                  "t": "ご連絡いたします",
+                  "romaji": "gorenraku itashimasu",
+                  "kanji": "ご連絡いたします",
+                  "bn": "যোগাযোগ করব"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l06",
+          "order": 3,
+          "title_bn": "নিজ কোম্পানি ও দলীয় পরিচয় — '弊社' ও 'わたくし'",
+          "title_target": "In-Group Humility (Heisha vs. Kisha / Watakushi)",
+          "intro_bn": "জাপানি ব্যবসায়িক সংস্কৃতিতে নিজের কোম্পানিকে '弊社' (heisha - আমাদের বিনীত প্রতিষ্ঠান) এবং ক্লায়েন্টের কোম্পানিকে '貴社' (kisha) বা '御社' (onsha) বলা নিয়ম।",
+          "structure": [
+            "弊社の [Name] と 申します (I am [Name] from our company)"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l6-001",
+              "concept_id": "c-jp-biz-p1-l6-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "弊社は 新しい ITソリューションを 提供して おります。",
+              "target_kana": "へいしゃわあたらしいあいてぃーそりゅーしょんをていきょうしております。",
+              "romaji": "Heisha wa atarashii aiteii soryuushon o teikyou shite orimasu.",
+              "bn": "আমাদের প্রতিষ্ঠান সর্বাধুনিক আইটি সলিউশন সেবা প্রদান করে আসছে।",
+              "bn_pron": "হেইশা ওয়া আতারাসিই আইতিই সোরিউউশোন ও তেইকিওও শিতে ওরিমাছু।",
+              "ipa": "Heisha wa atarashii aiteii soryuushon o teikyou shite orimasu.",
+              "tokens": [
+                {
+                  "t": "弊社は",
+                  "romaji": "heisha wa",
+                  "kanji": "弊社は",
+                  "bn": "আমাদের প্রতিষ্ঠান"
+                },
+                {
+                  "t": "新しいITソリューションを",
+                  "romaji": "atarashii aiteii soryuushon o",
+                  "kanji": "新しいITソリューションを",
+                  "bn": "নতুন আইটি সমাধান"
+                },
+                {
+                  "t": "提供しております",
+                  "romaji": "teikyou shite orimasu",
+                  "kanji": "提供しております",
+                  "bn": "প্রদান করে আসছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l6-002",
+              "concept_id": "c-jp-biz-p1-l6-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "御社の プロジェクトに ぜひ 参加させて いただきたいです。",
+              "target_kana": "おんしゃのぷろじぇくとにぜひさんかさせていただきたいです。",
+              "romaji": "Onsha no purojekuto ni zehi sanka sasete itadakitai desu.",
+              "bn": "আপনাদের সম্মানিত প্রতিষ্ঠানে প্রকল্পে অংশগ্রহণের সুযোগ পেতে আগ্রহী।",
+              "bn_pron": "ওনশা নো পুরোজেকুত নি জেহি সানকা সাসেতে ইতাদাকিতাই দেস।",
+              "ipa": "Onsha no purojekuto ni zehi sanka sasete itadakitai desu.",
+              "tokens": [
+                {
+                  "t": "御社の",
+                  "romaji": "onsha no",
+                  "kanji": "御社の",
+                  "bn": "আপনাদের কোম্পানির"
+                },
+                {
+                  "t": "プロジェクトに",
+                  "romaji": "purojekuto ni",
+                  "kanji": "プロジェクトに",
+                  "bn": "প্রকল্পে"
+                },
+                {
+                  "t": "参加させていただきたいです",
+                  "romaji": "sanka sasete itadakitai desu",
+                  "kanji": "参加させていただきたいです",
+                  "bn": "অংশগ্রহণের সুযোগ চাই"
                 }
               ],
               "status": "reviewed",
@@ -547,37 +868,43 @@
       "id": "jp-business-p3",
       "order": 3,
       "level": "B1",
-      "title_bn": "কথ্য কৌশল ও সূক্ষ্ম অনুভূতি (Aizuchi, Nuances & Interview)",
-      "title_target": "Conversational Fillers, Nuances & Job Interview Practice",
+      "title_bn": "অত্যন্ত বিনম্র অনুরোধ ও কুশন শব্দ (Ultra-Polite Requests & Cushion Words)",
+      "title_target": "Ultra-Polite Requests, Cushion Words & Professional Declining",
       "lessons": [
         {
-          "id": "jp-biz-l06",
+          "id": "jp-biz-l07",
           "order": 1,
-          "title_bn": "প্রতিক্রিয়া ও কথোপকথন সচল রাখা — '相槌' (Aizuchi: Conversational Responses)",
-          "title_target": "Conversational Reactions & Flow (Aizuchi)",
-          "intro_bn": "জাপানিজরা অপরপক্ষের কথা শোনার সময় প্রতিনিয়ত ছোট ছোট প্রতিক্রিয়াসূচক শব্দ বলে থাকে, যাকে '相槌' (Aizuchi) বলে। যেমন: なるほど (বুঝেছি), おっしゃる通りです (আপনি ঠিকই বলেছেন)।",
+          "title_bn": "সর্বোচ্চ বিনম্র অনুরোধ — '〜て いただけませんでしょうか'",
+          "title_target": "Ultra-polite Business Requests (~te itadakemasen deshou ka)",
+          "intro_bn": "ক্লায়েন্ট বা প্রধান কর্মকর্তাকে কোনো বিষয়ে অত্যন্ত মার্জিতভাবে অনুরোধ করতে এই রূপটি ব্যবহার করা হয়।",
           "structure": [
-            "Conversational Reaction Fillers: なるほど / おっしゃる通りです / 確かに"
+            "Verb-て + いただけませんでしょうか (Could you kindly please...?)"
           ],
           "items": [
             {
-              "id": "jp-biz-p3-l6-001",
-              "concept_id": "c-jp-biz-p3-l6-001",
+              "id": "jp-biz-p1-l7-001",
+              "concept_id": "c-jp-biz-p1-l7-001",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "なるほど。そのとおりですね。",
-              "target_kana": "なるほど。そのとおりですね。",
-              "romaji": "Naruhodo. Sono toori desu ne.",
-              "bn": "আচ্ছা বুঝেছি! ঠিক তাই, আপনি একদম ঠিক বলেছেন।",
-              "bn_pron": "নারুহোদো। সোনো তোওরি দেসু নে।",
-              "ipa": "Naruhodo. Sono toori desu ne.",
+              "target": "もう 一度 ご説明 していただけませんでしょうか。",
+              "target_kana": "もういちどごせつめいしていただけませんでしょうか。",
+              "romaji": "Mou ichido gosetsumei shite itadakemasen deshou ka.",
+              "bn": "অনুগ্রহ করে আরও একবার কি বিষয়টি বুঝিয়ে দেবেন?",
+              "bn_pron": "মোও ইচিদো গোসেতসুমেই শিতে ইতাদাকেমাসেন দেশোও কা?",
+              "ipa": "Mou ichido gosetsumei shite itadakemasen deshou ka.",
               "tokens": [
                 {
-                  "t": "なるほど。そのとおりですね。",
-                  "romaji": "Naruhodo. Sono toori desu ne.",
-                  "kanji": "なるほど。そのとおりですね。",
-                  "bn": "আচ্ছা বুঝেছি! ঠিক তাই, আপনি একদম ঠিক বলেছেন।"
+                  "t": "もう一度",
+                  "romaji": "mou ichido",
+                  "kanji": "もう一度",
+                  "bn": "আরও একবার"
+                },
+                {
+                  "t": "ご説明していただけませんでしょうか",
+                  "romaji": "gosetsumei shite itadakemasen deshou ka",
+                  "kanji": "ご説明していただけませんでしょうか",
+                  "bn": "ব্যাখ্যা করে দেবেন কি"
                 }
               ],
               "status": "reviewed",
@@ -590,23 +917,35 @@
               }
             },
             {
-              "id": "jp-biz-p3-l6-002",
-              "concept_id": "c-jp-biz-p3-l6-002",
+              "id": "jp-biz-p1-l7-002",
+              "concept_id": "c-jp-biz-p1-l7-002",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "おっしゃる とおりで ございます。べんきょうに なります。",
-              "target_kana": "おっしゃるとおりでございます。べんきょうになります。",
-              "romaji": "Ossharu toori de gozaimasu. Benkyou ni narimasu.",
-              "bn": "আপনি যথার্থই বলেছেন। অনেক কিছু শিখতে পারলাম।",
-              "bn_pron": "ওশ্শারু তোওরি দে গোজাইমাসু। বেনকিওও নি নারিমাসু।",
-              "ipa": "Ossharu toori de gozaimasu. Benkyou ni narimasu.",
+              "target": "お忙しい ところ 恐れ入りますが、ご確認 いただけますでしょうか。",
+              "target_kana": "おいそがしいところおそれいりますが、ごかくにんいただけますでしょうか。",
+              "romaji": "Oisogashii tokoro osoreirimasu ga, gokakunin itadakemasu deshou ka.",
+              "bn": "ব্যস্ততার মাঝে কষ্ট দিচ্ছি, তবে নথিপত্রটি কি একটু যাচাই করে দেখবেন?",
+              "bn_pron": "ওইসোগাশিই তোকোরো ওসোরেইরিমাসু গা, গোকাকুনিন ইতাদাকেমাসু দেশোও কা?",
+              "ipa": "Oisogashii tokoro osoreirimasu ga, gokakunin itadakemasu deshou ka.",
               "tokens": [
                 {
-                  "t": "おっしゃる とおりで ございます。べんきょうに なります。",
-                  "romaji": "Ossharu toori de gozaimasu. Benkyou ni narimasu.",
-                  "kanji": "おっしゃる とおりで ございます。べんきょうに なります。",
-                  "bn": "আপনি যথার্থই বলেছেন। অনেক কিছু শিখতে পারলাম।"
+                  "t": "お忙しいところ",
+                  "romaji": "oisogashii tokoro",
+                  "kanji": "お忙しいところ",
+                  "bn": "ব্যস্ততার মুহূর্তে"
+                },
+                {
+                  "t": "恐れ入りますが",
+                  "romaji": "osoreirimasu ga",
+                  "kanji": "恐れ入りますが",
+                  "bn": "ক্ষমা চেয়ে নিচ্ছি তবে"
+                },
+                {
+                  "t": "ご確認いただけますでしょうか",
+                  "romaji": "gokakunin itadakemasu deshou ka",
+                  "kanji": "ご確認いただけますでしょうか",
+                  "bn": "যাচাই করে দেবেন কি"
                 }
               ],
               "status": "reviewed",
@@ -621,23 +960,445 @@
           ]
         },
         {
-          "id": "jp-biz-l07",
+          "id": "jp-biz-l08",
           "order": 2,
-          "title_bn": "মনস্তাত্ত্বিক কারণ ও ফলাফল — '〜おかげで' বনাম '〜せいで'",
-          "title_target": "Psychological Causality (Okage de [Thanks to] vs Sei de [Due to fault])",
-          "intro_bn": "ইতিবাচক ভালো ফলাফলের ক্ষেত্রে কারো অবদানের কৃতজ্ঞতা জানাতে '〜おかげで' (Thanks to) এবং নেতিবাচক বা ক্ষতির ক্ষেত্রে '〜せいで' (Due to fault) বসে।",
+          "title_bn": "কুশন শব্দ ও নরম বাক্য সূচনা (Cushion Words: クッション言葉)",
+          "title_target": "Cushion Words in Business Japanese (Osoreirimasu ga / Otesuu desu ga)",
+          "intro_bn": "সরাসরি অনুরোধ বা প্রশ্ন না করে বাক্যের শুরুতে নরম কুশন শব্দ ব্যবহার জাপানি ভদ্রতার প্রধান অংশ। যেমন: 恐れ入りますが (বিনম্র ক্ষমা চেয়ে বলছি), お手数をおかけしますが (কষ্ট দিচ্ছি বটে কিন্তু)।",
           "structure": [
-            "Good Result: Noun の / Verb + おかげで",
-            "Bad Result: Noun の / Verb + せいで"
+            "Cushion Phrase + Request / Inquiry"
           ],
           "items": [
             {
-              "id": "jp-biz-p3-l7-001",
-              "concept_id": "c-jp-biz-p3-l7-001",
+              "id": "jp-biz-p1-l8-001",
+              "concept_id": "c-jp-biz-p1-l8-001",
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "せんせいの おかげで、JLPTに ごうかくできました。",
+              "target": "恐れ入りますが、お名前を もう 一度 お伺いできますでしょうか。",
+              "target_kana": "おそれいりますが、おなまえをもういちどおうかがいできますでしょうか。",
+              "romaji": "Osoreirimasu ga, onamae o mou ichido oukagai dekimasu deshou ka.",
+              "bn": "বিনীতভাবে জানতে চাইছি, আপনার নামটি কি আরেকবার একটু বলবেন দয়া করে?",
+              "bn_pron": "ওসোরেইরিমাসু গা, ওনামায়ে ও মোও ইচিদো ওউকাগাই দেকিমাসু দেশোও কা?",
+              "ipa": "Osoreirimasu ga, onamae o mou ichido oukagai dekimasu deshou ka.",
+              "tokens": [
+                {
+                  "t": "恐れ入りますが",
+                  "romaji": "osoreirimasu ga",
+                  "kanji": "恐れ入りますが",
+                  "bn": "ক্ষমা চেয়ে বলছি"
+                },
+                {
+                  "t": "お名前を",
+                  "romaji": "onamae o",
+                  "kanji": "お名前を",
+                  "bn": "আপনার নাম"
+                },
+                {
+                  "t": "もう一度",
+                  "romaji": "mou ichido",
+                  "kanji": "もう一度",
+                  "bn": "আরও একবার"
+                },
+                {
+                  "t": "お伺いできますでしょうか",
+                  "romaji": "oukagai dekimasu deshou ka",
+                  "kanji": "お伺いできますでしょうか",
+                  "bn": "জিজ্ঞাসা করতে পারি কি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l8-002",
+              "concept_id": "c-jp-biz-p1-l8-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "お手数をおかけしますが、ご返信を お願い申し上げます。",
+              "target_kana": "おてすうをおかけしますが、ごへんしんをおねがいもうしあげます。",
+              "romaji": "Otesuu o okake shimasu ga, gohenshin o onegai moushiagemasu.",
+              "bn": "আপনাকে শ্রম দিচ্ছি, তবে দয়া করে প্রত্যুত্তর পাঠানোর বিনীত অনুরোধ রইল।",
+              "bn_pron": "ওতেসুউ ও ওকেকে শিমাসু গা, গোহেনশিন ও ওনেগাই মোওশিয়াগেমাসু।",
+              "ipa": "Otesuu o okake shimasu ga, gohenshin o onegai moushiagemasu.",
+              "tokens": [
+                {
+                  "t": "お手数をおかけしますが",
+                  "romaji": "otesuu o okake shimasu ga",
+                  "kanji": "お手数をおかけしますが",
+                  "bn": "আপনাকে কষ্ট দিচ্ছি তবে"
+                },
+                {
+                  "t": "ご返信を",
+                  "romaji": "gohenshin o",
+                  "kanji": "ご返信を",
+                  "bn": "উত্তর"
+                },
+                {
+                  "t": "お願い申し上げます",
+                  "romaji": "onegai moushiagemasu",
+                  "kanji": "お願い申し上げます",
+                  "bn": "অনুরোধ জ্ঞাপন করছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l09",
+          "order": 3,
+          "title_bn": "বিনম্রভাবে প্রস্তাব প্রত্যাখ্যান (Polite Declination: 見送らせていただきます)",
+          "title_target": "Politely Declining in Business Contexts",
+          "intro_bn": "ব্যবসায় সরাসরি 'না' বলা অশোভন। বিনম্র কৌশলে প্রস্তাব পিছিয়ে দেওয়া বা অমত প্রকাশ করা হয়।",
+          "structure": [
+            "あいにくですが / せっかくですが、今回は見送らせていただきます"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l9-001",
+              "concept_id": "c-jp-biz-p1-l9-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "あいにくですが、その日は 先約が ございまして。",
+              "target_kana": "あいにくですが、そのひわせんやくがございまして。",
+              "romaji": "Ainiku desu ga, sono hi wa senyaku ga gozaimashite.",
+              "bn": "দুঃখজনক হলেও সত্যি, ওই দিন আগে থেকেই আমার অন্য একটি অ্যাপয়েন্টমেন্ট রয়েছে।",
+              "bn_pron": "আইনিকু দেসু গা, সোনো হি ওয়া সেনইয়াকু গা গোজাইমাশিতে।",
+              "ipa": "Ainiku desu ga, sono hi wa senyaku ga gozaimashite.",
+              "tokens": [
+                {
+                  "t": "あいにくですが",
+                  "romaji": "ainiku desu ga",
+                  "kanji": "あいにくですが",
+                  "bn": "দুর্ভাগ্যবশত"
+                },
+                {
+                  "t": "その日は",
+                  "romaji": "sono hi wa",
+                  "kanji": "その日は",
+                  "bn": "ওই দিন"
+                },
+                {
+                  "t": "先約がございまして",
+                  "romaji": "senyaku ga gozaimashite",
+                  "kanji": "先約がございまして",
+                  "bn": "আগের প্রতিশ্রুত কাজ থাকায়"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l9-002",
+              "concept_id": "c-jp-biz-p1-l9-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "大変 申し上げにくいのですが、今回は 見送らせて いただきます。",
+              "target_kana": "たいへんもうしあげにくいのですが、こんかいわみおくらせていただきます。",
+              "romaji": "Taihen moushiagenikui no desu ga, konkai wa miokurasete itadakimasu.",
+              "bn": "বলতে অত্যন্ত কষ্ট হচ্ছে, তবে এবারের মতো বিষয়টি স্থগিত বা ফিরিয়ে দিতে বাধ্য হচ্ছি।",
+              "bn_pron": "তাইহেন মোওশিয়াগেনিকুই নো দেসু গা, কোনকাই ওয়া মিওকুরাসেতে ইতাদাকিমাসু।",
+              "ipa": "Taihen moushiagenikui no desu ga, konkai wa miokurasete itadakimasu.",
+              "tokens": [
+                {
+                  "t": "大変申し上げにくいのですが",
+                  "romaji": "taihen moushiagenikui no desu ga",
+                  "kanji": "大変申し上げにくいのですが",
+                  "bn": "বলতে সত্যিই অনুচিত লাগছে"
+                },
+                {
+                  "t": "今回は",
+                  "romaji": "konkai wa",
+                  "kanji": "今回は",
+                  "bn": "এবারকার মতো"
+                },
+                {
+                  "t": "見送らせていただきます",
+                  "romaji": "miokurasete itadakimasu",
+                  "kanji": "見送らせていただきます",
+                  "bn": "স্থগিত রাখার অনুমতি নিচ্ছি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-business-p4",
+      "order": 4,
+      "level": "B1",
+      "title_bn": "টেলিফোন ও ইমেইল যোগাযোগ (Telephone & Corporate Discourse)",
+      "title_target": "Business Telephone Etiquette, Call Transfers & Formal Apologies",
+      "lessons": [
+        {
+          "id": "jp-biz-l10",
+          "order": 1,
+          "title_bn": "টেলিফোন রিসিভ ও সৌজন্য সম্ভাষণ (Business Phone Etiquette)",
+          "title_target": "Receiving Calls & Formal Phone Greetings",
+          "intro_bn": "জাপানি অফিসে ফোন ধরার সময় 'お世話になっております' এবং পরিচয় প্রদান কর্পোরেট শালীনতার নিয়ম।",
+          "structure": [
+            "はい、[Company] で ございます。いつも お世話に なっております"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l10-001",
+              "concept_id": "c-jp-biz-p1-l10-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "はい、ABC商事で ございます。いつも お世話に なって おります。",
+              "target_kana": "はい、えーびーしーしょうじでございます。いつもおせわになっております。",
+              "romaji": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
+              "bn": "হ্যাঁ, এটি এবিসি ট্রেডিং কোম্পানি বলছি। আপনাদের নিরবচ্ছিন্ন সহযোগিতার জন্য ধন্যবাদ।",
+              "bn_pron": "হাই, এবিসি শোওজি দে গোজাইমাসু। ইতসুমো ওসেওয়া নি নাত্তে ওরিমাছু।",
+              "ipa": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
+              "tokens": [
+                {
+                  "t": "はい、ABC商事で ございます。いつも お世話に なって おります。",
+                  "romaji": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
+                  "kanji": "はい、ABC商事で ございます。いつも お世話に なって おります。",
+                  "bn": "হ্যাঁ, এটি এবিসি ট্রেডিং কোম্পানি বলছি। আপনাদের নিরবচ্ছিন্ন সহযোগিতার জন্য ধন্যবাদ।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l10-002",
+              "concept_id": "c-jp-biz-p1-l10-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "田中部長は いらっしゃいますでしょうか。",
+              "target_kana": "たなかぶちょうわいらっしゃいますでしょうか。",
+              "romaji": "Tanaka-buchou wa irasshaimasu deshou ka.",
+              "bn": "ডিপার্টমেন্ট প্রধান তানাকা বাবু কি উপস্থিত আছেন?",
+              "bn_pron": "তানাকা-বুচোও ওয়া ইরাশ্শাইমাসু দেশোও কা?",
+              "ipa": "Tanaka-buchou wa irasshaimasu deshou ka.",
+              "tokens": [
+                {
+                  "t": "田中部長は いらっしゃいますでしょうか。",
+                  "romaji": "Tanaka-buchou wa irasshaimasu deshou ka.",
+                  "kanji": "田中部長は いらっしゃいますでしょうか。",
+                  "bn": "ডিপার্টমেন্ট প্রধান তানাকা বাবু কি উপস্থিত আছেন?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l11",
+          "order": 2,
+          "title_bn": "অনুপস্থিতি ও কল স্থানান্তর (Call Transfer & Absence Handling)",
+          "title_target": "Handling Absences & Transferring Business Calls",
+          "intro_bn": "কর্মকর্তা অনুপস্থিত থাকলে বা বাইরে থাকলে তা ক্লায়েন্টকে সম্মান জানিয়ে প্রকাশ করা এবং ফিরতি কলের প্রস্তাব দেওয়া।",
+          "structure": [
+            "ただいま 席を 外して おります / 折り返し お電話 差し上げます"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l11-001",
+              "concept_id": "c-jp-biz-p1-l11-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "あいにく 田中は ただいま 外出して おります。",
+              "target_kana": "あいにくたなかわただいまがいしゅつしております。",
+              "romaji": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
+              "bn": "দুঃখজনকভাবে তানাকা বাবু এই মুহূর্তে বাইরে অবস্থান করছেন।",
+              "bn_pron": "আইনিকু তানাকা ওয়া তাদাইমা গাইশুতসু শিতে ওরিমাছু।",
+              "ipa": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
+              "tokens": [
+                {
+                  "t": "あいにく 田中は ただいま 外出して おります。",
+                  "romaji": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
+                  "kanji": "あいにく 田中は ただいま 外出して おります。",
+                  "bn": "দুঃখজনকভাবে তানাকা বাবু এই মুহূর্তে বাইরে অবস্থান করছেন।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l11-002",
+              "concept_id": "c-jp-biz-p1-l11-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "戻り次第、こちらから 折り返し お電話 差し上げましょうか。",
+              "target_kana": "もどりしだい、こちらからおりかえしおでんわさしあげましょうか。",
+              "romaji": "Modori shidai, kochira kara orikaeshi odenwa sashiagemashou ka.",
+              "bn": "তিনি দফতরে ফেরা মাত্রই আমাদের পক্ষ থেকে কি আপনাকে ফিরতি কল দিতে বলব?",
+              "bn_pron": "মোদোরিশিদাই, কোচিরা কারা ওরিকাএশি ওদেনওয়া সাশিয়াগেমাশোও কা?",
+              "ipa": "Modori shidai, kochira kara orikaeshi odenwa sashiagemashou ka.",
+              "tokens": [
+                {
+                  "t": "戻り次第、こちらから 折り返し お電話 差し上げましょうか。",
+                  "romaji": "Modori shidai, kochira kara orikaeshi odenwa sashiagemashou ka.",
+                  "kanji": "戻り次第、こちらから 折り返し お電話 差し上げましょうか。",
+                  "bn": "তিনি দফতরে ফেরা মাত্রই আমাদের পক্ষ থেকে কি আপনাকে ফিরতি কল দিতে বলব?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l12",
+          "order": 3,
+          "title_bn": "কর্পোরেট দুঃখপ্রকাশ ও ক্ষমা প্রার্থনা (Formal Corporate Apologies)",
+          "title_target": "Corporate Apologies (Taihen Moushiwake Gozaimasen)",
+          "intro_bn": "ব্যবসায়িক যোগাযোগে কোনো বিলম্ব বা ত্রুটিতে আন্তরিক দুঃখ প্রকাশে '大変 申し訳ございません' বসে।",
+          "structure": [
+            "大変 申し訳ございません (I sincerely apologize)"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l12-001",
+              "concept_id": "c-jp-biz-p1-l12-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "返信が 遅くなり、大変 申し訳ございません。",
+              "target_kana": "へんしんがおそくなり、たいへんもうしわけございません。",
+              "romaji": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
+              "bn": "উত্তর দিতে বিলম্ব হওয়ায় আমি আন্তরিকভাবে ক্ষমা প্রার্থনা করছি।",
+              "bn_pron": "হেনশিন গা ওসোকুনারি, তাইহেন মোওশিওয়াকে গোজাইমাসেন।",
+              "ipa": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
+              "tokens": [
+                {
+                  "t": "返信が 遅くなり、大変 申し訳ございません。",
+                  "romaji": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
+                  "kanji": "返信が 遅くなり、大変 申し訳ございません。",
+                  "bn": "উত্তর দিতে বিলম্ব হওয়ায় আমি আন্তরিকভাবে ক্ষমা প্রার্থনা করছি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l12-002",
+              "concept_id": "c-jp-biz-p1-l12-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "ご迷惑を おかけして、誠に 申し訳ございません。",
+              "target_kana": "ごめいわくをおかけして、まことにもうしわけございません。",
+              "romaji": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
+              "bn": "আপনাদের অসুবিধায় ফেলার জন্য সত্যিই অত্যন্ত দুঃখ প্রকাশ করছি।",
+              "bn_pron": "গোমেইওয়াকু ও ওকেকে শিতে, মাকোতো নি মোওশিওয়াকে গোজাইমাসেন।",
+              "ipa": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
+              "tokens": [
+                {
+                  "t": "ご迷惑を おかけして、誠に 申し訳ございません。",
+                  "romaji": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
+                  "kanji": "ご迷惑を おかけして、誠に 申し訳ございません。",
+                  "bn": "আপনাদের অসুবিধায় ফেলার জন্য সত্যিই অত্যন্ত দুঃখ প্রকাশ করছি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-business-p5",
+      "order": 5,
+      "level": "B1",
+      "title_bn": "উচ্চতর ব্যাকরণ ও মনস্তাত্ত্বিক কারণ (Advanced Nuance: N3/N2 Grammar)",
+      "title_target": "Advanced Grammar & Nuances (~okage de, ~ni motozuite, ~ni chigainai)",
+      "lessons": [
+        {
+          "id": "jp-biz-l13",
+          "order": 1,
+          "title_bn": "কৃতজ্ঞতা বনাম দোষারোপ — '〜おかげで' বনাম '〜せいで'",
+          "title_target": "Attribution: Okage de (Thanks to) vs. Sei de (Due to fault)",
+          "intro_bn": "ইতিবাচক ভালো ফলাফলের ক্ষেত্রে কারো অবদানের প্রতি কৃতজ্ঞতা জানাতে '〜おかげで' এবং নেতিবাচক ক্ষতিতে '〜せいで' বসে।",
+          "structure": [
+            "Good: Noun の / Verb + おかげで (কারো কৃপায়/সহযোগিতায়)",
+            "Bad: Noun の / Verb + せいで (কারো ভুলের কারণে/বিপত্তিতে)"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l13-001",
+              "concept_id": "c-jp-biz-p1-l13-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "先生の おかげで、JLPTに 合格できました。",
               "target_kana": "せんせいのおかげで、じぇいえるぴーてぃーにごうかくできました。",
               "romaji": "Sensei no okage de, JLPT ni goukaku dekimashita.",
               "bn": "শিক্ষকের অনুপ্রেরণা ও অবদানের কারণে JLPT পরীক্ষায় উত্তীর্ণ হতে পেরেছি।",
@@ -645,9 +1406,9 @@
               "ipa": "Sensei no okage de, JLPT ni goukaku dekimashita.",
               "tokens": [
                 {
-                  "t": "せんせいの おかげで、JLPTに ごうかくできました。",
+                  "t": "先生の おかげで、JLPTに 合格できました。",
                   "romaji": "Sensei no okage de, JLPT ni goukaku dekimashita.",
-                  "kanji": "せんせいの おかげで、JLPTに ごうかくできました。",
+                  "kanji": "先生の おかげで、JLPTに 合格できました。",
                   "bn": "শিক্ষকের অনুপ্রেরণা ও অবদানের কারণে JLPT পরীক্ষায় উত্তীর্ণ হতে পেরেছি।"
                 }
               ],
@@ -661,12 +1422,12 @@
               }
             },
             {
-              "id": "jp-biz-p3-l7-002",
-              "concept_id": "c-jp-biz-p3-l7-002",
+              "id": "jp-biz-p1-l13-002",
+              "concept_id": "c-jp-biz-p1-l13-002",
               "order": 1,
               "type": "sentence",
               "level": "B1",
-              "target": "たいふうの せいで、ひこうきが けっこうに なりました。",
+              "target": "台風の せいで、飛行機が 欠航に なりました。",
               "target_kana": "たいふうのせいで、ひこうきがけっこうになりました。",
               "romaji": "Taifuu no sei de, hikouki ga kekkou ni narimashita.",
               "bn": "টাইফুনের বিপত্তির কারণে ফ্লাইট বাতিল হয়ে গেল।",
@@ -674,9 +1435,9 @@
               "ipa": "Taifuu no sei de, hikouki ga kekkou ni narimashita.",
               "tokens": [
                 {
-                  "t": "たいふうの せいで、ひこうきが けっこうに なりました。",
+                  "t": "台風の せいで、飛行機が 欠航に なりました。",
                   "romaji": "Taifuu no sei de, hikouki ga kekkou ni narimashita.",
-                  "kanji": "たいふうの せいで、ひこうきが けっこうに なりました。",
+                  "kanji": "台風の せいで、飛行機が 欠航に なりました。",
                   "bn": "টাইফুনের বিপত্তির কারণে ফ্লাইট বাতিল হয়ে গেল।"
                 }
               ],
@@ -692,33 +1453,33 @@
           ]
         },
         {
-          "id": "jp-biz-l08",
-          "order": 3,
-          "title_bn": "বাস্তব জব ইন্টারভিউ প্রশ্নোত্তর প্রস্তুতি (Job Interview Q&A)",
-          "title_target": "Japanese Job Interview Simulation & Practice",
-          "intro_bn": "জাপানি কোম্পানিতে চাকরি বা পার্ট-টাইম জবের ইন্টারভিউতে ব্যবহৃত মূল প্রশ্ন ও উত্তর।",
+          "id": "jp-biz-l14",
+          "order": 2,
+          "title_bn": "ভিত্তি ও মূলনীতি — '〜に基づいて' (Based upon / In accordance with)",
+          "title_target": "Grammar: ~ni motozuite (Based on facts / data)",
+          "intro_bn": "কোনো গবেষণা, চুক্তি বা তথ্যের ভিত্তিতে কোনো কর্ম সম্পাদন করা বোঝাতে '〜に基づいて' (ni motozuite) বসে।",
           "structure": [
-            "Interviewer Question <-> Formal Humble Response"
+            "Noun + に 基づいて + Action (তথ্য/নীতির ভিত্তিতে)"
           ],
           "items": [
             {
-              "id": "jp-biz-p3-l8-001",
-              "concept_id": "c-jp-biz-p3-l8-001",
+              "id": "jp-biz-p1-l14-001",
+              "concept_id": "c-jp-biz-p1-l14-001",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "しぼうどうきを おしえて いただけますか。にほんの さいせんたん ぎじゅつを まなびたいと おもいました。",
-              "target_kana": "しぼうどうきをおしえていただけますか。にほんのさいせんたんぎじゅつをまなびたいとおもいました。",
-              "romaji": "Shibou douki o oshiete itadakemasu ka. Nihon no saisentan gijutsu o manabitai to omoimashita.",
-              "bn": "আমাদের কোম্পানিতে আবেদনের কারণ জানাতে পারেন কি? জাপানের সর্বাধুনিক প্রযুক্তি শিখতে আগ্রহী হয়ে আবেদন করেছি।",
-              "bn_pron": "শিবোও দোওকি ও ওশিয়েতে ইতাদাকেমাসু কা? নিহোন নো সাইসেনতান গিজুতসু ও মানাবিতাই তো ওমোইমাশিতা।",
-              "ipa": "Shibou douki o oshiete itadakemasu ka. Nihon no saisentan gijutsu o manabitai to omoimashita.",
+              "target": "最新の データに 基づいて、計画を 立てました。",
+              "target_kana": "さいしんのでーたにもとづいて、けいかくをたてました。",
+              "romaji": "Saishin no deeta ni motozuite, keikaku o tatemashita.",
+              "bn": "সর্বাধুনিক তথ্যের ওপর ভিত্তি করে কর্মপরিকল্পনা প্রণয়ন করেছি।",
+              "bn_pron": "সাইশিন নো দেএতা নি মোতোজুইতে, কেইকাকু ও তাতেমাশিতা।",
+              "ipa": "Saishin no deeta ni motozuite, keikaku o tatemashita.",
               "tokens": [
                 {
-                  "t": "しぼうどうきを おしえて いただけますか。にほんの さいせんたん ぎじゅつを まなびたいと おもいました。",
-                  "romaji": "Shibou douki o oshiete itadakemasu ka. Nihon no saisentan gijutsu o manabitai to omoimashita.",
-                  "kanji": "しぼうどうきを おしえて いただけますか。にほんの さいせんたん ぎじゅつを まなびたいと おもいました。",
-                  "bn": "আমাদের কোম্পানিতে আবেদনের কারণ জানাতে পারেন কি? জাপানের সর্বাধুনিক প্রযুক্তি শিখতে আগ্রহী হয়ে আবেদন করেছি।"
+                  "t": "最新の データに 基づいて、計画を 立てました。",
+                  "romaji": "Saishin no deeta ni motozuite, keikaku o tatemashita.",
+                  "kanji": "最新の データに 基づいて、計画を 立てました。",
+                  "bn": "সর্বাধুনিক তথ্যের ওপর ভিত্তি করে কর্মপরিকল্পনা প্রণয়ন করেছি।"
                 }
               ],
               "status": "reviewed",
@@ -731,29 +1492,518 @@
               }
             },
             {
-              "id": "jp-biz-p3-l8-002",
-              "concept_id": "c-jp-biz-p3-l8-002",
+              "id": "jp-biz-p1-l14-002",
+              "concept_id": "c-jp-biz-p1-l14-002",
               "order": 1,
-              "type": "dialogue",
+              "type": "sentence",
               "level": "B1",
-              "target": "ごじしんの ながしょは なんですか。あきらめずに どりょくする ことです。",
-              "target_kana": "ごじしんのながしょわなんですか。あきらめずんどりょくすることです。",
-              "romaji": "Gojishin no chousho wa nan desu ka. Akiramezu ni doryoku suru koto desu.",
-              "bn": "আপনার সবচাইতে বড় ইতিবাচক গুণ কোনটি? হাল না ছেড়ে নিরন্তর প্রচেষ্টা চালিয়ে যাওয়া।",
-              "bn_pron": "গোজিশিন নো চোওশো ওয়া নান দেসু কা? আকিরমেজ নি দোরিওকু সুরু কোতো দেস।",
-              "ipa": "Gojishin no chousho wa nan desu ka. Akiramezu ni doryoku suru koto desu.",
+              "target": "法律に 基づいて、公正に 処理いたします。",
+              "target_kana": "ほうりつにもとづいて、こうせいにしょりいたします。",
+              "romaji": "Houritsu ni motozuite, kousei ni shori itashimasu.",
+              "bn": "আইন অনুযায়ী যথাযথ ন্যায়পরায়ণতার সাথে নিষ্পত্তি করব।",
+              "bn_pron": "হোওরিতসু নি মোতোজুইতে, কোওসেই নি শোরি ইতাশিমাসু।",
+              "ipa": "Houritsu ni motozuite, kousei ni shori itashimasu.",
               "tokens": [
                 {
-                  "t": "ごじしんの ながしょは なんですか。あきらめずに どりょくする ことです。",
-                  "romaji": "Gojishin no chousho wa nan desu ka. Akiramezu ni doryoku suru koto desu.",
-                  "kanji": "ごじしんの ながしょは なんですか。あきらめずに どりょくする ことです。",
-                  "bn": "আপনার সবচাইতে বড় ইতিবাচক গুণ কোনটি? হাল না ছেড়ে নিরন্তর প্রচেষ্টা চালিয়ে যাওয়া।"
+                  "t": "法律に 基づいて、公正に 処理いたします。",
+                  "romaji": "Houritsu ni motozuite, kousei ni shori itashimasu.",
+                  "kanji": "法律に 基づいて、公正に 処理いたします。",
+                  "bn": "আইন অনুযায়ী যথাযথ ন্যায়পরায়ণতার সাথে নিষ্পত্তি করব।"
                 }
               ],
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l15",
+          "order": 3,
+          "title_bn": "সুদৃঢ় অনুমান — '〜に 違いない' (Must surely be)",
+          "title_target": "Strong Supposition (~ni chigainai: There's no mistake that)",
+          "intro_bn": "তথ্যপ্রমাণের ভিত্তিতে কোনো বিষয় নিশ্চিত মনে হলে '〜に 違いない' (কোনো সন্দেহ নেই যে...) বসে।",
+          "structure": [
+            "Plain Form + に 違いない (নিশ্চিতভাবেই এটি হবে)"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l15-001",
+              "concept_id": "c-jp-biz-p1-l15-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "彼は 毎日 努力して いるから、成功するに 違いない。",
+              "target_kana": "かれわまいにちどりょくしているから、せいこうするにちがいない。",
+              "romaji": "Kare wa mainichi doryoku shite iru kara, seikou suru ni chigainai.",
+              "bn": "সে প্রতিদিন নিরন্তর পরিশ্রম করছে, কাজেই সে সফল হবেই এতে সন্দেহ নেই।",
+              "bn_pron": "কারে ওয়া মাইনিচি দোরিওকু শিতে ইরু কারা, সেইকোও সুরু নি চিগাইনাই।",
+              "ipa": "Kare wa mainichi doryoku shite iru kara, seikou suru ni chigainai.",
+              "tokens": [
+                {
+                  "t": "彼は 毎日 努力して いるから、成功するに 違いない。",
+                  "romaji": "Kare wa mainichi doryoku shite iru kara, seikou suru ni chigainai.",
+                  "kanji": "彼は 毎日 努力して いるから、成功するに 違いない。",
+                  "bn": "সে প্রতিদিন নিরন্তর পরিশ্রম করছে, কাজেই সে সফল হবেই এতে সন্দেহ নেই।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l15-002",
+              "concept_id": "c-jp-biz-p1-l15-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "この 新製品は 市場で 人気が出るに 違いない。",
+              "target_kana": "このしんせいひんわしじょうでにんきがでるにちがいない。",
+              "romaji": "Kono shinseihin wa shijou de ninki ga deru ni chigainai.",
+              "bn": "এই নতুন পণ্যটি বাজারে অত্যন্ত জনপ্রিয়তা পাবে তাতে কোনো সন্দেহ নেই।",
+              "bn_pron": "কোনো শিনসেইহিন ওয়া শিজোও দে নিনকি গা দেরু নি চিগাইনাই।",
+              "ipa": "Kono shinseihin wa shijou de ninki ga deru ni chigainai.",
+              "tokens": [
+                {
+                  "t": "この 新製品は 市場で 人気が出るに 違いない。",
+                  "romaji": "Kono shinseihin wa shijou de ninki ga deru ni chigainai.",
+                  "kanji": "この 新製品は 市場で 人気が出るに 違いない。",
+                  "bn": "এই নতুন পণ্যটি বাজারে অত্যন্ত জনপ্রিয়তা পাবে তাতে কোনো সন্দেহ নেই।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-business-p6",
+      "order": 6,
+      "level": "B1",
+      "title_bn": "প্রতিক্রিয়া ও মিটিংয়ে মতবিনিময় (Aizuchi & Meeting Discussions)",
+      "title_target": "Aizuchi Reactions & Constructive Meeting Discussions",
+      "lessons": [
+        {
+          "id": "jp-biz-l16",
+          "order": 1,
+          "title_bn": "মার্জিত শ্রোতা প্রতিক্রিয়া — '相槌' (Professional Aizuchi)",
+          "title_target": "Professional Conversational Fillers (Ossharu toori de gozaimasu)",
+          "intro_bn": "পেশাদার পরিবেশে অপরপক্ষের বক্তব্য সমর্থনের মার্জিত ভাষা: 'おっしゃる通りでございます' (আপনি একদম ঠিক বলেছেন), '確かにそうでございます' (নিশ্চয়ই তাই)।",
+          "structure": [
+            "Professional Aizuchi Reactions"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l16-001",
+              "concept_id": "c-jp-biz-p1-l16-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "おっしゃる 通りで ございます。大変 勉強に なります。",
+              "target_kana": "おっしゃるとおりでございます。たいへんべんきょうになります。",
+              "romaji": "Ossharu toori de gozaimasu. Taihen benkyou ni narimasu.",
+              "bn": "আপনি যথার্থই বলেছেন। অনেক মূল্যবান বিষয় শিখতে পারলাম।",
+              "bn_pron": "ওশ্শারু তোওরি দে গোজাইমাসু। তাইহেন বেনকিওও নি নারিমাসু।",
+              "ipa": "Ossharu toori de gozaimasu. Taihen benkyou ni narimasu.",
+              "tokens": [
+                {
+                  "t": "おっしゃる 通りで ございます。大変 勉強に なります。",
+                  "romaji": "Ossharu toori de gozaimasu. Taihen benkyou ni narimasu.",
+                  "kanji": "おっしゃる 通りで ございます。大変 勉強に なります。",
+                  "bn": "আপনি যথার্থই বলেছেন। অনেক মূল্যবান বিষয় শিখতে পারলাম।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l16-002",
+              "concept_id": "c-jp-biz-p1-l16-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "確かに その通りですね。ご指摘 ありがとうございます。",
+              "target_kana": "たしかにそのとおりですね。ごしてきありがとうございます。",
+              "romaji": "Tashika ni sono toori desu ne. Goshiteki arigatou gozaimasu.",
+              "bn": "নিশ্চয়ই বিষয়টি ঠিক তাই। ধরিয়ে দেওয়ার জন্য ধন্যবাদ।",
+              "bn_pron": "তাশিকানি সোনো তোওরি দেসু নে। গোশিতেকি আরিগাতোও গোজাইমাসু।",
+              "ipa": "Tashika ni sono toori desu ne. Goshiteki arigatou gozaimasu.",
+              "tokens": [
+                {
+                  "t": "確かに その通りですね。ご指摘 ありがとうございます。",
+                  "romaji": "Tashika ni sono toori desu ne. Goshiteki arigatou gozaimasu.",
+                  "kanji": "確かに その通りですね。ご指摘 ありがとうございます。",
+                  "bn": "নিশ্চয়ই বিষয়টি ঠিক তাই। ধরিয়ে দেওয়ার জন্য ধন্যবাদ।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l17",
+          "order": 2,
+          "title_bn": "মিটিংয়ে বিনম্র দ্বিমত প্রকাশ (Expressing Disagreement Professionally)",
+          "title_target": "Expressing Professional Disagreement in Meetings",
+          "intro_bn": "অন্যের মতামতের সরাসরি বিরোধিতা না করে নিজের উদ্বেগ তুলে ধরা।",
+          "structure": [
+            "その点につきましては、少し 懸念が ございます"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l17-001",
+              "concept_id": "c-jp-biz-p1-l17-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "その 点につきましては、少々 懸念が ございます。",
+              "target_kana": "そのてんにつきましてわ、しょうしょうけねんがございます。",
+              "romaji": "Sono ten ni tsukimashite wa, shoushou kenen ga gozaimasu.",
+              "bn": "ওই বিষয়টিতে আমাদের সামান্য কিছুটা উদ্বেগ বা সংশয় রয়েছে।",
+              "bn_pron": "সোনো তেন নি তসুকিমাশিতে ওয়া, শোওশোও কেনেন গা গোজাইমাসু।",
+              "ipa": "Sono ten ni tsukimashite wa, shoushou kenen ga gozaimasu.",
+              "tokens": [
+                {
+                  "t": "その 点につきましては、少々 懸念が ございます。",
+                  "romaji": "Sono ten ni tsukimashite wa, shoushou kenen ga gozaimasu.",
+                  "kanji": "その 点につきましては、少々 懸念が ございます。",
+                  "bn": "ওই বিষয়টিতে আমাদের সামান্য কিছুটা উদ্বেগ বা সংশয় রয়েছে।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l17-002",
+              "concept_id": "c-jp-biz-p1-l17-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "B1",
+              "target": "別の 視点からも 検討して みては いかがでしょうか。",
+              "target_kana": "べつのしてんからもけんとうしてみてわいかがでしょうか。",
+              "romaji": "Betsu no shiten kara mo kentou shite mite wa ikaga deshou ka.",
+              "bn": "ভিন্ন একটি দৃষ্টিকোণ থেকেও বিষয়টি পর্যালোচনা করে দেখলে কেমন হয়?",
+              "bn_pron": "বেতসু নো শিতেন কারা মো কেনতোও শিতে মিতে ওয়া ইকাগা দেশোও কা?",
+              "ipa": "Betsu no shiten kara mo kentou shite mite wa ikaga deshou ka.",
+              "tokens": [
+                {
+                  "t": "別の 視点からも 検討して みては いかがでしょうか。",
+                  "romaji": "Betsu no shiten kara mo kentou shite mite wa ikaga deshou ka.",
+                  "kanji": "別の 視点からも 検討して みては いかがでしょうか。",
+                  "bn": "ভিন্ন একটি দৃষ্টিকোণ থেকেও বিষয়টি পর্যালোচনা করে দেখলে কেমন হয়?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-business-p7",
+      "order": 7,
+      "level": "B1",
+      "title_bn": "জব ইন্টারভিউ ও কেইগো ৬-রূপান্তর চূড়ান্ত মাস্টার ড্রিল (Interview & Keigo Drill)",
+      "title_target": "Interview Simulation & Master 6-Way Keigo Register Transformation",
+      "lessons": [
+        {
+          "id": "jp-biz-l18",
+          "order": 1,
+          "title_bn": "বাস্তব জব ইন্টারভিউ: আবেদনের কারণ ও ইতিবাচক গুণ (Interview Simulation)",
+          "title_target": "Corporate Job Interview Q&A Simulation",
+          "intro_bn": "জাপানি কোম্পানিতে চাকরি বা পেশাদার ইন্টারভিউতে আবেদনের উদ্দেশ্য (志望動機) ও নিজের গুণাবলী (長所) বর্ণনার আদর্শ উত্তর।",
+          "structure": [
+            "Interviewer Question <-> Formal Humble Response"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l18-001",
+              "concept_id": "c-jp-biz-p1-l18-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "志望動機を お聞かせ いただけますでしょうか。日本の 先端技術を 学び、貴社に 貢献したいと 思いました。",
+              "target_kana": "しぼうどうきをおきかせいただけますでしょうか。にほんのせんたんぎじゅつをまなび、きしゃにこうけんしたいとおもいました。",
+              "romaji": "Shibou douki o okikase itadakemasu deshou ka. Nihon no sentan gijutsu o manabi, kisha ni kouken shitai to omoimashita.",
+              "bn": "আবেদনের কারণ জানাতে পারেন কি? জাপানের সর্বাধুনিক প্রযুক্তি শিখে আপনাদের কোম্পানিতে অবদান রাখতে আগ্রহী হয়েছি।",
+              "bn_pron": "শিবোও দোওকি ও ওকিকাসে ইতাদাকেমাসু দেশোও কা? নিহোন নো সেনতান গিজুতসু ও মানাবি, কিশা নি কোওকেন শিতাই তো ওমোইমাশিতা।",
+              "ipa": "Shibou douki o okikase itadakemasu deshou ka. Nihon no sentan gijutsu o manabi, kisha ni kouken shitai to omoimashita.",
+              "tokens": [
+                {
+                  "t": "志望動機を お聞かせ いただけますでしょうか。日本の 先端技術を 学び、貴社に 貢献したいと 思いました。",
+                  "romaji": "Shibou douki o okikase itadakemasu deshou ka. Nihon no sentan gijutsu o manabi, kisha ni kouken shitai to omoimashita.",
+                  "kanji": "志望動機を お聞かせ いただけますでしょうか。日本の 先端技術を 学び、貴社に 貢献したいと 思いました。",
+                  "bn": "আবেদনের কারণ জানাতে পারেন কি? জাপানের সর্বাধুনিক প্রযুক্তি শিখে আপনাদের কোম্পানিতে অবদান রাখতে আগ্রহী হয়েছি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l18-002",
+              "concept_id": "c-jp-biz-p1-l18-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "B1",
+              "target": "ご自身の 長所は 何ですか。粘り強く 最後まで やり抜く ことです。",
+              "target_kana": "ごじしんのちょうしょわなんですか。ねばりづよくさいごまでやりぬくことです。",
+              "romaji": "Gojishin no chousho wa nan desu ka. Nebarizuyoku saigo made yarinuku koto desu.",
+              "bn": "আপনার ইতিবাচক গুণ কী? শেষ মুহূর্ত পর্যন্ত একাগ্র নিষ্ঠার সাথে কাজ সম্পন্ন করা।",
+              "bn_pron": "গোজিশিন নো চোওশো ওয়া নান দেসু কা? নেবারিজুয়োকু সাইগো মাদে ইয়ারিনুকু কোতো দেস।",
+              "ipa": "Gojishin no chousho wa nan desu ka. Nebarizuyoku saigo made yarinuku koto desu.",
+              "tokens": [
+                {
+                  "t": "ご自身の 長所は 何ですか。粘り強く 最後まで やり抜く ことです。",
+                  "romaji": "Gojishin no chousho wa nan desu ka. Nebarizuyoku saigo made yarinuku koto desu.",
+                  "kanji": "ご自身の 長所は 何ですか。粘り強く 最後まで やり抜く ことです。",
+                  "bn": "আপনার ইতিবাচক গুণ কী? শেষ মুহূর্ত পর্যন্ত একাগ্র নিষ্ঠার সাথে কাজ সম্পন্ন করা।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-biz-l19",
+          "order": 2,
+          "title_bn": "কেইগো ৬-রূপান্তর চূড়ান্ত মাস্টার ড্রিল (Master 6-Way Keigo Transformation)",
+          "title_target": "Master 6-Way Register Transformation (Casual to Humble Keigo)",
+          "intro_bn": "একই বক্তব্যকে পরিস্থিতিভেদে সাধারণ কথ্য রূপ থেকে শুরু করে বিনম্র কেইগোতে তাৎক্ষণিক রূপান্তরের স্পোকেন ড্রিল।",
+          "structure": [
+            "১. সাধারণ কথ্য (Casual): 行く (যাব)",
+            "২. মার্জিত সাধারণ (Teinei): 行きます (যাব - ভদ্র)",
+            "৩. সম্মানসূচক (Sonkeigo): いらっしゃる / おいでになる (আপনি যাবেন)",
+            "৪. বিনম্র (Kenjougo): 参る / 伺う (আমি উপস্থিত হব)",
+            "৫. সর্বোচ্চ মার্জিত (Polite Request): お越し いただけますでしょうか",
+            "৬. বিনীত প্রতিবেদন (Humble Statement): ただいま 参上いたしました"
+          ],
+          "items": [
+            {
+              "id": "jp-biz-p1-l19-001",
+              "concept_id": "c-jp-biz-p1-l19-001",
+              "order": 1,
+              "type": "drill",
+              "level": "B1",
+              "target": "明日 そっちへ 行くよ。",
+              "target_kana": "あしたそっちえいくよ。",
+              "romaji": "Ashita sotchi e iku yo.",
+              "bn": "১. ইনফরমাল বন্ধুমহল: কাল তোদের ওখানে যাব।",
+              "bn_pron": "আশিতা সোচ্চি এ ইকু ইয়ো।",
+              "ipa": "Ashita sotchi e iku yo.",
+              "tokens": [
+                {
+                  "t": "明日 そっちへ 行くよ。",
+                  "romaji": "Ashita sotchi e iku yo.",
+                  "kanji": "明日 そっちへ 行くよ。",
+                  "bn": "১. ইনফরমাল বন্ধুমহল: কাল তোদের ওখানে যাব।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l19-002",
+              "concept_id": "c-jp-biz-p1-l19-002",
+              "order": 1,
+              "type": "drill",
+              "level": "B1",
+              "target": "明日 そちらへ 行きます。",
+              "target_kana": "あしたそちらえいきます。",
+              "romaji": "Ashita sochira e ikimasu.",
+              "bn": "২. মার্জিত সাধারণ: কাল আপনাদের ওখানে যাব।",
+              "bn_pron": "আশিতা সোচিরা এ ইকিমাসু।",
+              "ipa": "Ashita sochira e ikimasu.",
+              "tokens": [
+                {
+                  "t": "明日 そちらへ 行きます。",
+                  "romaji": "Ashita sochira e ikimasu.",
+                  "kanji": "明日 そちらへ 行きます。",
+                  "bn": "২. মার্জিত সাধারণ: কাল আপনাদের ওখানে যাব।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l19-003",
+              "concept_id": "c-jp-biz-p1-l19-003",
+              "order": 1,
+              "type": "drill",
+              "level": "B1",
+              "target": "明日 社長は そちらへ いらっしゃいますか。",
+              "target_kana": "あしたしゃちょうわそちらえいらっしゃいますか。",
+              "romaji": "Ashita shachou wa sochira e irasshaimasu ka.",
+              "bn": "৩. সনকেইগো সম্মানসূচক: কাল কি সিইও মহোদয় আপনাদের ওখানে যাবেন?",
+              "bn_pron": "আশিতা শাচোও ওয়া সোচিরা এ ইরাশ্শাইমাসু কা?",
+              "ipa": "Ashita shachou wa sochira e irasshaimasu ka.",
+              "tokens": [
+                {
+                  "t": "明日 社長は そちらへ いらっしゃいますか。",
+                  "romaji": "Ashita shachou wa sochira e irasshaimasu ka.",
+                  "kanji": "明日 社長は そちらへ いらっしゃいますか。",
+                  "bn": "৩. সনকেইগো সম্মানসূচক: কাল কি সিইও মহোদয় আপনাদের ওখানে যাবেন?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l19-004",
+              "concept_id": "c-jp-biz-p1-l19-004",
+              "order": 1,
+              "type": "drill",
+              "level": "B1",
+              "target": "明日 わたしが そちらへ 参ります。",
+              "target_kana": "あしたわたしがそちらえまいります。",
+              "romaji": "Ashita watashi ga sochira e mairimasu.",
+              "bn": "৪. কেনজৌগো বিনম্র: কাল আমি আপনাদের ওখানে বিনীতভাবে উপস্থিত হব।",
+              "bn_pron": "আশিতা ওয়াতাশি গা সোচিরা এ মাইরিমাসু।",
+              "ipa": "Ashita watashi ga sochira e mairimasu.",
+              "tokens": [
+                {
+                  "t": "明日 わたしが そちらへ 参ります。",
+                  "romaji": "Ashita watashi ga sochira e mairimasu.",
+                  "kanji": "明日 わたしが そちらへ 参ります。",
+                  "bn": "৪. কেনজৌগো বিনম্র: কাল আমি আপনাদের ওখানে বিনীতভাবে উপস্থিত হব।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l19-005",
+              "concept_id": "c-jp-biz-p1-l19-005",
+              "order": 1,
+              "type": "drill",
+              "level": "B1",
+              "target": "明日 弊社へ お越し いただけますでしょうか。",
+              "target_kana": "あしたへいしゃえおこしいただけますでしょうか。",
+              "romaji": "Ashita heisha e okoshi itadakemasu deshou ka.",
+              "bn": "৫. সর্বোচ্চ বিনম্র আমন্ত্রণ: কাল কি দয়া করে আমাদের প্রতিষ্ঠানে পদার্পণ করবেন?",
+              "bn_pron": "আশিতা হেইশা এ ওকোশি ইতাদাকেমাসু দেশোও কা?",
+              "ipa": "Ashita heisha e okoshi itadakemasu deshou ka.",
+              "tokens": [
+                {
+                  "t": "明日 弊社へ お越し いただけますでしょうか。",
+                  "romaji": "Ashita heisha e okoshi itadakemasu deshou ka.",
+                  "kanji": "明日 弊社へ お越し いただけますでしょうか。",
+                  "bn": "৫. সর্বোচ্চ বিনম্র আমন্ত্রণ: কাল কি দয়া করে আমাদের প্রতিষ্ঠানে পদার্পণ করবেন?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "interrogative",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N3"
+              }
+            },
+            {
+              "id": "jp-biz-p1-l19-006",
+              "concept_id": "c-jp-biz-p1-l19-006",
+              "order": 1,
+              "type": "drill",
+              "level": "B1",
+              "target": "明日 そちらへ 伺いますか、弊社で お待ちしますか。",
+              "target_kana": "あしたそちらえうかがいますか、へいしゃでおまちしますか。",
+              "romaji": "Ashita sochira e ukagaimasu ka, heisha de omachishimasu ka.",
+              "bn": "৬. বিকল্প প্রশ্ন: কাল কি আমি আপনাদের ওখানে আসব, নাকি আমাদের দফতরে অপেক্ষা করব?",
+              "bn_pron": "আশিতা সোচিরা এ উকাগাইমাসু কা, হেইশা দে ওমাচিশিমাসু কা?",
+              "ipa": "Ashita sochira e ukagaimasu ka, heisha de omachishimasu ka.",
+              "tokens": [
+                {
+                  "t": "明日 そちらへ 伺いますか、弊社で お待ちしますか。",
+                  "romaji": "Ashita sochira e ukagaimasu ka, heisha de omachishimasu ka.",
+                  "kanji": "明日 そちらへ 伺いますか、弊社で お待ちしますか。",
+                  "bn": "৬. বিকল্প প্রশ্ন: কাল কি আমি আপনাদের ওখানে আসব, নাকি আমাদের দফতরে অপেক্ষা করব?"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "alternative_question",
                 "polarity": "affirmative",
                 "tense": "present_simple",
                 "jlpt": "N3"

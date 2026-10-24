@@ -130,7 +130,11 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
 
         suspend fun speak(text: String, lang: SpeechLang, rate: Float) {
             if (text.isBlank() || !ready.await()) return
-            if (!switchTo(lang)) return // language not installed: skip this step
+            if (lang == SpeechLang.JA) {
+                tts.setPitch(1.05f) // Clear articulation for Japanese formants (shi, chi, tsu, fu)
+            } else {
+                tts.setPitch(1.0f)
+            }
             tts.setSpeechRate(rate)
             // Guard against engines that never call onDone.
             val timeoutMs = 4_000L + (text.length * 150L / rate.coerceAtLeast(0.3f)).toLong()

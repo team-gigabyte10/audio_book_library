@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Builder for Course 1: Japanese Spoken Foundations (JLPT N5)
-Creates android/app/src/main/assets/spoken_japanese_foundations.json
-Complete 12 Parts, 60 Lessons, ~750 Items.
+Expanded Master Generator for Course 1: Japanese Spoken Foundations (JLPT N5)
+Targets:
+- Complete Zero-to-Hero Kana & Phonetics (あいうえお, 46 Hiragana rows, 46 Katakana, Dakuon, Sokuon, Youon, Chouon, 8 Rules, Tongue Twisters)
+- 40 Core Grammar Points from N5 Master Book Chapter 4
+- Thematic Vocabulary from Core Vocabulary Bank (People, Time, Places, Food, Verbs, Adjectives, Question Words)
+- Numbers, Counters (人, 本, 枚, 台, 冊, つ), Time, Dates
+- Situational Roleplays & Dialogues (Greetings, Restaurant, Shopping, Station)
+- 6-Way Transformation Drills
+Creates: android/app/src/main/assets/spoken_japanese_foundations.json
 """
 import json
 import os
@@ -18,9 +24,9 @@ course_metadata = {
     "base_lang": "bn",
     "title_bn": "জাপানিজ স্পোকেন: Foundations (JLPT N5 বেসিক টু স্পিকিং)",
     "title_target": "Spoken Japanese: Foundations Masterclass",
-    "source": "Curated from N5-N1 Japanese Study Series & Spoken English Framework",
-    "note": "জাপানিজ বর্ণমালা ও উচ্চারণ, です/ではありません, দৈনন্দিন কাজ, অবস্থান, বিশেষণ, প্রশ্ন-উত্তর ও ৬-রূপান্তর ড্রিল।",
-    "welcome_text": "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম! প্রতিটি বাক্য মন দিয়ে শুনুন এবং জোরে জোরে বলে শ্যাডোয়িং অনুশীলন করুন।"
+    "source": "Curated from 00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md & Spoken English Framework",
+    "note": "শূন্য থেকে হিরাগানা, কাতাকানা ও উচ্চারণ, ৮টি গোল্ডেন নিয়ম, です/ではありません, দৈনন্দিন কাজ, অবস্থান, বিশেষণ, প্রশ্ন-উত্তর ও ৬-রূপান্তর ড্রিল।",
+    "welcome_text": "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম! প্রতিটি বর্ণ, শব্দ ও বাক্য মন দিয়ে শুনুন এবং জোরে জোরে বলে শ্যাডোয়িং অনুশীলন করুন।"
 }
 
 ladder_default = [
@@ -64,65 +70,94 @@ def make_item(item_id, target, target_kana, romaji, bn, bn_pron, tokens_tuples=N
 
 parts = []
 
-# -------------------------------------------------------------
-# Part 1: Pronunciation & Fluency Drills
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 1: বর্ণমালা ও স্বরধ্বনি পরিচিতি (Hiragana Base Vowels & Sound System)
+# ==============================================================================
 p1_lessons = [
     {
         "id": "jp-foundations-l01",
         "order": 1,
-        "title_bn": "জাপানিজ স্বরবর্ণ ও মৌলিক উচ্চারণ (Vowels あ い う え お)",
-        "title_target": "Japanese Vowels & Mora Timing (A, I, U, E, O)",
-        "intro_bn": "জাপানিজ ভাষায় ৫টি মূল স্বরবর্ণ রয়েছে: あ (a - আ), い (i - ই), う (u - উ), え (e - এ), お (o - ও)। জাপানিজে প্রতি অক্ষরের উচ্চারণ সমান সময়কাল (Mora) ধরে করতে হয়।",
-        "structure": ["Vowel Base Sounds: A - I - U - E - O (আ - ই - উ - এ - ও)"],
+        "title_bn": "জাপানিজ ৫টি মৌলিক স্বরবর্ণ ও মোরা টাইমিং (あ い う え お)",
+        "title_target": "5 Pure Japanese Vowels & Mora Timing (A, I, U, E, O)",
+        "intro_bn": "জাপানিজ ভাষায় ৫টি মূল স্বরবর্ণ রয়েছে: あ (a - আ), い (i - ই), う (u - উ), え (e - এ), お (o - ও)। জাপানিজে প্রতিটি অক্ষরের উচ্চারণ সমান সময়কাল (Mora) ধরে স্থিরভাবে করতে হয়।",
+        "structure": ["Pure Vowels: あ (a), い (i), う (u), え (e), お (o)"],
         "items": [
-            make_item("jp-p1-l1-001", "あさ、あめが ふります。", "あさ、あめがふります。", "Asa, ame ga furimasu.", "সকালে বৃষ্টি হয়।", "আসা, আমে গা ফুরিমাসু।", [("あさ", "asa", "朝", "সকাল"), ("あめ", "ame", "雨", "বৃষ্টি"), ("が", "ga", "が", "টি"), ("ふります", "furimasu", "降ります", "পড়ে/হয়")]),
-            make_item("jp-p1-l1-002", "いえで いぬを みます。", "いえでいぬをみます。", "Ie de inu o mimasu.", "বাড়িতে কুকুর দেখি।", "ইয়ে দে ইনু ও মিমাসু।", [("いえ", "ie", "家", "বাড়ি"), ("で", "de", "で", "এ"), ("いぬ", "inu", "犬", "কুকুর"), ("を", "o", "を", "কে"), ("みます", "mimasu", "見ます", "দেখি")]),
-            make_item("jp-p1-l1-003", "うみで うたを うたいます。", "うみでうたをうたいます。", "Umi de uta o utaimasu.", "সমুদ্রে গান গাই।", "উমি দে উতা ও উতাইমাসু।", [("うみ", "umi", "海", "সমুদ্র"), ("で", "de", "で", "এ"), ("うた", "uta", "歌", "গান"), ("を", "o", "を", "কে"), ("うたいます", "utaimasu", "歌います", "গাই")]),
-            make_item("jp-p1-l1-004", "えきの まえで えを かきます。", "えきのまえでえをかきます。", "Eki no mae de e o kakimasu.", "স্টেশনের সামনে ছবি আঁকি।", "একি নো মায়ে দে এ ও কাকিমাসু।", [("えき", "eki", "駅", "স্টেশন"), ("の", "no", "の", "এর"), ("まえ", "mae", "前", "সামনে"), ("で", "de", "で", "এ"), ("え", "e", "絵", "ছবি"), ("を", "o", "を", "কে"), ("かきます", "kakimasu", "描きます", "আঁকি")]),
-            make_item("jp-p1-l1-005", "おんがくを おおきい おとで ききます。", "おんがくをおおきいおとでききます。", "Ongaku o ookii oto de kikimasu.", "গান বড় শব্দে শুনি।", "ওনগাকু ও ওওকিই ওতো দে কিকিমাসু।", [("おんがく", "ongaku", "音楽", "সংগীত"), ("を", "o", "を", "কে"), ("おおきい", "ookii", "大きい", "বড়"), ("おと", "oto", "音", "শব্দ"), ("で", "de", "で", "দিয়ে"), ("ききます", "kikimasu", "聞きます", "শুনি")])
+            make_item("jp-p1-l1-001", "あ、い、う、え、お", "あ、い、う、え、お", "a, i, u, e, o", "আ, ই, উ, এ, ও (৫টি মৌলিক স্বরধ্বনি)", "আ, ই, উ, এ, ও", [("あ", "a", "あ", "আ"), ("い", "i", "い", "ই"), ("う", "u", "う", "উ"), ("え", "e", "え", "এ"), ("お", "o", "お", "ও")], item_type="syllable_ladder"),
+            make_item("jp-p1-l1-002", "あさ (asa)", "あさ", "asa", "সকাল", "আসা", [("あ", "a", "あ", "আ"), ("さ", "sa", "さ", "সা")], item_type="word"),
+            make_item("jp-p1-l1-003", "いえ (ie)", "いえ", "ie", "বাড়ি / ঘর", "ইয়ে", [("い", "i", "い", "ই"), ("え", "e", "え", "এ")], item_type="word"),
+            make_item("jp-p1-l1-004", "うみ (umi)", "うみ", "umi", "সমুদ্র", "উমি", [("う", "u", "う", "উ"), ("み", "mi", "み", "মি")], item_type="word"),
+            make_item("jp-p1-l1-005", "えき (eki)", "えき", "eki", "রেল স্টেশন", "একি", [("え", "e", "え", "এ"), ("き", "ki", "き", "কি")], item_type="word"),
+            make_item("jp-p1-l1-006", "おと (oto)", "おと", "oto", "শব্দ / আওয়াজ", "ওতো", [("お", "o", "お", "ও"), ("と", "to", "と", "তো")], item_type="word"),
+            make_item("jp-p1-l1-007", "あさ、あめが ふります。", "あさ、あめがふります。", "Asa, ame ga furimasu.", "সকালে বৃষ্টি হয়।", "আসা, আমে গা ফুরিমাসু।", [("あさ", "asa", "朝", "সকাল"), ("あめ", "ame", "雨", "বৃষ্টি"), ("が", "ga", "が", "টি"), ("ふります", "furimasu", "降ります", "পড়ে/হয়")]),
+            make_item("jp-p1-l1-008", "いえで うたを うたいます。", "いえでうたをうたいます。", "Ie de uta o utaimasu.", "বাড়িতে গান গাই।", "ইয়ে দে উতা ও উতাইমাসু।", [("いえ", "ie", "家", "বাড়ি"), ("で", "de", "で", "এ"), ("うた", "uta", "歌", "গান"), ("を", "o", "を", "কে"), ("うたいます", "utaimasu", "歌います", "গাই")])
         ]
     },
     {
         "id": "jp-foundations-l02",
         "order": 2,
-        "title_bn": "দীর্ঘ স্বর ও দ্বিত্ব ব্যঞ্জনধ্বনি (Long Vowels & Sokuon っ)",
-        "title_target": "Long Vowels (Chouon) & Double Consonants (Sokuon)",
-        "intro_bn": "দীর্ঘ স্বর (Chouon) উচ্চারণে দ্বিগুণ সময় দিতে হয়। দ্বিত্ব ব্যঞ্জন (っ small tsu) আসলে এক মোরা থামতে হয় (যেমন: きって kitte - ডাকটিকিট)।",
-        "structure": ["Long Vowel (2 Moras) & Double Consonant Pause (っ)"],
+        "title_bn": "Ka-সারি ও Sa-সারি ('し shi' এর বিশেষ উচ্চারণ)",
+        "title_target": "Ka-Row & Sa-Row (Special focus on 'shi')",
+        "intro_bn": "か (ka), き (ki), く (ku), け (ke), こ (ko) এবং さ (sa), し (shi), す (su), せ (se), そ (so)। মনে রাখবেন 'し' এর উচ্চারণ 'সি' নয়, বরং নরম তালব্য 'শি' (shi)।",
+        "structure": ["Ka-Row: か き く け こ", "Sa-Row: さ し す せ そ (し=shi)"],
         "items": [
-            make_item("jp-p1-l2-001", "おとうさんは おかあさんと はなします。", "おとうさんはおかあさんとはなします。", "Otousan wa okaasan to hanashimasu.", "বাবা মায়ের সাথে কথা বলেন।", "ওতোওসান ওয়া ওকাআসান তো হানাশিমাসু।", [("おとうさん", "otousan", "お父さん", "বাবা"), ("は", "wa", "は", "হল"), ("おかあさん", "okaasan", "お母さん", "মা"), ("と", "to", "と", "সাথে"), ("はなします", "hanashimasu", "話します", "কথা বলেন")]),
-            make_item("jp-p1-l2-002", "きょう、きってを かいました。", "きょう、きってをかいました。", "Kyou, kitte o kaimashita.", "আজ ডাকটিকিট কিনেছি।", "কিয়োও, কিত্তে ও কাইমাশিতা।", [("きょう", "kyou", "今日", "আজ"), ("きって", "kitte", "切手", "ডাকটিকিট"), ("を", "o", "を", "কে"), ("かいました", "kaimashita", "買いました", "কিনেছি")]),
-            make_item("jp-p1-l2-003", "ちょっと まって ください。", "ちょっとまってください。", "Chotto matte kudasai.", "একটু অপেক্ষা করুন।", "চোত্তো মাত্তে কুদাসাই।", [("ちょっと", "chotto", "一寸", "একটু"), ("まって", "matte", "待って", "অপেক্ষা করে"), ("ください", "kudasai", "下さい", "দয়া করে")]),
-            make_item("jp-p1-l2-004", "がっこうへ いって、ざっしを よみます。", "がっこうへいって、ざっしをよみます。", "Gakkou e itte, zasshi o yomimasu.", "স্কুলে গিয়ে ম্যাগাজিন পড়ি।", "গাক্কোও এ ইত্তে, জাস্শি ও ইয়োমিমাসু।", [("がっこう", "gakkou", "学校", "স্কুল"), ("へ", "e", "へ", "দিকে"), ("いって", "itte", "行って", "গিয়ে"), ("ざっし", "zasshi", "雑誌", "ম্যাগাজিন"), ("を", "o", "を", "কে"), ("よみます", "yomimasu", "読みます", "পড়ি")])
+            make_item("jp-p1-l2-001", "か、き、く、け、こ", "か、き、く、け、こ", "ka, ki, ku, ke, ko", "কা, কি, কু, কে, কো (Ka সারি)", "কা, কি, কু, কে, কো", [("か", "ka", "か", "কা"), ("き", "ki", "き", "কি"), ("く", "ku", "く", "কু"), ("け", "ke", "け", "কে"), ("こ", "ko", "こ", "কো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l2-002", "さ、し、す、せ、そ", "さ、し、す、せ、そ", "sa, shi, su, se, so", "সা, শি, সু, সে, সো (Sa সারি; し=শি)", "সা, শি, সু, সে, সো", [("さ", "sa", "さ", "সা"), ("し", "shi", "し", "শি"), ("す", "su", "す", "সু"), ("せ", "se", "せ", "সে"), ("そ", "so", "そ", "সো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l2-003", "かさ (kasa)", "かさ", "kasa", "ছাতা", "কাসা", [("か", "ka", "か", "কা"), ("さ", "sa", "さ", "সা")], item_type="word"),
+            make_item("jp-p1-l2-004", "すし (sushi)", "すし", "sushi", "সুশি (ঐতিহ্যবাহী খাবার)", "সুশি", [("す", "su", "す", "সু"), ("し", "shi", "し", "শি")], item_type="word"),
+            make_item("jp-p1-l2-005", "さけ (sake)", "さけ", "sake", "স্যামন মাছ / জাপানি পানীয়", "সাকে", [("さ", "sa", "さ", "সা"), ("け", "ke", "け", "কে")], item_type="word"),
+            make_item("jp-p1-l2-006", "そこ (soko)", "そこ", "soko", "সেখানে", "সোকো", [("そ", "so", "そ", "সো"), ("こ", "ko", "こ", "কো")], item_type="word"),
+            make_item("jp-p1-l2-007", "きで つくえを つくります。", "きでつくえをつくります。", "Ki de tsukue o tsukurimasu.", "কাঠ দিয়ে পড়ার টেবিল তৈরি করি।", "কি দে ৎसुकুয়ে ও ৎসুকুরিমাসু।", [("き", "ki", "木", "কাঠ"), ("で", "de", "で", "দিয়ে"), ("つくえ", "tsukue", "机", "টেবিল"), ("を", "o", "を", "কে"), ("つくります", "tsukurimasu", "作ります", "তৈরি করি")])
         ]
     },
     {
         "id": "jp-foundations-l03",
         "order": 3,
-        "title_bn": "যুক্তাক্ষর ও পরিবর্তিত ধ্বনি (Youon & Dakuten が, ざ, だ, ば, ぱ)",
-        "title_target": "Contracted Sounds (Youon) & Voiced Sounds (Dakuten)",
-        "intro_bn": "যুক্তাক্ষর (যেমন: きゃ, しゅ, ちょ) এবং তেনতেন/মারু যোগে ঘোষ ধ্বনির উচ্চারণ।",
-        "structure": ["Consonant + ya/yu/yo", "Voiced Consonant (Dakuten)"],
+        "title_bn": "Ta-সারি ও Na-সারি ('ち chi' ও 'つ tsu' এর বিশেষ নিয়ম)",
+        "title_target": "Ta-Row & Na-Row (Special focus on 'chi' & 'tsu')",
+        "intro_bn": "た (ta), ち (chi), つ (tsu), て (te), と (to) এবং な (na), に (ni), ぬ (nu), ね (ne), の (no)। 'ち' হলো 'চি' এবং 'つ' হলো দাঁতের পেছনে জিভ ঠেকিয়ে হিসহিস শব্দে 'ৎসু' (tsu)।",
+        "structure": ["Ta-Row: た ち つ て と (ち=chi, つ=tsu)", "Na-Row: な に ぬ ね の"],
         "items": [
-            make_item("jp-p1-l3-001", "きょうしつで べんきょうします。", "きょうしつでべんきょうします。", "Kyoushitsu de benkyou shimasu.", "ক্লাসরুমে পড়াশোনা করি।", "কিয়োওশিতসু দে বেনকিওও শিমাসু।", [("きょうしつ", "kyoushitsu", "教室", "ক্লাসরুম"), ("で", "de", "で", "এ"), ("べんきょうします", "benkyou shimasu", "勉強します", "পড়াশোনা করি")]),
-            make_item("jp-p1-l3-002", "びょういんの いしゃは しんせつです。", "びょういんのいしゃはしんせつです。", "Byouin no isha wa shinsetsu desu.", "হাসপাতালের ডাক্তার দয়ালু।", "বিয়োওইন নো ইশা ওয়া শিনসেতসু দেস।", [("びょういん", "byouin", "病院", "হাসপাতাল"), ("の", "no", "の", "এর"), ("いしゃ", "isha", "医者", "ডাক্তার"), ("は", "wa", "は", "হল"), ("しんせつです", "shinsetsu desu", "親切です", "দয়ালু")]),
-            make_item("jp-p1-l3-003", "じてんしゃで ぎんこうへ いきます。", "じてんしゃでぎんこうへいきます。", "Jitensha de ginkou e ikimasu.", "সাইকেলে করে ব্যাংকে যাই।", "জিতেন্সা দে গিনকোও এ ইকিমাসু।", [("じてんしゃ", "jitensha", "自転車", "সাইকেল"), ("で", "de", "で", "দিয়ে"), ("ぎんこう", "ginkou", "銀行", "ব্যাংক"), ("へ", "e", "へ", "দিকে"), ("いきます", "ikimasu", "行きます", "যাই")])
+            make_item("jp-p1-l3-001", "た、ち、つ、て、と", "た、ち、つ、て、と", "ta, chi, tsu, te, to", "তা, চি, ৎসু, তে, তো (Ta সারি; ち=চি, つ=ৎসু)", "তা, চি, ৎসু, তে, তো", [("た", "ta", "た", "তা"), ("ち", "chi", "ち", "চি"), ("つ", "tsu", "つ", "ৎসু"), ("て", "te", "て", "তে"), ("と", "to", "と", "তো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l3-002", "な、に、ぬ、ね、の", "な、に、ぬ、ね、の", "na, ni, nu, ne, no", "না, নি, নু, নে, নো (Na সারি)", "না, নি, নু, নে, নো", [("な", "na", "な", "না"), ("に", "ni", "に", "নি"), ("ぬ", "nu", "ぬ", "নু"), ("ね", "ne", "ね", "নে"), ("の", "no", "の", "নো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l3-003", "つき (tsuki)", "つき", "tsuki", "চাঁদ", "ৎসুকি", [("つ", "tsu", "つ", "ৎসু"), ("き", "ki", "き", "কি")], item_type="word"),
+            make_item("jp-p1-l3-004", "ちち (chichi)", "ちち", "chichi", "আমার বাবা", "চিচি", [("ち", "chi", "ち", "চি"), ("ち", "chi", "ち", "চি")], item_type="word"),
+            make_item("jp-p1-l3-005", "ねこ (neko)", "ねこ", "neko", "বিড়াল", "নেকো", [("ね", "ne", "ね", "নে"), ("こ", "ko", "こ", "কো")], item_type="word"),
+            make_item("jp-p1-l3-006", "いぬ (inu)", "いぬ", "inu", "কুকুর", "ইনু", [("い", "i", "い", "ই"), ("ぬ", "nu", "ぬ", "নু")], item_type="word"),
+            make_item("jp-p1-l3-007", "て (te)", "て", "te", "হাত", "তে", [("て", "te", "手", "হাত")], item_type="word")
         ]
     },
     {
         "id": "jp-foundations-l04",
         "order": 4,
-        "title_bn": "৫টি জাপানিজ টাং টুইস্টার (Hayakuchikotoba - 早口言葉)",
-        "title_target": "5 Japanese Tongue Twisters for Oral Fluency",
-        "intro_bn": "জাপানিজ উচ্চারণকে সাবলীল ও জড়তামুক্ত করতে জনপ্রিয় টাং টুইস্টারগুলো বারবার দ্রুত বলুন।",
-        "structure": ["Fast Pitch Accent & Articulation Drills (早口言葉)"],
+        "title_bn": "Ha-সারি ও Ma-সারি ('ふ fu' এর বিশেষ দ্ব্যোষ্ঠ উচ্চারণ)",
+        "title_target": "Ha-Row & Ma-Row (Special focus on 'fu')",
+        "intro_bn": "は (ha), ひ (hi), ふ (fu), へ (he), ほ (ho) এবং ま (ma), み (mi), む (mu), め (me), も (mo)। 'ふ' উচ্চারণে দাঁত ও ঠোঁট না লাগিয়ে মোমবাতি নেভানোর মতো হালকা ফুঁ দিয়ে 'ফু' বলতে হয়।",
+        "structure": ["Ha-Row: は ひ ふ へ ほ (ふ=fu)", "Ma-Row: ま み む め も"],
         "items": [
-            make_item("jp-p1-twister-001", "なまむぎ なまごめ なまたまご。", "なまむぎなまごめなまたまご。", "Nama mugi nama gome nama tamago.", "কাঁচা গম, কাঁচা চাল, কাঁচা ডিম।", "নামা মুগি নামা গোমে নামা তামাগো।", item_type="tongue_twister"),
-            make_item("jp-p1-twister-002", "すももも ももも もものうち。", "すもももももももものうち。", "Sumomo mo momo mo momo no uchi.", "আলুবোখারাও পীচ ফল, পীচ ফলও পীচ পরিবারের অংশ।", "সুমোমো মো মোমো মো মোমো নো উচি।", item_type="tongue_twister"),
-            make_item("jp-p1-twister-003", "あかパジャマ、あおパジャマ、きパジャマ。", "あかぱじゃま、あおぱじゃま、きぱじゃま。", "Aka pajama, ao pajama, ki pajama.", "লাল পায়জামা, নীল পায়জামা, হলুদ পায়জামা।", "আকা পাজামা, আও পাজামা, কি পাজামা।", item_type="tongue_twister"),
-            make_item("jp-p1-twister-004", "とうきょう とっきょ きょかきょく きょくちょう。", "とうきょうとっきょきょかきょくきょくちょう。", "Toukyou tokkyo kyokakyoku kyokuchou.", "টোকিও পেটেন্ট ব্যুরোর মহাপরিচালক।", "তোকিও তোক্কিও কিওকাকিওকু কিওকুচোও।", item_type="tongue_twister"),
-            make_item("jp-p1-twister-005", "となりの きゃくは よく かき くう きゃくだ。", "となりのきゃくはよくかきくうきゃくだ。", "Tonari no kyaku wa yoku kaki kuu kyaku da.", "পাশের ঘরের অতিথি বেশি বেশি পার্সিমন ফল খাওয়া অতিথি।", "তোরারি নো কিয়াকু ওয়া ইয়োকু কাকি কুউ কিয়াকু দা।", item_type="tongue_twister")
+            make_item("jp-p1-l4-001", "は、ひ、ふ、へ、ほ", "は、ひ、ふ、へ、ほ", "ha, hi, fu, he, ho", "হা, হি, ফু, হে, হো (Ha সারি; ふ=দ্ব্যোষ্ঠ ফু)", "হা, হি, ফু, হে, হো", [("は", "ha", "は", "হা"), ("ひ", "hi", "ひ", "হি"), ("ふ", "fu", "ふ", "ফু"), ("へ", "he", "へ", "হে"), ("ほ", "ho", "ほ", "হো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l4-002", "ま、み、む、め、も", "ま、み、む、め、も", "ma, mi, mu, me, mo", "মা, মি, মু, মে, মো (Ma সারি)", "মা, মি, মু, মে, মো", [("ま", "ma", "ま", "মা"), ("み", "mi", "み", "মি"), ("む", "mu", "む", "মু"), ("め", "me", "め", "মে"), ("も", "mo", "も", "মো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l4-003", "はな (hana)", "はな", "hana", "ফুল", "হানা", [("は", "ha", "花", "ফুল"), ("な", "na", "な", "না")], item_type="word"),
+            make_item("jp-p1-l4-004", "ふね (fune)", "ふね", "fune", "নৌকা / জাহাজ", "ফুনে", [("ふ", "fu", "船", "নৌকা"), ("ね", "ne", "ね", "নে")], item_type="word"),
+            make_item("jp-p1-l4-005", "ひと (hito)", "ひと", "hito", "মানুষ / ব্যক্তি", "হিতো", [("ひ", "hi", "人", "মানুষ"), ("と", "to", "と", "তো")], item_type="word"),
+            make_item("jp-p1-l4-006", "みず (mizu)", "みず", "mizu", "পানি / জল", "মিজু", [("み", "mi", "水", "পানি"), ("ず", "zu", "ず", "জু")], item_type="word"),
+            make_item("jp-p1-l4-007", "まち (machi)", "まち", "machi", "শহর / জনপদ", "মাচি", [("ま", "ma", "町", "শহর"), ("ち", "chi", "ち", "চি")], item_type="word")
+        ]
+    },
+    {
+        "id": "jp-foundations-l05",
+        "order": 5,
+        "title_bn": "Ya, Ra, Wa সারি ও অনুনাসিক 'ん n' এর নিয়ম",
+        "title_target": "Ya, Ra, Wa Rows & Nasal Mora 'n'",
+        "intro_bn": "や (ya), ゆ (yu), よ (yo), ら (ra), り (ri), る (ru), れ (re), ろ (ro), わ (wa), を (wo/o), ん (n)। 'ら' সারির অক্ষরগুলো জিভের ডগা তালুতে এক টোকায় উচ্চারণ করতে হয়।",
+        "structure": ["Ya: や ゆ よ", "Ra: ら り る れ ろ", "Wa: わ を", "Nasal: ん (n/m/ng)"],
+        "items": [
+            make_item("jp-p1-l5-001", "や、ゆ、よ", "や、ゆ、よ", "ya, yu, yo", "ইয়া, ইউ, ইয়ো (Ya সারি)", "ইয়া, ইউ, ইয়ো", [("や", "ya", "や", "ইয়া"), ("ゆ", "yu", "ゆ", "ইউ"), ("よ", "yo", "よ", "ইয়ো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l5-002", "ら、り、る、れ、ろ", "ら、り、る、れ、ろ", "ra, ri, ru, re, ro", "রা, রি, রু, রে, রো (জিহ্বার ডগায় এক টোকা)", "রা, রি, রু, রে, রো", [("ら", "ra", "ら", "রা"), ("り", "ri", "り", "রি"), ("る", "ru", "る", "রু"), ("れ", "re", "れ", "রে"), ("ろ", "ro", "ろ", "রো")], item_type="syllable_ladder"),
+            make_item("jp-p1-l5-003", "わ、を、ん", "わ、を、ん", "wa, o, n", "ওয়া, ও, ন্‌/ং", "ওয়া, ও, ন্‌", [("わ", "wa", "わ", "ওয়া"), ("を", "o", "を", "ও"), ("ん", "n", "ん", "ন্‌")], item_type="syllable_ladder"),
+            make_item("jp-p1-l5-004", "やま (yama)", "やま", "yama", "পাহাড়", "ইয়ামা", [("や", "ya", "山", "পাহাড়"), ("ま", "ma", "ま", "মা")], item_type="word"),
+            make_item("jp-p1-l5-005", "くるま (kuruma)", "くるま", "kuruma", "গাড়ি", "কুরুমা", [("く", "ku", "車", "গাড়ি"), ("る", "ru", "る", "রু"), ("ま", "ma", "ま", "মা")], item_type="word"),
+            make_item("jp-p1-l5-006", "ほん (hon)", "ほん", "hon", "বই", "হোং", [("ほ", "ho", "本", "বই"), ("ん", "n", "ん", "ং")], item_type="word"),
+            make_item("jp-p1-l5-007", "しんぶん (shinbun)", "しんぶん", "shinbun", "সংবাদপত্র / খবরের কাগজ", "শিম্বুন", [("しん", "shin", "新", "সংবাদ"), ("ぶん", "bun", "聞", "কাগজ")], item_type="word")
         ]
     }
 ]
@@ -130,71 +165,95 @@ parts.append({
     "id": "jp-foundations-p1",
     "order": 1,
     "level": "A1",
-    "title_bn": "বর্ণমালা, উচ্চারণ ও ফ্লুয়েন্সি ড্রিল (Pronunciation, Pitch & Kana)",
-    "title_target": "Pronunciation, Pitch, Kana & Fluency Drills",
+    "title_bn": "বর্ণমালা ও মৌলিক স্বরধ্বনি (Hiragana Basic Sounds)",
+    "title_target": "Hiragana 46 Basic Sounds & Mora Vowels",
     "lessons": p1_lessons
 })
 
-# -------------------------------------------------------------
-# Part 2: Identity & Copula (です / ではありません)
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 2: পরিবর্তিত ধ্বনি, দ্বিত্ব ব্যঞ্জন ও যুক্তাক্ষর (Dakuten, Sokuon & Youon)
+# ==============================================================================
 p2_lessons = [
     {
-        "id": "jp-foundations-l05",
-        "order": 1,
-        "title_bn": "আমার পেশা ও পরিচয় — 'わたしは〜です'",
-        "title_target": "My Identity & Profession (Watashi wa ... desu)",
-        "intro_bn": "নিজের পরিচয়, নাম বা পেশা প্রকাশ করতে 'わたしは [নাম/পেশা] です' ব্যবহার করা হয়।",
-        "structure": ["Topic (わたしは) + Profession/Noun + です (desu)"],
-        "items": [
-            make_item("jp-p2-l5-001", "わたしは がくせいです。", "わたしはがくせいです。", "Watashi wa gakusei desu.", "আমি একজন শিক্ষার্থী।", "ওয়াতাশি ওয়া গাকুসেই দেস।"),
-            make_item("jp-p2-l5-002", "わたしは エンジニアです。", "わたしはえんじにあです。", "Watashi wa enjinia desu.", "আমি একজন প্রকৌশলী (ইঞ্জিনিয়ার)।", "ওয়াতাশি ওয়া এনজিনিয়া দেস।"),
-            make_item("jp-p2-l5-003", "わたしは バングラデシュじんです。", "わたしはばんぐらでしゅじんです。", "Watashi wa Banguradeshu-jin desu.", "আমি বাংলাদেশি।", "ওয়াতাশি ওয়া বাঙ্গুরাদেশু-জিন দেস।"),
-            make_item("jp-p2-l5-004", "わたしは かいしゃいんです。", "わたしはかいしゃいんです。", "Watashi wa kaishain desu.", "আমি কোম্পানি কর্মচারী।", "ওয়াতাশি ওয়া কাইশাইন দেস।"),
-            make_item("jp-p2-l5-005", "はじめまして。ラヒムです。どうぞ よろしく おねがいします。", "はじめまして。らひむです。どうぞよろしくおねがいします。", "Hajimemashite. Rahimu desu. Douzo yoroshiku onegaishimasu.", "প্রথম পরিচয়। আমি রহিম। পরিচিত হয়ে ভালো লাগল।", "হাজিমেমাশিতে। রাহিমু দেস। দোওজো ইয়োরোশিকু ওনেগাইশিমাসু।")
-        ]
-    },
-    {
         "id": "jp-foundations-l06",
-        "order": 2,
-        "title_bn": "অন্যের পরিচয় ও পেশা (Others' Identity & Profession)",
-        "title_target": "Others' Identity & Professions (~san wa ... desu)",
-        "intro_bn": "অন্য কারো নাম বা পেশা বলার সময় নামের শেষে সম্মানসূচক 'さん' (san) যুক্ত করতে হয়।",
-        "structure": ["Person + さん + は + Profession + です"],
+        "order": 1,
+        "title_bn": "ঘোষ ধ্বনি বা ডাকুরন ও হান-ডাকুরন (が, ざ, だ, ば, ぱ)",
+        "title_target": "Voiced Sounds (Dakuon) & Semi-Voiced Sounds (Handakuon)",
+        "intro_bn": "অক্ষরের ডানে তেনতেন (゛) দিলে গ, জ, দ, ব হয় এবং মারু (゜) দিলে প হয়।",
+        "structure": ["が ぎ ぐ げ ご (ga gi gu ge go)", "ざ じ ず ぜ ぞ (za ji zu ze zo)", "だ ぢ づ で ど (da ji zu de do)", "ば び ぶ べ ぼ (ba bi bu be bo)", "ぱ ぴ ぷ ぺ ぽ (pa pi pu pe po)"],
         "items": [
-            make_item("jp-p2-l6-001", "たなかさんは にほんごの せんせいです。", "たなかさんはにほんごのせんせいです。", "Tanaka-san wa nihongo no sensei desu.", "তানাকা বাবু জাপানি ভাষার শিক্ষক।", "তানাকা-সান ওয়া নিহঙ্গো নো সেনসেই দেস।"),
-            make_item("jp-p2-l6-002", "マリアさんは いしゃです。", "まりあさんはいしゃです。", "Maria-san wa isha desu.", "মারিয়া একজন ডাক্তার।", "মারিয়া-সান ওয়া ইশা দেস।"),
-            make_item("jp-p2-l6-003", "あのかたは だいがくの きょうじゅです。", "あのかたはだいがくのきょうじゅです。", "Ano kata wa daigaku no kyouju desu.", "ওই ভদ্রলোক বিশ্ববিদ্যালয়ের অধ্যাপক।", "আনো কাতা ওয়া দাইগাকু নো কিওওজু দেস।"),
-            make_item("jp-p2-l6-004", "かれらは ぎんこういんです。", "かれらはぎんこういんです。", "Karera wa ginkouin desu.", "তারা ব্যাংক কর্মকর্তা।", "কারে-রা ওয়া গিনকোওইন দেস।")
+            make_item("jp-p2-l6-001", "が、ぎ、ぐ、げ、ご", "が、ぎ、ぐ、げ、ご", "ga, gi, gu, ge, go", "গা, গি, গু, গে, গো (Ga সারি)", "গা, গি, গু, গে, গো", item_type="syllable_ladder"),
+            make_item("jp-p2-l6-002", "ざ、じ、ず、ぜ、ぞ", "ざ、じ、ず、ぜ、ぞ", "za, ji, zu, ze, zo", "জা, জি, জু, জে, জো (Za সারি)", "জা, জি, জু, জে, জো", item_type="syllable_ladder"),
+            make_item("jp-p2-l6-003", "だ、ぢ、づ、で、ど", "だ、ぢ、づ、で、ど", "da, ji, zu, de, do", "দা, জি, জু, দে, দো (Da সারি)", "দা, জি, জু, দে, দো", item_type="syllable_ladder"),
+            make_item("jp-p2-l6-004", "ば、び、ぶ、べ、ぼ", "ば、び、ぶ、べ、ぼ", "ba, bi, bu, be, bo", "বা, বি, বু, বে, বো (Ba সারি)", "বা, বি, বু, বে, বো", item_type="syllable_ladder"),
+            make_item("jp-p2-l6-005", "ぱ、ぴ、ぷ、ぺ、ぽ", "ぱ、ぴ、ぷ、ぺ、ぽ", "pa, pi, pu, pe, po", "পা, পি, পু, পে, পো (Pa সারি)", "পা, পি, পু, পে, পো", item_type="syllable_ladder"),
+            make_item("jp-p2-l6-006", "えんぴつ (enpitsu)", "えんぴつ", "enpitsu", "পেনসিল", "এম্পিৎসু", [("えん", "en", "鉛", "সীসা"), ("ぴつ", "pitsu", "筆", "কলম")], item_type="word"),
+            make_item("jp-p2-l6-007", "かばん (kaban)", "かばん", "kaban", "ব্যাগ", "কাবাং", [("か", "ka", "か", "কা"), ("ばん", "ban", "ばん", "বাং")], item_type="word"),
+            make_item("jp-p2-l6-008", "ごはん (gohan)", "ごはん", "gohan", "ভাত / আহার", "গোহাং", [("ご", "go", "御", "ভদ্র"), ("はん", "han", "飯", "ভাত")], item_type="word")
         ]
     },
     {
         "id": "jp-foundations-l07",
-        "order": 3,
-        "title_bn": "না-বোধক পরিচয় — '〜ではありません / じゃありません'",
-        "title_target": "Negative Identity (Dewa Arimasen / Ja Arimasen)",
-        "intro_bn": "কোনো পরিচয় না-বোধক করতে 'です' এর স্থানে 'ではありません' বা 'じゃありません' বসে।",
-        "structure": ["Topic + は + Noun + ではありません / じゃありません"],
+        "order": 2,
+        "title_bn": "ছোট 'ৎসু' বা দ্বিত্ব ব্যঞ্জনধ্বনি (Sokuon っ - Double Consonant)",
+        "title_target": "The Small Tsu (Sokuon っ) Double Consonants",
+        "intro_bn": "ছোট 'っ' (tsu) নিজে উচ্চারিত হয় না, বরং পরের ব্যঞ্জনধ্বনিকে দ্বিগুণ করে এবং ১ মোরা নীরব বিরতি সৃষ্টি করে।",
+        "structure": ["Double Consonant: っ + k/s/t/p sound"],
         "items": [
-            make_item("jp-p2-l7-001", "わたしは せんせいでは ありません。", "わたしわせんセいでわありません。", "Watashi wa sensei dewa arimasen.", "আমি শিক্ষক নই।", "ওয়াতাশি ওয়া সেনসেই দেবা আরিমাসেন।", polarity="negative"),
-            make_item("jp-p2-l7-002", "たなかさんは がくせいじゃ ありません。", "たなかさんはがくせいじゃありません。", "Tanaka-san wa gakusei ja arimasen.", "তানাকা-সান শিক্ষার্থী নন।", "তানাকা-সান ওয়া গাকুসেই জা আরিমাসেন।", polarity="negative"),
-            make_item("jp-p2-l7-003", "わたしは にほんじんでは ありません。バングラデシュじんです。", "わたしわにほんじんでわありません。ばんぐらでしゅじんです。", "Watashi wa nihonjin dewa arimasen. Banguradeshu-jin desu.", "আমি জাপানি নই। আমি বাংলাদেশি।", "ওয়াতাশি ওয়া নিহোনজিন দেবা আরিমাসেন। বাঙ্গুরাদেশু-জিন দেস।", polarity="negative")
+            make_item("jp-p2-l7-001", "きって (kitte)", "きって", "kitte", "ডাকটিকিট (১ মোরা বিরতি)", "কিত্‌তে", [("き", "ki", "切", "কাটা"), ("って", "tte", "手", "টিকিট")], item_type="word"),
+            make_item("jp-p2-l7-002", "きて (kite)", "きて", "kite", "আসুন (বিরতিহীন শব্দ)", "কিতে", [("き", "ki", "来", "আসা"), ("て", "te", "て", "তে")], item_type="word"),
+            make_item("jp-p2-l7-003", "ざっし (zasshi)", "ざっし", "zasshi", "ম্যাগাজিন", "জাশ্‌শি", [("ざっ", "za", "雑", "বিবিধ"), ("し", "shi", "誌", "পত্র")], item_type="word"),
+            make_item("jp-p2-l7-004", "がっこう (gakkou)", "がっこう", "gakkou", "বিদ্যালয় / স্কুল", "গাক্‌কোও", [("がっ", "ga", "学", "শিক্ষা"), ("こう", "kou", "校", "স্কুল")], item_type="word"),
+            make_item("jp-p2-l7-005", "ちょっと まって ください。", "ちょっとまってください。", "Chotto matte kudasai.", "একটু অপেক্ষা করুন।", "চোত্তো মাত্তে কুদাসাই।", [("ちょっと", "chotto", "一寸", "একটু"), ("まって", "matte", "待って", "অপেক্ষা করে"), ("ください", "kudasai", "下さい", "দয়া করে")])
         ]
     },
     {
         "id": "jp-foundations-l08",
-        "order": 4,
-        "title_bn": "৬-রূপান্তর ড্রিল: পেশা ও পরিচয় (6 Transformations Drill)",
-        "title_target": "6 Sentence Transformations: Identity (Desu / Dewa arimasen)",
-        "intro_bn": "পেশা ও পরিচয় দিয়ে ৬টি রূপে রূপান্তরের স্পোকেন ড্রিল।",
-        "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
+        "order": 3,
+        "title_bn": "যুক্তাক্ষর ধ্বনি (Youon きゃ, しゅ, ちょ, りょ, びょ)",
+        "title_target": "Contracted Sounds (Youon) with Small ya, yu, yo",
+        "intro_bn": "ই-স্তম্ভের অক্ষরের সাথে ছোট ゃ, ゅ, ょ যুক্ত হয়ে ১ মোরা যুক্তধ্বনি তৈরি করে।",
+        "structure": ["i-Column Kana + small ゃ (ya) / ゅ (yu) / ょ (yo)"],
         "items": [
-            make_item("jp-p2-l8-001", "たなかさんは せんせいです。", "たなかさんはせんせいです。", "Tanaka-san wa sensei desu.", "১. হ্যাঁ-বোধক: তানাকা বাবু একজন শিক্ষক।", "তানাকা-সান ওয়া সেনসেই দেস।", item_type="drill"),
-            make_item("jp-p2-l8-002", "たなかさんは せんせいでは ありません。", "たなかさんはせんセいでわありません。", "Tanaka-san wa sensei dewa arimasen.", "২. না-বোধক: তানাকা বাবু শিক্ষক নন।", "তানাকা-সান ওয়া সেনসেই দেবা আরিমাসেন।", item_type="drill", polarity="negative"),
-            make_item("jp-p2-l8-003", "たなかさんは せんせいですか。", "たなかさんはせんせいですか。", "Tanaka-san wa sensei desu ka.", "৩. প্রশ্নবোধক: তানাকা বাবু কি শিক্ষক?", "তানাকা-সান ওয়া সেনসেই দেসু কা?", item_type="drill", sentence_type="interrogative"),
-            make_item("jp-p2-l8-004", "たなかさんは せんせいでは ありませんか。", "たなかさんはせんセいでわありませんか。", "Tanaka-san wa sensei dewa arimasen ka.", "৪. না-বোধক প্রশ্ন: তানাকা বাবু কি শিক্ষক নন?", "তানাকা-সান ওয়া সেনসেই দেবা আরিমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
-            make_item("jp-p2-l8-005", "だれが せんせいですか。たなかさんが せんせいです。", "だれがせんせいですか。たなかさんがせんせいです。", "Dare ga sensei desu ka. Tanaka-san ga sensei desu.", "৫. WH-প্রশ্ন: কে শিক্ষক? তানাকা বাবু শিক্ষক।", "দারে গা সেনসেই দেসু কা? তানাকা-সান গা সেনসেই দেস।", item_type="drill", sentence_type="wh_question"),
-            make_item("jp-p2-l8-006", "たなかさんは せんせいですか、がくせいですか。", "たなかさんはせんせいですか、がくせいですか。", "Tanaka-san wa sensei desu ka, gakusei desu ka.", "৬. বিকল্প প্রশ্ন: তানাকা বাবু কি শিক্ষক, নাকি শিক্ষার্থী?", "তানাকা-সান ওয়া সেনসেই দেসু কা, গাকুসেই দেসু কা?", item_type="drill", sentence_type="alternative_question")
+            make_item("jp-p2-l8-001", "きゃ、きゅ、きょ", "きゃ、きゅ、きょ", "kya, kyu, kyo", "ক্যা, কিউ, কিয়ো", "ক্যা, কিউ, কিয়ো", item_type="syllable_ladder"),
+            make_item("jp-p2-l8-002", "しゃ、しゅ、しょ", "しゃ、しゅ、しょ", "sha, shu, sho", "শা, শু, শো", "শা, শু, শো", item_type="syllable_ladder"),
+            make_item("jp-p2-l8-003", "ちゃ、ちゅ、ちょ", "ちゃ、ちゅ、ちょ", "cha, chu, cho", "চা, চু, চো", "চা, চু, চো", item_type="syllable_ladder"),
+            make_item("jp-p2-l8-004", "おちゃ (ocha)", "おちゃ", "ocha", "গ্রিন টি / চা", "ওচা", [("お", "o", "お", "ভদ্র"), ("ちゃ", "cha", "茶", "চা")], item_type="word"),
+            make_item("jp-p2-l8-005", "しゃしん (shashin)", "しゃしん", "shashin", "ছবি / ফটোগ্রাফ", "শাশিন", [("しゃ", "sha", "写", "তোলা"), ("しん", "shin", "真", "সত্য")], item_type="word"),
+            make_item("jp-p2-l8-006", "じしょ (jisho)", "じしょ", "jisho", "অভিধান (ডিকশনারি)", "জিশো", [("じ", "ji", "辞", "শব্দ"), ("しょ", "sho", "書", "বই")], item_type="word"),
+            make_item("jp-p2-l8-007", "きょうしつで べんきょうします。", "きょうしつでべんきょうします。", "Kyoushitsu de benkyou shimasu.", "শ্রেণিকক্ষে পড়াশোনা করি।", "কিয়োওশিতসু দে বেনকিয়োও শিমাসু।", [("きょうしつ", "kyoushitsu", "教室", "ক্লাসরুম"), ("で", "de", "で", "এ"), ("べんきょうします", "benkyou shimasu", "勉強します", "পড়াশোনা করি")])
+        ]
+    },
+    {
+        "id": "jp-foundations-l09",
+        "order": 4,
+        "title_bn": "দীর্ঘ স্বরধ্বনি ও অর্থ পরিবর্তন (Chouon - Long Vowels)",
+        "title_target": "Long Vowels (Chouon) & Crucial Meaning Shifts",
+        "intro_bn": "দীর্ঘ স্বর উচ্চারণে পুরো ২ মোরা সময় দিতে হয়। দীর্ঘ না টানলে শব্দের অর্থ বদলে যায়!",
+        "structure": ["Long Vowel (2 Moras Duration)"],
+        "items": [
+            make_item("jp-p2-l9-001", "おばさん (obasan)", "おばさん", "obasan", "খালা / ফুপু / চাচি (সংক্ষিপ্ত স্বর)", "ওবাসাং", item_type="word"),
+            make_item("jp-p2-l9-002", "おばあさん (obaasan)", "おばあさん", "obaasan", "দাদি / নানি / বৃদ্ধা (দীর্ঘ স্বর ২ মোরা)", "ওবাআসাং", item_type="word"),
+            make_item("jp-p2-l9-003", "おじさん (ojisan)", "おじさん", "ojisan", "চাচা / মামা / খালু", "ওজিসাং", item_type="word"),
+            make_item("jp-p2-l9-004", "おじいさん (ojiisan)", "おじいさん", "ojiisan", "দাদা / নানা / বৃদ্ধ", "ওজিইসাং", item_type="word"),
+            make_item("jp-p2-l9-005", "ゆき (yuki)", "ゆき", "yuki", "তুষার / বরফ", "ইউকি", item_type="word"),
+            make_item("jp-p2-l9-006", "ゆうき (yuuki)", "ゆうき", "yuuki", "সাহস / বীরত্ব", "ইউউকি", item_type="word"),
+            make_item("jp-p2-l9-007", "おとうさんは おかあさんと はなします。", "おとうさんはおかあさんとはなします。", "Otousan wa okaasan to hanashimasu.", "বাবা মায়ের সাথে কথা বলেন।", "ওতোওসাং ওয়া ওকাআসাং তো হানাশিমাসু।", [("おとうさん", "otousan", "お父さん", "বাবা"), ("は", "wa", "は", "হলো"), ("おかあさん", "okaasan", "お母さん", "মা"), ("と", "to", "と", "সাথে"), ("はなします", "hanashimasu", "話します", "কথা বলেন")])
+        ]
+    },
+    {
+        "id": "jp-foundations-l10",
+        "order": 5,
+        "title_bn": "৫টি দ্রুত জাপানি টাং টুইস্টার (Hayakuchikotoba - 早口言葉)",
+        "title_target": "5 Rapid Japanese Tongue Twisters for Oral Fluency",
+        "intro_bn": "উচ্চারণ পরিষ্কার ও জড়তামুক্ত করতে জনপ্রিয় জাপানি টাং টুইস্টারগুলো জোরে জোরে বলুন।",
+        "structure": ["Fast Japanese Tongue Twisters (早口言葉)"],
+        "items": [
+            make_item("jp-p2-tw-001", "なまむぎ なまごめ なまたまご。", "なまむぎなまごめなまたまご。", "Nama mugi nama gome nama tamago.", "কাঁচা গম, কাঁচা চাল, কাঁচা ডিম।", "নামা মুগি নামা গোমে নামা তামাগো।", item_type="tongue_twister"),
+            make_item("jp-p2-tw-002", "すももも ももも もものうち。", "すもももももももものうち。", "Sumomo mo momo mo momo no uchi.", "আলুবোখারাও পীচ ফল, পীচ ফলও পীচ পরিবারের অংশ।", "সুমোমো মো মোমো মো মোমো নো উচি।", item_type="tongue_twister"),
+            make_item("jp-p2-tw-003", "あかパジャマ、あおパジャマ、きパジャマ。", "あかぱじゃま、あおぱじゃま、きぱじゃま。", "Aka pajama, ao pajama, ki pajama.", "লাল পায়জামা, নীল পায়জামা, হলুদ পায়জামা।", "আকা পাজামা, আও পাজামা, কি পাজামা।", item_type="tongue_twister"),
+            make_item("jp-p2-tw-004", "とうきょう とっきょ きょかきょく きょくちょう。", "とうきょうとっきょきょかきょくきょくちょう。", "Toukyou tokkyo kyokakyoku kyokuchou.", "টোকিও পেটেন্ট ব্যুরোর মহাপরিচালক।", "তোকিও তোক্কিও কিওকাকিওকু কিওকুচোও।", item_type="tongue_twister"),
+            make_item("jp-p2-tw-005", "となりの きゃくは よく かき くう きゃくだ。", "となりのきゃくはよくかきくうきゃくだ。", "Tonari no kyaku wa yoku kaki kuu kyaku da.", "পাশের ঘরের অতিথি বেশি বেশি পার্সিমন ফল খাওয়া অতিথি।", "তোরারি নো কিয়াকু ওয়া ইয়োকু কাকি কুউ কিয়াকু দা।", item_type="tongue_twister")
         ]
     }
 ]
@@ -202,79 +261,58 @@ parts.append({
     "id": "jp-foundations-p2",
     "order": 2,
     "level": "A1",
-    "title_bn": "পেশা, পরিচয় ও জাতীয়তা (Identity & Be-Verbs: です / ではありません)",
-    "title_target": "Professions & Identity (Desu / Dewa Arimasen)",
+    "title_bn": "পরিবর্তিত ধ্বনি ও দ্বিত্ব ব্যঞ্জন (Dakuon, Sokuon & Youon)",
+    "title_target": "Voiced Sounds, Sokuon & Contracted Sounds",
     "lessons": p2_lessons
 })
 
-# -------------------------------------------------------------
-# Part 3: Objects, Demonstratives & Pricing
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 3: কাতাকানা ও বিদেশি শব্দের উচ্চারণ (Katakana & Foreign Words)
+# ==============================================================================
 p3_lessons = [
     {
-        "id": "jp-foundations-l09",
-        "order": 1,
-        "title_bn": "বস্তু নির্দেশ — 'これ・それ・あれ・どれ' (This, That, Which)",
-        "title_target": "Demonstrative Pronouns (Kore, Sore, Are, Dore)",
-        "intro_bn": "কাছের বস্তু これ, শ্রোতার কাছের বস্তু それ, দূরবর্তী あれ এবং কোনটি বোঝাতে どれ।",
-        "structure": ["これ / それ / あれ + は + Noun + です"],
-        "items": [
-            make_item("jp-p3-l9-001", "これは ほんです。", "これはほんです。", "Kore wa hon desu.", "এটি একটি বই।", "কোরে ওয়া হোন দেস।"),
-            make_item("jp-p3-l9-002", "それは わたしのかばんです。", "それはわたしのかばんです。", "Sore wa watashi no kaban desu.", "ওটি আমার ব্যাগ।", "সোরে ওয়া ওয়াতাশি নো কাবান দেস।"),
-            make_item("jp-p3-l9-003", "あれは たなかさんの じどうしゃです。", "あれはたなかさんのじどうしゃです。", "Are wa Tanaka-san no jidousha desu.", "ওইটি তানাকা বাবুর গাড়ি।", "আরে ওয়া তানাকা-সান নো জিদোওশা দেস।"),
-            make_item("jp-p3-l9-004", "それは なんですか。これは にほんの おちゃです。", "それはなんですか。これはにほんのおちゃです。", "Sore wa nan desu ka. Kore wa nihon no ocha desu.", "ওটি কী? এটি জাপানি চা।", "সোরে ওয়া নান দেসু কা? কোরে ওয়া নিহোন নো ওচা দেস।")
-        ]
-    },
-    {
-        "id": "jp-foundations-l10",
-        "order": 2,
-        "title_bn": "বিশেষ্য সহ নির্দেশক — 'この・その・あの・どの + Noun'",
-        "title_target": "Demonstrative Adjectives (Kono, Sono, Ano, Dono + N)",
-        "intro_bn": "বিশেষ্যের আগে বসে সরাসরি নির্দেশ করতে この (এই), その (সেই), あの (ওই), どの (কোন) ব্যবহৃত হয়।",
-        "structure": ["この / その / あの / どの + Noun + は ... です"],
-        "items": [
-            make_item("jp-p3-l10-001", "この かさは わたしのです。", "このかさはわたしのです。", "Kono kasa wa watashi no desu.", "এই ছাতাটি আমার।", "কোনো কাসা ওয়া ওয়াতাশি নো দেস।"),
-            make_item("jp-p3-l10-002", "その とけいは にほんせいです。", "そのとけいはにほんせいです。", "Sono tokei wa nihon-sei desu.", "সেই ঘড়িটি জাপানে তৈরি।", "সোনো তোকেই ওয়া নিহোন-সেই দেস।"),
-            make_item("jp-p3-l10-003", "あの ひとは だれですか。さとうさんです。", "あのひとはだれですか。さとうさんです。", "Ano hito wa dare desu ka. Satou-san desu.", "ওই লোকটি কে? উনি সাতো-সান।", "আনো হিতো ওয়া দারে দেসু কা? সাতোও-সান দেস।")
-        ]
-    },
-    {
         "id": "jp-foundations-l11",
-        "order": 3,
-        "title_bn": "স্থান নির্দেশক — 'ここ・そこ・あそこ・どこ' (Here, There, Where)",
-        "title_target": "Place Demonstratives (Koko, Soko, Asoko, Doko)",
-        "intro_bn": "স্থান নির্দেশ করতে ここ (এখানে), そこ (সেখানে), あそこ (ওখানে) ও どこ (কোথায়)।",
-        "structure": ["Noun + は + ここ / そこ / あそこ です"],
+        "order": 1,
+        "title_bn": "কাতাকানা চার্ট ও দীর্ঘ স্বর ড্যাশ (ー Long Dash)",
+        "title_target": "Katakana Matrix & The Long Vowel Dash (ー)",
+        "intro_bn": "কাতাকানা বিদেশি ভাষা থেকে আসা শব্দ, বিদেশি নাম ও ব্র্যান্ডে ব্যবহৃত হয়। দীর্ঘ স্বরের জন্য 'ー' ড্যাশ বসে।",
+        "structure": ["Katakana 46 Sounds + Long Vowel Dash (ー)"],
         "items": [
-            make_item("jp-p3-l11-001", "トイレは どこですか。あそこです。", "といれはどこですか。あそこです。", "Toire wa doko desu ka. Asoko desu.", "টয়লেট কোথায়? ওখানে।", "তোইরে ওয়া দোকো দেসু কা? আসোকো দেস।"),
-            make_item("jp-p3-l11-002", "うけつけは ここです。", "うけつけはここです。", "Uketsuke wa koko desu.", "রিসিপশন এখানে।", "উকেতসুকে ওয়া কোকো দেস।"),
-            make_item("jp-p3-l11-003", "じむしょは にかいです。", "じむしょはにかいです。", "Jimusho wa nikai desu.", "অফিস দোতলায়।", "জিমুশো ওয়া নিকাই দেস।")
+            make_item("jp-p3-l11-001", "ア、イ、ウ、エ、オ", "ア、イ、ウ、エ、オ", "a, i, u, e, o", "আ, ই, উ, এ, ও (কাতাকানা মৌলিক স্বর)", "আ, ই, উ, এ, ও", item_type="syllable_ladder"),
+            make_item("jp-p3-l11-002", "コーヒー (koohii)", "こーひー", "koohii", "কফি (Coffee)", "কোওহিই", item_type="word"),
+            make_item("jp-p3-l11-003", "パン (pan)", "ぱん", "pan", "পাউরুটি (Bread)", "পাং", item_type="word"),
+            make_item("jp-p3-l11-004", "ホテル (hoteru)", "ほてる", "hoteru", "হোটেল (Hotel)", "হোতেরু", item_type="word"),
+            make_item("jp-p3-l11-005", "ノート (nooto)", "のーと", "nooto", "নোটবুক / খাতা (Notebook)", "নোওতো", item_type="word")
         ]
     },
     {
         "id": "jp-foundations-l12",
-        "order": 4,
-        "title_bn": "মূল্য জিজ্ঞাসা ও কেনাকাটা — 'いくらですか' (How much is this?)",
-        "title_target": "Shopping & Price Inquiry (Ikura desu ka)",
-        "intro_bn": "দোকানে কোনো জিনিসের দাম জানতে 'これは いくらですか' বলতে হয়।",
-        "structure": ["Noun + は + いくらですか", "Price + 円 (en) です"],
+        "order": 2,
+        "title_bn": "দৈনন্দিন জীবনে বহুল ব্যবহৃত কাতাকানা শব্দ",
+        "title_target": "High-Frequency Everyday Katakana Vocabulary",
+        "intro_bn": "জাপানে প্রতিদিন ব্যবহৃত প্রয়োজনীয় টেকনোলজি ও যাতায়াতের কাতাকানা শব্দ।",
+        "structure": ["Everyday Loanwords in Katakana"],
         "items": [
-            make_item("jp-p3-l12-001", "すみません。この かばんは いくらですか。", "すみません。このかばんはいくらですか。", "Sumimasen. Kono kaban wa ikura desu ka.", "মাফ করবেন। এই ব্যাগটির দাম কত?", "সুমিমাসেন। কোনো কাবান ওয়া ইকুরা দেসু কা?"),
-            make_item("jp-p3-l12-002", "それは さんぜん ごひゃくえんです。", "それはさんぜんごひゃくえんです。", "Sore wa sanzen gohyaku-en desu.", "ওটি ৩,৫০০ ইয়েন।", "সোরে ওয়া সানজেন গোহিয়াকু-য়েন দেস।"),
-            make_item("jp-p3-l12-003", "じゃ、これを ください。", "じゃ、これをください。", "Ja, kore o kudasai.", "তাহলে এটি আমাকে দিন।", "জা, কোরে ও কুদাসাই।")
+            make_item("jp-p3-l12-001", "テレビ (terebi)", "てれび", "terebi", "টেলিভিশন (TV)", "তেরেবি", item_type="word"),
+            make_item("jp-p3-l12-002", "カメラ (kamera)", "かめら", "kamera", "ক্যামেরা (Camera)", "কামেরাঁ", item_type="word"),
+            make_item("jp-p3-l12-003", "バス (basu)", "ばす", "basu", "বাস (Bus)", "বাসু", item_type="word"),
+            make_item("jp-p3-l12-004", "タクシー (takushii)", "たくしー", "takushii", "ট্যাক্সি (Taxi)", "তাকুশিই", item_type="word"),
+            make_item("jp-p3-l12-005", "レストラン (resutoran)", "れすとらん", "resutoran", "রেস্তোরাঁ (Restaurant)", "রেসুতোরাং", item_type="word"),
+            make_item("jp-p3-l12-006", "コンビニ (konbini)", "こんびに", "konbini", "২৪ ঘণ্টার কনভেনিয়েন্স স্টোর", "কোম্বিনি", item_type="word")
         ]
     },
     {
         "id": "jp-foundations-l13",
-        "order": 5,
-        "title_bn": "বস্তু পরিচিতির প্রশ্ন-উত্তর ড্রিল (Yes/No Q&A with Corrections)",
-        "title_target": "Yes/No Q&A with Affirmation & Correction Drills",
-        "intro_bn": "প্রশ্নের জবাবে হ্যাঁ হলে 'はい、そうです' এবং না হলে 'いいえ、ちがいます' বলে সঠিক তথ্য দেওয়া।",
-        "structure": ["Q: これは Noun ですか", "A: はい、そうです / いいえ、ちがいます"],
+        "order": 3,
+        "title_bn": "নিজের দেশ ও বিদেশি নামের উচ্চারণ",
+        "title_target": "Foreign Country Names & Personal Origins",
+        "intro_bn": "বিদেশি দেশ ও শহরের নাম জাপানিজে কাতাকানায় যেভাবে লেখা ও বলা হয়।",
+        "structure": ["Country in Katakana + から 来ました (kara kimashita)"],
         "items": [
-            make_item("jp-p3-l13-001", "これは じしょですか。はい、そうです。", "これはじしょですか。はい、そうです。", "Kore wa jisho desu ka. Hai, sou desu.", "এটি কি অভিধান? হ্যাঁ, তাই।", "কোরে ওয়া জিশো দেসু কা? হাই, সোও দেস।"),
-            make_item("jp-p3-l13-002", "これは ボールペンですか。いいえ、シャープペンシルです。", "これはぼーるぺんですか。いいえ、しゃーぷぺんしるです。", "Kore wa boorupen desu ka. Iie, shaapu penshiru desu.", "এটি কি বলপয়েন্ট কলম? না, মেকানিক্যাল পেন্সিল।", "কোরে ওয়া বোরুপেন দেসু কা? ইইয়ে, শাপু পেনশিরু দেস।"),
-            make_item("jp-p3-l13-003", "その ノートは ラヒムさんのですか。いいえ、ラヒムさんのじゃ ありません。カマルさんのです。", "そののーとはらひむさんのですか。いいえ、らひむさんのじゃありません。かまるさんのです。", "Sono nooto wa Rahimu-san no desu ka. Iie, Rahimu-san no ja arimasen. Kamaru-san no desu.", "সেই নোটবইটি কি রহিমের? না, রহিমের নয়। কামালের।", "সোনো নোতো ওয়া রাহিমু-সান নো দেসু কা? ইইয়ে, রাহিমু-সান নো জা আরিমাসেন। কামারু-সান নো দেস।")
+            make_item("jp-p3-l13-001", "バングラデシュ (Banguradeshu)", "ばんぐらでしゅ", "Banguradeshu", "বাংলাদেশ", "বাঙ্গুরাদেশু", item_type="word"),
+            make_item("jp-p3-l13-002", "ダッカ (Dakka)", "だっか", "Dakka", "ঢাকা", "দাক্কা", item_type="word"),
+            make_item("jp-p3-l13-003", "アメリカ (Amerika)", "あめりか", "Amerika", "আমেরিকা / যুক্তরাষ্ট্র", "আমেরিকা", item_type="word"),
+            make_item("jp-p3-l13-004", "バングラデシュから 来ました。", "ばんぐらでしゅからきました。", "Banguradeshu kara kimashita.", "বাংলাদেশ থেকে এসেছি।", "বাঙ্গুরাদেশু কারা কিমাশিতা।", [("バングラデシュ", "Banguradeshu", "バングラデシュ", "বাংলাদেশ"), ("から", "kara", "から", "থেকে"), ("来ました", "kimashita", "来ました", "এসেছি")])
         ]
     }
 ]
@@ -282,83 +320,71 @@ parts.append({
     "id": "jp-foundations-p3",
     "order": 3,
     "level": "A1",
-    "title_bn": "বস্তু, দাম ও অবস্থান নির্দেশক (Objects, Demonstratives & Pricing)",
-    "title_target": "Daily Objects, Pricing & Location Indicators",
+    "title_bn": "কাতাকানা ও বিদেশি শব্দের উচ্চারণ (Katakana Words)",
+    "title_target": "Katakana Loanwords & International Names",
     "lessons": p3_lessons
 })
 
-# -------------------------------------------------------------
-# Part 4: Adjectives (い-Adjectives & な-Adjectives)
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 4: পরিচয়, পেশা ও কপুলা (A は B です / ではありません - Grammar 1–3)
+# ==============================================================================
 p4_lessons = [
     {
         "id": "jp-foundations-l14",
         "order": 1,
-        "title_bn": "い-বিশেষণ দিয়ে অবস্থা ও গুণ (i-Adjectives: Present Affirmative)",
-        "title_target": "Expressing State with i-Adjectives (Oishii, Takai, Samui)",
-        "intro_bn": "জাপানিজে 'い' দিয়ে শেষ হওয়া বিশেষণকে i-Adjective বলে। বর্তমান কালের মার্জিত রূপ তৈরিতে শেষে শুধু 'です' বসে।",
-        "structure": ["Noun + は + i-Adjective (〜い) + です"],
+        "title_bn": "আমার পেশা ও পরিচয় — 'わたしは〜です'",
+        "title_target": "Personal Identity & Profession (Watashi wa ... desu)",
+        "intro_bn": "নিজের পরিচয়, নাম বা পেশা প্রকাশ করতে 'わたしは [নাম/পেশা] です' ব্যবহার করা হয়। は particle এর উচ্চারণ 'ওয়া'।",
+        "structure": ["Topic (わたしは) + Profession/Noun + です (desu)"],
         "items": [
-            make_item("jp-p4-l14-001", "この りんごは とても おいしいです。", "このりんごはとてもおいしいです。", "Kono ringo wa totemo oishii desu.", "এই আপেলটি খুব সুস্বাদু।", "কোনো রিংগো ওয়া তোতেমো ওইশিই দেস।"),
-            make_item("jp-p4-l14-002", "きょうは てんきが いいですが、すこし さむいです。", "きょうはてんきがいいですが、すこしさむいです。", "Kyou wa tenki ga ii desu ga, sukoshi samui desu.", "আজ আবহাওয়া ভালো, কিন্তু একটু ঠান্ডা।", "কিয়োও ওয়া তেনকি গা ইই দেসু গা, সুকোশি সামুই দেস।"),
-            make_item("jp-p4-l14-003", "この カメラは たかいです。", "このかめらはたかいです。", "Kono kamera wa takai desu.", "এই ক্যামেরাটি দামি।", "কোনো কামেরা ওয়া তাকাই দেস।"),
-            make_item("jp-p4-l14-004", "にほんごの べんきょうは おもしろいです。", "にほんごのべんきょうはおもしろいです。", "Nihongo no benkyou wa omoshiroi desu.", "জাপানি ভাষা শেখা আনন্দদায়ক/মজার।", "নিহঙ্গো নো বেনকিওও ওয়া ওমোশিরোই দেস।")
+            make_item("jp-p4-l14-001", "わたしは 学生です。", "わたしはがくせいです。", "Watashi wa gakusei desu.", "আমি একজন শিক্ষার্থী।", "ওয়াতাশি ওয়া গাকুসেই দেস।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("学生", "gakusei", "学生", "শিক্ষার্থী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l14-002", "わたしは エンジニアです。", "わたしはえんじにあです。", "Watashi wa enjinia desu.", "আমি একজন প্রকৌশলী (ইঞ্জিনিয়ার)।", "ওয়াতাশি ওয়া এনজিনিয়া দেস।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("エンジニア", "enjinia", "エンジニア", "প্রকৌশলী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l14-003", "わたしは 会社員です。", "わたしはかいしゃいんです。", "Watashi wa kaishain desu.", "আমি কোম্পানি কর্মী।", "ওয়াতাশি ওয়া কাইশাইন দেস।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("会社員", "kaishain", "会社員", "কোম্পানি কর্মী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l14-004", "わたしは バングラデシュ人です。", "わたしはばんぐらでしゅじんです。", "Watashi wa Banguradeshu-jin desu.", "আমি বাংলাদেশি।", "ওয়াতাশি ওয়া বাঙ্গুরাদেশু-জিন দেস।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("バングラデシュ人", "Banguradeshu-jin", "バングラデシュ人", "বাংলাদেশি"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l14-005", "はじめまして。ラフィです。どうぞ よろしく お願いします。", "はじめまして。らふぃです。どうぞよろしくおねがいします。", "Hajimemashite. Rafi desu. Douzo yoroshiku onegaishimasu.", "প্রথম পরিচয়। আমি রাফি। আপনার সহযোগিতা কামনা করি।", "হাজিমেমাশিতে। রাফি দেস। দোওজো ইয়োরোশিকু ওনেগাইশিমাসু।", [("はじめまして", "hajimemashite", "はじめまして", "প্রথম পরিচয়"), ("ラフィです", "Rafi desu", "ラフィです", "রাফি হই"), ("よろしくお願いします", "yoroshiku onegaishimasu", "よろしくお願いします", "সহযোগিতা কামনা করি")])
         ]
     },
     {
         "id": "jp-foundations-l15",
         "order": 2,
-        "title_bn": "い-বিশেষণের না-বোধক রূপ (i-Adjectives: Negative 〜くないです)",
-        "title_target": "Negative i-Adjectives (~kunai desu)",
-        "intro_bn": "i-Adjective না-বোধক করতে শেষের 'い' উঠে 'くないです' (kunai desu) বসে। যেমন: おいしい -> おいしくないです।",
-        "structure": ["Noun + は + Adjective Stem + くないです"],
+        "title_bn": "অন্যের পরিচয় ও সম্মানসূচক '〜さん' (Others' Identity)",
+        "title_target": "Others' Identity & Professions (~san wa ... desu)",
+        "intro_bn": "অন্য কারো নাম বা পেশা বলার সময় নামের শেষে সম্মানসূচক 'さん' (san) যুক্ত করতে হয়।",
+        "structure": ["Person + さん + は + Profession + です"],
         "items": [
-            make_item("jp-p4-l15-001", "この りょうりは あまり おいしくないです。", "このりょうりはあまりおいしくないです。", "Kono ryouri wa amari oishikunai desu.", "এই খাবারটি তেমন সুস্বাদু নয়।", "কোনো রিওওরি ওয়া আমারি ওইশিকুনাই দেস।", polarity="negative"),
-            make_item("jp-p4-l15-002", "この とけいは たかくないです。とても やすいです。", "このとけいはたかくないです。とてもやすいです。", "Kono tokei wa takakunai desu. Totemo yasui desu.", "এই ঘড়িটি দামি নয়। খুব সস্তা।", "কোনো তোকেই ওয়া তাকাকুনাই দেস। তোতেমো ইয়াসুই দেস।", polarity="negative"),
-            make_item("jp-p4-l15-003", "きょうは さむくないです。あたたかいです。", "きょうわさむくないです。あたたかいです。", "Kyou wa samukunai desu. Atatakai desu.", "আজ ঠান্ডা নয়। আরামদায়ক উষ্ণ।", "কিয়োও ওয়া সামুকুনাই দেস। আতাকেকাই দেস।", polarity="negative")
+            make_item("jp-p4-l15-001", "田中さんは 日本語の 先生です。", "たなかさんはにほんごのせんせいです。", "Tanaka-san wa nihongo no sensei desu.", "তানাকা বাবু জাপানি ভাষার শিক্ষক।", "তানাকা-সান ওয়া নিহঙ্গো নো সেনসেই দেস।", [("田中さん", "Tanaka-san", "田中さん", "তানাকা বাবু"), ("は", "wa", "は", "হলো"), ("日本語", "nihongo", "日本語", "জাপানি ভাষা"), ("の", "no", "の", "এর"), ("先生", "sensei", "先生", "শিক্ষক"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l15-002", "マリアさんは 医者です。", "まりあさんはいしゃです。", "Maria-san wa isha desu.", "মারিয়া একজন ডাক্তার।", "মারিয়া-সান ওয়া ইশা দেস।", [("マリアさん", "Maria-san", "マリアさん", "মারিয়া"), ("は", "wa", "は", "হলো"), ("医者", "isha", "医者", "ডাক্তার"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l15-003", "あの方は 大学の 教授です。", "あのかたはだいがくのきょうじゅです。", "Ano kata wa daigaku no kyouju desu.", "ওই ভদ্রলোক বিশ্ববিদ্যালয়ের অধ্যাপক।", "আনো কাতা ওয়া দাইগাকু নো কিওওজু দেস।", [("あの方", "ano kata", "あの方", "ওই ভদ্রলোক"), ("は", "wa", "は", "হলো"), ("大学", "daigaku", "大学", "বিশ্ববিদ্যালয়"), ("の", "no", "の", "এর"), ("教授", "kyouju", "教授", "অধ্যাপক"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p4-l15-004", "彼らは 銀行員です。", "かれらはぎんこういんです。", "Karera wa ginkouin desu.", "তারা ব্যাংক কর্মকর্তা।", "কারে-রা ওয়া গিনকোওইন দেস।", [("彼ら", "karera", "彼ら", "তারা"), ("は", "wa", "は", "হলো"), ("銀行員", "ginkouin", "銀行員", "ব্যাংক কর্মী"), ("です", "desu", "です", "হয়")])
         ]
     },
     {
         "id": "jp-foundations-l16",
         "order": 3,
-        "title_bn": "な-বিশেষণ দিয়ে গুণাগুণ (na-Adjectives: Present Affirmative)",
-        "title_target": "Describing Qualities with na-Adjectives (Shizuka, Kirei, Genki)",
-        "intro_bn": "যেসব বিশেষণ সরাসরি বিশেষ্যের পূর্বে বসলে 'な' গ্রহণ করে, তাদের na-Adjective বলে। বাক্যের শেষে বসলে '〜です' বসে।",
-        "structure": ["Noun + は + na-Adjective + です"],
+        "title_bn": "না-বোধক পরিচয় — '〜ではありません / じゃありません'",
+        "title_target": "Negative Identity (Dewa arimasen / Ja arimasen)",
+        "intro_bn": "পরিচয় না-বোধক করতে 'です' এর স্থানে 'ではありません' বা কথ্য ভাষায় 'じゃありません' বসে।",
+        "structure": ["Topic + は + Noun + ではありません / じゃありません"],
         "items": [
-            make_item("jp-p4-l16-001", "この まちは とても しずかです。", "このまちはとてもしずかです。", "Kono machi wa totemo shizuka desu.", "এই শহরটি খুব শান্ত।", "কোনো মাচি ওয়া তোতেমো শিজুকা দেস।"),
-            make_item("jp-p4-l16-002", "さくらのはなは とても きれいです。", "さくらのはなはとてもきれいです。", "Sakura no hana wa totemo kirei desu.", "চেরি ফুল খুব সুন্দর।", "সাকুরা নো হানা ওয়া তোতেমো কিরেই দেস।"),
-            make_item("jp-p4-l16-003", "たなかさんは いつも げんきです。", "たなかさんはいつもげんきです。", "Tanaka-san wa itsumo genki desu.", "তানাকা বাবু সবসময় চনমনে ও সুস্থ।", "তানাকা-সান ওয়া ইতসুমো গেনকি দেস।"),
-            make_item("jp-p4-l16-004", "ふじさんは にほんで ゆうめいです。", "ふじさんはにほんでゆうめいです。", "Fuji-san wa nihon de yuumei desu.", "ফুজি পর্বত জাপানে বিখ্যাত।", "ফুজি-সান ওয়া নিহোন দে ইউউমেই দেস।")
+            make_item("jp-p4-l16-001", "わたしは 先生では ありません。", "わたしわせんせいでわありません。", "Watashi wa sensei dewa arimasen.", "আমি শিক্ষক নই।", "ওয়াতাশি ওয়া সেনসেই দেবা আরিমাসেন।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("先生", "sensei", "先生", "শিক্ষক"), ("ではありません", "dewa arimasen", "ではありません", "নই")], polarity="negative"),
+            make_item("jp-p4-l16-002", "田中さんは 学生じゃ ありません。", "たなかさんはがくせいじゃありません。", "Tanaka-san wa gakusei ja arimasen.", "তানাকা-সান শিক্ষার্থী নন।", "তানাকা-সান ওয়া গাকুসেই জা আরিমাসেন।", [("田中さん", "Tanaka-san", "田中さん", "তানাকা-সান"), ("は", "wa", "は", "হলো"), ("学生", "gakusei", "学生", "শিক্ষার্থী"), ("じゃありません", "ja arimasen", "じゃありません", "নন")], polarity="negative"),
+            make_item("jp-p4-l16-003", "わたしは 日本人では ありません。バングラデシュ人です。", "わたしわにほんじんでわありません。ばんぐらでしゅじんです。", "Watashi wa nihonjin dewa arimasen. Banguradeshu-jin desu.", "আমি জাপানি নই। আমি বাংলাদেশি।", "ওয়াতাশি ওয়া নিহোনজিন দেবা আরিমাসেন। বাঙ্গুরাদেশু-জিন দেস।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("日本人", "nihonjin", "日本人", "জাপানি"), ("ではありません", "dewa arimasen", "ではありません", "নই"), ("バングラデシュ人", "Banguradeshu-jin", "バングラデシュ人", "বাংলাদেশি"), ("です", "desu", "です", "হই")], polarity="negative")
         ]
     },
     {
         "id": "jp-foundations-l17",
         "order": 4,
-        "title_bn": "な-বিশেষণের না-বোধক রূপ (na-Adjectives: Negative 〜じゃありません)",
-        "title_target": "Negative na-Adjectives (~dewa / ja arimasen)",
-        "intro_bn": "na-Adjective না-বোধক করতে বিশেষণের পরে 'ではありません' বা 'じゃありません' বসে।",
-        "structure": ["Noun + は + na-Adjective + じゃありません"],
-        "items": [
-            make_item("jp-p4-l17-001", "この へやは しずかじゃ ありません。", "このへやはしずかじゃありません。", "Kono heya wa shizuka ja arimasen.", "এই ঘরটি শান্ত নয় (কোলাহলপূর্ণ)।", "কোনো হেয়া ওয়া শিজুকা জা আরিমাসেন।", polarity="negative"),
-            make_item("jp-p4-l17-002", "この まちは あまり にぎやかでは ありません。", "このまちはあまりにぎやかでわありません。", "Kono machi wa amari nigiyaka dewa arimasen.", "এই শহরটি খুব একটা ব্যস্ত বা মুখরিত নয়।", "কোনো মাচি ওয়া আমারি নিগিয়াকা দেবা আরিমাসেন।", polarity="negative"),
-            make_item("jp-p4-l17-003", "あしたは ひまじゃ ありません。とても いそがしいです。", "あしたはひまじゃありません。とてもいそがしいです。", "Ashita wa hima ja arimasen. Totemo isogashii desu.", "আগামীকাল অবসর নেই। খুব ব্যস্ত।", "আশিতা ওয়া হিমা জা আরিমাসেন। তোতেমো ইসোগাশিই দেস।", polarity="negative")
-        ]
-    },
-    {
-        "id": "jp-foundations-l18",
-        "order": 5,
-        "title_bn": "৬-রূপান্তর ড্রিল: বিশেষণ ও অনুভূতি (6 Transformations: Adjectives)",
-        "title_target": "6 Sentence Transformations: Adjectives & States",
-        "intro_bn": "বিশেষণ দিয়ে ৬টি রূপে রূপান্তর করার স্পোকেন ড্রিল।",
+        "title_bn": "৬-রূপান্তর মাস্টার ড্রিল: পেশা ও পরিচয় (6 Transformations)",
+        "title_target": "6 Sentence Transformations: Identity (Desu / Dewa arimasen)",
+        "intro_bn": "পেশা ও পরিচয় দিয়ে ৬টি রূপে রূপান্তরের স্পোকেন ড্রিল।",
         "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
         "items": [
-            make_item("jp-p4-l18-001", "この おちゃは おいしいです。", "このおちゃはおいしいです。", "Kono ocha wa oishii desu.", "১. হ্যাঁ-বোধক: এই চা-টি সুস্বাদু।", "কোনো ওচা ওয়া ওইশিই দেস।", item_type="drill"),
-            make_item("jp-p4-l18-002", "この おちゃは おいしくないです。", "このおちゃはおいしくないです。", "Kono ocha wa oishikunai desu.", "২. না-বোধক: এই চা-টি সুস্বাদু নয়।", "কোনো ওচা ওয়া ওইশিকুনাই দেস।", item_type="drill", polarity="negative"),
-            make_item("jp-p4-l18-003", "この おちゃは おいしいですか。", "このおちゃはおいしいですか。", "Kono ocha wa oishii desu ka.", "৩. প্রশ্নবোধক: এই চা-টি কি সুস্বাদু?", "কোনো ওচা ওয়া ওইশিই দেসু কা?", item_type="drill", sentence_type="interrogative"),
-            make_item("jp-p4-l18-004", "この おちゃは おいしくありませんか。", "このおちゃはおいしくありませんか。", "Kono ocha wa oishiku arimasen ka.", "৪. না-বোধক প্রশ্ন: এই চা-টি কি সুস্বাদু নয়?", "কোনো ওচা ওয়া ওইশিকু আরিমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
-            make_item("jp-p4-l18-005", "この おちゃの あじは どうですか。とても おいしいです。", "このおちゃのあじはどうですか。とてもおいしいです。", "Kono ocha no aji wa dou desu ka. Totemo oishii desu.", "৫. WH-প্রশ্ন: এই চায়ের স্বাদ কেমন? খুব সুস্বাদু।", "কোনো ওচা নো আজি ওয়া দোও দেসু কা? তোতেমো ওইশিই দেস।", item_type="drill", sentence_type="wh_question"),
-            make_item("jp-p4-l18-006", "この おちゃは あついですか、つめたいですか。", "このおちゃはあついですか、つめたいですか。", "Kono ocha wa atsui desu ka, tsumetai desu ka.", "৬. বিকল্প প্রশ্ন: এই চা-টি কি গরম, নাকি ঠান্ডা?", "কোনো ওচা ওয়া আতসুই দেসু কা, সুমেতাই দেসু কা?", item_type="drill", sentence_type="alternative_question")
+            make_item("jp-p4-l17-001", "田中さんは 先生です。", "たなかさんはせんせいです。", "Tanaka-san wa sensei desu.", "১. হ্যাঁ-বোধক: তানাকা বাবু একজন শিক্ষক।", "তানাকা-সান ওয়া সেনসেই দেস।", item_type="drill"),
+            make_item("jp-p4-l17-002", "田中さんは 先生では ありません。", "たなかさんはせんせいでわありません。", "Tanaka-san wa sensei dewa arimasen.", "২. না-বোধক: তানাকা বাবু শিক্ষক নন।", "তানাকা-সান ওয়া সেনসেই দেবা আরিমাসেন।", item_type="drill", polarity="negative"),
+            make_item("jp-p4-l17-003", "田中さんは 先生ですか。", "たなかさんはせんせいですか。", "Tanaka-san wa sensei desu ka.", "৩. প্রশ্নবোধক: তানাকা বাবু কি শিক্ষক?", "তানাকা-সান ওয়া সেনসেই দেসু কা?", item_type="drill", sentence_type="interrogative"),
+            make_item("jp-p4-l17-004", "田中さんは 先生では ありませんか。", "たなかさんはせんせいでわありませんか。", "Tanaka-san wa sensei dewa arimasen ka.", "৪. না-বোধক প্রশ্ন: তানাকা বাবু কি শিক্ষক নন?", "তানাকা-সান ওয়া সেনসেই দেবা আরিমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
+            make_item("jp-p4-l17-005", "だれが 先生ですか。田中さんが 先生です。", "だれがせんせいですか。たなかさんがせんせいです。", "Dare ga sensei desu ka. Tanaka-san ga sensei desu.", "৫. WH-প্রশ্ন: কে শিক্ষক? তানাকা বাবু শিক্ষক।", "দারে গা সেনসেই দেসু কা? তানাকা-সান গা সেনসেই দেস।", item_type="drill", sentence_type="wh_question"),
+            make_item("jp-p4-l17-006", "田中さんは 先生ですか、学生ですか。", "たなかさんはせんせいですか、がくせいですか。", "Tanaka-san wa sensei desu ka, gakusei desu ka.", "৬. বিকল্প প্রশ্ন: তানাকা বাবু কি শিক্ষক, নাকি শিক্ষার্থী?", "তানাকা-সান ওয়া সেনসেই দেসু কা, গাকুসেই দেসু কা?", item_type="drill", sentence_type="alternative_question")
         ]
     }
 ]
@@ -366,82 +392,54 @@ parts.append({
     "id": "jp-foundations-p4",
     "order": 4,
     "level": "A1",
-    "title_bn": "বৈশিষ্ট্য, অনুভূতি ও অবস্থা (い-Adjectives ও な-Adjectives)",
-    "title_target": "Personality, Feelings & Adjectives (i- & na-)",
+    "title_bn": "পরিচয়, পেশা ও কপুলা (Identity & Copula です / ではありません)",
+    "title_target": "Personal Identity, Professions & The Copula",
     "lessons": p4_lessons
 })
 
-# -------------------------------------------------------------
-# Part 5: Location & Existence (あります / います)
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 5: মালিকানা, সম্পর্ক ও 'ও/এছাড়াও' (〜の / 〜も - Grammar 4–5)
+# ==============================================================================
 p5_lessons = [
     {
-        "id": "jp-foundations-l19",
+        "id": "jp-foundations-l18",
         "order": 1,
-        "title_bn": "নির্জীব বস্তু ও উদ্ভিদের অবস্থান (Inanimate: あります)",
-        "title_target": "Existence of Inanimate Objects (Place ni Noun ga arimasu)",
-        "intro_bn": "নির্জীব বস্তু, বই, গাড়ি, বাড়ি বা উদ্ভিদের অবস্থান বোঝাতে 'あります' (arimasu) বসে। স্থান বোঝাতে 'に' পার্টিকেল বসে।",
-        "structure": ["Place に + Inanimate Noun が + あります"],
+        "title_bn": "মালিকানা ও সম্পর্ক — 'N1 の N2' (Possession)",
+        "title_target": "Possession & Relationship with Particle 'no'",
+        "intro_bn": "মালিকানা, দেশ বা সম্পর্ক বোঝাতে 'এর' অর্থে 'の' (no) বসে।",
+        "structure": ["Noun 1 + の + Noun 2"],
         "items": [
-            make_item("jp-p5-l19-001", "つくえの うえに ほんが あります。", "つくえのうえにほんがあります。", "Tsukue no ue ni hon ga arimasu.", "টেবিলের ওপর বই আছে।", "সুকুয়ে নো উয়ে নি হোন গা আরিমাসু।"),
-            make_item("jp-p5-l19-002", "へやの なかに テレビが あります。", "へやのなかにてれびがあります。", "Heya no naka ni terebi ga arimasu.", "ঘরের ভেতরে টেলিভিশন আছে।", "হেয়া নো নাকা নি তেরেবি গা আরিমাসু।"),
-            make_item("jp-p5-l19-003", "えきの まえに ポストが あります。", "えきのまえにぽすとがあります。", "Eki no mae ni posuto ga arimasu.", "স্টেশনের সামনে ডাকবাক্স আছে।", "একি নো মায়ে নি পোসুতো গা আরিমাসু।"),
-            make_item("jp-p5-l19-004", "れいぞうこの なかに なにも ありません。", "れいぞうこのなかになにもありません。", "Reizouko no naka ni nani mo arimasen.", "ফ্রিজের ভেতর কিছুই নেই।", "রেইজোওকো নো নাকা নি নানি মো আরিমাসেন।", polarity="negative")
+            make_item("jp-p5-l18-001", "これは わたしのかばんです。", "これはわたしのかばんです。", "Kore wa watashi no kaban desu.", "এটা আমার ব্যাগ।", "কোরে ওয়া ওয়াতাশি নো কাবেন দেস।", [("これ", "kore", "これ", "এটা"), ("は", "wa", "は", "হলো"), ("わたし", "watashi", "私", "আমার"), ("の", "no", "の", "এর"), ("かばん", "kaban", "鞄", "ব্যাগ"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l18-002", "それは だれの ほんですか。", "それはだれのほんですか。", "Sore wa dare no hon desu ka.", "ওটা কার বই?", "সোরে ওয়া দারে নো হোং দেসু কা?", [("それ", "sore", "それ", "ওটা"), ("は", "wa", "は", "হলো"), ("だれ", "dare", "誰", "কার"), ("の", "no", "の", "এর"), ("ほん", "hon", "本", "বই"), ("ですか", "desu ka", "ですか", "কি?")]),
+            make_item("jp-p5-l18-003", "これは にほんの くるまです。", "これはにほんのくるまです。", "Kore wa nihon no kuruma desu.", "এটা জাপানের গাড়ি।", "কোরে ওয়া নিহোন নো কুরুমা দেস।", [("これ", "kore", "これ", "এটা"), ("は", "wa", "は", "হলো"), ("にほん", "nihon", "日本", "জাপান"), ("の", "no", "の", "এর"), ("くるま", "kuruma", "車", "গাড়ি"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l18-004", "たなかさんは とうきょうだいがくの がくせいです。", "たなかさんはとうきょうだいがくのがくせいです。", "Tanaka-san wa Toukyou daigaku no gakusei desu.", "তানাকা বাবু টোকিও বিশ্ববিদ্যালয়ের ছাত্র।", "তানাকা-সান ওয়া তোকিও দাইগাকু নো গাকুসেই দেস।", [("田中さん", "Tanaka-san", "田中さん", "তানাকা-সান"), ("は", "wa", "は", "হলো"), ("東京大学", "Toukyou daigaku", "東京大学", "টোকিও বিশ্ববিদ্যালয়"), ("の", "no", "の", "এর"), ("学生", "gakusei", "学生", "শিক্ষার্থী"), ("です", "desu", "です", "হয়")])
+        ]
+    },
+    {
+        "id": "jp-foundations-l19",
+        "order": 2,
+        "title_bn": "এছাড়াও / ও বোঝাতে — '〜も' (Inclusion Particle 'mo')",
+        "title_target": "Inclusion with Particle 'mo' (Also / Too)",
+        "intro_bn": "আগের কথার সাথে মিল রেখে 'ও / আমিও' বোঝাতে は এর পরিবর্তে も (mo) বসে।",
+        "structure": ["Topic + も + Noun + です"],
+        "items": [
+            make_item("jp-p5-l19-001", "わたしも がくせいです。", "わたしもがくせいです。", "Watashi mo gakusei desu.", "আমিও একজন শিক্ষার্থী।", "ওয়াতাশি মো গাকুসেই দেস।", [("わたし", "watashi", "私", "আমি"), ("も", "mo", "も", "ও"), ("学生", "gakusei", "学生", "শিক্ষার্থী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l19-002", "かれも エンジニアです。", "かれもえんじにあです。", "Kare mo enjinia desu.", "সেও একজন প্রকৌশলী।", "কারে মো এনজিনিয়া দেস।", [("かれ", "kare", "彼", "সে"), ("も", "mo", "も", "ও"), ("エンジニア", "enjinia", "エンジニア", "প্রকৌশলী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l19-003", "これも わたしのかばんです。", "これもわたしのかばんです。", "Kore mo watashi no kaban desu.", "এটাও আমার ব্যাগ।", "কোরে মো ওয়াতাশি নো কাবেন দেস।", [("これ", "kore", "これ", "এটা"), ("も", "mo", "も", "ও"), ("わたし", "watashi", "私", "আমার"), ("の", "no", "の", "এর"), ("かばん", "kaban", "鞄", "ব্যাগ"), ("です", "desu", "です", "হয়")])
         ]
     },
     {
         "id": "jp-foundations-l20",
-        "order": 2,
-        "title_bn": "সজীব প্রাণী ও মানুষের অবস্থান (Animate: います)",
-        "title_target": "Existence of Living Beings (Place ni Person/Animal ga imasu)",
-        "intro_bn": "মানুষ ও জীবজন্তুর অস্তিত্ব প্রকাশ করতে 'います' (imasu) ব্যবহৃত হয়। না-বোধক রূপ 'いません' (imasen)।",
-        "structure": ["Place に + Living Being が + います"],
-        "items": [
-            make_item("jp-p5-l20-001", "きょうしつに たなかせんせいが います。", "きょうしつにたなかせんせいがいます。", "Kyoushitsu ni Tanaka-sensei ga imasu.", "ক্লাসরুমে তানাকা শিক্ষক আছেন।", "কিয়োওশিতসু নি তানাকা-সেনসেই গা ইমাসু।"),
-            make_item("jp-p5-l20-002", "にわに かわいい ねこが います。", "にわにかわいいねこがいます。", "Niwa ni kawaii neko ga imasu.", "বাগানে একটি সুন্দর বিড়াল আছে।", "নিওয়া নি কাওয়াইই নেকো গা ইমাসু।"),
-            make_item("jp-p5-l20-003", "じむしょに だれが いますか。だれも いません。", "じむしょにだれがいますか。だれもいません。", "Jimusho ni dare ga imasu ka. Dare mo imasen.", "অফিসে কে আছে? কেউ নেই।", "জিমুশো নি দারে গা ইমাসু কা? দারে মো ইমাসেন।", polarity="negative")
-        ]
-    },
-    {
-        "id": "jp-foundations-l21",
         "order": 3,
-        "title_bn": "মালিকানা ও অধিকার বোঝাতে অস্তিত্বের ব্যবহার (Possession)",
-        "title_target": "Possession & Relationships (Watashi wa ... ga arimasu / imasu)",
-        "intro_bn": "নিজের কাছে কোনো গাড়ি, টাকা বা সময় আছে বোঝাতে 'あります', এবং ভাইবোন বা সন্তান আছে বোঝাতে 'います' ব্যবহৃত হয়।",
-        "structure": ["わたしは + Noun が + あります / います"],
+        "title_bn": "পরিবারের সদস্যগণ (Family Members Bank)",
+        "title_target": "Family Vocabulary (In-group vs. Out-group)",
+        "intro_bn": "জাপানিজে নিজের পরিবার ও অন্যের পরিবার বলার শব্দ আলাদা (যেমন: নিজের বাবা ちち, অন্যের বাবা お父さん)।",
+        "structure": ["Family member + は + ..."],
         "items": [
-            make_item("jp-p5-l21-001", "わたしは くるまが あります。", "わたしはくるまがあります。", "Watashi wa kuruma ga arimasu.", "আমার একটি গাড়ি আছে।", "ওয়াতাশি ওয়া কুরুমা গা আরিমাসু।"),
-            make_item("jp-p5-l21-002", "きょうは じかんが ありません。", "きょうはじかんがありません。", "Kyou wa jikan ga arimasen.", "আজ আমার সময় নেই।", "কিয়োও ওয়া জিকান গা আরিমাসেন।", polarity="negative"),
-            make_item("jp-p5-l21-003", "わたしは きょうだいが ふたり います。", "わたしはきょうだいがふたりいます。", "Watashi wa kyoudai ga futari imasu.", "আমার দুইজন ভাইবোন আছে।", "ওয়াতাশি ওয়া কিওওদাই গা ফুতPopup ইমাসু।")
-        ]
-    },
-    {
-        "id": "jp-foundations-l22",
-        "order": 4,
-        "title_bn": "অবস্থান ও প্রিপজিশন (Prepositions: 上, 下, 前, 後ろ, 中, 隣)",
-        "title_target": "Spatial Prepositions (Ue, Shita, Mae, Ushiro, Naka, Tonari)",
-        "intro_bn": "স্থান নির্দেশক শব্দ: 上 (উয়ে - ওপরে), 下 (শিতা - নিচে), 前 (মায়ে - সামনে), 後ろ (উশিরো - পেছনে), 中 (নাকা - ভেতরে), 隣 (তোরারি - পাশে)।",
-        "structure": ["Noun 1 の + Preposition + に + Noun 2 が あります / います"],
-        "items": [
-            make_item("jp-p5-l22-001", "いぬは つくえの したに います。", "いぬはつくえのしたにいます。", "Inu wa tsukue no shita ni imasu.", "কুকুরটি টেবিলের নিচে আছে।", "ইনু ওয়া সুকুয়ে নো শিতা নি ইমাসু।"),
-            make_item("jp-p5-l22-002", "ぎんこうは びょういんの となりに あります。", "ぎんこうはびょういんのとなりにあります。", "Ginkou wa byouin no tonari ni arimasu.", "ব্যাংকটি হাসপাতালের পাশে অবস্থিত।", "গিনকোও ওয়া বিয়োওইন নো তোরারি নি আরিমাসু।"),
-            make_item("jp-p5-l22-003", "くるまの うしろに こどもが います。", "くるまのうしろにこどもがいます。", "Kuruma no ushiro ni kodomo ga imasu.", "গাড়ির পেছনে একটি শিশু আছে।", "কুরুমা নো উশিরো নি কোদোমো গা ইমাসু।")
-        ]
-    },
-    {
-        "id": "jp-foundations-l23",
-        "order": 5,
-        "title_bn": "৬-রূপান্তর ড্রিল: অস্তিত্ব ও অবস্থান (6 Transformations: Existence)",
-        "title_target": "6 Sentence Transformations: Existence (Arimasu / Imasu)",
-        "intro_bn": "অস্তিত্ব প্রকাশ দিয়ে ৬টি রূপে রূপান্তরের স্পোকেন ড্রিল।",
-        "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
-        "items": [
-            make_item("jp-p5-l23-001", "へやに ねこが います。", "へやにねこがいます。", "Heya ni neko ga imasu.", "১. হ্যাঁ-বোধক: ঘরে বিড়াল আছে।", "হেয়া নি নেকো গা ইমাসু।", item_type="drill"),
-            make_item("jp-p5-l23-002", "へやに ねこは いません。", "へやにねこわいません。", "Heya ni neko wa imasen.", "২. না-বোধক: ঘরে বিড়াল নেই।", "হেয়া নি নেকো ওয়া ইমাসেন।", item_type="drill", polarity="negative"),
-            make_item("jp-p5-l23-003", "へやに ねこが いますか。", "へやにねこがいますか。", "Heya ni neko ga imasu ka.", "৩. প্রশ্নবোধক: ঘরে কি বিড়াল আছে?", "হেয়া নি নেকো গা ইমাসু কা?", item_type="drill", sentence_type="interrogative"),
-            make_item("jp-p5-l23-004", "へやに ねこは いませんか。", "へやにねこわいませんか。", "Heya ni neko wa imasen ka.", "৪. না-বোধক প্রশ্ন: ঘরে কি বিড়াল নেই?", "হেয়া নি নেকো ওয়া ইমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
-            make_item("jp-p5-l23-005", "へやに なにが いますか。ねこが います。", "へやになにがいますか。ねこがいます。", "Heya ni nani ga imasu ka. Neko ga imasu.", "৫. WH-প্রশ্ন: ঘরে কী আছে? বিড়াল আছে।", "হেয়া নি নানি গা ইমাসু কা? নেকো গা ইমাসু।", item_type="drill", sentence_type="wh_question"),
-            make_item("jp-p5-l23-006", "へやに いるのは ねこですか、いぬですか。", "へやにいるのわねこですか、いぬですか。", "Heya ni iru no wa neko desu ka, inu desu ka.", "৬. বিকল্প প্রশ্ন: ঘরে কি বিড়াল আছে, নাকি কুকুর?", "হেয়া নি ইরু নো ওয়া নেকো দেসু কা, ইনু দেসু কা?", item_type="drill", sentence_type="alternative_question")
+            make_item("jp-p5-l20-001", "ちちは かいしゃいんです。", "ちちはかいしゃいんです。", "Chichi wa kaishain desu.", "আমার বাবা একজন কোম্পানি কর্মী।", "চিচি ওয়া কাইশাইন দেস।", [("父", "chichi", "父", "আমার বাবা"), ("は", "wa", "は", "হলো"), ("会社員", "kaishain", "会社員", "কোম্পানি কর্মী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l20-002", "ははは しゅふです。", "はははしゅふです。", "Haha wa shufu desu.", "আমার মা একজন গৃহিণী।", "হাহা ওয়া শুফু দেস।", [("母", "haha", "母", "আমার মা"), ("は", "wa", "は", "হলো"), ("主婦", "shufu", "主婦", "গৃহিণী"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l20-003", "あには いしゃです。", "あにはいしゃです。", "Ani wa isha desu.", "আমার বড় ভাই একজন ডাক্তার।", "আনি ওয়া ইশা দেস।", [("兄", "ani", "兄", "আমার বড় ভাই"), ("は", "wa", "は", "হলো"), ("医者", "isha", "医者", "ডাক্তার"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p5-l20-004", "いもうとは だいがくせいです。", "いもうとはだいがくせいです。", "Imouto wa daigakusei desu.", "আমার ছোট বোন বিশ্ববিদ্যালয়ের ছাত্রী।", "ইমোওতো ওয়া দাইগাকুসেই দেস।", [("妹", "imouto", "妹", "আমার ছোট বোন"), ("は", "wa", "は", "হলো"), ("大学生", "daigakusei", "大学生", "বিশ্ববিদ্যালয়ের শিক্ষার্থী"), ("です", "desu", "です", "হয়")])
         ]
     }
 ]
@@ -449,93 +447,67 @@ parts.append({
     "id": "jp-foundations-p5",
     "order": 5,
     "level": "A1",
-    "title_bn": "অবস্থান ও অস্তিত্ব (あります বনাম います)",
-    "title_target": "Location, Existence & Prepositions (Arimasu / Imasu)",
+    "title_bn": "মালিকানা, সম্পর্ক ও 'ও' (Possession & Particle も)",
+    "title_target": "Possession, Family & Particle 'mo'",
     "lessons": p5_lessons
 })
 
-# -------------------------------------------------------------
-# Part 6: Daily Habits & Routines (〜ます / 〜ません)
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 6: বস্তু, দাম ও অবস্থান নির্দেশক (Demonstratives & Shopping)
+# ==============================================================================
 p6_lessons = [
     {
-        "id": "jp-foundations-l24",
+        "id": "jp-foundations-l21",
         "order": 1,
-        "title_bn": "দৈনন্দিন রুটিন ও সময় (Time に Verb ます: ７時に起きます)",
-        "title_target": "Daily Routines & Specific Time (Time ni Verb-masu)",
-        "intro_bn": "নির্দিষ্ট সময়ে কোনো কাজ করি বোঝাতে সময়ের পর 'に' (ni) বসে এবং ক্রিয়াপদের মার্জিত বর্তমান রূপ '〜ます' (masu) বসে।",
-        "structure": ["Time に + Verb-ます (Everyday Habitual Actions)"],
+        "title_bn": "বস্তু নির্দেশক — 'これ・それ・あれ・どれ' (This, That, Which)",
+        "title_target": "Independent Demonstratives (Kore, Sore, Are, Dore)",
+        "intro_bn": "কাছের জিনিস これ (kore - এটা), মধ্যবর্তী それ (sore - ওটা), দূরের あれ (are - ওইটা), এবং প্রশ্নে どれ (dore - কোনটা)।",
+        "structure": ["これ / それ / あれ / どれ + は + Noun + ですか"],
         "items": [
-            make_item("jp-p6-l24-001", "わたしは まいにち あさ ６じに おきます。", "わたしはまいにちあさろくじにおきます。", "Watashi wa mainichi asa rokuji ni okimasu.", "আমি প্রতিদিন সকাল ৬টায় ঘুম থেকে উঠি।", "ওয়াতাশি ওয়া মাইনিচি আসা রোকুজি নি ওকিমাসু।"),
-            make_item("jp-p6-l24-002", "よる １１じに ねます。", "よるじゅういちじにねます。", "Yoru juuichiji ni nemasu.", "রাতে ১১টায় ঘুমাই।", "ইয়োরু জুউইচিজি নি নেমাসু।"),
-            make_item("jp-p6-l24-003", "なんじに あさごはんを たべますか。７じはんに たべます。", "なんじにあさごはんをたべますか。しちじはんにはたべます。", "Nanji ni asagohan o tabemasu ka. Shichiji han ni tabemasu.", "কয়টায় সকালের নাস্তা খান? সাড়ে ৭টায় খাই।", "নানজি নি আসাগোহান ও তাবেমাসু কা? শিচিজি হান নি তাবেমাসু।")
+            make_item("jp-p6-l21-001", "これは なんですか。", "これはなんですか。", "Kore wa nan desu ka.", "এটা কী?", "কোরে ওয়া নান দেসু কা?", [("これ", "kore", "これ", "এটা"), ("は", "wa", "は", "হলো"), ("何", "nan", "何", "কী"), ("ですか", "desu ka", "ですか", "কি?")]),
+            make_item("jp-p6-l21-002", "それは じしょです。", "それはじしょです。", "Sore wa jisho desu.", "ওটা একটি অভিধান (ডিকশনারি)।", "সোরে ওয়া জিশো দেস।", [("それ", "sore", "それ", "ওটা"), ("は", "wa", "は", "হলো"), ("辞書", "jisho", "辞書", "অভিধান"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p6-l21-003", "あれは わたしの くるまです。", "あれはわたしのくるまです。", "Are wa watashi no kuruma desu.", "ওই দূরের জিনিসটি আমার গাড়ি।", "আরে ওয়া ওয়াতাশি নো কুরুমা দেস।", [("あれ", "are", "あれ", "ওইটা"), ("は", "wa", "は", "হলো"), ("わたしの", "watashi no", "私の", "আমার"), ("車", "kuruma", "車", "গাড়ি"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p6-l21-004", "あなたのかばんは どれですか。", "あなたのかばんはどれですか。", "Anata no kaban wa dore desu ka.", "আপনার ব্যাগ কোনটি?", "আনাতা নো কাবেন ওয়া দোরে দেসু কা?", [("あなたの", "anata no", "あなたの", "আপনার"), ("かばん", "kaban", "鞄", "ব্যাগ"), ("は", "wa", "は", "হলো"), ("どれ", "dore", "どれ", "কোনটি"), ("ですか", "desu ka", "ですか", "কি?")])
         ]
     },
     {
-        "id": "jp-foundations-l25",
+        "id": "jp-foundations-l22",
         "order": 2,
-        "title_bn": "গন্তব্য ও যাতায়াত (Place へ/に 行きます / 来ます / 帰ります)",
-        "title_target": "Movement & Direction (Ikimasu, Kimasu, Kaerimasu)",
-        "intro_bn": "কোথাও যাওয়া, আসা বা বাড়ি ফেরার ক্ষেত্রে গন্তব্যের পর 'へ' (উচ্চারণ e) বা 'に' (ni) বসে।",
-        "structure": ["Place へ / に + いきます (যাই) / きます (আসি) / かえります (ফিরি)"],
+        "title_bn": "বিশেষ্য সহ নির্দেশক — 'この・その・あの・どの + Noun'",
+        "title_target": "Modified Demonstratives (Kono, Sono, Ano, Dono + Noun)",
+        "intro_bn": "বিশেষ্যের আগে বসে এই/সেই/ওই বোঝাতে この (kono), その (sono), あの (ano), どの (dono) ব্যবহৃত হয়।",
+        "structure": ["この / その / あの / どの + Noun + は ..."],
         "items": [
-            make_item("jp-p6-l25-001", "わたしは がっこうへ いきます。", "わたしはがっこうえいきます。", "Watashi wa gakkou e ikimasu.", "আমি স্কুলে যাই।", "ওয়াতাশি ওয়া গাক্কোও এ ইকিমাসু।"),
-            make_item("jp-p6-l25-002", "まいあさ ９じに かいしゃへ きます。", "まいあさくじにかいしゃえきます。", "Maiasa kuji ni kaisha e kimasu.", "প্রতিদিন সকাল ৯টায় অফিসে আসি।", "মাইয়াসা কুজি নি কাইশা এ কিমাসু।"),
-            make_item("jp-p6-l25-003", "ゆうがた ６じに うちへ かえります。", "ゆうがたろくじにうちえかえります。", "Yuugata rokuji ni uchi e kaerimasu.", "সন্ধ্যা ৬টায় বাড়ি ফিরি।", "ইউউগাতা রোকুজি নি উচি এ কায়েরিমাসু।")
+            make_item("jp-p6-l22-001", "このほんは おもしろいです。", "このほんはおもしろいです。", "Kono hon wa omoshiroi desu.", "এই বইটি বেশ মজার।", "কোনো হোং ওয়া ওমোশিরোই দেস।", [("この", "kono", "この", "এই"), ("本", "hon", "本", "বই"), ("は", "wa", "は", "হলো"), ("おもしろい", "omoshiroi", "面白い", "মজার"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p6-l22-002", "そのかさは あなたのですか。", "そのかさはあなたのですか。", "Sono kasa wa anata no desu ka.", "ওই ছাতাটি কি আপনার?", "সোনো কাসা ওয়া আনাতা নো দেসু কা?", [("その", "sono", "その", "সেই/ওই"), ("傘", "kasa", "傘", "ছাতা"), ("は", "wa", "は", "হলো"), ("あなたの", "anata no", "あなたの", "আপনার"), ("ですか", "desu ka", "ですか", "কি?")]),
+            make_item("jp-p6-l22-003", "あのひとは だれですか。", "あのひとはだれですか。", "Ano hito wa dare desu ka.", "ওই ব্যক্তি কে?", "আনো হিতো ওয়া দারে দেসু কা?", [("あの", "ano", "あの", "ওই"), ("人", "hito", "人", "ব্যক্তি"), ("は", "wa", "は", "হলো"), ("だれ", "dare", "誰", "কে"), ("ですか", "desu ka", "ですか", "কি?")])
         ]
     },
     {
-        "id": "jp-foundations-l26",
+        "id": "jp-foundations-l23",
         "order": 3,
-        "title_bn": "সরাসরি কর্ম ও ক্রিয়াপদ (Object を 食べます / 飲みます / 読みます)",
-        "title_target": "Transitive Verbs & Direct Object Particle を (o)",
-        "intro_bn": "যে বস্তুর ওপর কাজটি সম্পন্ন হয় (Direct Object), তার শেষে 'を' (উচ্চারণ o) বসে।",
-        "structure": ["Object + を + Verb-ます"],
+        "title_bn": "স্থান নির্দেশক — 'ここ・そこ・あそこ・どこ' (Locations)",
+        "title_target": "Location Demonstratives (Koko, Soko, Asoko, Doko)",
+        "intro_bn": "এখানে (ここ), সেখানে (そこ), ওখানে (あそこ), কোথায় (どこ)। ভদ্র রূপ: こちら, そちら, あちら, どちら।",
+        "structure": ["Place + は + ここ / そこ / あそこ / どこ + ですか"],
         "items": [
-            make_item("jp-p6-l26-001", "あさごはんを たべます。", "あさごはんをたべます。", "Asagohan o tabemasu.", "সকালের নাস্তা খাই।", "আসাগোহান ও তাবেমাসু।"),
-            make_item("jp-p6-l26-002", "みずを のみます。", "みずをのみます。", "Mizu o nomimasu.", "পানি পান করি।", "মিজু ও নোমিমাসু।"),
-            make_item("jp-p6-l26-003", "にほんごの ほんを よみます。", "にほんごのほんをよみます。", "Nihongo no hon o yomimasu.", "জাপানি বই পড়ি।", "নিহঙ্গো নো হোন ও ইয়োমিমাসু।"),
-            make_item("jp-p6-l26-004", "ともだちに てがみを かきます。", "ともだちにてがみをかきます。", "Tomodachi ni tegami o kakimasu.", "বন্ধুকে চিঠি লিখি।", "তোমোদাচি নি তেগামি ও কাকিমাসু।")
+            make_item("jp-p6-l23-001", "トイレは どこですか。", "といれはどこですか。", "Toire wa doko desu ka.", "টয়লেট কোথায়?", "তোইরে ওয়া দোকো দেসু কা?", [("トイレ", "toire", "トイレ", "টয়লেট"), ("は", "wa", "は", "হলো"), ("どこ", "doko", "どこ", "কোথায়"), ("ですか", "desu ka", "ですか", "কি?")]),
+            make_item("jp-p6-l23-002", "あそこです。ぎんこうの となりです。", "あそこです。ぎんこうのとなりです。", "Asoko desu. Ginkou no tonari desu.", "ওখানে। ব্যাংকের পাশে।", "আসোকো দেস। গিনকোও নো তোরারি দেস।", [("あそこ", "asoko", "あそこ", "ওখানে"), ("です", "desu", "です", "হয়"), ("銀行", "ginkou", "銀行", "ব্যাংক"), ("の", "no", "の", "এর"), ("となり", "tonari", "隣", "পাশে"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p6-l23-003", "うけつけは こちらです。", "うけつけはこちらです。", "Uketsuke wa kochira desu.", "রিসেপশন এই দিকে।", "উকেৎসুকে ওয়া কোচিরা দেস।", [("受付", "uketsuke", "受付", "রিসেপশন"), ("は", "wa", "は", "হলো"), ("こちら", "kochira", "こちら", "এই দিকে"), ("です", "desu", "です", "হয়")])
         ]
     },
     {
-        "id": "jp-foundations-l27",
+        "id": "jp-foundations-l24",
         "order": 4,
-        "title_bn": "কাজের স্থান ও মাধ্যম (Place で Verb & Tool で Verb)",
-        "title_target": "Location of Action & Means/Tools (Particle で - de)",
-        "intro_bn": "যে স্থানে কাজটি ঘটে এবং যে মাধ্যমে কাজটি করা হয় (বাস, ট্রেন, কলম), উভয়ের পরে 'で' (de) বসে।",
-        "structure": ["Place で + Action Verb / Vehicle/Tool で + Action Verb"],
+        "title_bn": "মূল্য জিজ্ঞাসা ও কেনাকাটা — 'いくらですか' (Shopping Dialogue)",
+        "title_target": "Price Inquiry & Shopping Conversation (Ikura desu ka)",
+        "intro_bn": "দোকানে কোনো জিনিসের দাম জানতে '〜は いくらですか' এবং কিনতে '〜を ください' ব্যবহার করা হয়।",
+        "structure": ["Noun + は + いくらですか (How much is ...?)", "〜を ください (Please give me ...)"],
         "items": [
-            make_item("jp-p6-l27-001", "レストランで ひるごはんを たべます。", "れすとらんでひるごはんをたべます。", "Resutoran de hirugohan o tabemasu.", "রেস্তোরাঁয় দুপুরের খাবার খাই।", "রেসুতোরান দে হিরুগোহান ও তাবেমাসু।"),
-            make_item("jp-p6-l27-002", "バスで だいがくへ いきます。", "ばすでだいがくえいきます。", "Basu de daigaku e ikimasu.", "বাসে করে বিশ্ববিদ্যালয়ে যাই।", "বাসু দে দাইগাকু এ ইকিমাসু।"),
-            make_item("jp-p6-l27-003", "はしで ごはんを たべます。", "はしでごはんをたべます。", "Hashi de gohan o tabemasu.", "চপস্টিক দিয়ে ভাত খাই।", "হাশি দে গোহান ও তাবেমাসু।"),
-            make_item("jp-p6-l27-004", "にほんごで レポートを かきます。", "にほんごでれぽーとをかきます。", "Nihongo de repooto o kakimasu.", "জাপানি ভাষায় রিপোর্ট লিখি।", "নিহঙ্গো দে রেপোওতো ও কাকিমাসু।")
-        ]
-    },
-    {
-        "id": "jp-foundations-l28",
-        "order": 5,
-        "title_bn": "অভ্যাসের না-বোধক রূপ (Habitual Negative: 〜ません)",
-        "title_target": "Habitual Negative (Verb-masen)",
-        "intro_bn": "সাধারণত কোনো কাজ করি না বোঝাতে ক্রিয়ার শেষে '〜ません' (masen) বসে।",
-        "structure": ["Subject + は + Object + を + Verb-ません"],
-        "items": [
-            make_item("jp-p6-l28-001", "わたしは おさけを のみません。", "わたしはおさけをのみません。", "Watashi wa osake o nomimasen.", "আমি মদ পান করি না।", "ওয়াতাশি ওয়া ওসাকে ও নোমিমাসেন।", polarity="negative"),
-            make_item("jp-p6-l28-002", "あさ、コーヒーを のみません。おちゃを のみます。", "あさ、こーひーをのみません。おちゃをのみます。", "Asa, koohii o nomimasen. Ocha o nomimasu.", "সকালে কফি পান করি না। চা পান করি।", "আসা, কোওহিই ও নোমিমাসেন। ওচা ও নোমিমাসু।", polarity="negative"),
-            make_item("jp-p6-l28-003", "タバコを すいません。", "たばこをすいません。", "Tabako o suimasen.", "ধূমপান করি না।", "তাবাকো ও সুইমাসেন।", polarity="negative")
-        ]
-    },
-    {
-        "id": "jp-foundations-l29",
-        "order": 6,
-        "title_bn": "আমন্ত্রণ ও প্রস্তাব (Invitations: 〜ませんか / 〜ましょう)",
-        "title_target": "Invitations & Suggestions (~masen ka / ~mashou)",
-        "intro_bn": "কাউকে ভদ্রভাবে আমন্ত্রণ জানাতে '〜ませんか' (Why don't we...?) এবং একসাথে করতে '〜ましょう' (Let's...) বসে।",
-        "structure": ["Verb-ませんか (Shall we / Would you like to...?)", "Verb-ましょう (Let's do...!)"],
-        "items": [
-            make_item("jp-p6-l29-001", "いっしょに おちゃを のみませんか。ええ、のみましょう。", "いっしょにおちゃをのみませんか。ええ、のみましょう。", "Issho ni ocha o nomimasen ka. Ee, nomimashou.", "একসাথে চা খাবেন কি? হ্যাঁ, চলুন খাই।", "ইশ্শো নি ওচা ও নোমিমাসেন কা? এয়ে, নোমিমাশোও।"),
-            make_item("jp-p6-l29-002", "こんばん えいがを みませんか。いいですね。みましょう。", "こんばんえいがをみませんか。いいですね。みましょう。", "Konban eiga o mimasen ka. Ii desu ne. Mimashou.", "আজ রাতে সিনেমা দেখবেন নাকি? দারুণ হবে, চলুন দেখি।", "কোনবান এইগা ও মিমাসেন কা? ইই দেসু নে। মিমাশোও।"),
-            make_item("jp-p6-l29-003", "ちょっと やすみましょう。", "ちょっとやすみましょう。", "Chotto yasumimashou.", "চলুন একটু বিশ্রাম নিই।", "চোত্তো ইয়াসুমিমাশোও।")
+            make_item("jp-p6-l24-001", "すみません。このかばんは いくらですか。", "すみません。このかばんはいくらですか。", "Sumimasen. Kono kaban wa ikura desu ka.", "মাফ করবেন। এই ব্যাগটির দাম কত?", "সুমিমাসেন। কোনো কাবেন ওয়া ইকুরা দেসু কা?", [("すみません", "sumimasen", "すみません", "মাফ করবেন"), ("この", "kono", "この", "এই"), ("鞄", "kaban", "鞄", "ব্যাগ"), ("は", "wa", "は", "হলো"), ("いくら", "ikura", "幾ら", "কত দাম"), ("ですか", "desu ka", "ですか", "কি?")]),
+            make_item("jp-p6-l24-002", "さんぜんえんです。", "さんぜんえんです。", "Sanzen-en desu.", "তিন হাজার ইয়েন।", "সানজেন-য়েন দেস।", [("三千円", "sanzen-en", "三千円", "৩,০০০ ইয়েন"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p6-l24-003", "じゃ、これを ください。", "じゃ、これをください。", "Ja, kore o kudasai.", "তাহলে আমাকে এটা দিন।", "জা, কোরে ও কুদাসাই।", [("じゃ", "ja", "じゃ", "তাহলে"), ("これ", "kore", "これ", "এটা"), ("を", "o", "を", "কে"), ("ください", "kudasai", "下さい", "দিন")]),
+            make_item("jp-p6-l24-004", "このりんごを みっつ ください。", "このりんごをみっつください。", "Kono ringo o mittsu kudasai.", "আমাকে এই আপেল তিনটি দিন।", "কোনো রিঙ্গো ও মিত্তসু কুদাসাই।", [("この", "kono", "この", "এই"), ("りんご", "ringo", "林檎", "আপেল"), ("を", "o", "を", "কে"), ("みっつ", "mittsu", "三つ", "তিনটি"), ("ください", "kudasai", "下さい", "দিন")])
         ]
     }
 ]
@@ -543,61 +515,53 @@ parts.append({
     "id": "jp-foundations-p6",
     "order": 6,
     "level": "A1",
-    "title_bn": "দৈনন্দিন অভ্যাস ও সাধারণ কাজ (〜ます / 〜ません - Present Simple)",
-    "title_target": "Daily Actions, Routines & Habits (Verb-masu / masen)",
+    "title_bn": "বস্তু, দাম ও কেনাকাটা (Demonstratives & Shopping)",
+    "title_target": "Demonstratives, Directions & Shopping Inquiries",
     "lessons": p6_lessons
 })
 
-# -------------------------------------------------------------
-# Part 7: 6-Sentence Action Transformations Drills
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 7: সংখ্যা, সময়, বার ও কাউন্টার (Numbers, Time, Counters)
+# ==============================================================================
 p7_lessons = [
     {
-        "id": "jp-foundations-l30",
+        "id": "jp-foundations-l25",
         "order": 1,
-        "title_bn": "৬-রূপান্তর ড্রিল: খাওয়া ও পান করা (食べます / 飲みます)",
-        "title_target": "6 Transformations: Eating & Drinking (Tabemasu / Nomimasu)",
-        "intro_bn": "দৈনন্দিন আহার সংক্রান্ত ক্রিয়াপদের ৬টি স্পোকেন রূপান্তর ড্রিল।",
-        "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
+        "title_bn": "১ থেকে ১০,০০০ পর্যন্ত সংখ্যা ও টাকা (Numbers & Yen)",
+        "title_target": "Numbers 1-10,000 & Money Calculations",
+        "intro_bn": "এক থেকে দশ হাজার পর্যন্ত গোনা: 一 (ichi), 十 (juu), 百 (hyaku), 千 (sen), 万 (man) এবং মুদ্রা 円 (en)।",
+        "structure": ["Number + 円 (en)"],
         "items": [
-            make_item("jp-p7-l30-001", "ラヒムさんは あさごはんを たべます。", "らひむさんはあさごはんをたべます。", "Rahimu-san wa asagohan o tabemasu.", "১. হ্যাঁ-বোধক: রহিম সকালের নাস্তা খায়।", "রাহিমু-সান ওয়া আসাগোহান ও তাবেমাসু।", item_type="drill"),
-            make_item("jp-p7-l30-002", "ラヒムさんは あさごはんを たべません。", "らひむさんはあさごはんをたべません。", "Rahimu-san wa asagohan o tabemasen.", "২. না-বোধক: রহিম সকালের নাস্তা খায় না।", "রাহিমু-সান ওয়া আসাগোহান ও তাবেমাসেন।", item_type="drill", polarity="negative"),
-            make_item("jp-p7-l30-003", "ラヒムさんは あさごはんを たべますか。", "らひむさんはあさごはんをたべますか。", "Rahimu-san wa asagohan o tabemasu ka.", "৩. প্রশ্নবোধক: রহিম কি সকালের নাস্তা খায়?", "রাহিমু-সান ওয়া আসাগোহান ও তাবেমাসু কা?", item_type="drill", sentence_type="interrogative"),
-            make_item("jp-p7-l30-004", "ラヒムさんは あさごはんを たべませんか。", "らひむさんはあさごはんをたべませんか。", "Rahimu-san wa asagohan o tabemasen ka.", "৪. না-বোধক প্রশ্ন: রহিম কি সকালের নাস্তা খায় না?", "রাহিমু-সান ওয়া আসাগোহান ও তাবেমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
-            make_item("jp-p7-l30-005", "ラヒムさんは あさごはんに なにを たべますか。パンを たべます。", "らひむさんはあさごはんになにをたべますか。ぱんをたべます。", "Rahimu-san wa asagohan ni nani o tabemasu ka. Pan o tabemasu.", "৫. WH-প্রশ্ন: রহিম নাস্তায় কী খায়? রুটি খায়।", "রাহিমু-সান ওয়া আসাগোহান নি নানি ও তাবেমাসু কা? পান ও তাবেমাসু।", item_type="drill", sentence_type="wh_question"),
-            make_item("jp-p7-l30-006", "パンを たべますか、ごはんを たべますか。", "ぱんをたべますか、ごはんをたべますか。", "Pan o tabemasu ka, gohan o tabemasu ka.", "৬. বিকল্প প্রশ্ন: রুটি খাবেন, নাকি ভাত খাবেন?", "পান ও তাবেমাসু কা, গোহান ও তাবেমাসু কা?", item_type="drill", sentence_type="alternative_question")
+            make_item("jp-p7-l25-001", "いち、に、さん、よん、ご、ろく、なな、はち、きゅう、じゅう", "いち、に、さん、よん、ご、ろく、なな、はち、きゅう、じゅう", "ichi, ni, san, yon, go, roku, nana, hachi, kyuu, juu", "১ থেকে ১০ পর্যন্ত সংখ্যা", "ইচি, নি, সান, ইয়োন, গো, রোকু, নানা, হাচি, কিউউ, জিউউ", item_type="syllable_ladder"),
+            make_item("jp-p7-l25-002", "ひゃくえん、せんえん、いちまんえん", "ひゃくえん、せんえん、いちまんえん", "hyaku-en, sen-en, ichiman-en", "১০০ ইয়েন, ১,০০০ ইয়েন, ১০,০০০ ইয়েন", "হিয়াকু-য়েন, সেন-য়েন, ইচিমান-য়েন", item_type="syllable_ladder"),
+            make_item("jp-p7-l25-003", "ぜんぶで せんごひゃくえんです。", "ぜんぶでせんごひゃくえんです。", "Zenbu de sen gohyaku-en desu.", "সব মিলিয়ে মোট ১,৫০০ ইয়েন।", "জেম্বু দে সেন গোহিয়াকু-য়েন দেস।", [("全部で", "zenbu de", "全部で", "সব মিলিয়ে"), ("千五百円", "sen gohyaku-en", "千五百円", "১,৫০০ ইয়েন"), ("です", "desu", "です", "হয়")])
         ]
     },
     {
-        "id": "jp-foundations-l31",
+        "id": "jp-foundations-l26",
         "order": 2,
-        "title_bn": "৬-রূপান্তর ড্রিল: যাওয়া ও আসা (行きます / 来ます)",
-        "title_target": "6 Transformations: Movement (Ikimasu / Kimasu)",
-        "intro_bn": "যাতায়াত ও গন্তব্য সংক্রান্ত ক্রিয়াপদের ৬টি স্পোকেন রূপান্তর ড্রিল।",
-        "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
+        "title_bn": "সময়, মিনিট ও তারিখ (Time, Minutes & Dates)",
+        "title_target": "Telling Time, Minutes & Calendar Dates",
+        "intro_bn": "সময় বলতে 時 (ji), মিনিট 分 (fun/pun), অর্ধেক 半 (han) এবং তারিখের বিশেষ উচ্চারণ (ついたち, ふつか...)।",
+        "structure": ["[Hour] 時 + [Minute] 分 + です"],
         "items": [
-            make_item("jp-p7-l31-001", "たなかさんは とうきょうへ いきます。", "たなかさんはとうきょうえいきます。", "Tanaka-san wa Toukyou e ikimasu.", "১. হ্যাঁ-বোধক: তানাকা বাবু টোকিও যান।", "তানাকা-সান ওয়া তোকিও এ ইকিমাসু।", item_type="drill"),
-            make_item("jp-p7-l31-002", "たなかさんは とうきょうへ いきません。", "たなかさんはとうきょうえいきません。", "Tanaka-san wa Toukyou e ikimasen.", "২. না-বোধক: তানাকা বাবু টোকিও যান না।", "তানাকা-সান ওয়া তোকিও এ ইকিমাসেন।", item_type="drill", polarity="negative"),
-            make_item("jp-p7-l31-003", "たなかさんは とうきょうへ いきますか。", "たなかさんはとうきょうえいきますか。", "Tanaka-san wa Toukyou e ikimasu ka.", "৩. প্রশ্নবোধক: তানাকা বাবু কি টোকিও যান?", "তানাকা-সান ওয়া তোকিও এ ইকিমাসু কা?", item_type="drill", sentence_type="interrogative"),
-            make_item("jp-p7-l31-004", "たなかさんは とうきょうへ いきませんか。", "たなかさんはとうきょうえいきませんか。", "Tanaka-san wa Toukyou e ikimasen ka.", "৪. না-বোধক প্রশ্ন: তানাকা বাবু কি টোকিও যান না?", "তানাকা-সান ওয়া তোকিও এ ইকিমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
-            make_item("jp-p7-l31-005", "たなかさんは どこへ いきますか。とうきょうへ いきます。", "たなかさんはどこえいきますか。とうきょうえいきます。", "Tanaka-san wa doko e ikimasu ka. Toukyou e ikimasu.", "৫. WH-প্রশ্ন: তানাকা বাবু কোথায় যান? টোকিও যান।", "তানাকা-সান ওয়া দোকো এ ইকিমাসু কা? তোকিও এ ইকিমাসু।", item_type="drill", sentence_type="wh_question"),
-            make_item("jp-p7-l31-006", "でんしゃで いきますか、バスで いきますか。", "でんしゃでいきますか、ばすでいきますか。", "Densha de ikimasu ka, basu de ikimasu ka.", "৬. বিকল্প প্রশ্ন: ট্রেনে যাবেন, নাকি বাসে?", "দেনশা দে ইকিমাসু কা, বাসু দে ইকিমাসু কা?", item_type="drill", sentence_type="alternative_question")
+            make_item("jp-p7-l26-001", "いま なんじですか。いま しちじはんです。", "いまなんじですか。いましちじはんです。", "Ima nanji desu ka. Ima shichiji-han desu.", "এখন কয়টা বাজে? এখন সাড়ে সাতটা বাজে।", "ইমা নানজি দেসু কা? ইমা শিচিজি-হান দেস।", [("今", "ima", "今", "এখন"), ("何時", "nanji", "何時", "কয়টা"), ("ですか", "desu ka", "ですか", "কি?"), ("七時半", "shichiji-han", "七時半", "৭:৩০"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p7-l26-002", "きょうは なんようびですか。げつようびです。", "きょうはなんようびですか。げつようびです。", "Kyou wa nanyoubi desu ka. Getsuyoubi desu.", "আজ কী বার? আজ সোমবার।", "কিয়োও ওয়া নানইয়োওবি দেসু কা? গেৎসুয়োওবি দেস।", [("今日", "kyou", "今日", "আজ"), ("は", "wa", "は", "হলো"), ("何曜日", "nanyoubi", "何曜日", "কী বার"), ("ですか", "desu ka", "ですか", "কি?"), ("月曜日", "getsuyoubi", "月曜日", "সোমবার"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p7-l26-003", "きょうは しがつみっかです。", "きょうはしがつみっかです。", "Kyou wa shigatsu mikka desu.", "আজ ৩রা এপ্রিল।", "কিয়োও ওয়া শিগাৎসু মিক্কা দেস।", [("今日", "kyou", "今日", "আজ"), ("は", "wa", "は", "হলো"), ("四月", "shigatsu", "四月", "এপ্রিল মাস"), ("三日", "mikka", "三日", "৩ তারিখ"), ("です", "desu", "です", "হয়")])
         ]
     },
     {
-        "id": "jp-foundations-l32",
+        "id": "jp-foundations-l27",
         "order": 3,
-        "title_bn": "৬-রূপান্তর ড্রিল: অধ্যয়ন ও কাজ (勉強します / 働きます)",
-        "title_target": "6 Transformations: Study & Work (Benkyou shimasu / Hatarakimasu)",
-        "intro_bn": "পড়াশোনা ও কর্মসংক্রান্ত ক্রিয়াপদের ৬টি স্পোকেন রূপান্তর ড্রিল।",
-        "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
+        "title_bn": "নিত্যপ্রয়োজনীয় ৫টি কাউন্টার (人, 本, 枚, 台, 冊, つ)",
+        "title_target": "Essential Japanese Counters (People, Flat, Long, Machines)",
+        "intro_bn": "মানুষ গোনার জন্য 人 (nin), লম্বা বস্তু 本 (hon), পাতলা বস্তু 枚 (mai), মেশিন 台 (dai), বই 冊 (satsu)।",
+        "structure": ["Noun + [Number + Counter]"],
         "items": [
-            make_item("jp-p7-l32-001", "マリアさんは にほんごを べんきょうします。", "まりあさんはにほんごをべんきょうします。", "Maria-san wa nihongo o benkyou shimasu.", "১. হ্যাঁ-বোধক: মারিয়া জাপানি ভাষা শেখে।", "মারিয়া-সান ওয়া নিহঙ্গো ও বেনকিওও শিমাসু।", item_type="drill"),
-            make_item("jp-p7-l32-002", "マリアさんは にほんごを べんきょうしません。", "まりあさんはにほんごをべんきょうしません。", "Maria-san wa nihongo o benkyou shimasen.", "২. না-বোধক: মারিয়া জাপানি ভাষা শেখে না।", "মারিয়া-সান ওয়া নিহঙ্গো ও বেনকিওও শিমাসেন।", item_type="drill", polarity="negative"),
-            make_item("jp-p7-l32-003", "マリアさんは にほんごを べんきょうしますか。", "まりあさんはにほんごをべんきょうしますか。", "Maria-san wa nihongo o benkyou shimasu ka.", "৩. প্রশ্নবোধক: মারিয়া কি জাপানি ভাষা শেখে?", "মারিয়া-সান ওয়া নিহঙ্গো ও বেনকিওও শিমাসু কা?", item_type="drill", sentence_type="interrogative"),
-            make_item("jp-p7-l32-004", "マリアさんは にほんごを べんきょうしませんか。", "まりあさんはにほんごをべんきょうしませんか。", "Maria-san wa nihongo o benkyou shimasen ka.", "৪. না-বোধক প্রশ্ন: মারিয়া কি জাপানি ভাষা শেখে না?", "মারিয়া-সান ওয়া নিহঙ্গো ও বেনকিওও শিমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
-            make_item("jp-p7-l32-005", "マリアさんは どこで べんきょうしますか。としょかんで べんきょうします。", "まりあさんはどこでべんきょうしますか。としょかんでべんきょうします。", "Maria-san wa doko de benkyou shimasu ka. Toshokan de benkyou shimasu.", "৫. WH-প্রশ্ন: মারিয়া কোথায় পড়াশোনা করে? লাইব্রেরিতে করে।", "মারিয়া-সান ওয়া দোকো দে বেনকিওও শিমাসু কা? তোশোখান দে বেনকিওও শিমাসু।", item_type="drill", sentence_type="wh_question"),
-            make_item("jp-p7-l32-006", "にほんごを べんきょうしますか、えいごを べんきょうしますか。", "にほんごをべんきょうしますか、えいごをべんきょうしますか。", "Nihongo o benkyou shimasu ka, eigo o benkyou shimasu ka.", "৬. বিকল্প প্রশ্ন: জাপানি ভাষা পড়েন, নাকি ইংরেজি পড়েন?", "নিহঙ্গো ও বেনকিওও শিমাসু কা, এইগো ও বেনকিওও শিমাসু কা?", item_type="drill", sentence_type="alternative_question")
+            make_item("jp-p7-l27-001", "がくせいが さんにん います。", "がくせいがさんにんいます。", "Gakusei ga sannin imasu.", "তিনজন শিক্ষার্থী আছে।", "গাকুসেই গা সান্নিন ইমাসু।", [("学生", "gakusei", "学生", "শিক্ষার্থী"), ("が", "ga", "が", "টি"), ("三人", "sannin", "三人", "৩ জন"), ("います", "imasu", "います", "আছে")]),
+            make_item("jp-p7-l27-002", "ペンが にほん あります。", "ぺんがにほんあります。", "Pen ga nihon arimasu.", "দুটি কলম আছে।", "পেন গা নিহোং আরিমাসু।", [("ペン", "pen", "ペン", "কলম"), ("が", "ga", "が", "টি"), ("二本", "nihon", "二本", "২টি লম্বা বস্তু"), ("あります", "arimasu", "あります", "আছে")]),
+            make_item("jp-p7-l27-003", "きっぷが いちまい あります。", "きっぷがいちまいあります。", "Kippu ga ichimai arimasu.", "একটি টিকিট আছে।", "কিপ্পু গা ইচিমাই আরিমাসু।", [("切符", "kippu", "切符", "টিকিট"), ("が", "ga", "が", "টি"), ("一枚", "ichimai", "一枚", "১টি পাতলা কাগজ"), ("あります", "arimasu", "あります", "আছে")]),
+            make_item("jp-p7-l27-004", "車が いちだい あります。", "くるまがいちだいあります。", "Kuruma ga ichidai arimasu.", "একটি গাড়ি আছে।", "কুরুমা গা ইচিদাই আরিমাসু।", [("車", "kuruma", "車", "গাড়ি"), ("が", "ga", "が", "টি"), ("一台", "ichidai", "一台", "১টি মেশিন/যান"), ("あります", "arimasu", "あります", "আছে")])
         ]
     }
 ]
@@ -605,125 +569,137 @@ parts.append({
     "id": "jp-foundations-p7",
     "order": 7,
     "level": "A1",
-    "title_bn": "৬-রূপান্তর মাস্টার স্পোকেন ড্রিল (6 Sentence Transformations: Action Verbs)",
-    "title_target": "6-Sentence Transformation Drills (Action Verbs)",
+    "title_bn": "সংখ্যা, সময়, বার ও কাউন্টার (Numbers & Counters)",
+    "title_target": "Numbers, Time Telling & Essential Counters",
     "lessons": p7_lessons
 })
 
-# -------------------------------------------------------------
-# Part 8: 10 Essential WH-Questions & Answers
-# -------------------------------------------------------------
-wh_qa_list = [
-    ("jp-foundations-l33", 1, "কী? — '何' (Nan / Nani Q&A)", "What? (Nan / Nani)", "সবার আগে কোনো বস্তু বা কাজের নাম জানতে 何 (nan/nani) দিয়ে প্রশ্ন করা হয়।",
-     [make_item("jp-p8-l33-001", "これは なんですか。これは にほんの おちゃです。", "これはなんですか。これはにほんのおちゃです。", "Kore wa nan desu ka. Kore wa nihon no ocha desu.", "এটি কী? এটি জাপানি চা।", "কোরে ওয়া নান দেসু কা? কোরে ওয়া নিহোন নো ওচা দেস।"),
-      make_item("jp-p8-l33-002", "なにを のみますか。みずを のみます。", "なにをのみますか。みずをのみます。", "Nani o nomimasu ka. Mizu o nomimasu.", "কী পান করবেন? পানি পান করব।", "নানি ও নোমিমাসু কা? মিজু ও নোমিমাসু।")]),
-
-    ("jp-foundations-l34", 2, "কে / কার? — '誰 / 誰の' (Dare / Dare no Q&A)", "Who / Whose? (Dare / Dare no)", "ব্যক্তি জানতে 誰 (dare) এবং মালিকানা জানতে 誰の (dare no) বসে।",
-     [make_item("jp-p8-l34-001", "あのかたは だれですか。たなかせんせいです。", "あのかたわだれですか。たなかせんせいです。", "Ano kata wa dare desu ka. Tanaka-sensei desu.", "ওই ভদ্রলোক কে? তানাকা শিক্ষক।", "আনো কাতা ওয়া দারে দেসু কা? তানাকা-সেনসেই দেস।"),
-      make_item("jp-p8-l34-002", "これは だれの かばんですか。わたしのです。", "これはだれのかばんですか。わたしのです。", "Kore wa dare no kaban desu ka. Watashi no desu.", "এটি কার ব্যাগ? আমার ব্যাগ।", "কোরে ওয়া দারে নো কাবান দেসু কা? ওয়াতাশি নো দেস।")]),
-
-    ("jp-foundations-l35", 3, "কোথায়? — 'どこ' (Doko Q&A)", "Where? (Doko)", "স্থান বা অবস্থান জানতে どこ (doko) বসে।",
-     [make_item("jp-p8-l35-001", "えきは どこですか。あそこです。", "えきはどこですか。あそこです。", "Eki wa doko desu ka. Asoko desu.", "স্টেশন কোথায়? ওখানে।", "একি ওয়া দোকো দেসু কা? আসোকো দেস।"),
-      make_item("jp-p8-l35-002", "どこで ひるごはんを たべますか。しょくどうで たべます。", "どこでひるごはんをたべますか。しょくどうでたべます。", "Doko de hirugohan o tabemasu ka. Shokudou de tabemasu.", "কোথায় দুপুরের খাবার খাবেন? ক্যাফেটেরিয়ায় খাব।", "দোকো দে হিরুগোহান ও তাবেমাসু কা? শোকুদোও দে তাবেমাসু।")]),
-
-    ("jp-foundations-l36", 4, "কখন? — 'いつ' (Itsu Q&A)", "When? (Itsu)", "সময় বা দিনক্ষণ জানতে いつ (itsu) ব্যবহৃত হয়। এর পর に বসে না।",
-     [make_item("jp-p8-l36-001", "いつ にほんへ いきますか。らいげつ いきます。", "いつにほんえいきますか。らいげついきます。", "Itsu nihon e ikimasu ka. Raigetsu ikimasu.", "কখন জাপান যাবেন? আগামী মাসে যাব।", "ইতসু নিহোন এ ইকিমাসু কা? রাইগেতসু ইকিমাসু।"),
-      make_item("jp-p8-l36-002", "たんじょうびは いつですか。５がつ １０にちです。", "たんじょうびはいつですか。ごがつとおかです。", "Tanjoubi wa itsu desu ka. Gogatsu tooka desu.", "জন্মদিন কবে? ১০ই মে।", "তানজোওবি ওয়া ইতসু দেসু কা? গোগাতসু তোওকা দেস।")]),
-
-    ("jp-foundations-l37", 5, "কেন? — 'なぜ / どうして' (Naze / Doushite Q&A)", "Why? (Naze / Doushite)", "কারণ জানতে なぜ বা どうして বসে, উত্তরের শেষে 〜から (kara - কারণ) বসে।",
-     [make_item("jp-p8-l37-001", "どうして にほんごを べんきょうしますか。にほんへ いきますから。", "どうしてにほんごをべんきょうしますか。にほんえいきますから。", "Doushite nihongo o benkyou shimasu ka. Nihon e ikimasu kara.", "কেন জাপানি ভাষা শিখছেন? কারণ জাপানে যাব।", "দোওশিতে নিহঙ্গো ও বেনকিওও শিমাসু কা? নিহোন এ ইকিমাসু কারা।")]),
-
-    ("jp-foundations-l38", 6, "কীভাবে / কেমন? — 'どう / どうやって' (Dou / Dou yatte Q&A)", "How / By what means? (Dou / Dou yatte)", "কেমন জানতে どう এবং যাতায়াতের মাধ্যম জানতে どうやって বসে।",
-     [make_item("jp-p8-l38-001", "にほんの せいかつは どうですか。とても おもしろいです。", "にほんのせいかつはどうですか。とてもおもしろいです。", "Nihon no seikatsu wa dou desu ka. Totemo omoshiroi desu.", "জাপানের জীবনযাত্রা কেমন? খুব মজার।", "নিহোন নো সেইকাতসু ওয়া দোও দেসু কা? তোতেমো ওমোশিরোই দেস।"),
-      make_item("jp-p8-l38-002", "えきまで どうやって いきますか。あるいて いきます。", "えきまでどうやっていきますか。あるいていきます。", "Eki made dou yatte ikimasu ka. Aruite ikimasu.", "স্টেশন পর্যন্ত কীভাবে যান? হেঁটে যাই।", "একি মাদে দোও ইয়াত্তে ইকিমাসু কা? আরুইতে ইকিমাসু।")]),
-
-    ("jp-foundations-l39", 7, "কতটি? — 'いくつ' (Ikutsu / Quantity Counters)", "How Many? (Ikutsu & General Counters)", "সাধারণ বস্তুর সংখ্যা জানতে いくつ এবং ひとつ, ふたつ... বসে।",
-     [make_item("jp-p8-l39-001", "りんごが いくつ ありますか。みっつ あります。", "りんごがいくつありますか。みっつあります。", "Ringo ga ikutsu arimasu ka. Mittsu arimasu.", "আপেল কয়টি আছে? তিনটি আছে।", "রিংগো গা ইকুৎসু আরিমাসু কা? মিত্তসু আরিমাসু।")]),
-
-    ("jp-foundations-l40", 8, "কতজন? — '何人' (Nannin / People Counters)", "How Many People? (Nannin)", "মানুষের সংখ্যা জানতে 何人 (nannin) বসে। একজন ひとり, দুইজন ふたり।",
-     [make_item("jp-p8-l40-001", "ごかぞくは なんにんですか。４にんです。", "ごかぞくはなんにんですか。よにんです。", "Gokazoku wa nannin desu ka. Yonin desu.", "আপনার পরিবারে কতজন সদস্য? ৪ জন।", "গোকাজোকু ওয়া নাননিন দেসু কা? ইয়োনিন দেস।")]),
-
-    ("jp-foundations-l41", 9, "কত টাকা? — 'いくら' (Ikura / Price Q&A)", "How Much Money? (Ikura)", "দাম বা মোট মূল্য জানতে いくら বসে।",
-     [make_item("jp-p8-l41-001", "ぜんぶで いくらですか。２せん５ひゃくえんです。", "ぜんぶでいくらですか。にせんごひゃくえんです。", "Zenbu de ikura desu ka. Nisen gohyaku-en desu.", "সব মিলিয়ে কত টাকা? ২,৫০০ ইয়েন।", "জেনবু দে ইকুরা দেসু কা? নিসেন গোহিয়াকু-য়েন দেস।")]),
-
-    ("jp-foundations-l42", 10, "কোন দিন / কত তারিখ? — '何曜日 / 何日' (Day & Date Q&A)", "Which Day & Date? (Nanyoubi / Nannichi)", "সপ্তাহের বার ও তারিখ জানতে 何曜日 ও 何日 বসে।",
-     [make_item("jp-p8-l42-001", "きょうは なんようびですか。きんようびです。", "きょうはなんようびですか。きんようびです。", "Kyou wa nanyoubi desu ka. Kinyoubi desu.", "আজ কী বার? শুক্রবার।", "কিয়োও ওয়া নানয়োওবি দেসু কা? কিনয়োওবি দেস।"),
-      make_item("jp-p8-l42-002", "きょうは なんにちですか。１５にちです。", "きょうはなんにちですか。じゅうごにちです。", "Kyou wa nannichi desu ka. Juugonichi desu.", "আজ কত তারিখ? ১৫ তারিখ।", "কিয়োও ওয়া নাননিচি দেসু কা? জুউগোনিচি দেস।")])
+# ==============================================================================
+# PART 8: অবস্থান ও অস্তিত্ব (あります বনাম います - Grammar 9–11)
+# ==============================================================================
+p8_lessons = [
+    {
+        "id": "jp-foundations-l28",
+        "order": 1,
+        "title_bn": "নির্জীব বস্তু ও উদ্ভিদের অবস্থান — 'あります' (Inanimate Existence)",
+        "title_target": "Inanimate Existence with 'arimasu' (Things & Plants)",
+        "intro_bn": "প্রাণহীন জড়বস্তু, গাছপালা বা ধারণার ক্ষেত্রে 'あります' বসে এবং যা আছে তার পরে が বসে।",
+        "structure": ["Place に + Inanimate Noun が + あります"],
+        "items": [
+            make_item("jp-p8-l28-001", "つくえの うえに ほんが あります。", "つくえのうえにほんがあります。", "Tsukue no ue ni hon ga arimasu.", "টেবিলের ওপর বই আছে।", "ৎसुकুয়ে নো উয়ে নি হোং গা আরিমাসু।", [("机", "tsukue", "机", "টেবিল"), ("の", "no", "の", "এর"), ("上", "ue", "上", "ওপর"), ("に", "ni", "に", "এ"), ("本", "hon", "本", "বই"), ("が", "ga", "が", "টি"), ("あります", "arimasu", "あります", "আছে")]),
+            make_item("jp-p8-l28-002", "へやの なかに テレビが あります。", "へやのなかにてれびがあります。", "Heya no naka ni terebi ga arimasu.", "ঘরের ভেতরে একটি টেলিভিশন আছে।", "হেয়া নো নাকা নি তেরেবি গা আরিমাসু।", [("部屋", "heya", "部屋", "ঘর"), ("の", "no", "の", "এর"), ("中", "naka", "中", "ভেতরে"), ("に", "ni", "に", "এ"), ("テレビ", "terebi", "テレビ", "টেলিভিশন"), ("が", "ga", "が", "টি"), ("あります", "arimasu", "あります", "আছে")]),
+            make_item("jp-p8-l28-003", "きょうは ようじが あります。", "きょうはようじがあります。", "Kyou wa youji ga arimasu.", "আজ আমার কাজ / অ্যাপয়েন্টমেন্ট আছে।", "কিয়োও ওয়া ইয়োওজি গা আরিমাসু।", [("今日", "kyou", "今日", "আজ"), ("は", "wa", "は", "হলো"), ("用事", "youji", "用事", "ব্যক্তিগত কাজ"), ("が", "ga", "が", "টি"), ("あります", "arimasu", "あります", "আছে")])
+        ]
+    },
+    {
+        "id": "jp-foundations-l29",
+        "order": 2,
+        "title_bn": "সজীব প্রাণী ও মানুষের অবস্থান — 'います' (Animate Existence)",
+        "title_target": "Animate Existence with 'imasu' (People & Animals)",
+        "intro_bn": "মানুষ, পশুপাখি বা জীবন্ত প্রাণীর ক্ষেত্রে 'います' বসে।",
+        "structure": ["Place に + Animate Noun が + います"],
+        "items": [
+            make_item("jp-p8-l29-001", "きょうしつに せんせいが います。", "きょうしつにせんせいがいます。", "Kyoushitsu ni sensei ga imasu.", "শ্রেণিকক্ষে শিক্ষক আছেন।", "কিয়োওশিতসু নি সেনসেই গা ইমাসু।", [("教室", "kyoushitsu", "教室", "শ্রেণিকক্ষ"), ("に", "ni", "に", "এ"), ("先生", "sensei", "先生", "শিক্ষক"), ("が", "ga", "が", "টি"), ("います", "imasu", "います", "আছেন")]),
+            make_item("jp-p8-l29-002", "にわに ねこが います。", "にわにねこがいます。", "Niwa ni neko ga imasu.", "বাগানে একটি বিড়াল আছে।", "নিওয়া নি নেকো গা ইমাসু।", [("庭", "niwa", "庭", "বাগান"), ("に", "ni", "に", "এ"), ("猫", "neko", "猫", "বিড়াল"), ("が", "ga", "が", "টি"), ("います", "imasu", "います", "আছে")]),
+            make_item("jp-p8-l29-003", "あそこに だれが いますか。", "あそこにだれがいますか。", "Asoko ni dare ga imasu ka.", "ওখানে কে আছে?", "আসোকো নি দারে গা ইমাসু কা?", [("あそこ", "asoko", "あそこ", "ওখানে"), ("に", "ni", "に", "এ"), ("誰", "dare", "誰", "কে"), ("が", "ga", "が", "টি"), ("いますか", "imasu ka", "いますか", "আছে কি?")])
+        ]
+    },
+    {
+        "id": "jp-foundations-l30",
+        "order": 3,
+        "title_bn": "অবস্থান সূচক শব্দ ও প্রিপজিশন (Spatial Prepositions)",
+        "title_target": "Positional Words: Ue, Shita, Mae, Ushiro, Naka, Tonari",
+        "intro_bn": "ওপর (上), নিচে (下), সামনে (前), পেছনে (後ろ), মাঝে (中), পাশে (となり), কাছে (近く)।",
+        "structure": ["Noun + の + [Position] に + あります/います"],
+        "items": [
+            make_item("jp-p8-l30-001", "えきの まえに ぎんこうが あります。", "えきのまえにぎんこうがあります。", "Eki no mae ni ginkou ga arimasu.", "স্টেশনের সামনে একটি ব্যাংক আছে।", "একি নো মায়ে নি গিনকোও গা আরিমাসু।", [("駅", "eki", "駅", "স্টেশন"), ("の", "no", "の", "এর"), ("前", "mae", "前", "সামনে"), ("に", "ni", "に", "এ"), ("銀行", "ginkou", "銀行", "ব্যাংক"), ("が", "ga", "が", "টি"), ("あります", "arimasu", "あります", "আছে")]),
+            make_item("jp-p8-l30-002", "つくえの したに いぬが います。", "つくえのしたにいぬがいます。", "Tsukue no shita ni inu ga imasu.", "টেবিলের নিচে একটি কুকুর আছে।", "ৎसुकুয়ে নো শিতা নি ইনু গা ইমাসু।", [("机", "tsukue", "机", "টেবিল"), ("の", "no", "の", "এর"), ("下", "shita", "下", "নিচে"), ("に", "ni", "に", "এ"), ("犬", "inu", "犬", "কুকুর"), ("が", "ga", "が", "টি"), ("います", "imasu", "います", "আছে")]),
+            make_item("jp-p8-l30-003", "ほんやは はなやの となりに あります。", "ほんやははなやのとなりにあります。", "Honya wa hanaya no tonari ni arimasu.", "বইয়ের দোকানটি ফুলের দোকানের পাশে আছে।", "হোন্‌য়া ওয়া হানায়া নো তোরারি নি আরিমাসু।", [("本屋", "honya", "本屋", "বইয়ের দোকান"), ("は", "wa", "は", "হলো"), ("花屋", "hanaya", "花屋", "ফুলের দোকান"), ("の", "no", "の", "এর"), ("隣", "tonari", "隣", "পাশে"), ("に", "ni", "に", "এ"), ("あります", "arimasu", "あります", "আছে")])
+        ]
+    },
+    {
+        "id": "jp-foundations-l31",
+        "order": 4,
+        "title_bn": "৬-রূপান্তর ড্রিল: অস্তিত্ব ও অবস্থান (6 Transformations)",
+        "title_target": "6 Sentence Transformations: Existence (Arimasu / Imasu)",
+        "intro_bn": "অস্তিত্বের ক্রিয়া দিয়ে ৬টি রূপে রূপান্তরের স্পোকেন ড্রিল।",
+        "structure": ["Affirmative (+)", "Negative (-)", "Question (?)", "Negative Q (-?)", "WH-Q", "Alternative Q"],
+        "items": [
+            make_item("jp-p8-l31-001", "へやに ねこが います。", "へやにねこがいます。", "Heya ni neko ga imasu.", "১. হ্যাঁ-বোধক: ঘরে বিড়াল আছে।", "হেয়া নি নেকো গা ইমাসু।", item_type="drill"),
+            make_item("jp-p8-l31-002", "へやに ねこは いません。", "へやにねこわいません。", "Heya ni neko wa imasen.", "২. না-বোধক: ঘরে বিড়াল নেই।", "হেয়া নি নেকো ওয়া ইমাসেন।", item_type="drill", polarity="negative"),
+            make_item("jp-p8-l31-003", "へやに ねこが いますか。", "へやにねこがいますか。", "Heya ni neko ga imasu ka.", "৩. প্রশ্নবোধক: ঘরে কি বিড়াল আছে?", "হেয়া নি নেকো গা ইমাসু কা?", item_type="drill", sentence_type="interrogative"),
+            make_item("jp-p8-l31-004", "へやに ねこは いませんか。", "へやにねこわいませんか。", "Heya ni neko wa imasen ka.", "৪. না-বোধক প্রশ্ন: ঘরে কি বিড়াল নেই?", "হেয়া নি নেকো ওয়া ইমাসেন কা?", item_type="drill", sentence_type="negative_interrogative", polarity="negative"),
+            make_item("jp-p8-l31-005", "へやに なにが いますか。ねこが います。", "へやになにがいますか。ねこがいます。", "Heya ni nani ga imasu ka. Neko ga imasu.", "৫. WH-প্রশ্ন: ঘরে কী আছে? বিড়াল আছে।", "হেয়া নি নানি গা ইমাসু কা? নেকো গা ইমাসু।", item_type="drill", sentence_type="wh_question"),
+            make_item("jp-p8-l31-006", "へやに ねこが いますか、いぬが いますか。", "へやにねこがいますか、いぬがいますか。", "Heya ni neko ga imasu ka, inu ga imasu ka.", "৬. বিকল্প প্রশ্ন: ঘরে কি বিড়াল আছে, নাকি কুকুর আছে?", "হেয়া নি নেকো গা ইমাসু কা, ইনু গা ইমাসু কা?", item_type="drill", sentence_type="alternative_question")
+        ]
+    }
 ]
-
-p8_lessons = []
-for l_id, l_order, l_title_bn, l_title_target, l_intro, l_items in wh_qa_list:
-    p8_lessons.append({
-        "id": l_id,
-        "order": l_order,
-        "title_bn": l_title_bn,
-        "title_target": l_title_target,
-        "intro_bn": l_intro,
-        "structure": ["WH-Word + ですか / ますか"],
-        "items": l_items
-    })
-
 parts.append({
     "id": "jp-foundations-p8",
     "order": 8,
     "level": "A1",
-    "title_bn": "প্রয়োজনীয় ১০টি WH-প্রশ্ন ও উত্তর ড্রিল (10 Essential WH-Questions)",
-    "title_target": "10 Essential WH-Questions & Answers",
+    "title_bn": "অবস্থান ও অস্তিত্ব (Existence: あります বনাম います)",
+    "title_target": "Spatial Location & Existence (Arimasu vs. Imasu)",
     "lessons": p8_lessons
 })
 
-# -------------------------------------------------------------
-# Part 9: Continuous Actions & State (〜ています)
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 9: কাজের ভার্ব ও মৌলিক পার্টিকেল (Action Verbs & Particles - Grammar 12–17)
+# ==============================================================================
 p9_lessons = [
     {
-        "id": "jp-foundations-l43",
+        "id": "jp-foundations-l32",
         "order": 1,
-        "title_bn": "বর্তমানে চলতে থাকা কাজ (Present Continuous: Verb-て います)",
-        "title_target": "Actions Happening Now (Verb-te imasu)",
-        "intro_bn": "বর্তমানে কোনো কাজ এই মুহূর্তে চলছে বোঝাতে ক্রিয়ার তে-ফর্মের (Te-form) সাথে 'います' বসে।",
-        "structure": ["Subject + は + いま + Object + を + Verb-て います"],
+        "title_bn": "সরাসরি অবজেক্ট ও ক্রিয়াপদ — '〜を' (Object Particle 'o')",
+        "title_target": "Direct Object with Particle 'o' & Essential Verbs",
+        "intro_bn": "কাজের সরাসরি অবজেক্টের পরে を (উচ্চারণ 'ও') বসে।",
+        "structure": ["Object + を + Verb ます"],
         "items": [
-            make_item("jp-p9-l43-001", "わたしは いま ごはんを たべて います。", "わたしわいまごはんをたべています。", "Watashi wa ima gohan o tabete imasu.", "আমি এখন ভাত খাচ্ছি।", "ওয়াতাশি ওয়া ইমা গোহান ও তাবেতে ইমাসু।"),
-            make_item("jp-p9-l43-002", "たなかさんは でんわを かけて います。", "たなかさんはでんわをかけています。", "Tanaka-san wa denwa o kakete imasu.", "তানাকা বাবু ফোনে কথা বলছেন।", "তানাকা-সান ওয়া দেনওয়া ও কাকেতে ইমাসু।"),
-            make_item("jp-p9-l43-003", "そとで あめが ふって います。", "そとであめがふっています。", "Soto de ame ga futte imasu.", "বাইরে বৃষ্টি পড়ছে।", "সোতো দে আমে গা ফdistributionত্তে ইমাসু।")
+            make_item("jp-p9-l32-001", "みずを のみます。", "みずをのみます。", "Mizu o nomimasu.", "পানি পান করি।", "মিজু ও নোমিমাসু।", [("水", "mizu", "水", "পানি"), ("を", "o", "を", "কে"), ("飲みます", "nomimasu", "飲みます", "পান করি")]),
+            make_item("jp-p9-l32-002", "ごはんを たべます。", "ごはんをたべます。", "Gohan o tabemasu.", "ভাত খাই।", "গোহাং ও তাবেমাসু।", [("ご飯", "gohan", "ご飯", "ভাত"), ("を", "o", "を", "কে"), ("食べます", "tabemasu", "食べます", "খাই")]),
+            make_item("jp-p9-l32-003", "にほんごの ほんを よみます。", "にほんごのほんをよみます。", "Nihongo no hon o yomimasu.", "জাপানি ভাষার বই পড়ি।", "নিহঙ্গো নো হোং ও ইয়োমিমাসু।", [("日本語の", "nihongo no", "日本語の", "জাপানি ভাষার"), ("本", "hon", "本", "বই"), ("を", "o", "を", "কে"), ("読みます", "yomimasu", "読みます", "পড়ি")]),
+            make_item("jp-p9-l32-004", "おんがくを ききます。", "おんがくをききます。", "Ongaku o kikimasu.", "গান শুনি।", "ওনগাকু ও কিকিমাসু।", [("音楽", "ongaku", "音楽", "গান"), ("を", "o", "を", "কে"), ("聞きます", "kikimasu", "聞きます", "শুনি")])
         ]
     },
     {
-        "id": "jp-foundations-l44",
+        "id": "jp-foundations-l33",
         "order": 2,
-        "title_bn": "না-বোধক ঘটমান কাজ (Negative Continuous: Verb-て いません)",
-        "title_target": "Negative Continuous Actions (Verb-te imasen)",
-        "intro_bn": "এই মুহূর্তে কোনো কাজ করছি না বোঝাতে 'Verb-て いません' বসে।",
-        "structure": ["Subject + は + いま + Verb-て いません"],
+        "title_bn": "কাজের স্থান ও মাধ্যম — '〜で' (Action Location & Means)",
+        "title_target": "Action Location & Instrumental Means with Particle 'de'",
+        "intro_bn": "যে স্থানে কোনো কাজ সংঘটিত হয় এবং যে মাধ্যম দিয়ে কাজ করা হয়, তার পরে で (de) বসে।",
+        "structure": ["Place で + Action Verb", "Tool/Vehicle で + Action Verb"],
         "items": [
-            make_item("jp-p9-l44-001", "いま テレビを みて いません。べんきょうして います。", "いまてれびをみていません。べんきょうしています。", "Ima terebi o mite imasen. Benkyou shite imasu.", "এখন টিভি দেখছি না। পড়াশোনা করছি।", "ইমা তেরেবি ও মিতে ইমাসেন। বেনকিওও শিতে ইমাসু।", polarity="negative"),
-            make_item("jp-p9-l44-002", "あめは ふって いません。", "あめはふっていません。", "Ame wa futte imasen.", "বৃষ্টি পড়ছে না।", "আমে ওয়া ফdistributionত্তে ইমাসেন।", polarity="negative")
+            make_item("jp-p9-l33-001", "としょかんで べんきょうします。", "としょかんでべんきょうします。", "Toshokan de benkyou shimasu.", "লাইব্রেরিতে পড়াশোনা করি।", "তোশোকাং দে বেনকিয়োও শিমাসু।", [("図書館", "toshokan", "図書館", "লাইব্রেরি"), ("で", "de", "で", "এ"), ("勉強します", "benkyou shimasu", "勉強します", "পড়াশোনা করি")]),
+            make_item("jp-p9-l33-002", "レストランで ひるごはんを たべます。", "れすとらんでひるごはんをたべます。", "Resutoran de hirugohan o tabemasu.", "রেস্তোরাঁয় দুপুরের খাবার খাই।", "রেসুতোরাং দে হিরুগোহাং ও তাবেমাসু।", [("レストラン", "resutoran", "レストラン", "রেস্তোরাঁ"), ("で", "de", "で", "এ"), ("昼ご飯", "hirugohan", "昼ご飯", "দুপুরের খাবার"), ("を", "o", "を", "কে"), ("食べます", "tabemasu", "食べます", "খাই")]),
+            make_item("jp-p9-l33-003", "でんしゃで かいしゃへ いきます。", "でんしゃでかいしゃへいきます。", "Densha de kaisha e ikimasu.", "ট্রেনে করে অফিসে যাই।", "দেনশা দে কাইশা এ ইকিমাসু।", [("電車", "densha", "電車", "ট্রেন"), ("で", "de", "で", "দিয়ে"), ("会社", "kaisha", "会社", "কোম্পানি/অফিস"), ("へ", "e", "へ", "দিকে"), ("行きます", "ikimasu", "行きます", "যাই")]),
+            make_item("jp-p9-l33-004", "はしで ごはんを たべます。", "はしでごはんをたべます。", "Hashi de gohan o tabemasu.", "চপস্টিক দিয়ে খাবার খাই।", "হাশি দে গোহাং ও তাবেমাসু।", [("箸", "hashi", "箸", "চপস্টিক"), ("で", "de", "で", "দিয়ে"), ("ご飯", "gohan", "ご飯", "খাবার"), ("を", "o", "を", "কে"), ("食べます", "tabemasu", "食べます", "খাই")])
         ]
     },
     {
-        "id": "jp-foundations-l45",
+        "id": "jp-foundations-l34",
         "order": 3,
-        "title_bn": "স্থায়িত্ব ও বর্তমান অবস্থা (Living, Knowing & Marital State)",
-        "title_target": "Continuous States (Sunde imasu, Shitte imasu)",
-        "intro_bn": "কোথাও বসবাস করা (住んでいます) বা কাউকে চেনা/জানা (知っています) অতীতে ঘটে এখনও বিদ্যমান অবস্থা বোঝায়।",
-        "structure": ["Place に + すんで います (বাস করি)", "Person を + しって います (চিনি)"],
+        "title_bn": "গন্তব্য ও দিক — '〜へ / 〜に' (Destination & Movement)",
+        "title_target": "Movement Verbs & Destination with 'e' / 'ni'",
+        "intro_bn": "যাওয়া (行きます), আসা (来ます), ফিরে যাওয়া (帰ります) এর গন্তব্যের পরে へ (উচ্চারণ 'এ') বা に বসে।",
+        "structure": ["Destination + へ/に + 行きます / 来ます / 帰ります"],
         "items": [
-            make_item("jp-p9-l45-001", "わたしは ダッカに すんで います。", "わたしわだっかにすんでいます。", "Watashi wa Dakka ni sunde imasu.", "আমি ঢাকায় বসবাস করি।", "ওয়াতাশি ওয়া ধাক্কা নি সুন্দে ইমাসু।"),
-            make_item("jp-p9-l45-002", "あの ひとを しって いますか。はい、しって います。", "あのひとをしっていますか。はい、しっています。", "Ano hito o shitte imasu ka. Hai, shitte imasu.", "ওই লোকটিকে চেনেন কি? হ্যাঁ, চিনি।", "আনো হিতো ও শিত্তে ইমাসু কা? হাই, শিত্তে ইমাসু।"),
-            make_item("jp-p9-l45-003", "いいえ、しりません。", "いいえ、しりません。", "Iie, shirimasen.", "না, চিনি না / জানি না। (মনে রাখবেন: '知っていません' হয় না, '知りません' হয়)", "ইইয়ে, শিরিমাসেন।", polarity="negative")
+            make_item("jp-p9-l34-001", "がっこうへ いきます。", "がっこうへいきます。", "Gakkou e ikimasu.", "স্কুলে যাই।", "গাক্‌কোও এ ইকিমাসু।", [("学校", "gakkou", "学校", "স্কুল"), ("へ", "e", "へ", "দিকে"), ("行きます", "ikimasu", "行きます", "যাই")]),
+            make_item("jp-p9-l34-002", "きょねん にほんへ きました。", "きょねんにほんへきました。", "Kyonen Nihon e kimashita.", "গত বছর জাপানে এসেছিলাম।", "কিয়োনেন নিহোং এ কিমাশিতা।", [("去年", "kyonen", "去年", "গত বছর"), ("日本", "Nihon", "日本", "জাপান"), ("へ", "e", "へ", "দিকে"), ("来ました", "kimashita", "来ました", "এসেছিলাম")]),
+            make_item("jp-p9-l34-003", "ろくじに うちへ かえります。", "ろくじにうちへかえります。", "Rokuji ni uchi e kaerimasu.", "ছয়টায় বাড়ি ফিরি।", "রোকুজি নি উচি এ কাএরিমাসু।", [("六時", "rokuji", "六時", "৬টা"), ("に", "ni", "に", "এ"), ("うち", "uchi", "家", "বাড়ি"), ("へ", "e", "へ", "দিকে"), ("帰ります", "kaerimasu", "帰ります", "ফিরি")])
         ]
     },
     {
-        "id": "jp-foundations-l46",
+        "id": "jp-foundations-l35",
         "order": 4,
-        "title_bn": "পেশাগত কাজ চলা ও কর্মসংস্থান (Working at a Company)",
-        "title_target": "Employment & Long-term Actions (Hatarraite imasu)",
-        "intro_bn": "কোনো প্রতিষ্ঠানে চাকরি বা পেশায় নিয়োজিত থাকা প্রকাশে '〜で はたらいて います' বসে।",
-        "structure": ["Company で + はたらいて います"],
+        "title_bn": "সময় ও সীমা — 'Time に', '〜から 〜まで'",
+        "title_target": "Specific Time 'ni' & Spans 'kara ... made'",
+        "intro_bn": "নির্দিষ্ট সময়ে কাজ বোঝাতে に এবং শুরুর ও শেষের সময় বা স্থান বোঝাতে から (থেকে) ও まで (পর্যন্ত) বসে।",
+        "structure": ["Time に + Verb", "Point A から + Point B まで"],
         "items": [
-            make_item("jp-p9-l46-001", "わたしは ITきぎょうで はたらいて います。", "わたしわあいてぃーきぎょうではたらいています。", "Watashi wa aitee kigyou de hataraite imasu.", "আমি একটি আইটি কোম্পানিতে কাজ করছি।", "ওয়াতাশি ওয়া আইটি কিগিওও দে হাতারাইতে ইমাসু।"),
-            make_item("jp-p9-l46-002", "ちちは ぎんこうで つとめて います。", "ちちはぎんこうでつとめています。", "Chichi wa ginkou de tsutomete imasu.", "বাবা ব্যাংকে চাকরি করছেন।", "চিচি ওয়া গিনকোও দে সুতোমেতে ইমাসু।")
+            make_item("jp-p9-l35-001", "しちじに おきます。", "しちじにおきます。", "Shichiji ni okimasu.", "সাতটায় ঘুম থেকে উঠি।", "শিচিজি নি ওকিমাসু।", [("七時", "shichiji", "七時", "৭টা"), ("に", "ni", "に", "এ"), ("起きます", "okimasu", "起きます", "উঠি")]),
+            make_item("jp-p9-l35-002", "くじから ごじまで はたらきます。", "くじからごじまではたらきます。", "Kuji kara goji made hatarakimasu.", "সকাল ৯টা থেকে বিকাল ৫টা পর্যন্ত কাজ করি।", "কুজি কারা গোজি মাদে হাতারাকিমাসু।", [("九時", "kuji", "九時", "৯টা"), ("から", "kara", "から", "থেকে"), ("五時", "goji", "五時", "৫টা"), ("まで", "made", "まで", "পর্যন্ত"), ("働きます", "hatarakimasu", "働きます", "কাজ করি")]),
+            make_item("jp-p9-l35-003", "じゅういちじに ねます。", "じゅういちじにねます。", "Juuichiji ni nemasu.", "রাত এগারোটায় ঘুমাই।", "জিউউইচিজি নি নেমাসু।", [("十一時", "juuichiji", "十一時", "১১টা"), ("に", "ni", "に", "এ"), ("寝ます", "nemasu", "寝ます", "ঘুমাই")]),
+            make_item("jp-p9-l35-004", "ともだちと えいがを みます。", "ともだちとえいがをみます。", "Tomodachi to eiga o mimasu.", "বন্ধুর সাথে সিনেমা দেখি।", "তোমোদাচি তো এইগা ও মিমাসু।", [("友達", "tomodachi", "友達", "বন্ধু"), ("と", "to", "と", "সাথে"), ("映画", "eiga", "映画", "চলচ্চিত্র"), ("を", "o", "を", "কে"), ("見ます", "mimasu", "見ます", "দেখি")])
         ]
     }
 ]
@@ -731,97 +707,53 @@ parts.append({
     "id": "jp-foundations-p9",
     "order": 9,
     "level": "A1",
-    "title_bn": "ঘটমান কাজ ও বর্তমান অবস্থা (〜ています - Present Continuous)",
-    "title_target": "Present Continuous & Continuous States (~te imasu)",
+    "title_bn": "কাজের ক্রিয়া ও মৌলিক পার্টিকেল (Action Verbs & Particles を, で, へ, に)",
+    "title_target": "Action Verbs & Core Particles (o, de, e, ni, to, kara, made)",
     "lessons": p9_lessons
 })
 
-# -------------------------------------------------------------
-# Part 10: Wants, Requests, Permissions & Obligations
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 10: ভদ্র বর্তমান ক্রিয়া ও আমন্ত্রণ (Polite Verbs & Invitations)
+# ==============================================================================
 p10_lessons = [
     {
-        "id": "jp-foundations-l47",
+        "id": "jp-foundations-l36",
         "order": 1,
-        "title_bn": "ইচ্ছা প্রকাশ — '〜たいです / 〜たくないです' (Desires)",
-        "title_target": "Expressing Wants & Desires (~tai desu / ~takunai desu)",
-        "intro_bn": "নিজের কোনো কিছু করার ইচ্ছা প্রকাশ করতে 'Verb-মাসু' এর মাসু উঠিয়ে '〜たいです' (চাই) এবং না চাইলে '〜たくないです' বসে।",
-        "structure": ["Verb Stem + たいです (করতে চাই)", "Verb Stem + たくないです (করতে চাই না)"],
+        "title_bn": "ক্রিয়াপদের ৩টি গ্রুপ ও ভদ্র রূপ (Verb Groups & Masu/Masen)",
+        "title_target": "The 3 Japanese Verb Groups & Polite Conjugation",
+        "intro_bn": "গ্রুপ ১ (গোদন ক্রিয়া), গ্রুপ ২ (ইচিদান ক্রিয়া), অনিয়মিত (する ও くる)। বর্তমান হ্যাঁ-বোধক ます এবং না-বোধক ません।",
+        "structure": ["Verb ます (Affirmative)", "Verb ません (Negative)"],
         "items": [
-            make_item("jp-p10-l47-001", "わたしは にほんへ いきたいです。", "わたしわにほんえいきたいです。", "Watashi wa Nihon e ikitai desu.", "আমি জাপান যেতে চাই।", "ওয়াতাশি ওয়া নিহোন এ ইকিতাই দেস।"),
-            make_item("jp-p10-l47-002", "にほんの すしを たべたいです。", "にほんのすしをたべたいです。", "Nihon no sushi o tabetai desu.", "জাপানি সুশি খেতে চাই।", "নিহোন নো সুশি ও তাবেতাই দেস।"),
-            make_item("jp-p10-l47-003", "きょうは どこへも いきたくないです。うちで やすみたいです。", "きょうわどこえもいきたくないです。うちでやすみたいです。", "Kyou wa doko e mo ikitakunai desu. Uchi de yasumitai desu.", "আজ কোথাও যেতে চাই না। বাড়িতে বিশ্রাম নিতে চাই।", "কিয়োও ওয়া দোকো এ মো ইকিতাকুনাই দেস। উচি দে ইয়াসুমিতাই দেস।", polarity="negative")
+            make_item("jp-p10-l36-001", "まいあさ コーヒーを のみます。", "まいあさこーひーをのみます。", "Maiasa koohii o nomimasu.", "প্রতিদিন সকালে কফি খাই।", "মাইআসা কোওহিই ও নোমিমাসু।", [("毎朝", "maiasa", "毎朝", "প্রতিদিন সকাল"), ("コーヒー", "koohii", "コーヒー", "কফি"), ("を", "o", "を", "কে"), ("飲みます", "nomimasu", "飲みます", "পান করি")]),
+            make_item("jp-p10-l36-002", "あさごはんを たべません。", "あさごはんをたべません。", "Asagohan o tabemasen.", "সকালের নাশতা খাই না।", "আসা গোহাং ও তাবেমাসেন।", [("朝ご飯", "asagohan", "朝ご飯", "সকালের নাশতা"), ("を", "o", "を", "কে"), ("食べません", "tabemasen", "食べません", "খাই না")], polarity="negative"),
+            make_item("jp-p10-l36-003", "にちようびは はたらきません。", "にちようびわはたらきません。", "Nichiyoubi wa hatarakimasen.", "রবিবারে কাজ করি না।", "নিচিয়োওবি ওয়া হাতারাকিমাসেন।", [("日曜日", "nichiyoubi", "日曜日", "রবিবার"), ("は", "wa", "は", "হলো"), ("働きません", "hatarakimasen", "働きません", "কাজ করি না")], polarity="negative")
         ]
     },
     {
-        "id": "jp-foundations-l48",
+        "id": "jp-foundations-l37",
         "order": 2,
-        "title_bn": "পরিকল্পনা ও অন্যের সাথে চাওয়া (〜たいと思います)",
-        "title_target": "Intentions & Moderate Desires (~tai to omoimasu)",
-        "intro_bn": "মার্জিতভাবে নিজের ইচ্ছার কথা জানাতে '〜たいと おもいます' (ভাবছি যে করব) বলা হয়।",
-        "structure": ["Verb-たい + と おもいます"],
+        "title_bn": "দৈনন্দিন রুটিন কথন — 'わたしの一日' (Reading 1 Narrative)",
+        "title_target": "Daily Routine Monologue (Watashi no Ichinichi)",
+        "intro_bn": "সকাল থেকে রাত পর্যন্ত সারাদিনের কাজের ধারাবাহিক স্ব-বর্ণনা।",
+        "structure": ["Time に + Action + て + Sequence"],
         "items": [
-            make_item("jp-p10-l48-001", "らいねん だいがくで べんきょうしたいと おもいます。", "らいねんだいがくでべんきょうしたいとおもいます。", "Rainen daigaku de benkyou shitai to omoimasu.", "আগামী বছর বিশ্ববিদ্যালয়ে পড়তে চাই বলে ভাবছি।", "রাইনেন দাইগাকু দে বেনকিওও শিতাই তো ওমোইমাসু।")
+            make_item("jp-p10-l37-001", "わたしは まいあさ ろくじはんに おきます。", "わたしはまいあさろくじはんにおきます。", "Watashi wa maiasa rokuji-han ni okimasu.", "আমি প্রতিদিন সকাল সাড়ে ছয়টায় ঘুম থেকে উঠি।", "ওয়াতাশি ওয়া মাইআসা রোকুজি-হান নি ওকিমাসু।"),
+            make_item("jp-p10-l37-002", "しちじに あさごはんを たべて、はちじに がっこうへ いきます。", "しちじにあさごはんをたべて、はちじにがっこうへいきます。", "Shichiji ni asagohan o tabete, hachiji ni gakkou e ikimasu.", "সাতটায় নাশতা খেয়ে আটটায় স্কুলে যাই।", "শিচিজি নি আসাগোহাং ও তাবেতে, হাচিজি নি গাক্‌কোও এ ইকিমাসু।"),
+            make_item("jp-p10-l37-003", "よるは ほんを よんで、じゅういちじに ねます。", "よるはほんをよんで、じゅういちじにねます。", "Yoru wa hon o yonde, juuichiji ni nemasu.", "রাতে বই পড়ে এগারোটায় ঘুমাই।", "ইয়োরু ওয়া হোং ও ইয়োন্দে, জিউউইচিজি নি নেমাসু।")
         ]
     },
     {
-        "id": "jp-foundations-l49",
+        "id": "jp-foundations-l38",
         "order": 3,
-        "title_bn": "ভদ্র অনুরোধ — 'Verb-て ください' (Please do...)",
-        "title_target": "Polite Requests (Verb-te kudasai)",
-        "intro_bn": "কাউকে কোনো কিছু করার অনুরোধ করতে ক্রিয়ার তে-ফর্মের পর 'ください' (kudasai) বসে।",
-        "structure": ["Verb-て + ください (অনুগ্রহ করে করুন)"],
+        "title_bn": "ভদ্র আমন্ত্রণ ও প্রস্তাব — '〜ませんか / 〜ましょう'",
+        "title_target": "Polite Invitations & Suggestions (Masen ka / Mashou)",
+        "intro_bn": "একসাথে কোনো কাজ করার ভদ্র আমন্ত্রণ '〜ませんか' এবং উৎসাহব্যঞ্জক প্রস্তাব '〜ましょう' (চলুন করি)।",
+        "structure": ["Verbます-stem + ませんか (Shall we...?)", "Verbます-stem + ましょう (Let's...)"],
         "items": [
-            make_item("jp-p10-l49-001", "ここに なまえを かいて ください。", "ここになまえをかいてください。", "Koko ni namae o kaite kudasai.", "এখানে অনুগ্রহ করে নাম লিখুন।", "কোকো নি নামায়ে ও কাইতে কুদাসাই।"),
-            make_item("jp-p10-l49-002", "もう いちど いって ください。", "もういちどいってください。", "Mou ichido itte kudasai.", "অনুগ্রহ করে আরও একবার বলুন।", "মোও ইচিদো ইত্তে কুদাসাই।"),
-            make_item("jp-p10-l49-003", "どうぞ すわって ください。", "どうぞすわってください。", "Douzo suwatte kudasai.", "অনুগ্রহ করে বসুন।", "দোওজো সুওয়াত্তে কুদাসাই।")
-        ]
-    },
-    {
-        "id": "jp-foundations-l50",
-        "order": 4,
-        "title_bn": "অনুমতি চাওয়া ও প্রদান (Permission: Verb-ても いいですか)",
-        "title_target": "Asking & Giving Permission (~te mo ii desu ka)",
-        "intro_bn": "কোনো কাজ করার অনুমতি চাইতে '〜ても いいですか' (করতে পারি কি?) এবং অনুমতি দিতে 'いいですよ' বলতে হয়।",
-        "structure": ["Verb-て + も いいですか (May I...?)", "はい、いいですよ (Yes, you may)"],
-        "items": [
-            make_item("jp-p10-l50-001", "しゃしんを とっても いいですか。はい、いいですよ。", "しゃしんをとってもいいですか。はい、いいですよ。", "Shashin o totte mo ii desu ka. Hai, ii desu yo.", "ছবি তুলতে পারি কি? হ্যাঁ, তুলতে পারেন।", "শাশিন ও তোত্তে মো ইই দেসু কা? হাই, ইই দেসু ইয়ো।"),
-            make_item("jp-p10-l50-002", "ここに はいっても いいですか。", "ここにはいってもいいですか。", "Koko ni haitte mo ii desu ka.", "এখানে প্রবেশ করতে পারি কি?", "কোকো নি হাইত্তে মো ইই দেসু কা?")
-        ]
-    },
-    {
-        "id": "jp-foundations-l51",
-        "order": 5,
-        "title_bn": "নিষেধাজ্ঞা — 'Verb-ては いけません' (Prohibition: Must not)",
-        "title_target": "Prohibition (~te wa ikemasen)",
-        "intro_bn": "কোনো কাজ করা কঠোরভাবে নিষেধ বোঝাতে '〜ては いけません' বসে।",
-        "structure": ["Verb-て + は いけません (করা যাবে না/নিষেধ)"],
-        "items": [
-            make_item("jp-p10-l51-001", "ここで タバコを すっては いけません。", "ここでたばこをすってはいけません。", "Koko de tabako o sutte wa ikemasen.", "এখানে ধূমপান করা নিষেধ।", "কোকো দে তাবাকো ও সুত্তে ওয়া ইকেমাসেন।", polarity="negative"),
-            make_item("jp-p10-l51-002", "びじゅつかんで しゃしんを とっては いけません。", "びじゅつかんでしゃしんをとってはいけません。", "Bijutsukan de shashin o totte wa ikemasen.", "আর্ট গ্যালারিতে ছবি তোলা নিষেধ।", "বিজুতসুকান দে শাশিন ও তোত্তে ওয়া ইকেমাসেন।", polarity="negative")
-        ]
-    },
-    {
-        "id": "jp-foundations-l52",
-        "order": 6,
-        "title_bn": "বাধ্যবাধকতা — '〜なければ なりません' (Obligation: Must / Have to)",
-        "title_target": "Obligation & Necessity (~nakereba narimasen)",
-        "intro_bn": "কোনো কাজ করতেই হবে বা বাধ্যবাধকতা বোঝাতে 'নাই-ফর্মের' নাই উঠিয়ে '〜なければ なりません' বসে।",
-        "structure": ["Verb-なければ + なりません (করতেই হবে)"],
-        "items": [
-            make_item("jp-p10-l52-001", "くすりを のまなければ なりません。", "くすりをのまなければなりません。", "Kusuri o nomanakereba narimasen.", "ওষুধ খেতেই হবে।", "কুসুরি ও নোমানাকেরোবা নারিমাসেন।"),
-            make_item("jp-p10-l52-002", "あした びょういんへ いかなければ なりません。", "あしたびょういんえいかなければなりません。", "Ashita byouin e ikanakereba narimasen.", "আগামীকাল হাসপাতালে যেতেই হবে।", "আশিতা বিয়োওইন এ ইকানাখেরেবা নারিমাসেন।")
-        ]
-    },
-    {
-        "id": "jp-foundations-l53",
-        "order": 7,
-        "title_bn": "বাধ্যবাধকতা নেই — '〜なくても いいです' (No need to)",
-        "title_target": "Lack of Obligation (~nakute mo ii desu)",
-        "intro_bn": "কোনো কাজ না করলেও চলবে বোঝাতে '〜なくても いいです' বসে।",
-        "structure": ["Verb-なくても + いいです (না করলেও চলবে)"],
-        "items": [
-            make_item("jp-p10-l53-001", "あしたは がっこうへ こなくても いいです。", "あしたはがっこうえこなくてもいいです。", "Ashita wa gakkou e konakute mo ii desu.", "আগামীকাল স্কুলে না আসলেও চলবে (ছুটি)।", "আশিতা ওয়া গাক্কোও এ কোনাকুতে মো ইই দেস।")
+            make_item("jp-p10-l38-001", "いっしょに コーヒーを のみませんか。", "いっしょにこーひーをのみませんか。", "Issho ni koohii o nomimasen ka.", "একসাথে কফি খাবেন?", "ইশ্শো নি কোওহিই ও নোমিমাসেন কা?", [("いっしょに", "issho ni", "一緒に", "একসাথে"), ("コーヒー", "koohii", "コーヒー", "কফি"), ("を", "o", "を", "কে"), ("飲みませんか", "nomimasen ka", "飲みませんか", "খাবেন কি?")]),
+            make_item("jp-p10-l38-002", "ええ、のみましょう。", "ええ、のみましょう。", "Ee, nomimashou.", "হঁ্যা, চলুন খাই।", "এএ, নোমিমাশোও।", [("ええ", "ee", "ええ", "হঁ্যা"), ("飲みましょう", "nomimashou", "飲みましょう", "চলুন পান করি")]),
+            make_item("jp-p10-l38-003", "すこし やすみましょう。", "すこしやすみましょう。", "Sukoshi yasumimashou.", "চলুন একটু বিশ্রাম নিই।", "সুকোশি ইয়াসুমিমাশোও।", [("少し", "sukoshi", "少し", "একটু"), ("休みましょう", "yasumimashou", "休みましょう", "চলুন বিশ্রাম নিই")]),
+            make_item("jp-p10-l38-004", "にもつを もちましょうか。", "にもつをもちましょうか。", "Nimotsu o mochimashou ka.", "আমি কি আপনার মালামাল বহন করব?", "নিমোৎসু ও মোচিমাশোও কা?", [("荷物", "nimotsu", "荷物", "লাগেজ/মালামাল"), ("を", "o", "を", "কে"), ("持ちましょうか", "mochimashou ka", "持ちましょうか", "বহন করব কি?")])
         ]
     }
 ]
@@ -829,61 +761,56 @@ parts.append({
     "id": "jp-foundations-p10",
     "order": 10,
     "level": "A1",
-    "title_bn": "ইচ্ছা, অনুরোধ, অনুমতি ও বাধ্যবাধকতা (Wants, Modals & Rules)",
-    "title_target": "Desires, Requests, Permissions & Obligations",
+    "title_bn": "দৈনন্দিন রুটিন ও আমন্ত্রণ (Daily Routine & Invitations)",
+    "title_target": "Polite Verb Tenses, Daily Routine & Social Invitations",
     "lessons": p10_lessons
 })
 
-# -------------------------------------------------------------
-# Part 11: Interactive Voice Pair Practice (Voice Q&A)
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 11: বিশেষণ ও অনুভূতি (い-Adjectives ও な-Adjectives - Grammar 26–28)
+# ==============================================================================
 p11_lessons = [
     {
-        "id": "jp-foundations-l54",
+        "id": "jp-foundations-l39",
         "order": 1,
-        "title_bn": "বাসস্থান ও শহর নিয়ে পেয়ার ড্রিল (Living & Hometown Voice Q&A)",
-        "title_target": "Hometown & Residence (Pair Voice Practice)",
-        "intro_bn": "মাইক্রোফোনে ট্যাপ করে প্রশ্ন শুনে জাপানিজে উত্তর দিন।",
-        "structure": ["Q: どこに すんでいますか", "A: [Place] に すんでいます"],
+        "title_bn": "い-বিশেষণ: হ্যাঁ-বোধক ও না-বোধক রূপ (i-Adjectives)",
+        "title_target": "i-Adjectives: Affirmative & Negative (~kunai desu)",
+        "intro_bn": "শেষে い থাকা বিশেষণ। হ্যাঁ-বোধকে সরাসরি です বসে এবং না-বোধকে い উঠে 〜くないです বসে।",
+        "structure": ["Affirmative: い-Adj + です", "Negative: [い বাদ] + くないです"],
         "items": [
-            make_item("jp-p11-l54-001", "おすまいは どちらですか。ダッカに すんでいます。", "おすまいわどちらですか。だっかにすんでいます。", "Osumai wa dochira desu ka. Dakka ni sunde imasu.", "আপনার বাসস্থান কোথায়? ঢাকায় বসবাস করি।", "ওসুমাই ওয়া দোচিরা দেসু কা? ধাক্কা নি সুন্দে ইমাসু।", item_type="dialogue"),
-            make_item("jp-p11-l54-002", "ふるさとは どんな まちですか。しずかで きれいな まちです。", "ふるさとわどんなまちですか。しずかできれいなまちです。", "Furusato wa donna machi desu ka. Shizuka de kirei na machi desu.", "আপনার নিজের শহর কেমন? শান্ত ও সুন্দর শহর।", "ফুরুসাতো ওয়া দোন্না মাচি দেসু কা? শিজুকা দে কিরেই না মাচি দেস।", item_type="dialogue")
+            make_item("jp-p11-l39-001", "このまちは おおきいです。", "このまちはおおきいです。", "Kono machi wa ookii desu.", "এই শহরটি বড়।", "কোনো মাচি ওয়া ওওকিই দেস।", [("この", "kono", "この", "এই"), ("町", "machi", "町", "শহর"), ("は", "wa", "は", "হলো"), ("大きい", "ookii", "大きい", "বড়"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p11-l39-002", "このほんは たかくないです。やすいです。", "このほんわたかくないです。やすいです。", "Kono hon wa takakunai desu. Yasui desu.", "এই বইটি দামি নয়। সস্তা।", "কোনো হোং ওয়া তাকাকুনাই দেস। ইয়াসুই দেস।", [("この本", "kono hon", "この本", "এই বই"), ("は", "wa", "は", "হলো"), ("高くないです", "takakunai desu", "高くないです", "দামি নয়"), ("安いです", "yasui desu", "安いです", "সস্তা হয়")], polarity="negative"),
+            make_item("jp-p11-l39-003", "にほんの たべものは おいしいです。", "にほんのたべものはおいしいです。", "Nihon no tabemono wa oishii desu.", "জাপানি খাবার সুস্বাদু।", "নিহোন নো তাবেমোনো ওয়া ওইশিই দেস।", [("日本の", "Nihon no", "日本の", "জাপানের"), ("食べ物", "tabemono", "食べ物", "খাবার"), ("は", "wa", "は", "হলো"), ("おいしい", "oishii", "美味しい", "সুস্বাদু"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p11-l39-004", "きょうは あつくないです。", "きょうわあつくないです。", "Kyou wa atsukunai desu.", "আজ গরম নয়।", "কিয়োও ওয়া আৎসুকুনাই দেস।", [("今日", "kyou", "今日", "আজ"), ("は", "wa", "は", "হলো"), ("暑くないです", "atsukunai desu", "暑くないです", "গরম নয়")], polarity="negative"),
+            make_item("jp-p11-l39-005", "このカメラは いいです。よくないです。", "このかめらわいいです。よくないです。", "Kono kamera wa ii desu. Yokunai desu.", "এই ক্যামেরাটি ভালো। ভালো নয় (অনিয়মিত)।", "কোনো কামেরাঁ ওয়া ইই দেস। ইয়োকুনাই দেস।", item_type="drill")
         ]
     },
     {
-        "id": "jp-foundations-l55",
+        "id": "jp-foundations-l40",
         "order": 2,
-        "title_bn": "শখ ও প্রতিদিনের রুটিন নিয়ে পেয়ার ড্রিল (Hobbies & Routines)",
-        "title_target": "Hobbies & Routines (Pair Voice Practice)",
-        "intro_bn": "শখ ও অভ্যাস নিয়ে পারস্পরিক কথোপকথন ড্রিল।",
-        "structure": ["Q: しゅみは なんですか", "A: [Hobby] です"],
+        "title_bn": "な-বিশেষণ: বৈশিষ্ট্য ও গুণাগুণ (na-Adjectives)",
+        "title_target": "na-Adjectives: Shizuka, Kirei, Genki, Benri",
+        "intro_bn": "বিশেষ্যের আগে な বসে (যেমন: 静かな部屋) এবং বাক্য শেষে です ও না-বোধকে じゃありません বসে। きれい দেখতে い হলেও な-বিশেষণ!",
+        "structure": ["Noun Modification: な-Adj + な + Noun", "Predicate: な-Adj + です / じゃありません"],
         "items": [
-            make_item("jp-p11-l55-001", "しゅみは なんですか。おんがくを きくことです。", "しゅみわなんですか。おんがくをきくことです。", "Shumi wa nan desu ka. Ongaku o kiku koto desu.", "আপনার শখ কী? গান শোনা।", "শুমি ওয়া নান দেসু কা? ওনগাকু ও কিকু কোতো দেস।", item_type="dialogue"),
-            make_item("jp-p11-l55-002", "まいにち なにを しますか。にほんごを べんきょうします。", "まいにちなにをしますか。にほんごをべんきょうします。", "Mainichi nani o shimasu ka. Nihongo o benkyou shimasu.", "প্রতিদিন কী করেন? জাপানি ভাষা শিখি।", "মাইনিচি নানি ও শিমাসু কা? নিহঙ্গো ও বেনকিওও শিমাসু।", item_type="dialogue")
+            make_item("jp-p11-l40-001", "ここは しずかな へやです。", "ここはしずかなへやです。", "Koko wa shizuka na heya desu.", "এটি একটি শান্ত ঘর।", "কোকো ওয়া শিজুকা না হেয়া দেস।", [("ここ", "koko", "ここ", "এখানে"), ("は", "wa", "は", "হলো"), ("静かな", "shizuka na", "静かな", "শান্ত"), ("部屋", "heya", "部屋", "ঘর"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p11-l40-002", "このまちは べんりです。", "このまちはべんりです。", "Kono machi wa benri desu.", "এই শহরটি সুবিধাজনক।", "কোনো মাচি ওয়া বেনরি দেস।", [("この", "kono", "この", "এই"), ("町", "machi", "町", "শহর"), ("は", "wa", "は", "হলো"), ("便利", "benri", "便利", "সুবিধাজনক"), ("です", "desu", "です", "হয়")]),
+            make_item("jp-p11-l40-003", "きょうは ひまじゃ ありません。", "きょうわひまじゃありません。", "Kyou wa hima ja arimasen.", "আজ আমি অবসর নই (ব্যস্ত)।", "কিয়োও ওয়া হিমা জা আরিমাসেন।", [("今日", "kyou", "今日", "আজ"), ("は", "wa", "は", "হলো"), ("暇じゃありません", "hima ja arimasen", "暇じゃありません", "অবসর নই")], polarity="negative"),
+            make_item("jp-p11-l40-004", "マリアさんは とても きれいです。", "まりあさんはとてもきれいです。", "Maria-san wa totemo kirei desu.", "মারিয়া খুবই সুন্দরী।", "মারিয়া-সান ওয়া তোতেমো কিরেই দেস।", [("マリアさん", "Maria-san", "マリアさん", "মারিয়া-সান"), ("は", "wa", "は", "হলো"), ("とても", "totemo", "とても", "খুবই"), ("きれい", "kirei", "綺麗", "সুন্দরী/পরিচ্ছন্ন"), ("です", "desu", "です", "হয়")])
         ]
     },
     {
-        "id": "jp-foundations-l56",
+        "id": "jp-foundations-l41",
         "order": 3,
-        "title_bn": "রেস্তোরাঁ ও পছন্দের খাবার (Food & Dining Voice Q&A)",
-        "title_target": "Dining & Preferences (Pair Voice Practice)",
-        "intro_bn": "খাবারের পছন্দ ও অর্ডার নিয়ে প্রশ্ন-উত্তর অনুশীলন।",
-        "structure": ["Q: なにが すきですか", "A: [Food] が すきです"],
+        "title_bn": "পছন্দ, অপছন্দ ও সামর্থ্য (好き, 嫌い, 上手, 下手 - Grammar 29–32)",
+        "title_target": "Preferences, Desires & Abilities (Suki, Hoshii, Dekiru)",
+        "intro_bn": "পছন্দ, চাওয়া বা পারদর্শিতার অবজেক্টে を এর পরিবর্তে が বসে (যেমন: 音楽が好きです)।",
+        "structure": ["Noun + が + 好きです / 嫌いです", "Noun + が + ほしいです (I want ...)", "Verb辞書形 + ことが できます (I can ...)"],
         "items": [
-            make_item("jp-p11-l56-001", "どんな たべものが すきですか。かれーが すきです。", "どんなたべものがすきですか。かれーがすきです。", "Donna tabemono ga suki desu ka. Karee ga suki desu.", "কেমন খাবার আপনার পছন্দ? কারি পছন্দ।", "দোন্না তাবেমোনো গা সুকি দেসু কা? কারেএ গা সুকি দেস।", item_type="dialogue"),
-            make_item("jp-p11-l56-002", "にほんの りょうりは たかいですか。いいえ、あまり たかくないです。", "にほんのりょうりわたかいですか。いいえ、あまりたかくないです。", "Nihon no ryouri wa takai desu ka. Iie, amari takakunai desu.", "জাপানি খাবার কি দামি? না, তেমন দামি নয়।", "নিহোন নো রিওওরি ওয়া তাকাই দেসু কা? ইইয়ে, আমারি তাকাকুনাই দেস।", item_type="dialogue")
-        ]
-    },
-    {
-        "id": "jp-foundations-l57",
-        "order": 4,
-        "title_bn": "যাতায়াত ও সময় (Travel & Directions Voice Q&A)",
-        "title_target": "Transportation & Directions (Pair Voice Practice)",
-        "intro_bn": "যাতায়াত সংক্রান্ত প্রশ্ন-উত্তর ড্রিল।",
-        "structure": ["Q: どうやって きましたか", "A: [Vehicle] で きました"],
-        "items": [
-            make_item("jp-p11-l57-001", "ここまで どうやって きましたか。ちかてつで きました。", "ここまでどうやってきましたか。ちかてつできました。", "Koko made dou yatte kimashita ka. Chikatetsu de kimashita.", "এখানে কীভাবে এসেছেন? সাবওয়ে/মেট্রোতে এসেছি।", "কোকো মাদে দোও ইয়াত্তে কিমাশিতা কা? চকাতেৎসু দে কিমাশিতা।", item_type="dialogue"),
-            make_item("jp-p11-l57-002", "どのくらい かかりましたか。３０ぷん かかりました。", "どのくらいかかりましたか。さんじっぷんかかりました。", "Dono kurai kakarimashita ka. Sanjippun kakarimashita.", "কতক্ষণ সময় লেগেছে? ৩০ মিনিট লেগেছে।", "দোনো কুরাই কাকারিমাশিতা কা? সানজিপ্পুন কাকারিমাশিতা।", item_type="dialogue")
+            make_item("jp-p11-l41-001", "わたしは おんがくが すきです。", "わたしはおんがくがすきです。", "Watashi wa ongaku ga suki desu.", "আমি সঙ্গীত পছন্দ করি।", "ওয়াতাশি ওয়া ওনগাকু গা সুকি দেস।", [("わたし", "watashi", "私", "আমি"), ("は", "wa", "は", "হলো"), ("音楽", "ongaku", "音楽", "গান"), ("が", "ga", "が", "টি"), ("好きです", "suki desu", "好きです", "পছন্দ করি")]),
+            make_item("jp-p11-l41-002", "あたらしい じしょが ほしいです。", "あたらしいじしょがほしいです。", "Atarashii jisho ga hoshii desu.", "আমি একটি নতুন অভিধান চাই।", "আতারাশিই জিশো গা হোশিই দেস।", [("新しい", "atarashii", "新しい", "নতুন"), ("辞書", "jisho", "辞書", "অভিধান"), ("が", "ga", "が", "টি"), ("ほしいです", "hoshii desu", "欲しいです", "চাই")]),
+            make_item("jp-p11-l41-003", "にほんへ いきたいです。", "にほんへいきたいです。", "Nihon e ikitai desu.", "আমি জাপানে যেতে চাই।", "নিহোং এ ইকিতাই দেস।", [("日本", "Nihon", "日本", "জাপান"), ("へ", "e", "へ", "দিকে"), ("行きたいです", "ikitai desu", "行きたいです", "যেতে চাই")]),
+            make_item("jp-p11-l41-004", "にほんごを すこし はなすことが できます。", "にほんごをすこしはなすことができます。", "Nihongo o sukoshi hanasu koto ga dekimasu.", "আমি একটু জাপানি বলতে পারি।", "নিহঙ্গো ও সুকোশি হানাসু কোতো গা দেকিমাসু।", [("日本語", "nihongo", "日本語", "জাপানি ভাষা"), ("を", "o", "を", "কে"), ("少し", "sukoshi", "少し", "অল্প"), ("話すことが", "hanasu koto ga", "話すことが", "বলতে"), ("できます", "dekimasu", "できます", "পারি")])
         ]
     }
 ]
@@ -891,52 +818,52 @@ parts.append({
     "id": "jp-foundations-p11",
     "order": 11,
     "level": "A1",
-    "title_bn": "ইন্টারেক্টিভ ভয়েস পেয়ার প্র্যাকটিস (Voice Q&A Practice)",
-    "title_target": "Interactive Voice Pair Practice (Pair Q&A)",
+    "title_bn": "বিশেষণ, পছন্দ ও ইচ্ছা (Adjectives, Preferences & Abilities)",
+    "title_target": "i-Adjectives, na-Adjectives, Wants & Potential Ability",
     "lessons": p11_lessons
 })
 
-# -------------------------------------------------------------
-# Part 12: Real-life Situational Mini-Dialogues
-# -------------------------------------------------------------
+# ==============================================================================
+# PART 12: ব্যবহারিক কনভারসেশন ও মিনি-ডায়ালগ (Situational Mini-Dialogues)
+# ==============================================================================
 p12_lessons = [
     {
-        "id": "jp-foundations-l58",
+        "id": "jp-foundations-l42",
         "order": 1,
         "title_bn": "প্রথম পরিচয় ও সম্ভাষণ (First Meeting: Hajimemashite Dialogue)",
-        "title_target": "Greetings & Self Introduction Dialogue",
-        "intro_bn": "জাপানিজে কারও সাথে প্রথম সাক্ষাতে অত্যন্ত মার্জিতভাবে অভিবাদন জানানোর পূর্ণাঙ্গ সংলাপ।",
-        "structure": ["A: はじめまして ... よろしくお願いします", "B: こちらこそ よろしくお願いします"],
+        "title_target": "First Meeting & Self-Introduction Dialogue",
+        "intro_bn": "প্রথম পরিচয়ের সম্পূর্ণ বাস্তবমুখী কথোপকথন।",
+        "structure": ["A: はじめまして。〜から来ました", "B: はじめまして。〜です"],
         "items": [
-            make_item("jp-p12-l58-001", "はじめまして。わたしは ラヒムです。バングラデシュから きました。", "はじめまして。わたしわらひむです。ばんぐらでしゅからきました。", "Hajimemashite. Watashi wa Rahimu desu. Banguradeshu kara kimashita.", "প্রথম পরিচয়। আমি রহিম। বাংলাদেশ থেকে এসেছি।", "হাজিমেমাশিতে। ওয়াতাশি ওয়া রাহিমু দেস। বাঙ্গুরাদেশু কারা কিমাশিতা।", item_type="dialogue"),
-            make_item("jp-p12-l58-002", "はじめまして。さとうです。どうぞ よろしく おねがいします。", "はじめまして。さとうです。どうぞよろしくおねがいします。", "Hajimemashite. Satou desu. Douzo yoroshiku onegaishimasu.", "প্রথম পরিচয়। আমি সাতো। পরিচিত হয়ে অত্যন্ত আনন্দিত হলাম।", "হাজিমেমাশিতে। সাতোও দেস। দোওজো ইয়োরোশিকু ওনেগাইশিমাসু।", item_type="dialogue"),
-            make_item("jp-p12-l58-003", "こちらこそ、よろしく おねがいします。", "こちらこそ、よろしくおねがいします。", "Kochira koso, yoroshiku onegaishimasu.", "আমার পক্ষ থেকেও আপনার সাথে পরিচিত হতে পেরে আনন্দিত হলাম।", "কোচিরা কোসো, ইয়োরোশিকু ওনেগাইশিমাসু।", item_type="dialogue")
+            make_item("jp-p12-l42-001", "はじめまして。わたしは ラヒムです。バングラデシュから 来ました。", "はじめまして。わたしわらひむです。ばんぐらでしゅからきました。", "Hajimemashite. Watashi wa Rahimu desu. Banguradeshu kara kimashita.", "প্রথম পরিচয়। আমি রহিম। বাংলাদেশ থেকে এসেছি।", "হাজিমেমাশিতে। ওয়াতাশি ওয়া রাহিমু দেস। বাঙ্গুরাদেশু কারা কিমাশিতা।", item_type="dialogue"),
+            make_item("jp-p12-l42-002", "はじめまして。たなかです。どうぞ よろしく おねがいします。", "はじめまして。たなかです。どうぞよろしくおねがいします。", "Hajimemashite. Tanaka desu. Douzo yoroshiku onegaishimasu.", "পরিচিত হয়ে ভালো লাগল। আমি তানাকা। আপনার সহযোগিতা কামনা করি।", "হাজিমেমাশিতে। তানাকা দেস। দোওজো ইয়োরোশিকু ওনেগাইশিমাসু।", item_type="dialogue"),
+            make_item("jp-p12-l42-003", "こちらこそ、よろしく おねがいします。", "こちらこそ、よろしくおねがいします。", "Kochirakoso, yoroshiku onegaishimasu.", "আমার পক্ষ থেকেও আপনার সহযোগিতা কামনা করি।", "কোচিরাকোসো, ইয়োরোশিকু ওনেগাইশিমাসু।", item_type="dialogue")
         ]
     },
     {
-        "id": "jp-foundations-l59",
+        "id": "jp-foundations-l43",
         "order": 2,
-        "title_bn": "দোকানে কেনাকাটা ও ক্যাশিয়ার (Convenience Store / Supermarket)",
+        "title_bn": "দোকানে কেনাকাটা ও ক্যাশিয়ার (Shopping & Convenience Store)",
         "title_target": "Convenience Store & Shopping Dialogue",
-        "intro_bn": "কনভিনিয়েন্স স্টোর বা সুপারমার্কেটে জিনিস কেনা ও ক্যাশিয়ারের সাথে কথোপকথন।",
-        "structure": ["A: すみません、〜を ください", "Clerk: 〜円になります"],
+        "intro_bn": "দোকানে গিয়ে জিনিস চাওয়া ও ক্যাশিয়ারের সাথে কথা বলা।",
+        "structure": ["客: この〜は いくらですか", "店員: 〜円です"],
         "items": [
-            make_item("jp-p12-l59-001", "いらっしゃいませ。おべんとうを あたためますか。", "いらっしゃいませ。おべんとうをあたためますか。", "Irasshaimase. Obentou o atatamemasu ka.", "স্বাগতম! লাঞ্চ বক্সটি কি গরম করে দেব?", "ইরাশশাইমাসে। ওবেনতোও ও আতাতামেমাশু কা?", item_type="dialogue"),
-            make_item("jp-p12-l59-002", "はい、おねがいします。ふくろも いちまい ください。", "はい、おねがいします。ふくろもいちまいください。", "Hai, onegaishimasu. Fukuro mo ichimai kudasai.", "হ্যাঁ, অনুগ্রহ করে দিন। একটা ব্যাগও দিন।", "হাই, ওনেগাইশিমাসু। ফুকুরো মো ইচিমাই কুদাসাই।", item_type="dialogue"),
-            make_item("jp-p12-l59-003", "ぜんぶで ６５０えんに なります。", "ぜんぶでろっぴゃくごじゅうえんになります。", "Zenbu de roppyaku gojuu-en ni narimasu.", "সব মিলিয়ে ৬৫০ ইয়েন হয়েছে।", "জেনবু দে রোপ্পিয়াকু গোজুউ-য়েন নি নারিমাসু।", item_type="dialogue")
+            make_item("jp-p12-l43-001", "すみません。このおちゃは いくらですか。", "すみません。このおちゃわいくらですか。", "Sumimasen. Kono ocha wa ikura desu ka.", "মাফ করবেন। এই চা-টির দাম কত?", "সুমিমাসেন। কোনো ওচা ওয়া ইকুরা দেসু কা?", item_type="dialogue"),
+            make_item("jp-p12-l43-002", "ひゃくごじゅうえんです。", "ひゃくごじゅうえんです。", "Hyaku gojuu-en desu.", "১৫০ ইয়েন।", "হিয়াকু গোজিউউ-য়েন দেস।", item_type="dialogue"),
+            make_item("jp-p12-l43-003", "じゃ、これを にほん ください。", "じゃ、これをにほんください。", "Ja, kore o nihon kudasai.", "তাহলে এটা দুটি দিন।", "জা, কোরে ও নিহোং কুদাসাই।", item_type="dialogue")
         ]
     },
     {
-        "id": "jp-foundations-l60",
+        "id": "jp-foundations-l44",
         "order": 3,
         "title_bn": "স্টেশনে টিকিট ও পথ নির্দেশনা (Station & Navigation Dialogue)",
         "title_target": "Train Station & Navigation Dialogue",
         "intro_bn": "ট্রেন স্টেশনে টিকিট কেনা ও কোন প্ল্যাটফর্মে ট্রেন আসবে তা জানার সংলাপ।",
         "structure": ["A: 〜までの 切符を ください", "B: 〜番線です"],
         "items": [
-            make_item("jp-p12-l60-001", "すみません。とうきょうまでの きっぷを いちまい ください。", "すみません。とうきょうまでのきっぷをいちまいください。", "Sumimasen. Toukyou made no kippu o ichimai kudasai.", "মাফ করবেন। টোকিও পর্যন্ত একটি টিকিট দিন।", "সুমিমাসেন। তোকিও মাদে নো কিপ্পু ও ইচিমাই কুদাসাই।", item_type="dialogue"),
-            make_item("jp-p12-l60-002", "はい。せんにひゃくえんです。とうきょうゆきは ３ばんせんです。", "はい。せんにひゃくえんです。とうきょうゆきはさんばんせんです。", "Hai. Sen nihyaku-en desu. Toukyou-yuki wa sanbansen desu.", "জি। ১,২০০ ইয়েন। টোকিওগামী ট্রেন ৩ নম্বর প্ল্যাটফর্মে।", "হাই। সেন নিহিয়াকু-য়েন দেস। তোকিও-ইউকি ওয়া সানবানসেন দেস।", item_type="dialogue"),
-            make_item("jp-p12-l60-003", "どうも ありがとう ございます。", "どうもありがとうございます。", "Doumo arigatou gozaimasu.", "আপনাকে অনেক ধন্যবাদ।", "দোওমো আরিগাতোও গোজাইমাসু।", item_type="dialogue")
+            make_item("jp-p12-l44-001", "すみません。とうきょうまでの きっぷを いちまい ください。", "すみません。とうきょうまでのきっぷをいちまいください。", "Sumimasen. Toukyou made no kippu o ichimai kudasai.", "মাফ করবেন। টোকিও পর্যন্ত একটি টিকিট দিন।", "সুমিমাসেন। তোকিও মাদে নো কিপ্পু ও ইচিমাই কুদাসাই।", item_type="dialogue"),
+            make_item("jp-p12-l44-002", "はい。せんにひゃくえんです。とうきょうゆきは ３ばんせんです。", "はい。せんにひゃくえんです。とうきょうゆきわさんばんせんです。", "Hai. Sen nihyaku-en desu. Toukyou-yuki wa sanbansen desu.", "জি। ১,২০০ ইয়েন। টোকিওগামী ট্রেন ৩ নম্বর প্ল্যাটফর্মে।", "হাই। সেন নিহিয়াকু-য়েন দেস। তোকিও-ইউকি ওয়া সানবানসেন দেস।", item_type="dialogue"),
+            make_item("jp-p12-l44-003", "どうも ありがとう ございます。", "どうもありがとうございます。", "Doumo arigatou gozaimasu.", "আপনাকে অনেক ধন্যবাদ।", "দোওমো আরিগাতোও গোজাইমাসু।", item_type="dialogue")
         ]
     }
 ]
@@ -944,8 +871,8 @@ parts.append({
     "id": "jp-foundations-p12",
     "order": 12,
     "level": "A1",
-    "title_bn": "ব্যবহারিক কনভারসেশন ও মিনি-ডায়ালগ (Situational Mini-Dialogues)",
-    "title_target": "Practical Situational Mini-Dialogues (Roleplay)",
+    "title_bn": "ব্যবহারিক মিনি-ডায়ালগ ও সংলাপ (Situational Mini-Dialogues)",
+    "title_target": "Situational Mini-Dialogues & Everyday Conversations",
     "lessons": p12_lessons
 })
 
@@ -966,7 +893,7 @@ course_data = {
 with open(DEST_FILE, 'w', encoding='utf-8') as f:
     json.dump(course_data, f, ensure_ascii=False, indent=2)
 
-print(f"Course 1 created successfully!")
+print(f"Course 1 rebuilt successfully!")
 print(f"Saved to: {DEST_FILE}")
 print(f"Total Parts: {len(parts)}")
 print(f"Total Lessons: {total_lessons}")

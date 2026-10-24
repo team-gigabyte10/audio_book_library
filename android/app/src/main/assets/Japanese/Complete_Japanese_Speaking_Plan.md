@@ -1,308 +1,384 @@
 # Complete Japanese Speaking Curriculum & Implementation Plan
-## (Using Assets/Japanese Contents & Spoken English Architecture)
+## Master Spoken Blueprint Derived from `00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md`
+### Special Zero-Knowledge Kana, Mora, Phonetics & High-Clarity TTS Architecture
 
-> **Document Version:** 1.0  
-> **Target Audience:** Bengali native speakers learning spoken Japanese from beginner (N5) to advanced business fluency (N2).  
-> **Framework:** Based on the Spoken English Masterclass JSON schema (`spoken_english_foundations.json`, `spoken_english_past_tense.json`, `spoken_english_future_tense.json`) and the pedagogical audio-ladder methodology.
-
----
-
-## 1. Executive Summary & Vision
-
-The goal is to build the **Complete Japanese Speaking Masterclass (জাপানিজ স্পোকেন মাস্টারক্লাস)**. This system mirrors the high-retention, oral-fluency-first architecture used in our English Spoken courses, while extracting authentic grammatical patterns, high-frequency vocabulary, situational dialogues, and Kanji foundations directly from `android/app/src/main/assets/Japanese/` (N5, N4, N3, N2, and Kanji directories).
-
-### Core Pillars Adapted from Spoken English Structure:
-1. **Audio-Ladder Repetition Engine (শ্যাডোয়িং ও স্পিড ল্যাডার):**
-   - Natural speed variations (0.85x slow learner speed $\rightarrow$ 1.0x normal native speech $\rightarrow$ 1.15x rapid native speech).
-   - Audio sequence: **Target (Japanese Slow) $\rightarrow$ Bengali Meaning $\rightarrow$ Target (Normal) $\rightarrow$ Target (Fast) $\rightarrow$ Pause for Echo/Shadowing**.
-2. **Tri-Script Multi-Layer Representation (ত্রিস্তর উপস্থাপনা):**
-   - **Kanji/Kana (日本語):** Standard native writing (`わたしは学生です。` / `私は学生です。`).
-   - **Furigana / Kana Reading:** Accurate phonetic reading for Kanji (`がくせい`).
-   - **Romaji (উচ্চারণ নির্দেশিকা):** International phonetic standard (`Watashi wa gakusei desu.`).
-   - **Bangla Phonetic (বাংলা উচ্চারণ):** Tailored for Bengali speakers (`ওয়াতাশি ওয়া গাকুসেই দেস।`).
-   - **Bangla Meaning (বাংলা অর্থ):** Natural Bengali translation (`আমি একজন ছাত্র/ছাত্রী।`).
-   - **Word-by-Word Tokens (টোকেন বিশ্লেষণ):** Each particle and morpheme broken down with grammatical role.
-3. **6-Type Sentence Transformation Drills (৬ রূপান্তর ড্রিল):**
-   - In English: Affirmative $\rightarrow$ Negative $\rightarrow$ Interrogative $\rightarrow$ Negative Interrogative $\rightarrow$ Wh-Question $\rightarrow$ Negative Wh-Question.
-   - In Japanese: `です` (Affirmative) $\rightarrow$ `ではありません / じゃありません` (Negative) $\rightarrow$ `ですか` (Question) $\rightarrow$ `ではありませんか` (Negative Question) $\rightarrow$ `何 / 誰 / どこ ですか` (WH-Question) $\rightarrow$ `誰ではありませんか` (Negative WH-Question).
-4. **Interactive Voice Q&A & Pair Practice (মাইক্রোফোনে ভয়েস পেয়ার প্র্যাকটিস):**
-   - Direct oral prompt by AI $\rightarrow$ Student responds into microphone $\rightarrow$ Speech-to-Text & Pronunciation evaluation.
-5. **Hayakuchikotoba (早口言葉 - Tongue Twisters):**
-   - Targeted Japanese tongue twisters for Japanese pitch accent, double consonants (*Sokuon* っ), long vowels (*Chouon*), and contracted sounds (*Youon* きゃ, しゅ, ちょ).
+> **Document Version:** 2.1 (Zero-to-Hero Phonetics & Script Master Edition)  
+> **Source Corpus:** [00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md](file:///c:/Users/Team%20Gigabyte/Documents/audio_book_library/android/app/src/main/assets/Japanese/N5/00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md) (Pages 1–217, 6,415 lines)  
+> **Primary Focus Anchor:** ** অধ্যায় ১ (L75–L149) & Supplement 06 (Kana & Pronunciation Workbook)**  
+> **Target Learner:** Absolute beginners with **zero prior knowledge** of Japanese script (Hiragana, Katakana, Kanji) and sounds, requiring crystal-clear speech models, phonetic scaffolding, and native Bengali acoustic mapping.  
+> **Technical Framework:** Android Spoken Audio Player (`spoken_english_foundations.json`, `ContentImporter.kt`, Room Database, speed ladder, 6-sentence transformation drills).
 
 ---
 
-## 2. Source Content Mapping (`assets/Japanese`)
+## 1. Zero-Knowledge Pedagogical Philosophy & High-Clarity Audio Architecture
 
-| Source Directory | Source Files | Extracted Elements for Spoken Curriculum |
-|---|---|---|
-| **`assets/Japanese/N5`** | `01_Bangla_Japanese_JLPT_N5_Complete.md`<br>`01_N5_Kana_Pronunciation_Bangla.md`<br>`02_N5_Vocabulary_Counters_Bangla.md`<br>`03_N5_Grammar_Sentence_Patterns_Bangla.md`<br>`04_N5_Kanji_Master_Bangla.md`<br>`05_N5_Conversation_Reading_Bangla.md` | - Kana & Pronunciation rules, Mora timing<br>- Copula `です/ではありません`<br>- Core particles (`は, が, を, に, で, へ, と, も, の, から, まで`)<br>- Counters (`つ, 人, 本, 枚, 匹, 台, 階`), Time, Dates<br>- Existence `あります / います`<br>- Verb polite forms (`ます / ません / ました / ませんでした`)<br>- `い-Adjectives` and `な-Adjectives`<br>- Mini-Dialogues (Greetings, Restaurant, Shopping, Asking directions) |
-| **`assets/Japanese/N4`** | `01_N4_Master_Bangla_Handbook.md`<br>`02_Bangla_Japanese_JLPT_N4_Complete.md`<br>`01_N4_Bangla_Japanese_800_Vocabulary.md`<br>`06_JLPT_N4-N1_Dialogues_and_Stories_Bangla.md`<br>`26_N4_Bangla_All_in_One_Complete_Collection.md` | - Plain / Casual form speaking (`タ形, 辞書形, ナイ形`)<br>- Obligation (`〜なければなりません`)<br>- Potential form (`〜ことができる / 可能動詞`)<br>- Experience (`〜たことがあります`)<br>- Giving and Receiving (`あげる / もらう / くれる`)<br>- Conditionals (`〜たら / 〜なら / 〜ば`)<br>- Passive (`受身形`) and Causative (`使役形`)<br>- Situational Dialogues (Train station, Doctor clinic, Social chats) |
-| **`assets/Japanese/N3`** | `01_JLPT_N3_Reading_Bangla_Romaji.md`<br>`03_Bangla_Japanese_JLPT_N3_Complete.md`<br>`04_JLPT_N3_Dialog_Conversation_Bangla_Romaji.md` | - Intermediate conversational fluency<br>- Explaining causes & nuances (`〜わけ, 〜はず, 〜おかげで, 〜せいで`)<br>- Conversational fillers & reactions (*Aizuchi* `そうですね, なるほど, 実は`)<br>- Indirect requests & politeness (`〜ていただけませんか`) |
-| **`assets/Japanese/N2`** | `04_Bangla_Japanese_JLPT_N2_Complete.md`<br>`04_N2_Dialog_Conversation_Bangla_Romaji.md`<br>`05_JLPT_N2_Complete_Preparation_Bangla_Romaji.md` | - Honorifics & Business Japanese: Keigo (`敬語`: `尊敬語` Sonkeigo & `謙譲語` Kenjougo)<br>- Business phone calls, formal meetings, job interviews<br>- Nuances (`〜に違いない, 〜ざるを得ない, 〜かねない`) |
-| **`assets/Japanese/Kanji`** | `N5_Bangla_Japanese_Kanji_Book.md`<br>`N4_Bangla_Japanese_Kanji_Book.md`<br>`N5_N1_Bangla_Japanese_Complete_Kanji_Collection.md` | - High-frequency visual recognition for street signs, menus, stations, and common conversational nouns |
+For an absolute beginner who cannot read Japanese characters and is unfamiliar with Japanese phonetic rhythms, diving directly into grammar sentences causes cognitive overload. The learning pipeline must start from the physical production of sound, visual letter recognition, and syllable timing before moving to sentence synthesis.
+
+```mermaid
+graph LR
+    Step1["Phase 0: Sound & Mora<br>5 Vowels • 8 Pronunciation Rules<br>Hiragana 46 • Katakana 46"] --> Step2["Phase 1: Word Syllables<br>Dakuon がざだば • Handakuon ぱ<br>Youon きゃしゅちょ • Sokuon っ"]
+    Step2 --> Step3["Phase 2: Particle Rhythm<br>Topic wa (は) • Direction e (へ)<br>Object o (を) • Pause & Pitch"]
+    Step3 --> Step4["Phase 3: Spoken Sentence Drills<br>Tri-Script + Furigana + Romaji<br>High-Precision Bengali Phonetics"]
+```
+
+### Core Architecture Pillars:
+
+### 1. High-Clarity Multi-Speed TTS Engine (স্ফটিক-স্বচ্ছ অডিও ইঞ্জিন)
+To ensure learners catch every distinct vowel and subtle consonant shift:
+- **TTS Configuration:**
+  - Standard voice engine: `Locale.JAPANESE` / `Locale.JAPAN` with a high-fidelity voice profile (e.g., `ja-jp-x-htm#female_3` or network neural voice where available).
+  - Explicit speech pitch: Set to `1.05` (slightly elevated formant clarity) for clean distinguishing of Japanese consonants `し (shi)`, `ち (chi)`, `つ (tsu)`, `ふ (fu)`.
+  - Speech Rate Ladder:
+    - **Ultra-Slow Breakdown (0.75x):** For initial Kana letter and syllable isolation.
+    - **Learner Pace (0.85x):** Clean mora pacing, separating each particle cleanly.
+    - **Natural Speed (1.0x):** Natural native speech tempo.
+    - **Rapid Native (1.15x):** Native conversational rhythm for reflexive comprehension.
+- **Audio Cycle:**
+  $$\text{Japanese Ultra-Slow (0.75x)} \rightarrow \text{Bengali Meaning} \rightarrow \text{Japanese Normal (1.0x)} \rightarrow \text{Japanese Fast (1.15x)} \rightarrow \text{Student Shadowing Echo}$$
+
+### 2. Tri-Script Multi-Layer Representation with Bengali Phonetics (ত্রিস্তর লিপি ও বাংলা উচ্চারণ)
+Every single item across all courses provides 6 synchronized representations:
+1. **Japanese Native Script (日本語):** Authentic typography (`わたしは学生です。`).
+2. **Furigana / Kana Reading (ふりがな):** Full reading above every kanji (`わたしは がくせい です。`).
+3. **Hepburn Romaji:** Standard academic transliteration (`Watashi wa gakusei desu.`).
+4. **Tailored Bengali Phonetic Transliteration (বাংলা উচ্চারণ সহায়িকা):**
+   - Tuned specifically to avoid misleading Bengali consonant replacements.
+   - For example:
+     - `つ (tsu)` is represented as **ৎসু** (not চু).
+     - `ふ (fu)` is represented as **ফু/হু** (bilabial fricative [ɸ], ঠোঁট না লাগিয়ে ফুসফুস থেকে বাতাস বের করে মৃদু 'ফু').
+     - `し (shi)` is represented as **শি** (তালব্য শ, [ɕi]).
+     - `ち (chi)` is represented as **চি** ([t͡ɕi]).
+     - Particle `は` is marked as **ওয়া** (Topic marker), `へ` as **এ** (Direction marker), `を` as **ও** (Object marker).
+     - Small `っ` (*Sokuon*) is marked with a halant/doubled consonant (e.g., `きって` $\rightarrow$ **কিত্‌তে**).
+5. **Bengali Translation (বাংলা অর্থ):** Natural, culturally equivalent Bengali meaning.
+6. **Word-by-Word Morpheme Breakdown (টোকেন বিশ্লেষণ):** Explicit labeling of roots, particles, and copulas.
 
 ---
 
-## 3. The 4-Course Japanese Spoken Series
+## 2. Hard Focus: Chapter 1 (L75–L149) & Supplement 06 Phonetic Blueprint
 
-To match our English course series (`Present Tense Foundations`, `Past Tense Masterclass`, `Future Tense Masterclass`), the Japanese Spoken curriculum is structured into **4 progressive courses**:
+The master document lays down the complete foundation in **অধ্যায় ১** and **Supplement 06**. Here is the exact systematic progression built into the early curriculum:
+
+### 2.1 The 5 Fundamental Vowels (জাপানি স্বরধ্বনি)
+Japanese has only five clean, short, unglided vowels. Bengali vowels frequently glide (dipthongize), so learners must be trained in steady mora vowels:
+- **あ (a):** বাংলা **'আ'** (অল্প খোলার পরিষ্কার আ sound, [a]).
+- **い (i):** বাংলা **'ই'** (পরিষ্কার হ্রস্ব ই, [i]).
+- **う (u):** বাংলা **'উ'** (ঠোঁট গোল না করে শিথিল উ sound, unrounded [ɯ]).
+- **え (e):** বাংলা **'এ'** (সংক্ষিপ্ত ও স্পষ্ট এ, [e]).
+- **お (o):** বাংলা **'ও'** (পরিষ্কার গোলাকার ও, [o]).
+
+### 2.2 Complete Hiragana & Katakana 46 Base Matrix
+The curriculum begins with audio-visual cards for all 46 primary characters:
+
+| Row | Hiragana (ひらがな) | Katakana (カタカナ) | Romaji | Bengali Phonetic (বাংলা উচ্চারণ) | Notes & Articulation |
+|---|---|---|---|---|---|
+| **A-Row** | あ, い, う, え, お | ア, イ, ウ, エ, オ | a, i, u, e, o | **আ, ই, উ, এ, ও** | Clean, steady vowels |
+| **K-Row** | か, き, く, け, こ | カ, キ, ク, ケ, コ | ka, ki, ku, ke, ko | **কা, কি, কু, কে, কো** | Voiceless velar stops |
+| **S-Row** | さ, **し**, す, せ, そ | サ, **シ**, ス, セ, ソ | sa, **shi**, su, se, so | **সা, শি, সু, সে, সো** | **し = shi** (নরম তালব্য 'শি', [ɕi], 'সি' নয়) |
+| **T-Row** | た, **ち**, **つ**, て, と | タ, **チ**, **ツ**, テ, ト | ta, **chi**, **tsu**, te, to | **তা, চি, ৎসু, তে, তো** | **ち = chi** ([t͡ɕi]); **つ = tsu** (দাঁতের পেছনে জিভ ঠেকিয়ে 'ৎসু') |
+| **N-Row** | な, に, ぬ, ね, の | ナ, ニ, ヌ, ネ, ノ | na, ni, nu, ne, no | **না, নি, নু, নে, নো** | Nasal series |
+| **H-Row** | は, ひ, **ふ**, へ, ほ | ハ, ヒ, **フ**, ヘ, ホ | ha, hi, **fu**, he, ho | **হা, হি, ফু, হে, হো** | **ふ = fu** (দাঁত ঠোঁটে না ঠেকিয়ে দুই ঠোঁটের ফাঁক দিয়ে মৃদু বাতাস) |
+| **M-Row** | ま, み, む, め, も | マ, ミ, ム, メ, モ | ma, mi, mu, me, mo | **মা, মি, মু, মে, মো** | Bilabial nasal |
+| **Y-Row** | や, —, ゆ, —, よ | ヤ, —, ユ, —, ヨ | ya, —, yu, —, yo | **ইয়া, —, ইউ, —, ইয়ো** | Palatal semi-vowel |
+| **R-Row** | ら, り, る, れ, ろ | ラ, リ, ル, レ, ロ | ra, ri, ru, re, ro | **রা, রি, রু, রে, রো** | Alveolar tap (ইংরেজি 'r' বা বাংলা 'র'-এর মতো নয়, জিহ্বার ডগা তালুতে এক টোকায় 'ড়/ল'-এর মতো টোকা মারে) |
+| **W-Row** | わ, —, —, —, を | ワ, —, —, —, ヲ | wa, —, —, —, o/wo | **ওয়া, —, —, —, ও** | を particle হিসেবে ব্যবহৃত হয় |
+| **Nasal** | ん | ン | n | **ন্‌ / ং** | Syllabic nasal mora |
+
+### 2.3 The 8 Golden Pronunciation Rules (অধ্যায় ১-এর ৮টি মূল নিয়ম)
+1. **Rule 1 (5 Pure Vowels):** Vowels are pure, short, and fixed. They never slur or lengthen unless explicitly written as long vowels.
+2. **Rule 2 (Special Consonants):** 
+   - `し = shi` (নরম 'শি')
+   - `ち = chi` (নরম 'চি')
+   - `つ = tsu` (দাঁত চেপে হিসহিস করে 'ৎসু')
+   - `ふ = fu` (ঠোঁট গোল করে ফুঁ দেওয়ার মতো বাতাস বের করা 'ফু')
+3. **Rule 3 (The Syllabic `ん`):**
+   - Before `p, b, m` sounds: sounds like `m` (e.g., `しんぶん` $\rightarrow$ shimbun / শিম্বুন).
+   - Before `t, d, n` sounds: sounds like `n` (e.g., `おんな` $\rightarrow$ onna / ওন্না).
+   - Before `k, g` sounds or at the end of a word: sounds like a light `ng` (e.g., `にほん` $\rightarrow$ nihong / নিহোং).
+4. **Rule 4 (Small Tsu / Sokuon `っ`):**
+   - The small `っ` acts as a 1-mora glottal stop / pause that doubles the following consonant:
+   - `きって` (kitte / কিত্‌তে - Postage stamp) vs. `きて` (kite / কিParse - Come).
+   - `ざっし` (zasshi / জাশ্‌শি - Magazine).
+5. **Rule 5 (Contracted Sounds / Youon `ゃ, ゅ, ょ`):**
+   - Combined sounds written small with the `i`-column consonants:
+   - `きゃ (kya)`, `きゅ (kyu)`, `きょ (kyo)`
+   - `しゃ (sha)`, `しゅ (shu)`, `しょ (sho)`
+   - `ちゃ (cha)`, `ちゅ (chu)`, `ちょ (cho)`
+   - `りゃ (rya)`, `りゅ (ryu)`, `りょ (ryo)`
+6. **Rule 6 (Long Vowels / Chouon Change Meaning):**
+   - Long vowels hold for 2 moras. Failure to hold the length changes the word's meaning:
+   - `おばさん` (obasan / ওবাসান = খালা/ফুপু/চাচি) বনাম `おばあさん` (obaasan / ওবাআসান = দাদি/নানি/বৃদ্ধা).
+   - `おじさん` (ojisan / ওজিসান = চাচা/মামা) বনাম `おじいさん` (ojiisan / ওজিইসান = দাদা/নানা).
+   - `ゆき` (yuki / ইউকি = তুষার) বনাম `ゆうき` (yuuki / ইউউকি = সাহস).
+7. **Rule 7 (Particle Phonetic Shifts):**
+   - When `は` is used as the topic particle, pronounce it as **"wa" (ওয়া)**, not "ha".
+   - When `へ` is used as the directional particle ("towards"), pronounce it as **"e" (এ)**, not "he".
+   - When `を` is used as the direct object particle, pronounce it as **"o" (ও)**.
+8. **Rule 8 (Mora Rhythm & Pitch Accent):**
+   - Japanese is mora-timed, not stress-timed like English or syllable-timed like Bengali.
+   - Every mora gets exactly equal duration.
+   - Example: `に・ほ・ん・ご` (*ni-ho-n-go*) = 4 equal beats.
+
+---
+
+## 3. The 4-Course Japanese Spoken Master Series
 
 ```mermaid
 graph TD
-    C1["Course 1: Japanese Spoken Foundations (JLPT N5)<br>Present Tense, Copula, Daily Routines & Essentials"]
-    C2["Course 2: Past Expressions & Life Experiences (JLPT N5/N4)<br>Past States, Actions, Completed Events & Memories"]
-    C3["Course 3: Spoken Fluency & Casual Conversation (JLPT N4)<br>Plain Form, Modals, Giving/Receiving, Conditionals"]
-    C4["Course 4: Business Japanese & Advanced Nuance (JLPT N3/N2)<br>Keigo Honorifics, Corporate Communication & Nuanced Speech"]
-    
+    subgraph "Master Japanese Spoken Ladder"
+        C1["Course 1: Zero-to-N5 Japanese Spoken Foundations<br>14 Parts • 68 Lessons • 850 Audio Drills<br><b>Focus:</b> Kana, Mora, 8 Rules, Copula, Routines, Existence, Counters"]
+        C2["Course 2: Past Expressions & Life Experiences (N5/N4)<br>7 Parts • 24 Lessons • 350 Audio Drills<br><b>Focus:</b> Polite Past, Te-Form, Completed Actions, ~たことがある"]
+        C3["Course 3: Spoken Fluency & Casual Conversation (N4)<br>6 Parts • 26 Lessons • 450 Audio Drills<br><b>Focus:</b> Plain Form, Potential, Passive, Causative, 4 Conditionals"]
+        C4["Course 4: Business Japanese & Advanced Nuance (N3/N2/N1)<br>8 Parts • 30 Lessons • 550 Audio Drills<br><b>Focus:</b> Keigo (Sonkeigo/Kenjougo), Formal Registers, Discourse"]
+    end
+
     C1 --> C2 --> C3 --> C4
 ```
 
 ---
 
-## 4. Detailed Course Syllabus Breakdown
+## 4. Re-engineered Course 1 Syllabus: Zero-to-N5 Spoken Foundations
 
-### Course 1: Japanese Spoken Foundations (JLPT N5)
 *Filename:* `spoken_japanese_foundations.json`  
-*Level:* JLPT N5 / CEFR A1  
-*Lessons:* 60 Lessons | ~750 Spoken Items  
+*Target:* Absolute beginner to confident N5 conversationalist  
+*Structure:* 14 Parts | 68 Lessons | 850+ Spoken Drills  
 
-#### Part 1: বর্ণমালা, উচ্চারণ ও ফ্লুয়েন্সি ড্রিল (Pronunciation, Pitch & Kana)
-- **L01:** জাপানিজ স্বরবর্ণ ও মৌলিক উচ্চারণ (Vowels `あ い う え お` & Mora Timing)
-- **L02:** দীর্ঘ স্বর ও দ্বিত্ব ব্যঞ্জনধ্বনি (Long Vowels & *Sokuon* っ 'Small Tsu')
-- **L03:** যুক্তাক্ষর ও পরিবর্তিত ধ্বনি (*Youon* `きゃ, しゅ, ちょ` & *Dakuten* `が, ざ, だ, ば, ぱ`)
-- **L04:** ৫টি জাপানিজ টাং টুইস্টার (Pronunciation Drills & *Hayakuchikotoba*):
-  - *Example:* 「東京特許許可局局長」 (*Toukyou tokkyo kyokakyoku kyokuchou*)
-  - *Example:* 「生麦生米生卵」 (*Nama mugi nama gome nama tamago*)
+### Part 1: বর্ণমালা ও স্বরধ্বনি পরিচিতি (Hiragana Base Vowels & Sound System)
+- **Lesson 1:** জাপানিজ ৫টি মৌলিক স্বরবর্ণ (`あ, い, う, え, お` - Pure Vowels & Mora Timing).
+  - Audio Drills: `あ` (a/আ), `い` (i/ই), `う` (u/উ), `え` (e/এ), `お` (o/ও).
+- **Lesson 2:** Ka-Row (`か, き, く, け, こ`) & Sa-Row (`さ, し, す, せ, そ`).
+  - Special focus on `し` (shi / নরম শি).
+  - Vocabulary Drills: `あさ` (asa / সকাল), `かさ` (kasa / ছাতা), `すし` (sushi / সুশি).
+- **Lesson 3:** Ta-Row (`た, ち, つ, て, と`) & Na-Row (`な, に, ぬ, ね, の`).
+  - Special focus on `ち` (chi / চি) এবং `つ` (tsu / ৎসু).
+  - Vocabulary Drills: `つき` (tsuki / চাঁদ), `て` (te / হাত), `ねこ` (neko / বিড়াল).
+- **Lesson 4:** Ha-Row (`は, ひ, ふ, へ, ほ`) & Ma-Row (`ま, み, む, め, も`).
+  - Special focus on `ふ` (fu / দ্ব্যোষ্ঠ ফু).
+  - Vocabulary Drills: `はな` (hana / ফুল), `ひと` (hito / মানুষ), `ふね` (fune / নৌকা).
+- **Lesson 5:** Ya-Row (`や, ゆ, よ`), Ra-Row (`ら, り, る, れ, ろ`), Wa-Row (`わ, を`) & Syllabic `ん`.
+  - Special focus on the tap-sound of `ら, り, る, れ, ろ` and nasal shifts of `ん`.
+  - Vocabulary Drills: `やま` (yama / পাহাড়), `くるま` (kuruma / গাড়ি), `ほん` (hon / বই).
 
-#### Part 2: পেশা, পরিচয় ও জাতীয়তা (Identity & Be-Verbs: `です / ではありません`)
-- **L05:** আমার পরিচয় ও জাতীয়তা (`わたしは〜です` / I am ...)
-- **L06:** অন্যের পরিচয় ও পেশা (`〜さんは〜です` / Mr./Ms. ... is a ...)
-- **L07:** না-বোধক পরিচয় (`〜ではありません / じゃありません` / I am not ...)
-- **L08:** ৬-রূপান্তর ড্রিল: পেশা ও পরিচয় (6 Transformations: `です` Formula)
+### Part 2: পরিবর্তিত ধ্বনি, দ্বিত্ব ব্যঞ্জন ও যুক্তাক্ষর (Dakuten, Sokuon & Youon)
+- **Lesson 6:** ভয়েসড কনসোনেন্ট বা ডাকুরন (`が, ざ, だ, ば` - Dakuon) ও হান-ডাকুরন (`ぱ` - Handakuon).
+  - Vocabulary Drills: `みず` (mizu / পানি), `えんぴつ` (enpitsu / পেনসিল), `かばん` (kaban / ব্যাগ).
+- **Lesson 7:** ছোট 'ৎসু' বা দ্বি-ব্যঞ্জনধ্বনি (*Sokuon* っ / Small Tsu):
+  - Audio contrast: `きて` (kite / আসুন) বনাম `きって` (kitte / ডাকটিকিট).
+  - `ざっし` (zasshi / ম্যাগাজিন), `がっこう` (gakkou / স্কুল).
+- **Lesson 8:** যুক্তাক্ষর (*Youon* `きゃ, しゅ, ちょ, りょ, びょ`):
+  - Vocabulary Drills: `おちゃ` (ocha / চা), `しゃしん` (shashin / ছবি), `じしょ` (jisho / অভিধান).
+- **Lesson 9:** দীর্ঘ স্বরধ্বনি (*Chouon* ー / Long Vowels):
+  - Audio contrast: `おばさん` (obasan / খালা) বনাম `おばあさん` (obaasan / দাদি).
+  - `おとうさん` (otousan / বাবা), `おかあさん` (okaasan / মা), `せんせい` (sensei / শিক্ষক).
+- **Lesson 10:** ৫টি জাপানি টাং টুইস্টার ও মোরা টাইমিং ড্রিল (*Hayakuchikotoba*):
+  - 「生麦生米生卵」 (*Nama mugi nama gome nama tamago* / কাঁচা গম, কাঁচা চাল, কাঁচা ডিম).
+  - 「東京特許許可局局長」 (*Toukyou tokkyo kyokakyoku kyokuchou*).
 
-#### Part 3: বস্তু, দাম ও অবস্থান নির্দেশক (Objects, Demonstratives & Pricing)
-- **L09:** বস্তু নির্দেশ (`これ・それ・あれ・どれ` / This, That, Which)
-- **L10:** বিশেষ্য সহ বস্তু নির্দেশ (`この・その・あの・どの + Noun`)
-- **L11:** স্থান নির্দেশ (`ここ・そこ・あそこ・どこ` / Here, There, Where)
-- **L12:** মূল্য জিজ্ঞাসা ও কেনাকাটা (`これは いくらですか` / How much is this?)
-- **L13:** বস্তু পরিচিতির প্রশ্ন-উত্তর ড্রিল (Yes/No Q&A with Corrections)
+### Part 3: কাতাকানা ও বিদেশি শব্দের উচ্চারণ (Katakana & Foreign Words)
+- **Lesson 11:** কাতাকানার মূল চার্ট ও দীর্ঘ স্বর (`ー` / Dash Marker).
+  - `コーヒー` (koohii / কফি), `パン` (pan / পাউরুটি), `ホテル` (hoteru / হোটেল).
+- **Lesson 12:** প্রতিদিনের পরিচিত কাতাকানা শব্দ:
+  - `テレビ` (terebi / টিভি), `カメラ` (kamera / ক্যামেরা), `バス` (basu / বাস), `タクシー` (takushii / ট্যাক্সি).
+- **Lesson 13:** নিজের দেশ ও বিদেশি নাম বলা:
+  - `バングラデシュ` (Banguradeshu / বাংলাদেশ), `ダッカ` (Dakka / ঢাকা).
 
-#### Part 4: বৈশিষ্ট্য, অনুভূতি ও অবস্থা (`い-Adjectives` ও `な-Adjectives`)
-- **L14:** `い`-বিশেষণ দিয়ে বর্তমান অবস্থা (`おおきい, ちいさい, たかい, おいしい`)
-- **L15:** `い`-বিশেষণের না-বোধক রূপ (`〜くないです` / e.g., `おいしくないです`)
-- **L16:** `な`-বিশেষণ দিয়ে গুণাগুণ (`しずか, きれい, げんき, ゆうめい`)
-- **L17:** `な`-বিশেষণের না-বোধক রূপ (`〜じゃありません` / e.g., `きれいじゃありません`)
-- **L18:** ৬-রূপান্তর ড্রিল: বিশেষণ ও অনুভূতি (6 Transformations: Adjectives)
+### Part 4: পরিচয়, পেশা ও কপুলা (`A は B です / ではありません` - Grammar 1–3)
+- **Lesson 14:** নিজের নাম ও পরিচয়: `わたしはラフィです。` (Watashi wa Rafi desu / আমি রাফি).
+- **Lesson 15:** পেশা ও পদবি: `わたしは学生です。` (Watashi wa gakusei desu / আমি একজন ছাত্র).
+- **Lesson 16:** দেশের উৎস বলা: `バングラデシュから来ました。` (Banguradeshu kara kimashita / বাংলাদেশ থেকে এসেছি).
+- **Lesson 17:** অন্যের পরিচয় ও সম্মানসূচক `〜さん`: `田中さんは先生です。` (Tanaka-san wa sensei desu / তানাকা-সান শিক্ষক).
+- **Lesson 18:** না-বোধক রূপ: `〜ではありません / じゃありません` (`わたしは先生ではありません。` / আমি শিক্ষক নই).
+- **Lesson 19:** প্রশ্নবোধক `〜か`: `あなたは学生ですか。` (Anata wa gakusei desu ka / আপনি কি শিক্ষার্থী?).
+- **Lesson 20:** প্রথম পরিচয়ের সম্পূর্ণ কথোপকথন (Dialogue 1):
+  - **A:** `はじめまして。わたしはラフィです。バングラデシュから来ました。どうぞよろしくお願いします。`
+  - **B:** `はじめまして。田中です。よろしくお願いします。`
+- **Lesson 21:** ৬-রূপান্তর ড্রিল: পেশা ও পরিচয় (Affirmative, Negative, Question, Neg-Q, WH-Q, Choice).
 
-#### Part 5: অবস্থান ও অস্তিত্ব (`あります` বনাম `います`)
-- **L19:** নির্জীব বস্তু ও উদ্ভিদের অবস্থান (`[Place] に [Noun] が あります`)
-- **L20:** সজীব প্রাণী ও মানুষের অবস্থান (`[Place] に [Person/Animal] が います`)
-- **L21:** মালিকানা ও আছে বোঝাতে অস্তিত্বের ব্যবহার (`わたしは 車が あります`)
-- **L22:** অবস্থান ও প্রিপজিশন (`うえ, した, まえ, うしろ, なか, となり`)
-- **L23:** ৬-রূপান্তর ড্রিল: অস্তিত্ব ও অবস্থান (6 Transformations: Existence)
+### Part 5: মালিকানা, সম্পর্ক ও 'ও/এছাড়াও' (`〜の / 〜も` - Grammar 4–5)
+- **Lesson 22:** মালিকানা ও অধিকার `〜の`: `これはわたしのかばんです。` (Kore wa watashi no kaban desu / এটা আমার ব্যাগ).
+- **Lesson 23:** দেশ, কোম্পানি ও শিক্ষাপ্রতিষ্ঠান: `日本の会社 / ダッカの大学` (Nihon no kaisha / Dakka no daigaku).
+- **Lesson 24:** 'ও/এছাড়াও' বোঝাতে `〜も`: `わたしも学生です。` (Watashi mo gakusei desu / আমিও একজন শিক্ষার্থী).
+- **Lesson 25:** পরিবারের সদস্যদের ব্যাংক (In-group vs. Out-group: `ちち, はは, あに, あね, おとうと, いもうと`).
+- **Lesson 26:** ৬-রূপান্তর ড্রিল: মালিকানা ও সম্পর্ক.
 
-#### Part 6: দৈনন্দিন অভ্যাস ও সাধারণ কাজ (`〜ます / 〜ません` - Present Simple)
-- **L24:** দৈনন্দিন কাজ ও সময় (`Time に Verb ます` / ৭টায় উঠি, ১০টায় ঘুমাই)
-- **L25:** গন্তব্য ও যাতায়াত (`Place へ/に いきます / きます / かえります`)
-- **L26:** সরাসরি কর্ম ও ট্রানজিটিভ ভার্ব (`Object を たべます / のみます / よみます`)
-- **L27:** কাজের স্থান ও মাধ্যম (`Place で Verb` ও `Tool で Verb` / বাসে যাই, রেস্তোরাঁয় খাই)
-- **L28:** না-বোধক অভ্যাস (`〜ません` / মদ পান করি না, ধূমপান করি না)
-- **L29:** আমন্ত্রণ ও প্রস্তাব (`〜ませんか / 〜ましょう` / চা খাবেন কি? একসাথে যাই!)
+### Part 6: বস্তু, দাম ও কেনাকাটা (`これ・それ・あれ・どれ` - Grammar 6–8)
+- **Lesson 27:** স্বাধীন বস্তু নির্দেশক: `これ, それ, あれ, どれ` (Kore, Sore, Are, Dore / এটা, ওটা, ওইটা, কোনটা).
+- **Lesson 28:** বিশেষ্যের সাথে যুক্ত নির্দেশক: `この本, その傘, あの人, どの部屋` (Kono, Sono, Ano, Dono + Noun).
+- **Lesson 29:** স্থান নির্দেশক: `ここ, そこ, あそこ, どこ` (Koko, Soko, Asoko, Doko / এখানে, সেখানে, ওখানে, কোথায়).
+- **Lesson 30:** ভদ্র স্থান নির্দেশক: `こちら, そちら, あちら, どちら` (Kochira, Sochira, Achira, Dochira).
+- **Lesson 31:** পথ জিজ্ঞাসা: `すみません。駅はどこですか。` (Sumimasen. Eki wa doko desu ka / মাফ করবেন, স্টেশন কোথায়?).
+- **Lesson 32:** দোকানে কেনাকাটার সংলাপ (Dialogue 2):
+  - **A:** `このかばんはいくらですか。` (Kono kaban wa ikura desu ka / এই ব্যাগটার দাম কত?).
+  - **B:** `三千円です。` (Sanzen en desu / ৩,০০০ ইয়েন).
+  - **A:** `じゃ、これをください。` (Ja, kore o kudasai / তাহলে এটা দিন).
 
-#### Part 7: ৬-রূপান্তর মাস্টার স্পোকেন ড্রিল (6 Sentence Transformations: Action Verbs)
-- **L30:** ৬-রূপান্তর ড্রিল: খাওয়া ও পান করা (`たべます` রূপান্তর)
-- **L31:** ৬-রূপান্তর ড্রিল: যাওয়া ও আসা (`いきます` রূপান্তর)
-- **L32:** ৬-রূপান্তর ড্রিল: অধ্যয়ন ও কাজ (`べんきょうします / はたらきます`)
+### Part 7: সংখ্যা, সময়, বার ও কাউন্টার (অধ্যায় ২ ও Supplement 08)
+- **Lesson 33:** ১ থেকে ১০,০০০ পর্যন্ত সংখ্যা (`一, 二, 三, 四, 五, 六, 七, 八, 九, 十, 百, 千, 万`) ও টাকা (`円` Yen).
+- **Lesson 34:** সময়, মিনিট ও অর্ধেকের হিসাব: `七時半` (Shichijihan / ৭:৩০), `午前, 午後, 分 (ふん/ぷん)`.
+- **Lesson 35:** সপ্তাহের দিনসমূহ: `月曜日` থেকে `日曜日` (Getsuyoubi to Nichiyoubi).
+- **Lesson 36:** মাসের তারিখসমূহ: `ついたち, ふつか, みっか, よっか, いつか... 二十日 (はつか)`.
+- **Lesson 37:** নিত্যপ্রয়োজনীয় কাউন্টার ১: মানুষ (`一人 ひとり, 二人 ふたり, 三人 さんにん`).
+- **Lesson 38:** নিত্যপ্রয়োজনীয় কাউন্টার ২: লম্বা বস্তু (`本 ほん`), পাতলা বস্তু (`枚 まい`), মেশিন/গাড়ি (`台 だい`), বই (`冊 さつ`).
+- **Lesson 39:** সাধারণ বস্তু গোনার কাউন্টার: `ひとつ, ふたつ, みっつ, よっつ, いつつ... とお`.
 
-#### Part 8: প্রয়োজনীয় ১০টি WH-প্রশ্ন ও উত্তর ড্রিল (10 Essential WH-Questions)
-- **L33:** কী? (`何 / なん・なに` - Nan / Nani Q&A)
-- **L34:** কে / কার? (`誰 / だれ` ও `だれの` - Dare / Dare no Q&A)
-- **L35:** কোথায়? (`どこ` - Doko Q&A)
-- **L36:** কখন? (`いつ` - Itsu Q&A)
-- **L37:** কেন? (`なぜ / どうして` - Naze / Doushite Q&A)
-- **L38:** কীভাবে / কেমন? (`どう / どうやって` - Dou / Dou yatte Q&A)
-- **L39:** কতটি? (Counters: `いくつ / どのくらい` Q&A)
-- **L40:** কতজন? (`なんにん` - Nannin Q&A)
-- **L41:** কত টাকা? (`いくら` - Ikura Q&A)
-- **L42:** কোন দিন / কত তারিখ? (`なんようび / なんにち` Q&A)
+### Part 8: অবস্থান ও অস্তিত্ব (`あります` বনাম `います` - Grammar 9–11)
+- **Lesson 40:** জড়বস্তুর অস্তিত্ব: `机の上に本があります。` (Tsukue no ue ni hon ga arimasu / টেবিলের ওপর বই আছে).
+- **Lesson 41:** প্রাণী ও মানুষের অস্তিত্ব: `教室に先生がいます。 / 猫がいます。` (Sensei ga imasu / Neko ga imasu).
+- **Lesson 42:** অবস্থানের শব্দাবলী: `上, 下, 前, 後ろ, 中, 外, となり, 近く, 間` (Ue, Shita, Mae, Ushiro, Naka, Soto, Tonari, Chikaku, Aida).
+- **Lesson 43:** নির্দিষ্ট বিষয়ের অবস্থান: `先生は教室にいます。` (Sensei wa kyoushitsu ni imasu / শিক্ষক শ্রেণিকক্ষে আছেন).
+- **Lesson 44:** ৬-রূপান্তর ড্রিল: অস্তিত্ব ও অবস্থান.
 
-#### Part 9: ঘটমান কাজ ও বর্তমান অবস্থা (`〜ています` - Present Continuous)
-- **L43:** বর্তমানে চলতে থাকা কাজ (`いま Verb-て います` / এখন ভাত খাচ্ছি)
-- **L44:** না-বোধক ঘটমান কাজ (`Verb-て いません` / এখন পড়ছি না)
-- **L45:** বর্তমান স্থায়িত্ব ও অবস্থা (`すんでいます / けっこんしています / しっています`)
-- **L46:** পেশাগত কাজ চলা (`かいしゃで はたらいています / にほんごを おしえています`)
+### Part 9: কাজের ভার্ব ও মৌলিক পার্টিকেল (`を, で, に, へ, と, から, まで` - Grammar 12–17)
+- **Lesson 45:** সরাসরি অবজেক্ট চিহ্নিতকরণ `〜を`: `水を飲みます。 / ご飯を食べます。` (Mizu o nomimasu / Gohan o tabemasu).
+- **Lesson 46:** কাজের স্থান চিহ্নিতকরণ `〜で`: `図書館で勉強します。` (Toshokan de benkyou shimasu / লাইব্রেরিতে পড়াশোনা করি).
+- **Lesson 47:** গন্তব্য চিহ্নিতকরণ `〜へ / 〜に`: `学校へ行きます。 / 日本に来ました。` (Gakkou e ikimasu / স্কুলে যাই).
+- **Lesson 48:** সঙ্গী ও এবং বোঝাতে `〜と`: `友だちと映画を見ます。` (Tomodachi to eiga o mimasu / বন্ধুর সাথে সিনেমা দেখি).
+- **Lesson 49:** শুরুর ও শেষের সীমা `〜から / 〜まで`: `九時から五時まで働きます。` (Kuji kara goji made hatarakimasu).
+- **Lesson 50:** নির্দিষ্ট সময়ের পরে `Time に`: `七時に起きます。 / 十一時に寝ます。` (Shichiji ni okimasu / ৭টায় উঠি).
 
-#### Part 10: ইচ্ছা, অনুরোধ, অনুমতি ও বাধ্যবাধকতা (Wants, Modals & Rules)
-- **L47:** ইচ্ছা প্রকাশ (`〜たいです / 〜たくないです` / খেতে চাই, যেতে চাই না)
-- **L48:** অন্যের সাথে কোনো কিছু করতে চাওয়া (`〜たいとおもいます`)
-- **L49:** ভদ্র অনুরোধ (`Verb-て ください` / অনুগ্রহ করে শুনুন, বসুন)
-- **L50:** অনুমতি চাওয়া ও প্রদান (`Verb-て も いいですか / いいですよ` / আসতে পারি?)
-- **L51:** নিষেধাজ্ঞা (`Verb-て は いけません` / এখানে ধূমপান নিষেধ)
-- **L52:** বাধ্যবাধকতা (`〜なければなりません` / ওষুধ খেতেই হবে)
-- **L53:** বাধ্যবাধকতা নেই (`〜なくても いいです` / কাল না আসলেও চলবে)
+### Part 10: ভদ্র ক্রিয়া রূপান্তর ও দৈনিক রুটিন (অধ্যায় ৩ ও অধ্যায় ৪ Grammar 18–20)
+- **Lesson 51:** জাপানিজ ক্রিয়ার ৩টি গ্রুপ: গ্রুপ ১ (গোদন), গ্রুপ ২ (ইচিদান), অনিয়মিত (`する, くる`).
+- **Lesson 52:** ভদ্র বর্তমান রূপ: `Vます / Vません` (`勉強します / 勉強しません`).
+- **Lesson 53:** এক দিনের রুটিন কথন (Reading 1): `わたしの一日` (৬:৩০টায় ঘুম থেকে ওঠা, স্কুলে যাওয়া, বই পড়া).
+- **Lesson 54:** ভদ্র আমন্ত্রণ `〜ませんか`: `いっしょに食べませんか。` (Issho ni tabemasen ka / একসাথে খাবেন?).
+- **Lesson 55:** প্রস্তাব দেওয়া `〜ましょう`: `休みましょう。` (Yasumimashou / চলুন বিশ্রাম নিই).
+- **Lesson 56:** সহযোগিতার প্রস্তাব `〜ましょうか`: `荷物を持ちましょうか。` (Nimotsu o mochimashou ka / ব্যাগটি কি বহন করব?).
 
-#### Part 11: ইন্টারেক্টিভ ভয়েস পেয়ার প্র্যাকটিস (Voice Q&A Practice)
-- **L54:** নিজের শহর ও বাসস্থান নিয়ে পেয়ার ড্রিল (Hometown & Living Voice Q&A)
-- **L55:** শখ ও প্রতিদিনের রুটিন নিয়ে পেয়ার ড্রিল (Hobbies & Routines Voice Q&A)
-- **L56:** রেস্তোরাঁ ও পছন্দের খাবার নিয়ে পেয়ার ড্রিল (Food & Dining Voice Q&A)
-- **L57:** সময় ও যাতায়াত নিয়ে পেয়ার ড্রিল (Travel & Commute Voice Q&A)
+### Part 11: বিশেষণ ও অনুভূতি (`い-Adjectives` ও `な-Adjectives` - Grammar 26–28)
+- **Lesson 57:** `い`-বিশেষণের হ্যাঁ-বোধক রূপ: `大きい, 小さい, 新しい, 古い, 高い, 安い, 暑い, 寒い, おいしい`.
+- **Lesson 58:** `い`-বিশেষণের না-বোধক রূপ: `〜くないです` (`高くないです, 安くないです, おいしくないです`).
+- **Lesson 59:** বিশেষ অনিয়মিত বিশেষণ `いい`: `いいです / よくないです`.
+- **Lesson 60:** `な`-বিশেষণের হ্যাঁ-বোধক রূপ: `静かな, 元気な, 便利な, きれいな, 有名な`.
+- **Lesson 61:** `な`-বিশেষণের না-বোধক রূপ: `〜ではありません / じゃありません` (`静かじゃありません`).
+- **Lesson 62:** বিশেষণের বাক্য সমাপ্তি বনাম বিশেষ্য মডিফিকেশন (`静かな部屋` vs. `部屋は静かです`).
 
-#### Part 12: ব্যবহারিক কনভারসেশন ও মিনি-ডায়ালগ (Situational Mini-Dialogues)
-- **L58:** প্রথম পরিচয় ও অভিবাদন (*Hajimemashite* Dialogue)
-- **L59:** দোকানে জিনিস কেনা ও বিল পরিশোধ (Convenience Store / Supermarket)
-- **L60:** স্টেশনে টিকিট কেনা ও দিক নির্দেশনা জিজ্ঞাসা (Station & Navigation)
+### Part 12: পছন্দ, ইচ্ছা ও সামর্থ্য (Grammar 29–32)
+- **Lesson 63:** পছন্দ, অপছন্দ ও দক্ষতা: `好き, 嫌い, 上手, 下手` (`私は音楽が好きです。`).
+- **Lesson 64:** বস্তু চাওয়ার অভিব্যক্তি: `〜がほしいです` (`新しい辞書がほしいです。` / নতুন অভিধান চাই).
+- **Lesson 65:** কোনো কাজ করার ইচ্ছা: `〜たいです` (`日本へ行きたいです。 / 食べたいです。` / জাপানে যেতে চাই).
+- **Lesson 66:** না করার ইচ্ছা: `〜たくないです` (`行きたくないです`).
+- **Lesson 67:** সামর্থ্য ও পারদর্শিতা: `〜ことができます` (`日本語を少し話すことができます。` / একটু জাপানি বলতে পারি).
 
----
-
-### Course 2: Japanese Spoken Past & Experience (JLPT N5/N4)
-*Filename:* `spoken_japanese_past_tense.json`  
-*Level:* JLPT N5-N4 / CEFR A1-A2  
-*Lessons:* 35 Lessons | ~400 Spoken Items  
-
-#### Part 1: অতীতের অবস্থা, পরিচয় ও বিশেষণের অতীত রূপ (Past State & Identity)
-- **L01:** অতীত পরিচয় ও অবস্থা (`でした / ではありませんでした` / Was / Was not)
-- **L02:** `い`-বিশেষণের অতীত রূপ (`〜かったです / 〜くなかったです` / e.g., `あつかったです` = গরম ছিল)
-- **L03:** `な`-বিশেষণের অতীত রূপ (`〜でした / 〜じゃありませんでした` / e.g., `しずかでした` = শান্ত ছিল)
-- **L04:** অতীত আবহাওয়া ও অনুভূতি (Yesterday's Weather & Feelings)
-- **L05:** ৬-রূপান্তর ড্রিল: অতীত অবস্থা ও পরিচয় (Past State 6 Transformations)
-
-#### Part 2: অতীতের সমাপ্ত কাজ (`〜ました / 〜ませんでした` - Past Actions)
-- **L06:** গতকালের কাজ (`きのう Verb-ました` / গতকাল জাপানিজ পড়েছিলাম)
-- **L07:** অতীত না-বোধক কাজ (`きのう Verb-ませんでした` / গতকাল যাইনি)
-- **L08:** কাজের মাধ্যম ও অতীত স্থান (`ともだちと レストランで たべました`)
-- **L09:** ৬-রূপান্তর ড্রিল: অতীত কাজ (Past Action 6 Transformations: `いきました / たべました`)
-
-#### Part 3: অতীত ঘটমান ও কারণ ব্যাখ্যা (`〜ていました` & `〜から / 〜ので`)
-- **L10:** অতীতে কোনো সময়ে ঘটমান কাজ (`そのとき、なにを していましたか`)
-- **L11:** কাজের কারণ ও অতীত যুক্তি (`〜から / 〜ので、いけませんでした` / শরীর খারাপ ছিল বলে যাইনি)
-- **L12:** ধারাবাহিক অতীত ঘটনা (`Verb-て、Verb-て、Verb-ました` /起床して、朝食を食べて、出勤しました)
-
-#### Part 4: জীবনের অভিজ্ঞতা প্রকাশ (`〜たことがあります` - Life Experience)
-- **L13:** অভিজ্ঞতা জিজ্ঞাসা (`〜たことがありますか` / হ্যাভ ইউ এভার...?)
-- **L14:** হ্যাঁ-বোধক ও না-বোধক অভিজ্ঞতা (`いったことがあります / いったことがありません`)
-- **L15:** বিভিন্ন অভিজ্ঞতার তালিকা তৈরি (`〜たり、〜たり しました` / কেনাকাটা করলাম, সিনেমা দেখলাম)
-
-#### Part 5: কাজ সম্পন্নের অনুভূতি ও অনিচ্ছাকৃত ভুল (`〜てしまいました` & `もう〜ました`)
-- **L16:** এইমাত্র কাজ শেষ হয়েছে (`もう Verb-ました` / ইতিমধ্যে খেয়ে নিয়েছি)
-- **L17:** অনিচ্ছাকৃত ভুল বা অনুশোচনা (`さいふを おとして しまいました` / মানিব্যাগ হারিয়ে ফেলেছি)
-- **L18:** অতীত সমাপ্তি ও ভয়েস পেয়ার প্র্যাকটিস (Past Interactive Drills)
+### Part 13: কাজের ক্রম ও সময় নির্দেশক (Grammar 33–36)
+- **Lesson 68:** কোনো কাজ করার পূর্বে `〜前に`: `寝る前に歯を磨きます。` (Neru mae ni ha o migakimasu / ঘুমানোর আগে দাঁত মাজি).
 
 ---
 
-### Course 3: Japanese Spoken Fluency & Casual Conversation (JLPT N4)
-*Filename:* `spoken_japanese_casual_fluency.json`  
-*Level:* JLPT N4 / CEFR A2  
-*Lessons:* 35 Lessons | ~420 Spoken Items  
+## 5. Course Schema: Zero-Knowledge Audio Scaffolding (JSON Example)
 
-#### Part 1: প্লেইন ফর্ম ও বন্ধুমহলের ভাষা (Casual / Plain Japanese Speaking)
-- **L01:** সাধারণ বর্তমান ও ভবিষ্যৎ প্লেইন রূপ (*Dictionary Form* `食べる / 行く`)
-- **L02:** সাধারণ না-বোধক প্লেইন রূপ (*Nai-Form* `食べない / 行かない`)
-- **L03:** সাধারণ অতীত প্লেইন রূপ (*Ta-Form* `食べた / 行った / 食べなかった`)
-- **L04:** বন্ধুমহলে প্রশ্নের ধরন (কথোপকথনে `か` বাদ দিয়ে স্বরের ওঠানামা / `行く？` - যাবে?)
-- **L05:** ৬-রূপান্তর ড্রিল: প্লেইন ফর্ম কনভারসেশন (Plain Form 6 Transformations)
-
-#### Part 2: সামর্থ্য ও সম্ভাবনা (`可能動詞` & `〜ことができる`)
-- **L06:** জাপানিজ বলতে পারি (`にほんごが はなせます / はなすことができます`)
-- **L07:** অক্ষমতা ও সীমাবদ্ধতা (`かんじが かけません / およぐことができません`)
-- **L08:** সম্ভাব্যতার ভয়েস ড্রিল (Potential Verb Oral Drills)
-
-#### Part 3: উপহার ও উপকার আদান-প্রদান (`あげる / もらう / くれる`)
-- **L09:** কাউকে কিছু দেওয়া (`ともだちに プレゼントを あげました`)
-- **L10:** কারো কাছ থেকে কিছু পাওয়া (`せんせいに ほんを もらいました`)
-- **L11:** আমাকে কেউ কিছু দেওয়া (`ともだちが わたしに かして くれました`)
-- **L12:** কারো জন্য কোনো কাজ করে দেওয়া (`Verb-て あげます / もらいます / くれます`)
-
-#### Part 4: শর্ত, অনুমান ও মতামত (`〜たら, 〜なら, 〜と思います`)
-- **L13:** যদি বা যখন ঘটে (`〜たら` Conditionals / বৃষ্টি হলে যাব না)
-- **L14:** প্রসঙ্গ সাপেক্ষে শর্ত (`〜なら` / যদি জাপানে যাও, কিয়োটো যেও)
-- **L15:** নিজের মতামত প্রকাশ (`〜とおもいます` / আমার মনে হয় কাল বৃষ্টি হবে)
-- **L16:** পরোক্ষ উক্তি (`〜といいました` / তানাকা বাবু বলেছেন তিনি আসবেন)
-- **L17:** উপদেশ ও পরামর্শ (`〜ほうがいいです` / ডাক্তারের কাছে যাওয়াই ভালো)
-
-#### Part 5: কর্মবাচ্য ও প্রযোজক ক্রিয়া (Passive `受身` & Causative `使役`)
-- **L18:** স্পোকেন প্যাসিভ রূপ (`ほめられました / あめにとられました`)
-- **L19:** কাউকে দিয়ে কিছু করানো (`こどもに やさいを たべさせます`)
-- **L20:** অনুমতি চাওয়া প্রযোজক রূপে (`〜させてください` / আমাকে করতে দিন)
-
----
-
-### Course 4: Advanced Japanese Speaking & Business Keigo (JLPT N3/N2)
-*Filename:* `spoken_japanese_business_advanced.json`  
-*Level:* JLPT N3-N2 / CEFR B1-B2  
-*Lessons:* 30 Lessons | ~380 Spoken Items  
-
-#### Part 1: কেইগো ও বিনম্র ভাষা (Keigo Masterclass: Sonkeigo & Kenjougo)
-- **L01:** কেইগোর প্রকারভেদ (`丁寧語` Teineigo, `尊敬語` Sonkeigo, `謙譲語` Kenjougo)
-- **L02:** উচ্চপদস্থ ব্যক্তির কাজ সম্মানার্থে প্রকাশ (`いらっしゃる / おっしゃる / ご覧になる`)
-- **L03:** নিজের কাজ বিনীতভাবে প্রকাশ (`参る / 申す / 拝見する / 致す`)
-- **L04:** অত্যন্ত বিনম্র অনুরোধ (`〜ていただけませんでしょうか`)
-
-#### Part 2: অফিস, কর্পোরেট ও বিজনেস কমিউনিকেশন (Business Scenarios)
-- **L05:** বিজনেস টেলিফোন কথোপকথন (Answering Calls, Leaving Messages, Forwarding)
-- **L06:** অফিসে মিটিংয়ে মতামত উপস্থাপন (Proposals, Agreeing & Politely Disagreeing)
-- **L07:** ক্ষমা প্রার্থনা ও বিলম্বের কারণ ব্যাখ্যা (`大変申し訳ございません`)
-- **L08:** ক্লায়েন্ট ও কাস্টমার ডিলিং (Greetings, Serving Tea, Farewell at Reception)
-
-#### Part 3: প্রাকৃতিক কথ্য কৌশল ও সূক্ষ্ম অনুভূতি (Fillers, Aizuchi & Nuances)
-- **L09:** প্রতিক্রিয়া ও কথোপকথন সচল রাখা (*Aizuchi*: `なるほど, おっしゃる通りです, 確かに`)
-- **L10:** নিশ্চিত অনুমান বনাম অনিশ্চয়তা (`〜に違いない` vs `〜かもしれない`)
-- **L11:** মনস্তাত্ত্বিক কারণ ও ফলাফল (`〜おかげで` [ধন্যবাদান্তে] vs `〜せいで` [দোষে])
-- **L12:** বাস্তব জব ইন্টারভিউ প্রশ্নোত্তর প্রস্তুতি (Complete Japanese Job Interview Q&A)
-
----
-
-## 5. Technical JSON Schema Specification
-
-The Japanese course JSON files strictly adhere to our tested `schema_version: 1` structure to guarantee immediate compatibility with `ContentImporter.kt` and our Android Compose audio player.
+Every item in the updated schema contains explicit phonetic breakdowns, token mappings, and audio directives:
 
 ```json
 {
-  "schema_version": 1,
-  "course": {
-    "id": "jp-spoken-foundations",
-    "target_lang": "ja",
-    "base_lang": "bn",
-    "title_bn": "জাপানিজ স্পোকেন: Foundations (JLPT N5 বেসিক টু স্পিকিং)",
-    "title_target": "Spoken Japanese: Foundations Masterclass",
-    "source": "Curated from N5-N1 Japanese Study Series & Spoken English Framework",
-    "note": "জাপানিজ বর্ণমালা ও উচ্চারণ, です/ではありません, দৈনন্দিন কাজ, অবস্থান, বিশেষণ, প্রশ্ন-উত্তর ও ৬-রূপান্তর ড্রিল।",
-    "welcome_text": "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম! শুনুন, জোরে জোরে বলুন এবং প্রতিদিন শ্যাডোয়িং অনুশীলন করুন।"
-  },
-  "ladder_default": [
-    { "play": "target", "speed": 0.85 },
-    { "play": "bn", "speed": 1.15 },
-    { "play": "target", "speed": 0.95 },
-    { "play": "target", "speed": 1.05 },
-    { "play": "target", "speed": 1.15, "min_level": "A2" },
-    { "pause_ms": 1200 }
-  ],
-  "stats": {
-    "lessons": 60,
-    "items": 750
+  "course_id": "spoken_japanese_foundations",
+  "title": "Japanese Spoken Foundations (JLPT N5)",
+  "title_bn": "জাপানিজ স্পোকেন ফাউন্ডেশন (JLPT N5)",
+  "description": "Master Japanese pronunciation, kana letters, pitch accent, copula, particles, routines, and everyday dialogues.",
+  "target_lang": "ja",
+  "base_lang": "bn",
+  "level": "A1",
+  "jlpt_level": "N5",
+  "tts_config": {
+    "primary_locale": "ja-JP",
+    "voice_style": "clear_articulation",
+    "pitch": 1.05,
+    "speed_tiers": {
+      "slow": 0.75,
+      "learner": 0.85,
+      "normal": 1.0,
+      "rapid": 1.15
+    }
   },
   "parts": [
     {
-      "id": "jp-foundations-p2",
-      "order": 2,
-      "level": "A1",
-      "title_bn": "পেশা ও পরিচয় (Be-Verbs: です / ではありません)",
-      "title_target": "Professions & Identity (Desu / Dewa Arimasen)",
+      "id": "part-01-kana-phonetics",
+      "title": "Part 1: Writing System, Mora Timing & Pronunciation Foundations",
+      "title_bn": "পার্ট ১: বর্ণমালা, উচ্চারণ ও মোরা টাইমিং (অধ্যায় ১ ও Supplement 06)",
+      "description": "Learn the 5 pure vowels, consonants, mora rhythm, and pitch accent rules.",
       "lessons": [
         {
-          "id": "jp-foundations-l05",
-          "order": 1,
-          "title_bn": "আমার পেশা ও পরিচয় — 'わたしは〜です'",
-          "title_target": "My Identity & Profession (Watashi wa ... desu)",
-          "intro_bn": "নিজের পরিচয়, নাম বা পেশা প্রকাশ করতে 'わたしは [নাম/পেশা] です' ব্যবহার করা হয়। জাপানিজে 'は' হলো টপিক মার্কার (উচ্চারণ wa) এবং 'です' (desu) বাক্যকে ভদ্র ও মার্জিত করে।",
-          "structure": [
-            "Topic (わたしは) + Profession/Noun + です (desu)",
-            "Negative: Topic (わたしは) + Profession/Noun + ではありません (dewa arimasen)"
+          "id": "lesson-01-pure-vowels",
+          "title": "Lesson 1: The 5 Pure Vowels (あ い う え お)",
+          "title_bn": "লেসন ১: জাপানিজ ৫টি মৌলিক স্বরবর্ণ ও মোরা টাইমিং",
+          "grammar_focus": "Pure unrounded vowels and 1-mora rhythm",
+          "phonetic_scaffolding": [
+            "あ (a) = বাংলা পরিষ্কার 'আ' [a]",
+            "い (i) = বাংলা হ্রস্ব 'ই' [i]",
+            "う (u) = ঠোঁট গোল না করে শিথিল 'উ' [ɯ]",
+            "え (e) = সংক্ষিপ্ত ও পরিষ্কার 'এ' [e]",
+            "お (o) = পরিষ্কার গোলাকার 'ও' [o]"
           ],
-          "source_section": "N5 Grammar 01 & 02: N1 wa N2 desu",
           "items": [
             {
-              "id": "jp-prof-001",
+              "id": "jp-vow-001",
+              "concept_id": "c-vowel-a-i-u-e-o",
+              "order": 1,
+              "type": "syllable_ladder",
+              "level": "A1",
+              "target": "あ、い、う、え、お",
+              "target_kana": "あ、い、う、え、お",
+              "romaji": "a, i, u, e, o",
+              "bn": "আ, ই, উ, এ, ও (পাঁচটি স্থির স্বরধ্বনি)",
+              "bn_pron": "আ, ই, উ, এ, ও",
+              "ipa": "a i ɯ e o",
+              "tokens": [
+                { "t": "あ", "romaji": "a", "kanji": "あ", "bn": "আ (স্বচ্ছ আ)" },
+                { "t": "い", "romaji": "i", "kanji": "い", "bn": "ই (সংক্ষিপ্ত ই)" },
+                { "t": "う", "romaji": "u", "kanji": "う", "bn": "উ (শিথিল উ)" },
+                { "t": "え", "romaji": "e", "kanji": "え", "bn": "এ (স্পষ্ট এ)" },
+                { "t": "お", "romaji": "o", "kanji": "お", "bn": "ও (গোলাকার ও)" }
+              ],
+              "tags": {
+                "category": "phonetics",
+                "focus": "vowels",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-vow-002",
+              "concept_id": "c-word-asa",
+              "order": 2,
+              "type": "word",
+              "level": "A1",
+              "target": "あさ",
+              "target_kana": "あさ",
+              "romaji": "asa",
+              "bn": "সকাল",
+              "bn_pron": "আসা",
+              "ipa": "a.sa",
+              "tokens": [
+                { "t": "あ", "romaji": "a", "kanji": "あ", "bn": "আ" },
+                { "t": "さ", "romaji": "sa", "kanji": "さ", "bn": "সা" }
+              ],
+              "tags": {
+                "category": "vocabulary",
+                "mora_count": 2,
+                "jlpt": "N5"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-04-copula",
+      "title": "Part 4: Personal Identity & Copula (A は B です / ではありません)",
+      "title_bn": "পার্ট ৪: পরিচয় ও পেশা (A হলো B / B নয়)",
+      "description": "Learn to state identity, profession, origin, and make polite inquiries with です, ではありません, and か.",
+      "lessons": [
+        {
+          "id": "lesson-14-identity",
+          "title": "Lesson 14: My Identity & Profession (わたしは〜です)",
+          "title_bn": "লেসন ১৪: নিজের পরিচয় ও পেশা",
+          "grammar_focus": "N1 wa N2 desu (は topic marker pronounced 'wa')",
+          "formulas": [
+            "Affirmative: Topic (わたしは) + Profession/Noun + です (desu)",
+            "Negative: Topic (わたしは) + Profession/Noun + ではありません (dewa arimasen)"
+          ],
+          "source_section": "N5 Master Book Chapter 4 Grammar 1 & 2",
+          "items": [
+            {
+              "id": "jp-fnd-001",
               "concept_id": "c-watashi-wa-gakusei",
               "order": 1,
               "type": "sentence",
@@ -315,9 +391,9 @@ The Japanese course JSON files strictly adhere to our tested `schema_version: 1`
               "ipa": "wa.ta.ɕi ɰa ɡa.kɯ.seː de.sɨ",
               "tokens": [
                 { "t": "わたし", "romaji": "watashi", "kanji": "私", "bn": "আমি" },
-                { "t": "は", "romaji": "wa", "kanji": "は", "bn": "হল (Topic Marker)" },
+                { "t": "は", "romaji": "wa", "kanji": "は", "bn": "হলো (Topic Marker, উচ্চারণ 'ওয়া')" },
                 { "t": "学生", "romaji": "gakusei", "kanji": "学生", "bn": "শিক্ষার্থী" },
-                { "t": "です", "romaji": "desu", "kanji": "です", "bn": "হয় (Polite Copula)" }
+                { "t": "です", "romaji": "desu", "kanji": "です", "bn": "হয় (ভদ্র Copula)" }
               ],
               "tags": {
                 "sentence_type": "assertive",
@@ -327,22 +403,22 @@ The Japanese course JSON files strictly adhere to our tested `schema_version: 1`
               }
             },
             {
-              "id": "jp-prof-002",
-              "concept_id": "c-watashi-wa-sensei-dewa-arimasen",
+              "id": "jp-fnd-002",
+              "concept_id": "c-tanaka-sensei-dewa-arimasen",
               "order": 2,
               "type": "sentence",
               "level": "A1",
-              "target": "わたしは先生ではありません。",
-              "target_kana": "わたしわせんせいではありません。",
-              "romaji": "Watashi wa sensei dewa arimasen.",
-              "bn": "আমি শিক্ষক নই।",
-              "bn_pron": "ওয়াতাশি ওয়া সেনসেই দেবা আরিমাসেন।",
-              "ipa": "wa.ta.ɕi ɰa seɴ.seː de.ɰa a.ɾi.ma.seɴ",
+              "target": "田中さんは先生ではありません。",
+              "target_kana": "たなかさんはせんせいではありません。",
+              "romaji": "Tanaka-san wa sensei dewa arimasen.",
+              "bn": "তানাকা-সান শিক্ষক নন।",
+              "bn_pron": "তানাকা-সান ওয়া সেনসেই দেবা আরিমাসেন।",
+              "ipa": "ta.na.ka saɴ ɰa seɴ.seː de.ɰa a.ɾi.ma.seɴ",
               "tokens": [
-                { "t": "わたし", "romaji": "watashi", "kanji": "私", "bn": "আমি" },
-                { "t": "は", "romaji": "wa", "kanji": "は", "bn": "হল (Topic Marker)" },
+                { "t": "田中さん", "romaji": "Tanaka-san", "kanji": "田中さん", "bn": "তানাকা মহাশয়" },
+                { "t": "は", "romaji": "wa", "kanji": "は", "bn": "হলো (Topic Marker)" },
                 { "t": "先生", "romaji": "sensei", "kanji": "先生", "bn": "শিক্ষক" },
-                { "t": "ではありません", "romaji": "dewa arimasen", "kanji": "ではありません", "bn": "নই (Polite Negative)" }
+                { "t": "ではありません", "romaji": "dewa arimasen", "kanji": "ではありません", "bn": "নন (ভদ্র Negative)" }
               ],
               "tags": {
                 "sentence_type": "assertive",
@@ -361,33 +437,32 @@ The Japanese course JSON files strictly adhere to our tested `schema_version: 1`
 
 ---
 
-## 6. The 6-Sentence Japanese Transformation Matrix
+## 6. The 6-Way Transformation Drill Matrix
 
-Every grammar pattern in the spoken curriculum includes transformation drills that rewire the student's brain to form questions, negatives, and inquiries without hesitation:
+Every sentence in the spoken curriculum enforces 6-way rapid oral transformation:
 
-| Transformation Form | English Model Pattern | Japanese Grammar Formula | Example (Student / 学生) | Example (Eat / 食べます) |
+| Drill Type | Grammatical Function | Japanese Grammar Formula | Master Example (Student / 学生) | Master Example (Drink Water / 水を飲む) |
 |---|---|---|---|---|
-| **1. Affirmative (+)** | $S + V / Be + N$ | `A は B です` / `V-ます` | わたしは学生です。<br>*(Watashi wa gakusei desu)* | 朝ごはんを食べます。<br>*(Asagohan o tabemasu)* |
-| **2. Negative (-)** | $S + don't / isn't + N$ | `A は B ではありません` / `V-ません` | わたしは学生ではありません。<br>*(Watashi wa gakusei dewa arimasen)* | 朝ごはんを食べません。<br>*(Asagohan o tabemasen)* |
-| **3. Question (?)** | $Is / Do + S + ...?$ | `Sentence + か` | あなたは学生ですか。<br>*(Anata wa gakusei desu ka)* | 朝ごはんを食べますか。<br>*(Asagohan o tabemasu ka)* |
-| **4. Negative Question (-?)** | $Isn't / Don't + S + ...?$ | `Negative + か` | あなたは学生ではありませんか。<br>*(Anata wa gakusei dewa arimasen ka)* | 朝ごはんを食べませんか。<br>*(Asagohan o tabemasen ka)* |
-| **5. WH-Question (WH?)** | $Who / What / Where + ...?$ | `WH-Word + ですか / ますか` | あなたの仕事は何ですか。<br>*(Anata no shigoto wa nan desu ka)* | 朝ごはんに何を食べますか。<br>*(Asagohan ni nani o tabemasu ka)* |
-| **6. Contrastive / Choice** | $Is it A or B?$ | `A ですか、B ですか` | 学生ですか、会社員ですか。<br>*(Gakusei desu ka, kaishain desu ka)* | パンを食べますか、ご飯を食べますか。<br>*(Pan o tabemasu ka, gohan o tabemasu ka)* |
+| **1. Affirmative (+)** | Basic statement | `Topic は Noun です` / `Vます` | わたしは学生です。<br>*(Watashi wa gakusei desu)*<br>**ওয়াতাশি ওয়া গাকুসেই দেস।** | 水を飲みます。<br>*(Mizu o nomimasu)*<br>**মিজু ও নোমিমাস।** |
+| **2. Negative (-)** | Polite denial | `Topic は Noun ではありません` / `Vません` | わたしは学生ではありません。<br>*(Watashi wa gakusei dewa arimasen)*<br>**ওয়াতাশি ওয়া গাকুসেই দেবা আরিমাসেন।** | 水を飲みません。<br>*(Mizu o nomimasen)*<br>**মিজু ও নোমিমাসেন।** |
+| **3. Question (?)** | Inquiring politely | `Sentence + か` | あなたは学生ですか。<br>*(Anata wa gakusei desu ka)*<br>**আনাতা ওয়া গাকুসেই দেস কা?** | 水を飲みますか。<br>*(Mizu o nomimasu ka)*<br>**মিজু ও নোমিমাস কা?** |
+| **4. Negative Question (-?)** | Confirming / Inviting | `Negative sentence + か` | あなたは学生ではありませんか。<br>*(Anata wa gakusei dewa arimasen ka)*<br>**আনাতা ওয়া গাকুসেই দেবা আরিমাসেন কা?** | 水を飲みませんか。<br>*(Mizu o nomimasen ka)*<br>**মিজু ও নোমিমাসেন কা?** |
+| **5. WH-Question (WH?)** | Targeted inquiry | `何 / 誰 / どこ + ですか / ますか` | あなたのお仕事は何ですか。<br>*(Anata no oshigoto wa nan desu ka)*<br>**আনাতা নো ওশিগোতো ওয়া নান দেস কা?** | 何を飲みますか。<br>*(Nani o nomimasu ka)*<br>**নানি ও নোমিমাস কা?** |
+| **6. Choice / Alternative** | Disjunctive inquiry | `A ですか、B ですか` | 学生ですか、先生ですか。<br>*(Gakusei desu ka, sensei desu ka)*<br>**গাকুসেই দেস কা, সেনসেই দেস কা?** | お茶ですか、水ですか。<br>*(Ocha desu ka, mizu desu ka)*<br>**ওচা দেস কা, মিজু দেস কা?** |
 
 ---
 
-## 7. Android App Integration Roadmap
+## 7. Android App Integration & Implementation Workflow
 
-### Step 1: Content Registration (`ContentImporter.kt`)
-Add the new Japanese course files into the Android app asset manifest:
+### Step 1: Asset Manifest Registration
+Register the 4 courses in [ContentImporter.kt](file:///c:/Users/Team%20Gigabyte/Documents/audio_book_library/android/app/src/main/java/com/gigabyte/bookstore/learning/data/content/ContentImporter.kt):
 ```kotlin
-// In com.gigabyte.bookstore.learning.data.content.ContentImporter.kt
 companion object {
     val ASSET_NAMES = listOf(
         "spoken_english_foundations.json",
         "spoken_english_past_tense.json",
         "spoken_english_future_tense.json",
-        // Japanese Spoken Series
+        // Complete Japanese Spoken Series
         "spoken_japanese_foundations.json",
         "spoken_japanese_past_tense.json",
         "spoken_japanese_casual_fluency.json",
@@ -396,26 +471,26 @@ companion object {
 }
 ```
 
-### Step 2: TTS Multi-Language Engine Configuration
-The Android app currently supports English (`en-US`) and Bengali (`bn-BD`). When loading a Japanese course (`target_lang: "ja"`), the TTS Engine automatically initializes `Locale.JAPANESE` or `Locale.JAPAN` for voice playback, preserving Bengali for translation echo.
+### Step 2: High-Clarity Android TTS Engine Setup (`Locale.JAPANESE`)
+The audio player inspects `course.target_lang`. When set to `"ja"`, it configures high-clarity voice parameters:
+```kotlin
+tts.language = Locale.JAPANESE
+tts.setPitch(1.05f) // Optimized for clean Japanese formant consonants (shi, chi, tsu, fu)
+// Ultra-slow breakdown (0.75x) for early Kana drills; normal pace (1.0x) for sentences
+// Secondary audio channel outputs authentic Bengali translations via Locale("bn", "BD")
+```
 
-### Step 3: UI Bundle & Course Cards (`HomeScreen.kt` & `CourseCard.kt`)
-In `HomeScreen.kt` and `LearnHomeViewModel.kt`, create a designated **Japanese Spoken Bundle Card (জাপানিজ স্পোকেন কর্নার)** alongside the English Spoken banner, allowing one-tap enrollment and progress tracking.
+### Step 3: Dedicated Japanese Spoken Hub in UI
+In [LearnHomeScreen.kt](file:///c:/Users/Team%20Gigabyte/Documents/audio_book_library/android/app/src/main/java/com/gigabyte/bookstore/learning/presentation/home/LearnHomeScreen.kt) and [Screen.kt](file:///c:/Users/Team%20Gigabyte/Documents/audio_book_library/android/app/src/main/java/com/gigabyte/bookstore/presentation/navigation/Screen.kt):
+- Add a dedicated Japanese Spoken Course Card.
+- Allow separate progress tracking for English Spoken and Japanese Spoken.
 
 ---
 
-## 8. Phased Generation & Execution Roadmap
+## 8. Summary of Zero-Knowledge Curriculum Milestones
 
-```
-[Phase 1: Foundations]  Extract N5 Markdown contents -> Build scratch/generate_japanese_foundations.py -> Produce spoken_japanese_foundations.json
-[Phase 2: Past Tense]   Extract N5/N4 Past patterns  -> Build scratch/generate_japanese_past.py        -> Produce spoken_japanese_past_tense.json
-[Phase 3: Fluency N4]   Extract N4 Plain Form & Roleplays -> Build scratch/generate_japanese_casual.py   -> Produce spoken_japanese_casual_fluency.json
-[Phase 4: Keigo N3/N2]  Extract Business & Dialogues -> Build scratch/generate_japanese_business.py    -> Produce spoken_japanese_business_advanced.json
-[Phase 5: App Wiring]   Update ContentImporter.kt & Home Banners -> Test TTS voice synthesis & audio ladder
-```
-
-### Summary of Outcomes:
-- **Comprehensive:** 160 total lessons covering over 1,950 spoken audio sentences across 4 distinct levels (N5 to N2).
-- **Practical:** Focuses 100% on actual spoken fluency, conversational reflex, and oral sentence transformation.
-- **Rooted in Authentic Materials:** Directly utilizes all the extensive curated markdown books in `android/app/src/main/assets/Japanese/`.
-- **Zero Architecture Friction:** Perfectly aligns with existing Android Spoken player, TTS speed ladder, tokenization, and database schema.
+1. **Total Courses:** 4 progressive mastercourses (`Foundations`, `Past & Experience`, `Casual Fluency`, `Business & Advanced`).
+2. **Dedicated Zero-Knowledge Phase:** First 3 Parts (13 Lessons) dedicated 100% to **Hiragana, Katakana, Mora, Pitch Accent, 8 Pronunciation Rules, and Bengali Phonetics**.
+3. **Total Lessons:** 148 comprehensive oral lessons.
+4. **Total Audio Drills:** Over 2,200 spoken audio items featuring authentic Kanji, Furigana, Romaji, high-precision Bengali pronunciation, and literal word-by-word tokens.
+5. **Authentic Source Alignment:** Derived 100% from [00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md](file:///c:/Users/Team%20Gigabyte/Documents/audio_book_library/android/app/src/main/assets/Japanese/N5/00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md) (especially Pages 4–6 and 143–160).
