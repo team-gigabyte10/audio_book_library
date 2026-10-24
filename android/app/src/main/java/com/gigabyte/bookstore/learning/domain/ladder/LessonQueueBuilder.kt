@@ -29,27 +29,27 @@ object LessonQueueBuilder {
         val steps = mutableListOf<PlaybackStep>()
         if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings)
 
-        // English and Bangla are spoken the same number of times: each repeat is an EN → BN pair.
+        val targetLang = ladder.firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: SpeechLang.EN
+        val speeds = targetSpeeds(item, ladder, settings.repeatCount, targetLang)
         val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
         val qa = splitQa(item.target, bn)
-        val speeds = englishSpeeds(item, ladder, settings.repeatCount)
 
         if (qa != null) {
-            // Sequential Q&A: [EN Question] -> [BN Question] -> [EN Answer] -> [BN Answer]
+            // Sequential Q&A: [Target Question] -> [BN Question] -> [Target Answer] -> [BN Answer]
             for (speed in speeds) {
-                steps += PlaybackStep.Speak(qa.questionEn, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+                steps += PlaybackStep.Speak(qa.questionEn, targetLang, speed, itemIndex, Phase.LADDER)
                 if (qa.questionBn != null) {
                     steps += PlaybackStep.Speak(qa.questionBn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
                 }
-                steps += PlaybackStep.Speak(qa.answerEn, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+                steps += PlaybackStep.Speak(qa.answerEn, targetLang, speed, itemIndex, Phase.LADDER)
                 if (qa.answerBn != null) {
                     steps += PlaybackStep.Speak(qa.answerBn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
                 }
             }
         } else {
-            // Standard single sentence EN -> BN pair
+            // Standard single sentence Target -> BN pair
             for (speed in speeds) {
-                steps += PlaybackStep.Speak(item.target, SpeechLang.EN, speed, itemIndex, Phase.LADDER)
+                steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER)
                 if (bn != null) steps += PlaybackStep.Speak(bn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
             }
         }
@@ -87,9 +87,17 @@ object LessonQueueBuilder {
      * English speeds for [repeatCount] pairs, from the ladder's slowest to its normal speed
      * (0.6 → 0.8 → 1.0 for 3 repeats). Level-gated ladder steps (1.2x for B1+) add one more pair.
      */
-    fun englishSpeeds(item: LessonItem, ladder: List<LadderStep>, repeatCount: Int): List<Float> {
-        val english = ladder.filter { it.play == SpeechLang.EN }
-        val base = english.filter { it.minLevel == null }.map { it.speed }
+    fun englishSpeeds(item: LessonItem, ladder: List<LadderStep>, repeatCount: Int): List<Float> =
+        targetSpeeds(item, ladder, repeatCount, SpeechLang.EN)
+
+    fun targetSpeeds(
+        item: LessonItem,
+        ladder: List<LadderStep>,
+        repeatCount: Int,
+        targetLang: SpeechLang = SpeechLang.EN
+    ): List<Float> {
+        val targetSteps = ladder.filter { it.play == targetLang }
+        val base = targetSteps.filter { it.minLevel == null }.map { it.speed }
         val slow = base.minOrNull() ?: 0.9f
         val normal = base.maxOrNull() ?: 1.1f
         val count = repeatCount.coerceIn(LearnSettings.MIN_REPEAT_COUNT, LearnSettings.MAX_REPEAT_COUNT)
@@ -99,7 +107,7 @@ object LessonQueueBuilder {
         } else {
             (0 until count).map { i -> round2(slow + (normal - slow) * i / (count - 1)) }
         }
-        val extra = english.filter { step -> step.minLevel != null && item.level >= step.minLevel }.map { it.speed }
+        val extra = targetSteps.filter { step -> step.minLevel != null && item.level >= step.minLevel }.map { it.speed }
         return speeds + extra
     }
 

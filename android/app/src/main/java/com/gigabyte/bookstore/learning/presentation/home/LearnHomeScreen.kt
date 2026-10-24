@@ -48,7 +48,9 @@ import androidx.compose.ui.unit.sp
 import android.widget.Toast
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.learning.data.content.ContentState
 import com.gigabyte.bookstore.presentation.components.AppBackground
@@ -66,6 +68,8 @@ fun LearnHomeScreen(
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val isSpeaking by viewModel.isSpeaking.collectAsStateWithLifecycle()
     val context = LocalContext.current
+    var selectedLanguage by remember { mutableStateOf("english") }
+    val isJapanese = selectedLanguage == "japanese"
 
     DisposableEffect(Unit) {
         viewModel.playWelcomeGreeting()
@@ -89,13 +93,40 @@ fun LearnHomeScreen(
     val futureLessonCount = futureParts.sumOf { it.lessons.size }.let { if (it > 0) it else 31 }
     val futureSentenceCount = futureParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 230 }
 
+    val jpFoundationsParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-foundations-") && it.part.isEnabled } }
+    val jpFoundationsPartCount = jpFoundationsParts.size.coerceAtLeast(1)
+    val jpFoundationsLessonCount = jpFoundationsParts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
+    val jpFoundationsSentenceCount = jpFoundationsParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 185 }
+
+    val jpPastParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-past-") && it.part.isEnabled } }
+    val jpPastPartCount = jpPastParts.size.coerceAtLeast(1)
+    val jpPastLessonCount = jpPastParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
+    val jpPastSentenceCount = jpPastParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 62 }
+
+    val jpCasualParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-casual-") && it.part.isEnabled } }
+    val jpCasualPartCount = jpCasualParts.size.coerceAtLeast(1)
+    val jpCasualLessonCount = jpCasualParts.sumOf { it.lessons.size }.let { if (it > 0) it else 14 }
+    val jpCasualSentenceCount = jpCasualParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 41 }
+
+    val jpBusinessParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-business-") && it.part.isEnabled } }
+    val jpBusinessPartCount = jpBusinessParts.size.coerceAtLeast(1)
+    val jpBusinessLessonCount = jpBusinessParts.sumOf { it.lessons.size }.let { if (it > 0) it else 8 }
+    val jpBusinessSentenceCount = jpBusinessParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 20 }
+
     Scaffold(
         topBar = {
             ThemedTopAppBar(
                 title = {
                     Column {
-                        Text("স্পোকেন ইংলিশ মাস্টারক্লাস", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                        Text("বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি", style = MaterialTheme.typography.bodySmall)
+                        Text(
+                            text = if (isJapanese) "জাপানিজ স্পোকেন মাস্টারক্লাস" else "স্পোকেন ইংলিশ মাস্টারক্লাস",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp
+                        )
+                        Text(
+                            text = if (isJapanese) "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)" else "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি",
+                            style = MaterialTheme.typography.bodySmall
+                        )
                     }
                 },
                 navigationIcon = {
@@ -138,63 +169,187 @@ fun LearnHomeScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // 1. Welcome & Spoken Practice Advice Banner
+                    // 1. Language Switcher Tabs
                     item {
-                        WelcomeBanner(
-                            text = "আপনার স্পোকেন দক্ষতা বাড়াতে এই app এর সাথে সাথে বেশি বেশি প্রাক্টিস করুন, ধন্যবাদ।",
-                            isSpeaking = isSpeaking,
-                            onPlayTts = { viewModel.playWelcomeGreeting(force = true) },
-                            onStopTts = { viewModel.stopWelcomeGreeting() }
-                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f), RoundedCornerShape(14.dp))
+                                .padding(4.dp),
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            Surface(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { selectedLanguage = "english" },
+                                shape = RoundedCornerShape(11.dp),
+                                color = if (!isJapanese) MaterialTheme.colorScheme.primary else Color.Transparent
+                            ) {
+                                Text(
+                                    text = "🇬🇧 স্পোকেন ইংলিশ",
+                                    fontWeight = if (!isJapanese) FontWeight.Bold else FontWeight.Medium,
+                                    color = if (!isJapanese) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
+                                    fontSize = 13.sp,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.padding(vertical = 10.dp)
+                                )
+                            }
+                            Surface(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { selectedLanguage = "japanese" },
+                                shape = RoundedCornerShape(11.dp),
+                                color = if (isJapanese) Color(0xFFC62828) else Color.Transparent
+                            ) {
+                                Text(
+                                    text = "🇯🇵 জাপানিজ স্পোকেন",
+                                    fontWeight = if (isJapanese) FontWeight.Bold else FontWeight.Medium,
+                                    color = if (isJapanese) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
+                                    fontSize = 13.sp,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.padding(vertical = 10.dp)
+                                )
+                            }
+                        }
                     }
 
-                    // 2. Course Introduction & Audio Guidelines Card
-                    item {
-                        CourseIntroHeroCard(
-                            onClick = { onOpenIntro("Intro.md") }
-                        )
-                    }
+                    if (!isJapanese) {
+                        // 2. Welcome & Spoken Practice Advice Banner (English)
+                        item {
+                            WelcomeBanner(
+                                text = "আপনার স্পোকেন দক্ষতা বাড়াতে এই app এর সাথে সাথে বেশি বেশি প্রাক্টিস করুন, ধন্যবাদ।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
 
-                    // 2. Present Tens (বর্তমান কাল) - Main Active Course Card
-                    item {
-                        MainCourseCard(
-                            tag = "🇬🇧 Present Tens (বর্তমান কাল)",
-                            title = "সহজ নিয়মে কথা বলুন (Present Tens: Be-Verbs, Q&A & Presentation)",
-                            description = "পেশা, ব্যক্তিত্ব, দৈনন্দিন বস্তু, অবস্থান, প্রশ্ন-উত্তর, গুড অ্যাট/ব্যাড অ্যাট ও সম্পূর্ণ প্রেজেন্টেশন বর্তমান কালে সাবলীলভাবে অনুশীলন করুন।",
-                            accentColor = Color(0xFF00796B),
-                            partCount = presentPartCount,
-                            lessonCount = presentLessonCount,
-                            sentenceCount = presentSentenceCount,
-                            onClick = { onOpenCourse("present") }
-                        )
-                    }
+                        // 3. Course Introduction & Audio Guidelines Card
+                        item {
+                            CourseIntroHeroCard(
+                                onClick = { onOpenIntro("Intro.md") }
+                            )
+                        }
 
-                    // 3. Past Tens (অতীত কাল)
-                    item {
-                        MainCourseCard(
-                            tag = "🇬🇧 Past Tens (অতীত কাল)",
-                            title = "অতীতের কথা বলুন (Was/Were, Had & Past Actions)",
-                            description = "অতীতের অভ্যাস, স্মৃতি, অভিজ্ঞতা ও অতীতের কাজ বর্ণনার সহজ স্পোকেন রুলস ও অডিও ড্রিল।",
-                            accentColor = Color(0xFF5E35B1),
-                            partCount = pastPartCount,
-                            lessonCount = pastLessonCount,
-                            sentenceCount = pastSentenceCount,
-                            onClick = { onOpenCourse("past") }
-                        )
-                    }
+                        // 4. Present Tens (বর্তমান কাল)
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 Present Tens (বর্তমান কাল)",
+                                title = "সহজ নিয়মে কথা বলুন (Present Tens: Be-Verbs, Q&A & Presentation)",
+                                description = "পেশা, ব্যক্তিত্ব, দৈনন্দিন বস্তু, অবস্থান, প্রশ্ন-উত্তর, গুড অ্যাট/ব্যাড অ্যাট ও সম্পূর্ণ প্রেজেন্টেশন বর্তমান কালে সাবলীলভাবে অনুশীলন করুন।",
+                                accentColor = Color(0xFF00796B),
+                                partCount = presentPartCount,
+                                lessonCount = presentLessonCount,
+                                sentenceCount = presentSentenceCount,
+                                onClick = { onOpenCourse("present") }
+                            )
+                        }
 
-                    // 4. Future Tens (ভবিষ্যৎ কাল)
-                    item {
-                        MainCourseCard(
-                            tag = "🇬🇧 Future Tens (ভবিষ্যৎ কাল)",
-                            title = "ভবিষ্যতের কথা বলুন (Will, Shall & Future Plans)",
-                            description = "ভবিষ্যতের পরিকল্পনা, প্রতিশ্রুতি ও সম্ভাবনা প্রকাশের আধুনিক স্পোকেন স্ট্রাকচার।",
-                            accentColor = Color(0xFFC2410C),
-                            partCount = futurePartCount,
-                            lessonCount = futureLessonCount,
-                            sentenceCount = futureSentenceCount,
-                            onClick = { onOpenCourse("future") }
-                        )
+                        // 5. Past Tens (অতীত কাল)
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 Past Tens (অতীত কাল)",
+                                title = "অতীতের কথা বলুন (Was/Were, Had & Past Actions)",
+                                description = "অতীতের অভ্যাস, স্মৃতি, অভিজ্ঞতা ও অতীতের কাজ বর্ণনার সহজ স্পোকেন রুলস ও অডিও ড্রিল।",
+                                accentColor = Color(0xFF5E35B1),
+                                partCount = pastPartCount,
+                                lessonCount = pastLessonCount,
+                                sentenceCount = pastSentenceCount,
+                                onClick = { onOpenCourse("past") }
+                            )
+                        }
+
+                        // 6. Future Tens (ভবিষ্যৎ কাল)
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 Future Tens (ভবিষ্যৎ কাল)",
+                                title = "ভবিষ্যতের কথা বলুন (Will, Shall & Future Plans)",
+                                description = "ভবিষ্যতের পরিকল্পনা, প্রতিশ্রুতি ও সম্ভাবনা প্রকাশের আধুনিক স্পোকেন স্ট্রাকচার।",
+                                accentColor = Color(0xFFC2410C),
+                                partCount = futurePartCount,
+                                lessonCount = futureLessonCount,
+                                sentenceCount = futureSentenceCount,
+                                onClick = { onOpenCourse("future") }
+                            )
+                        }
+                    } else {
+                        // 2. Welcome & Spoken Practice Advice Banner (Japanese)
+                        item {
+                            WelcomeBanner(
+                                text = "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম! বাংলা নিয়মে সহজভাবে জাপানি ভাষায় ফ্লুয়েন্টলি কথা বলা শিখুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+
+                        // 3. Course Introduction & Audio Guidelines Card (Japanese)
+                        item {
+                            CourseIntroHeroCard(
+                                title = "📖 জাপানি স্পোকেন গাইডলাইন ও অরিয়েন্টেশন",
+                                subtitle = "হিরাগানা, কাতাকানা, কাঞ্জি ও বাংলা নিয়মে দ্রুত সাবলীল জাপানি শেখার কৌশল",
+                                tag = "🇯🇵 JLPT N5-N2 গাইডলাইন",
+                                badgeColor = Color(0xFFC62828),
+                                pills = listOf("🇯🇵 JLPT N5-N2", "⚡ স্পিড ল্যাডার ড্রিল", "💡 মার্জিত কেইগো"),
+                                onClick = { onOpenIntro("Japanese_Intro.md") }
+                            )
+                        }
+
+                        // 4. Course 1: JLPT N5 Foundations
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 JLPT N5 Foundations (ভিত্তি ও বর্তমান কাল)",
+                                title = "সহজ নিয়মে কথা বলুন (N5 Basics: Desu/Masu, Q&A & Daily Living)",
+                                description = "দৈনন্দিন পরিচয়, জাতীয়তা, পেশা, জিনিসপত্র কেনাকাটা, সময়, ক্যালেন্ডার, স্থান, পছন্দ-অপছন্দ ও ৫টি স্ব-প্রেজেন্টেশন।",
+                                accentColor = Color(0xFFC62828),
+                                partCount = jpFoundationsPartCount,
+                                lessonCount = jpFoundationsLessonCount,
+                                sentenceCount = jpFoundationsSentenceCount,
+                                onClick = { onOpenCourse("jp_foundations") }
+                            )
+                        }
+
+                        // 5. Course 2: JLPT N5/N4 Past Tense & Life Experience
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 JLPT N5/N4 Past Tense (অতীত কাল ও অভিজ্ঞতা)",
+                                title = "অতীতের কথা বলুন (Deshita/Mashita, Te-Form & Past Experiences)",
+                                description = "অতীতের কাজ, অবস্থা, Te-form দিয়ে কাজের ধারাবাহিকতা, অনুমতি ও বারণ, জীবন অভিজ্ঞতা ও অতীত স্মৃতি বর্ণনা।",
+                                accentColor = Color(0xFF4527A0),
+                                partCount = jpPastPartCount,
+                                lessonCount = jpPastLessonCount,
+                                sentenceCount = jpPastSentenceCount,
+                                onClick = { onOpenCourse("jp_past") }
+                            )
+                        }
+
+                        // 6. Course 3: JLPT N4 Casual Fluency & Plain Form
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 JLPT N4 Casual Fluency (ক্যাজুয়াল আড্ডা ও প্লেইন ফর্ম)",
+                                title = "স্বাভাবিক জাপানি আড্ডা (Plain/Dictionary Form, Opinions & Why)",
+                                description = "জাপানিদের স্বাভাবিক বন্ধুত্বপূর্ণ কথাবার্তা, ডিকশনারি ফর্ম, অনুভূতি ও মতামত প্রকাশ, কারণ ব্যাখ্যা ও আড্ডা।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = jpCasualPartCount,
+                                lessonCount = jpCasualLessonCount,
+                                sentenceCount = jpCasualSentenceCount,
+                                onClick = { onOpenCourse("jp_casual") }
+                            )
+                        }
+
+                        // 7. Course 4: JLPT N3/N2 Business Japanese & Keigo
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 JLPT N3/N2 Business & Keigo (মার্জিত ভাষা ও অফিস)",
+                                title = "বিজনেস কেইগো (Sonkeigo, Kenjougo, Office & Interview)",
+                                description = "উচ্চসম্মানসূচক ও বিনম্র ভাষা, বিনম্র অনুরোধ, অফিসিয়াল ফোন কল, মিটিং ও কর্পোরেট ইন্টারভিউ প্রশ্নোত্তর।",
+                                accentColor = Color(0xFFD84315),
+                                partCount = jpBusinessPartCount,
+                                lessonCount = jpBusinessLessonCount,
+                                sentenceCount = jpBusinessSentenceCount,
+                                onClick = { onOpenCourse("jp_business") }
+                            )
+                        }
                     }
 
                     item {
@@ -208,12 +363,17 @@ fun LearnHomeScreen(
 
 @Composable
 private fun CourseIntroHeroCard(
+    title: String = "📖 কোর্স পরিচিতি ও অডিও গাইডলাইন",
+    subtitle: String = "ইংরেজি শেখার সঠিক নিয়ম, টিপস ও অনুপ্রেরণামূলক দিকনির্দেশনা",
+    tag: String = "📖 অডিও গাইডলাইন",
+    badgeColor: Color = Color(0xFF1565C0),
+    pills: List<String> = listOf("🎙️ অডিও রিডার", "⚡ ৪টি সহজ নিয়ম", "💡 সেরা টিপস"),
     onClick: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(1.5.dp, Color(0xFF1565C0).copy(alpha = 0.45f)),
+        border = BorderStroke(1.5.dp, badgeColor.copy(alpha = 0.45f)),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         modifier = Modifier
             .fillMaxWidth()
@@ -225,8 +385,8 @@ private fun CourseIntroHeroCard(
                 .background(
                     Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFF1565C0).copy(alpha = 0.18f),
-                            Color(0xFF0D47A1).copy(alpha = 0.08f)
+                            badgeColor.copy(alpha = 0.18f),
+                            badgeColor.copy(alpha = 0.08f)
                         )
                     )
                 )
@@ -239,11 +399,11 @@ private fun CourseIntroHeroCard(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Surface(
-                        color = Color(0xFF1565C0),
+                        color = badgeColor,
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "📖 অডিও গাইডলাইন",
+                            text = tag,
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
@@ -278,7 +438,7 @@ private fun CourseIntroHeroCard(
                 Spacer(modifier = Modifier.height(10.dp))
 
                 Text(
-                    text = "📖 কোর্স পরিচিতি ও অডিও গাইডলাইন",
+                    text = title,
                     fontSize = 18.sp,
                     lineHeight = 25.sp,
                     fontWeight = FontWeight.Bold,
@@ -288,7 +448,7 @@ private fun CourseIntroHeroCard(
                 Spacer(modifier = Modifier.height(6.dp))
 
                 Text(
-                    text = "ইংরেজি শেখার সঠিক নিয়ম, টিপস ও অনুপ্রেরণামূলক দিকনির্দেশনা",
+                    text = subtitle,
                     fontSize = 13.sp,
                     lineHeight = 19.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -300,9 +460,9 @@ private fun CourseIntroHeroCard(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    InfoPill(text = "🎙️ অডিও রিডার")
-                    InfoPill(text = "⚡ ৪টি সহজ নিয়ম")
-                    InfoPill(text = "💡 সেরা টিপস")
+                    pills.forEach { pillText ->
+                        InfoPill(text = pillText)
+                    }
                 }
             }
         }

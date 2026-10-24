@@ -133,7 +133,11 @@ class ContentImporter(
         val ASSET_NAMES = listOf(
             "spoken_english_foundations.json",
             "spoken_english_past_tense.json",
-            "spoken_english_future_tense.json"
+            "spoken_english_future_tense.json",
+            "spoken_japanese_foundations.json",
+            "spoken_japanese_past_tense.json",
+            "spoken_japanese_casual_fluency.json",
+            "spoken_japanese_business_advanced.json"
         )
     }
 }

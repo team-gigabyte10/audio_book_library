@@ -36,6 +36,7 @@ class EscbJsonParser {
         var schemaVersion = 0
         var titleBn: String? = null
         var titleTarget: String? = null
+        var targetLang: String? = "en"
         var ladder: List<LadderStep> = LadderStep.DEFAULT
 
         reader.beginObject()
@@ -48,12 +49,13 @@ class EscbJsonParser {
                         when (reader.nextName()) {
                             "title_bn" -> titleBn = reader.stringOrNull()
                             "title_target" -> titleTarget = reader.stringOrNull()
+                            "target_lang" -> targetLang = reader.stringOrNull()
                             else -> reader.skipValue()
                         }
                     }
                     reader.endObject()
                 }
-                "ladder_default" -> ladder = readLadder(reader).ifEmpty { LadderStep.DEFAULT }
+                "ladder_default" -> ladder = readLadder(reader, targetLang).ifEmpty { LadderStep.DEFAULT }
                 "stats" -> {
                     reader.beginObject()
                     while (reader.hasNext()) {
@@ -73,7 +75,7 @@ class EscbJsonParser {
         return CourseHeader(schemaVersion, titleBn, titleTarget, ladder)
     }
 
-    private fun readLadder(reader: JsonReader): List<LadderStep> {
+    private fun readLadder(reader: JsonReader, targetLang: String? = "en"): List<LadderStep> {
         val steps = mutableListOf<LadderStep>()
         reader.beginArray()
         while (reader.hasNext()) {
@@ -93,7 +95,9 @@ class EscbJsonParser {
             }
             reader.endObject()
             val lang = when (play) {
-                "target" -> SpeechLang.EN
+                "target" -> if (targetLang.equals("ja", ignoreCase = true)) SpeechLang.JA else SpeechLang.EN
+                "ja" -> SpeechLang.JA
+                "en" -> SpeechLang.EN
                 "bn" -> SpeechLang.BN
                 else -> null
             }

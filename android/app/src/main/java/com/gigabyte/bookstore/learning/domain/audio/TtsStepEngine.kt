@@ -76,6 +76,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             }
             resolve(SpeechLang.EN, ENGLISH_LOCALES)
             resolve(SpeechLang.BN, BANGLA_LOCALES)
+            resolve(SpeechLang.JA, JAPANESE_LOCALES)
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String?) = Unit
                 override fun onDone(utteranceId: String?) = complete(utteranceId)
@@ -164,6 +165,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         private val counter = AtomicLong()
         val ENGLISH_LOCALES = listOf(Locale.US, Locale.UK, Locale.ENGLISH)
         val BANGLA_LOCALES = listOf(Locale("bn", "BD"), Locale("bn", "IN"), Locale("bn"))
+        val JAPANESE_LOCALES = listOf(Locale.JAPAN, Locale.JAPANESE)
 
         fun isAvailable(result: Int) = result == TextToSpeech.LANG_AVAILABLE ||
             result == TextToSpeech.LANG_COUNTRY_AVAILABLE ||

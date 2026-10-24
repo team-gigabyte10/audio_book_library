@@ -10,7 +10,7 @@ enum class Level {
     }
 }
 
-enum class SpeechLang { EN, BN }
+enum class SpeechLang { EN, BN, JA }
 
 /** One step of the repetition ladder (`ladder_default` in the content JSON). */
 data class LadderStep(
@@ -38,7 +38,11 @@ data class LadderStep(
             if (step.isPause) {
                 "pause:${step.pauseMs}"
             } else {
-                val lang = if (step.play == SpeechLang.BN) "bn" else "en"
+                val lang = when (step.play) {
+                    SpeechLang.BN -> "bn"
+                    SpeechLang.JA -> "ja"
+                    else -> "en"
+                }
                 "$lang:${step.speed}" + (step.minLevel?.let { "@${it.name}" } ?: "")
             }
         }
@@ -49,10 +53,15 @@ data class LadderStep(
                 val (kind, rest) = token.split(':', limit = 2).takeIf { it.size == 2 } ?: return@mapNotNull null
                 when (kind) {
                     "pause" -> rest.toLongOrNull()?.let { LadderStep(pauseMs = it) }
-                    "en", "bn" -> {
+                    "en", "bn", "ja" -> {
                         val speed = rest.substringBefore('@').toFloatOrNull() ?: return@mapNotNull null
                         val minLevel = rest.substringAfter('@', "").takeIf { it.isNotBlank() }?.let(Level::parse)
-                        LadderStep(if (kind == "bn") SpeechLang.BN else SpeechLang.EN, speed, minLevel)
+                        val playLang = when (kind) {
+                            "bn" -> SpeechLang.BN
+                            "ja" -> SpeechLang.JA
+                            else -> SpeechLang.EN
+                        }
+                        LadderStep(playLang, speed, minLevel)
                     }
                     else -> null
                 }

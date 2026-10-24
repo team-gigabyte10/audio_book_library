@@ -161,15 +161,27 @@ fun CourseSyllabusScreen(
 
     val isPast = courseType.equals("past", ignoreCase = true)
     val isFuture = courseType.equals("future", ignoreCase = true)
+    val isJpFoundations = courseType.equals("jp_foundations", ignoreCase = true)
+    val isJpPast = courseType.equals("jp_past", ignoreCase = true)
+    val isJpCasual = courseType.equals("jp_casual", ignoreCase = true)
+    val isJpBusiness = courseType.equals("jp_business", ignoreCase = true)
 
     val courseTitleBn = when {
         isPast -> "অতীতের কথা বলুন (Past Tense)"
         isFuture -> "ভবিষ্যতের কথা বলুন (Future Tense)"
+        isJpFoundations -> "জাপানিজ স্পোকেন বেসিক্স (JLPT N5)"
+        isJpPast -> "জাপানিজ অতীত কাল ও অভিজ্ঞতা (JLPT N5/N4)"
+        isJpCasual -> "ক্যাজুয়াল জাপানিজ ও প্লেইন ফর্ম (JLPT N4)"
+        isJpBusiness -> "জাপানিজ বিজনেস ও কেইগো (JLPT N3/N2)"
         else -> "সহজ নিয়মে কথা বলুন (Present Tense)"
     }
     val courseSubtitle = when {
         isPast -> "Was/Were, Had, Did/Didn't & Past Stories"
         isFuture -> "Will, Shall, Be Going To & Future Plans"
+        isJpFoundations -> "Desu/Masu, Q&A, দৈনন্দিন পরিচয় ও গতিশীল ড্রিল"
+        isJpPast -> "Deshita/Mashita, 〜たことがあります ও অতীত স্মৃতি"
+        isJpCasual -> "Dictionary/Nai Form, ফ্রেন্ডলি কথোপকথন ও আড্ডা"
+        isJpBusiness -> "Sonkeigo, Kenjougo ও কর্পোরেট কমিউনিকেশন"
         else -> "Be-Verbs, Q&A & Daily Conversations"
     }
 
@@ -177,6 +189,10 @@ fun CourseSyllabusScreen(
         when {
             isPast -> syllabus.filter { it.part.id.startsWith("past-") }
             isFuture -> syllabus.filter { it.part.id.startsWith("fut-") }
+            isJpFoundations -> syllabus.filter { it.part.id.startsWith("jp-foundations-") }
+            isJpPast -> syllabus.filter { it.part.id.startsWith("jp-past-") }
+            isJpCasual -> syllabus.filter { it.part.id.startsWith("jp-casual-") }
+            isJpBusiness -> syllabus.filter { it.part.id.startsWith("jp-business-") }
             else -> syllabus.filter { it.part.id.startsWith("en-") }
         }
     }
