@@ -57,13 +57,19 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    fun playWelcomeGreeting(force: Boolean = false) {
+    fun playWelcomeGreeting(language: String = "english", force: Boolean = false) {
         if (hasAutoPlayedWelcome && !force) return
         hasAutoPlayedWelcome = true
 
+        val text = if (language.equals("japanese", ignoreCase = true)) {
+            "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম। হিরাগানা, কাতাকানা, কাঞ্জি ও সাবলীল স্পোকেন ড্রিল বেশি বেশি অনুশীলন করুন।"
+        } else {
+            welcomeText
+        }
+
         viewModelScope.launch(Dispatchers.IO) {
             delay(400) // Small delay to let screen transition settle
-            app.ttsManager.speakChunk(welcomeText, 0)
+            app.ttsManager.speakChunk(text, 0)
         }
     }
 

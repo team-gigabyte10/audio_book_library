@@ -375,7 +375,6 @@ fun HomeScreen(
                                 accentColor = Color(0xFF1565C0),
                                 statsText = "🎧 ${englishCourse?.lessonCount ?: 15}টি অডিও লেসন · লেভেল: ${englishCourse?.level?.ifBlank { "Beginner" } ?: "Beginner"}",
                                 ctaText = "কোর্সটি শুরু করুন",
-                                // Opens the English spoken foundations module
                                 onClick = onNavigateToLearnEnglish,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )

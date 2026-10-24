@@ -60,7 +60,7 @@ import com.gigabyte.bookstore.ui.theme.GoldenAccent
 @Composable
 fun LearnHomeScreen(
     viewModel: LearnHomeViewModel,
-    initialLanguage: String = "english",
+    language: String = "english",
     onBackClick: () -> Unit,
     onOpenCourse: (String) -> Unit,
     onOpenIntro: (String) -> Unit
@@ -69,11 +69,10 @@ fun LearnHomeScreen(
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val isSpeaking by viewModel.isSpeaking.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var selectedLanguage by remember(initialLanguage) { mutableStateOf(initialLanguage) }
-    val isJapanese = selectedLanguage == "japanese"
+    val isJapanese = language.equals("japanese", ignoreCase = true)
 
-    DisposableEffect(Unit) {
-        viewModel.playWelcomeGreeting()
+    DisposableEffect(language) {
+        viewModel.playWelcomeGreeting(language = language)
         onDispose {
             viewModel.stopWelcomeGreeting()
         }
@@ -170,57 +169,13 @@ fun LearnHomeScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // 1. Language Switcher Tabs
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f), RoundedCornerShape(14.dp))
-                                .padding(4.dp),
-                            horizontalArrangement = Arrangement.spacedBy(6.dp)
-                        ) {
-                            Surface(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .clickable { selectedLanguage = "english" },
-                                shape = RoundedCornerShape(11.dp),
-                                color = if (!isJapanese) MaterialTheme.colorScheme.primary else Color.Transparent
-                            ) {
-                                Text(
-                                    text = "🇬🇧 স্পোকেন ইংলিশ",
-                                    fontWeight = if (!isJapanese) FontWeight.Bold else FontWeight.Medium,
-                                    color = if (!isJapanese) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
-                                    fontSize = 13.sp,
-                                    textAlign = TextAlign.Center,
-                                    modifier = Modifier.padding(vertical = 10.dp)
-                                )
-                            }
-                            Surface(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .clickable { selectedLanguage = "japanese" },
-                                shape = RoundedCornerShape(11.dp),
-                                color = if (isJapanese) Color(0xFFC62828) else Color.Transparent
-                            ) {
-                                Text(
-                                    text = "🇯🇵 জাপানিজ স্পোকেন",
-                                    fontWeight = if (isJapanese) FontWeight.Bold else FontWeight.Medium,
-                                    color = if (isJapanese) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
-                                    fontSize = 13.sp,
-                                    textAlign = TextAlign.Center,
-                                    modifier = Modifier.padding(vertical = 10.dp)
-                                )
-                            }
-                        }
-                    }
-
                     if (!isJapanese) {
-                        // 2. Welcome & Spoken Practice Advice Banner (English)
+                        // 1. Welcome & Spoken Practice Advice Banner (English)
                         item {
                             WelcomeBanner(
                                 text = "আপনার স্পোকেন দক্ষতা বাড়াতে এই app এর সাথে সাথে বেশি বেশি প্রাক্টিস করুন, ধন্যবাদ।",
                                 isSpeaking = isSpeaking,
-                                onPlayTts = { viewModel.playWelcomeGreeting(force = true) },
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "english", force = true) },
                                 onStopTts = { viewModel.stopWelcomeGreeting() }
                             )
                         }
@@ -274,12 +229,12 @@ fun LearnHomeScreen(
                             )
                         }
                     } else {
-                        // 2. Welcome & Spoken Practice Advice Banner (Japanese)
+                        // 1. Welcome & Spoken Practice Advice Banner (Japanese)
                         item {
                             WelcomeBanner(
                                 text = "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম! বাংলা নিয়মে সহজভাবে জাপানি ভাষায় ফ্লুয়েন্টলি কথা বলা শিখুন।",
                                 isSpeaking = isSpeaking,
-                                onPlayTts = { viewModel.playWelcomeGreeting(force = true) },
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "japanese", force = true) },
                                 onStopTts = { viewModel.stopWelcomeGreeting() }
                             )
                         }

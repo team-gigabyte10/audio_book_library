@@ -460,12 +460,15 @@ fun AppNavHost(
             })
         ) { backStackEntry ->
             val lang = backStackEntry.arguments?.getString("lang") ?: "english"
-            val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
-                LearnHomeViewModel(application)
-            })
+            val learnViewModel: LearnHomeViewModel = viewModel(
+                key = "learn_home_$lang",
+                factory = SimpleViewModelFactory {
+                    LearnHomeViewModel(application)
+                }
+            )
             LearnHomeScreen(
                 viewModel = learnViewModel,
-                initialLanguage = lang,
+                language = lang,
                 onBackClick = { navController.popBackStack() },
                 onOpenCourse = { course -> navController.navigate(Screen.CourseSyllabus.createRoute(course)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
