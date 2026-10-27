@@ -4,11 +4,11 @@
     "id": "jp-spoken-foundations",
     "target_lang": "ja",
     "base_lang": "bn",
-    "title_bn": "জাপানিজ স্পোকেন: Foundations (JLPT N5 বেসিক টু স্পিকিং)",
-    "title_target": "Spoken Japanese: Foundations Masterclass",
-    "source": "Curated from 00_Bangla_Japanese_N5_to_N1_Extended_Master_Complete.md & Spoken English Framework",
-    "note": "শূন্য থেকে হিরাগানা, কাতাকানা ও উচ্চারণ, ৮টি গোল্ডেন নিয়ম, です/ではありません, দৈনন্দিন কাজ, অবস্থান, বিশেষণ, প্রশ্ন-উত্তর ও ৬-রূপান্তর ড্রিল।",
-    "welcome_text": "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম! প্রতিটি বর্ণ, শব্দ ও বাক্য মন দিয়ে শুনুন এবং জোরে জোরে বলে শ্যাডোয়িং অনুশীলন করুন।"
+    "title_bn": "জাপানিজ স্পোকেন: Zero to Reading & Foundations (JLPT N5)",
+    "title_target": "Japanese Zero-to-Reading & Foundations Masterclass",
+    "source": "Curated from Bengali-Japanese Extended Master Framework",
+    "note": "অক্ষর না চেনা সম্পূর্ণ নতুনদের জন্য শূন্য থেকে হিরাগানা ও কাতাকানা, শুদ্ধ উচ্চারণবিধি, দেখে দেখে রিডিং প্র্যাকটিস এবং JLPT N5 মৌলিক স্পোকেন দক্ষতা।",
+    "welcome_text": "জাপানিজ জিরো-টু-রিডিং মাস্টারক্লাসে আপনাকে স্বাগতম! প্রতিটি বর্ণ, শব্দ ও বাক্য মন দিয়ে শুনুন এবং অডিওর সাথে সাথে জোরে জোরে মুখে উচ্চারণ করুন।"
   },
   "ladder_default": [
     {
@@ -37,23 +37,23 @@
     }
   ],
   "stats": {
-    "lessons": 44,
-    "items": 198
+    "lessons": 53,
+    "items": 252
   },
   "parts": [
     {
       "id": "jp-foundations-p1",
       "order": 1,
       "level": "A1",
-      "title_bn": "বর্ণমালা ও মৌলিক স্বরধ্বনি (Hiragana Basic Sounds)",
-      "title_target": "Hiragana 46 Basic Sounds & Mora Vowels",
+      "title_bn": "হিরাগানা মৌলিক বর্ণমালা ও স্বরধ্বনি (Hiragana 46 Basic Sounds & Mora Vowels)",
+      "title_target": "Hiragana 46 Basic Sounds & Mora Vowels (A-N Complete Matrix)",
       "lessons": [
         {
           "id": "jp-foundations-l01",
           "order": 1,
-          "title_bn": "জাপানিজ ৫টি মৌলিক স্বরবর্ণ ও মোরা টাইমিং (あ い う え お)",
+          "title_bn": "৫টি মৌলিক স্বরবর্ণ ও মোরা টাইমিং (あ い う え お)",
           "title_target": "5 Pure Japanese Vowels & Mora Timing (A, I, U, E, O)",
-          "intro_bn": "জাপানিজ ভাষায় ৫টি মূল স্বরবর্ণ রয়েছে: あ (a - আ), い (i - ই), う (u - উ), え (e - এ), お (o - ও)। জাপানিজে প্রতিটি অক্ষরের উচ্চারণ সমান সময়কাল (Mora) ধরে স্থিরভাবে করতে হয়।",
+          "intro_bn": "জাপানি ভাষায় ৫টি মূল স্বরবর্ণ রয়েছে: あ (a - আ), い (i - ই), う (u - উ), え (e - এ), お (o - ও)। জাপানিজে প্রতিটি অক্ষরের উচ্চারণ সমান সময়কাল (Mora) ধরে স্থিরভাবে করতে হয়।",
           "structure": [
             "Pure Vowels: あ (a), い (i), う (u), え (e), お (o)"
           ],
@@ -391,12 +391,11 @@
         {
           "id": "jp-foundations-l02",
           "order": 2,
-          "title_bn": "Ka-সারি ও Sa-সারি ('し shi' এর বিশেষ উচ্চারণ)",
-          "title_target": "Ka-Row & Sa-Row (Special focus on 'shi')",
-          "intro_bn": "か (ka), き (ki), く (ku), け (ke), こ (ko) এবং さ (sa), し (shi), す (su), せ (se), そ (so)। মনে রাখবেন 'し' এর উচ্চারণ 'সি' নয়, বরং নরম তালব্য 'শি' (shi)।",
+          "title_bn": "Ka-সারি: K-ধ্বনি ও শব্দ পাঠ (か き く け こ)",
+          "title_target": "Ka-Row: Clear K-Sounds & Word Formation (Ka, Ki, Ku, Ke, Ko)",
+          "intro_bn": "K-ধ্বনি যুক্ত ৫টি বর্ণ: か (ka), き (ki), く (ku), け (ke), こ (ko)। কণ্ঠনালী থেকে স্পষ্ট ক-ধ্বনি উচ্চারিত হয়।",
           "structure": [
-            "Ka-Row: か き く け こ",
-            "Sa-Row: さ し す せ そ (し=shi)"
+            "Ka-Row: か (ka), き (ki), く (ku), け (ke), こ (ko)"
           ],
           "items": [
             {
@@ -456,6 +455,246 @@
               "id": "jp-p1-l2-002",
               "concept_id": "c-jp-p1-l2-002",
               "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "かさ (kasa)",
+              "target_kana": "かさ",
+              "romaji": "kasa",
+              "bn": "ছাতা",
+              "bn_pron": "কাসা",
+              "ipa": "kasa",
+              "tokens": [
+                {
+                  "t": "か",
+                  "romaji": "ka",
+                  "kanji": "か",
+                  "bn": "কা"
+                },
+                {
+                  "t": "さ",
+                  "romaji": "sa",
+                  "kanji": "さ",
+                  "bn": "সা"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l2-003",
+              "concept_id": "c-jp-p1-l2-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "きく (kiku)",
+              "target_kana": "きく",
+              "romaji": "kiku",
+              "bn": "শোনা / গান শোনা",
+              "bn_pron": "কিকু",
+              "ipa": "kiku",
+              "tokens": [
+                {
+                  "t": "き",
+                  "romaji": "ki",
+                  "kanji": "き",
+                  "bn": "কি"
+                },
+                {
+                  "t": "く",
+                  "romaji": "ku",
+                  "kanji": "く",
+                  "bn": "কু"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l2-004",
+              "concept_id": "c-jp-p1-l2-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "くるま (kuruma)",
+              "target_kana": "くるま",
+              "romaji": "kuruma",
+              "bn": "গাড়ি",
+              "bn_pron": "কুরুমা",
+              "ipa": "kuruma",
+              "tokens": [
+                {
+                  "t": "く",
+                  "romaji": "ku",
+                  "kanji": "車",
+                  "bn": "গাড়ি"
+                },
+                {
+                  "t": "る",
+                  "romaji": "ru",
+                  "kanji": "る",
+                  "bn": "রু"
+                },
+                {
+                  "t": "ま",
+                  "romaji": "ma",
+                  "kanji": "ま",
+                  "bn": "মা"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l2-005",
+              "concept_id": "c-jp-p1-l2-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "けさ (kesa)",
+              "target_kana": "けさ",
+              "romaji": "kesa",
+              "bn": "আজ সকাল",
+              "bn_pron": "কেসা",
+              "ipa": "kesa",
+              "tokens": [
+                {
+                  "t": "け",
+                  "romaji": "ke",
+                  "kanji": "け",
+                  "bn": "কে"
+                },
+                {
+                  "t": "さ",
+                  "romaji": "sa",
+                  "kanji": "さ",
+                  "bn": "সা"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l2-006",
+              "concept_id": "c-jp-p1-l2-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "こえ (koe)",
+              "target_kana": "こえ",
+              "romaji": "koe",
+              "bn": "গলার আওয়াজ / কণ্ঠস্বর",
+              "bn_pron": "কোয়ে",
+              "ipa": "koe",
+              "tokens": [
+                {
+                  "t": "こ",
+                  "romaji": "ko",
+                  "kanji": "声",
+                  "bn": "কণ্ঠ"
+                },
+                {
+                  "t": "え",
+                  "romaji": "e",
+                  "kanji": "え",
+                  "bn": "এ"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l2-007",
+              "concept_id": "c-jp-p1-l2-007",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "あかい かさを かいます。",
+              "target_kana": "あかいかさをかいます。",
+              "romaji": "Akai kasa o kaimasu.",
+              "bn": "লাল ছাতা কিনি।",
+              "bn_pron": "আকাই কাসা ও কাইমাসু।",
+              "ipa": "Akai kasa o kaimasu.",
+              "tokens": [
+                {
+                  "t": "あかい",
+                  "romaji": "akai",
+                  "kanji": "赤い",
+                  "bn": "লাল"
+                },
+                {
+                  "t": "かさ",
+                  "romaji": "kasa",
+                  "kanji": "傘",
+                  "bn": "ছাতা"
+                },
+                {
+                  "t": "を",
+                  "romaji": "o",
+                  "kanji": "を",
+                  "bn": "কে"
+                },
+                {
+                  "t": "かいます",
+                  "romaji": "kaimasu",
+                  "kanji": "買います",
+                  "bn": "কিনি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l03",
+          "order": 3,
+          "title_bn": "Sa-সারি ও তালব্য 'し' (さ し す せ そ)",
+          "title_target": "Sa-Row & The Palatal 'shi' Sound (Sa, Shi, Su, Se, So)",
+          "intro_bn": "さ (sa), し (shi), す (su), せ (se), そ (so)। মনে রাখবেন 'し' কখনোই দাঁতে ঘষা 'সি' নয়, বরং নরম তালব্য 'শি' (ইংরেজি she-এর মতো)।",
+          "structure": [
+            "Sa-Row: さ (sa), し (shi - তালব্য শি), す (su), せ (se), そ (so)"
+          ],
+          "items": [
+            {
+              "id": "jp-p1-l3-001",
+              "concept_id": "c-jp-p1-l3-001",
+              "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
               "target": "さ、し、す、せ、そ",
@@ -506,78 +745,8 @@
               }
             },
             {
-              "id": "jp-p1-l2-003",
-              "concept_id": "c-jp-p1-l2-003",
-              "order": 1,
-              "type": "word",
-              "level": "A1",
-              "target": "かさ (kasa)",
-              "target_kana": "かさ",
-              "romaji": "kasa",
-              "bn": "ছাতা",
-              "bn_pron": "কাসা",
-              "ipa": "kasa",
-              "tokens": [
-                {
-                  "t": "か",
-                  "romaji": "ka",
-                  "kanji": "か",
-                  "bn": "কা"
-                },
-                {
-                  "t": "さ",
-                  "romaji": "sa",
-                  "kanji": "さ",
-                  "bn": "সা"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-p1-l2-004",
-              "concept_id": "c-jp-p1-l2-004",
-              "order": 1,
-              "type": "word",
-              "level": "A1",
-              "target": "すし (sushi)",
-              "target_kana": "すし",
-              "romaji": "sushi",
-              "bn": "সুশি (ঐতিহ্যবাহী খাবার)",
-              "bn_pron": "সুশি",
-              "ipa": "sushi",
-              "tokens": [
-                {
-                  "t": "す",
-                  "romaji": "su",
-                  "kanji": "す",
-                  "bn": "সু"
-                },
-                {
-                  "t": "し",
-                  "romaji": "shi",
-                  "kanji": "し",
-                  "bn": "শি"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-p1-l2-005",
-              "concept_id": "c-jp-p1-l2-005",
+              "id": "jp-p1-l3-002",
+              "concept_id": "c-jp-p1-l3-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -611,8 +780,113 @@
               }
             },
             {
-              "id": "jp-p1-l2-006",
-              "concept_id": "c-jp-p1-l2-006",
+              "id": "jp-p1-l3-003",
+              "concept_id": "c-jp-p1-l3-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "しお (shio)",
+              "target_kana": "しお",
+              "romaji": "shio",
+              "bn": "লবণ",
+              "bn_pron": "শিও",
+              "ipa": "shio",
+              "tokens": [
+                {
+                  "t": "し",
+                  "romaji": "shi",
+                  "kanji": "塩",
+                  "bn": "লবণ"
+                },
+                {
+                  "t": "お",
+                  "romaji": "o",
+                  "kanji": "お",
+                  "bn": "ও"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l3-004",
+              "concept_id": "c-jp-p1-l3-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "すし (sushi)",
+              "target_kana": "すし",
+              "romaji": "sushi",
+              "bn": "সুশি (ঐতিহ্যবাহী খাবার)",
+              "bn_pron": "সুশি",
+              "ipa": "sushi",
+              "tokens": [
+                {
+                  "t": "す",
+                  "romaji": "su",
+                  "kanji": "す",
+                  "bn": "সু"
+                },
+                {
+                  "t": "し",
+                  "romaji": "shi",
+                  "kanji": "し",
+                  "bn": "শি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l3-005",
+              "concept_id": "c-jp-p1-l3-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "せかい (sekai)",
+              "target_kana": "せかい",
+              "romaji": "sekai",
+              "bn": "পৃথিবী / বিশ্ব",
+              "bn_pron": "সেকাই",
+              "ipa": "sekai",
+              "tokens": [
+                {
+                  "t": "せ",
+                  "romaji": "se",
+                  "kanji": "世",
+                  "bn": "বিশ্ব"
+                },
+                {
+                  "t": "かい",
+                  "romaji": "kai",
+                  "kanji": "界",
+                  "bn": "জগৎ"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l3-006",
+              "concept_id": "c-jp-p1-l3-006",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -646,35 +920,23 @@
               }
             },
             {
-              "id": "jp-p1-l2-007",
-              "concept_id": "c-jp-p1-l2-007",
+              "id": "jp-p1-l3-007",
+              "concept_id": "c-jp-p1-l3-007",
               "order": 1,
               "type": "sentence",
               "level": "A1",
-              "target": "きで つくえを つくります。",
-              "target_kana": "きでつくえをつくります。",
-              "romaji": "Ki de tsukue o tsukurimasu.",
-              "bn": "কাঠ দিয়ে পড়ার টেবিল তৈরি করি।",
-              "bn_pron": "কি দে ৎसुकুয়ে ও ৎসুকুরিমাসু।",
-              "ipa": "Ki de tsukue o tsukurimasu.",
+              "target": "すしを たべます。",
+              "target_kana": "すしをたべます。",
+              "romaji": "Sushi o tabemasu.",
+              "bn": "সুশি খাই।",
+              "bn_pron": "সুশি ও তাবেমাসু।",
+              "ipa": "Sushi o tabemasu.",
               "tokens": [
                 {
-                  "t": "き",
-                  "romaji": "ki",
-                  "kanji": "木",
-                  "bn": "কাঠ"
-                },
-                {
-                  "t": "で",
-                  "romaji": "de",
-                  "kanji": "で",
-                  "bn": "দিয়ে"
-                },
-                {
-                  "t": "つくえ",
-                  "romaji": "tsukue",
-                  "kanji": "机",
-                  "bn": "টেবিল"
+                  "t": "すし",
+                  "romaji": "sushi",
+                  "kanji": "寿司",
+                  "bn": "সুশি"
                 },
                 {
                   "t": "を",
@@ -683,10 +945,10 @@
                   "bn": "কে"
                 },
                 {
-                  "t": "つくります",
-                  "romaji": "tsukurimasu",
-                  "kanji": "作ります",
-                  "bn": "তৈরি করি"
+                  "t": "たべます",
+                  "romaji": "tabemasu",
+                  "kanji": "食べます",
+                  "bn": "খাই"
                 }
               ],
               "status": "reviewed",
@@ -701,19 +963,18 @@
           ]
         },
         {
-          "id": "jp-foundations-l03",
-          "order": 3,
-          "title_bn": "Ta-সারি ও Na-সারি ('ち chi' ও 'つ tsu' এর বিশেষ নিয়ম)",
-          "title_target": "Ta-Row & Na-Row (Special focus on 'chi' & 'tsu')",
-          "intro_bn": "た (ta), ち (chi), つ (tsu), て (te), と (to) এবং な (na), に (ni), ぬ (nu), ね (ne), の (no)। 'ち' হলো 'চি' এবং 'つ' হলো দাঁতের পেছনে জিভ ঠেকিয়ে হিসহিস শব্দে 'ৎসু' (tsu)।",
+          "id": "jp-foundations-l04",
+          "order": 4,
+          "title_bn": "Ta-সারি ও বিশেষ ধ্বনি 'ち chi' ও 'つ tsu' (た ち つ て と)",
+          "title_target": "Ta-Row: Focus on 'chi' & The Sibilant 'tsu' (Ta, Chi, Tsu, Te, To)",
+          "intro_bn": "た (ta), ち (chi), つ (tsu), て (te), と (to)। 'ち' হলো 'চি' এবং 'つ' হলো দাঁতের গোড়ায় জিভ রেখে হিসহিস শব্দে 'ৎসু' (tsu)। এটি বাঙালি শিক্ষার্থীদের অন্যতম প্রধান শেখার বিষয়।",
           "structure": [
-            "Ta-Row: た ち つ て と (ち=chi, つ=tsu)",
-            "Na-Row: な に ぬ ね の"
+            "Ta-Row: た (ta), ち (chi), つ (tsu), て (te), と (to)"
           ],
           "items": [
             {
-              "id": "jp-p1-l3-001",
-              "concept_id": "c-jp-p1-l3-001",
+              "id": "jp-p1-l4-001",
+              "concept_id": "c-jp-p1-l4-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -765,8 +1026,236 @@
               }
             },
             {
-              "id": "jp-p1-l3-002",
-              "concept_id": "c-jp-p1-l3-002",
+              "id": "jp-p1-l4-002",
+              "concept_id": "c-jp-p1-l4-002",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "たまご (tamago)",
+              "target_kana": "たまご",
+              "romaji": "tamago",
+              "bn": "ডিম",
+              "bn_pron": "তামাগো",
+              "ipa": "tamago",
+              "tokens": [
+                {
+                  "t": "た",
+                  "romaji": "ta",
+                  "kanji": "卵",
+                  "bn": "ডিম"
+                },
+                {
+                  "t": "ま",
+                  "romaji": "ma",
+                  "kanji": "ま",
+                  "bn": "মা"
+                },
+                {
+                  "t": "ご",
+                  "romaji": "go",
+                  "kanji": "ご",
+                  "bn": "গো"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l4-003",
+              "concept_id": "c-jp-p1-l4-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "ちち (chichi)",
+              "target_kana": "ちち",
+              "romaji": "chichi",
+              "bn": "আমার বাবা",
+              "bn_pron": "চিচি",
+              "ipa": "chichi",
+              "tokens": [
+                {
+                  "t": "ち",
+                  "romaji": "chi",
+                  "kanji": "父",
+                  "bn": "বাবা"
+                },
+                {
+                  "t": "ち",
+                  "romaji": "chi",
+                  "kanji": "ち",
+                  "bn": "চি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l4-004",
+              "concept_id": "c-jp-p1-l4-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "つき (tsuki)",
+              "target_kana": "つき",
+              "romaji": "tsuki",
+              "bn": "চাঁদ",
+              "bn_pron": "ৎসুকি",
+              "ipa": "tsuki",
+              "tokens": [
+                {
+                  "t": "つ",
+                  "romaji": "tsu",
+                  "kanji": "月",
+                  "bn": "চাঁদ"
+                },
+                {
+                  "t": "き",
+                  "romaji": "ki",
+                  "kanji": "き",
+                  "bn": "কি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l4-005",
+              "concept_id": "c-jp-p1-l4-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "て (te)",
+              "target_kana": "て",
+              "romaji": "te",
+              "bn": "হাত",
+              "bn_pron": "তে",
+              "ipa": "te",
+              "tokens": [
+                {
+                  "t": "て",
+                  "romaji": "te",
+                  "kanji": "手",
+                  "bn": "হাত"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l4-006",
+              "concept_id": "c-jp-p1-l4-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "とり (tori)",
+              "target_kana": "とり",
+              "romaji": "tori",
+              "bn": "পাখি",
+              "bn_pron": "তোরি",
+              "ipa": "tori",
+              "tokens": [
+                {
+                  "t": "と",
+                  "romaji": "to",
+                  "kanji": "鳥",
+                  "bn": "পাখি"
+                },
+                {
+                  "t": "り",
+                  "romaji": "ri",
+                  "kanji": "り",
+                  "bn": "রি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l4-007",
+              "concept_id": "c-jp-p1-l4-007",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "つくえで べんきょうします。",
+              "target_kana": "つくえでべんきょうします。",
+              "romaji": "Tsukue de benkyou shimasu.",
+              "bn": "পড়ার টেবিলে পড়াশোনা করি।",
+              "bn_pron": "ৎসুকুয়ে দে বেনকিয়োও শিমাসু।",
+              "ipa": "Tsukue de benkyou shimasu.",
+              "tokens": [
+                {
+                  "t": "つくえ",
+                  "romaji": "tsukue",
+                  "kanji": "机",
+                  "bn": "পড়ার টেবিল"
+                },
+                {
+                  "t": "で",
+                  "romaji": "de",
+                  "kanji": "で",
+                  "bn": "এ"
+                },
+                {
+                  "t": "べんきょうします",
+                  "romaji": "benkyou shimasu",
+                  "kanji": "勉強します",
+                  "bn": "পড়ি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l05",
+          "order": 5,
+          "title_bn": "Na-সারি: নাসিক্য ধ্বনি ও শব্দ গঠন (な に ぬ ね の)",
+          "title_target": "Na-Row: Pure Nasals & Core Words (Na, Ni, Nu, Ne, No)",
+          "intro_bn": "な (na), に (ni), ぬ (nu), ね (ne), の (no)। প্রতিটি অক্ষরের বাঁক ও মোচড় সুন্দরভাবে খেয়াল করুন।",
+          "structure": [
+            "Na-Row: な (na), に (ni), ぬ (nu), ね (ne), の (no)"
+          ],
+          "items": [
+            {
+              "id": "jp-p1-l5-001",
+              "concept_id": "c-jp-p1-l5-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -818,29 +1307,29 @@
               }
             },
             {
-              "id": "jp-p1-l3-003",
-              "concept_id": "c-jp-p1-l3-003",
+              "id": "jp-p1-l5-002",
+              "concept_id": "c-jp-p1-l5-002",
               "order": 1,
               "type": "word",
               "level": "A1",
-              "target": "つき (tsuki)",
-              "target_kana": "つき",
-              "romaji": "tsuki",
-              "bn": "চাঁদ",
-              "bn_pron": "ৎসুকি",
-              "ipa": "tsuki",
+              "target": "なつ (natsu)",
+              "target_kana": "なつ",
+              "romaji": "natsu",
+              "bn": "গ্রীষ্মকাল",
+              "bn_pron": "নাৎসু",
+              "ipa": "natsu",
               "tokens": [
+                {
+                  "t": "な",
+                  "romaji": "na",
+                  "kanji": "夏",
+                  "bn": "গ্রীষ্ম"
+                },
                 {
                   "t": "つ",
                   "romaji": "tsu",
                   "kanji": "つ",
                   "bn": "ৎসু"
-                },
-                {
-                  "t": "き",
-                  "romaji": "ki",
-                  "kanji": "き",
-                  "bn": "কি"
                 }
               ],
               "status": "reviewed",
@@ -853,29 +1342,29 @@
               }
             },
             {
-              "id": "jp-p1-l3-004",
-              "concept_id": "c-jp-p1-l3-004",
+              "id": "jp-p1-l5-003",
+              "concept_id": "c-jp-p1-l5-003",
               "order": 1,
               "type": "word",
               "level": "A1",
-              "target": "ちち (chichi)",
-              "target_kana": "ちち",
-              "romaji": "chichi",
-              "bn": "আমার বাবা",
-              "bn_pron": "চিচি",
-              "ipa": "chichi",
+              "target": "にく (niku)",
+              "target_kana": "にく",
+              "romaji": "niku",
+              "bn": "মাংস",
+              "bn_pron": "নিকু",
+              "ipa": "niku",
               "tokens": [
                 {
-                  "t": "ち",
-                  "romaji": "chi",
-                  "kanji": "ち",
-                  "bn": "চি"
+                  "t": "に",
+                  "romaji": "ni",
+                  "kanji": "肉",
+                  "bn": "মাংস"
                 },
                 {
-                  "t": "ち",
-                  "romaji": "chi",
-                  "kanji": "ち",
-                  "bn": "চি"
+                  "t": "く",
+                  "romaji": "ku",
+                  "kanji": "く",
+                  "bn": "কু"
                 }
               ],
               "status": "reviewed",
@@ -888,43 +1377,8 @@
               }
             },
             {
-              "id": "jp-p1-l3-005",
-              "concept_id": "c-jp-p1-l3-005",
-              "order": 1,
-              "type": "word",
-              "level": "A1",
-              "target": "ねこ (neko)",
-              "target_kana": "ねこ",
-              "romaji": "neko",
-              "bn": "বিড়াল",
-              "bn_pron": "নেকো",
-              "ipa": "neko",
-              "tokens": [
-                {
-                  "t": "ね",
-                  "romaji": "ne",
-                  "kanji": "ね",
-                  "bn": "নে"
-                },
-                {
-                  "t": "こ",
-                  "romaji": "ko",
-                  "kanji": "こ",
-                  "bn": "কো"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-p1-l3-006",
-              "concept_id": "c-jp-p1-l3-006",
+              "id": "jp-p1-l5-004",
+              "concept_id": "c-jp-p1-l5-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -944,8 +1398,8 @@
                 {
                   "t": "ぬ",
                   "romaji": "nu",
-                  "kanji": "ぬ",
-                  "bn": "নু"
+                  "kanji": "犬",
+                  "bn": "কুকুর"
                 }
               ],
               "status": "reviewed",
@@ -958,23 +1412,123 @@
               }
             },
             {
-              "id": "jp-p1-l3-007",
-              "concept_id": "c-jp-p1-l3-007",
+              "id": "jp-p1-l5-005",
+              "concept_id": "c-jp-p1-l5-005",
               "order": 1,
               "type": "word",
               "level": "A1",
-              "target": "て (te)",
-              "target_kana": "て",
-              "romaji": "te",
-              "bn": "হাত",
-              "bn_pron": "তে",
-              "ipa": "te",
+              "target": "ねこ (neko)",
+              "target_kana": "ねこ",
+              "romaji": "neko",
+              "bn": "বিড়াল",
+              "bn_pron": "নেকো",
+              "ipa": "neko",
               "tokens": [
                 {
-                  "t": "て",
-                  "romaji": "te",
-                  "kanji": "手",
-                  "bn": "হাত"
+                  "t": "ね",
+                  "romaji": "ne",
+                  "kanji": "猫",
+                  "bn": "বিড়াল"
+                },
+                {
+                  "t": "こ",
+                  "romaji": "ko",
+                  "kanji": "こ",
+                  "bn": "কো"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l5-006",
+              "concept_id": "c-jp-p1-l5-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "のみもの (nomimono)",
+              "target_kana": "のみもの",
+              "romaji": "nomimono",
+              "bn": "পানীয়",
+              "bn_pron": "নোমিমোনো",
+              "ipa": "nomimono",
+              "tokens": [
+                {
+                  "t": "の",
+                  "romaji": "no",
+                  "kanji": "飲",
+                  "bn": "পান"
+                },
+                {
+                  "t": "み",
+                  "romaji": "mi",
+                  "kanji": "み",
+                  "bn": "মি"
+                },
+                {
+                  "t": "もの",
+                  "romaji": "mono",
+                  "kanji": "物",
+                  "bn": "জিনিস"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l5-007",
+              "concept_id": "c-jp-p1-l5-007",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "ねこと いぬが います。",
+              "target_kana": "ねこといぬがいます。",
+              "romaji": "Neko to inu ga imasu.",
+              "bn": "বিড়াল ও কুকুর আছে।",
+              "bn_pron": "নেকো তো ইনু গা ইমাসু।",
+              "ipa": "Neko to inu ga imasu.",
+              "tokens": [
+                {
+                  "t": "ねこ",
+                  "romaji": "neko",
+                  "kanji": "猫",
+                  "bn": "বিড়াল"
+                },
+                {
+                  "t": "と",
+                  "romaji": "to",
+                  "kanji": "と",
+                  "bn": "ও"
+                },
+                {
+                  "t": "いぬ",
+                  "romaji": "inu",
+                  "kanji": "犬",
+                  "bn": "কুকুর"
+                },
+                {
+                  "t": "が",
+                  "romaji": "ga",
+                  "kanji": "が",
+                  "bn": "টি"
+                },
+                {
+                  "t": "います",
+                  "romaji": "imasu",
+                  "kanji": "います",
+                  "bn": "আছে"
                 }
               ],
               "status": "reviewed",
@@ -989,19 +1543,18 @@
           ]
         },
         {
-          "id": "jp-foundations-l04",
-          "order": 4,
-          "title_bn": "Ha-সারি ও Ma-সারি ('ふ fu' এর বিশেষ দ্ব্যোষ্ঠ উচ্চারণ)",
-          "title_target": "Ha-Row & Ma-Row (Special focus on 'fu')",
-          "intro_bn": "は (ha), ひ (hi), ふ (fu), へ (he), ほ (ho) এবং ま (ma), み (mi), む (mu), め (me), も (mo)। 'ふ' উচ্চারণে দাঁত ও ঠোঁট না লাগিয়ে মোমবাতি নেভানোর মতো হালকা ফুঁ দিয়ে 'ফু' বলতে হয়।",
+          "id": "jp-foundations-l06",
+          "order": 6,
+          "title_bn": "Ha-সারি ও ফুঁ দেওয়ার মতো দ্ব্যোষ্ঠ 'ふ fu' (は ひ ふ へ ほ)",
+          "title_target": "Ha-Row & The Bilabial Fricative 'fu' (Ha, Hi, Fu, He, Ho)",
+          "intro_bn": "は (ha), ひ (hi), ふ (fu), へ (he), ほ (ho)। 'ふ' উচ্চারণে দাঁত ও ঠোঁট না লাগিয়ে মোমবাতি নেভানোর মতো হালকা ফুঁ দিয়ে 'ফু' বলতে হয়।",
           "structure": [
-            "Ha-Row: は ひ ふ へ ほ (ふ=fu)",
-            "Ma-Row: ま み む め も"
+            "Ha-Row: は (ha), ひ (hi), ふ (fu - দ্ব্যোষ্ঠ ফু), へ (he), ほ (ho)"
           ],
           "items": [
             {
-              "id": "jp-p1-l4-001",
-              "concept_id": "c-jp-p1-l4-001",
+              "id": "jp-p1-l6-001",
+              "concept_id": "c-jp-p1-l6-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1053,8 +1606,248 @@
               }
             },
             {
-              "id": "jp-p1-l4-002",
-              "concept_id": "c-jp-p1-l4-002",
+              "id": "jp-p1-l6-002",
+              "concept_id": "c-jp-p1-l6-002",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "はな (hana)",
+              "target_kana": "はな",
+              "romaji": "hana",
+              "bn": "ফুল / নাক",
+              "bn_pron": "হানা",
+              "ipa": "hana",
+              "tokens": [
+                {
+                  "t": "は",
+                  "romaji": "ha",
+                  "kanji": "花",
+                  "bn": "ফুল"
+                },
+                {
+                  "t": "な",
+                  "romaji": "na",
+                  "kanji": "な",
+                  "bn": "না"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l6-003",
+              "concept_id": "c-jp-p1-l6-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "ひと (hito)",
+              "target_kana": "ひと",
+              "romaji": "hito",
+              "bn": "মানুষ / ব্যক্তি",
+              "bn_pron": "হিতো",
+              "ipa": "hito",
+              "tokens": [
+                {
+                  "t": "ひ",
+                  "romaji": "hi",
+                  "kanji": "人",
+                  "bn": "মানুষ"
+                },
+                {
+                  "t": "と",
+                  "romaji": "to",
+                  "kanji": "と",
+                  "bn": "তো"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l6-004",
+              "concept_id": "c-jp-p1-l6-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "ふね (fune)",
+              "target_kana": "ふね",
+              "romaji": "fune",
+              "bn": "নৌকা / জাহাজ",
+              "bn_pron": "ফুনে",
+              "ipa": "fune",
+              "tokens": [
+                {
+                  "t": "ふ",
+                  "romaji": "fu",
+                  "kanji": "船",
+                  "bn": "নৌকা"
+                },
+                {
+                  "t": "ね",
+                  "romaji": "ne",
+                  "kanji": "ね",
+                  "bn": "নে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l6-005",
+              "concept_id": "c-jp-p1-l6-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "へや (heya)",
+              "target_kana": "へや",
+              "romaji": "heya",
+              "bn": "ঘর / রুম",
+              "bn_pron": "হেয়া",
+              "ipa": "heya",
+              "tokens": [
+                {
+                  "t": "へ",
+                  "romaji": "he",
+                  "kanji": "部",
+                  "bn": "অংশ"
+                },
+                {
+                  "t": "や",
+                  "romaji": "ya",
+                  "kanji": "屋",
+                  "bn": "কক্ষ"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l6-006",
+              "concept_id": "c-jp-p1-l6-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "ほし (hoshi)",
+              "target_kana": "ほし",
+              "romaji": "hoshi",
+              "bn": "তারা / নক্ষত্র",
+              "bn_pron": "হোশি",
+              "ipa": "hoshi",
+              "tokens": [
+                {
+                  "t": "ほ",
+                  "romaji": "ho",
+                  "kanji": "星",
+                  "bn": "তারা"
+                },
+                {
+                  "t": "し",
+                  "romaji": "shi",
+                  "kanji": "し",
+                  "bn": "শি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l6-007",
+              "concept_id": "c-jp-p1-l6-007",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "へやに はなが あります。",
+              "target_kana": "へやにはながあります。",
+              "romaji": "Heya ni hana ga arimasu.",
+              "bn": "ঘরে সুন্দর ফুল আছে।",
+              "bn_pron": "হেয়া নি হানা গা আরিমাসু।",
+              "ipa": "Heya ni hana ga arimasu.",
+              "tokens": [
+                {
+                  "t": "へや",
+                  "romaji": "heya",
+                  "kanji": "部屋",
+                  "bn": "ঘর"
+                },
+                {
+                  "t": "に",
+                  "romaji": "ni",
+                  "kanji": "に",
+                  "bn": "এ"
+                },
+                {
+                  "t": "はな",
+                  "romaji": "hana",
+                  "kanji": "花",
+                  "bn": "ফুল"
+                },
+                {
+                  "t": "が",
+                  "romaji": "ga",
+                  "kanji": "が",
+                  "bn": "টি"
+                },
+                {
+                  "t": "あります",
+                  "romaji": "arimasu",
+                  "kanji": "あります",
+                  "bn": "আছে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l07",
+          "order": 7,
+          "title_bn": "Ma-সারি: M-ধ্বনি ও শব্দ পাঠ (ま み む め も)",
+          "title_target": "Ma-Row: Bilabial Nasal Sounds (Ma, Mi, Mu, Me, Mo)",
+          "intro_bn": "ま (ma), み (mi), む (mu), め (me), も (mo)। দুই ঠোঁট চেপে নরম ম-ধ্বনি তৈরি হয়।",
+          "structure": [
+            "Ma-Row: ま (ma), み (mi), む (mu), め (me), も (mo)"
+          ],
+          "items": [
+            {
+              "id": "jp-p1-l7-001",
+              "concept_id": "c-jp-p1-l7-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1106,29 +1899,29 @@
               }
             },
             {
-              "id": "jp-p1-l4-003",
-              "concept_id": "c-jp-p1-l4-003",
+              "id": "jp-p1-l7-002",
+              "concept_id": "c-jp-p1-l7-002",
               "order": 1,
               "type": "word",
               "level": "A1",
-              "target": "はな (hana)",
-              "target_kana": "はな",
-              "romaji": "hana",
-              "bn": "ফুল",
-              "bn_pron": "হানা",
-              "ipa": "hana",
+              "target": "まち (machi)",
+              "target_kana": "まち",
+              "romaji": "machi",
+              "bn": "শহর / জনপদ",
+              "bn_pron": "মাচি",
+              "ipa": "machi",
               "tokens": [
                 {
-                  "t": "は",
-                  "romaji": "ha",
-                  "kanji": "花",
-                  "bn": "ফুল"
+                  "t": "ま",
+                  "romaji": "ma",
+                  "kanji": "町",
+                  "bn": "শহর"
                 },
                 {
-                  "t": "な",
-                  "romaji": "na",
-                  "kanji": "な",
-                  "bn": "না"
+                  "t": "ち",
+                  "romaji": "chi",
+                  "kanji": "ち",
+                  "bn": "চি"
                 }
               ],
               "status": "reviewed",
@@ -1141,78 +1934,8 @@
               }
             },
             {
-              "id": "jp-p1-l4-004",
-              "concept_id": "c-jp-p1-l4-004",
-              "order": 1,
-              "type": "word",
-              "level": "A1",
-              "target": "ふね (fune)",
-              "target_kana": "ふね",
-              "romaji": "fune",
-              "bn": "নৌকা / জাহাজ",
-              "bn_pron": "ফুনে",
-              "ipa": "fune",
-              "tokens": [
-                {
-                  "t": "ふ",
-                  "romaji": "fu",
-                  "kanji": "船",
-                  "bn": "নৌকা"
-                },
-                {
-                  "t": "ね",
-                  "romaji": "ne",
-                  "kanji": "ね",
-                  "bn": "নে"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-p1-l4-005",
-              "concept_id": "c-jp-p1-l4-005",
-              "order": 1,
-              "type": "word",
-              "level": "A1",
-              "target": "ひと (hito)",
-              "target_kana": "ひと",
-              "romaji": "hito",
-              "bn": "মানুষ / ব্যক্তি",
-              "bn_pron": "হিতো",
-              "ipa": "hito",
-              "tokens": [
-                {
-                  "t": "ひ",
-                  "romaji": "hi",
-                  "kanji": "人",
-                  "bn": "মানুষ"
-                },
-                {
-                  "t": "と",
-                  "romaji": "to",
-                  "kanji": "と",
-                  "bn": "তো"
-                }
-              ],
-              "status": "reviewed",
-              "reviewFlags": "",
-              "tags": {
-                "sentence_type": "assertive",
-                "polarity": "affirmative",
-                "tense": "present_simple",
-                "jlpt": "N5"
-              }
-            },
-            {
-              "id": "jp-p1-l4-006",
-              "concept_id": "c-jp-p1-l4-006",
+              "id": "jp-p1-l7-003",
+              "concept_id": "c-jp-p1-l7-003",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1246,29 +1969,146 @@
               }
             },
             {
-              "id": "jp-p1-l4-007",
-              "concept_id": "c-jp-p1-l4-007",
+              "id": "jp-p1-l7-004",
+              "concept_id": "c-jp-p1-l7-004",
               "order": 1,
               "type": "word",
               "level": "A1",
-              "target": "まち (machi)",
-              "target_kana": "まち",
-              "romaji": "machi",
-              "bn": "শহর / জনপদ",
-              "bn_pron": "মাচি",
-              "ipa": "machi",
+              "target": "むし (mushi)",
+              "target_kana": "むし",
+              "romaji": "mushi",
+              "bn": "কীটপতঙ্গ / পোকা",
+              "bn_pron": "মুশি",
+              "ipa": "mushi",
               "tokens": [
                 {
-                  "t": "ま",
-                  "romaji": "ma",
+                  "t": "む",
+                  "romaji": "mu",
+                  "kanji": "虫",
+                  "bn": "পোকা"
+                },
+                {
+                  "t": "し",
+                  "romaji": "shi",
+                  "kanji": "し",
+                  "bn": "শি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l7-005",
+              "concept_id": "c-jp-p1-l7-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "め (me)",
+              "target_kana": "め",
+              "romaji": "me",
+              "bn": "চোখ",
+              "bn_pron": "মে",
+              "ipa": "me",
+              "tokens": [
+                {
+                  "t": "め",
+                  "romaji": "me",
+                  "kanji": "目",
+                  "bn": "চোখ"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l7-006",
+              "concept_id": "c-jp-p1-l7-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "もの (mono)",
+              "target_kana": "もの",
+              "romaji": "mono",
+              "bn": "জিনিস / বস্তু",
+              "bn_pron": "মোনো",
+              "ipa": "mono",
+              "tokens": [
+                {
+                  "t": "も",
+                  "romaji": "mo",
+                  "kanji": "物",
+                  "bn": "জিনিস"
+                },
+                {
+                  "t": "の",
+                  "romaji": "no",
+                  "kanji": "の",
+                  "bn": "নো"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l7-007",
+              "concept_id": "c-jp-p1-l7-007",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "まちの みずを のみます。",
+              "target_kana": "まちのみずをのみます。",
+              "romaji": "Machi no mizu o nomimasu.",
+              "bn": "শহরের পানি পান করি।",
+              "bn_pron": "মাচি নো মিজু ও নোমিমাসু।",
+              "ipa": "Machi no mizu o nomimasu.",
+              "tokens": [
+                {
+                  "t": "まち",
+                  "romaji": "machi",
                   "kanji": "町",
                   "bn": "শহর"
                 },
                 {
-                  "t": "ち",
-                  "romaji": "chi",
-                  "kanji": "ち",
-                  "bn": "চি"
+                  "t": "の",
+                  "romaji": "no",
+                  "kanji": "の",
+                  "bn": "এর"
+                },
+                {
+                  "t": "みず",
+                  "romaji": "mizu",
+                  "kanji": "水",
+                  "bn": "পানি"
+                },
+                {
+                  "t": "を",
+                  "romaji": "o",
+                  "kanji": "を",
+                  "bn": "কে"
+                },
+                {
+                  "t": "のみます",
+                  "romaji": "nomimasu",
+                  "kanji": "飲みます",
+                  "bn": "পান করি"
                 }
               ],
               "status": "reviewed",
@@ -1283,21 +2123,20 @@
           ]
         },
         {
-          "id": "jp-foundations-l05",
-          "order": 5,
-          "title_bn": "Ya, Ra, Wa সারি ও অনুনাসিক 'ん n' এর নিয়ম",
-          "title_target": "Ya, Ra, Wa Rows & Nasal Mora 'n'",
-          "intro_bn": "や (ya), ゆ (yu), よ (yo), ら (ra), り (ri), る (ru), れ (re), ろ (ro), わ (wa), を (wo/o), ん (n)। 'ら' সারির অক্ষরগুলো জিভের ডগা তালুতে এক টোকায় উচ্চারণ করতে হয়।",
+          "id": "jp-foundations-l08",
+          "order": 8,
+          "title_bn": "Ya, Ra, Wa সারি ও জাপানি ফ্ল্যাপ 'R' (や ゆ よ / ら り る れ ろ / わ を)",
+          "title_target": "Ya, Ra, Wa Rows & The Japanese Alveolar Flap (R/L Sound)",
+          "intro_bn": "や (ya), ゆ (yu), よ (yo), ら (ra), り (ri), る (ru), れ (re), ろ (ro), わ (wa), を (o)। 'ら' সারির অক্ষরগুলোতে জিভের ডগা উপরের তালুতে আলতো এক টোকায় উচ্চারণ করতে হয়—এটি ইংরেজি R বা বাংলা 'র' নয়!",
           "structure": [
             "Ya: や ゆ よ",
-            "Ra: ら り る れ ろ",
-            "Wa: わ を",
-            "Nasal: ん (n/m/ng)"
+            "Ra: ら り る れ ろ (Flap)",
+            "Wa: わ を"
           ],
           "items": [
             {
-              "id": "jp-p1-l5-001",
-              "concept_id": "c-jp-p1-l5-001",
+              "id": "jp-p1-l8-001",
+              "concept_id": "c-jp-p1-l8-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1337,8 +2176,8 @@
               }
             },
             {
-              "id": "jp-p1-l5-002",
-              "concept_id": "c-jp-p1-l5-002",
+              "id": "jp-p1-l8-002",
+              "concept_id": "c-jp-p1-l8-002",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1390,17 +2229,17 @@
               }
             },
             {
-              "id": "jp-p1-l5-003",
-              "concept_id": "c-jp-p1-l5-003",
+              "id": "jp-p1-l8-003",
+              "concept_id": "c-jp-p1-l8-003",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
-              "target": "わ、を、ん",
-              "target_kana": "わ、を、ん",
-              "romaji": "wa, o, n",
-              "bn": "ওয়া, ও, ন্‌/ং",
-              "bn_pron": "ওয়া, ও, ন্‌",
-              "ipa": "wa, o, n",
+              "target": "わ、を",
+              "target_kana": "わ、を",
+              "romaji": "wa, o",
+              "bn": "ওয়া, ও (Wa সারি)",
+              "bn_pron": "ওয়া, ও",
+              "ipa": "wa, o",
               "tokens": [
                 {
                   "t": "わ",
@@ -1413,12 +2252,6 @@
                   "romaji": "o",
                   "kanji": "を",
                   "bn": "ও"
-                },
-                {
-                  "t": "ん",
-                  "romaji": "n",
-                  "kanji": "ん",
-                  "bn": "ন্‌"
                 }
               ],
               "status": "reviewed",
@@ -1431,8 +2264,8 @@
               }
             },
             {
-              "id": "jp-p1-l5-004",
-              "concept_id": "c-jp-p1-l5-004",
+              "id": "jp-p1-l8-004",
+              "concept_id": "c-jp-p1-l8-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1466,35 +2299,29 @@
               }
             },
             {
-              "id": "jp-p1-l5-005",
-              "concept_id": "c-jp-p1-l5-005",
+              "id": "jp-p1-l8-005",
+              "concept_id": "c-jp-p1-l8-005",
               "order": 1,
               "type": "word",
               "level": "A1",
-              "target": "くるま (kuruma)",
-              "target_kana": "くるま",
-              "romaji": "kuruma",
-              "bn": "গাড়ি",
-              "bn_pron": "কুরুমা",
-              "ipa": "kuruma",
+              "target": "ゆめ (yume)",
+              "target_kana": "ゆめ",
+              "romaji": "yume",
+              "bn": "স্বপ্ন",
+              "bn_pron": "ইউমে",
+              "ipa": "yume",
               "tokens": [
                 {
-                  "t": "く",
-                  "romaji": "ku",
-                  "kanji": "車",
-                  "bn": "গাড়ি"
+                  "t": "ゆ",
+                  "romaji": "yu",
+                  "kanji": "夢",
+                  "bn": "স্বপ্ন"
                 },
                 {
-                  "t": "る",
-                  "romaji": "ru",
-                  "kanji": "る",
-                  "bn": "রু"
-                },
-                {
-                  "t": "ま",
-                  "romaji": "ma",
-                  "kanji": "ま",
-                  "bn": "মা"
+                  "t": "め",
+                  "romaji": "me",
+                  "kanji": "め",
+                  "bn": "মে"
                 }
               ],
               "status": "reviewed",
@@ -1507,15 +2334,168 @@
               }
             },
             {
-              "id": "jp-p1-l5-006",
-              "concept_id": "c-jp-p1-l5-006",
+              "id": "jp-p1-l8-006",
+              "concept_id": "c-jp-p1-l8-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "よる (yoru)",
+              "target_kana": "よる",
+              "romaji": "yoru",
+              "bn": "রাত / রাত্রি",
+              "bn_pron": "ইয়োরু",
+              "ipa": "yoru",
+              "tokens": [
+                {
+                  "t": "よ",
+                  "romaji": "yo",
+                  "kanji": "夜",
+                  "bn": "রাত"
+                },
+                {
+                  "t": "る",
+                  "romaji": "ru",
+                  "kanji": "る",
+                  "bn": "রু"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l8-007",
+              "concept_id": "c-jp-p1-l8-007",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "さくら (sakura)",
+              "target_kana": "さくら",
+              "romaji": "sakura",
+              "bn": "চেরি ফুল (জাপানের জাতীয় প্রতীক)",
+              "bn_pron": "সাকুরা",
+              "ipa": "sakura",
+              "tokens": [
+                {
+                  "t": "さ",
+                  "romaji": "sa",
+                  "kanji": "桜",
+                  "bn": "চেরি ফুল"
+                },
+                {
+                  "t": "く",
+                  "romaji": "ku",
+                  "kanji": "く",
+                  "bn": "কু"
+                },
+                {
+                  "t": "ら",
+                  "romaji": "ra",
+                  "kanji": "ら",
+                  "bn": "রা"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l8-008",
+              "concept_id": "c-jp-p1-l8-008",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "かわ (kawa)",
+              "target_kana": "かわ",
+              "romaji": "kawa",
+              "bn": "নদী",
+              "bn_pron": "কাওয়া",
+              "ipa": "kawa",
+              "tokens": [
+                {
+                  "t": "か",
+                  "romaji": "ka",
+                  "kanji": "川",
+                  "bn": "নদী"
+                },
+                {
+                  "t": "わ",
+                  "romaji": "wa",
+                  "kanji": "わ",
+                  "bn": "ওয়া"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l09",
+          "order": 9,
+          "title_bn": "অনুনাসিক মোরা 'ん n' ও হিরাগানা ৪৬টি বর্ণের পূর্ণাঙ্গ রিডিং ড্রিল",
+          "title_target": "The Moraic Nasal 'n' (ん) & Full 46 Kana Sight-Reading Drill",
+          "intro_bn": "ん (n) একা শব্দ শুরু করে না; পরের বর্ণের ওপর নির্ভর করে এটি m (যেমন: えんぴつ enpitsu), n (যেমন: おんな onna) বা ng (যেমন: ほん hon) ধ্বনি ধারণ করে।",
+          "structure": [
+            "Nasal Mora: ん (n/m/ng)",
+            "46 Kana Comprehensive Sight Reading"
+          ],
+          "items": [
+            {
+              "id": "jp-p1-l9-001",
+              "concept_id": "c-jp-p1-l9-001",
+              "order": 1,
+              "type": "syllable_ladder",
+              "level": "A1",
+              "target": "ん (n)",
+              "target_kana": "ん",
+              "romaji": "n",
+              "bn": "ন্‌ / ং (অনুনাসিক মোরা ধ্বনি)",
+              "bn_pron": "ন্‌",
+              "ipa": "n",
+              "tokens": [
+                {
+                  "t": "ん (n)",
+                  "romaji": "n",
+                  "kanji": "ん (n)",
+                  "bn": "ন্‌ / ং (অনুনাসিক মোরা ধ্বনি)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l9-002",
+              "concept_id": "c-jp-p1-l9-002",
               "order": 1,
               "type": "word",
               "level": "A1",
               "target": "ほん (hon)",
               "target_kana": "ほん",
               "romaji": "hon",
-              "bn": "বই",
+              "bn": "বই (শেষে ng-এর মতো অনুরণন)",
               "bn_pron": "হোং",
               "ipa": "hon",
               "tokens": [
@@ -1542,8 +2522,78 @@
               }
             },
             {
-              "id": "jp-p1-l5-007",
-              "concept_id": "c-jp-p1-l5-007",
+              "id": "jp-p1-l9-003",
+              "concept_id": "c-jp-p1-l9-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "えんぴつ (enpitsu)",
+              "target_kana": "えんぴつ",
+              "romaji": "enpitsu",
+              "bn": "পেন্সিল (p-এর আগে m-এর মতো উচ্চারণ)",
+              "bn_pron": "এম্পিৎসু",
+              "ipa": "enpitsu",
+              "tokens": [
+                {
+                  "t": "えん",
+                  "romaji": "en",
+                  "kanji": "鉛",
+                  "bn": "সীসা"
+                },
+                {
+                  "t": "ぴつ",
+                  "romaji": "pitsu",
+                  "kanji": "筆",
+                  "bn": "কলম"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l9-004",
+              "concept_id": "c-jp-p1-l9-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "おんな (onna)",
+              "target_kana": "おんな",
+              "romaji": "onna",
+              "bn": "নারী / মহিলা (n-এর আগে খাঁটি n)",
+              "bn_pron": "ওন্না",
+              "ipa": "onna",
+              "tokens": [
+                {
+                  "t": "おん",
+                  "romaji": "on",
+                  "kanji": "女",
+                  "bn": "নারী"
+                },
+                {
+                  "t": "な",
+                  "romaji": "na",
+                  "kanji": "な",
+                  "bn": "না"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l9-005",
+              "concept_id": "c-jp-p1-l9-005",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1575,6 +2625,94 @@
                 "tense": "present_simple",
                 "jlpt": "N5"
               }
+            },
+            {
+              "id": "jp-p1-l9-006",
+              "concept_id": "c-jp-p1-l9-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "にほん (nihon)",
+              "target_kana": "にほん",
+              "romaji": "nihon",
+              "bn": "জাপান দেশ",
+              "bn_pron": "নিহোং",
+              "ipa": "nihon",
+              "tokens": [
+                {
+                  "t": "に",
+                  "romaji": "ni",
+                  "kanji": "日",
+                  "bn": "সূর্য"
+                },
+                {
+                  "t": "ほん",
+                  "romaji": "hon",
+                  "kanji": "本",
+                  "bn": "উৎস"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p1-l9-007",
+              "concept_id": "c-jp-p1-l9-007",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "にほんで ほんを よみます。",
+              "target_kana": "にほんでほんをよみます。",
+              "romaji": "Nihon de hon o yomimasu.",
+              "bn": "জাপানে বসে বই পড়ি।",
+              "bn_pron": "নিহোং দে হোং ও ইয়োমিমাসু।",
+              "ipa": "Nihon de hon o yomimasu.",
+              "tokens": [
+                {
+                  "t": "にほん",
+                  "romaji": "nihon",
+                  "kanji": "日本",
+                  "bn": "জাপান"
+                },
+                {
+                  "t": "で",
+                  "romaji": "de",
+                  "kanji": "で",
+                  "bn": "এ"
+                },
+                {
+                  "t": "ほん",
+                  "romaji": "hon",
+                  "kanji": "本",
+                  "bn": "বই"
+                },
+                {
+                  "t": "を",
+                  "romaji": "o",
+                  "kanji": "কে",
+                  "bn": "কে"
+                },
+                {
+                  "t": "よみます",
+                  "romaji": "yomimasu",
+                  "kanji": "読みます",
+                  "bn": "পড়ি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
             }
           ]
         }
@@ -1584,14 +2722,14 @@
       "id": "jp-foundations-p2",
       "order": 2,
       "level": "A1",
-      "title_bn": "পরিবর্তিত ধ্বনি ও দ্বিত্ব ব্যঞ্জন (Dakuon, Sokuon & Youon)",
-      "title_target": "Voiced Sounds, Sokuon & Contracted Sounds",
+      "title_bn": "পরিবর্তিত ধ্বনি ও দ্বিত্ব ব্যঞ্জন (Dakuon, Sokuon, Youon & Chouon)",
+      "title_target": "Voiced Sounds, Sokuon, Contracted Sounds & Long Vowels",
       "lessons": [
         {
-          "id": "jp-foundations-l06",
+          "id": "jp-foundations-l10",
           "order": 1,
           "title_bn": "ঘোষ ধ্বনি বা ডাকুরন ও হান-ডাকুরন (が, ざ, だ, ば, ぱ)",
-          "title_target": "Voiced Sounds (Dakuon) & Semi-Voiced Sounds (Handakuon)",
+          "title_target": "Voiced Sounds (Dakuon ゛) & Semi-Voiced Sounds (Handakuon ゜)",
           "intro_bn": "অক্ষরের ডানে তেনতেন (゛) দিলে গ, জ, দ, ব হয় এবং মারু (゜) দিলে প হয়।",
           "structure": [
             "が ぎ ぐ げ ご (ga gi gu ge go)",
@@ -1602,8 +2740,8 @@
           ],
           "items": [
             {
-              "id": "jp-p2-l6-001",
-              "concept_id": "c-jp-p2-l6-001",
+              "id": "jp-p2-l10-001",
+              "concept_id": "c-jp-p2-l10-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1631,8 +2769,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-002",
-              "concept_id": "c-jp-p2-l6-002",
+              "id": "jp-p2-l10-002",
+              "concept_id": "c-jp-p2-l10-002",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1660,8 +2798,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-003",
-              "concept_id": "c-jp-p2-l6-003",
+              "id": "jp-p2-l10-003",
+              "concept_id": "c-jp-p2-l10-003",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1689,8 +2827,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-004",
-              "concept_id": "c-jp-p2-l6-004",
+              "id": "jp-p2-l10-004",
+              "concept_id": "c-jp-p2-l10-004",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1718,8 +2856,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-005",
-              "concept_id": "c-jp-p2-l6-005",
+              "id": "jp-p2-l10-005",
+              "concept_id": "c-jp-p2-l10-005",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -1747,8 +2885,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-006",
-              "concept_id": "c-jp-p2-l6-006",
+              "id": "jp-p2-l10-006",
+              "concept_id": "c-jp-p2-l10-006",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1782,8 +2920,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-007",
-              "concept_id": "c-jp-p2-l6-007",
+              "id": "jp-p2-l10-007",
+              "concept_id": "c-jp-p2-l10-007",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1817,8 +2955,8 @@
               }
             },
             {
-              "id": "jp-p2-l6-008",
-              "concept_id": "c-jp-p2-l6-008",
+              "id": "jp-p2-l10-008",
+              "concept_id": "c-jp-p2-l10-008",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1850,29 +2988,99 @@
                 "tense": "present_simple",
                 "jlpt": "N5"
               }
+            },
+            {
+              "id": "jp-p2-l10-009",
+              "concept_id": "c-jp-p2-l10-009",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "みどり (midori)",
+              "target_kana": "みどり",
+              "romaji": "midori",
+              "bn": "সবুজ রঙ",
+              "bn_pron": "মিদোরি",
+              "ipa": "midori",
+              "tokens": [
+                {
+                  "t": "み",
+                  "romaji": "mi",
+                  "kanji": "緑",
+                  "bn": "সবুজ"
+                },
+                {
+                  "t": "どり",
+                  "romaji": "dori",
+                  "kanji": "どり",
+                  "bn": "দোরি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p2-l10-010",
+              "concept_id": "c-jp-p2-l10-010",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "かぜ (kaze)",
+              "target_kana": "かぜ",
+              "romaji": "kaze",
+              "bn": "বাতাস / সর্দি",
+              "bn_pron": "কাজে",
+              "ipa": "kaze",
+              "tokens": [
+                {
+                  "t": "か",
+                  "romaji": "ka",
+                  "kanji": "風",
+                  "bn": "বাতাস"
+                },
+                {
+                  "t": "ぜ",
+                  "romaji": "ze",
+                  "kanji": "ぜ",
+                  "bn": "জে"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
             }
           ]
         },
         {
-          "id": "jp-foundations-l07",
+          "id": "jp-foundations-l11",
           "order": 2,
           "title_bn": "ছোট 'ৎসু' বা দ্বিত্ব ব্যঞ্জনধ্বনি (Sokuon っ - Double Consonant)",
-          "title_target": "The Small Tsu (Sokuon っ) Double Consonants",
-          "intro_bn": "ছোট 'っ' (tsu) নিজে উচ্চারিত হয় না, বরং পরের ব্যঞ্জনধ্বনিকে দ্বিগুণ করে এবং ১ মোরা নীরব বিরতি সৃষ্টি করে।",
+          "title_target": "The Small Tsu (Sokuon っ) Double Consonants & 1 Mora Pause",
+          "intro_bn": "ছোট 'っ' (tsu) নিজে উচ্চারিত হয় না, বরং পরের ব্যঞ্জনধ্বনিকে দ্বিগুণ করে এবং ঠিক ১ মোরা নীরব বিরতি সৃষ্টি করে।",
           "structure": [
             "Double Consonant: っ + k/s/t/p sound"
           ],
           "items": [
             {
-              "id": "jp-p2-l7-001",
-              "concept_id": "c-jp-p2-l7-001",
+              "id": "jp-p2-l11-001",
+              "concept_id": "c-jp-p2-l11-001",
               "order": 1,
               "type": "word",
               "level": "A1",
               "target": "きって (kitte)",
               "target_kana": "きって",
               "romaji": "kitte",
-              "bn": "ডাকটিকিট (১ মোরা বিরতি)",
+              "bn": "ডাকটিকিট (১ মোরা বিরতি সহ)",
               "bn_pron": "কিত্‌তে",
               "ipa": "kitte",
               "tokens": [
@@ -1899,8 +3107,8 @@
               }
             },
             {
-              "id": "jp-p2-l7-002",
-              "concept_id": "c-jp-p2-l7-002",
+              "id": "jp-p2-l11-002",
+              "concept_id": "c-jp-p2-l11-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1934,8 +3142,8 @@
               }
             },
             {
-              "id": "jp-p2-l7-003",
-              "concept_id": "c-jp-p2-l7-003",
+              "id": "jp-p2-l11-003",
+              "concept_id": "c-jp-p2-l11-003",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -1969,8 +3177,8 @@
               }
             },
             {
-              "id": "jp-p2-l7-004",
-              "concept_id": "c-jp-p2-l7-004",
+              "id": "jp-p2-l11-004",
+              "concept_id": "c-jp-p2-l11-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2004,8 +3212,8 @@
               }
             },
             {
-              "id": "jp-p2-l7-005",
-              "concept_id": "c-jp-p2-l7-005",
+              "id": "jp-p2-l11-005",
+              "concept_id": "c-jp-p2-l11-005",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -2047,7 +3255,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l08",
+          "id": "jp-foundations-l12",
           "order": 3,
           "title_bn": "যুক্তাক্ষর ধ্বনি (Youon きゃ, しゅ, ちょ, りょ, びょ)",
           "title_target": "Contracted Sounds (Youon) with Small ya, yu, yo",
@@ -2057,8 +3265,8 @@
           ],
           "items": [
             {
-              "id": "jp-p2-l8-001",
-              "concept_id": "c-jp-p2-l8-001",
+              "id": "jp-p2-l12-001",
+              "concept_id": "c-jp-p2-l12-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -2086,8 +3294,8 @@
               }
             },
             {
-              "id": "jp-p2-l8-002",
-              "concept_id": "c-jp-p2-l8-002",
+              "id": "jp-p2-l12-002",
+              "concept_id": "c-jp-p2-l12-002",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -2115,8 +3323,8 @@
               }
             },
             {
-              "id": "jp-p2-l8-003",
-              "concept_id": "c-jp-p2-l8-003",
+              "id": "jp-p2-l12-003",
+              "concept_id": "c-jp-p2-l12-003",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -2144,8 +3352,8 @@
               }
             },
             {
-              "id": "jp-p2-l8-004",
-              "concept_id": "c-jp-p2-l8-004",
+              "id": "jp-p2-l12-004",
+              "concept_id": "c-jp-p2-l12-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2179,8 +3387,8 @@
               }
             },
             {
-              "id": "jp-p2-l8-005",
-              "concept_id": "c-jp-p2-l8-005",
+              "id": "jp-p2-l12-005",
+              "concept_id": "c-jp-p2-l12-005",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2214,8 +3422,8 @@
               }
             },
             {
-              "id": "jp-p2-l8-006",
-              "concept_id": "c-jp-p2-l8-006",
+              "id": "jp-p2-l12-006",
+              "concept_id": "c-jp-p2-l12-006",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2249,8 +3457,8 @@
               }
             },
             {
-              "id": "jp-p2-l8-007",
-              "concept_id": "c-jp-p2-l8-007",
+              "id": "jp-p2-l12-007",
+              "concept_id": "c-jp-p2-l12-007",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -2292,18 +3500,18 @@
           ]
         },
         {
-          "id": "jp-foundations-l09",
+          "id": "jp-foundations-l13",
           "order": 4,
           "title_bn": "দীর্ঘ স্বরধ্বনি ও অর্থ পরিবর্তন (Chouon - Long Vowels)",
-          "title_target": "Long Vowels (Chouon) & Crucial Meaning Shifts",
+          "title_target": "Long Vowels (Chouon) & Crucial Meaning Shifts (2 Moras Duration)",
           "intro_bn": "দীর্ঘ স্বর উচ্চারণে পুরো ২ মোরা সময় দিতে হয়। দীর্ঘ না টানলে শব্দের অর্থ বদলে যায়!",
           "structure": [
             "Long Vowel (2 Moras Duration)"
           ],
           "items": [
             {
-              "id": "jp-p2-l9-001",
-              "concept_id": "c-jp-p2-l9-001",
+              "id": "jp-p2-l13-001",
+              "concept_id": "c-jp-p2-l13-001",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2331,8 +3539,8 @@
               }
             },
             {
-              "id": "jp-p2-l9-002",
-              "concept_id": "c-jp-p2-l9-002",
+              "id": "jp-p2-l13-002",
+              "concept_id": "c-jp-p2-l13-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2360,8 +3568,8 @@
               }
             },
             {
-              "id": "jp-p2-l9-003",
-              "concept_id": "c-jp-p2-l9-003",
+              "id": "jp-p2-l13-003",
+              "concept_id": "c-jp-p2-l13-003",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2389,8 +3597,8 @@
               }
             },
             {
-              "id": "jp-p2-l9-004",
-              "concept_id": "c-jp-p2-l9-004",
+              "id": "jp-p2-l13-004",
+              "concept_id": "c-jp-p2-l13-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2418,8 +3626,8 @@
               }
             },
             {
-              "id": "jp-p2-l9-005",
-              "concept_id": "c-jp-p2-l9-005",
+              "id": "jp-p2-l13-005",
+              "concept_id": "c-jp-p2-l13-005",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2447,8 +3655,8 @@
               }
             },
             {
-              "id": "jp-p2-l9-006",
-              "concept_id": "c-jp-p2-l9-006",
+              "id": "jp-p2-l13-006",
+              "concept_id": "c-jp-p2-l13-006",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2476,8 +3684,8 @@
               }
             },
             {
-              "id": "jp-p2-l9-007",
-              "concept_id": "c-jp-p2-l9-007",
+              "id": "jp-p2-l13-007",
+              "concept_id": "c-jp-p2-l13-007",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -2531,7 +3739,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l10",
+          "id": "jp-foundations-l14",
           "order": 5,
           "title_bn": "৫টি দ্রুত জাপানি টাং টুইস্টার (Hayakuchikotoba - 早口言葉)",
           "title_target": "5 Rapid Japanese Tongue Twisters for Oral Fluency",
@@ -2541,8 +3749,8 @@
           ],
           "items": [
             {
-              "id": "jp-p2-tw-001",
-              "concept_id": "c-jp-p2-tw-001",
+              "id": "jp-p2-l14-001",
+              "concept_id": "c-jp-p2-l14-001",
               "order": 1,
               "type": "tongue_twister",
               "level": "A1",
@@ -2570,8 +3778,8 @@
               }
             },
             {
-              "id": "jp-p2-tw-002",
-              "concept_id": "c-jp-p2-tw-002",
+              "id": "jp-p2-l14-002",
+              "concept_id": "c-jp-p2-l14-002",
               "order": 1,
               "type": "tongue_twister",
               "level": "A1",
@@ -2599,8 +3807,8 @@
               }
             },
             {
-              "id": "jp-p2-tw-003",
-              "concept_id": "c-jp-p2-tw-003",
+              "id": "jp-p2-l14-003",
+              "concept_id": "c-jp-p2-l14-003",
               "order": 1,
               "type": "tongue_twister",
               "level": "A1",
@@ -2628,8 +3836,8 @@
               }
             },
             {
-              "id": "jp-p2-tw-004",
-              "concept_id": "c-jp-p2-tw-004",
+              "id": "jp-p2-l14-004",
+              "concept_id": "c-jp-p2-l14-004",
               "order": 1,
               "type": "tongue_twister",
               "level": "A1",
@@ -2657,8 +3865,8 @@
               }
             },
             {
-              "id": "jp-p2-tw-005",
-              "concept_id": "c-jp-p2-tw-005",
+              "id": "jp-p2-l14-005",
+              "concept_id": "c-jp-p2-l14-005",
               "order": 1,
               "type": "tongue_twister",
               "level": "A1",
@@ -2693,11 +3901,11 @@
       "id": "jp-foundations-p3",
       "order": 3,
       "level": "A1",
-      "title_bn": "কাতাকানা ও বিদেশি শব্দের উচ্চারণ (Katakana Words)",
-      "title_target": "Katakana Loanwords & International Names",
+      "title_bn": "কাতাকানা বর্ণমালা ও সাইনবোর্ড দেখে পড়া (Katakana Words)",
+      "title_target": "Katakana Loanwords, Signboards & International Names",
       "lessons": [
         {
-          "id": "jp-foundations-l11",
+          "id": "jp-foundations-l15",
           "order": 1,
           "title_bn": "কাতাকানা চার্ট ও দীর্ঘ স্বর ড্যাশ (ー Long Dash)",
           "title_target": "Katakana Matrix & The Long Vowel Dash (ー)",
@@ -2707,8 +3915,8 @@
           ],
           "items": [
             {
-              "id": "jp-p3-l11-001",
-              "concept_id": "c-jp-p3-l11-001",
+              "id": "jp-p3-l15-001",
+              "concept_id": "c-jp-p3-l15-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -2736,8 +3944,8 @@
               }
             },
             {
-              "id": "jp-p3-l11-002",
-              "concept_id": "c-jp-p3-l11-002",
+              "id": "jp-p3-l15-002",
+              "concept_id": "c-jp-p3-l15-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2765,8 +3973,8 @@
               }
             },
             {
-              "id": "jp-p3-l11-003",
-              "concept_id": "c-jp-p3-l11-003",
+              "id": "jp-p3-l15-003",
+              "concept_id": "c-jp-p3-l15-003",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2794,8 +4002,8 @@
               }
             },
             {
-              "id": "jp-p3-l11-004",
-              "concept_id": "c-jp-p3-l11-004",
+              "id": "jp-p3-l15-004",
+              "concept_id": "c-jp-p3-l15-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2823,8 +4031,8 @@
               }
             },
             {
-              "id": "jp-p3-l11-005",
-              "concept_id": "c-jp-p3-l11-005",
+              "id": "jp-p3-l15-005",
+              "concept_id": "c-jp-p3-l15-005",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2854,18 +4062,18 @@
           ]
         },
         {
-          "id": "jp-foundations-l12",
+          "id": "jp-foundations-l16",
           "order": 2,
-          "title_bn": "দৈনন্দিন জীবনে বহুল ব্যবহৃত কাতাকানা শব্দ",
-          "title_target": "High-Frequency Everyday Katakana Vocabulary",
+          "title_bn": "টেকনোলজি, যানবাহন ও দৈনন্দিন কাতাকানা",
+          "title_target": "Technology, Transport & High-Frequency Katakana",
           "intro_bn": "জাপানে প্রতিদিন ব্যবহৃত প্রয়োজনীয় টেকনোলজি ও যাতায়াতের কাতাকানা শব্দ।",
           "structure": [
             "Everyday Loanwords in Katakana"
           ],
           "items": [
             {
-              "id": "jp-p3-l12-001",
-              "concept_id": "c-jp-p3-l12-001",
+              "id": "jp-p3-l16-001",
+              "concept_id": "c-jp-p3-l16-001",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2893,8 +4101,8 @@
               }
             },
             {
-              "id": "jp-p3-l12-002",
-              "concept_id": "c-jp-p3-l12-002",
+              "id": "jp-p3-l16-002",
+              "concept_id": "c-jp-p3-l16-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2922,8 +4130,8 @@
               }
             },
             {
-              "id": "jp-p3-l12-003",
-              "concept_id": "c-jp-p3-l12-003",
+              "id": "jp-p3-l16-003",
+              "concept_id": "c-jp-p3-l16-003",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2951,8 +4159,8 @@
               }
             },
             {
-              "id": "jp-p3-l12-004",
-              "concept_id": "c-jp-p3-l12-004",
+              "id": "jp-p3-l16-004",
+              "concept_id": "c-jp-p3-l16-004",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -2980,8 +4188,78 @@
               }
             },
             {
-              "id": "jp-p3-l12-005",
-              "concept_id": "c-jp-p3-l12-005",
+              "id": "jp-p3-l16-005",
+              "concept_id": "c-jp-p3-l16-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "パソコン (pasokon)",
+              "target_kana": "ぱそこん",
+              "romaji": "pasokon",
+              "bn": "ব্যক্তিগত কম্পিউটার (PC)",
+              "bn_pron": "পাসোকোং",
+              "ipa": "pasokon",
+              "tokens": [
+                {
+                  "t": "パソコン (pasokon)",
+                  "romaji": "pasokon",
+                  "kanji": "パソコン (pasokon)",
+                  "bn": "ব্যক্তিগত কম্পিউটার (PC)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p3-l16-006",
+              "concept_id": "c-jp-p3-l16-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "スマホ (sumaho)",
+              "target_kana": "すまほ",
+              "romaji": "sumaho",
+              "bn": "স্মার্টফোন (Smartphone)",
+              "bn_pron": "সুমাফো",
+              "ipa": "sumaho",
+              "tokens": [
+                {
+                  "t": "スマホ (sumaho)",
+                  "romaji": "sumaho",
+                  "kanji": "スマホ (sumaho)",
+                  "bn": "স্মার্টফোন (Smartphone)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l17",
+          "order": 3,
+          "title_bn": "রেস্তোরাঁ, খাবার ও শপিং সাইনবোর্ড রিডিং",
+          "title_target": "Restaurant, Food & Shopping Signboard Reading",
+          "intro_bn": "দোকান, মেন্যু ও সাইনবোর্ডে থাকা সাধারণ কাতাকানা শব্দ।",
+          "structure": [
+            "Public & Store Signs in Katakana"
+          ],
+          "items": [
+            {
+              "id": "jp-p3-l17-001",
+              "concept_id": "c-jp-p3-l17-001",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -3009,8 +4287,8 @@
               }
             },
             {
-              "id": "jp-p3-l12-006",
-              "concept_id": "c-jp-p3-l12-006",
+              "id": "jp-p3-l17-002",
+              "concept_id": "c-jp-p3-l17-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -3036,22 +4314,138 @@
                 "tense": "present_simple",
                 "jlpt": "N5"
               }
+            },
+            {
+              "id": "jp-p3-l17-003",
+              "concept_id": "c-jp-p3-l17-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "スーパー (suupaa)",
+              "target_kana": "すーぱー",
+              "romaji": "suupaa",
+              "bn": "সুপারমার্কেট (Supermarket)",
+              "bn_pron": "সুউপাহ",
+              "ipa": "suupaa",
+              "tokens": [
+                {
+                  "t": "スーパー (suupaa)",
+                  "romaji": "suupaa",
+                  "kanji": "スーパー (suupaa)",
+                  "bn": "সুপারমার্কেট (Supermarket)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p3-l17-004",
+              "concept_id": "c-jp-p3-l17-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "メニュー (menyuu)",
+              "target_kana": "めにゅー",
+              "romaji": "menyuu",
+              "bn": "খাবারের তালিকা (Menu)",
+              "bn_pron": "মেনিউউ",
+              "ipa": "menyuu",
+              "tokens": [
+                {
+                  "t": "メニュー (menyuu)",
+                  "romaji": "menyuu",
+                  "kanji": "メニュー (menyuu)",
+                  "bn": "খাবারের তালিকা (Menu)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p3-l17-005",
+              "concept_id": "c-jp-p3-l17-005",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "トイレ (toire)",
+              "target_kana": "といれ",
+              "romaji": "toire",
+              "bn": "টয়লেট / ওয়াশরুম",
+              "bn_pron": "তোইরে",
+              "ipa": "toire",
+              "tokens": [
+                {
+                  "t": "トイレ (toire)",
+                  "romaji": "toire",
+                  "kanji": "トイレ (toire)",
+                  "bn": "টয়লেট / ওয়াশরুম"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p3-l17-006",
+              "concept_id": "c-jp-p3-l17-006",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "エレベーター (erebeetaa)",
+              "target_kana": "えれべーたー",
+              "romaji": "erebeetaa",
+              "bn": "লিফট (Elevator)",
+              "bn_pron": "এরেবেওতাহ",
+              "ipa": "erebeetaa",
+              "tokens": [
+                {
+                  "t": "エレベーター (erebeetaa)",
+                  "romaji": "erebeetaa",
+                  "kanji": "エレベーター (erebeetaa)",
+                  "bn": "লিফট (Elevator)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
             }
           ]
         },
         {
-          "id": "jp-foundations-l13",
-          "order": 3,
-          "title_bn": "নিজের দেশ ও বিদেশি নামের উচ্চারণ",
-          "title_target": "Foreign Country Names & Personal Origins",
+          "id": "jp-foundations-l18",
+          "order": 4,
+          "title_bn": "আন্তর্জাতিক দেশ ও শহর নামের কাতাকানা উচ্চারণ",
+          "title_target": "Foreign Country & City Names in Katakana",
           "intro_bn": "বিদেশি দেশ ও শহরের নাম জাপানিজে কাতাকানায় যেভাবে লেখা ও বলা হয়।",
           "structure": [
             "Country in Katakana + から 来ました (kara kimashita)"
           ],
           "items": [
             {
-              "id": "jp-p3-l13-001",
-              "concept_id": "c-jp-p3-l13-001",
+              "id": "jp-p3-l18-001",
+              "concept_id": "c-jp-p3-l18-001",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -3079,8 +4473,8 @@
               }
             },
             {
-              "id": "jp-p3-l13-002",
-              "concept_id": "c-jp-p3-l13-002",
+              "id": "jp-p3-l18-002",
+              "concept_id": "c-jp-p3-l18-002",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -3108,8 +4502,8 @@
               }
             },
             {
-              "id": "jp-p3-l13-003",
-              "concept_id": "c-jp-p3-l13-003",
+              "id": "jp-p3-l18-003",
+              "concept_id": "c-jp-p3-l18-003",
               "order": 1,
               "type": "word",
               "level": "A1",
@@ -3137,8 +4531,37 @@
               }
             },
             {
-              "id": "jp-p3-l13-004",
-              "concept_id": "c-jp-p3-l13-004",
+              "id": "jp-p3-l18-004",
+              "concept_id": "c-jp-p3-l18-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "ロンドン (Rondon)",
+              "target_kana": "ろんどん",
+              "romaji": "Rondon",
+              "bn": "লন্ডন শহর",
+              "bn_pron": "রোন্দোং",
+              "ipa": "Rondon",
+              "tokens": [
+                {
+                  "t": "ロンドン (Rondon)",
+                  "romaji": "Rondon",
+                  "kanji": "ロンドン (Rondon)",
+                  "bn": "লন্ডন শহর"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p3-l18-005",
+              "concept_id": "c-jp-p3-l18-005",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3185,11 +4608,537 @@
       "id": "jp-foundations-p4",
       "order": 4,
       "level": "A1",
+      "title_bn": "রিডিং রুলস, কণা ও স্বাভাবিক উচ্চারণ প্রবাহ (Reading Rules & Pronunciation Flow)",
+      "title_target": "Particle Reading Rules, Devoicing, Pitch-Accent & Furigana Dialogue",
+      "lessons": [
+        {
+          "id": "jp-foundations-l19",
+          "order": 1,
+          "title_bn": "কণার ৩টি বিশেষ উচ্চারণ নিয়ম (は=wa, へ=e, を=o)",
+          "title_target": "The 3 Special Particle Readings (ha->wa, he->e, wo->o)",
+          "intro_bn": "জাপানি ব্যাকরণে ৩টি কণা বসলে তাদের উচ্চারণ মূল বর্ণের চেয়ে বদলে যায়: は লেখা হলে 'wa' উচ্চারিত হয়, へ লেখা হলে 'e' উচ্চারিত হয়, এবং を লেখা হলে 'o' উচ্চারিত হয়।",
+          "structure": [
+            "は = wa (Topic)",
+            "へ = e (Direction)",
+            "を = o (Direct Object)"
+          ],
+          "items": [
+            {
+              "id": "jp-p4-l19-001",
+              "concept_id": "c-jp-p4-l19-001",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "わたしは がくせいです。",
+              "target_kana": "わたしわがくせいです。",
+              "romaji": "Watashi wa gakusei desu.",
+              "bn": "আমি শিক্ষার্থী (এখানে 'は' এর উচ্চারণ 'ওয়া')।",
+              "bn_pron": "ওয়াতাশি ওয়া গাকুসেই দেস।",
+              "ipa": "Watashi wa gakusei desu.",
+              "tokens": [
+                {
+                  "t": "わたしは がくせいです。",
+                  "romaji": "Watashi wa gakusei desu.",
+                  "kanji": "わたしは がくせいです。",
+                  "bn": "আমি শিক্ষার্থী (এখানে 'は' এর উচ্চারণ 'ওয়া')।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l19-002",
+              "concept_id": "c-jp-p4-l19-002",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "とうきょうへ いきます。",
+              "target_kana": "とうきょうえいきます。",
+              "romaji": "Toukyou e ikimasu.",
+              "bn": "টোকিওতে যাব (এখানে 'へ' এর উচ্চারণ 'এ')।",
+              "bn_pron": "তোকিও এ ইকিমাসু।",
+              "ipa": "Toukyou e ikimasu.",
+              "tokens": [
+                {
+                  "t": "とうきょうへ いきます。",
+                  "romaji": "Toukyou e ikimasu.",
+                  "kanji": "とうきょうへ いきます。",
+                  "bn": "টোকিওতে যাব (এখানে 'へ' এর উচ্চারণ 'এ')।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l19-003",
+              "concept_id": "c-jp-p4-l19-003",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "おちゃを のみます。",
+              "target_kana": "おちゃをのみます。",
+              "romaji": "Ocha o nomimasu.",
+              "bn": "চা পান করি (এখানে 'を' এর উচ্চারণ 'ও')।",
+              "bn_pron": "ওচা ও নোমিমাসু।",
+              "ipa": "Ocha o nomimasu.",
+              "tokens": [
+                {
+                  "t": "おちゃを のみます。",
+                  "romaji": "Ocha o nomimasu.",
+                  "kanji": "おちゃを のみます。",
+                  "bn": "চা পান করি (এখানে 'を' এর উচ্চারণ 'ও')।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l19-004",
+              "concept_id": "c-jp-p4-l19-004",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "わたしは とうきょうへ いって、おちゃを のみます。",
+              "target_kana": "わたしわとうきょうえいって、おちゃをのみます。",
+              "romaji": "Watashi wa Toukyou e itte, ocha o nomimasu.",
+              "bn": "আমি টোকিও গিয়ে চা পান করব (৩টি কণার সম্মিলিত রিডিং)।",
+              "bn_pron": "ওয়াতাশি ওয়া তোকিও এ ইত্তে, ওচা ও নোমিমাসু।",
+              "ipa": "Watashi wa Toukyou e itte, ocha o nomimasu.",
+              "tokens": [
+                {
+                  "t": "わたしは とうきょうへ いって、おちゃを のみます。",
+                  "romaji": "Watashi wa Toukyou e itte, ocha o nomimasu.",
+                  "kanji": "わたしは とうきょうへ いって、おちゃを のみます。",
+                  "bn": "আমি টোকিও গিয়ে চা পান করব (৩টি কণার সম্মিলিত রিডিং)।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l20",
+          "order": 2,
+          "title_bn": "অঘোষ স্বরধ্বনি ও স্বরভঙ্গ (Devoicing of U and I)",
+          "title_target": "Devoicing of Vowels: Desu, Masu, Mashita & Suki",
+          "intro_bn": "জাপানিরা বাক্যের শেষে す (su) বা し (shi) এর উ/ই স্বরধ্বনিকে ড্রপ করে বলে। তাই です উচ্চারিত হয় 'দেস্' এবং ます উচ্চারিত হয় 'মস্' হিসেবে।",
+          "structure": [
+            "です -> des (দেস্)",
+            "ます -> mas (মস্)",
+            "〜ました -> mashta (মাশ্‌তা)",
+            "好き -> ski (স্কি)"
+          ],
+          "items": [
+            {
+              "id": "jp-p4-l20-001",
+              "concept_id": "c-jp-p4-l20-001",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "がくせいです (gakusei desu)",
+              "target_kana": "がくせいです",
+              "romaji": "gakusei des(u)",
+              "bn": "শিক্ষার্থী (উচ্চারণ: গাকুসেই দেস্, 'সু' নয়)",
+              "bn_pron": "গাকুসেই দেস্",
+              "ipa": "gakusei des(u)",
+              "tokens": [
+                {
+                  "t": "がくせいです (gakusei desu)",
+                  "romaji": "gakusei des(u)",
+                  "kanji": "がくせいです (gakusei desu)",
+                  "bn": "শিক্ষার্থী (উচ্চারণ: গাকুসেই দেস্, 'সু' নয়)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l20-002",
+              "concept_id": "c-jp-p4-l20-002",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "たべます (tabemasu)",
+              "target_kana": "たべます",
+              "romaji": "tabemas(u)",
+              "bn": "খাই (উচ্চারণ: তাবেমস্, 'সু' নয়)",
+              "bn_pron": "তাবেমস্",
+              "ipa": "tabemas(u)",
+              "tokens": [
+                {
+                  "t": "たべます (tabemasu)",
+                  "romaji": "tabemas(u)",
+                  "kanji": "たべます (tabemasu)",
+                  "bn": "খাই (উচ্চারণ: তাবেমস্, 'সু' নয়)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l20-003",
+              "concept_id": "c-jp-p4-l20-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "わかりました (wakarimashita)",
+              "target_kana": "わかりました",
+              "romaji": "wakarimash(i)ta",
+              "bn": "বুঝেছি / স্পষ্ট হয়েছে (উচ্চারণ: ওয়াকারিমাশ্‌তা)",
+              "bn_pron": "ওয়াকারিমাশ্‌তা",
+              "ipa": "wakarimash(i)ta",
+              "tokens": [
+                {
+                  "t": "わかりました (wakarimashita)",
+                  "romaji": "wakarimash(i)ta",
+                  "kanji": "わかりました (wakarimashita)",
+                  "bn": "বুঝেছি / স্পষ্ট হয়েছে (উচ্চারণ: ওয়াকারিমাশ্‌তা)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l20-004",
+              "concept_id": "c-jp-p4-l20-004",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "にほんごが すきです。",
+              "target_kana": "にほんごがすきです。",
+              "romaji": "Nihongo ga ski des(u).",
+              "bn": "জাপানি ভাষা পছন্দ করি (সুকি দেস নয়, স্কি দেস্)।",
+              "bn_pron": "নিহঙ্গো গা স্কি দেস্।",
+              "ipa": "Nihongo ga ski des(u).",
+              "tokens": [
+                {
+                  "t": "にほんごが すきです。",
+                  "romaji": "Nihongo ga ski des(u).",
+                  "kanji": "にほんごが すきです。",
+                  "bn": "জাপানি ভাষা পছন্দ করি (সুকি দেস নয়, স্কি দেস্)।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l21",
+          "order": 3,
+          "title_bn": "পিচ অ্যাকসেন্ট মিনিমাল পেয়ার্স (Pitch Accent: High vs Low)",
+          "title_target": "Pitch-Accent Minimal Pairs (Hashi vs. Hashi, Ame vs. Ame)",
+          "intro_bn": "জাপানি ভাষায় পিচ অ্যাকসেন্ট বা স্বরের ওঠানামা রয়েছে। স্বরের উচ্চতা বদলালে শব্দের সম্পূর্ণ অর্থ বদলে যায়!",
+          "structure": [
+            "High Pitch (উঁচু স্বর) vs. Low Pitch (নিচু স্বর)"
+          ],
+          "items": [
+            {
+              "id": "jp-p4-l21-001",
+              "concept_id": "c-jp-p4-l21-001",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "はし (hashí - দ্বিতীয় মোরা উঁচু)",
+              "target_kana": "はし",
+              "romaji": "hashí",
+              "bn": "চপস্টিক (খাবার কাঠি)",
+              "bn_pron": "হাশী",
+              "ipa": "hashí",
+              "tokens": [
+                {
+                  "t": "はし (hashí - দ্বিতীয় মোরা উঁচু)",
+                  "romaji": "hashí",
+                  "kanji": "はし (hashí - দ্বিতীয় মোরা উঁচু)",
+                  "bn": "চপস্টিক (খাবার কাঠি)"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l21-002",
+              "concept_id": "c-jp-p4-l21-002",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "はし (háshi - প্রথম মোরা উঁচু)",
+              "target_kana": "はし",
+              "romaji": "háshi",
+              "bn": "সেতু / ব্রিজ",
+              "bn_pron": "হাঁশি",
+              "ipa": "háshi",
+              "tokens": [
+                {
+                  "t": "はし (háshi - প্রথম মোরা উঁচু)",
+                  "romaji": "háshi",
+                  "kanji": "はし (háshi - প্রথম মোরা উঁচু)",
+                  "bn": "সেতু / ব্রিজ"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l21-003",
+              "concept_id": "c-jp-p4-l21-003",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "あめ (amé - দ্বিতীয় মোরা উঁচু)",
+              "target_kana": "あめ",
+              "romaji": "amé",
+              "bn": "মিষ্টি / ক্যান্ডি",
+              "bn_pron": "আমে",
+              "ipa": "amé",
+              "tokens": [
+                {
+                  "t": "あめ (amé - দ্বিতীয় মোরা উঁচু)",
+                  "romaji": "amé",
+                  "kanji": "あめ (amé - দ্বিতীয় মোরা উঁচু)",
+                  "bn": "মিষ্টি / ক্যান্ডি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l21-004",
+              "concept_id": "c-jp-p4-l21-004",
+              "order": 1,
+              "type": "word",
+              "level": "A1",
+              "target": "あめ (áme - প্রথম মোরা উঁচু)",
+              "target_kana": "あめ",
+              "romaji": "áme",
+              "bn": "বৃষ্টি",
+              "bn_pron": "আঁমে",
+              "ipa": "áme",
+              "tokens": [
+                {
+                  "t": "あめ (áme - প্রথম মোরা উঁচু)",
+                  "romaji": "áme",
+                  "kanji": "あめ (áme - প্রথম মোরা উঁচু)",
+                  "bn": "বৃষ্টি"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l21-005",
+              "concept_id": "c-jp-p4-l21-005",
+              "order": 1,
+              "type": "sentence",
+              "level": "A1",
+              "target": "はしで ごはんを たべます。",
+              "target_kana": "はしでごはんをたべます。",
+              "romaji": "Hashi de gohan o tabemasu.",
+              "bn": "চপস্টিক দিয়ে খাবার খাই।",
+              "bn_pron": "হাশি দে গোহাং ও তাবেমাসু।",
+              "ipa": "Hashi de gohan o tabemasu.",
+              "tokens": [
+                {
+                  "t": "はしで ごはんを たべます。",
+                  "romaji": "Hashi de gohan o tabemasu.",
+                  "kanji": "はしで ごはんを たべます。",
+                  "bn": "চপস্টিক দিয়ে খাবার খাই।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        },
+        {
+          "id": "jp-foundations-l22",
+          "order": 4,
+          "title_bn": "ফুরিগানা দেখে দেখে বাক্য পাঠ ও প্রথম পরিচয় ডায়ালগ",
+          "title_target": "Reading Sentences with Furigana & First Meeting Dialogue",
+          "intro_bn": "কাঞ্জির মাথার ওপর হিরাগানায় উচ্চারণ লেখা থাকার নাম ফুরিগানা (ふりがな)। এটি দেখে দেখে স্বতঃস্ফূর্ত জাপানি বাক্য পড়ার সেরা ড্রিল।",
+          "structure": [
+            "Furigana Reading Practice & First Meeting Dialogue"
+          ],
+          "items": [
+            {
+              "id": "jp-p4-l22-001",
+              "concept_id": "c-jp-p4-l22-001",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A1",
+              "target": "はじめまして。わたしは ラヒムです。バングラデシュから 来ました。",
+              "target_kana": "はじめまして。わたしわらひむです。ばんぐらでしゅからきました。",
+              "romaji": "Hajimemashite. Watashi wa Rahimu desu. Banguradeshu kara kimashita.",
+              "bn": "প্রথম পরিচয়। আমি রহিম। বাংলাদেশ থেকে এসেছি।",
+              "bn_pron": "হাজিমেমাশিতে। ওয়াতাশি ওয়া রাহিমু দেস। বাঙ্গুরাদেশু কারা কিমাশিতা।",
+              "ipa": "Hajimemashite. Watashi wa Rahimu desu. Banguradeshu kara kimashita.",
+              "tokens": [
+                {
+                  "t": "はじめまして。わたしは ラヒムです。バングラデシュから 来ました。",
+                  "romaji": "Hajimemashite. Watashi wa Rahimu desu. Banguradeshu kara kimashita.",
+                  "kanji": "はじめまして。わたしは ラヒムです。バングラデシュから 来ました。",
+                  "bn": "প্রথম পরিচয়। আমি রহিম। বাংলাদেশ থেকে এসেছি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l22-002",
+              "concept_id": "c-jp-p4-l22-002",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A1",
+              "target": "はじめまして。たなかです。どうぞ よろしく おねがいします。",
+              "target_kana": "はじめまして。たなかです。どうぞよろしくおねがいします。",
+              "romaji": "Hajimemashite. Tanaka desu. Douzo yoroshiku onegaishimasu.",
+              "bn": "পরিচিত হয়ে ভালো লাগল। আমি তানাকা। আপনার সহযোগিতা কামনা করি।",
+              "bn_pron": "হাজিমেমাশিতে। তানাকা দেস। দোওজো ইয়োরোশিকু ওনেগাইশিমাসু।",
+              "ipa": "Hajimemashite. Tanaka desu. Douzo yoroshiku onegaishimasu.",
+              "tokens": [
+                {
+                  "t": "はじめまして。たなかです。どうぞ よろしく おねがいします。",
+                  "romaji": "Hajimemashite. Tanaka desu. Douzo yoroshiku onegaishimasu.",
+                  "kanji": "はじめまして。たなかです。どうぞ よろしく おねがいします。",
+                  "bn": "পরিচিত হয়ে ভালো লাগল। আমি তানাকা। আপনার সহযোগিতা কামনা করি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            },
+            {
+              "id": "jp-p4-l22-003",
+              "concept_id": "c-jp-p4-l22-003",
+              "order": 1,
+              "type": "dialogue",
+              "level": "A1",
+              "target": "こちらこそ、よろしく おねがいします。",
+              "target_kana": "こちらこそ、よろしくおねがいします。",
+              "romaji": "Kochirakoso, yoroshiku onegaishimasu.",
+              "bn": "আমার পক্ষ থেকেও আপনার সহযোগিতা কামনা করি।",
+              "bn_pron": "কোচিরাকোসো, ইয়োরোশিকু ওনেগাইশিমাসু।",
+              "ipa": "Kochirakoso, yoroshiku onegaishimasu.",
+              "tokens": [
+                {
+                  "t": "こちらこそ、よろしく おねがいします。",
+                  "romaji": "Kochirakoso, yoroshiku onegaishimasu.",
+                  "kanji": "こちらこそ、よろしく おねがいします。",
+                  "bn": "আমার পক্ষ থেকেও আপনার সহযোগিতা কামনা করি।"
+                }
+              ],
+              "status": "reviewed",
+              "reviewFlags": "",
+              "tags": {
+                "sentence_type": "assertive",
+                "polarity": "affirmative",
+                "tense": "present_simple",
+                "jlpt": "N5"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jp-foundations-p5",
+      "order": 5,
+      "level": "A1",
       "title_bn": "পরিচয়, পেশা ও কপুলা (Identity & Copula です / ではありません)",
       "title_target": "Personal Identity, Professions & The Copula",
       "lessons": [
         {
-          "id": "jp-foundations-l14",
+          "id": "jp-foundations-l23",
           "order": 1,
           "title_bn": "আমার পেশা ও পরিচয় — 'わたしは〜です'",
           "title_target": "Personal Identity & Profession (Watashi wa ... desu)",
@@ -3199,8 +5148,8 @@
           ],
           "items": [
             {
-              "id": "jp-p4-l14-001",
-              "concept_id": "c-jp-p4-l14-001",
+              "id": "jp-p5-l23-001",
+              "concept_id": "c-jp-p5-l23-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3246,8 +5195,8 @@
               }
             },
             {
-              "id": "jp-p4-l14-002",
-              "concept_id": "c-jp-p4-l14-002",
+              "id": "jp-p5-l23-002",
+              "concept_id": "c-jp-p5-l23-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3293,8 +5242,8 @@
               }
             },
             {
-              "id": "jp-p4-l14-003",
-              "concept_id": "c-jp-p4-l14-003",
+              "id": "jp-p5-l23-003",
+              "concept_id": "c-jp-p5-l23-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3340,8 +5289,8 @@
               }
             },
             {
-              "id": "jp-p4-l14-004",
-              "concept_id": "c-jp-p4-l14-004",
+              "id": "jp-p5-l23-004",
+              "concept_id": "c-jp-p5-l23-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3387,8 +5336,8 @@
               }
             },
             {
-              "id": "jp-p4-l14-005",
-              "concept_id": "c-jp-p4-l14-005",
+              "id": "jp-p5-l23-005",
+              "concept_id": "c-jp-p5-l23-005",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3430,7 +5379,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l15",
+          "id": "jp-foundations-l24",
           "order": 2,
           "title_bn": "অন্যের পরিচয় ও সম্মানসূচক '〜さん' (Others' Identity)",
           "title_target": "Others' Identity & Professions (~san wa ... desu)",
@@ -3440,8 +5389,8 @@
           ],
           "items": [
             {
-              "id": "jp-p4-l15-001",
-              "concept_id": "c-jp-p4-l15-001",
+              "id": "jp-p5-l24-001",
+              "concept_id": "c-jp-p5-l24-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3499,8 +5448,8 @@
               }
             },
             {
-              "id": "jp-p4-l15-002",
-              "concept_id": "c-jp-p4-l15-002",
+              "id": "jp-p5-l24-002",
+              "concept_id": "c-jp-p5-l24-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3546,8 +5495,8 @@
               }
             },
             {
-              "id": "jp-p4-l15-003",
-              "concept_id": "c-jp-p4-l15-003",
+              "id": "jp-p5-l24-003",
+              "concept_id": "c-jp-p5-l24-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3605,8 +5554,8 @@
               }
             },
             {
-              "id": "jp-p4-l15-004",
-              "concept_id": "c-jp-p4-l15-004",
+              "id": "jp-p5-l24-004",
+              "concept_id": "c-jp-p5-l24-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3654,7 +5603,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l16",
+          "id": "jp-foundations-l25",
           "order": 3,
           "title_bn": "না-বোধক পরিচয় — '〜ではありません / じゃありません'",
           "title_target": "Negative Identity (Dewa arimasen / Ja arimasen)",
@@ -3664,8 +5613,8 @@
           ],
           "items": [
             {
-              "id": "jp-p4-l16-001",
-              "concept_id": "c-jp-p4-l16-001",
+              "id": "jp-p5-l25-001",
+              "concept_id": "c-jp-p5-l25-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3711,8 +5660,8 @@
               }
             },
             {
-              "id": "jp-p4-l16-002",
-              "concept_id": "c-jp-p4-l16-002",
+              "id": "jp-p5-l25-002",
+              "concept_id": "c-jp-p5-l25-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3758,8 +5707,8 @@
               }
             },
             {
-              "id": "jp-p4-l16-003",
-              "concept_id": "c-jp-p4-l16-003",
+              "id": "jp-p5-l25-003",
+              "concept_id": "c-jp-p5-l25-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -3819,7 +5768,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l17",
+          "id": "jp-foundations-l26",
           "order": 4,
           "title_bn": "৬-রূপান্তর মাস্টার ড্রিল: পেশা ও পরিচয় (6 Transformations)",
           "title_target": "6 Sentence Transformations: Identity (Desu / Dewa arimasen)",
@@ -3834,8 +5783,8 @@
           ],
           "items": [
             {
-              "id": "jp-p4-l17-001",
-              "concept_id": "c-jp-p4-l17-001",
+              "id": "jp-p5-l26-001",
+              "concept_id": "c-jp-p5-l26-001",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -3863,8 +5812,8 @@
               }
             },
             {
-              "id": "jp-p4-l17-002",
-              "concept_id": "c-jp-p4-l17-002",
+              "id": "jp-p5-l26-002",
+              "concept_id": "c-jp-p5-l26-002",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -3892,8 +5841,8 @@
               }
             },
             {
-              "id": "jp-p4-l17-003",
-              "concept_id": "c-jp-p4-l17-003",
+              "id": "jp-p5-l26-003",
+              "concept_id": "c-jp-p5-l26-003",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -3921,8 +5870,8 @@
               }
             },
             {
-              "id": "jp-p4-l17-004",
-              "concept_id": "c-jp-p4-l17-004",
+              "id": "jp-p5-l26-004",
+              "concept_id": "c-jp-p5-l26-004",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -3950,8 +5899,8 @@
               }
             },
             {
-              "id": "jp-p4-l17-005",
-              "concept_id": "c-jp-p4-l17-005",
+              "id": "jp-p5-l26-005",
+              "concept_id": "c-jp-p5-l26-005",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -3979,8 +5928,8 @@
               }
             },
             {
-              "id": "jp-p4-l17-006",
-              "concept_id": "c-jp-p4-l17-006",
+              "id": "jp-p5-l26-006",
+              "concept_id": "c-jp-p5-l26-006",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -4012,14 +5961,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p5",
-      "order": 5,
+      "id": "jp-foundations-p6",
+      "order": 6,
       "level": "A1",
       "title_bn": "মালিকানা, সম্পর্ক ও 'ও' (Possession & Particle も)",
       "title_target": "Possession, Family & Particle 'mo'",
       "lessons": [
         {
-          "id": "jp-foundations-l18",
+          "id": "jp-foundations-l27",
           "order": 1,
           "title_bn": "মালিকানা ও সম্পর্ক — 'N1 の N2' (Possession)",
           "title_target": "Possession & Relationship with Particle 'no'",
@@ -4029,8 +5978,8 @@
           ],
           "items": [
             {
-              "id": "jp-p5-l18-001",
-              "concept_id": "c-jp-p5-l18-001",
+              "id": "jp-p6-l27-001",
+              "concept_id": "c-jp-p6-l27-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4088,8 +6037,8 @@
               }
             },
             {
-              "id": "jp-p5-l18-002",
-              "concept_id": "c-jp-p5-l18-002",
+              "id": "jp-p6-l27-002",
+              "concept_id": "c-jp-p6-l27-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4147,8 +6096,8 @@
               }
             },
             {
-              "id": "jp-p5-l18-003",
-              "concept_id": "c-jp-p5-l18-003",
+              "id": "jp-p6-l27-003",
+              "concept_id": "c-jp-p6-l27-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4206,8 +6155,8 @@
               }
             },
             {
-              "id": "jp-p5-l18-004",
-              "concept_id": "c-jp-p5-l18-004",
+              "id": "jp-p6-l27-004",
+              "concept_id": "c-jp-p6-l27-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4267,7 +6216,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l19",
+          "id": "jp-foundations-l28",
           "order": 2,
           "title_bn": "এছাড়াও / ও বোঝাতে — '〜も' (Inclusion Particle 'mo')",
           "title_target": "Inclusion with Particle 'mo' (Also / Too)",
@@ -4277,8 +6226,8 @@
           ],
           "items": [
             {
-              "id": "jp-p5-l19-001",
-              "concept_id": "c-jp-p5-l19-001",
+              "id": "jp-p6-l28-001",
+              "concept_id": "c-jp-p6-l28-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4324,8 +6273,8 @@
               }
             },
             {
-              "id": "jp-p5-l19-002",
-              "concept_id": "c-jp-p5-l19-002",
+              "id": "jp-p6-l28-002",
+              "concept_id": "c-jp-p6-l28-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4371,8 +6320,8 @@
               }
             },
             {
-              "id": "jp-p5-l19-003",
-              "concept_id": "c-jp-p5-l19-003",
+              "id": "jp-p6-l28-003",
+              "concept_id": "c-jp-p6-l28-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4432,7 +6381,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l20",
+          "id": "jp-foundations-l29",
           "order": 3,
           "title_bn": "পরিবারের সদস্যগণ (Family Members Bank)",
           "title_target": "Family Vocabulary (In-group vs. Out-group)",
@@ -4442,8 +6391,8 @@
           ],
           "items": [
             {
-              "id": "jp-p5-l20-001",
-              "concept_id": "c-jp-p5-l20-001",
+              "id": "jp-p6-l29-001",
+              "concept_id": "c-jp-p6-l29-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4489,8 +6438,8 @@
               }
             },
             {
-              "id": "jp-p5-l20-002",
-              "concept_id": "c-jp-p5-l20-002",
+              "id": "jp-p6-l29-002",
+              "concept_id": "c-jp-p6-l29-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4536,8 +6485,8 @@
               }
             },
             {
-              "id": "jp-p5-l20-003",
-              "concept_id": "c-jp-p5-l20-003",
+              "id": "jp-p6-l29-003",
+              "concept_id": "c-jp-p6-l29-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4583,8 +6532,8 @@
               }
             },
             {
-              "id": "jp-p5-l20-004",
-              "concept_id": "c-jp-p5-l20-004",
+              "id": "jp-p6-l29-004",
+              "concept_id": "c-jp-p6-l29-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4634,14 +6583,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p6",
-      "order": 6,
+      "id": "jp-foundations-p7",
+      "order": 7,
       "level": "A1",
       "title_bn": "বস্তু, দাম ও কেনাকাটা (Demonstratives & Shopping)",
       "title_target": "Demonstratives, Directions & Shopping Inquiries",
       "lessons": [
         {
-          "id": "jp-foundations-l21",
+          "id": "jp-foundations-l30",
           "order": 1,
           "title_bn": "বস্তু নির্দেশক — 'これ・それ・あれ・どれ' (This, That, Which)",
           "title_target": "Independent Demonstratives (Kore, Sore, Are, Dore)",
@@ -4651,8 +6600,8 @@
           ],
           "items": [
             {
-              "id": "jp-p6-l21-001",
-              "concept_id": "c-jp-p6-l21-001",
+              "id": "jp-p7-l30-001",
+              "concept_id": "c-jp-p7-l30-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4698,8 +6647,8 @@
               }
             },
             {
-              "id": "jp-p6-l21-002",
-              "concept_id": "c-jp-p6-l21-002",
+              "id": "jp-p7-l30-002",
+              "concept_id": "c-jp-p7-l30-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4745,8 +6694,8 @@
               }
             },
             {
-              "id": "jp-p6-l21-003",
-              "concept_id": "c-jp-p6-l21-003",
+              "id": "jp-p7-l30-003",
+              "concept_id": "c-jp-p7-l30-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4798,8 +6747,8 @@
               }
             },
             {
-              "id": "jp-p6-l21-004",
-              "concept_id": "c-jp-p6-l21-004",
+              "id": "jp-p7-l30-004",
+              "concept_id": "c-jp-p7-l30-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4853,7 +6802,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l22",
+          "id": "jp-foundations-l31",
           "order": 2,
           "title_bn": "বিশেষ্য সহ নির্দেশক — 'この・その・あの・どの + Noun'",
           "title_target": "Modified Demonstratives (Kono, Sono, Ano, Dono + Noun)",
@@ -4863,8 +6812,8 @@
           ],
           "items": [
             {
-              "id": "jp-p6-l22-001",
-              "concept_id": "c-jp-p6-l22-001",
+              "id": "jp-p7-l31-001",
+              "concept_id": "c-jp-p7-l31-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4916,8 +6865,8 @@
               }
             },
             {
-              "id": "jp-p6-l22-002",
-              "concept_id": "c-jp-p6-l22-002",
+              "id": "jp-p7-l31-002",
+              "concept_id": "c-jp-p7-l31-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -4969,8 +6918,8 @@
               }
             },
             {
-              "id": "jp-p6-l22-003",
-              "concept_id": "c-jp-p6-l22-003",
+              "id": "jp-p7-l31-003",
+              "concept_id": "c-jp-p7-l31-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5024,7 +6973,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l23",
+          "id": "jp-foundations-l32",
           "order": 3,
           "title_bn": "স্থান নির্দেশক — 'ここ・そこ・あそこ・どこ' (Locations)",
           "title_target": "Location Demonstratives (Koko, Soko, Asoko, Doko)",
@@ -5034,8 +6983,8 @@
           ],
           "items": [
             {
-              "id": "jp-p6-l23-001",
-              "concept_id": "c-jp-p6-l23-001",
+              "id": "jp-p7-l32-001",
+              "concept_id": "c-jp-p7-l32-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5081,8 +7030,8 @@
               }
             },
             {
-              "id": "jp-p6-l23-002",
-              "concept_id": "c-jp-p6-l23-002",
+              "id": "jp-p7-l32-002",
+              "concept_id": "c-jp-p7-l32-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5140,8 +7089,8 @@
               }
             },
             {
-              "id": "jp-p6-l23-003",
-              "concept_id": "c-jp-p6-l23-003",
+              "id": "jp-p7-l32-003",
+              "concept_id": "c-jp-p7-l32-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5189,7 +7138,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l24",
+          "id": "jp-foundations-l33",
           "order": 4,
           "title_bn": "মূল্য জিজ্ঞাসা ও কেনাকাটা — 'いくらですか' (Shopping Dialogue)",
           "title_target": "Price Inquiry & Shopping Conversation (Ikura desu ka)",
@@ -5200,8 +7149,8 @@
           ],
           "items": [
             {
-              "id": "jp-p6-l24-001",
-              "concept_id": "c-jp-p6-l24-001",
+              "id": "jp-p7-l33-001",
+              "concept_id": "c-jp-p7-l33-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5259,8 +7208,8 @@
               }
             },
             {
-              "id": "jp-p6-l24-002",
-              "concept_id": "c-jp-p6-l24-002",
+              "id": "jp-p7-l33-002",
+              "concept_id": "c-jp-p7-l33-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5294,8 +7243,8 @@
               }
             },
             {
-              "id": "jp-p6-l24-003",
-              "concept_id": "c-jp-p6-l24-003",
+              "id": "jp-p7-l33-003",
+              "concept_id": "c-jp-p7-l33-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5321,7 +7270,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -5341,8 +7290,8 @@
               }
             },
             {
-              "id": "jp-p6-l24-004",
-              "concept_id": "c-jp-p6-l24-004",
+              "id": "jp-p7-l33-004",
+              "concept_id": "c-jp-p7-l33-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5368,7 +7317,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -5398,14 +7347,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p7",
-      "order": 7,
+      "id": "jp-foundations-p8",
+      "order": 8,
       "level": "A1",
       "title_bn": "সংখ্যা, সময়, বার ও কাউন্টার (Numbers & Counters)",
       "title_target": "Numbers, Time Telling & Essential Counters",
       "lessons": [
         {
-          "id": "jp-foundations-l25",
+          "id": "jp-foundations-l34",
           "order": 1,
           "title_bn": "১ থেকে ১০,০০০ পর্যন্ত সংখ্যা ও টাকা (Numbers & Yen)",
           "title_target": "Numbers 1-10,000 & Money Calculations",
@@ -5415,8 +7364,8 @@
           ],
           "items": [
             {
-              "id": "jp-p7-l25-001",
-              "concept_id": "c-jp-p7-l25-001",
+              "id": "jp-p8-l34-001",
+              "concept_id": "c-jp-p8-l34-001",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -5444,8 +7393,8 @@
               }
             },
             {
-              "id": "jp-p7-l25-002",
-              "concept_id": "c-jp-p7-l25-002",
+              "id": "jp-p8-l34-002",
+              "concept_id": "c-jp-p8-l34-002",
               "order": 1,
               "type": "syllable_ladder",
               "level": "A1",
@@ -5473,8 +7422,8 @@
               }
             },
             {
-              "id": "jp-p7-l25-003",
-              "concept_id": "c-jp-p7-l25-003",
+              "id": "jp-p8-l34-003",
+              "concept_id": "c-jp-p8-l34-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5516,7 +7465,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l26",
+          "id": "jp-foundations-l35",
           "order": 2,
           "title_bn": "সময়, মিনিট ও তারিখ (Time, Minutes & Dates)",
           "title_target": "Telling Time, Minutes & Calendar Dates",
@@ -5526,8 +7475,8 @@
           ],
           "items": [
             {
-              "id": "jp-p7-l26-001",
-              "concept_id": "c-jp-p7-l26-001",
+              "id": "jp-p8-l35-001",
+              "concept_id": "c-jp-p8-l35-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5579,8 +7528,8 @@
               }
             },
             {
-              "id": "jp-p7-l26-002",
-              "concept_id": "c-jp-p7-l26-002",
+              "id": "jp-p8-l35-002",
+              "concept_id": "c-jp-p8-l35-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5638,8 +7587,8 @@
               }
             },
             {
-              "id": "jp-p7-l26-003",
-              "concept_id": "c-jp-p7-l26-003",
+              "id": "jp-p8-l35-003",
+              "concept_id": "c-jp-p8-l35-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5693,7 +7642,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l27",
+          "id": "jp-foundations-l36",
           "order": 3,
           "title_bn": "নিত্যপ্রয়োজনীয় ৫টি কাউন্টার (人, 本, 枚, 台, 冊, つ)",
           "title_target": "Essential Japanese Counters (People, Flat, Long, Machines)",
@@ -5703,8 +7652,8 @@
           ],
           "items": [
             {
-              "id": "jp-p7-l27-001",
-              "concept_id": "c-jp-p7-l27-001",
+              "id": "jp-p8-l36-001",
+              "concept_id": "c-jp-p8-l36-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5750,8 +7699,8 @@
               }
             },
             {
-              "id": "jp-p7-l27-002",
-              "concept_id": "c-jp-p7-l27-002",
+              "id": "jp-p8-l36-002",
+              "concept_id": "c-jp-p8-l36-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5797,8 +7746,8 @@
               }
             },
             {
-              "id": "jp-p7-l27-003",
-              "concept_id": "c-jp-p7-l27-003",
+              "id": "jp-p8-l36-003",
+              "concept_id": "c-jp-p8-l36-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5844,8 +7793,8 @@
               }
             },
             {
-              "id": "jp-p7-l27-004",
-              "concept_id": "c-jp-p7-l27-004",
+              "id": "jp-p8-l36-004",
+              "concept_id": "c-jp-p8-l36-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5895,14 +7844,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p8",
-      "order": 8,
+      "id": "jp-foundations-p9",
+      "order": 9,
       "level": "A1",
       "title_bn": "অবস্থান ও অস্তিত্ব (Existence: あります বনাম います)",
       "title_target": "Spatial Location & Existence (Arimasu vs. Imasu)",
       "lessons": [
         {
-          "id": "jp-foundations-l28",
+          "id": "jp-foundations-l37",
           "order": 1,
           "title_bn": "নির্জীব বস্তু ও উদ্ভিদের অবস্থান — 'あります' (Inanimate Existence)",
           "title_target": "Inanimate Existence with 'arimasu' (Things & Plants)",
@@ -5912,8 +7861,8 @@
           ],
           "items": [
             {
-              "id": "jp-p8-l28-001",
-              "concept_id": "c-jp-p8-l28-001",
+              "id": "jp-p9-l37-001",
+              "concept_id": "c-jp-p9-l37-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -5977,8 +7926,8 @@
               }
             },
             {
-              "id": "jp-p8-l28-002",
-              "concept_id": "c-jp-p8-l28-002",
+              "id": "jp-p9-l37-002",
+              "concept_id": "c-jp-p9-l37-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6042,8 +7991,8 @@
               }
             },
             {
-              "id": "jp-p8-l28-003",
-              "concept_id": "c-jp-p8-l28-003",
+              "id": "jp-p9-l37-003",
+              "concept_id": "c-jp-p9-l37-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6097,7 +8046,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l29",
+          "id": "jp-foundations-l38",
           "order": 2,
           "title_bn": "সজীব প্রাণী ও মানুষের অবস্থান — 'います' (Animate Existence)",
           "title_target": "Animate Existence with 'imasu' (People & Animals)",
@@ -6107,8 +8056,8 @@
           ],
           "items": [
             {
-              "id": "jp-p8-l29-001",
-              "concept_id": "c-jp-p8-l29-001",
+              "id": "jp-p9-l38-001",
+              "concept_id": "c-jp-p9-l38-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6160,8 +8109,8 @@
               }
             },
             {
-              "id": "jp-p8-l29-002",
-              "concept_id": "c-jp-p8-l29-002",
+              "id": "jp-p9-l38-002",
+              "concept_id": "c-jp-p9-l38-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6213,8 +8162,8 @@
               }
             },
             {
-              "id": "jp-p8-l29-003",
-              "concept_id": "c-jp-p8-l29-003",
+              "id": "jp-p9-l38-003",
+              "concept_id": "c-jp-p9-l38-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6268,7 +8217,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l30",
+          "id": "jp-foundations-l39",
           "order": 3,
           "title_bn": "অবস্থান সূচক শব্দ ও প্রিপজিশন (Spatial Prepositions)",
           "title_target": "Positional Words: Ue, Shita, Mae, Ushiro, Naka, Tonari",
@@ -6278,8 +8227,8 @@
           ],
           "items": [
             {
-              "id": "jp-p8-l30-001",
-              "concept_id": "c-jp-p8-l30-001",
+              "id": "jp-p9-l39-001",
+              "concept_id": "c-jp-p9-l39-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6343,8 +8292,8 @@
               }
             },
             {
-              "id": "jp-p8-l30-002",
-              "concept_id": "c-jp-p8-l30-002",
+              "id": "jp-p9-l39-002",
+              "concept_id": "c-jp-p9-l39-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6408,8 +8357,8 @@
               }
             },
             {
-              "id": "jp-p8-l30-003",
-              "concept_id": "c-jp-p8-l30-003",
+              "id": "jp-p9-l39-003",
+              "concept_id": "c-jp-p9-l39-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6475,7 +8424,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l31",
+          "id": "jp-foundations-l40",
           "order": 4,
           "title_bn": "৬-রূপান্তর ড্রিল: অস্তিত্ব ও অবস্থান (6 Transformations)",
           "title_target": "6 Sentence Transformations: Existence (Arimasu / Imasu)",
@@ -6490,8 +8439,8 @@
           ],
           "items": [
             {
-              "id": "jp-p8-l31-001",
-              "concept_id": "c-jp-p8-l31-001",
+              "id": "jp-p9-l40-001",
+              "concept_id": "c-jp-p9-l40-001",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -6519,8 +8468,8 @@
               }
             },
             {
-              "id": "jp-p8-l31-002",
-              "concept_id": "c-jp-p8-l31-002",
+              "id": "jp-p9-l40-002",
+              "concept_id": "c-jp-p9-l40-002",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -6548,8 +8497,8 @@
               }
             },
             {
-              "id": "jp-p8-l31-003",
-              "concept_id": "c-jp-p8-l31-003",
+              "id": "jp-p9-l40-003",
+              "concept_id": "c-jp-p9-l40-003",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -6577,8 +8526,8 @@
               }
             },
             {
-              "id": "jp-p8-l31-004",
-              "concept_id": "c-jp-p8-l31-004",
+              "id": "jp-p9-l40-004",
+              "concept_id": "c-jp-p9-l40-004",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -6606,8 +8555,8 @@
               }
             },
             {
-              "id": "jp-p8-l31-005",
-              "concept_id": "c-jp-p8-l31-005",
+              "id": "jp-p9-l40-005",
+              "concept_id": "c-jp-p9-l40-005",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -6635,8 +8584,8 @@
               }
             },
             {
-              "id": "jp-p8-l31-006",
-              "concept_id": "c-jp-p8-l31-006",
+              "id": "jp-p9-l40-006",
+              "concept_id": "c-jp-p9-l40-006",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -6668,14 +8617,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p9",
-      "order": 9,
+      "id": "jp-foundations-p10",
+      "order": 10,
       "level": "A1",
       "title_bn": "কাজের ক্রিয়া ও মৌলিক পার্টিকেল (Action Verbs & Particles を, で, へ, に)",
       "title_target": "Action Verbs & Core Particles (o, de, e, ni, to, kara, made)",
       "lessons": [
         {
-          "id": "jp-foundations-l32",
+          "id": "jp-foundations-l41",
           "order": 1,
           "title_bn": "সরাসরি অবজেক্ট ও ক্রিয়াপদ — '〜を' (Object Particle 'o')",
           "title_target": "Direct Object with Particle 'o' & Essential Verbs",
@@ -6685,8 +8634,8 @@
           ],
           "items": [
             {
-              "id": "jp-p9-l32-001",
-              "concept_id": "c-jp-p9-l32-001",
+              "id": "jp-p10-l41-001",
+              "concept_id": "c-jp-p10-l41-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6726,8 +8675,8 @@
               }
             },
             {
-              "id": "jp-p9-l32-002",
-              "concept_id": "c-jp-p9-l32-002",
+              "id": "jp-p10-l41-002",
+              "concept_id": "c-jp-p10-l41-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6767,8 +8716,8 @@
               }
             },
             {
-              "id": "jp-p9-l32-003",
-              "concept_id": "c-jp-p9-l32-003",
+              "id": "jp-p10-l41-003",
+              "concept_id": "c-jp-p10-l41-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6794,7 +8743,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -6814,8 +8763,8 @@
               }
             },
             {
-              "id": "jp-p9-l32-004",
-              "concept_id": "c-jp-p9-l32-004",
+              "id": "jp-p10-l41-004",
+              "concept_id": "c-jp-p10-l41-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6835,7 +8784,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -6857,7 +8806,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l33",
+          "id": "jp-foundations-l42",
           "order": 2,
           "title_bn": "কাজের স্থান ও মাধ্যম — '〜で' (Action Location & Means)",
           "title_target": "Action Location & Instrumental Means with Particle 'de'",
@@ -6868,8 +8817,8 @@
           ],
           "items": [
             {
-              "id": "jp-p9-l33-001",
-              "concept_id": "c-jp-p9-l33-001",
+              "id": "jp-p10-l42-001",
+              "concept_id": "c-jp-p10-l42-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6909,8 +8858,8 @@
               }
             },
             {
-              "id": "jp-p9-l33-002",
-              "concept_id": "c-jp-p9-l33-002",
+              "id": "jp-p10-l42-002",
+              "concept_id": "c-jp-p10-l42-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -6942,7 +8891,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -6962,8 +8911,8 @@
               }
             },
             {
-              "id": "jp-p9-l33-003",
-              "concept_id": "c-jp-p9-l33-003",
+              "id": "jp-p10-l42-003",
+              "concept_id": "c-jp-p10-l42-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7015,8 +8964,8 @@
               }
             },
             {
-              "id": "jp-p9-l33-004",
-              "concept_id": "c-jp-p9-l33-004",
+              "id": "jp-p10-l42-004",
+              "concept_id": "c-jp-p10-l42-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7048,7 +8997,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -7070,7 +9019,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l34",
+          "id": "jp-foundations-l43",
           "order": 3,
           "title_bn": "গন্তব্য ও দিক — '〜へ / 〜に' (Destination & Movement)",
           "title_target": "Movement Verbs & Destination with 'e' / 'ni'",
@@ -7080,8 +9029,8 @@
           ],
           "items": [
             {
-              "id": "jp-p9-l34-001",
-              "concept_id": "c-jp-p9-l34-001",
+              "id": "jp-p10-l43-001",
+              "concept_id": "c-jp-p10-l43-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7121,8 +9070,8 @@
               }
             },
             {
-              "id": "jp-p9-l34-002",
-              "concept_id": "c-jp-p9-l34-002",
+              "id": "jp-p10-l43-002",
+              "concept_id": "c-jp-p10-l43-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7168,8 +9117,8 @@
               }
             },
             {
-              "id": "jp-p9-l34-003",
-              "concept_id": "c-jp-p9-l34-003",
+              "id": "jp-p10-l43-003",
+              "concept_id": "c-jp-p10-l43-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7223,7 +9172,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l35",
+          "id": "jp-foundations-l44",
           "order": 4,
           "title_bn": "সময় ও সীমা — 'Time に', '〜から 〜まで'",
           "title_target": "Specific Time 'ni' & Spans 'kara ... made'",
@@ -7234,8 +9183,8 @@
           ],
           "items": [
             {
-              "id": "jp-p9-l35-001",
-              "concept_id": "c-jp-p9-l35-001",
+              "id": "jp-p10-l44-001",
+              "concept_id": "c-jp-p10-l44-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7275,8 +9224,8 @@
               }
             },
             {
-              "id": "jp-p9-l35-002",
-              "concept_id": "c-jp-p9-l35-002",
+              "id": "jp-p10-l44-002",
+              "concept_id": "c-jp-p10-l44-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7328,8 +9277,8 @@
               }
             },
             {
-              "id": "jp-p9-l35-003",
-              "concept_id": "c-jp-p9-l35-003",
+              "id": "jp-p10-l44-003",
+              "concept_id": "c-jp-p10-l44-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7369,8 +9318,8 @@
               }
             },
             {
-              "id": "jp-p9-l35-004",
-              "concept_id": "c-jp-p9-l35-004",
+              "id": "jp-p10-l44-004",
+              "concept_id": "c-jp-p10-l44-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7402,7 +9351,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -7426,14 +9375,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p10",
-      "order": 10,
+      "id": "jp-foundations-p11",
+      "order": 11,
       "level": "A1",
       "title_bn": "দৈনন্দিন রুটিন ও আমন্ত্রণ (Daily Routine & Invitations)",
       "title_target": "Polite Verb Tenses, Daily Routine & Social Invitations",
       "lessons": [
         {
-          "id": "jp-foundations-l36",
+          "id": "jp-foundations-l45",
           "order": 1,
           "title_bn": "ক্রিয়াপদের ৩টি গ্রুপ ও ভদ্র রূপ (Verb Groups & Masu/Masen)",
           "title_target": "The 3 Japanese Verb Groups & Polite Conjugation",
@@ -7444,8 +9393,8 @@
           ],
           "items": [
             {
-              "id": "jp-p10-l36-001",
-              "concept_id": "c-jp-p10-l36-001",
+              "id": "jp-p11-l45-001",
+              "concept_id": "c-jp-p11-l45-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7471,7 +9420,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -7491,8 +9440,8 @@
               }
             },
             {
-              "id": "jp-p10-l36-002",
-              "concept_id": "c-jp-p10-l36-002",
+              "id": "jp-p11-l45-002",
+              "concept_id": "c-jp-p11-l45-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7512,7 +9461,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -7532,8 +9481,8 @@
               }
             },
             {
-              "id": "jp-p10-l36-003",
-              "concept_id": "c-jp-p10-l36-003",
+              "id": "jp-p11-l45-003",
+              "concept_id": "c-jp-p11-l45-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7575,7 +9524,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l37",
+          "id": "jp-foundations-l46",
           "order": 2,
           "title_bn": "দৈনন্দিন রুটিন কথন — 'わたしの一日' (Reading 1 Narrative)",
           "title_target": "Daily Routine Monologue (Watashi no Ichinichi)",
@@ -7585,8 +9534,8 @@
           ],
           "items": [
             {
-              "id": "jp-p10-l37-001",
-              "concept_id": "c-jp-p10-l37-001",
+              "id": "jp-p11-l46-001",
+              "concept_id": "c-jp-p11-l46-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7614,8 +9563,8 @@
               }
             },
             {
-              "id": "jp-p10-l37-002",
-              "concept_id": "c-jp-p10-l37-002",
+              "id": "jp-p11-l46-002",
+              "concept_id": "c-jp-p11-l46-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7643,8 +9592,8 @@
               }
             },
             {
-              "id": "jp-p10-l37-003",
-              "concept_id": "c-jp-p10-l37-003",
+              "id": "jp-p11-l46-003",
+              "concept_id": "c-jp-p11-l46-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7674,7 +9623,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l38",
+          "id": "jp-foundations-l47",
           "order": 3,
           "title_bn": "ভদ্র আমন্ত্রণ ও প্রস্তাব — '〜ませんか / 〜ましょう'",
           "title_target": "Polite Invitations & Suggestions (Masen ka / Mashou)",
@@ -7685,8 +9634,8 @@
           ],
           "items": [
             {
-              "id": "jp-p10-l38-001",
-              "concept_id": "c-jp-p10-l38-001",
+              "id": "jp-p11-l47-001",
+              "concept_id": "c-jp-p11-l47-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7712,7 +9661,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -7732,8 +9681,8 @@
               }
             },
             {
-              "id": "jp-p10-l38-002",
-              "concept_id": "c-jp-p10-l38-002",
+              "id": "jp-p11-l47-002",
+              "concept_id": "c-jp-p11-l47-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7767,8 +9716,8 @@
               }
             },
             {
-              "id": "jp-p10-l38-003",
-              "concept_id": "c-jp-p10-l38-003",
+              "id": "jp-p11-l47-003",
+              "concept_id": "c-jp-p11-l47-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7802,8 +9751,8 @@
               }
             },
             {
-              "id": "jp-p10-l38-004",
-              "concept_id": "c-jp-p10-l38-004",
+              "id": "jp-p11-l47-004",
+              "concept_id": "c-jp-p11-l47-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7823,7 +9772,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -7847,14 +9796,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p11",
-      "order": 11,
+      "id": "jp-foundations-p12",
+      "order": 12,
       "level": "A1",
       "title_bn": "বিশেষণ, পছন্দ ও ইচ্ছা (Adjectives, Preferences & Abilities)",
       "title_target": "i-Adjectives, na-Adjectives, Wants & Potential Ability",
       "lessons": [
         {
-          "id": "jp-foundations-l39",
+          "id": "jp-foundations-l48",
           "order": 1,
           "title_bn": "い-বিশেষণ: হ্যাঁ-বোধক ও না-বোধক রূপ (i-Adjectives)",
           "title_target": "i-Adjectives: Affirmative & Negative (~kunai desu)",
@@ -7865,8 +9814,8 @@
           ],
           "items": [
             {
-              "id": "jp-p11-l39-001",
-              "concept_id": "c-jp-p11-l39-001",
+              "id": "jp-p12-l48-001",
+              "concept_id": "c-jp-p12-l48-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7918,8 +9867,8 @@
               }
             },
             {
-              "id": "jp-p11-l39-002",
-              "concept_id": "c-jp-p11-l39-002",
+              "id": "jp-p12-l48-002",
+              "concept_id": "c-jp-p12-l48-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -7965,8 +9914,8 @@
               }
             },
             {
-              "id": "jp-p11-l39-003",
-              "concept_id": "c-jp-p11-l39-003",
+              "id": "jp-p12-l48-003",
+              "concept_id": "c-jp-p12-l48-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8018,8 +9967,8 @@
               }
             },
             {
-              "id": "jp-p11-l39-004",
-              "concept_id": "c-jp-p11-l39-004",
+              "id": "jp-p12-l48-004",
+              "concept_id": "c-jp-p12-l48-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8059,8 +10008,8 @@
               }
             },
             {
-              "id": "jp-p11-l39-005",
-              "concept_id": "c-jp-p11-l39-005",
+              "id": "jp-p12-l48-005",
+              "concept_id": "c-jp-p12-l48-005",
               "order": 1,
               "type": "drill",
               "level": "A1",
@@ -8090,7 +10039,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l40",
+          "id": "jp-foundations-l49",
           "order": 2,
           "title_bn": "な-বিশেষণ: বৈশিষ্ট্য ও গুণাগুণ (na-Adjectives)",
           "title_target": "na-Adjectives: Shizuka, Kirei, Genki, Benri",
@@ -8101,8 +10050,8 @@
           ],
           "items": [
             {
-              "id": "jp-p11-l40-001",
-              "concept_id": "c-jp-p11-l40-001",
+              "id": "jp-p12-l49-001",
+              "concept_id": "c-jp-p12-l49-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8154,8 +10103,8 @@
               }
             },
             {
-              "id": "jp-p11-l40-002",
-              "concept_id": "c-jp-p11-l40-002",
+              "id": "jp-p12-l49-002",
+              "concept_id": "c-jp-p12-l49-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8207,8 +10156,8 @@
               }
             },
             {
-              "id": "jp-p11-l40-003",
-              "concept_id": "c-jp-p11-l40-003",
+              "id": "jp-p12-l49-003",
+              "concept_id": "c-jp-p12-l49-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8248,8 +10197,8 @@
               }
             },
             {
-              "id": "jp-p11-l40-004",
-              "concept_id": "c-jp-p11-l40-004",
+              "id": "jp-p12-l49-004",
+              "concept_id": "c-jp-p12-l49-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8303,7 +10252,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l41",
+          "id": "jp-foundations-l50",
           "order": 3,
           "title_bn": "পছন্দ, অপছন্দ ও সামর্থ্য (好き, 嫌い, 上手, 下手 - Grammar 29–32)",
           "title_target": "Preferences, Desires & Abilities (Suki, Hoshii, Dekiru)",
@@ -8315,8 +10264,8 @@
           ],
           "items": [
             {
-              "id": "jp-p11-l41-001",
-              "concept_id": "c-jp-p11-l41-001",
+              "id": "jp-p12-l50-001",
+              "concept_id": "c-jp-p12-l50-001",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8348,7 +10297,7 @@
                 {
                   "t": "が",
                   "romaji": "ga",
-                  "kanji": "が",
+                  "kanji": "টি",
                   "bn": "টি"
                 },
                 {
@@ -8368,8 +10317,8 @@
               }
             },
             {
-              "id": "jp-p11-l41-002",
-              "concept_id": "c-jp-p11-l41-002",
+              "id": "jp-p12-l50-002",
+              "concept_id": "c-jp-p12-l50-002",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8395,7 +10344,7 @@
                 {
                   "t": "が",
                   "romaji": "ga",
-                  "kanji": "が",
+                  "kanji": "টি",
                   "bn": "টি"
                 },
                 {
@@ -8415,8 +10364,8 @@
               }
             },
             {
-              "id": "jp-p11-l41-003",
-              "concept_id": "c-jp-p11-l41-003",
+              "id": "jp-p12-l50-003",
+              "concept_id": "c-jp-p12-l50-003",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8456,8 +10405,8 @@
               }
             },
             {
-              "id": "jp-p11-l41-004",
-              "concept_id": "c-jp-p11-l41-004",
+              "id": "jp-p12-l50-004",
+              "concept_id": "c-jp-p12-l50-004",
               "order": 1,
               "type": "sentence",
               "level": "A1",
@@ -8477,7 +10426,7 @@
                 {
                   "t": "を",
                   "romaji": "o",
-                  "kanji": "を",
+                  "kanji": "কে",
                   "bn": "কে"
                 },
                 {
@@ -8513,14 +10462,14 @@
       ]
     },
     {
-      "id": "jp-foundations-p12",
-      "order": 12,
+      "id": "jp-foundations-p13",
+      "order": 13,
       "level": "A1",
       "title_bn": "ব্যবহারিক মিনি-ডায়ালগ ও সংলাপ (Situational Mini-Dialogues)",
       "title_target": "Situational Mini-Dialogues & Everyday Conversations",
       "lessons": [
         {
-          "id": "jp-foundations-l42",
+          "id": "jp-foundations-l51",
           "order": 1,
           "title_bn": "প্রথম পরিচয় ও সম্ভাষণ (First Meeting: Hajimemashite Dialogue)",
           "title_target": "First Meeting & Self-Introduction Dialogue",
@@ -8531,8 +10480,8 @@
           ],
           "items": [
             {
-              "id": "jp-p12-l42-001",
-              "concept_id": "c-jp-p12-l42-001",
+              "id": "jp-p13-l51-001",
+              "concept_id": "c-jp-p13-l51-001",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8560,8 +10509,8 @@
               }
             },
             {
-              "id": "jp-p12-l42-002",
-              "concept_id": "c-jp-p12-l42-002",
+              "id": "jp-p13-l51-002",
+              "concept_id": "c-jp-p13-l51-002",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8589,8 +10538,8 @@
               }
             },
             {
-              "id": "jp-p12-l42-003",
-              "concept_id": "c-jp-p12-l42-003",
+              "id": "jp-p13-l51-003",
+              "concept_id": "c-jp-p13-l51-003",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8620,7 +10569,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l43",
+          "id": "jp-foundations-l52",
           "order": 2,
           "title_bn": "দোকানে কেনাকাটা ও ক্যাশিয়ার (Shopping & Convenience Store)",
           "title_target": "Convenience Store & Shopping Dialogue",
@@ -8631,8 +10580,8 @@
           ],
           "items": [
             {
-              "id": "jp-p12-l43-001",
-              "concept_id": "c-jp-p12-l43-001",
+              "id": "jp-p13-l52-001",
+              "concept_id": "c-jp-p13-l52-001",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8660,8 +10609,8 @@
               }
             },
             {
-              "id": "jp-p12-l43-002",
-              "concept_id": "c-jp-p12-l43-002",
+              "id": "jp-p13-l52-002",
+              "concept_id": "c-jp-p13-l52-002",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8689,8 +10638,8 @@
               }
             },
             {
-              "id": "jp-p12-l43-003",
-              "concept_id": "c-jp-p12-l43-003",
+              "id": "jp-p13-l52-003",
+              "concept_id": "c-jp-p13-l52-003",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8720,7 +10669,7 @@
           ]
         },
         {
-          "id": "jp-foundations-l44",
+          "id": "jp-foundations-l53",
           "order": 3,
           "title_bn": "স্টেশনে টিকিট ও পথ নির্দেশনা (Station & Navigation Dialogue)",
           "title_target": "Train Station & Navigation Dialogue",
@@ -8731,8 +10680,8 @@
           ],
           "items": [
             {
-              "id": "jp-p12-l44-001",
-              "concept_id": "c-jp-p12-l44-001",
+              "id": "jp-p13-l53-001",
+              "concept_id": "c-jp-p13-l53-001",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8760,8 +10709,8 @@
               }
             },
             {
-              "id": "jp-p12-l44-002",
-              "concept_id": "c-jp-p12-l44-002",
+              "id": "jp-p13-l53-002",
+              "concept_id": "c-jp-p13-l53-002",
               "order": 1,
               "type": "dialogue",
               "level": "A1",
@@ -8789,8 +10738,8 @@
               }
             },
             {
-              "id": "jp-p12-l44-003",
-              "concept_id": "c-jp-p12-l44-003",
+              "id": "jp-p13-l53-003",
+              "concept_id": "c-jp-p13-l53-003",
               "order": 1,
               "type": "dialogue",
               "level": "A1",

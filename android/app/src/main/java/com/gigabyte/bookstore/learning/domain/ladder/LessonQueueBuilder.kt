@@ -39,24 +39,33 @@ object LessonQueueBuilder {
             for (speed in speeds) {
                 steps += PlaybackStep.Speak(qa.questionEn, targetLang, speed, itemIndex, Phase.LADDER)
                 if (qa.questionBn != null) {
-                    steps += PlaybackStep.Speak(qa.questionBn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                    steps += PlaybackStep.Speak(formatBnForSpeech(qa.questionBn), SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
                 }
                 steps += PlaybackStep.Speak(qa.answerEn, targetLang, speed, itemIndex, Phase.LADDER)
                 if (qa.answerBn != null) {
-                    steps += PlaybackStep.Speak(qa.answerBn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                    steps += PlaybackStep.Speak(formatBnForSpeech(qa.answerBn), SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
                 }
             }
         } else {
             // Standard single sentence Target -> BN pair
             for (speed in speeds) {
                 steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER)
-                if (bn != null) steps += PlaybackStep.Speak(bn, SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                if (bn != null) steps += PlaybackStep.Speak(formatBnForSpeech(bn), SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
             }
         }
 
         val pauseMs = settings.gapMs ?: ladder.filter { it.isPause }.sumOf { it.pauseMs }
         if (pauseMs > 0) steps += PlaybackStep.Pause(pauseMs, itemIndex)
         return steps
+    }
+
+    private fun formatBnForSpeech(text: String): String {
+        val trimmed = text.trim()
+        return if (trimmed.startsWith("বাংলায়") || trimmed.startsWith("বাংলায়")) {
+            trimmed
+        } else {
+            "বাংলায়, $trimmed"
+        }
     }
 
     internal data class QaSplit(

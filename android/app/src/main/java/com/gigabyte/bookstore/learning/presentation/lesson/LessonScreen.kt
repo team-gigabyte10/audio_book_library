@@ -428,12 +428,41 @@ private fun ItemCard(
             }
 
             item.bn?.let { bn ->
-                Text(
-                    bn,
-                    fontSize = 20.sp,
-                    lineHeight = 28.sp,
-                    color = if (speakingBn) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
-                )
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    if (speakingBn) {
+                        Surface(
+                            shape = RoundedCornerShape(6.dp),
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            modifier = Modifier.padding(bottom = 2.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    modifier = Modifier.size(13.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = "🔊 বাংলায় অর্থ শুনছেন",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                                )
+                            }
+                        }
+                    }
+                    Text(
+                        bn,
+                        fontSize = 20.sp,
+                        lineHeight = 28.sp,
+                        fontWeight = if (speakingBn) FontWeight.Bold else FontWeight.Normal,
+                        color = if (speakingBn) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
             val isJapanese = remember(item.id, item.target) {
