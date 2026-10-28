@@ -59,14 +59,8 @@ object LessonQueueBuilder {
         return steps
     }
 
-    private fun formatBnForSpeech(text: String): String {
-        val trimmed = text.trim()
-        return if (trimmed.startsWith("বাংলায়") || trimmed.startsWith("বাংলায়")) {
-            trimmed
-        } else {
-            "বাংলায়, $trimmed"
-        }
-    }
+    /** The Bangla meaning is spoken as written, with no prefix word. */
+    private fun formatBnForSpeech(text: String): String = text.trim()
 
     internal data class QaSplit(
         val questionEn: String,
