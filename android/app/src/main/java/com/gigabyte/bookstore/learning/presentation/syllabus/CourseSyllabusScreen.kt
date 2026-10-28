@@ -166,6 +166,7 @@ fun CourseSyllabusScreen(
 
     val isPast = courseType.equals("past", ignoreCase = true)
     val isFuture = courseType.equals("future", ignoreCase = true)
+    val isUrStandard = courseType.equals("ur_standard", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
     val isJpFoundations = courseType.equals("jp_foundations", ignoreCase = true)
     val isJpPast = courseType.equals("jp_past", ignoreCase = true)
@@ -175,6 +176,7 @@ fun CourseSyllabusScreen(
     val courseTitleBn = when {
         isPast -> "অতীতের কথা বলুন (Past Tense)"
         isFuture -> "ভবিষ্যতের কথা বলুন (Future Tense)"
+        isUrStandard -> "উর্দু স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
         isJpFoundations -> "জাপানিজ স্পোকেন বেসিক্স (JLPT N5)"
         isJpPast -> "জাপানিজ অতীত কাল ও অভিজ্ঞতা (JLPT N5/N4)"
@@ -185,6 +187,7 @@ fun CourseSyllabusScreen(
     val courseSubtitle = when {
         isPast -> "Was/Were, Had, Did/Didn't & Past Stories"
         isFuture -> "Will, Shall, Be Going To & Future Plans"
+        isUrStandard -> "উর্দু হরফ, নতুন ধ্বনি ও A1 স্পিকিং টেস্ট"
         isJpStandard -> "অক্ষর, শব্দ ও উচ্চারণ ড্রিল থেকে N5 স্পিকিং টেস্ট"
         isJpFoundations -> "Desu/Masu, Q&A, দৈনন্দিন পরিচয় ও গতিশীল ড্রিল"
         isJpPast -> "Deshita/Mashita, 〜たことがあります ও অতীত স্মৃতি"
@@ -197,6 +200,7 @@ fun CourseSyllabusScreen(
         when {
             isPast -> syllabus.filter { it.part.id.startsWith("past-") }
             isFuture -> syllabus.filter { it.part.id.startsWith("fut-") }
+            isUrStandard -> syllabus.filter { it.part.id.startsWith("ur-std-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }
             isJpFoundations -> syllabus.filter { it.part.id.startsWith("jp-foundations-") }
             isJpPast -> syllabus.filter { it.part.id.startsWith("jp-past-") }

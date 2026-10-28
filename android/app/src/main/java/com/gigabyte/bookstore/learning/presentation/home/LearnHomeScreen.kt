@@ -70,6 +70,7 @@ fun LearnHomeScreen(
     val isSpeaking by viewModel.isSpeaking.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val isJapanese = language.equals("japanese", ignoreCase = true)
+    val isUrdu = language.equals("urdu", ignoreCase = true)
 
     DisposableEffect(language) {
         viewModel.playWelcomeGreeting(language = language)
@@ -92,6 +93,11 @@ fun LearnHomeScreen(
     val futurePartCount = futureParts.size.coerceAtLeast(1)
     val futureLessonCount = futureParts.sumOf { it.lessons.size }.let { if (it > 0) it else 31 }
     val futureSentenceCount = futureParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 230 }
+
+    val urStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-std-") && it.part.isEnabled } }
+    val urStandardPartCount = urStandardParts.size.coerceAtLeast(1)
+    val urStandardLessonCount = urStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
+    val urStandardSentenceCount = urStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 900 }
 
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
@@ -124,12 +130,20 @@ fun LearnHomeScreen(
                 title = {
                     Column {
                         Text(
-                            text = if (isJapanese) "জাপানিজ স্পোকেন মাস্টারক্লাস" else "স্পোকেন ইংলিশ মাস্টারক্লাস",
+                            text = when {
+                                isUrdu -> "উর্দু স্পোকেন কোর্স"
+                                isJapanese -> "জাপানিজ স্পোকেন মাস্টারক্লাস"
+                                else -> "স্পোকেন ইংলিশ মাস্টারক্লাস"
+                            },
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp
                         )
                         Text(
-                            text = if (isJapanese) "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)" else "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি",
+                            text = when {
+                                isUrdu -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে উর্দু বলা"
+                                isJapanese -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)"
+                                else -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি"
+                            },
                             style = MaterialTheme.typography.bodySmall
                         )
                     }
@@ -174,7 +188,29 @@ fun LearnHomeScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    if (!isJapanese) {
+                    if (isUrdu) {
+                        item {
+                            WelcomeBanner(
+                                text = "উর্দু স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি অক্ষর, শব্দ ও বাক্য শুনুন এবং জোরে জোরে বলুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "urdu", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+                        // Urdu-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1",
+                                title = "শূন্য থেকে উর্দু বলা (অক্ষর, উচ্চারণ ও A1 স্পিকিং)",
+                                description = "উর্দু হরফ, নতুন ধ্বনি (ق خ غ ز ف), বাংলা-উর্দু মিল শব্দ, জরুরি বাক্য, তারপর A1-এর ১৫টি ইউনিট ও স্পিকিং টেস্ট।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = urStandardPartCount,
+                                lessonCount = urStandardLessonCount,
+                                sentenceCount = urStandardSentenceCount,
+                                onClick = { onOpenCourse("ur_standard") }
+                            )
+                        }
+                    } else if (!isJapanese) {
                         // 1. Welcome & Spoken Practice Advice Banner (English)
                         item {
                             WelcomeBanner(

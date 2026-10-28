@@ -49,6 +49,7 @@ fun getPaymentPackageLabel(packageType: String): String {
     return when (packageType) {
         "english_course" -> "🗣️ স্পোকেন ইংলিশ (৳১০০)"
         "japanese_course" -> "🇯🇵 জাপানিজ স্পোকেন (৳১০০)"
+        "urdu_course" -> "🇵🇰 উর্দু স্পোকেন (৳১০০)"
         "mega_bundle" -> "⭐ মেগা বান্ডেল (৩টি কোর্স - ৳২৫০)"
         else -> "📚 অডিওবুক বান্ডেল (৳১০০)"
     }

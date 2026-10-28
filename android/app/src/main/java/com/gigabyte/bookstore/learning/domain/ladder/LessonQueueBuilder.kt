@@ -27,9 +27,9 @@ object LessonQueueBuilder {
         settings: LearnSettings
     ): List<PlaybackStep> {
         val steps = mutableListOf<PlaybackStep>()
-        if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings)
-
         val targetLang = ladder.firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: SpeechLang.EN
+        if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings, targetLang)
+
         val speeds = targetSpeeds(item, ladder, settings.repeatCount, targetLang)
         val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
         val qa = splitQa(item.target, bn)
@@ -117,13 +117,13 @@ object LessonQueueBuilder {
     private fun round2(value: Float): Float = Math.round(value * 100f) / 100f
 
     /** Each token (target → bn gloss when known), then cumulative prefixes: I → I eat → I eat rice. */
-    private fun wordByWord(item: LessonItem, itemIndex: Int, settings: LearnSettings): List<PlaybackStep> {
+    private fun wordByWord(item: LessonItem, itemIndex: Int, settings: LearnSettings, targetLang: SpeechLang): List<PlaybackStep> {
         val tokens = item.tokens
         if (!item.isSentenceLike || tokens.size < 2 || tokens.size > MAX_WORD_BY_WORD_TOKENS) return emptyList()
 
         val steps = mutableListOf<PlaybackStep>()
         for (token in tokens) {
-            steps += PlaybackStep.Speak(token.text, SpeechLang.EN, WORD_RATE, itemIndex, Phase.WORD)
+            steps += PlaybackStep.Speak(token.text, targetLang, WORD_RATE, itemIndex, Phase.WORD)
             val gloss = token.bn
             if (settings.bnAudio && !gloss.isNullOrBlank()) {
                 steps += PlaybackStep.Speak(gloss, SpeechLang.BN, 1.0f, itemIndex, Phase.WORD)
@@ -132,7 +132,7 @@ object LessonQueueBuilder {
         // The full sentence is covered by the EN → BN pairs, so build up to n-1 tokens only.
         for (end in 2 until tokens.size) {
             val prefix = tokens.subList(0, end).joinToString(" ") { it.text }
-            steps += PlaybackStep.Speak(prefix, SpeechLang.EN, WORD_RATE, itemIndex, Phase.BUILD_UP)
+            steps += PlaybackStep.Speak(prefix, targetLang, WORD_RATE, itemIndex, Phase.BUILD_UP)
         }
         return steps
     }

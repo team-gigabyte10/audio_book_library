@@ -105,6 +105,20 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
+                id = "urdu_course",
+                title = "উর্দু স্পোকেন কোর্স",
+                subtitle = "শূন্য থেকে A1: হরফ, উচ্চারণ ও কথা বলা",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = null,
+                highlights = listOf(
+                    "উর্দু হরফ, নতুন ধ্বনি ও বাংলা-উর্দু মিল শব্দ",
+                    "দৈনন্দিন কথোপকথন ও রোল-প্লে অডিও লেসন",
+                    "নারী ও পুরুষ দুই রূপেই অনুশীলন"
+                )
+            ),
+            AppCoursePackage(
                 id = "mega_bundle",
                 title = "অল-ইন-ওয়ান মেগা বান্ডেল",
                 subtitle = "৩টি কোর্স একসাথে (৫০ টাকা ছাড়!)",

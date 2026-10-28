@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.learning.data.QuizAnswer
 import com.gigabyte.bookstore.learning.domain.model.LessonUnlock
-import com.gigabyte.bookstore.learning.domain.model.SpeechLang
+import com.gigabyte.bookstore.learning.domain.model.targetLangForId
 import com.gigabyte.bookstore.learning.domain.quiz.QuizGenerator
 import com.gigabyte.bookstore.learning.domain.quiz.QuizQuestion
 import kotlinx.coroutines.Job
@@ -80,7 +80,7 @@ class QuizViewModel(application: Application, private val lessonId: String) : An
         if (app.player.playbackState.value.isPlaying) app.player.pause()
         speakJob?.cancel()
         engine.stop()
-        speakJob = viewModelScope.launch { engine.speak(question.item.target, SpeechLang.EN, 0.9f) }
+        speakJob = viewModelScope.launch { engine.speak(question.item.target, targetLangForId(question.item.id), 0.9f) }
     }
 
     fun selectOption(option: Int) {

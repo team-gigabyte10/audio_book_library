@@ -95,8 +95,13 @@ class EscbJsonParser {
             }
             reader.endObject()
             val lang = when (play) {
-                "target" -> if (targetLang.equals("ja", ignoreCase = true)) SpeechLang.JA else SpeechLang.EN
+                "target" -> when {
+                    targetLang.equals("ja", ignoreCase = true) -> SpeechLang.JA
+                    targetLang.equals("ur", ignoreCase = true) -> SpeechLang.UR
+                    else -> SpeechLang.EN
+                }
                 "ja" -> SpeechLang.JA
+                "ur" -> SpeechLang.UR
                 "en" -> SpeechLang.EN
                 "bn" -> SpeechLang.BN
                 else -> null

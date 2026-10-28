@@ -101,6 +101,8 @@ fun LessonScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val englishAvailable by viewModel.englishAvailable.collectAsStateWithLifecycle()
     val banglaAvailable by viewModel.banglaAvailable.collectAsStateWithLifecycle()
+    val urduAvailable by viewModel.urduAvailable.collectAsStateWithLifecycle()
+    val urFemaleSpeaker by viewModel.urFemaleSpeaker.collectAsStateWithLifecycle()
     var showSettings by remember { mutableStateOf(false) }
 
     // Keep the screen on while the lesson is playing.
@@ -145,7 +147,13 @@ fun LessonScreen(
                     onStart = viewModel::start
                 )
                 else -> Column(Modifier.fillMaxSize()) {
-                    if (englishAvailable == false) {
+                    if (viewModel.isUrdu) {
+                        if (urduAvailable == false) {
+                            VoiceWarning("এই ফোনে উর্দু ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Urdu (Pakistan) ভয়েস ইনস্টল করুন। ততক্ষণ উর্দু লেখা দেখে পড়ুন।")
+                        } else if (banglaAvailable == false && settings.bnAudio) {
+                            VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
+                        }
+                    } else if (englishAvailable == false) {
                         VoiceWarning("ইংরেজি ভয়েস ইনস্টল করা নেই। ফোনের Text-to-speech সেটিংস থেকে English (US) ভয়েস ইনস্টল করুন।")
                     } else if (banglaAvailable == false && settings.bnAudio) {
                         VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
@@ -284,10 +292,12 @@ fun LessonScreen(
                                 onStartChallenge = viewModel::pause
                             )
                         }
-                        if (currentItem.id.startsWith(JP_STANDARD_PREFIX)) {
+                        val checkLanguage = speechCheckLanguage(currentItem.id)
+                        if (checkLanguage != null) {
                             Spacer(Modifier.height(10.dp))
-                            JapaneseSpeechCheckCard(
+                            SpeechCheckCard(
                                 item = currentItem,
+                                languageTag = checkLanguage,
                                 onSpeakTarget = { viewModel.speakText(currentItem.target) },
                                 onPauseAudio = viewModel::pause
                             )
@@ -337,7 +347,9 @@ fun LessonScreen(
                 onWordByWord = viewModel::setWordByWord,
                 onAutoAdvance = viewModel::setAutoAdvance,
                 onLoop = viewModel::setLoopLesson,
-                onRepeatCount = viewModel::setRepeatCount
+                onRepeatCount = viewModel::setRepeatCount,
+                urFemaleSpeaker = if (viewModel.isUrdu) urFemaleSpeaker else null,
+                onUrFemaleSpeaker = viewModel::setUrFemaleSpeaker
             )
         }
     }
@@ -390,13 +402,21 @@ private fun ItemCard(
             }
             if (revealTarget) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        item.target,
-                        fontSize = 26.sp,
-                        lineHeight = 34.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.weight(1f).clickable(onClick = onSpeakTarget)
-                    )
+                    if (isUrduItem(item.id)) {
+                        Text(
+                            item.target,
+                            style = urduTextStyle(28.sp, bold = true),
+                            modifier = Modifier.weight(1f).clickable(onClick = onSpeakTarget)
+                        )
+                    } else {
+                        Text(
+                            item.target,
+                            fontSize = 26.sp,
+                            lineHeight = 34.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.weight(1f).clickable(onClick = onSpeakTarget)
+                        )
+                    }
                     IconButton(onClick = onSpeakTarget) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "শুনুন")
                     }
@@ -500,15 +520,26 @@ private fun ItemCard(
                     item.tokens.forEach { token ->
                         AssistChip(
                             onClick = { onSpeakToken(token) },
-                            label = { Text(if (token.bn != null) "${token.text} · ${token.bn}" else token.text) }
+                            label = {
+                                Text(
+                                    if (token.bn != null) "${token.text} · ${token.bn}" else token.text,
+                                    fontFamily = if (isUrduItem(item.id)) NastaliqFontFamily else null
+                                )
+                            }
                         )
                     }
                 }
             }
 
             if (revealTarget && !item.exampleTarget.isNullOrBlank()) {
-                Text("উদাহরণ", style = MaterialTheme.typography.labelMedium)
-                Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
+                if (isUrduItem(item.id)) {
+                    // Urdu: the example slot holds the other speaker-gender version (plan decision 11.5).
+                    Text("অন্য রূপ (পুরুষ / নারী বক্তা)", style = MaterialTheme.typography.labelMedium)
+                    Text(item.exampleTarget, style = urduTextStyle(20.sp))
+                } else {
+                    Text("উদাহরণ", style = MaterialTheme.typography.labelMedium)
+                    Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
+                }
                 item.exampleBn?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
             }
         }
@@ -577,7 +608,9 @@ private fun SettingsSheet(
     onWordByWord: (Boolean) -> Unit,
     onAutoAdvance: (Boolean) -> Unit,
     onLoop: (Boolean) -> Unit,
-    onRepeatCount: (Int) -> Unit
+    onRepeatCount: (Int) -> Unit,
+    urFemaleSpeaker: Boolean? = null,
+    onUrFemaleSpeaker: (Boolean) -> Unit = {}
 ) {
     Column(Modifier.padding(horizontal = 20.dp, vertical = 8.dp)) {
         Text("প্লেব্যাক সেটিংস", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
@@ -606,6 +639,16 @@ private fun SettingsSheet(
         SettingRow("শব্দে শব্দে শুনুন (বাক্য)", settings.wordByWord, onWordByWord)
         SettingRow("স্বয়ংক্রিয়ভাবে পরের আইটেমে যান", settings.autoAdvance, onAutoAdvance)
         SettingRow("লেসন বারবার চালান", settings.loopLesson, onLoop)
+        if (urFemaleSpeaker != null) {
+            // Urdu plan decision 11.5: verbs and adjectives change with gender (جاتا / جاتی).
+            // The female version covers a female speaker ("I") and a female listener ("you").
+            SettingRow("নারী রূপ শুনুন ও দেখুন (জাতী / করতী)", urFemaleSpeaker, onUrFemaleSpeaker)
+            Text(
+                "নিজে নারী হলে, বা কোনো নারীর সাথে কথা বললে চালু করুন।",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
         if (settings.repeatItem) {
             Text(
                 "অবিরাম চালু থাকলে উপরের দুটি সেটিং কাজ করে না।",
@@ -801,7 +844,8 @@ private fun SpeedDrillChallengeCard(
                         Text(
                             text = item.target,
                             fontSize = 24.sp,
-                            lineHeight = 32.sp,
+                            lineHeight = if (isUrduItem(item.id)) 44.sp else 32.sp,
+                            fontFamily = if (isUrduItem(item.id)) NastaliqFontFamily else null,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface,
                             modifier = Modifier.weight(1f)

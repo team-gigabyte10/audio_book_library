@@ -10,6 +10,8 @@ import com.gigabyte.bookstore.learning.domain.model.LearnSettings
 import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import com.gigabyte.bookstore.learning.domain.model.Token
+import com.gigabyte.bookstore.learning.domain.model.forUrduSpeaker
+import com.gigabyte.bookstore.learning.domain.model.targetLangForId
 import com.gigabyte.bookstore.learning.domain.player.LessonPlayer
 import com.gigabyte.bookstore.learning.domain.player.LessonPlayerState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,6 +50,9 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val playerState: StateFlow<LessonPlayerState> = player.state
     val englishAvailable: StateFlow<Boolean?> = engine.englishAvailable
     val banglaAvailable: StateFlow<Boolean?> = engine.banglaAvailable
+    val urduAvailable: StateFlow<Boolean?> = engine.urduAvailable
+    val urFemaleSpeaker: StateFlow<Boolean> = preferences.learnUrFemaleSpeaker
+    val isUrdu: Boolean = lessonId.startsWith("ur-")
 
     val settings: StateFlow<LearnSettings> = combine(
         combine(
@@ -72,8 +77,21 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
                 return@launch
             }
             val startItem = repository.getLastItemIndex(lessonId).coerceIn(0, content.items.lastIndex)
-            _uiState.value = LessonUiState(isLoading = false, content = content, showIntro = false)
+            _uiState.value = LessonUiState(
+                isLoading = false,
+                content = forSpeaker(content, urFemaleSpeaker.value),
+                showIntro = false
+            )
             rebuildQueue(startItem)
+
+            if (isUrdu) {
+                launch {
+                    urFemaleSpeaker.drop(1).collect { female ->
+                        _uiState.update { it.copy(content = forSpeaker(content, female)) }
+                        rebuildQueue(player.state.value.itemIndex)
+                    }
+                }
+            }
 
             // Rebuild when settings or Bangla voice availability change, keeping the current item.
             // Continuous mode is left out: toggling it must not restart the current item.
@@ -121,11 +139,17 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
     fun pause() = player.pause()
 
-    private val isJapanese: Boolean
-        get() = lessonId.startsWith("jp-") || _uiState.value.content?.ladder?.any { it.play == SpeechLang.JA } == true
-
     val targetLang: SpeechLang
-        get() = if (isJapanese) SpeechLang.JA else SpeechLang.EN
+        get() = targetLangForId(lessonId)
+
+    fun setUrFemaleSpeaker(female: Boolean) = preferences.setLearnUrFemaleSpeaker(female)
+
+    private fun forSpeaker(content: LessonContent, female: Boolean): LessonContent =
+        if (!isUrdu) content else content.copy(items = content.items.map { it.forUrduSpeaker(female) })
+
+    /** The stored ladder is the English one; speak this lesson's target steps in its own language. */
+    private fun lessonLadder(content: LessonContent) =
+        content.ladder.map { if (it.play == SpeechLang.EN) it.copy(play = targetLang) else it }
 
     fun speakToken(token: Token) = player.speakOnce(token.text, targetLang)
 
@@ -155,7 +179,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
         val current = settings.value
         val effective = current.copy(bnAudio = current.bnAudio && engine.banglaAvailable.value == true)
         val steps = when (_uiState.value.mode) {
-            LessonMode.LISTEN -> LessonQueueBuilder.buildLesson(content.items, content.ladder, effective)
+            LessonMode.LISTEN -> LessonQueueBuilder.buildLesson(content.items, lessonLadder(content), effective)
             LessonMode.SPEAK -> speakSteps(content)
         }
         val wasPlaying = player.state.value.isPlaying
@@ -168,7 +192,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
     /** Speak drill (lesson template step 5): show the Bangla, leave a gap to answer aloud, then play the answer. */
     private fun speakSteps(content: LessonContent): List<PlaybackStep> {
-        val activeTargetLang = content.ladder.firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: targetLang
+        val activeTargetLang = lessonLadder(content).firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: targetLang
         return content.items.flatMapIndexed { index, item ->
             listOf(
                 PlaybackStep.Pause(SPEAK_GAP_MS, index),

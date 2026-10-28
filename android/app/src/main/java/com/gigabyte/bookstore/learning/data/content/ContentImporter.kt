@@ -136,6 +136,7 @@ class ContentImporter(
             "spoken_english_past_tense.json",
             "spoken_english_future_tense.json",
             "spoken_japanese_standard_n5.json",
+            "spoken_urdu_standard_a1.json",
             "spoken_japanese_foundations.json",
             "spoken_japanese_past_tense.json",
             "spoken_japanese_casual_fluency.json",

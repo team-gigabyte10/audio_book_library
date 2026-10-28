@@ -1,10 +1,10 @@
 package com.gigabyte.bookstore.learning.domain.speech
 
 /**
- * Compares what the speech recognizer heard with the Japanese target (plan §11.4).
- * Feedback only: the result never blocks progress.
+ * Compares what the speech recognizer heard with the target text
+ * (Japanese plan §11.4, Urdu plan §11.6). Feedback only: the result never blocks progress.
  */
-object JapaneseSpeechMatch {
+object SpeechMatch {
 
     enum class Result { MATCH, NEAR, NO_MATCH }
 
@@ -29,14 +29,18 @@ object JapaneseSpeechMatch {
         return if (best >= NEAR_THRESHOLD) Result.NEAR else Result.NO_MATCH
     }
 
-    /** Drops spaces and punctuation, and writes katakana as hiragana so ネコ and ねこ compare equal. */
+    /**
+     * Drops spaces, punctuation and Arabic-script vowel marks, writes katakana as hiragana
+     * (ネコ = ねこ), and maps Arabic letter forms to the Urdu ones (ي = ی, ك = ک, ه = ہ).
+     */
     fun normalize(text: String): String = buildString {
         for (c in text) {
             when {
                 c.isWhitespace() -> Unit
                 c in PUNCTUATION -> Unit
+                c in 'ً'..'ٟ' || c == 'ٰ' -> Unit
                 c in 'ァ'..'ヶ' -> append(c - 0x60)
-                else -> append(c.lowercaseChar())
+                else -> append(URDU_FORMS[c] ?: c.lowercaseChar())
             }
         }
     }
@@ -65,5 +69,7 @@ object JapaneseSpeechMatch {
         return previous[b.length]
     }
 
-    private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-"
+    private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-۔،؟‌‍ـ"
+
+    private val URDU_FORMS = mapOf('ي' to 'ی', 'ى' to 'ی', 'ك' to 'ک', 'ه' to 'ہ', 'ة' to 'ہ')
 }

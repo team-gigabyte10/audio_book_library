@@ -42,40 +42,51 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.gigabyte.bookstore.learning.domain.model.LessonItem
-import com.gigabyte.bookstore.learning.domain.speech.JapaneseSpeechMatch
+import com.gigabyte.bookstore.learning.domain.speech.SpeechMatch
 
 /** ID prefix of the Japanese standard course (tools/japanese/build_standard_course.py). */
 internal const val JP_STANDARD_PREFIX = "jp-std-"
 
+/** ID prefix of the Urdu standard course (tools/urdu/build_urdu_course.py). */
+internal const val UR_STANDARD_PREFIX = "ur-std-"
+
+/** Recognizer language for the speech check, or null when the item's course has no check. */
+internal fun speechCheckLanguage(itemId: String): String? = when {
+    itemId.startsWith(JP_STANDARD_PREFIX) -> "ja-JP"
+    itemId.startsWith(UR_STANDARD_PREFIX) -> "ur-PK"
+    else -> null
+}
+
 private sealed interface SpeechCheckState {
     data object Idle : SpeechCheckState
     data object Listening : SpeechCheckState
-    data class Checked(val result: JapaneseSpeechMatch.Result, val heard: String) : SpeechCheckState
+    data class Checked(val result: SpeechMatch.Result, val heard: String) : SpeechCheckState
     /** No recognizer, no permission or an error: the learner rates their own try. */
     data class SelfRate(val reason: String) : SpeechCheckState
     data class Rated(val emoji: String) : SpeechCheckState
 }
 
 /**
- * "Speak" step speech check for the Japanese standard course (plan §11.4).
- * Uses on-device ja-JP recognition as feedback only; it never blocks the next item.
+ * "Speak" step speech check (Japanese plan §11.4, Urdu plan §11.6).
+ * Uses on-device recognition in [languageTag] as feedback only; it never blocks the next item.
  */
 @Composable
-fun JapaneseSpeechCheckCard(
+fun SpeechCheckCard(
     item: LessonItem,
+    languageTag: String,
     onSpeakTarget: () -> Unit,
     onPauseAudio: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
-    var state by remember(item.id) { mutableStateOf<SpeechCheckState>(SpeechCheckState.Idle) }
+    var state by remember(item.id, item.target) { mutableStateOf<SpeechCheckState>(SpeechCheckState.Idle) }
     var recognizer by remember { mutableStateOf<SpeechRecognizer?>(null) }
 
-    // The kana reading is the text before " · " in the hint line (built by tools/japanese).
-    val expected = remember(item.id) {
+    // Japanese: the kana reading is the text before " · " in the hint line (built by tools/japanese).
+    val expected = remember(item.id, item.target) {
         listOfNotNull(
             item.target,
-            item.bnPron?.substringBefore(" · ")?.takeIf { JapaneseSpeechMatch.isKanaOnly(it) }
+            item.bnPron?.substringBefore(" · ")?.takeIf { SpeechMatch.isKanaOnly(it) }
         )
     }
 
@@ -92,7 +103,7 @@ fun JapaneseSpeechCheckCard(
     fun listen() {
         onPauseAudio()
         if (!SpeechRecognizer.isRecognitionAvailable(context)) {
-            state = SpeechCheckState.SelfRate("এই ফোনে জাপানি স্পিচ রিকগনিশন নেই।")
+            state = SpeechCheckState.SelfRate("এই ফোনে স্পিচ রিকগনিশন নেই।")
             return
         }
         try {
@@ -114,7 +125,7 @@ fun JapaneseSpeechCheckCard(
                 override fun onError(error: Int) {
                     state = when (error) {
                         SpeechRecognizer.ERROR_NO_MATCH, SpeechRecognizer.ERROR_SPEECH_TIMEOUT ->
-                            SpeechCheckState.Checked(JapaneseSpeechMatch.Result.NO_MATCH, "")
+                            SpeechCheckState.Checked(SpeechMatch.Result.NO_MATCH, "")
                         else -> SpeechCheckState.SelfRate("ভয়েস যাচাই এখন কাজ করছে না।")
                     }
                 }
@@ -122,15 +133,15 @@ fun JapaneseSpeechCheckCard(
                 override fun onResults(results: Bundle?) {
                     val heard = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).orEmpty()
                     state = SpeechCheckState.Checked(
-                        JapaneseSpeechMatch.evaluate(heard, expected),
+                        SpeechMatch.evaluate(heard, expected),
                         heard.firstOrNull().orEmpty()
                     )
                 }
             })
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
                 putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-                putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ja-JP")
-                putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "ja-JP")
+                putExtra(RecognizerIntent.EXTRA_LANGUAGE, languageTag)
+                putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, languageTag)
                 putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
                 putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, context.packageName)
                 putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5)
@@ -162,7 +173,7 @@ fun JapaneseSpeechCheckCard(
 
             when (val s = state) {
                 SpeechCheckState.Idle -> Text(
-                    "জাপানি অংশটি নিজে বলুন। এটি শুধু ফিডব্যাক, পরের আইটেমে যেতে কোনো বাধা নেই।",
+                    "বাক্যটি নিজে বলুন। এটি শুধু ফিডব্যাক, পরের আইটেমে যেতে কোনো বাধা নেই।",
                     style = MaterialTheme.typography.bodySmall
                 )
                 SpeechCheckState.Listening -> Row(verticalAlignment = Alignment.CenterVertically) {
@@ -171,9 +182,9 @@ fun JapaneseSpeechCheckCard(
                 }
                 is SpeechCheckState.Checked -> {
                     val (text, color) = when (s.result) {
-                        JapaneseSpeechMatch.Result.MATCH -> "✓ ঠিক হয়েছে!" to Color(0xFF2E7D32)
-                        JapaneseSpeechMatch.Result.NEAR -> "প্রায় ঠিক। আরেকবার চেষ্টা করুন।" to Color(0xFFEF6C00)
-                        JapaneseSpeechMatch.Result.NO_MATCH -> "আবার শুনুন, তারপর বলুন।" to Color(0xFFC62828)
+                        SpeechMatch.Result.MATCH -> "✓ ঠিক হয়েছে!" to Color(0xFF2E7D32)
+                        SpeechMatch.Result.NEAR -> "প্রায় ঠিক। আরেকবার চেষ্টা করুন।" to Color(0xFFEF6C00)
+                        SpeechMatch.Result.NO_MATCH -> "আবার শুনুন, তারপর বলুন।" to Color(0xFFC62828)
                     }
                     Text(text, color = color, fontWeight = FontWeight.Bold)
                     if (s.heard.isNotBlank()) {

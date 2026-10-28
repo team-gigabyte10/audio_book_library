@@ -108,6 +108,7 @@ fun HomeScreen(
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
     onNavigateToLearnEnglish: () -> Unit = {},
     onNavigateToLearnJapanese: () -> Unit = {},
+    onNavigateToLearnUrdu: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
@@ -131,6 +132,9 @@ fun HomeScreen(
     }
     val isJapaneseUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("japanese_course")
+    }
+    val isUrduUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("urdu_course")
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -408,6 +412,27 @@ fun HomeScreen(
                                 statsText = "🎧 ${japaneseCourse?.lessonCount ?: 12}টি অডিও লেসন · JLPT প্রস্তুতি",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnJapanese,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 4. URDU LANGUAGE COURSE SHOWCASE CARD (Urdu-Spoken-Curriculum-Plan.md)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "উর্দু স্পোকেন কোর্স (শূন্য থেকে A1)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে উর্দু হরফ, উচ্চারণ ও দৈনন্দিন কথা বলা",
+                                badgeText = "🇵🇰 উর্দু ভাষা কোর্স",
+                                badgeColor = Color(0xFF1B5E20),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isUrduUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFF2E7D32), Color(0xFF1B5E20)),
+                                accentColor = Color(0xFF1B5E20),
+                                statsText = "🎧 ১০৫টি অডিও লেসন · শূন্য থেকে A1",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                // Locked until the urdu_course bundle is bought (or the mega bundle).
+                                onClick = if (isUrduUnlocked) onNavigateToLearnUrdu else onNavigateToPayment,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

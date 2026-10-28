@@ -61,7 +61,9 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
         if (hasAutoPlayedWelcome && !force) return
         hasAutoPlayedWelcome = true
 
-        val text = if (language.equals("japanese", ignoreCase = true)) {
+        val text = if (language.equals("urdu", ignoreCase = true)) {
+            "উর্দু স্পোকেন কোর্সে আপনাকে স্বাগতম। প্রতিটি শব্দ শুনুন এবং জোরে জোরে বলুন।"
+        } else if (language.equals("japanese", ignoreCase = true)) {
             "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম। হিরাগানা, কাতাকানা, কাঞ্জি ও সাবলীল স্পোকেন ড্রিল বেশি বেশি অনুশীলন করুন।"
         } else {
             welcomeText

@@ -10,7 +10,18 @@ enum class Level {
     }
 }
 
-enum class SpeechLang { EN, BN, JA }
+enum class SpeechLang { EN, BN, JA, UR }
+
+/**
+ * The spoken target language of a lesson or item, from its ID prefix.
+ * The stored ladder comes from the first (English) content file, so lessons of other
+ * languages must not take the target language from the ladder.
+ */
+fun targetLangForId(id: String): SpeechLang = when {
+    id.startsWith("ur-") -> SpeechLang.UR
+    id.startsWith("jp-") -> SpeechLang.JA
+    else -> SpeechLang.EN
+}
 
 /** One step of the repetition ladder (`ladder_default` in the content JSON). */
 data class LadderStep(
@@ -41,6 +52,7 @@ data class LadderStep(
                 val lang = when (step.play) {
                     SpeechLang.BN -> "bn"
                     SpeechLang.JA -> "ja"
+                    SpeechLang.UR -> "ur"
                     else -> "en"
                 }
                 "$lang:${step.speed}" + (step.minLevel?.let { "@${it.name}" } ?: "")
@@ -53,12 +65,13 @@ data class LadderStep(
                 val (kind, rest) = token.split(':', limit = 2).takeIf { it.size == 2 } ?: return@mapNotNull null
                 when (kind) {
                     "pause" -> rest.toLongOrNull()?.let { LadderStep(pauseMs = it) }
-                    "en", "bn", "ja" -> {
+                    "en", "bn", "ja", "ur" -> {
                         val speed = rest.substringBefore('@').toFloatOrNull() ?: return@mapNotNull null
                         val minLevel = rest.substringAfter('@', "").takeIf { it.isNotBlank() }?.let(Level::parse)
                         val playLang = when (kind) {
                             "bn" -> SpeechLang.BN
                             "ja" -> SpeechLang.JA
+                            "ur" -> SpeechLang.UR
                             else -> SpeechLang.EN
                         }
                         LadderStep(playLang, speed, minLevel)
