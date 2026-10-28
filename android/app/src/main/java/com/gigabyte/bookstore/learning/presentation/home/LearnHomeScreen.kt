@@ -93,6 +93,11 @@ fun LearnHomeScreen(
     val futureLessonCount = futureParts.sumOf { it.lessons.size }.let { if (it > 0) it else 31 }
     val futureSentenceCount = futureParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 230 }
 
+    val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
+    val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
+    val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
+    val jpStandardSentenceCount = jpStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 900 }
+
     val jpFoundationsParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-foundations-") && it.part.isEnabled } }
     val jpFoundationsPartCount = jpFoundationsParts.size.coerceAtLeast(1)
     val jpFoundationsLessonCount = jpFoundationsParts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
@@ -248,6 +253,20 @@ fun LearnHomeScreen(
                                 badgeColor = Color(0xFFC62828),
                                 pills = listOf("🇯🇵 JLPT N5-N2", "⚡ স্পিড ল্যাডার ড্রিল", "💡 মার্জিত কেইগো"),
                                 onClick = { onOpenIntro("Japanese_Intro.md") }
+                            )
+                        }
+
+                        // Standard curriculum (Japanese-Spoken-Curriculum-Plan.md, phase 1): Stage 0 + N5
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে JLPT N5",
+                                title = "শূন্য থেকে জাপানি বলা (অক্ষর, উচ্চারণ ও N5 স্পিকিং)",
+                                description = "স্বরধ্বনি, হিরাগানা, কাতাকানা, বিশেষ ধ্বনি, পিচ অ্যাকসেন্ট, জরুরি বাক্য, তারপর N5-এর ১৫টি ইউনিট ও স্পিকিং টেস্ট।",
+                                accentColor = Color(0xFFAD1457),
+                                partCount = jpStandardPartCount,
+                                lessonCount = jpStandardLessonCount,
+                                sentenceCount = jpStandardSentenceCount,
+                                onClick = { onOpenCourse("jp_standard") }
                             )
                         }
 

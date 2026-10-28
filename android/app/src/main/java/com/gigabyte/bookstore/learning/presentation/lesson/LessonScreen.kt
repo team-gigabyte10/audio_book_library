@@ -284,6 +284,14 @@ fun LessonScreen(
                                 onStartChallenge = viewModel::pause
                             )
                         }
+                        if (currentItem.id.startsWith(JP_STANDARD_PREFIX)) {
+                            Spacer(Modifier.height(10.dp))
+                            JapaneseSpeechCheckCard(
+                                item = currentItem,
+                                onSpeakTarget = { viewModel.speakText(currentItem.target) },
+                                onPauseAudio = viewModel::pause
+                            )
+                        }
                     }
 
                     if (playerState.isFinished || index == items.lastIndex) {
@@ -470,7 +478,10 @@ private fun ItemCard(
             }
 
             if (isJapanese) {
-                JapaneseSixWayPracticeAlertCard(targetSentence = item.target, onSpeakText = onSpeakText)
+                // The standard course has its own 6-way "pattern" items, so it skips the generated drill.
+                if (!item.id.startsWith(JP_STANDARD_PREFIX)) {
+                    JapaneseSixWayPracticeAlertCard(targetSentence = item.target, onSpeakText = onSpeakText)
+                }
             } else {
                 val isGoodAt = remember(item.target, item.conceptId) {
                     item.conceptId.contains("goodat", ignoreCase = true) || item.target.contains("good at", ignoreCase = true)

@@ -527,3 +527,32 @@ These 6 points were open. Each one now has a decision and a reason.
 6. **Public speaking, native listening and culture.**
 
 **Reason:** most learners study Japanese to work in Japan. Job-focused speaking and the JFT-Basic test give them the fastest real benefit. Check the current visa and test rules before you build each track, because these rules change.
+
+---
+
+## 12. Implementation status
+
+**Phase 1 (Stage 0 + N5) is in the app as draft content.**
+
+| Part | Where |
+|---|---|
+| Unit sources (25 files) | `tools/japanese/units/s0-01.json` … `n5-15.json` |
+| Format and rules | `tools/japanese/UNIT_FORMAT.md` |
+| Build and check | `python tools/japanese/build_standard_course.py` |
+| App asset | `app/src/main/assets/spoken_japanese_standard_n5.json` (25 units, 110 lessons, 1198 items) |
+| Course card | Learn home (Japanese), course key `jp_standard`, part prefix `jp-std-` |
+| Speech check (11.4) | `JapaneseSpeechCheckCard.kt`: `ja-JP` recognition, feedback only, self-rating fallback |
+
+Differences from this plan, on purpose:
+
+- **ID prefix:** the plan says `ja-`. The app already detects Japanese by `jp-`, so the course uses `jp-std-`.
+- **Romaji and readings (11.1, 11.2):** the app has no separate romaji or reading field. The build script puts them in the visible hint line: `romaji · Bangla` in units 0.1–0.3, `Bangla` in 0.4–0.10, and `kana reading · Bangla` in N5 items with kanji. Tap-to-show is not built.
+- **Pitch (11.3):** pitch arrows are only in unit 0.8. A pitch line on every word needs a checked pitch dictionary source.
+- **Status:** every item is `needs_review`. The app still shows it. A native review (section 8) is required before release.
+
+Open review points:
+
+- The Bangla hint style is not the same in all units: ず is য in Stage 0 and জ় in N5, and long vowels are spelled in different ways. Choose one style, then align all files.
+- The kanji choice is not the same in all N5 units (for example, 私 in 5.1–5.8 and わたし in 5.9–5.15).
+- From unit 5.10, the 12-item limit leaves only 2 sentence items per lesson, because each lesson also has 4 dialogue lines.
+- Same-spelling pitch pairs (あめ／あめ) depend on the phone voice, which may not say the two pitches differently.
