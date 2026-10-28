@@ -485,7 +485,7 @@ Release each level only after its native review is complete.
 | Build and check | `python tools/urdu/build_urdu_course.py` |
 | App asset | `app/src/main/assets/spoken_urdu_standard_a1.json` (25 units, 105 lessons, 1204 items, 214 with a female version) |
 | Entry points | Home screen card → Learn (`lang=urdu`) → course key `ur_standard`, part prefix `ur-std-` |
-| Price and lock | Bundle `urdu_course`, ৳100 (payment screen). The home card opens the payment screen until the bundle (or `mega_bundle`) is unlocked. |
+| Price | Bundle `urdu_course`, ৳100 (payment screen). Like English and Japanese, the home card shows the price or "✓ আনলকড", and a tap always opens the course. |
 | Voice | `SpeechLang.UR` → `ur-PK` (`TtsStepEngine`); warning in the lesson when the phone has no Urdu voice |
 | Font and direction | `res/font/noto_nastaliq_urdu.ttf` (OFL, license in `assets/licenses/`), right to left, 1.8× line height (`UrduText.kt`) |
 | Female forms (11.5) | Setting key `learn_ur_speaker_gender`; the build stores the female version in the item's example slot; `forUrduSpeaker()` swaps it in |

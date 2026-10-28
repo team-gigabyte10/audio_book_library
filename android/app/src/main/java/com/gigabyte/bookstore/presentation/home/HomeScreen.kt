@@ -431,8 +431,7 @@ fun HomeScreen(
                                 accentColor = Color(0xFF1B5E20),
                                 statsText = "🎧 ১০৫টি অডিও লেসন · শূন্য থেকে A1",
                                 ctaText = "কোর্সটি শুরু করুন",
-                                // Locked until the urdu_course bundle is bought (or the mega bundle).
-                                onClick = if (isUrduUnlocked) onNavigateToLearnUrdu else onNavigateToPayment,
+                                onClick = onNavigateToLearnUrdu,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }
