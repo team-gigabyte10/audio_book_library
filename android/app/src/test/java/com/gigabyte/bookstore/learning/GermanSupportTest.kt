@@ -59,3 +59,4 @@ class GermanSupportTest {
         assertTrue("Expected score >= 80 but got ${result.score}", result.score >= 80)
     }
 }
+

@@ -78,3 +78,4 @@ The script builds the visible hint line:
 4. Level A1: 15 units, 60 lessons aligned with Goethe Start Deutsch 1.
 5. 6–14 items per lesson (aim for 8–12 items).
 6. Every item is a draft (`needs_review`). A native German reviewer and a Bengali reviewer must check it before release.
+
