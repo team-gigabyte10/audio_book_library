@@ -51,8 +51,11 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val englishAvailable: StateFlow<Boolean?> = engine.englishAvailable
     val banglaAvailable: StateFlow<Boolean?> = engine.banglaAvailable
     val urduAvailable: StateFlow<Boolean?> = engine.urduAvailable
+    val hindiAvailable: StateFlow<Boolean?> = engine.hindiAvailable
     val urFemaleSpeaker: StateFlow<Boolean> = preferences.learnUrFemaleSpeaker
+    val hiFemaleSpeaker: StateFlow<Boolean> = preferences.learnHiFemaleSpeaker
     val isUrdu: Boolean = lessonId.startsWith("ur-")
+    val isHindi: Boolean = lessonId.startsWith("hi-")
 
     val settings: StateFlow<LearnSettings> = combine(
         combine(
@@ -77,16 +80,18 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
                 return@launch
             }
             val startItem = repository.getLastItemIndex(lessonId).coerceIn(0, content.items.lastIndex)
+            val initialFemale = if (isHindi) hiFemaleSpeaker.value else urFemaleSpeaker.value
             _uiState.value = LessonUiState(
                 isLoading = false,
-                content = forSpeaker(content, urFemaleSpeaker.value),
+                content = forSpeaker(content, initialFemale),
                 showIntro = false
             )
             rebuildQueue(startItem)
 
-            if (isUrdu) {
+            if (isUrdu || isHindi) {
+                val genderFlow = if (isHindi) hiFemaleSpeaker else urFemaleSpeaker
                 launch {
-                    urFemaleSpeaker.drop(1).collect { female ->
+                    genderFlow.drop(1).collect { female ->
                         _uiState.update { it.copy(content = forSpeaker(content, female)) }
                         rebuildQueue(player.state.value.itemIndex)
                     }
@@ -142,10 +147,12 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val targetLang: SpeechLang
         get() = targetLangForId(lessonId)
 
-    fun setUrFemaleSpeaker(female: Boolean) = preferences.setLearnUrFemaleSpeaker(female)
+    fun setUrFemaleSpeaker(female: Boolean) {
+        if (isHindi) preferences.setLearnHiFemaleSpeaker(female) else preferences.setLearnUrFemaleSpeaker(female)
+    }
 
     private fun forSpeaker(content: LessonContent, female: Boolean): LessonContent =
-        if (!isUrdu) content else content.copy(items = content.items.map { it.forUrduSpeaker(female) })
+        if (!isUrdu && !isHindi) content else content.copy(items = content.items.map { it.forUrduSpeaker(female) })
 
     /** The stored ladder is the English one; speak this lesson's target steps in its own language. */
     private fun lessonLadder(content: LessonContent) =

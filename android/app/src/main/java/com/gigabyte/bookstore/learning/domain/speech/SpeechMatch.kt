@@ -30,17 +30,18 @@ object SpeechMatch {
     }
 
     /**
-     * Drops spaces, punctuation and Arabic-script vowel marks, writes katakana as hiragana
-     * (ネコ = ねこ), and maps Arabic letter forms to the Urdu ones (ي = ی, ك = ک, ه = ہ).
+     * Drops spaces, punctuation, Arabic-script vowel marks and Devanagari nuqta dot, writes
+     * katakana as hiragana (ネコ = ねこ), maps Arabic letter forms to Urdu ones (ي = ی, ك = ک, ه = ہ),
+     * and normalizes precomposed Devanagari nuqta letters and chandrabindu (ज़ = ज, फ़ = फ, ँ = ं).
      */
     fun normalize(text: String): String = buildString {
         for (c in text) {
             when {
                 c.isWhitespace() -> Unit
                 c in PUNCTUATION -> Unit
-                c in 'ً'..'ٟ' || c == 'ٰ' -> Unit
+                c in 'ً'..'ٟ' || c == 'ٰ' || c == '\u093C' -> Unit
                 c in 'ァ'..'ヶ' -> append(c - 0x60)
-                else -> append(URDU_FORMS[c] ?: c.lowercaseChar())
+                else -> append(URDU_FORMS[c] ?: HINDI_FORMS[c] ?: c.lowercaseChar())
             }
         }
     }
@@ -69,7 +70,19 @@ object SpeechMatch {
         return previous[b.length]
     }
 
-    private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-۔،؟‌‍ـ"
+    private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-۔،؟‌‍ـ।॥"
 
     private val URDU_FORMS = mapOf('ي' to 'ی', 'ى' to 'ی', 'ك' to 'ک', 'ه' to 'ہ', 'ة' to 'ہ')
+
+    private val HINDI_FORMS = mapOf(
+        'क़' to 'क',
+        'ख़' to 'ख',
+        'ग़' to 'ग',
+        'ज़' to 'ज',
+        'ड़' to 'ड',
+        'ढ़' to 'ढ',
+        'फ़' to 'फ',
+        'य़' to 'य',
+        'ँ' to 'ं'
+    )
 }

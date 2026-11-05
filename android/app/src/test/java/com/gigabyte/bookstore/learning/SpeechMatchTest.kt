@@ -56,4 +56,22 @@ class SpeechMatchTest {
         // ي ك ه are the Arabic forms that some recognizers return for ی ک ہ.
         assertEquals(Result.MATCH, SpeechMatch.evaluate(listOf("كتاب يه"), listOf("کتاب یہ")))
     }
+
+    @Test
+    fun `Hindi ignores Devanagari punctuation nuqta and chandrabindu differences`() {
+        assertEquals(
+            Result.MATCH,
+            SpeechMatch.evaluate(
+                listOf("मैं रोज सात बजे उठता हू"),
+                listOf("मैं रोज़ सात बजे उठता हूँ।")
+            )
+        )
+        assertEquals(
+            Result.MATCH,
+            SpeechMatch.evaluate(
+                listOf("माफ कीजिए"),
+                listOf("माफ़ कीजिए।")
+            )
+        )
+    }
 }

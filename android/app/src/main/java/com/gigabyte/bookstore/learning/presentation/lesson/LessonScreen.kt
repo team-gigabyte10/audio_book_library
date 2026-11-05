@@ -102,7 +102,9 @@ fun LessonScreen(
     val englishAvailable by viewModel.englishAvailable.collectAsStateWithLifecycle()
     val banglaAvailable by viewModel.banglaAvailable.collectAsStateWithLifecycle()
     val urduAvailable by viewModel.urduAvailable.collectAsStateWithLifecycle()
+    val hindiAvailable by viewModel.hindiAvailable.collectAsStateWithLifecycle()
     val urFemaleSpeaker by viewModel.urFemaleSpeaker.collectAsStateWithLifecycle()
+    val hiFemaleSpeaker by viewModel.hiFemaleSpeaker.collectAsStateWithLifecycle()
     var showSettings by remember { mutableStateOf(false) }
 
     // Keep the screen on while the lesson is playing.
@@ -150,6 +152,12 @@ fun LessonScreen(
                     if (viewModel.isUrdu) {
                         if (urduAvailable == false) {
                             VoiceWarning("এই ফোনে উর্দু ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Urdu (Pakistan) ভয়েস ইনস্টল করুন। ততক্ষণ উর্দু লেখা দেখে পড়ুন।")
+                        } else if (banglaAvailable == false && settings.bnAudio) {
+                            VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
+                        }
+                    } else if (viewModel.isHindi) {
+                        if (hindiAvailable == false) {
+                            VoiceWarning("এই ফোনে হিন্দি ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Hindi (India) ভয়েস ইনস্টল করুন। ততক্ষণ হিন্দি লেখা দেখে পড়ুন।")
                         } else if (banglaAvailable == false && settings.bnAudio) {
                             VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }
@@ -348,7 +356,11 @@ fun LessonScreen(
                 onAutoAdvance = viewModel::setAutoAdvance,
                 onLoop = viewModel::setLoopLesson,
                 onRepeatCount = viewModel::setRepeatCount,
-                urFemaleSpeaker = if (viewModel.isUrdu) urFemaleSpeaker else null,
+                urFemaleSpeaker = when {
+                    viewModel.isUrdu -> urFemaleSpeaker
+                    viewModel.isHindi -> hiFemaleSpeaker
+                    else -> null
+                },
                 onUrFemaleSpeaker = viewModel::setUrFemaleSpeaker
             )
         }
@@ -536,6 +548,10 @@ private fun ItemCard(
                     // Urdu: the example slot holds the other speaker-gender version (plan decision 11.5).
                     Text("অন্য রূপ (পুরুষ / নারী বক্তা)", style = MaterialTheme.typography.labelMedium)
                     Text(item.exampleTarget, style = urduTextStyle(20.sp))
+                } else if (item.id.startsWith("hi-")) {
+                    // Hindi: the example slot holds the other speaker-gender version (plan decision 11.3).
+                    Text("অন্য রূপ (পুরুষ / নারী বক্তা)", style = MaterialTheme.typography.labelMedium)
+                    Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
                 } else {
                     Text("উদাহরণ", style = MaterialTheme.typography.labelMedium)
                     Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
