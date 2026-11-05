@@ -1,0 +1,866 @@
+{
+  "title_bn": "স্বাস্থ্য, অসুস্থতা ও ডাক্তারের অ্যাপয়েন্টমেন্ট",
+  "title_target": "Gesundheit & Arzttermin",
+  "lessons": [
+    {
+      "title_bn": "শরীরের বিভিন্ন অঙ্গপ্রত্যঙ্গ (Körperteile)",
+      "title_target": "Der menschliche Körper",
+      "intro_bn": "মাথা der Kopf, পেট der Bauch, পিঠ der Rücken, চোখ das Auge, কান das Ohr।",
+      "structure": [
+        "Artikel",
+        "Körperteil",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Kopf",
+          "bn": "মাথা",
+          "bn_pron": "ডের কপফ",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Kopf",
+              "bn": "মাথা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Bauch",
+          "bn": "পেট",
+          "bn_pron": "ডের বাউখ",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Bauch",
+              "bn": "পেট"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Rücken",
+          "bn": "পিঠ",
+          "bn_pron": "ডের র্যুকেন",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Rücken",
+              "bn": "পিঠ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Hals",
+          "bn": "গলা",
+          "bn_pron": "ডের হালস",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Hals",
+              "bn": "গলা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das Auge",
+          "bn": "চোখ",
+          "bn_pron": "ডাস আউগে",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Auge",
+              "bn": "চোখ"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "das Ohr",
+          "bn": "কান",
+          "bn_pron": "ডাস ওর",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Ohr",
+              "bn": "কান"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Hand",
+          "bn": "হাত",
+          "bn_pron": "ডী হান্ট",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Hand",
+              "bn": "হাত"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "das Bein",
+          "bn": "পা",
+          "bn_pron": "ডাস বাইন",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Bein",
+              "bn": "পা"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    },
+    {
+      "title_bn": "অসুস্থতা ও ব্যথার কথা প্রকাশ (wehtun)",
+      "title_target": "Schmerzen beschreiben",
+      "intro_bn": "ব্যথা বোঝাতে 'wehtun' (Mein Kopf tut weh) অথবা 'Kopfschmerzen haben' ব্যবহৃত হয়।",
+      "structure": [
+        "Körperteil",
+        "Verb wehtun",
+        "Symptom"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Mein Kopf tut weh.",
+          "bn": "আমার মাথা ব্যথা করছে।",
+          "bn_pron": "মাইন কপফ টুট ভেহ",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Kopf",
+              "bn": "মাথা"
+            },
+            {
+              "t": "tut",
+              "bn": "করে"
+            },
+            {
+              "t": "weh.",
+              "bn": "ব্যথা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe Kopfschmerzen.",
+          "bn": "আমার মাথা ব্যথা হয়েছে।",
+          "bn_pron": "ইখ্ হাবে কপফশ্মেরৎসেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "Kopfschmerzen.",
+              "bn": "মাথাব্যথা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mein Bauch tut weh.",
+          "bn": "আমার পেট ব্যথা করছে।",
+          "bn_pron": "মাইন বাউখ টুট ভেহ",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Bauch",
+              "bn": "পেট"
+            },
+            {
+              "t": "tut",
+              "bn": "করে"
+            },
+            {
+              "t": "weh.",
+              "bn": "ব্যথা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe hohes Fieber.",
+          "bn": "আমার প্রচণ্ড জ্বর এসেছে।",
+          "bn_pron": "ইখ্ হাবে হোহেস ফাইবার",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "hohes",
+              "bn": "উঁচু"
+            },
+            {
+              "t": "Fieber.",
+              "bn": "জ্বর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe starken Husten.",
+          "bn": "আমার প্রচণ্ড কাশি হচ্ছে।",
+          "bn_pron": "ইখ্ হাবে শ্টার্কেন হুস্টেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "starken",
+              "bn": "শক্তিশালী"
+            },
+            {
+              "t": "Husten.",
+              "bn": "কাশি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich fühle mich nicht gut.",
+          "bn": "আমার শরীর ভালো লাগছে না।",
+          "bn_pron": "ইখ্ ফ্যূলে নিখ্ নিখ্ট গুট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "fühle",
+              "bn": "অনুভব করি"
+            },
+            {
+              "t": "mich",
+              "bn": "নিজেকে"
+            },
+            {
+              "t": "nicht",
+              "bn": "না"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin seit gestern krank.",
+          "bn": "আমি গতকাল থেকে অসুস্থ।",
+          "bn_pron": "ইখ্ বিন জাইট গেস্টার্ন ক্রাঙ্ক",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "seit",
+              "bn": "থেকে"
+            },
+            {
+              "t": "gestern",
+              "bn": "গতকাল"
+            },
+            {
+              "t": "krank.",
+              "bn": "অসুস্থ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Gute Besserung!",
+          "bn": "দ্রুত সুস্থতা কামনা করছি!",
+          "bn_pron": "গুটে বেসারুং",
+          "tokens": [
+            {
+              "t": "Gute",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Besserung!",
+              "bn": "উন্নতি"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "ডাক্তারের পরামর্শ ও ওষুধ (Medikamente)",
+      "title_target": "Ärztlicher Rat & Rezept",
+      "intro_bn": "মডাল ভার্ব müssen (বাধ্যবাধকতা) এবং sollen (উচিত) ডাক্তারের উপদেশে ব্যবহৃত হয়।",
+      "structure": [
+        "Modalverb",
+        "Empfehlung",
+        "Apotheke"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Sie müssen im Bett bleiben.",
+          "bn": "আপনার বিছানায় শুয়ে থাকা দরকার / বিশ্রাম নেওয়া আবশ্যক।",
+          "bn_pron": "যী ম্যূসেন ইম বেট ব্লাইবেন",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "আপনার"
+            },
+            {
+              "t": "müssen",
+              "bn": "হবে"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Bett",
+              "bn": "বিছানা"
+            },
+            {
+              "t": "bleiben.",
+              "bn": "থাকা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Trinken Sie viel warmen Tee!",
+          "bn": "প্রচুর গরম চা পান করুন!",
+          "bn_pron": "ট্রিঙ্কেন যী ফীল ভার্মেন টে",
+          "tokens": [
+            {
+              "t": "Trinken",
+              "bn": "পান করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "viel",
+              "bn": "অনেক"
+            },
+            {
+              "t": "warmen",
+              "bn": "গরম"
+            },
+            {
+              "t": "Tee!",
+              "bn": "চা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nehmen Sie diese Tabletten dreimal täglich!",
+          "bn": "এই ওষুধগুলো দিনে তিনবার খাবেন!",
+          "bn_pron": "নেমেন যী ডীজে টাবলেটেন ড্রাইমাল টেগলিখ",
+          "tokens": [
+            {
+              "t": "Nehmen",
+              "bn": "খান"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "diese",
+              "bn": "এই"
+            },
+            {
+              "t": "Tabletten",
+              "bn": "ট্যাবলেট"
+            },
+            {
+              "t": "dreimal",
+              "bn": "তিনবার"
+            },
+            {
+              "t": "täglich!",
+              "bn": "প্রতিদিন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hier ist Ihr Rezept für die Apotheke.",
+          "bn": "ফার্মেসির জন্য এই নিন আপনার প্রেসক্রিপশন।",
+          "bn_pron": "হিয়ার ইস্ত ইর রেৎসেপ্ট ফ্যুর ডী আপোথেকে",
+          "tokens": [
+            {
+              "t": "Hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Ihr",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Rezept",
+              "bn": "প্রেসক্রিপশন"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Apotheke.",
+              "bn": "ফার্মেসি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich brauche ein Schmerzmittel.",
+          "bn": "আমার একটি ব্যথানাশক ওষুধ দরকার।",
+          "bn_pron": "ইখ্ ব্রাউখে আইন শ্মের্ৎসমিটেল",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "brauche",
+              "bn": "দরকার"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Schmerzmittel.",
+              "bn": "ব্যথানাশক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie eine Krankenversicherung?",
+          "bn": "আপনার কি স্বাস্থ্য বীমা (হেলথ ইন্স্যুরেন্স) আছে?",
+          "bn_pron": "হাবের্ন যী আইনে ক্রাঙ্কেনফেয়ার্জিখেরুং",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনার"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Krankenversicherung?",
+              "bn": "বীমা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, hier ist meine Versichertenkarte.",
+          "bn": "হ্যাঁ, এই নিন আমার হেলথ কার্ড।",
+          "bn_pron": "ইয়া হিয়ার ইস্ত মাইনে ফেয়ার্জিখের্টেনকার্টে",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Versichertenkarte.",
+              "bn": "বীমা কার্ড"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ruhen Sie sich gut aus!",
+          "bn": "ভালোমতো বিশ্রাম নিন!",
+          "bn_pron": "রুহেন যী নিখ্ গুট আউস",
+          "tokens": [
+            {
+              "t": "Ruhen",
+              "bn": "বিশ্রাম নিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "sich",
+              "bn": "নিজে"
+            },
+            {
+              "t": "gut",
+              "bn": "ভালো"
+            },
+            {
+              "t": "aus!",
+              "bn": "উপসর্গ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "ক্লিনিকে অ্যাপয়েন্টমেন্টের সংলাপ (Beim Arzt)",
+      "title_target": "Dialog: Termin vereinbaren",
+      "intro_bn": "ডাক্তারের চেম্বারে রিসেপশনিস্টের সাথে অ্যাপয়েন্টমেন্ট ঠিক করার স্পোকেন রোল-প্লে।",
+      "structure": [
+        "Sprecher A",
+        "Sprecher B",
+        "Termin"
+      ],
+      "items": [
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Praxis Doktor Müller, guten Tag!",
+          "bn": "ডক্টর মুলারের চেম্বার, শুভ দিন!",
+          "bn_pron": "প্রাক্সিস ডক্টর ম্যুলার গুটেন তাক",
+          "tokens": [
+            {
+              "t": "Praxis",
+              "bn": "চেম্বার"
+            },
+            {
+              "t": "Doktor",
+              "bn": "ডাক্তার"
+            },
+            {
+              "t": "Müller,",
+              "bn": "মুলার"
+            },
+            {
+              "t": "guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Tag!",
+              "bn": "দিন"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Guten Tag, ich möchte einen Termin vereinbaren.",
+          "bn": "শুভ দিন, আমি ডাক্তারের সাথে একটি অ্যাপয়েন্টমেন্ট করতে চাই।",
+          "bn_pron": "গুটেন তাক ইখ্ মোয়খ্টে আইনেন টেরমিন ফেয়ারআইনবারেন",
+          "tokens": [
+            {
+              "t": "Guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Tag,",
+              "bn": "দিন"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "möchte",
+              "bn": "চাই"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Termin",
+              "bn": "অ্যাপয়েন্টমেন্ট"
+            },
+            {
+              "t": "vereinbaren.",
+              "bn": "স্থির করতে"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Haben Sie heute Schmerzen?",
+          "bn": "আপনার কি আজ বেশি ব্যথা বা তীব্র সমস্যা আছে?",
+          "bn_pron": "হাবের্ন যী হয়টে শ্মেরৎসেন",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনার"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "Schmerzen?",
+              "bn": "ব্যথা"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ja, ich habe hohes Fieber und Halsschmerzen.",
+          "bn": "হ্যাঁ, আমার প্রচণ্ড জ্বর ও গলাব্যথা রয়েছে।",
+          "bn_pron": "ইয়া ইখ্ হাবে হোহেস ফাইবার উন্ট হালসশ্মেরৎসেন",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "hohes",
+              "bn": "বেশি"
+            },
+            {
+              "t": "Fieber",
+              "bn": "জ্বর"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "Halsschmerzen.",
+              "bn": "গলাব্যথা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Kommen Sie bitte heute um elf Uhr vorbei!",
+          "bn": "দয়া করে আজ সকাল এগারোটায় চলে আসুন!",
+          "bn_pron": "কমেন যী বিটে হয়টে উম এলফ উর ফোরবাই",
+          "tokens": [
+            {
+              "t": "Kommen",
+              "bn": "আসুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "elf",
+              "bn": "এগারো"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "vorbei!",
+              "bn": "দেখা করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Bringen Sie Ihre Versicherungskarte mit!",
+          "bn": "আপনার ইন্স্যুরেন্স কার্ড সাথে আনবেন!",
+          "bn_pron": "ব্রিঙ্গেন যী ইরে ফেয়ার্জিখেরুংসকার্টে মিট",
+          "tokens": [
+            {
+              "t": "Bringen",
+              "bn": "আনবেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Ihre",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Versicherungskarte",
+              "bn": "বীমা কার্ড"
+            },
+            {
+              "t": "mit!",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vielen Dank, ich komme um elf Uhr.",
+          "bn": "অনেক ধন্যবাদ, আমি এগারোটায় আসব।",
+          "bn_pron": "ফিলেন ডাঙ্ক ইখ্ কমে উম এলফ উর",
+          "tokens": [
+            {
+              "t": "Vielen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Dank,",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "komme",
+              "bn": "আসব"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "elf",
+              "bn": "এগারো"
+            },
+            {
+              "t": "Uhr.",
+              "bn": "টায়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Gute Besserung und bis gleich!",
+          "bn": "দ্রুত সুস্থ হোন এবং একটু পরেই দেখা হচ্ছে!",
+          "bn_pron": "গুটে বেসারুং উন্ট বিস গ্লাইখ",
+          "tokens": [
+            {
+              "t": "Gute",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Besserung",
+              "bn": "সুস্থতা"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "bis",
+              "bn": "পর্যন্ত"
+            },
+            {
+              "t": "gleich!",
+              "bn": "শীঘ্রই"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

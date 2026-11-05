@@ -1,0 +1,943 @@
+{
+  "title_bn": "দৈনন্দিন রুটিন ও একুশে নিয়ম",
+  "title_target": "Tagesablauf & Verb an Position Zwei",
+  "lessons": [
+    {
+      "title_bn": "দৈনন্দিন সকালের রুটিন (aufstehen, frühstücken)",
+      "title_target": "Morgenroutine",
+      "intro_bn": "জার্মান সাধারণ বাক্যে প্রধান ক্রিয়াপদ সর্বদা ২ নম্বর স্থানে (Position 2) বসে।",
+      "structure": [
+        "Zeit",
+        "Verb (Pos 2)",
+        "Subjekt",
+        "Aktivität"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich stehe um sechs Uhr auf.",
+          "bn": "আমি সকাল ছয়টায় ঘুম থেকে উঠি।",
+          "bn_pron": "ইখ্ শ্টেহে উম জেক্স উর আউফ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "stehe",
+              "bn": "উঠি"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "sechs",
+              "bn": "ছয়"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টা"
+            },
+            {
+              "t": "auf.",
+              "bn": "ঘুম থেকে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Dann dusche ich.",
+          "bn": "তারপর আমি গোসল করি।",
+          "bn_pron": "ডান ডুশে ইখ্",
+          "tokens": [
+            {
+              "t": "Dann",
+              "bn": "তারপর"
+            },
+            {
+              "t": "dusche",
+              "bn": "গোসল করি"
+            },
+            {
+              "t": "ich.",
+              "bn": "আমি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich frühstücke um sieben Uhr.",
+          "bn": "আমি সকাল সাতটায় নাস্তা করি।",
+          "bn_pron": "ইখ্ ফ্র্যূশ্ট্যুকে উম যীবেন উর",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "frühstücke",
+              "bn": "নাস্তা করি"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "sieben",
+              "bn": "সাত"
+            },
+            {
+              "t": "Uhr.",
+              "bn": "টায়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Zum Frühstück trinke ich Tee.",
+          "bn": "সকালের নাস্তায় আমি চা পান করি।",
+          "bn_pron": "ৎসুম ফ্র্যূশ্ট্যক ট্রিঙ্কে ইখ্ টে",
+          "tokens": [
+            {
+              "t": "Zum",
+              "bn": "এ"
+            },
+            {
+              "t": "Frühstück",
+              "bn": "নাস্তা"
+            },
+            {
+              "t": "trinke",
+              "bn": "পান করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Tee.",
+              "bn": "চা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich esse Brot mit Butter.",
+          "bn": "আমি মাখন দিয়ে রুটি খাই।",
+          "bn_pron": "ইখ্ এসে ব্রোট মিট বুটার",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "esse",
+              "bn": "খাই"
+            },
+            {
+              "t": "Brot",
+              "bn": "রুটি"
+            },
+            {
+              "t": "mit",
+              "bn": "দিয়ে"
+            },
+            {
+              "t": "Butter.",
+              "bn": "মাখন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Um halb acht gehe ich los.",
+          "bn": "সাড়ে সাতটায় আমি রওনা হই।",
+          "bn_pron": "উম হাল্প আখট গেহে ইখ্ লোস",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "halb",
+              "bn": "অর্ধেক"
+            },
+            {
+              "t": "acht",
+              "bn": "আট"
+            },
+            {
+              "t": "gehe",
+              "bn": "যাই"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "los.",
+              "bn": "রওনা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich fahre mit der Bahn.",
+          "bn": "আমি ট্রেনে করে যাই।",
+          "bn_pron": "ইখ্ ফাহরে মিট ডের বান",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "fahre",
+              "bn": "যাই"
+            },
+            {
+              "t": "mit",
+              "bn": "দিয়ে"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Bahn.",
+              "bn": "ট্রেন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Um acht Uhr komme ich an.",
+          "bn": "আটটায় আমি পৌঁছাই।",
+          "bn_pron": "উম আখট উর কমে ইখ্ আন",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "acht",
+              "bn": "আট"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "komme",
+              "bn": "আসি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "an.",
+              "bn": "পৌঁছানো"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "একুশে নিয়ম: শুরুতে সময় বসলে ক্রিয়ার স্থান",
+      "title_target": "Inversion: Zeit an Position Eins",
+      "intro_bn": "বাক্যের শুরুতে সময় বা স্থান বসালে ক্রিয়াপদ অবশ্যই ২ নম্বরে থাকবে এবং কর্তা চলে যাবে ৩ নম্বরে (একুশে নিয়ম বা ইনভার্সন)।",
+      "structure": [
+        "Position 1",
+        "Position 2 (Verb)",
+        "Position 3 (Subjekt)"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Heute lerne ich Deutsch.",
+          "bn": "আজ আমি জার্মান শিখছি।",
+          "bn_pron": "হয়টে লের্নে ইখ্ ডয়চ",
+          "tokens": [
+            {
+              "t": "Heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "lerne",
+              "bn": "শিখছি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Deutsch.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Morgen arbeite ich wieder.",
+          "bn": "কাল আমি আবার কাজ করব।",
+          "bn_pron": "মর্গেন আরবাইতে ইখ্ ভিডার",
+          "tokens": [
+            {
+              "t": "Morgen",
+              "bn": "কাল"
+            },
+            {
+              "t": "arbeite",
+              "bn": "কাজ করব"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "wieder.",
+              "bn": "আবার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Um zehn Uhr schlafe ich.",
+          "bn": "রাত দশটায় আমি ঘুমাই।",
+          "bn_pron": "উম ৎসেন উর শ্লাফে ইখ্",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "zehn",
+              "bn": "দশ"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "schlafe",
+              "bn": "ঘুমাই"
+            },
+            {
+              "t": "ich.",
+              "bn": "আমি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Am Sonntag koche ich gern.",
+          "bn": "রবিবারে আমি সানন্দে রান্না করি।",
+          "bn_pron": "আম জোনতাক কখে ইখ্ গেয়ার্ন",
+          "tokens": [
+            {
+              "t": "Am",
+              "bn": "এ"
+            },
+            {
+              "t": "Sonntag",
+              "bn": "রবিবার"
+            },
+            {
+              "t": "koche",
+              "bn": "রান্না করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "gern.",
+              "bn": "আনন্দে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Jeden Tag jogge ich.",
+          "bn": "প্রতিদিন আমি জগিং করি।",
+          "bn_pron": "ইয়েডেন তাক জগে ইখ্",
+          "tokens": [
+            {
+              "t": "Jeden",
+              "bn": "প্রতি"
+            },
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            },
+            {
+              "t": "jogge",
+              "bn": "জগিং করি"
+            },
+            {
+              "t": "ich.",
+              "bn": "আমি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Jetzt verstehe ich den Satz.",
+          "bn": "এখন আমি বাক্যটি বুঝতে পারছি।",
+          "bn_pron": "ইয়েৎস্ট ফেয়ার্শ্টেহে ইখ্ ডেন জাৎৎস",
+          "tokens": [
+            {
+              "t": "Jetzt",
+              "bn": "এখন"
+            },
+            {
+              "t": "verstehe",
+              "bn": "বুঝছি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "den",
+              "bn": "টি"
+            },
+            {
+              "t": "Satz.",
+              "bn": "বাক্য"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Manchmal trinke ich Kaffee.",
+          "bn": "মাঝে মাঝে আমি কফি খাই।",
+          "bn_pron": "মানখমাল ট্রিঙ্কে ইখ্ কাফে",
+          "tokens": [
+            {
+              "t": "Manchmal",
+              "bn": "মাঝে মাঝে"
+            },
+            {
+              "t": "trinke",
+              "bn": "পান করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Kaffee.",
+              "bn": "কফি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Immer mache ich meine Hausaufgaben.",
+          "bn": "সবসময় আমি আমার হোমওয়ার্ক করি।",
+          "bn_pron": "ইমার মাখে ইখ্ মাইনে হাউসআউফগাবেন",
+          "tokens": [
+            {
+              "t": "Immer",
+              "bn": "সবসময়"
+            },
+            {
+              "t": "mache",
+              "bn": "করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Hausaufgaben.",
+              "bn": "হোমওয়ার্ক"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "কর্মক্ষেত্র ও দুপুরের খাবার (Mittagspause)",
+      "title_target": "Arbeit & Mittagessen",
+      "intro_bn": "দুপুর বারোটা থেকে দুটো পর্যন্ত দুপুরের খাবার ও বিরতির প্রয়োজনীয় বাক্য।",
+      "structure": [
+        "Mittag",
+        "Essen",
+        "Pausenzeit"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Um zwölf Uhr mache ich Mittagspause.",
+          "bn": "দুপুর বারোটায় আমি লাঞ্চ বিরতি নিই।",
+          "bn_pron": "উম ৎস্ভোয়েলফ উর মাখে ইখ্ মিটাকসপাউজে",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "zwölf",
+              "bn": "বারো"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "mache",
+              "bn": "নিই"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Mittagspause.",
+              "bn": "লাঞ্চ বিরতি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich esse in der Kantine.",
+          "bn": "আমি ক্যান্টিনে খাই।",
+          "bn_pron": "ইখ্ এসে ইন ডের কান্টিনে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "esse",
+              "bn": "খাই"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Kantine.",
+              "bn": "ক্যান্টিন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Essen schmeckt gut.",
+          "bn": "খাবারটি ভালো স্বাদযুক্ত।",
+          "bn_pron": "ডাস এসেন শমেকট গুট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Essen",
+              "bn": "খাবার"
+            },
+            {
+              "t": "schmeckt",
+              "bn": "স্বাদ দেয়"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich esse mit meinen Kollegen.",
+          "bn": "আমি আমার সহকর্মীদের সাথে খাই।",
+          "bn_pron": "ইখ্ এসে মিট মাইনেন কোলেগেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "esse",
+              "bn": "খাই"
+            },
+            {
+              "t": "mit",
+              "bn": "সাথে"
+            },
+            {
+              "t": "meinen",
+              "bn": "আমার"
+            },
+            {
+              "t": "Kollegen.",
+              "bn": "সহকর্মীদের"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nach der Pause arbeite ich weiter.",
+          "bn": "বিরতির পর আমি আবার কাজ করি।",
+          "bn_pron": "নাখ ডের পাউজে আরবাইতে ইখ্ ভাইটার",
+          "tokens": [
+            {
+              "t": "Nach",
+              "bn": "পর"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Pause",
+              "bn": "বিরতি"
+            },
+            {
+              "t": "arbeite",
+              "bn": "কাজ করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "weiter.",
+              "bn": "এগিয়ে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich schreibe viele E-Mails.",
+          "bn": "আমি অনেক ইমেইল লিখি।",
+          "bn_pron": "ইখ্ শ্রাইবে ফীলে ইমেইলস",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "schreibe",
+              "bn": "লিখি"
+            },
+            {
+              "t": "viele",
+              "bn": "অনেক"
+            },
+            {
+              "t": "E-Mails.",
+              "bn": "ইমেইল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich telefoniere mit Kunden.",
+          "bn": "আমি গ্রাহকদের সাথে ফোনে কথা বলি।",
+          "bn_pron": "ইখ্ টেলিফোনিয়ারে মিট কুন্ডেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "telefoniere",
+              "bn": "ফোনে কথা বলি"
+            },
+            {
+              "t": "mit",
+              "bn": "সাথে"
+            },
+            {
+              "t": "Kunden.",
+              "bn": "গ্রাহকদের"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Arbeitstag ist lang.",
+          "bn": "কর্মদিবসটি দীর্ঘ।",
+          "bn_pron": "ডের আরবাইটস্টাক ইস্ত লাং",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Arbeitstag",
+              "bn": "কর্মদিবস"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "lang.",
+              "bn": "দীর্ঘ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "সন্ধ্যার অবসর ও ঘুম (Abend & Freizeit)",
+      "title_target": "Feierabend & Schlafen",
+      "intro_bn": "কাজ শেষ হওয়ার পর আড্ডা দেওয়া, টিভি দেখা ও ঘুমানোর রুটিন।",
+      "structure": [
+        "Feierabend",
+        "Freizeit",
+        "Nachtruhe"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Um achtzehn Uhr bin ich zu Hause.",
+          "bn": "সন্ধ্যা ছয়টায় আমি বাসায় ফিরি।",
+          "bn_pron": "উম আখটৎসেন উর বিন ইখ্ ৎসু হাউজে",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "achtzehn",
+              "bn": "আঠারো"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "zu",
+              "bn": "এ"
+            },
+            {
+              "t": "Hause.",
+              "bn": "বাড়ি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Am Abend koche ich das Abendessen.",
+          "bn": "সন্ধ্যায় আমি রাতের খাবার রান্না করি।",
+          "bn_pron": "আম আবেন্ট কখে ইখ্ ডাস আবেন্টএসেন",
+          "tokens": [
+            {
+              "t": "Am",
+              "bn": "এ"
+            },
+            {
+              "t": "Abend",
+              "bn": "সন্ধ্যা"
+            },
+            {
+              "t": "koche",
+              "bn": "রান্না করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Abendessen.",
+              "bn": "রাতের খাবার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich sehe ein bisschen fern.",
+          "bn": "আমি কিছুক্ষণ টিভি দেখি।",
+          "bn_pron": "ইখ্ জেহে আইন বিসখেন ফেয়ার্ন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "sehe",
+              "bn": "দেখি"
+            },
+            {
+              "t": "ein",
+              "bn": "এক"
+            },
+            {
+              "t": "bisschen",
+              "bn": "একটু"
+            },
+            {
+              "t": "fern.",
+              "bn": "টিভি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich lese ein interessantes Buch.",
+          "bn": "আমি একটি আকর্ষণীয় বই পড়ি।",
+          "bn_pron": "ইখ্ লেজে আইন ইন্টারেসান্টেস বুখ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "lese",
+              "bn": "পড়ি"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "interessantes",
+              "bn": "আকর্ষণীয়"
+            },
+            {
+              "t": "Buch.",
+              "bn": "বই"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich höre gern Musik.",
+          "bn": "আমি গান শুনতে পছন্দ করি।",
+          "bn_pron": "ইখ্ হোয়রে গেয়ার্ন মুযীক",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "höre",
+              "bn": "শুনি"
+            },
+            {
+              "t": "gern",
+              "bn": "আনন্দে"
+            },
+            {
+              "t": "Musik.",
+              "bn": "গান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich gehe um dreiundzwanzig Uhr ins Bett.",
+          "bn": "আমি রাত এগারোটায় বিছানায় যাই।",
+          "bn_pron": "ইখ্ গেহে উম ড্রাইউন্টৎস্ভানৎসিখ উর ইন্স বেট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "gehe",
+              "bn": "যাই"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "dreiundzwanzig",
+              "bn": "তেইশ"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "ins",
+              "bn": "এ"
+            },
+            {
+              "t": "Bett.",
+              "bn": "বিছানা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich schlafe sehr gut.",
+          "bn": "আমি খুব ভালো ঘুমাই।",
+          "bn_pron": "ইখ্ শ্লাফে জেয়ার গুট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "schlafe",
+              "bn": "ঘুমাই"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Gute Nacht und schlaf gut!",
+          "bn": "শুভ রাত্রি এবং ভালো ঘুম হোক!",
+          "bn_pron": "গুটে নাখ্ট উন্ট শ্লাফ গুট",
+          "tokens": [
+            {
+              "t": "Gute",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Nacht",
+              "bn": "রাত্রি"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "schlaf",
+              "bn": "ঘুমাও"
+            },
+            {
+              "t": "gut!",
+              "bn": "ভালো"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

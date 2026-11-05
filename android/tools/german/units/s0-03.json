@@ -1,0 +1,479 @@
+{
+  "title_bn": "যৌথ স্বরধ্বনি",
+  "title_target": "Diphthonge: ei, ai, au, eu, äu",
+  "lessons": [
+    {
+      "title_bn": "\"ei\" ও \"ai\": আই ধ্বনি",
+      "title_target": "Diphthong EI und AI",
+      "intro_bn": "জার্মান 'ei' এবং 'ai' দুটিই বাংলায় 'আই' ধ্বনির মতো উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Phonetik",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "mein",
+          "bn": "আমার",
+          "bn_pron": "মাইন",
+          "tokens": [
+            {
+              "t": "mein",
+              "bn": "আমার"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "dein",
+          "bn": "তোমার",
+          "bn_pron": "ডাইন",
+          "tokens": [
+            {
+              "t": "dein",
+              "bn": "তোমার"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "nein",
+          "bn": "না",
+          "bn_pron": "নাইন",
+          "tokens": [
+            {
+              "t": "nein",
+              "bn": "না"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zwei",
+          "bn": "দুই (সংখ্যা)",
+          "bn_pron": "ৎস্ভাই",
+          "tokens": [
+            {
+              "t": "zwei",
+              "bn": "দুই"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "drei",
+          "bn": "তিন (সংখ্যা)",
+          "bn_pron": "ড্রাই",
+          "tokens": [
+            {
+              "t": "drei",
+              "bn": "তিন"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Mai",
+          "bn": "মে মাস",
+          "bn_pron": "মাই",
+          "tokens": [
+            {
+              "t": "Mai",
+              "bn": "মে মাস"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "frei",
+          "bn": "মুক্ত / স্বাধীন / খালি",
+          "bn_pron": "ফ্রাই",
+          "tokens": [
+            {
+              "t": "frei",
+              "bn": "মুক্ত"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "klein",
+          "bn": "ছোট",
+          "bn_pron": "ক্লাইন",
+          "tokens": [
+            {
+              "t": "klein",
+              "bn": "ছোট"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "\"au\": আউ ধ্বনি",
+      "title_target": "Diphthong AU",
+      "intro_bn": "'au' বাংলায় 'আউ' বা ইংরেজি 'house'-এর diphthong-এর মতো উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Phonetik",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Haus",
+          "bn": "বাড়ি / ঘর",
+          "bn_pron": "হাউস",
+          "tokens": [
+            {
+              "t": "Haus",
+              "bn": "বাড়ি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Frau",
+          "bn": "মহিলা / স্ত্রী / মিসেস",
+          "bn_pron": "ফ্রাউ",
+          "tokens": [
+            {
+              "t": "Frau",
+              "bn": "মহিলা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Baum",
+          "bn": "গাছ",
+          "bn_pron": "বাউম",
+          "tokens": [
+            {
+              "t": "Baum",
+              "bn": "গাছ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "blau",
+          "bn": "নীল",
+          "bn_pron": "ব্লাউ",
+          "tokens": [
+            {
+              "t": "blau",
+              "bn": "নীল"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "grau",
+          "bn": "ধূসর",
+          "bn_pron": "গ্রাউ",
+          "tokens": [
+            {
+              "t": "grau",
+              "bn": "ধূসর"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Auge",
+          "bn": "চোখ",
+          "bn_pron": "আউগে",
+          "tokens": [
+            {
+              "t": "Auge",
+              "bn": "চোখ"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Auto",
+          "bn": "গাড়ি",
+          "bn_pron": "আউটো",
+          "tokens": [
+            {
+              "t": "Auto",
+              "bn": "গাড়ি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "auch",
+          "bn": "ও / এছাড়াও",
+          "bn_pron": "আউখ",
+          "tokens": [
+            {
+              "t": "auch",
+              "bn": "ও"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "\"eu\" ও \"äu\": অয় ধ্বনি",
+      "title_target": "Diphthong EU und ÄU",
+      "intro_bn": "জার্মান 'eu' এবং 'äu' উভয়ই বাংলায় 'অয়' বা ইংরেজি 'boy'-এর মতো উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Phonetik",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "neu",
+          "bn": "নতুন",
+          "bn_pron": "নয়",
+          "tokens": [
+            {
+              "t": "neu",
+              "bn": "নতুন"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Euro",
+          "bn": "ইউরো (মুদ্রা)",
+          "bn_pron": "অয়রো",
+          "tokens": [
+            {
+              "t": "Euro",
+              "bn": "ইউরো"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Freund",
+          "bn": "বন্ধু",
+          "bn_pron": "ফ্রয়ন্ট",
+          "tokens": [
+            {
+              "t": "Freund",
+              "bn": "বন্ধু"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "heute",
+          "bn": "আজ",
+          "bn_pron": "হয়টে",
+          "tokens": [
+            {
+              "t": "heute",
+              "bn": "আজ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Leute",
+          "bn": "মানুষজন",
+          "bn_pron": "লয়টে",
+          "tokens": [
+            {
+              "t": "Leute",
+              "bn": "মানুষজন"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Häuser",
+          "bn": "বাড়িগুলো",
+          "bn_pron": "হয়যার",
+          "tokens": [
+            {
+              "t": "Häuser",
+              "bn": "বাড়িগুলো"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Bäume",
+          "bn": "গাছগুলো",
+          "bn_pron": "বয়মে",
+          "tokens": [
+            {
+              "t": "Bäume",
+              "bn": "গাছগুলো"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Fräulein",
+          "bn": "কুমারী",
+          "bn_pron": "ফ্রয়লাইন",
+          "tokens": [
+            {
+              "t": "Fräulein",
+              "bn": "কুমারী"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    },
+    {
+      "title_bn": "যৌথ স্বরধ্বনির তুলনা ও অনুশীলন",
+      "title_target": "Diphthong-Gegenüberstellung",
+      "intro_bn": "একই শব্দের ভেতর diphthong পরিবর্তনের মাধ্যমে অর্থ ও বহুবচন পরিবর্তনের চমৎকার ড্রিল।",
+      "structure": [
+        "Paar",
+        "Kontrast",
+        "Sinn"
+      ],
+      "items": [
+        {
+          "type": "phrase",
+          "target": "mein Haus",
+          "bn": "আমার বাড়ি",
+          "bn_pron": "মাইন হাউস",
+          "tokens": [
+            {
+              "t": "mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Haus",
+              "bn": "বাড়ি"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "zwei Häuser",
+          "bn": "দুটি বাড়ি",
+          "bn_pron": "ৎস্ভাই হয়যার",
+          "tokens": [
+            {
+              "t": "zwei",
+              "bn": "দুটি"
+            },
+            {
+              "t": "Häuser",
+              "bn": "বাড়িগুলো"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "ein Baum",
+          "bn": "একটি গাছ",
+          "bn_pron": "আইন বাউম",
+          "tokens": [
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Baum",
+              "bn": "গাছ"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "drei Bäume",
+          "bn": "তিনটি গাছ",
+          "bn_pron": "ড্রাই বয়মে",
+          "tokens": [
+            {
+              "t": "drei",
+              "bn": "তিনটি"
+            },
+            {
+              "t": "Bäume",
+              "bn": "গাছগুলো"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "neues Auto",
+          "bn": "নতুন গাড়ি",
+          "bn_pron": "নয়েস আউটো",
+          "tokens": [
+            {
+              "t": "neues",
+              "bn": "নতুন"
+            },
+            {
+              "t": "Auto",
+              "bn": "গাড়ি"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "heute frei",
+          "bn": "আজ ছুটি / আজ অবসর",
+          "bn_pron": "হয়টে ফ্রাই",
+          "tokens": [
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "frei",
+              "bn": "ছুটি"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "gute Freunde",
+          "bn": "ভালো বন্ধুরা",
+          "bn_pron": "গুটে ফ্রয়ন্ডে",
+          "tokens": [
+            {
+              "t": "gute",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Freunde",
+              "bn": "বন্ধুরা"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "zehn Euro",
+          "bn": "দশ ইউরো",
+          "bn_pron": "ৎসেন অয়রো",
+          "tokens": [
+            {
+              "t": "zehn",
+              "bn": "দশ"
+            },
+            {
+              "t": "Euro",
+              "bn": "ইউরো"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,786 @@
+{
+  "title_bn": "খাবার, পানীয় ও কেনাকাটা",
+  "title_target": "Essen, Trinken & Einkaufen",
+  "lessons": [
+    {
+      "title_bn": "মুদি কেনাকাটা ও খাবার দ্রব্য (der, die, das)",
+      "title_target": "Lebensmittel & Artikel",
+      "intro_bn": "প্রতিটি খাদ্য দ্রব্যের লিঙ্গ (Gender) মনে রাখা জরুরি: der Apfel, das Brot, die Milch।",
+      "structure": [
+        "Artikel",
+        "Nahrungsmittel",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Apfel",
+          "bn": "আপেল",
+          "bn_pron": "ডের আপফেল",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Apfel",
+              "bn": "আপেল"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das Brot",
+          "bn": "রুটি",
+          "bn_pron": "ডাস ব্রোট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Brot",
+              "bn": "রুটি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Milch",
+          "bn": "দুধ",
+          "bn_pron": "ডী মিলখ",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Milch",
+              "bn": "দুধ"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Käse",
+          "bn": "পনির / চিজ",
+          "bn_pron": "ডের কেজে",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Käse",
+              "bn": "পনির"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das Ei",
+          "bn": "ডিম",
+          "bn_pron": "ডাস আই",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Ei",
+              "bn": "ডিম"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "das Fleisch",
+          "bn": "মাংস",
+          "bn_pron": "ডাস ফ্লাইশ",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Fleisch",
+              "bn": "মাংস"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "der Reis",
+          "bn": "চাল / ভাত",
+          "bn_pron": "ডের রাইস",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Reis",
+              "bn": "ভাত"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das Gemüse",
+          "bn": "শাকসবজি",
+          "bn_pron": "ডাস গেম্যূজে",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Gemüse",
+              "bn": "সবজি"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    },
+    {
+      "title_bn": "নির্দিষ্ট ও অনির্দিষ্ট আর্টিকেল (der vs. ein)",
+      "title_target": "Bestimmter & Unbestimmter Artikel",
+      "intro_bn": "পুংলিঙ্গ: der / ein; ক্লীবলিঙ্গ: das / ein; স্ত্রীলিঙ্গ: die / eine।",
+      "structure": [
+        "Bestimmt",
+        "Unbestimmt",
+        "Substantiv"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Das ist ein Apfel.",
+          "bn": "এটি একটি আপেল।",
+          "bn_pron": "ডাস ইস্ত আইন আপফেল",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Apfel.",
+              "bn": "আপেল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Apfel ist rot.",
+          "bn": "আপেলটি লাল।",
+          "bn_pron": "ডের আপফেল ইস্ত রোট",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Apfel",
+              "bn": "আপেল"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "rot.",
+              "bn": "লাল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist ein Brot.",
+          "bn": "এটি একটি রুটি।",
+          "bn_pron": "ডাস ইস্ত আইন ব্রোট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Brot.",
+              "bn": "রুটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Brot ist frisch.",
+          "bn": "রুটিটি তাজা।",
+          "bn_pron": "ডাস ব্রোট ইস্ত ফ্রিশ",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Brot",
+              "bn": "রুটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "frisch.",
+              "bn": "তাজা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist eine Banane.",
+          "bn": "এটি একটি কলা।",
+          "bn_pron": "ডাস ইস্ত আইনে বানানে",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Banane.",
+              "bn": "কলা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Banane ist gelb.",
+          "bn": "কলাটি হলুদ।",
+          "bn_pron": "ডী বানানে ইস্ত গেল্প",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Banane",
+              "bn": "কলা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "gelb.",
+              "bn": "হলুদ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich brauche ein Ei.",
+          "bn": "আমার একটি ডিম দরকার।",
+          "bn_pron": "ইখ্ ব্রাউখে আইন আই",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "brauche",
+              "bn": "দরকার"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Ei.",
+              "bn": "ডিম"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir haben keine Eier.",
+          "bn": "আমাদের কাছে ডিম নেই।",
+          "bn_pron": "ভির হাবের্ন কাইনে আয়ার",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমাদের"
+            },
+            {
+              "t": "haben",
+              "bn": "কাছে আছে"
+            },
+            {
+              "t": "keine",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Eier.",
+              "bn": "ডিমগুলো"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "না-বোধক কেনাকাটা (kein, keine)",
+      "title_target": "Negation mit kein/keine",
+      "intro_bn": "বিশেষ্য পদের আগে 'না' বোঝাতে kein (পুং/ক্লীব) এবং keine (স্ত্রী/বহুবচন) ব্যবহৃত হয়।",
+      "structure": [
+        "Subjekt",
+        "Verb",
+        "Negationsartikel"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich habe keinen Käse.",
+          "bn": "আমার কাছে পনির নেই (Akkusativ)।",
+          "bn_pron": "ইখ্ হাবে কাইনেন কেজে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "কাছে আছে"
+            },
+            {
+              "t": "keinen",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Käse.",
+              "bn": "পনির"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir brauchen kein Brot.",
+          "bn": "আমাদের রুটি লাগবে না।",
+          "bn_pron": "ভির ব্রাউখেন কাইন ব্রোট",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমাদের"
+            },
+            {
+              "t": "brauchen",
+              "bn": "প্রয়োজন"
+            },
+            {
+              "t": "kein",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Brot.",
+              "bn": "রুটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich trinke keine Milch.",
+          "bn": "আমি দুধ খাই না।",
+          "bn_pron": "ইখ্ ট্রিঙ্কে কাইনে মিলখ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "trinke",
+              "bn": "পান করি"
+            },
+            {
+              "t": "keine",
+              "bn": "না"
+            },
+            {
+              "t": "Milch.",
+              "bn": "দুধ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hier gibt es keinen Zucker.",
+          "bn": "এখানে চিনি নেই।",
+          "bn_pron": "হিয়ার গিপ্ট এস কাইনেন ৎসুক্কার",
+          "tokens": [
+            {
+              "t": "Hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "gibt",
+              "bn": "দেয়"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "keinen",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Zucker.",
+              "bn": "চিনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie Äpfel?",
+          "bn": "আপনাদের কি আপেল আছে?",
+          "bn_pron": "হাবের্ন যী এপফেল",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনাদের"
+            },
+            {
+              "t": "Äpfel?",
+              "bn": "আপেলগুলো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein, heute haben wir keine Äpfel.",
+          "bn": "না, আজ আমাদের আপেল নেই।",
+          "bn_pron": "নাইন হয়টে হাবের্ন ভির কাইনে এপফেল",
+          "tokens": [
+            {
+              "t": "Nein,",
+              "bn": "না"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "wir",
+              "bn": "আমাদের"
+            },
+            {
+              "t": "keine",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Äpfel.",
+              "bn": "আপেল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist kein Problem.",
+          "bn": "এটা কোনো সমস্যা না।",
+          "bn_pron": "ডাস ইস্ত কাইন প্রবলেম",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "kein",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Problem.",
+              "bn": "সমস্যা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich esse kein Fleisch.",
+          "bn": "আমি মাংস খাই না।",
+          "bn_pron": "ইখ্ এসে কাইন ফ্লাইশ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "esse",
+              "bn": "খাই"
+            },
+            {
+              "t": "kein",
+              "bn": "না"
+            },
+            {
+              "t": "Fleisch.",
+              "bn": "মাংস"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "সুপারমার্কেটে পরিমাণ ও দরদাম (Was kostet das?)",
+      "title_target": "Mengen & Preise im Markt",
+      "intro_bn": "বাজারে এক কেজি, এক লিটার চাওয়া ও দাম জানার আবশ্যকীয় স্পোকেন এক্সপ্রেশন।",
+      "structure": [
+        "Mengenangabe",
+        "Preisanfrage",
+        "Kauf"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Was kostet das?",
+          "bn": "এটার দাম কত?",
+          "bn_pron": "ভাস কস্টেট ডাস",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কত/কী"
+            },
+            {
+              "t": "kostet",
+              "bn": "দাম পড়ে"
+            },
+            {
+              "t": "das?",
+              "bn": "এটার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das kostet zwei Euro.",
+          "bn": "এটার দাম দুই ইউরো।",
+          "bn_pron": "ডাস কস্টেট ৎস্ভাই অয়রো",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটার"
+            },
+            {
+              "t": "kostet",
+              "bn": "দাম পড়ে"
+            },
+            {
+              "t": "zwei",
+              "bn": "দুই"
+            },
+            {
+              "t": "Euro.",
+              "bn": "ইউরো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich möchte ein Kilo Äpfel bitte.",
+          "bn": "আমাকে দয়া করে এক কেজি আপেল দিন।",
+          "bn_pron": "ইখ্ মোয়খ্টে আইন কিলো এপফেল বিটে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "möchte",
+              "bn": "চাই"
+            },
+            {
+              "t": "ein",
+              "bn": "এক"
+            },
+            {
+              "t": "Kilo",
+              "bn": "কেজি"
+            },
+            {
+              "t": "Äpfel",
+              "bn": "আপেল"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Geben Sie mir einen Liter Milch!",
+          "bn": "আমাকে এক লিটার দুধ দিন!",
+          "bn_pron": "গেবেন যী মিয়ার আইনেন লিটার মিলখ",
+          "tokens": [
+            {
+              "t": "Geben",
+              "bn": "দিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "mir",
+              "bn": "আমাকে"
+            },
+            {
+              "t": "einen",
+              "bn": "এক"
+            },
+            {
+              "t": "Liter",
+              "bn": "লিটার"
+            },
+            {
+              "t": "Milch!",
+              "bn": "দুধ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sonst noch etwas?",
+          "bn": "আর কিছু লাগবে কি?",
+          "bn_pron": "জনস্ট নখ এতভাস",
+          "tokens": [
+            {
+              "t": "Sonst",
+              "bn": "এছাড়া"
+            },
+            {
+              "t": "noch",
+              "bn": "আরও"
+            },
+            {
+              "t": "etwas?",
+              "bn": "কিছু"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein danke, das ist alles.",
+          "bn": "না ধন্যবাদ, এটুকুই।",
+          "bn_pron": "নাইন ডাঙ্কে ডাস ইস্ত আলেস",
+          "tokens": [
+            {
+              "t": "Nein",
+              "bn": "না"
+            },
+            {
+              "t": "danke,",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "das",
+              "bn": "এটা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "alles.",
+              "bn": "সব"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das macht fünf Euro fünfzig.",
+          "bn": "সব মিলিয়ে পাঁচ ইউরো পঞ্চাশ সেন্ট।",
+          "bn_pron": "ডাস মাখট ফ্যুনফ অয়রো ফ্যুনফৎসিখ",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "macht",
+              "bn": "করে"
+            },
+            {
+              "t": "fünf",
+              "bn": "পাঁচ"
+            },
+            {
+              "t": "Euro",
+              "bn": "ইউরো"
+            },
+            {
+              "t": "fünfzig.",
+              "bn": "পঞ্চাশ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hier bitte, passend.",
+          "bn": "এই নিন, ভাঙতি টাকা।",
+          "bn_pron": "হিয়ার বিটে পাসেন্ট",
+          "tokens": [
+            {
+              "t": "Hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "bitte,",
+              "bn": "নিন"
+            },
+            {
+              "t": "passend.",
+              "bn": "সঠিক পরিমাণ"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,802 @@
+{
+  "title_bn": "রেস্তোরাঁ ও ক্যাফেতে অর্ডার",
+  "title_target": "Im Restaurant & Café",
+  "lessons": [
+    {
+      "title_bn": "মেনু ও খাবার পছন্দ (Ich möchte...)",
+      "title_target": "Speisekarte & Bestellung",
+      "intro_bn": "ভদ্রভাবে খাবার অর্ডার করতে 'Ich möchte...' (আমি চাই) এবং 'Ich nehme...' (আমি নেব) ব্যবহৃত হয়।",
+      "structure": [
+        "Wunschverb",
+        "Gericht",
+        "Höflichkeit"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Die Speisekarte bitte!",
+          "bn": "মেনু কার্ডটি দিন দয়া করে!",
+          "bn_pron": "ডী শ্পাইজেকার্টে বিটে",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Speisekarte",
+              "bn": "মেনু"
+            },
+            {
+              "t": "bitte!",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich möchte eine Gemüsesuppe.",
+          "bn": "আমি একটি সবজির স্যুপ চাই।",
+          "bn_pron": "ইখ্ মোয়খ্টে আইনে গেম্যূজেসুপে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "möchte",
+              "bn": "চাই"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Gemüsesuppe.",
+              "bn": "সবজির স্যুপ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich nehme einen Salat.",
+          "bn": "আমি একটি সালাদ নেব।",
+          "bn_pron": "ইখ্ নেমে আইনেন সালাট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "nehme",
+              "bn": "নিচ্ছি"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Salat.",
+              "bn": "সালাদ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Was können Sie empfehlen?",
+          "bn": "আপনি কী সুপারিশ করবেন?",
+          "bn_pron": "ভাস কোয়ন্নেন যী এম্পফেলেন",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "können",
+              "bn": "পারেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "empfehlen?",
+              "bn": "সুপারিশ করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie vegetarisches Essen?",
+          "bn": "আপনাদের কি নিরামিষ খাবার আছে?",
+          "bn_pron": "হাবের্ন যী ভেগেটারিশেস এসেন",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনাদের"
+            },
+            {
+              "t": "vegetarisches",
+              "bn": "নিরামিষ"
+            },
+            {
+              "t": "Essen?",
+              "bn": "খাবার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Für mich bitte ein Hähnchen.",
+          "bn": "আমার জন্য দয়া করে একটি রোস্ট চিকেন।",
+          "bn_pron": "ফ্যুর নিখ্ বিটে আইন হেনখেন",
+          "tokens": [
+            {
+              "t": "Für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "mich",
+              "bn": "আমার"
+            },
+            {
+              "t": "bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Hähnchen.",
+              "bn": "মুরগি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sehr gerne, kommt sofort!",
+          "bn": "সানন্দে, এক্ষুণি আসছে!",
+          "bn_pron": "জেয়ার গেয়ার্নে কমট জফর্ট",
+          "tokens": [
+            {
+              "t": "Sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gerne,",
+              "bn": "সানন্দে"
+            },
+            {
+              "t": "kommt",
+              "bn": "আসছে"
+            },
+            {
+              "t": "sofort!",
+              "bn": "এক্ষুণি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Guten Appetit!",
+          "bn": "খাবার উপভোগ করুন! / শুভ আহার!",
+          "bn_pron": "গুটেন আপেটিট",
+          "tokens": [
+            {
+              "t": "Guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Appetit!",
+              "bn": "ক্ষুধা/আহার"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "পানীয় অর্ডার করা (Getränke bestellen)",
+      "title_target": "Getränke bestellen",
+      "intro_bn": "পানীয়ের ক্ষেত্রে পুংলিঙ্গ আকুজাকটিভ 'einen' রূপ নেয় (einen Tee, einen Kaffee)।",
+      "structure": [
+        "Getränk",
+        "Akkusativ",
+        "Bestellung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Was möchten Sie trinken?",
+          "bn": "আপনি কী পান করতে চান?",
+          "bn_pron": "ভাস মোয়খ্টেন যী ট্রিঙ্কেন",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "möchten",
+              "bn": "চান"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "trinken?",
+              "bn": "পান করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich möchte einen Kaffee bitte.",
+          "bn": "আমি এক কাপ কফি চাই দয়া করে।",
+          "bn_pron": "ইখ্ মোয়খ্টে আইনেন কাফে বিটে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "möchte",
+              "bn": "চাই"
+            },
+            {
+              "t": "einen",
+              "bn": "এক"
+            },
+            {
+              "t": "Kaffee",
+              "bn": "কফি"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ein Mineralwasser bitte.",
+          "bn": "একটি মিনারেল ওয়াটার দিন দয়া করে।",
+          "bn_pron": "আইন মিনেরালভাসার বিটে",
+          "tokens": [
+            {
+              "t": "Ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Mineralwasser",
+              "bn": "মিনারেল ওয়াটার"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mit Kohlensäure oder ohne?",
+          "bn": "গ্যাসযুক্ত নাকি সাধারণ পানি?",
+          "bn_pron": "মিট কোলেনসয়রে ওডার ওনে",
+          "tokens": [
+            {
+              "t": "Mit",
+              "bn": "সাথে"
+            },
+            {
+              "t": "Kohlensäure",
+              "bn": "কার্বন/গ্যাস"
+            },
+            {
+              "t": "oder",
+              "bn": "নাকি"
+            },
+            {
+              "t": "ohne?",
+              "bn": "ছাড়া"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ohne Kohlensäure bitte.",
+          "bn": "গ্যাস ছাড়া (সাধারণ পানি) দয়া করে।",
+          "bn_pron": "ওনে কোলেনসয়রে বিটে",
+          "tokens": [
+            {
+              "t": "Ohne",
+              "bn": "ছাড়া"
+            },
+            {
+              "t": "Kohlensäure",
+              "bn": "কার্বন"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Einen schwarzen Tee bitte.",
+          "bn": "একটি লাল চা দয়া করে।",
+          "bn_pron": "আইনেন শ্ভারৎসেন টে বিটে",
+          "tokens": [
+            {
+              "t": "Einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "schwarzen",
+              "bn": "কালো"
+            },
+            {
+              "t": "Tee",
+              "bn": "চা"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mit Milch und Zucker?",
+          "bn": "দুধ ও চিনি সহ?",
+          "bn_pron": "মিট মিলখ উন্ট ৎসুক্কার",
+          "tokens": [
+            {
+              "t": "Mit",
+              "bn": "সাথে"
+            },
+            {
+              "t": "Milch",
+              "bn": "দুধ"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "Zucker?",
+              "bn": "চিনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nur mit Milch bitte.",
+          "bn": "শুধু দুধ দিয়ে দয়া করে।",
+          "bn_pron": "নুর মিট মিলখ বিটে",
+          "tokens": [
+            {
+              "t": "Nur",
+              "bn": "শুধু"
+            },
+            {
+              "t": "mit",
+              "bn": "দিয়ে"
+            },
+            {
+              "t": "Milch",
+              "bn": "দুধ"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "খাবার কেমন লাগলো ও প্রশংসা (Schmeckt es?)",
+      "title_target": "Über das Essen sprechen",
+      "intro_bn": "খাবার সুস্বাদু লাগলে 'schmecken' ক্রিয়াপদ ব্যবহৃত হয়: Das schmeckt sehr gut!",
+      "structure": [
+        "Verb schmecken",
+        "Bewertung",
+        "Reaktion"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Schmeckt es Ihnen?",
+          "bn": "খাবার কেমন লাগছে আপনাদের?",
+          "bn_pron": "শমেকট এস ইনেন",
+          "tokens": [
+            {
+              "t": "Schmeckt",
+              "bn": "স্বাদ লাগছে"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "Ihnen?",
+              "bn": "আপনাদের"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, es schmeckt sehr gut!",
+          "bn": "হ্যাঁ, এটা খুবই সুস্বাদু!",
+          "bn_pron": "ইয়া এস শমেকট জেয়ার গুট",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "es",
+              "bn": "এটা"
+            },
+            {
+              "t": "schmeckt",
+              "bn": "স্বাদ লাগছে"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gut!",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Essen ist lecker.",
+          "bn": "খাবারটি খুবই মজাদার।",
+          "bn_pron": "ডাস এসেন ইস্ত লেকার",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Essen",
+              "bn": "খাবার"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "lecker.",
+              "bn": "সুস্বাদু"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sind Sie zufrieden?",
+          "bn": "আপনারা কি সন্তুষ্ট?",
+          "bn_pron": "জিন্ট যী ৎসুফ্রীডেন",
+          "tokens": [
+            {
+              "t": "Sind",
+              "bn": "হন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনারা"
+            },
+            {
+              "t": "zufrieden?",
+              "bn": "সন্তুষ্ট"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Alles war wunderbar.",
+          "bn": "সবকিছু চমৎকার ছিল।",
+          "bn_pron": "আলেস ভার ভুন্ডারবার",
+          "tokens": [
+            {
+              "t": "Alles",
+              "bn": "সবকিছু"
+            },
+            {
+              "t": "war",
+              "bn": "ছিল"
+            },
+            {
+              "t": "wunderbar.",
+              "bn": "চমৎকার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Möchten Sie noch etwas?",
+          "bn": "আর কিছু কি লাগবে আপনাদের?",
+          "bn_pron": "মোয়খ্টেন যী নখ এতভাস",
+          "tokens": [
+            {
+              "t": "Möchten",
+              "bn": "চান"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনারা"
+            },
+            {
+              "t": "noch",
+              "bn": "আরও"
+            },
+            {
+              "t": "etwas?",
+              "bn": "কিছু"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein danke, wir sind satt.",
+          "bn": "না ধন্যবাদ, আমাদের পেট ভরে গেছে।",
+          "bn_pron": "নাইন ডাঙ্কে ভির জিন্ট জাট",
+          "tokens": [
+            {
+              "t": "Nein",
+              "bn": "না"
+            },
+            {
+              "t": "danke,",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "sind",
+              "bn": "হই"
+            },
+            {
+              "t": "satt.",
+              "bn": "পরিতৃপ্ত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Bringen Sie uns die Rechnung!",
+          "bn": "আমাদের বিলটি এনে দিন দয়া করে!",
+          "bn_pron": "ব্রিঙ্গেন যী উন্স ডী রেখনুং",
+          "tokens": [
+            {
+              "t": "Bringen",
+              "bn": "এনে দিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "uns",
+              "bn": "আমাদের"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Rechnung!",
+              "bn": "বিল"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বিল চাওয়া ও পরিশোধ (Zahlen bitte!)",
+      "title_target": "Bezahlen & Trinkgeld",
+      "intro_bn": "বিল আলাদা দেবে নাকি একসাথে দেবে: 'Zusammen oder getrennt?' জার্মানিতে অত্যন্ত পরিচিত প্রশ্ন।",
+      "structure": [
+        "Rechnung",
+        "Zahlweise",
+        "Trinkgeld"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wir möchten zahlen bitte.",
+          "bn": "আমরা বিল দিতে চাই দয়া করে।",
+          "bn_pron": "ভির মোয়খ্টেন ৎসালেন বিটে",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "möchten",
+              "bn": "চাই"
+            },
+            {
+              "t": "zahlen",
+              "bn": "পরিশোধ করতে"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Zusammen oder getrennt?",
+          "bn": "একসাথে নাকি আলাদা আলাদা?",
+          "bn_pron": "ৎসুসামেন ওডার গেট্রেনট",
+          "tokens": [
+            {
+              "t": "Zusammen",
+              "bn": "একসাথে"
+            },
+            {
+              "t": "oder",
+              "bn": "নাকি"
+            },
+            {
+              "t": "getrennt?",
+              "bn": "আলাদা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Getrennt bitte.",
+          "bn": "আলাদা আলাদা দয়া করে।",
+          "bn_pron": "গেট্রেনট বিটে",
+          "tokens": [
+            {
+              "t": "Getrennt",
+              "bn": "আলাদা"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Kann ich mit Karte zahlen?",
+          "bn": "আমি কি কার্ড দিয়ে পেমেন্ট করতে পারব?",
+          "bn_pron": "কান ইখ্ মিট কার্টে ৎসালেন",
+          "tokens": [
+            {
+              "t": "Kann",
+              "bn": "পারি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "mit",
+              "bn": "দিয়ে"
+            },
+            {
+              "t": "Karte",
+              "bn": "কার্ড"
+            },
+            {
+              "t": "zahlen?",
+              "bn": "পরিশোধ করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, natürlich geht das.",
+          "bn": "হ্যাঁ, অবশ্যই কার্ডে দেওয়া যাবে।",
+          "bn_pron": "ইয়া নাত্যুরলিখ গেট ডাস",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "natürlich",
+              "bn": "অবশ্যই"
+            },
+            {
+              "t": "geht",
+              "bn": "যায়"
+            },
+            {
+              "t": "das.",
+              "bn": "তা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das macht zwanzig Euro.",
+          "bn": "মোট বিশ ইউরো হয়েছে।",
+          "bn_pron": "ডাস মাখট ৎস্ভানৎসিখ্ অয়রো",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "macht",
+              "bn": "হয়"
+            },
+            {
+              "t": "zwanzig",
+              "bn": "বিশ"
+            },
+            {
+              "t": "Euro.",
+              "bn": "ইউরো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Stimmt so, danke!",
+          "bn": "ভাঙতি লাগবে না / টিপস রাখুন, ধন্যবাদ!",
+          "bn_pron": "শ্টিমট জো ডাঙ্কে",
+          "tokens": [
+            {
+              "t": "Stimmt",
+              "bn": "ঠিক আছে"
+            },
+            {
+              "t": "so,",
+              "bn": "এভাবেই"
+            },
+            {
+              "t": "danke!",
+              "bn": "ধন্যবাদ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vielen Dank, schönen Tag noch!",
+          "bn": "অনেক ধন্যবাদ, দিনটি শুভ হোক!",
+          "bn_pron": "ফিলেন ডাঙ্ক শোয়নেন তাক নখ",
+          "tokens": [
+            {
+              "t": "Vielen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Dank,",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "schönen",
+              "bn": "সুন্দর"
+            },
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            },
+            {
+              "t": "noch!",
+              "bn": "হোক"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

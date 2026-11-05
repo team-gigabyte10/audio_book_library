@@ -1,0 +1,711 @@
+{
+  "title_bn": "পরিবার ও আত্মীয়স্বজন",
+  "title_target": "Familie & Possessivpronomen",
+  "lessons": [
+    {
+      "title_bn": "পরিবারের প্রধান সদস্য (Vater, Mutter, Kind)",
+      "title_target": "Kernfamilie",
+      "intro_bn": "জার্মান ভাষায় বাবা der Vater, মা die Mutter, সন্তান das Kind এবং বাবা-মা die Eltern।",
+      "structure": [
+        "Artikel",
+        "Nomen",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Vater",
+          "bn": "বাবা",
+          "bn_pron": "ডের ফাটার",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Vater",
+              "bn": "বাবা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Mutter",
+          "bn": "মা",
+          "bn_pron": "ডী মুটার",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Mutter",
+              "bn": "মা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "das Kind",
+          "bn": "সন্তান / বাচ্চা",
+          "bn_pron": "ডাস কিন্ট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Kind",
+              "bn": "সন্তান"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Eltern",
+          "bn": "বাবা-মা / পিতা-মাতা",
+          "bn_pron": "ডী এলটার্ন",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Eltern",
+              "bn": "বাবা-মা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "der Sohn",
+          "bn": "ছেলে / পুত্র",
+          "bn_pron": "ডের জোন",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Sohn",
+              "bn": "ছেলে"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Tochter",
+          "bn": "মেয়ে / কন্যা",
+          "bn_pron": "ডী টখটার",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Tochter",
+              "bn": "মেয়ে"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "die Kinder",
+          "bn": "সন্তানরা / বাচ্চারা",
+          "bn_pron": "ডী কিন্ডার",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "গুলো"
+            },
+            {
+              "t": "Kinder",
+              "bn": "বাচ্চারা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "die Familie",
+          "bn": "পরিবার",
+          "bn_pron": "ডী ফামিলিয়ে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Familie",
+              "bn": "পরিবার"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "ভাইবোন ও আত্মীয়স্বজন (Geschwister)",
+      "title_target": "Geschwister & Verwandte",
+      "intro_bn": "ভাই der Bruder, বোন die Schwester, ভাইবোন একসাথে die Geschwister।",
+      "structure": [
+        "Bezeichnung",
+        "Geschlecht",
+        "Verwandtschaft"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Bruder",
+          "bn": "ভাই",
+          "bn_pron": "ডের ব্রুডার",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Bruder",
+              "bn": "ভাই"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Schwester",
+          "bn": "বোন",
+          "bn_pron": "ডী শ্ভেস্টার",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Schwester",
+              "bn": "বোন"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "die Geschwister",
+          "bn": "ভাইবোন",
+          "bn_pron": "ডী গেশ্ভিস্টার",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "গুলো"
+            },
+            {
+              "t": "Geschwister",
+              "bn": "ভাইবোন"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "der Großvater",
+          "bn": "দাদু / নানা",
+          "bn_pron": "ডের গ্রোসফাটার",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Großvater",
+              "bn": "দাদু"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Großmutter",
+          "bn": "দাদি / নানি",
+          "bn_pron": "ডী গ্রোসমুটার",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Großmutter",
+              "bn": "দাদি"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Onkel",
+          "bn": "চাচা / মামা / খালু",
+          "bn_pron": "ডের অঙ্কেল",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Onkel",
+              "bn": "চাচা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Tante",
+          "bn": "ফুফু / খালা / চাচি",
+          "bn_pron": "ডী টান্টে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Tante",
+              "bn": "খালা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Cousin",
+          "bn": "মামাতো/চাচাতো ভাই",
+          "bn_pron": "ডের কুজেং",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Cousin",
+              "bn": "ভাই"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "আমার ও তোমার সম্বন্ধপদ (mein, dein)",
+      "title_target": "Possessivartikel: mein & dein",
+      "intro_bn": "পুংলিঙ্গ ও ক্লীবলিঙ্গে mein/dein বসে, আর স্ত্রীলিঙ্গ ও বহুবচনে meine/deine বসে।",
+      "structure": [
+        "Possessiv",
+        "Genus",
+        "Beispielsatz"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Das ist mein Vater.",
+          "bn": "ইনি আমার বাবা।",
+          "bn_pron": "ডাস ইস্ত মাইন ফাটার",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "ইনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Vater.",
+              "bn": "বাবা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist meine Mutter.",
+          "bn": "ইনি আমার মা।",
+          "bn_pron": "ডাস ইস্ত মাইনে মুটার",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "ইনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Mutter.",
+              "bn": "মা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ist das dein Bruder?",
+          "bn": "ইনি কি তোমার ভাই?",
+          "bn_pron": "ইস্ত ডাস ডাইন ব্রুডার",
+          "tokens": [
+            {
+              "t": "Ist",
+              "bn": "হন"
+            },
+            {
+              "t": "das",
+              "bn": "ইনি"
+            },
+            {
+              "t": "dein",
+              "bn": "তোমার"
+            },
+            {
+              "t": "Bruder?",
+              "bn": "ভাই"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist meine Schwester.",
+          "bn": "ইনি আমার বোন।",
+          "bn_pron": "ডাস ইস্ত মাইনে শ্ভেস্টার",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "ইনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Schwester.",
+              "bn": "বোন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das sind meine Eltern.",
+          "bn": "এনারা আমার বাবা-মা।",
+          "bn_pron": "ডাস জিন্ট মাইনে এলটার্ন",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এনারা"
+            },
+            {
+              "t": "sind",
+              "bn": "হন"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Eltern.",
+              "bn": "বাবা-মা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie alt ist dein Kind?",
+          "bn": "তোমার সন্তানের বয়স কত?",
+          "bn_pron": "ভী আল্ট ইস্ত ডাইন কিন্ট",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কত"
+            },
+            {
+              "t": "alt",
+              "bn": "বয়স"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "dein",
+              "bn": "তোমার"
+            },
+            {
+              "t": "Kind?",
+              "bn": "সন্তানের"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mein Sohn ist fünf Jahre alt.",
+          "bn": "আমার ছেলের বয়স পাঁচ বছর।",
+          "bn_pron": "মাইন জোন ইস্ত ফ্যুনফ ইয়াহরে আল্ট",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Sohn",
+              "bn": "ছেলের"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "fünf",
+              "bn": "পাঁচ"
+            },
+            {
+              "t": "Jahre",
+              "bn": "বছর"
+            },
+            {
+              "t": "alt.",
+              "bn": "বয়স"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Meine Familie wohnt in Sylhet.",
+          "bn": "আমার পরিবার সিলেটে থাকে।",
+          "bn_pron": "মাইনে ফামিলিয়ে ভোনট ইন সিলেট",
+          "tokens": [
+            {
+              "t": "Meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Familie",
+              "bn": "পরিবার"
+            },
+            {
+              "t": "wohnt",
+              "bn": "থাকে"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Sylhet.",
+              "bn": "সিলেট"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বৈবাহিক অবস্থা ও সন্তান (Familienstand)",
+      "title_target": "Familienstand & Kinder",
+      "intro_bn": "অফিসিয়াল ফর্ম পূরণ বা পরিচয় দিতে বৈবাহিক অবস্থার প্রয়োজনীয় পরিভাষা।",
+      "structure": [
+        "Status",
+        "Aussage",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich bin ledig.",
+          "bn": "আমি অবিবাহিত।",
+          "bn_pron": "ইখ্ বিন লেডিখ্",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "ledig.",
+              "bn": "অবিবাহিত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sind Sie verheiratet?",
+          "bn": "আপনি কি বিবাহিত?",
+          "bn_pron": "জিন্ট যী ফেয়ারহাইরাটেট",
+          "tokens": [
+            {
+              "t": "Sind",
+              "bn": "হন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "verheiratet?",
+              "bn": "বিবাহিত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, ich bin verheiratet.",
+          "bn": "হ্যাঁ, আমি বিবাহিত।",
+          "bn_pron": "ইয়া ইখ্ বিন ফেয়ারহাইরাটেট",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "verheiratet.",
+              "bn": "বিবাহিত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie Kinder?",
+          "bn": "আপনার কি সন্তান আছে?",
+          "bn_pron": "হাবের্ন যী কিন্ডার",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Kinder?",
+              "bn": "সন্তান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, ich habe zwei Kinder.",
+          "bn": "হ্যাঁ, আমার দুটি সন্তান আছে।",
+          "bn_pron": "ইয়া ইখ্ হাবে ৎস্ভাই কিন্ডার",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "zwei",
+              "bn": "দুটি"
+            },
+            {
+              "t": "Kinder.",
+              "bn": "সন্তান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein, ich habe keine Kinder.",
+          "bn": "না, আমার কোনো সন্তান নেই।",
+          "bn_pron": "নাইন ইখ্ হাবে কাইনে কিন্ডার",
+          "tokens": [
+            {
+              "t": "Nein,",
+              "bn": "না"
+            },
+            {
+              "t": "ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "keine",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Kinder.",
+              "bn": "সন্তান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich lebe allein.",
+          "bn": "আমি একা থাকি।",
+          "bn_pron": "ইখ্ লেবে আলাইন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "lebe",
+              "bn": "বাস করি"
+            },
+            {
+              "t": "allein.",
+              "bn": "একা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er ist geschieden.",
+          "bn": "তিনি তালাকপ্রাপ্ত।",
+          "bn_pron": "এর ইস্ত গেশীডেন",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "তিনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "geschieden.",
+              "bn": "তালাকপ্রাপ্ত"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

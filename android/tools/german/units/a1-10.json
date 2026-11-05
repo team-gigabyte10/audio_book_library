@@ -1,0 +1,886 @@
+{
+  "title_bn": "দিকনির্দেশনা ও শহরে ঘোরাঘুরি",
+  "title_target": "Orientierung in der Stadt",
+  "lessons": [
+    {
+      "title_bn": "শহরের প্রধান স্থান ও ভবন (Orte in der Stadt)",
+      "title_target": "Wichtige Gebäude",
+      "intro_bn": "ব্যাংক die Bank, ডাকঘর die Post, স্টেশন der Bahnhof ও ফার্মেসি die Apotheke।",
+      "structure": [
+        "Artikel",
+        "Ort",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Bahnhof",
+          "bn": "রেল স্টেশন",
+          "bn_pron": "ডের বানহোফ",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Bahnhof",
+              "bn": "স্টেশন"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Post",
+          "bn": "ডাকঘর / পোস্ট অফিস",
+          "bn_pron": "ডী পোস্ট",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Post",
+              "bn": "ডাকঘর"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "die Bank",
+          "bn": "ব্যাংক",
+          "bn_pron": "ডী বাঙ্ক",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Bank",
+              "bn": "ব্যাংক"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "die Apotheke",
+          "bn": "ওষুধের দোকান / ফার্মেসি",
+          "bn_pron": "ডী আপোথেকে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Apotheke",
+              "bn": "ফার্মেসি"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "das Hotel",
+          "bn": "হোটেল",
+          "bn_pron": "ডাস হোটেল",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Hotel",
+              "bn": "হোটেল"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "das Museum",
+          "bn": "জাদুঘর",
+          "bn_pron": "ডাস মুজেউম",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Museum",
+              "bn": "জাদুঘর"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "der Park",
+          "bn": "পার্ক / উদ্যান",
+          "bn_pron": "ডের পার্ক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Park",
+              "bn": "পার্ক"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Haltestelle",
+          "bn": "বাস বা ট্রাম স্টপ",
+          "bn_pron": "ডী হাল্টেশ্টেলে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Haltestelle",
+              "bn": "স্টপ"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "দিক ও রাস্তার নির্দেশনা (links, rechts, geradeaus)",
+      "title_target": "Richtungen angeben",
+      "intro_bn": "সোজা geradeaus, ডানে nach rechts, এবং বাঁয়ে nach links।",
+      "structure": [
+        "Richtung",
+        "Wegbeschreibung",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Gehen Sie geradeaus!",
+          "bn": "সোজা এগিয়ে যান!",
+          "bn_pron": "গেহেন যী গেরাদেআউস",
+          "tokens": [
+            {
+              "t": "Gehen",
+              "bn": "যান"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "geradeaus!",
+              "bn": "সোজা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Biegen Sie nach links ab!",
+          "bn": "বাঁ দিকে মোড় নিন!",
+          "bn_pron": "বীগেন যী নাখ লিংকস আপ",
+          "tokens": [
+            {
+              "t": "Biegen",
+              "bn": "মোড় নিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "nach",
+              "bn": "দিকে"
+            },
+            {
+              "t": "links",
+              "bn": "বাঁ"
+            },
+            {
+              "t": "ab!",
+              "bn": "ঘোরা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Biegen Sie nach rechts ab!",
+          "bn": "ডান দিকে মোড় নিন!",
+          "bn_pron": "বীগেন যী নাখ রিখটস আপ",
+          "tokens": [
+            {
+              "t": "Biegen",
+              "bn": "মোড় নিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "nach",
+              "bn": "দিকে"
+            },
+            {
+              "t": "rechts",
+              "bn": "ডান"
+            },
+            {
+              "t": "ab!",
+              "bn": "ঘোরা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "An der Kreuzung nach rechts.",
+          "bn": "চৌরাস্তায় ডানে যান।",
+          "bn_pron": "আন ডের ক্রয়ৎসুং নাখ রিখটস",
+          "tokens": [
+            {
+              "t": "An",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Kreuzung",
+              "bn": "চৌরাস্তা"
+            },
+            {
+              "t": "nach",
+              "bn": "দিকে"
+            },
+            {
+              "t": "rechts.",
+              "bn": "ডান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "An der Ampel nach links.",
+          "bn": "ট্রাফিক সিগন্যালে বাঁয়ে যান।",
+          "bn_pron": "আন ডের আম্পেল নাখ লিংকস",
+          "tokens": [
+            {
+              "t": "An",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Ampel",
+              "bn": "সিগন্যাল"
+            },
+            {
+              "t": "nach",
+              "bn": "দিকে"
+            },
+            {
+              "t": "links.",
+              "bn": "বাঁ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die zweite Straße links.",
+          "bn": "দ্বিতীয় রাস্তায় বাঁয়ে যান।",
+          "bn_pron": "ডী ৎস্ভাইটে শ্ট্রাস়ে লিংকস",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "zweite",
+              "bn": "দ্বিতীয়"
+            },
+            {
+              "t": "Straße",
+              "bn": "রাস্তা"
+            },
+            {
+              "t": "links.",
+              "bn": "বাঁয়ে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist nicht weit von hier.",
+          "bn": "এটা এখান থেকে বেশি দূরে নয়।",
+          "bn_pron": "ডাস ইস্ত নিখ্ট ভাইট ফন হিয়ার",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "nicht",
+              "bn": "না"
+            },
+            {
+              "t": "weit",
+              "bn": "দূরে"
+            },
+            {
+              "t": "von",
+              "bn": "থেকে"
+            },
+            {
+              "t": "hier.",
+              "bn": "এখানে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es dauert fünf Minuten zu Fuß.",
+          "bn": "পায়ে হেঁটে পাঁচ মিনিট সময় লাগবে।",
+          "bn_pron": "এস ডাউয়ার্ট ফ্যুনফ মিনুটেন ৎসু ফুস",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "dauert",
+              "bn": "সময় নেয়"
+            },
+            {
+              "t": "fünf",
+              "bn": "পাঁচ"
+            },
+            {
+              "t": "Minuten",
+              "bn": "মিনিট"
+            },
+            {
+              "t": "zu",
+              "bn": "পায়ে"
+            },
+            {
+              "t": "Fuß.",
+              "bn": "হেঁটে"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "প্রেপজিশন ও ডাটিভ (zu, neben, gegenüber)",
+      "title_target": "Präpositionen mit Dativ",
+      "intro_bn": "কোথাও যেতে zu + Dativ: zum Bahnhof (zu dem) এবং zur Bank (zu der)।",
+      "structure": [
+        "Präposition",
+        "Dativform",
+        "Beispielsatz"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie komme ich zum Bahnhof?",
+          "bn": "আমি স্টেশনে কীভাবে যাব?",
+          "bn_pron": "ভী কমে ইখ্ ৎসুম বানহোফ",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কীভাবে"
+            },
+            {
+              "t": "komme",
+              "bn": "যাব"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "zum",
+              "bn": "তে"
+            },
+            {
+              "t": "Bahnhof?",
+              "bn": "স্টেশন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie komme ich zur Post?",
+          "bn": "আমি পোস্ট অফিসে কীভাবে যাব?",
+          "bn_pron": "ভী কমে ইখ্ ৎসুর পোস্ট",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কীভাবে"
+            },
+            {
+              "t": "komme",
+              "bn": "যাব"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "zur",
+              "bn": "তে"
+            },
+            {
+              "t": "Post?",
+              "bn": "ডাকঘর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Apotheke ist neben der Bank.",
+          "bn": "ফার্মেসিটি ব্যাংকের পাশে।",
+          "bn_pron": "ডী আপোথেকে ইস্ত নেবেন ডের বাঙ্ক",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Apotheke",
+              "bn": "ফার্মেসি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "neben",
+              "bn": "পাশে"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Bank.",
+              "bn": "ব্যাংক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Hotel ist gegenüber dem Bahnhof.",
+          "bn": "হোটেলটি স্টেশনের উল্টো দিকে।",
+          "bn_pron": "ডাস হোটেল ইস্ত গেগেনউ্যবার ডেম বানহোফ",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Hotel",
+              "bn": "হোটেল"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "gegenüber",
+              "bn": "বিপরীতে"
+            },
+            {
+              "t": "dem",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Bahnhof.",
+              "bn": "স্টেশন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin in der Nähe.",
+          "bn": "আমি কাছাকাছি আছি।",
+          "bn_pron": "ইখ্ বিন ইন ডের নেহে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "আছি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Nähe.",
+              "bn": "কাছে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Gibt es hier eine Bank?",
+          "bn": "এখানে কাছাকাছি কি কোনো ব্যাংক আছে?",
+          "bn_pron": "গিপ্ট এস হিয়ার আইনে বাঙ্ক",
+          "tokens": [
+            {
+              "t": "Gibt",
+              "bn": "আছে"
+            },
+            {
+              "t": "es",
+              "bn": "কি"
+            },
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Bank?",
+              "bn": "ব্যাংক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, gleich um die Ecke.",
+          "bn": "হ্যাঁ, ঠিক মোড় ঘুরলেই।",
+          "bn_pron": "ইয়া গ্লাইখ উম ডী একে",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "gleich",
+              "bn": "ঠিক"
+            },
+            {
+              "t": "um",
+              "bn": "ঘুরে"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Ecke.",
+              "bn": "মোড়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vielen Dank für Ihre Hilfe!",
+          "bn": "আপনার সাহায্যের জন্য অনেক ধন্যবাদ!",
+          "bn_pron": "ফিলেন ডাঙ্ক ফ্যুর ইরে হিলফে",
+          "tokens": [
+            {
+              "t": "Vielen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Dank",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "Ihre",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Hilfe!",
+              "bn": "সাহায্য"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "রাস্তায় পথচারীর সাথে সংলাপ (Rollenspiel)",
+      "title_target": "Dialog: Nach dem Weg fragen",
+      "intro_bn": "শহরে অচেনা ব্যক্তির কাছে রাস্তা জানতে চাওয়া ও সাহায্য নেওয়ার পূর্ণাঙ্গ স্পোকেন রোল-প্লে।",
+      "structure": [
+        "Sprecher A",
+        "Sprecher B",
+        "Orientierung"
+      ],
+      "items": [
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Entschuldigung, suchen Sie etwas?",
+          "bn": "মাফ করবেন, আপনি কি কিছু খুঁজছেন?",
+          "bn_pron": "এন্টশুলডিগুং জুখেন যী এতভাস",
+          "tokens": [
+            {
+              "t": "Entschuldigung,",
+              "bn": "মাফ করবেন"
+            },
+            {
+              "t": "suchen",
+              "bn": "খুঁজছেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "etwas?",
+              "bn": "কিছু"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ja bitte, wo ist hier die Post?",
+          "bn": "হ্যাঁ দয়া করে, পোস্ট অফিসটি এখানে কোথায়?",
+          "bn_pron": "ইয়া বিটে ভো ইস্ত হিয়ার ডী পোস্ট",
+          "tokens": [
+            {
+              "t": "Ja",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "bitte,",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Post?",
+              "bn": "ডাকঘর"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Gehen Sie geradeaus und dann links.",
+          "bn": "সোজা এগিয়ে যান এবং তারপর বাঁয়ে যান।",
+          "bn_pron": "গেহেন যী গেরাদেআউস উন্ট ডান লিংকস",
+          "tokens": [
+            {
+              "t": "Gehen",
+              "bn": "যান"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "geradeaus",
+              "bn": "সোজা"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "dann",
+              "bn": "তারপর"
+            },
+            {
+              "t": "links.",
+              "bn": "বাঁয়ে"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ist die Post weit weg?",
+          "bn": "পোস্ট অফিস কি অনেক দূর?",
+          "bn_pron": "ইস্ত ডী পোস্ট ভাইট ভেক",
+          "tokens": [
+            {
+              "t": "Ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Post",
+              "bn": "ডাকঘর"
+            },
+            {
+              "t": "weit",
+              "bn": "দূর"
+            },
+            {
+              "t": "weg?",
+              "bn": "দূরে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein, in zwei Minuten sind Sie da.",
+          "bn": "না, দুই মিনিটেই আপনি পৌঁছে যাবেন।",
+          "bn_pron": "নাইন ইন ৎস্ভাই মিনুটেন জিন্ট যী ডা",
+          "tokens": [
+            {
+              "t": "Nein,",
+              "bn": "না"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "zwei",
+              "bn": "দুই"
+            },
+            {
+              "t": "Minuten",
+              "bn": "মিনিট"
+            },
+            {
+              "t": "sind",
+              "bn": "হবেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "da.",
+              "bn": "উপস্থিত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Post ist neben der Apotheke.",
+          "bn": "পোস্ট অফিসটি ফার্মেসির পাশে।",
+          "bn_pron": "ডী পোস্ট ইস্ত নেবেন ডের আপোথেকে",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Post",
+              "bn": "ডাকঘর"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "neben",
+              "bn": "পাশে"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Apotheke.",
+              "bn": "ফার্মেসি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Herzlichen Dank für die Auskunft!",
+          "bn": "তথ্য জানানোর জন্য আন্তরিক ধন্যবাদ!",
+          "bn_pron": "হেয়ার্ৎসলিখেন ডাঙ্ক ফ্যুর ডী আউসকুনফট",
+          "tokens": [
+            {
+              "t": "Herzlichen",
+              "bn": "আন্তরিক"
+            },
+            {
+              "t": "Dank",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Auskunft!",
+              "bn": "তথ্য"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Bitte sehr, gern geschehen!",
+          "bn": "আপনাকে স্বাগতম, সানন্দে করেছি!",
+          "bn_pron": "বিটে জেয়ার গেয়ার্ন গেশেহেন",
+          "tokens": [
+            {
+              "t": "Bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "sehr,",
+              "bn": "খুব"
+            },
+            {
+              "t": "gern",
+              "bn": "আনন্দে"
+            },
+            {
+              "t": "geschehen!",
+              "bn": "ঘটেছে"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

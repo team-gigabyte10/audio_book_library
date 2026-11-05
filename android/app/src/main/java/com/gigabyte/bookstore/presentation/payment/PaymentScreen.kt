@@ -133,6 +133,20 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
+                id = "german_course",
+                title = "জার্মান স্পোকেন কোর্স",
+                subtitle = "শূন্য থেকে A1: উচ্চারণ, ব্যাকরণ ও কথা বলা",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = null,
+                highlights = listOf(
+                    "জার্মান বর্ণমালা, উমলাউট (ä, ö, ü, ß) ও উচ্চারণ",
+                    "der/die/das আর্টিকেল ও একুশে নিয়ম (V2 স্ট্রাকচার)",
+                    "A1 স্পিকিং টেস্ট ও জার্মানি ভিসা/উচ্চশিক্ষা প্রস্তুতি"
+                )
+            ),
+            AppCoursePackage(
                 id = "mega_bundle",
                 title = "অল-ইন-ওয়ান মেগা বান্ডেল",
                 subtitle = "৩টি কোর্স একসাথে (৫০ টাকা ছাড়!)",

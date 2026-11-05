@@ -1,0 +1,770 @@
+{
+  "title_bn": "নিজের পরিচয় ও নাম-ধাম",
+  "title_target": "Sich vorstellen: Name & Begrüßung",
+  "lessons": [
+    {
+      "title_bn": "নাম ও কুশল বিনিময় (Wie heißen Sie?)",
+      "title_target": "Name und Befinden",
+      "intro_bn": "জার্মানিতে আনুষ্ঠানিক পরিচয়ে 'Sie' (আপনি) এবং heißen / sein ক্রিয়াপদ ব্যবহৃত হয়।",
+      "structure": [
+        "Frage",
+        "Antwort",
+        "Befinden"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie heißen Sie?",
+          "bn": "আপনার নাম কী?",
+          "bn_pron": "ভী হাইসেন যী",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কী/কেমন"
+            },
+            {
+              "t": "heißen",
+              "bn": "নাম"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich heiße Hasan.",
+          "bn": "আমার নাম হাসান।",
+          "bn_pron": "ইখ্ হাইসে হাসান",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "heiße",
+              "bn": "নাম"
+            },
+            {
+              "t": "Hasan.",
+              "bn": "হাসান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wer sind Sie?",
+          "bn": "আপনি কে?",
+          "bn_pron": "ভেয়ার জিন্ট যী",
+          "tokens": [
+            {
+              "t": "Wer",
+              "bn": "কে"
+            },
+            {
+              "t": "sind",
+              "bn": "হন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin Maria.",
+          "bn": "আমি মারিয়া।",
+          "bn_pron": "ইখ্ বিন মারিয়া",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "Maria.",
+              "bn": "মারিয়া"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mein Name ist Thomas.",
+          "bn": "আমার নাম টমাস।",
+          "bn_pron": "মাইন নামে ইস্ত টমাস",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Name",
+              "bn": "নাম"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Thomas.",
+              "bn": "টমাস"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie geht es Ihnen?",
+          "bn": "আপনি কেমন আছেন?",
+          "bn_pron": "ভী গেট এস ইনেন",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "geht",
+              "bn": "যায়"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "Ihnen?",
+              "bn": "আপনার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Danke, gut. Und Ihnen?",
+          "bn": "ধন্যবাদ, ভালো। আর আপনি?",
+          "bn_pron": "ডাঙ্কে গুট। উন্ট ইনেন",
+          "tokens": [
+            {
+              "t": "Danke,",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Und",
+              "bn": "এবং"
+            },
+            {
+              "t": "Ihnen?",
+              "bn": "আপনার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sehr gut, danke!",
+          "bn": "খুব ভালো, ধন্যবাদ!",
+          "bn_pron": "জেয়ার গুট ডাঙ্কে",
+          "tokens": [
+            {
+              "t": "Sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gut,",
+              "bn": "ভালো"
+            },
+            {
+              "t": "danke!",
+              "bn": "ধন্যবাদ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "আপনি ও তুমি রূপ (Sie vs. du)",
+      "title_target": "Höflichkeitsform & Duzen",
+      "intro_bn": "অপরিচিত বা বয়স্কদের সম্মান দিয়ে 'Sie' এবং সহপাঠী বা বন্ধুদের 'du' বলতে হয়। ক্রিয়াপদের শেষাংশও পরিবর্তিত হয় (-en বনাম -st)।",
+      "structure": [
+        "Sie-Form",
+        "du-Form",
+        "Vergleich"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie heißt du?",
+          "bn": "তোমার নাম কী?",
+          "bn_pron": "ভী হাইস্ট দু",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কী"
+            },
+            {
+              "t": "heißt",
+              "bn": "নাম"
+            },
+            {
+              "t": "du?",
+              "bn": "তোমার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich heiße Lukas.",
+          "bn": "আমার নাম লুকাস।",
+          "bn_pron": "ইখ্ হাইসে লুকাস",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "heiße",
+              "bn": "নাম"
+            },
+            {
+              "t": "Lukas.",
+              "bn": "লুকাস"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie geht es dir?",
+          "bn": "তুমি কেমন আছো?",
+          "bn_pron": "ভী গেট এস ডিয়ার",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "geht",
+              "bn": "যায়"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "dir?",
+              "bn": "তোমার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es geht mir super.",
+          "bn": "আমি দারুণ আছি।",
+          "bn_pron": "এস গেট মিয়ার সুপার",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "geht",
+              "bn": "যায়"
+            },
+            {
+              "t": "mir",
+              "bn": "আমার"
+            },
+            {
+              "t": "super.",
+              "bn": "চমৎকার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Und wer bist du?",
+          "bn": "আর তুমি কে?",
+          "bn_pron": "উন্ট ভেয়ার বিস্ট দু",
+          "tokens": [
+            {
+              "t": "Und",
+              "bn": "আর"
+            },
+            {
+              "t": "wer",
+              "bn": "কে"
+            },
+            {
+              "t": "bist",
+              "bn": "হও"
+            },
+            {
+              "t": "du?",
+              "bn": "তুমি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin Anna.",
+          "bn": "আমি আনা।",
+          "bn_pron": "ইখ্ বিন আনা",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "Anna.",
+              "bn": "আনা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Freut mich sehr!",
+          "bn": "আপনার সাথে পরিচিত হয়ে ভালো লাগলো!",
+          "bn_pron": "ফ্রয়ট নিখ্ জেয়ার",
+          "tokens": [
+            {
+              "t": "Freut",
+              "bn": "আনন্দিত করে"
+            },
+            {
+              "t": "mich",
+              "bn": "আমাকে"
+            },
+            {
+              "t": "sehr!",
+              "bn": "খুব"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Angenehm!",
+          "bn": "আনন্দিত হলাম!",
+          "bn_pron": "আনগেনেহম",
+          "tokens": [
+            {
+              "t": "Angenehm!",
+              "bn": "আনন্দিত হলাম"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "কোথায় থাকেন ও বাসস্থান (wohnen)",
+      "title_target": "Wohnort angeben",
+      "intro_bn": "বাসস্থান সম্পর্কে জানতে 'Wo' (কোথায়) এবং 'in' (এ/মধ্যে) প্রেপজিশন ব্যবহৃত হয়।",
+      "structure": [
+        "Frage (Wo)",
+        "Präposition (in)",
+        "Ort"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wo wohnen Sie?",
+          "bn": "আপনি কোথায় থাকেন?",
+          "bn_pron": "ভো ভোনেন যী",
+          "tokens": [
+            {
+              "t": "Wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "wohnen",
+              "bn": "থাকেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich wohne in Berlin.",
+          "bn": "আমি বার্লিনে থাকি।",
+          "bn_pron": "ইখ্ ভোনে ইন বের্লিন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "wohne",
+              "bn": "থাকি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Berlin.",
+              "bn": "বার্লিন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wo wohnst du?",
+          "bn": "তুমি কোথায় থাকো?",
+          "bn_pron": "ভো ভোনস্ট দু",
+          "tokens": [
+            {
+              "t": "Wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "wohnst",
+              "bn": "থাকো"
+            },
+            {
+              "t": "du?",
+              "bn": "তুমি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich wohne in Dhaka.",
+          "bn": "আমি ঢাকায় থাকি।",
+          "bn_pron": "ইখ্ ভোনে ইন ঢাকা",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "wohne",
+              "bn": "থাকি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Dhaka.",
+              "bn": "ঢাকা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wohnen Sie auch hier?",
+          "bn": "আপনিও কি এখানে থাকেন?",
+          "bn_pron": "ভোনেন যী আউখ হিয়ার",
+          "tokens": [
+            {
+              "t": "Wohnen",
+              "bn": "থাকেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "auch",
+              "bn": "ও"
+            },
+            {
+              "t": "hier?",
+              "bn": "এখানে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein, ich wohne in Hamburg.",
+          "bn": "না, আমি হামবুর্গে থাকি।",
+          "bn_pron": "নাইন ইখ্ ভোনে ইন হামবুর্গ",
+          "tokens": [
+            {
+              "t": "Nein,",
+              "bn": "না"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "wohne",
+              "bn": "থাকি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Hamburg.",
+              "bn": "হামবুর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist in Deutschland.",
+          "bn": "এটা জার্মানিতে।",
+          "bn_pron": "ডাস ইস্ত ইন ডয়চলান্ট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Deutschland.",
+              "bn": "জার্মানি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wo liegt das?",
+          "bn": "এটা কোথায় অবস্থিত?",
+          "bn_pron": "ভো লীখ্ট ডাস",
+          "tokens": [
+            {
+              "t": "Wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "liegt",
+              "bn": "অবস্থিত"
+            },
+            {
+              "t": "das?",
+              "bn": "এটা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "পরিচয় পর্বের সম্পূর্ণ বাক্য ও ড্রিল",
+      "title_target": "Vorstellung komplett",
+      "intro_bn": "নিজের নাম ও শহর একটানা গুছিয়ে বলার স্পোকেন অনুশীলন।",
+      "structure": [
+        "Satzgefüge",
+        "Fließendes Sprechen",
+        "Profil"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Hallo, ich heiße Tariq.",
+          "bn": "হ্যালো, আমার নাম তারিক।",
+          "bn_pron": "হালো ইখ্ হাইসে তারিক",
+          "tokens": [
+            {
+              "t": "Hallo,",
+              "bn": "হ্যালো"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "heiße",
+              "bn": "নাম"
+            },
+            {
+              "t": "Tariq.",
+              "bn": "তারিক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich wohne jetzt in Frankfurt.",
+          "bn": "আমি এখন ফ্রাঙ্কফুর্টে থাকি।",
+          "bn_pron": "ইখ্ ভোনে ইয়েৎস্ট ইন ফ্রাঙ্কফুর্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "wohne",
+              "bn": "থাকি"
+            },
+            {
+              "t": "jetzt",
+              "bn": "এখন"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Frankfurt.",
+              "bn": "ফ্রাঙ্কফুর্ট"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist meine Freundin Sarah.",
+          "bn": "ইনি আমার বান্ধবী সারা।",
+          "bn_pron": "ডাস ইস্ত মাইনে ফ্রয়নডিন সারা",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "ইনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Freundin",
+              "bn": "বান্ধবী"
+            },
+            {
+              "t": "Sarah.",
+              "bn": "সারা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie wohnt in München.",
+          "bn": "সে মিউনিখে থাকে।",
+          "bn_pron": "যী ভোনট ইন ম্যুনশেন",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "সে"
+            },
+            {
+              "t": "wohnt",
+              "bn": "থাকে"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "München.",
+              "bn": "মিউনিখ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir lernen zusammen Deutsch.",
+          "bn": "আমরা একসাথে জার্মান শিখছি।",
+          "bn_pron": "ভির লের্নেন ৎসুসামেন ডয়চ",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "lernen",
+              "bn": "শিখছি"
+            },
+            {
+              "t": "zusammen",
+              "bn": "একসাথে"
+            },
+            {
+              "t": "Deutsch.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Deutsch ist sehr interessant.",
+          "bn": "জার্মান ভাষা খুবই চমৎকার।",
+          "bn_pron": "ডয়চ ইস্ত জেয়ার ইন্টারেসান্ট",
+          "tokens": [
+            {
+              "t": "Deutsch",
+              "bn": "জার্মান"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "interessant.",
+              "bn": "চমৎকার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Schön, Sie kennenzulernen!",
+          "bn": "আপনার সাথে পরিচিত হতে পেরে ভালো লাগলো!",
+          "bn_pron": "শোয়ন যী কেনেনৎসুলেয়ার্নেন",
+          "tokens": [
+            {
+              "t": "Schön,",
+              "bn": "সুন্দর"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনাকে"
+            },
+            {
+              "t": "kennenzulernen!",
+              "bn": "চিনতে পারা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Auf Wiedersehen, bis bald!",
+          "bn": "বিদায়, শীঘ্রই দেখা হবে!",
+          "bn_pron": "আউফ ভিডারজেহেন বিস বাল্ট",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "পুনরায়"
+            },
+            {
+              "t": "Wiedersehen,",
+              "bn": "দেখা"
+            },
+            {
+              "t": "bis",
+              "bn": "পর্যন্ত"
+            },
+            {
+              "t": "bald!",
+              "bn": "শীঘ্রই"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

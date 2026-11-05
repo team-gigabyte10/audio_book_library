@@ -191,6 +191,9 @@ fun AppNavHost(
                 onNavigateToLearnHindi = {
                     navController.navigate(Screen.Learn.createRoute("hindi"))
                 },
+                onNavigateToLearnGerman = {
+                    navController.navigate(Screen.Learn.createRoute("german"))
+                },
                 onNavigateToLastRead = {
                     navController.navigate(Screen.LastRead.route)
                 },

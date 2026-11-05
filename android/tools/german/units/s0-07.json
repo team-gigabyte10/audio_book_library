@@ -1,0 +1,618 @@
+{
+  "title_bn": "জার্মান সংখ্যা গণনা",
+  "title_target": "Zahlen von Null bis Hundert",
+  "lessons": [
+    {
+      "title_bn": "সংখ্যা: শূন্য থেকে বারো (null bis zwölf)",
+      "title_target": "Null bis Zwölf",
+      "intro_bn": "শূন্য থেকে বারো পর্যন্ত সংখ্যাগুলো স্বতন্ত্র মৌলিক শব্দ। এগুলো খুব ভালো করে আয়ত্ত করুন।",
+      "structure": [
+        "Zahlwort",
+        "Wert",
+        "Phonetik"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "null",
+          "bn": "শূন্য (০)",
+          "bn_pron": "নুল",
+          "tokens": [
+            {
+              "t": "null",
+              "bn": "শূন্য (০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "eins",
+          "bn": "এক (১)",
+          "bn_pron": "আইন্স",
+          "tokens": [
+            {
+              "t": "eins",
+              "bn": "এক (১)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zwei",
+          "bn": "দুই (২)",
+          "bn_pron": "ৎস্ভাই",
+          "tokens": [
+            {
+              "t": "zwei",
+              "bn": "দুই (২)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "drei",
+          "bn": "তিন (৩)",
+          "bn_pron": "ড্রাই",
+          "tokens": [
+            {
+              "t": "drei",
+              "bn": "তিন (৩)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "vier",
+          "bn": "চার (৪)",
+          "bn_pron": "ফিয়ার",
+          "tokens": [
+            {
+              "t": "vier",
+              "bn": "চার (৪)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fünf",
+          "bn": "পাঁচ (৫)",
+          "bn_pron": "ফ্যুনফ",
+          "tokens": [
+            {
+              "t": "fünf",
+              "bn": "পাঁচ (৫)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "sechs",
+          "bn": "ছয় (৬)",
+          "bn_pron": "জেক্স",
+          "tokens": [
+            {
+              "t": "sechs",
+              "bn": "ছয় (৬)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "sieben",
+          "bn": "সাত (৭)",
+          "bn_pron": "যীবেন",
+          "tokens": [
+            {
+              "t": "sieben",
+              "bn": "সাত (৭)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "acht",
+          "bn": "আট (৮)",
+          "bn_pron": "আখট",
+          "tokens": [
+            {
+              "t": "acht",
+              "bn": "আট (৮)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "neun",
+          "bn": "নয় (৯)",
+          "bn_pron": "নয়ন",
+          "tokens": [
+            {
+              "t": "neun",
+              "bn": "নয় (৯)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zehn",
+          "bn": "দশ (১০)",
+          "bn_pron": "ৎসেন",
+          "tokens": [
+            {
+              "t": "zehn",
+              "bn": "দশ (১০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "elf",
+          "bn": "এগারো (১১)",
+          "bn_pron": "এল্ফ",
+          "tokens": [
+            {
+              "t": "elf",
+              "bn": "এগারো (১১)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zwölf",
+          "bn": "বারো (১২)",
+          "bn_pron": "ৎস্ভোয়েলফ",
+          "tokens": [
+            {
+              "t": "zwölf",
+              "bn": "বারো (১২)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "সংখ্যা: তেরো থেকে উনিশ (dreizehn bis neunzehn)",
+      "title_target": "Dreizehn bis Neunzehn",
+      "intro_bn": "তেরো থেকে উনিশ পর্যন্ত মূল সংখ্যার শেষে 'zehn' (দশ) যুক্ত হয়। লক্ষ্য করুন sechzehn ও siebzehn-এ সামান্য সংক্ষিপ্ত রূপ হয়।",
+      "structure": [
+        "Zahlwort",
+        "Zusammensetzung",
+        "Wert"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "dreizehn",
+          "bn": "তেরো (১৩)",
+          "bn_pron": "ড্রাইৎসেন",
+          "tokens": [
+            {
+              "t": "dreizehn",
+              "bn": "তেরো (১৩)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "vierzehn",
+          "bn": "চৌদ্দ (১৪)",
+          "bn_pron": "ফিয়ারৎসেন",
+          "tokens": [
+            {
+              "t": "vierzehn",
+              "bn": "চৌদ্দ (১৪)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fünfzehn",
+          "bn": "পনেরো (১৫)",
+          "bn_pron": "ফ্যুনফৎসেন",
+          "tokens": [
+            {
+              "t": "fünfzehn",
+              "bn": "পনেরো (১৫)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "sechzehn",
+          "bn": "ষোলো (১৬)",
+          "bn_pron": "জেখৎসেন",
+          "tokens": [
+            {
+              "t": "sechzehn",
+              "bn": "ষোলো (১৬)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "siebzehn",
+          "bn": "সতেরো (১৭)",
+          "bn_pron": "যীপৎসেন",
+          "tokens": [
+            {
+              "t": "siebzehn",
+              "bn": "সতেরো (১৭)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "achtzehn",
+          "bn": "আঠারো (১৮)",
+          "bn_pron": "আখটৎসেন",
+          "tokens": [
+            {
+              "t": "achtzehn",
+              "bn": "আঠারো (১৮)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "neunzehn",
+          "bn": "উনিশ (১৯)",
+          "bn_pron": "নয়নৎসেন",
+          "tokens": [
+            {
+              "t": "neunzehn",
+              "bn": "উনিশ (১৯)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zwanzig",
+          "bn": "বিশ (২০)",
+          "bn_pron": "ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "zwanzig",
+              "bn": "বিশ (২০)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "দশকের সংখ্যা: কুড়ি থেকে নব্বই (zwanzig bis neunzig)",
+      "title_target": "Die Zehnerzahlen",
+      "intro_bn": "দশকের সংখ্যাগুলোর শেষে '-zig' যুক্ত হয়। ব্যতিক্রম কেবল dreißig (এসহ্-সেট ß দিয়ে গঠিত)।",
+      "structure": [
+        "Zehner",
+        "Wert",
+        "Endung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "zwanzig",
+          "bn": "বিশ (২০)",
+          "bn_pron": "ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "zwanzig",
+              "bn": "বিশ (২০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "dreißig",
+          "bn": "তিরিশ (৩০)",
+          "bn_pron": "ড্রাইসিখ্",
+          "tokens": [
+            {
+              "t": "dreißig",
+              "bn": "তিরিশ (৩০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "vierzig",
+          "bn": "চল্লিশ (৪০)",
+          "bn_pron": "ফিয়ারৎসিখ্",
+          "tokens": [
+            {
+              "t": "vierzig",
+              "bn": "চল্লিশ (৪০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fünfzig",
+          "bn": "পঞ্চাশ (৫০)",
+          "bn_pron": "ফ্যুনফৎসিখ্",
+          "tokens": [
+            {
+              "t": "fünfzig",
+              "bn": "পঞ্চাশ (৫০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "sechzig",
+          "bn": "ষাট (৬০)",
+          "bn_pron": "জেখৎসিখ্",
+          "tokens": [
+            {
+              "t": "sechzig",
+              "bn": "ষাট (৬০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "siebzig",
+          "bn": "সত্তর (৭০)",
+          "bn_pron": "যীপৎসিখ্",
+          "tokens": [
+            {
+              "t": "siebzig",
+              "bn": "সত্তর (৭০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "achtzig",
+          "bn": "আশি (৮০)",
+          "bn_pron": "আখটৎসিখ্",
+          "tokens": [
+            {
+              "t": "achtzig",
+              "bn": "আশি (৮০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "neunzig",
+          "bn": "নব্বই (৯০)",
+          "bn_pron": "নয়নৎসিখ্",
+          "tokens": [
+            {
+              "t": "neunzig",
+              "bn": "নব্বই (৯০)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "একুশ থেকে উনত্রিশ (উল্টো গণনা নিয়ম)",
+      "title_target": "Die Zahlen von 21 bis 29",
+      "intro_bn": "জার্মানিতে দুই অঙ্কের সংখ্যা বলার সময় এককের ঘর আগে এবং দশকের ঘর পরে 'und' (এবং) দিয়ে জোড়া লাগে, যেমন: এক এবং বিশ = einundzwanzig।",
+      "structure": [
+        "Formel",
+        "Zahl",
+        "Phonetik"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "einundzwanzig",
+          "bn": "একুশ (২১)",
+          "bn_pron": "আইন-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "einundzwanzig",
+              "bn": "একুশ (২১)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zweiundzwanzig",
+          "bn": "বাইশ (২২)",
+          "bn_pron": "ৎস্ভাই-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "zweiundzwanzig",
+              "bn": "বাইশ (২২)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "dreiundzwanzig",
+          "bn": "তেইশ (২৩)",
+          "bn_pron": "ড্রাই-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "dreiundzwanzig",
+              "bn": "তেইশ (২৩)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "vierundzwanzig",
+          "bn": "চব্বিশ (২৪)",
+          "bn_pron": "ফিয়ার-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "vierundzwanzig",
+              "bn": "চব্বিশ (২৪)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fünfundzwanzig",
+          "bn": "পঁচিশ (২৫)",
+          "bn_pron": "ফ্যুনফ-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "fünfundzwanzig",
+              "bn": "পঁচিশ (২৫)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "sechsundzwanzig",
+          "bn": "ছাব্বিশ (২৬)",
+          "bn_pron": "জেক্স-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "sechsundzwanzig",
+              "bn": "ছাব্বিশ (২৬)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "siebenundzwanzig",
+          "bn": "সাতাশ (২৭)",
+          "bn_pron": "যীবেন-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "siebenundzwanzig",
+              "bn": "সাতাশ (২৭)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "achtundzwanzig",
+          "bn": "আঠাশ (২৮)",
+          "bn_pron": "আখট-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "achtundzwanzig",
+              "bn": "আঠাশ (২৮)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "neunundzwanzig",
+          "bn": "উনত্রিশ (২৯)",
+          "bn_pron": "নয়ন-উন্ট-ৎস্ভানৎসিখ্",
+          "tokens": [
+            {
+              "t": "neunundzwanzig",
+              "bn": "উনত্রিশ (২৯)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বড় সংখ্যা ও শতক (dreißig bis hundert)",
+      "title_target": "Höhere Zahlen & Hundert",
+      "intro_bn": "একই নিয়মে তিরিশ, চল্লিশ বা শতক পর্যন্ত গণনা করা যায়। ১০০ হলো hundert।",
+      "structure": [
+        "Zahlwort",
+        "Bedeutung",
+        "Phonetik"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "einunddreißig",
+          "bn": "একত্রিশ (৩১)",
+          "bn_pron": "আইন-উন্ট-ড্রাইসিখ্",
+          "tokens": [
+            {
+              "t": "einunddreißig",
+              "bn": "একত্রিশ (৩১)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fünfunddreißig",
+          "bn": "পঁয়ত্রিশ (৩৫)",
+          "bn_pron": "ফ্যুনফ-উন্ট-ড্রাইসিখ্",
+          "tokens": [
+            {
+              "t": "fünfunddreißig",
+              "bn": "পঁয়ত্রিশ (৩৫)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zweiundvierzig",
+          "bn": "বিয়াল্লিশ (৪২)",
+          "bn_pron": "ৎস্ভাই-উন্ট-ফিয়ারৎসিখ্",
+          "tokens": [
+            {
+              "t": "zweiundvierzig",
+              "bn": "বিয়াল্লিশ (৪২)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fünfundfünfzig",
+          "bn": "পঞ্চান্ন (৫৫)",
+          "bn_pron": "ফ্যুনফ-উন্ট-ফ্যুনফৎসিখ্",
+          "tokens": [
+            {
+              "t": "fünfundfünfzig",
+              "bn": "পঞ্চান্ন (৫৫)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "neunundneunzig",
+          "bn": "নিরানব্বই (৯৯)",
+          "bn_pron": "নয়ন-উন্ট-নয়নৎসিখ্",
+          "tokens": [
+            {
+              "t": "neunundneunzig",
+              "bn": "নিরানব্বই (৯৯)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "hundert",
+          "bn": "একশত (১০০)",
+          "bn_pron": "হুন্ডার্ট",
+          "tokens": [
+            {
+              "t": "hundert",
+              "bn": "একশত (১০০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "zweihundert",
+          "bn": "দুইশত (২০০)",
+          "bn_pron": "ৎস্ভাই-হুন্ডার্ট",
+          "tokens": [
+            {
+              "t": "zweihundert",
+              "bn": "দুইশত (২০০)"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "tausend",
+          "bn": "এক হাজার (১০০০)",
+          "bn_pron": "তাউজেন্ট",
+          "tokens": [
+            {
+              "t": "tausend",
+              "bn": "এক হাজার (১০০০)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

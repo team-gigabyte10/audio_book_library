@@ -1,0 +1,877 @@
+{
+  "title_bn": "সময়, দিন, মাস ও ঋতু",
+  "title_target": "Uhrzeit, Wochentage & Jahreszeiten",
+  "lessons": [
+    {
+      "title_bn": "ঘড়ির সময়: অফিসিয়াল রূপ (Wie spät ist es?)",
+      "title_target": "Offizielle Uhrzeit",
+      "intro_bn": "অফিসিয়াল সময় ২৪ ঘণ্টার হিসাবে বলা হয়: Wie spät ist es? -> Es ist vierzehn Uhr dreißig.",
+      "structure": [
+        "Frage",
+        "Stunde + Uhr",
+        "Minute"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie spät ist es?",
+          "bn": "কয়টা বাজে?",
+          "bn_pron": "ভী শ্পেট ইস্ত এস",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "spät",
+              "bn": "দেরি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "es?",
+              "bn": "এটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie viel Uhr ist es?",
+          "bn": "কয়টা বাজে?",
+          "bn_pron": "ভী ফীল উর ইস্ত এস",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কত"
+            },
+            {
+              "t": "viel",
+              "bn": "বেশি"
+            },
+            {
+              "t": "Uhr",
+              "bn": "ঘড়ি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "es?",
+              "bn": "এটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist acht Uhr.",
+          "bn": "এখন সকাল আটটা বাজে।",
+          "bn_pron": "এস ইস্ত আখট উর",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "acht",
+              "bn": "আট"
+            },
+            {
+              "t": "Uhr.",
+              "bn": "টা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist zehn Uhr fünfzehn.",
+          "bn": "এখন দশটা বেজে পনেরো মিনিট।",
+          "bn_pron": "এস ইস্ত ৎসেন উর ফ্যুনফৎসেন",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "zehn",
+              "bn": "দশ"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টা"
+            },
+            {
+              "t": "fünfzehn.",
+              "bn": "পনেরো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist vierzehn Uhr dreißig.",
+          "bn": "এখন দুপুর দুটো বেজে ত্রিশ মিনিট।",
+          "bn_pron": "এস ইস্ত ফিয়ারৎসেন উর ড্রাইসিখ",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "vierzehn",
+              "bn": "চৌদ্দ"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টা"
+            },
+            {
+              "t": "dreißig.",
+              "bn": "তিরিশ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Zug fährt um neun Uhr.",
+          "bn": "ট্রেনটি সকাল নয়টায় ছাড়বে।",
+          "bn_pron": "ডের ৎসুক ফেয়ার্ট উম নয়ন উর",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Zug",
+              "bn": "ট্রেন"
+            },
+            {
+              "t": "fährt",
+              "bn": "ছাড়ে"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "neun",
+              "bn": "নয়"
+            },
+            {
+              "t": "Uhr.",
+              "bn": "টায়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Um wie viel Uhr beginnt der Kurs?",
+          "bn": "কোর্সটি কয়টায় শুরু হয়?",
+          "bn_pron": "উম ভী ফীল উর বেগিনট ডের কুর্স",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "wie",
+              "bn": "কত"
+            },
+            {
+              "t": "viel",
+              "bn": "বেশি"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টা"
+            },
+            {
+              "t": "beginnt",
+              "bn": "শুরু হয়"
+            },
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Kurs?",
+              "bn": "কোর্স"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Kurs beginnt um zehn Uhr.",
+          "bn": "কোর্সটি দশটায় শুরু হয়।",
+          "bn_pron": "ডের কুর্স বেগিনট উম ৎসেন উর",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Kurs",
+              "bn": "কোর্স"
+            },
+            {
+              "t": "beginnt",
+              "bn": "শুরু হয়"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "zehn",
+              "bn": "দশ"
+            },
+            {
+              "t": "Uhr.",
+              "bn": "টায়"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "ঘরোয়া সময়: halb, Viertel nach ও vor",
+      "title_target": "Inoffizielle Uhrzeit",
+      "intro_bn": "দৈনন্দিন আড্ডায় সাড়ে বোঝাতে 'halb' (পরবর্তী ঘণ্টার অর্ধেক, যেমন halb drei = আড়াইটা), সোয়া বোঝাতে Viertel nach, এবং পৌনে বোঝাতে Viertel vor ব্যবহৃত হয়।",
+      "structure": [
+        "Modell",
+        "Uhrzeit",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Es ist halb drei.",
+          "bn": "এখন আড়াইটা বাজে (তিনটার অর্ধেক বাকি)।",
+          "bn_pron": "এস ইস্ত হাল্প ড্রাই",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "halb",
+              "bn": "অর্ধেক"
+            },
+            {
+              "t": "drei.",
+              "bn": "তিনটা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist Viertel nach vier.",
+          "bn": "এখন সোয়া চারটা বাজে (চারটা বেজে পনেরো)।",
+          "bn_pron": "এস ইস্ত ফিয়ার্টেল নাখ ফিয়ার",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Viertel",
+              "bn": "কোয়ার্টার"
+            },
+            {
+              "t": "nach",
+              "bn": "পরে"
+            },
+            {
+              "t": "vier.",
+              "bn": "চার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist Viertel vor fünf.",
+          "bn": "এখন পৌনে পাঁচটা বাজে (পাঁচটা বাজতে পনেরো বাকি)।",
+          "bn_pron": "এস ইস্ত ফিয়ার্টেল ফোর ফ্যুনফ",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Viertel",
+              "bn": "কোয়ার্টার"
+            },
+            {
+              "t": "vor",
+              "bn": "আগে"
+            },
+            {
+              "t": "fünf.",
+              "bn": "পাঁচ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist zehn nach acht.",
+          "bn": "আটটা বেজে দশ মিনিট।",
+          "bn_pron": "এস ইস্ত ৎসেন নাখ আখট",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "zehn",
+              "bn": "দশ"
+            },
+            {
+              "t": "nach",
+              "bn": "পরে"
+            },
+            {
+              "t": "acht.",
+              "bn": "আট"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist fünf vor neun.",
+          "bn": "নয়টা বাজতে পাঁচ মিনিট বাকি।",
+          "bn_pron": "এস ইস্ত ফ্যুনফ ফোর নয়ন",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "fünf",
+              "bn": "পাঁচ"
+            },
+            {
+              "t": "vor",
+              "bn": "আগে"
+            },
+            {
+              "t": "neun.",
+              "bn": "নয়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hast du kurz Zeit?",
+          "bn": "তোমার কি একটু সময় আছে?",
+          "bn_pron": "হাস্ট দু কুর্ৎস ৎসাইট",
+          "tokens": [
+            {
+              "t": "Hast",
+              "bn": "আছে"
+            },
+            {
+              "t": "du",
+              "bn": "তোমার"
+            },
+            {
+              "t": "kurz",
+              "bn": "কিছুক্ষণ"
+            },
+            {
+              "t": "Zeit?",
+              "bn": "সময়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe keine Zeit.",
+          "bn": "আমার কোনো সময় নেই।",
+          "bn_pron": "ইখ্ হাবে কাইনে ৎসাইট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "keine",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Zeit.",
+              "bn": "সময়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir sehen uns um halb acht.",
+          "bn": "আমাদের সাড়ে সাতটায় দেখা হবে।",
+          "bn_pron": "ভির জেহেন উন্স উম হাল্প আখট",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "sehen",
+              "bn": "দেখব"
+            },
+            {
+              "t": "uns",
+              "bn": "নিজেদের"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "halb",
+              "bn": "অর্ধেক"
+            },
+            {
+              "t": "acht.",
+              "bn": "আট"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "সপ্তাহের সাত দিন ও সময়সূচি (Wochentage)",
+      "title_target": "Die sieben Wochentage",
+      "intro_bn": "বারের নামের আগে সর্বদা 'am' বসে: am Montag, am Dienstag, am Wochenende।",
+      "structure": [
+        "Wochentag",
+        "Präposition am",
+        "Aktivität"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Montag",
+          "bn": "সোমবার",
+          "bn_pron": "ডের মোনতাক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Montag",
+              "bn": "সোমবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Dienstag",
+          "bn": "মঙ্গলবার",
+          "bn_pron": "ডের ডীনসতাক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Dienstag",
+              "bn": "মঙ্গলবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Mittwoch",
+          "bn": "বুধবার",
+          "bn_pron": "ডের মিটভখ",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Mittwoch",
+              "bn": "বুধবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Donnerstag",
+          "bn": "বৃহস্পতিবার",
+          "bn_pron": "ডের ডোনারসতাক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Donnerstag",
+              "bn": "বৃহস্পতিবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Freitag",
+          "bn": "শুক্রবার",
+          "bn_pron": "ডের ফ্রাইতাক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Freitag",
+              "bn": "শুক্রবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Samstag",
+          "bn": "শনিবার",
+          "bn_pron": "ডের জামসতাক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Samstag",
+              "bn": "শনিবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Sonntag",
+          "bn": "রবিবার",
+          "bn_pron": "ডের জোনতাক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Sonntag",
+              "bn": "রবিবার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "sentence",
+          "target": "Am Montag arbeite ich nicht.",
+          "bn": "সোমবারে আমার কাজ নেই।",
+          "bn_pron": "আম মোনতাক আরবাইতে ইখ্ নিখ্ট",
+          "tokens": [
+            {
+              "t": "Am",
+              "bn": "এ"
+            },
+            {
+              "t": "Montag",
+              "bn": "সোমবার"
+            },
+            {
+              "t": "arbeite",
+              "bn": "কাজ করি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "nicht.",
+              "bn": "না"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বারো মাস ও চার ঋতু (Monate & Jahreszeiten)",
+      "title_target": "Monate & Jahreszeiten",
+      "intro_bn": "মাস ও ঋতুর নামের আগে সর্বদা 'im' (in dem) বসে: im Januar, im Sommer।",
+      "structure": [
+        "Monat/Saison",
+        "Präposition im",
+        "Satz"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Im Januar ist es sehr kalt.",
+          "bn": "জানুয়ারিতে খুব ঠান্ডা পড়ে।",
+          "bn_pron": "ইম ইয়ানুয়ার ইস্ত এস জেয়ার কাল্ট",
+          "tokens": [
+            {
+              "t": "Im",
+              "bn": "এ"
+            },
+            {
+              "t": "Januar",
+              "bn": "জানুয়ারি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "kalt.",
+              "bn": "ঠান্ডা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mein Geburtstag ist im März.",
+          "bn": "মার্চ মাসে আমার জন্মদিন।",
+          "bn_pron": "মাইন গেবুর্টস্টাক ইস্ত ইম মেয়ার্ৎস",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Geburtstag",
+              "bn": "জন্মদিন"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "März.",
+              "bn": "মার্চ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Im Sommer haben wir Urlaub.",
+          "bn": "গ্রীষ্মকালে আমাদের ছুটি থাকে।",
+          "bn_pron": "ইম যোমার হাবের্ন ভির উরলাউপ",
+          "tokens": [
+            {
+              "t": "Im",
+              "bn": "এ"
+            },
+            {
+              "t": "Sommer",
+              "bn": "গ্রীষ্ম"
+            },
+            {
+              "t": "haben",
+              "bn": "থাকে"
+            },
+            {
+              "t": "wir",
+              "bn": "আমাদের"
+            },
+            {
+              "t": "Urlaub.",
+              "bn": "ছুটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Im Herbst regnet es oft.",
+          "bn": "শরৎকালে প্রায়ই বৃষ্টি হয়।",
+          "bn_pron": "ইম হেয়ার্বস্ট রেগনেট এস অফ্ট",
+          "tokens": [
+            {
+              "t": "Im",
+              "bn": "এ"
+            },
+            {
+              "t": "Herbst",
+              "bn": "শরৎ"
+            },
+            {
+              "t": "regnet",
+              "bn": "বৃষ্টি হয়"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "oft.",
+              "bn": "প্রায়ই"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Im Winter schneit es in den Bergen.",
+          "bn": "শীতকালে পাহাড়ে তুষারপাত হয়।",
+          "bn_pron": "ইম ভিন্টার শ্নাইট এস ইন ডেন বের্গেন",
+          "tokens": [
+            {
+              "t": "Im",
+              "bn": "এ"
+            },
+            {
+              "t": "Winter",
+              "bn": "শীত"
+            },
+            {
+              "t": "schneit",
+              "bn": "তুষার পড়ে"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "den",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Bergen.",
+              "bn": "পাহাড়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Frühling ist wunderschön.",
+          "bn": "বসন্তকাল ভীষণ সুন্দর।",
+          "bn_pron": "ডের ফ্র্যূলিং ইস্ত ভুন্ডারশোয়ন",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Frühling",
+              "bn": "বসন্ত"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "wunderschön.",
+              "bn": "ভীষণ সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wann reist du nach Deutschland?",
+          "bn": "তুমি কবে জার্মানি যাবে?",
+          "bn_pron": "ভান রাইস্ট দু নাখ ডয়চলান্ট",
+          "tokens": [
+            {
+              "t": "Wann",
+              "bn": "কখন"
+            },
+            {
+              "t": "reist",
+              "bn": "ভ্রমণ করবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "nach",
+              "bn": "তে"
+            },
+            {
+              "t": "Deutschland?",
+              "bn": "জার্মানি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich reise im Oktober.",
+          "bn": "আমি অক্টোবর মাসে যাব।",
+          "bn_pron": "ইখ্ রাইজে ইম অক্টোবর",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "reise",
+              "bn": "ভ্রমণ করব"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Oktober.",
+              "bn": "অক্টোবর"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

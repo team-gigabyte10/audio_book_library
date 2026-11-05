@@ -1,0 +1,460 @@
+{
+  "title_bn": "মূল স্বরধ্বনি ও দীর্ঘ/হ্রস্ব স্বর",
+  "title_target": "Vokallänge & Doppelvokale",
+  "lessons": [
+    {
+      "title_bn": "দীর্ঘ স্বরধ্বনি (Lange Vokale)",
+      "title_target": "Lange Vokale",
+      "intro_bn": "একটিমাত্র ব্যঞ্জনবর্ণের আগে স্বরধ্বনি দীর্ঘভাবে উচ্চারিত হয়, অথবা স্বরবর্ণের পর h থাকলে h অনুচ্চারিত থাকে ও স্বরধ্বনি দীর্ঘ হয়।",
+      "structure": [
+        "Wort",
+        "Regel",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Tag",
+          "bn": "দিন",
+          "bn_pron": "তা-ক",
+          "tokens": [
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "gut",
+          "bn": "ভালো",
+          "bn_pron": "গু-ট",
+          "tokens": [
+            {
+              "t": "gut",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "rot",
+          "bn": "লাল",
+          "bn_pron": "রো-ট",
+          "tokens": [
+            {
+              "t": "rot",
+              "bn": "লাল"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Zahn",
+          "bn": "দাঁত",
+          "bn_pron": "ৎসা-ন",
+          "tokens": [
+            {
+              "t": "Zahn",
+              "bn": "দাঁত"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Uhr",
+          "bn": "ঘড়ি / সময়",
+          "bn_pron": "উ-র",
+          "tokens": [
+            {
+              "t": "Uhr",
+              "bn": "ঘড়ি"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Weg",
+          "bn": "পথ / রাস্তা",
+          "bn_pron": "ভে-ক",
+          "tokens": [
+            {
+              "t": "Weg",
+              "bn": "পথ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Name",
+          "bn": "নাম",
+          "bn_pron": "না-মে",
+          "tokens": [
+            {
+              "t": "Name",
+              "bn": "নাম"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "wohnen",
+          "bn": "বাস করা",
+          "bn_pron": "ভো-নেন",
+          "tokens": [
+            {
+              "t": "wohnen",
+              "bn": "বাস করা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "হ্রস্ব স্বরধ্বনি (Kurze Vokale)",
+      "title_target": "Kurze Vokale",
+      "intro_bn": "দুটি ব্যঞ্জনবর্ণের আগে স্বরধ্বনি দ্রুত ও হ্রস্বভাবে উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Regel",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Mann",
+          "bn": "পুরুষ / স্বামী",
+          "bn_pron": "মান",
+          "tokens": [
+            {
+              "t": "Mann",
+              "bn": "পুরুষ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Bett",
+          "bn": "বিছানা",
+          "bn_pron": "বেট",
+          "tokens": [
+            {
+              "t": "Bett",
+              "bn": "বিছানা"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Kind",
+          "bn": "শিশু / বাচ্চা",
+          "bn_pron": "কিন্ট",
+          "tokens": [
+            {
+              "t": "Kind",
+              "bn": "শিশু"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "oft",
+          "bn": "প্রায়ই",
+          "bn_pron": "অফট",
+          "tokens": [
+            {
+              "t": "oft",
+              "bn": "প্রায়ই"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Bus",
+          "bn": "বাস",
+          "bn_pron": "বুস",
+          "tokens": [
+            {
+              "t": "Bus",
+              "bn": "বাস"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "bitte",
+          "bn": "অনুগ্রহ করে",
+          "bn_pron": "বিটে",
+          "tokens": [
+            {
+              "t": "bitte",
+              "bn": "অনুগ্রহ করে"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Teller",
+          "bn": "থালা / প্লেট",
+          "bn_pron": "টেলার",
+          "tokens": [
+            {
+              "t": "Teller",
+              "bn": "থালা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "kommen",
+          "bn": "আসা",
+          "bn_pron": "কমেন",
+          "tokens": [
+            {
+              "t": "kommen",
+              "bn": "আসা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "দ্বৈত স্বরবর্ণ (Doppelvokale: aa, ee, oo)",
+      "title_target": "Doppelvokale",
+      "intro_bn": "একই স্বরবর্ণ পরপর দুবার বসলে সেটি নিশ্চিতভাবে দীর্ঘ স্বরধ্বনি প্রকাশ করে।",
+      "structure": [
+        "Doppelvokal",
+        "Wort",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Haar",
+          "bn": "চুল",
+          "bn_pron": "হা-র",
+          "tokens": [
+            {
+              "t": "Haar",
+              "bn": "চুল"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Paar",
+          "bn": "জোড়া",
+          "bn_pron": "পা-র",
+          "tokens": [
+            {
+              "t": "Paar",
+              "bn": "জোড়া"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "See",
+          "bn": "হ্রদ / সমুদ্র",
+          "bn_pron": "যে-",
+          "tokens": [
+            {
+              "t": "See",
+              "bn": "হ্রদ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Tee",
+          "bn": "চা",
+          "bn_pron": "টে-",
+          "tokens": [
+            {
+              "t": "Tee",
+              "bn": "চা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Kaffee",
+          "bn": "কফি",
+          "bn_pron": "কাফে-",
+          "tokens": [
+            {
+              "t": "Kaffee",
+              "bn": "কফি"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Boot",
+          "bn": "নৌকা",
+          "bn_pron": "বো-ট",
+          "tokens": [
+            {
+              "t": "Boot",
+              "bn": "নৌকা"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Moor",
+          "bn": "জলাভূমি",
+          "bn_pron": "মো-র",
+          "tokens": [
+            {
+              "t": "Moor",
+              "bn": "জলাভূমি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Zoo",
+          "bn": "চিড়িয়াখানা",
+          "bn_pron": "ৎসো-",
+          "tokens": [
+            {
+              "t": "Zoo",
+              "bn": "চিড়িয়াখানা"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "\"ie\" ধ্বনি: দীর্ঘ ঈ (Langes I)",
+      "title_target": "Die Kombination IE",
+      "intro_bn": "জার্মান ভাষায় 'ie' সবসময় দীর্ঘ 'ঈ' (ee)-এর মতো উচ্চারিত হয়। এটি কখনোই 'আই' নয়।",
+      "structure": [
+        "Wort",
+        "Aussprache",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Bier",
+          "bn": "বিয়ার / পানীয়",
+          "bn_pron": "বী-র",
+          "tokens": [
+            {
+              "t": "Bier",
+              "bn": "বিয়ার"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "hier",
+          "bn": "এখানে",
+          "bn_pron": "হী-র",
+          "tokens": [
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "nie",
+          "bn": "কখনই না",
+          "bn_pron": "নী-",
+          "tokens": [
+            {
+              "t": "nie",
+              "bn": "কখনই না"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Tier",
+          "bn": "পশু / প্রাণী",
+          "bn_pron": "টী-র",
+          "tokens": [
+            {
+              "t": "Tier",
+              "bn": "প্রাণী"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "vier",
+          "bn": "চার (সংখ্যা)",
+          "bn_pron": "ফী-র",
+          "tokens": [
+            {
+              "t": "vier",
+              "bn": "চার"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "sieben",
+          "bn": "সাত (সংখ্যা)",
+          "bn_pron": "যী-বেন",
+          "tokens": [
+            {
+              "t": "sieben",
+              "bn": "সাত"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Liebe",
+          "bn": "ভালোবাসা",
+          "bn_pron": "লী-বে",
+          "tokens": [
+            {
+              "t": "Liebe",
+              "bn": "ভালোবাসা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Lied",
+          "bn": "গান",
+          "bn_pron": "লী-ট",
+          "tokens": [
+            {
+              "t": "Lied",
+              "bn": "গান"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    }
+  ]
+}

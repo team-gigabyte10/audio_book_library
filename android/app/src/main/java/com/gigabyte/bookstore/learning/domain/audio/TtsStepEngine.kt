@@ -47,6 +47,10 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private val _hindiAvailable = MutableStateFlow<Boolean?>(null)
     val hindiAvailable: StateFlow<Boolean?> = _hindiAvailable.asStateFlow()
 
+    /** German only: the German course shows a warning when this is false. Not part of [StepAudioEngine]. */
+    private val _germanAvailable = MutableStateFlow<Boolean?>(null)
+    val germanAvailable: StateFlow<Boolean?> = _germanAvailable.asStateFlow()
+
     private var engine = Engine()
 
     override suspend fun speak(text: String, lang: SpeechLang, rate: Float) = engine.speak(text, lang, rate)
@@ -63,6 +67,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         _banglaAvailable.value = null
         _urduAvailable.value = null
         _hindiAvailable.value = null
+        _germanAvailable.value = null
         engine = Engine()
     }
 
@@ -89,6 +94,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             resolve(SpeechLang.JA, JAPANESE_LOCALES)
             resolve(SpeechLang.UR, URDU_LOCALES)
             resolve(SpeechLang.HI, HINDI_LOCALES)
+            resolve(SpeechLang.DE, GERMAN_LOCALES)
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String?) = Unit
                 override fun onDone(utteranceId: String?) = complete(utteranceId)
@@ -112,6 +118,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             _banglaAvailable.value = ok && SpeechLang.BN in locales
             _urduAvailable.value = ok && SpeechLang.UR in locales
             _hindiAvailable.value = ok && SpeechLang.HI in locales
+            _germanAvailable.value = ok && SpeechLang.DE in locales
             ready.complete(ok)
         }
 
@@ -187,6 +194,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         val JAPANESE_LOCALES = listOf(Locale.JAPAN, Locale.JAPANESE)
         val URDU_LOCALES = listOf(Locale("ur", "PK"), Locale("ur", "IN"), Locale("ur"))
         val HINDI_LOCALES = listOf(Locale("hi", "IN"), Locale("hi"))
+        val GERMAN_LOCALES = listOf(Locale.GERMANY, Locale.GERMAN)
 
         fun isAvailable(result: Int) = result == TextToSpeech.LANG_AVAILABLE ||
             result == TextToSpeech.LANG_COUNTRY_AVAILABLE ||

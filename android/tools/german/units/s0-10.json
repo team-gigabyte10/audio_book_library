@@ -1,0 +1,843 @@
+{
+  "title_bn": "ক্লাসরুম ও অ্যাপ ব্যবহারের নির্দেশ",
+  "title_target": "Klassenzimmer & App-Anweisungen",
+  "lessons": [
+    {
+      "title_bn": "শোনা ও বলা সংক্রান্ত নির্দেশ (Hören & Sprechen)",
+      "title_target": "Hör- & Sprechanweisungen",
+      "intro_bn": "স্পোকেন ক্লাসে ও অ্যাপে নির্দেশনা বোঝার মৌলিক শব্দসমূহ।",
+      "structure": [
+        "Imperativ",
+        "Aktion",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Hören Sie zu!",
+          "bn": "মন দিয়ে শুনুন!",
+          "bn_pron": "হোয়েরেন যী ৎসু",
+          "tokens": [
+            {
+              "t": "Hören",
+              "bn": "শুনুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "zu!",
+              "bn": "মন দিয়ে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sprechen Sie nach!",
+          "bn": "পিছনে পিছনে বলুন!",
+          "bn_pron": "শ্প্রেখেন যী নাখ",
+          "tokens": [
+            {
+              "t": "Sprechen",
+              "bn": "বলুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "nach!",
+              "bn": "পিছনে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wiederholen Sie bitte!",
+          "bn": "দয়া করে পুনরাবৃত্তি করুন!",
+          "bn_pron": "ভিডাহোলেন যী বিটে",
+          "tokens": [
+            {
+              "t": "Wiederholen",
+              "bn": "পুনরাবৃত্তি করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte!",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sprechen Sie laut!",
+          "bn": "জোরে জোরে বলুন!",
+          "bn_pron": "শ্প্রেখেন যী লাউট",
+          "tokens": [
+            {
+              "t": "Sprechen",
+              "bn": "বলুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "laut!",
+              "bn": "উচ্চস্বরে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Antworten Sie bitte!",
+          "bn": "দয়া করে উত্তর দিন!",
+          "bn_pron": "আন্টভর্টেন যী বিটে",
+          "tokens": [
+            {
+              "t": "Antworten",
+              "bn": "উত্তর দিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte!",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Fragen Sie Ihren Partner!",
+          "bn": "আপনার সঙ্গীকে জিজ্ঞাসা করুন!",
+          "bn_pron": "ফ্রাগেন যী ইরেন পার্টনার",
+          "tokens": [
+            {
+              "t": "Fragen",
+              "bn": "জিজ্ঞাসা করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Ihren",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Partner!",
+              "bn": "সঙ্গীকে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sprechen Sie langsam!",
+          "bn": "ধীরে ধীরে কথা বলুন!",
+          "bn_pron": "শ্প্রেখেন যী লাংসাম",
+          "tokens": [
+            {
+              "t": "Sprechen",
+              "bn": "বলুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "langsam!",
+              "bn": "ধীরে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Üben Sie täglich!",
+          "bn": "প্রতিদিন অনুশীলন করুন!",
+          "bn_pron": "উ্যবেন যী টেগলিখ",
+          "tokens": [
+            {
+              "t": "Üben",
+              "bn": "অনুশীলন করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "täglich!",
+              "bn": "প্রতিদিন"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "পড়া ও লেখা সংক্রান্ত নির্দেশ (Lesen & Schreiben)",
+      "title_target": "Lese- & Schreibanweisungen",
+      "intro_bn": "পাঠ্যপুস্তক বা পরীক্ষার নির্দেশনায় ব্যবহৃত ক্রিয়াপদ।",
+      "structure": [
+        "Anweisung",
+        "Kontext",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Lesen Sie den Text!",
+          "bn": "টেক্সটটি পড়ুন!",
+          "bn_pron": "লেজেন যী ডেন টেক্সট",
+          "tokens": [
+            {
+              "t": "Lesen",
+              "bn": "পড়ুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "den",
+              "bn": "টি"
+            },
+            {
+              "t": "Text!",
+              "bn": "টেক্সট"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Schreiben Sie das Wort!",
+          "bn": "শব্দটি লিখুন!",
+          "bn_pron": "শ্রাইবেন যী ডাস ভর্ট",
+          "tokens": [
+            {
+              "t": "Schreiben",
+              "bn": "লিখুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Wort!",
+              "bn": "শব্দ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Kreuzen Sie an!",
+          "bn": "সঠিক ঘরে টিক চিহ্ন দিন!",
+          "bn_pron": "ক্রয়ৎসেন যী আন",
+          "tokens": [
+            {
+              "t": "Kreuzen",
+              "bn": "চিহ্ন দিন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "an!",
+              "bn": "টিক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ergänzen Sie die Lücke!",
+          "bn": "শূন্যস্থান পূরণ করুন!",
+          "bn_pron": "এয়ার্গেনৎসেন যী ডী ল্যুকে",
+          "tokens": [
+            {
+              "t": "Ergänzen",
+              "bn": "পূরণ করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Lücke!",
+              "bn": "শূন্যস্থান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ordnen Sie zu!",
+          "bn": "মিলিয়ে সাজান!",
+          "bn_pron": "অর্ডনেন যী ৎসু",
+          "tokens": [
+            {
+              "t": "Ordnen",
+              "bn": "সাজান"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "zu!",
+              "bn": "মিলিয়ে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Markieren Sie die Verben!",
+          "bn": "ক্রিয়াপদগুলো চিহ্নিত করুন!",
+          "bn_pron": "মার্কিরেন যী ডী ভার্বেন",
+          "tokens": [
+            {
+              "t": "Markieren",
+              "bn": "চিহ্নিত করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "die",
+              "bn": "গুলো"
+            },
+            {
+              "t": "Verben!",
+              "bn": "ক্রিয়াপদ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Notieren Sie bitte!",
+          "bn": "দয়া করে নোট করুন!",
+          "bn_pron": "নোটিরেন যী বিটে",
+          "tokens": [
+            {
+              "t": "Notieren",
+              "bn": "নোট করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte!",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vergleichen Sie zu zweit!",
+          "bn": "জোড়ায় জোড়ায় তুলনা করুন!",
+          "bn_pron": "ফেয়ারগ্লাইখেন যী ৎসু ৎস্ভাইট",
+          "tokens": [
+            {
+              "t": "Vergleichen",
+              "bn": "তুলনা করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "zu",
+              "bn": "এ"
+            },
+            {
+              "t": "zweit!",
+              "bn": "জোড়ায়"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বুঝতে না পারা ও সাহায্য চাওয়া",
+      "title_target": "Verstehen & Hilfe erbitten",
+      "intro_bn": "কথা বুঝতে সমস্যা হলে বা ধীরে বলতে অনুরোধ জানানোর প্রয়োজনীয় বাক্য।",
+      "structure": [
+        "Satz",
+        "Problem",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich verstehe das nicht.",
+          "bn": "আমি এটা বুঝতে পারছি না।",
+          "bn_pron": "ইখ্ ফেয়ার্শ্টেহে ডাস নিখ্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "verstehe",
+              "bn": "বুঝি"
+            },
+            {
+              "t": "das",
+              "bn": "এটা"
+            },
+            {
+              "t": "nicht.",
+              "bn": "না"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Langsamer bitte!",
+          "bn": "দয়া করে আরেকটু ধীরে বলুন!",
+          "bn_pron": "লাংসামার বিটে",
+          "tokens": [
+            {
+              "t": "Langsamer",
+              "bn": "আরেকটু ধীরে"
+            },
+            {
+              "t": "bitte!",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Können Sie das wiederholen?",
+          "bn": "আপনি কি এটা আবার বলতে পারবেন?",
+          "bn_pron": "কোয়ন্নেন যী ডাস ভিডারহোলেন",
+          "tokens": [
+            {
+              "t": "Können",
+              "bn": "পারবেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "das",
+              "bn": "এটা"
+            },
+            {
+              "t": "wiederholen?",
+              "bn": "পুনরাবৃত্তি করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe eine Frage.",
+          "bn": "আমার একটি প্রশ্ন আছে।",
+          "bn_pron": "ইখ্ হাবে আইনে ফ্রাগে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Frage.",
+              "bn": "প্রশ্ন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Können Sie mir helfen?",
+          "bn": "আপনি কি আমাকে সাহায্য করতে পারবেন?",
+          "bn_pron": "কোয়ন্নেন যী মিয়ার হেলফেন",
+          "tokens": [
+            {
+              "t": "Können",
+              "bn": "পারবেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "mir",
+              "bn": "আমাকে"
+            },
+            {
+              "t": "helfen?",
+              "bn": "সাহায্য করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Was bedeutet das?",
+          "bn": "এটার অর্থ কী?",
+          "bn_pron": "ভাস বেদয়টেট ডাস",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "bedeutet",
+              "bn": "অর্থ বহন করে"
+            },
+            {
+              "t": "das?",
+              "bn": "এটা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie heißt das auf Deutsch?",
+          "bn": "এটাকে জার্মানে কী বলে?",
+          "bn_pron": "ভী হাইস্ট ডাস আউফ ডয়চ",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কী/কেমন"
+            },
+            {
+              "t": "heißt",
+              "bn": "বলে"
+            },
+            {
+              "t": "das",
+              "bn": "এটাকে"
+            },
+            {
+              "t": "auf",
+              "bn": "তে"
+            },
+            {
+              "t": "Deutsch?",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie schreibt man das?",
+          "bn": "এটা কীভাবে লেখে / বানান কী?",
+          "bn_pron": "ভী শ্রাইপ্ট মান ডাস",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কীভাবে"
+            },
+            {
+              "t": "schreibt",
+              "bn": "লেখে"
+            },
+            {
+              "t": "man",
+              "bn": "লোকে"
+            },
+            {
+              "t": "das?",
+              "bn": "এটা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "প্রশ্ন করা ও স্পষ্টতা চাওয়া (Wie bitte?)",
+      "title_target": "Nachfragen & Klären",
+      "intro_bn": "কথা শুনতে না পেলে বা অস্পষ্ট লাগলে বিনীতভাবে আবার শুনতে চাওয়ার কৌশল।",
+      "structure": [
+        "Frage",
+        "Absicht",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie bitte?",
+          "bn": "কী বললেন দয়া করে? / সরি?",
+          "bn_pron": "ভী বিটে",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "bitte?",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Noch einmal bitte!",
+          "bn": "আরেকবার দয়া করে!",
+          "bn_pron": "নখ আইনমাল বিটে",
+          "tokens": [
+            {
+              "t": "Noch",
+              "bn": "আরও"
+            },
+            {
+              "t": "einmal",
+              "bn": "একবার"
+            },
+            {
+              "t": "bitte!",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ist das richtig?",
+          "bn": "এটা কি সঠিক?",
+          "bn_pron": "ইস্ত ডাস রিখ্টিখ",
+          "tokens": [
+            {
+              "t": "Ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "das",
+              "bn": "এটা"
+            },
+            {
+              "t": "richtig?",
+              "bn": "সঠিক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie das verstanden?",
+          "bn": "আপনি কি এটা বুঝেছেন?",
+          "bn_pron": "হাবের্ন যী ডাস ফেয়ার্শ্টান্ডেন",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "das",
+              "bn": "এটা"
+            },
+            {
+              "t": "verstanden?",
+              "bn": "বুঝেছেন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, alles klar.",
+          "bn": "হ্যাঁ, সব পরিষ্কার।",
+          "bn_pron": "ইয়া আলেস ক্লার",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "alles",
+              "bn": "সব"
+            },
+            {
+              "t": "klar.",
+              "bn": "পরিষ্কার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich weiß nicht.",
+          "bn": "আমি জানি না।",
+          "bn_pron": "ইখ্ ভাইস নিখ্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "weiß",
+              "bn": "জানি"
+            },
+            {
+              "t": "nicht.",
+              "bn": "না"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Keine Ahnung.",
+          "bn": "কোনো ধারণা নেই।",
+          "bn_pron": "কাইনে আনুং",
+          "tokens": [
+            {
+              "t": "Keine",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Ahnung.",
+              "bn": "ধারণা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Gute Idee!",
+          "bn": "দারুণ বুদ্ধি!",
+          "bn_pron": "গুটে ইডে",
+          "tokens": [
+            {
+              "t": "Gute",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Idee!",
+              "bn": "বুদ্ধি"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "অ্যাপের বোতাম ও ফাংশন (App-Funktionen)",
+      "title_target": "App-Bedienung & Knöpfe",
+      "intro_bn": "অডিও বুক লাইব্রেরি অ্যাপের লার্নিং ইন্টারফেস পরিচালনায় ব্যবহৃত পরিভাষা।",
+      "structure": [
+        "Begriff",
+        "Funktion",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Start",
+          "bn": "শুরু করুন",
+          "bn_pron": "শ্টার্ট",
+          "tokens": [
+            {
+              "t": "Start",
+              "bn": "শুরু"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Pause",
+          "bn": "বিরতি / থামুন",
+          "bn_pron": "পাউজে",
+          "tokens": [
+            {
+              "t": "Pause",
+              "bn": "বিরতি"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Weiter",
+          "bn": "পরবর্তী / এগিয়ে যান",
+          "bn_pron": "ভাইটার",
+          "tokens": [
+            {
+              "t": "Weiter",
+              "bn": "পরবর্তী"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Zurück",
+          "bn": "পেছনে / পূর্ববর্তী",
+          "bn_pron": "ৎসুরু্যক",
+          "tokens": [
+            {
+              "t": "Zurück",
+              "bn": "পেছনে"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Fertig",
+          "bn": "সম্পন্ন / শেষ",
+          "bn_pron": "ফেয়ার্টিখ্",
+          "tokens": [
+            {
+              "t": "Fertig",
+              "bn": "সম্পন্ন"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Wiederholen",
+          "bn": "পুনরায় শুনুন",
+          "bn_pron": "ভিডাহোলেন",
+          "tokens": [
+            {
+              "t": "Wiederholen",
+              "bn": "পুনরায় শুনুন"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Einstellungen",
+          "bn": "সেটিংস",
+          "bn_pron": "আইনশ্টেলুঙ্গেন",
+          "tokens": [
+            {
+              "t": "Einstellungen",
+              "bn": "সেটিংস"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Lektion",
+          "bn": "লেসন / পাঠ",
+          "bn_pron": "লেকৎসিওন",
+          "tokens": [
+            {
+              "t": "Lektion",
+              "bn": "পাঠ"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    }
+  ]
+}

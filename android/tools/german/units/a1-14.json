@@ -1,0 +1,1018 @@
+{
+  "title_bn": "অতীত অভিজ্ঞতা ও পারফেক্ট কাল",
+  "title_target": "Das Perfekt: haben & sein",
+  "lessons": [
+    {
+      "title_bn": "haben সহ পারফেক্ট কাল (gemacht, gelernt)",
+      "title_target": "Perfekt mit haben",
+      "intro_bn": "স্পোকেন জার্মানে অতীতের কথা বলতে 'haben' (Position 2) এবং বাক্যের একেবারে শেষে পারফেক্ট রূপ Partizip II (ge-...-t) বসে।",
+      "structure": [
+        "haben (Pos 2)",
+        "Satzmitte",
+        "Partizip II (Ende)"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Was hast du am Wochenende gemacht?",
+          "bn": "সাপ্তাহিক ছুটিতে তুমি কী করেছো?",
+          "bn_pron": "ভাস হাস্ট দু আম ভখেনএন্ডে গেমাখট",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "hast",
+              "bn": "আছো"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "am",
+              "bn": "এ"
+            },
+            {
+              "t": "Wochenende",
+              "bn": "ছুটি"
+            },
+            {
+              "t": "gemacht?",
+              "bn": "করেছো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe viel Deutsch gelernt.",
+          "bn": "আমি অনেক জার্মান শিখেছি।",
+          "bn_pron": "ইখ্ হাবে ফীল ডয়চ গেলের্নট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "viel",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Deutsch",
+              "bn": "জার্মান"
+            },
+            {
+              "t": "gelernt.",
+              "bn": "শিখেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er hat gestern Fußball gespielt.",
+          "bn": "সে গতকাল ফুটবল খেলেছে।",
+          "bn_pron": "এর হাট গেস্টার্ন ফুসবাল গেশ্পীলট",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "hat",
+              "bn": "আছে"
+            },
+            {
+              "t": "gestern",
+              "bn": "গতকাল"
+            },
+            {
+              "t": "Fußball",
+              "bn": "ফুটবল"
+            },
+            {
+              "t": "gespielt.",
+              "bn": "খেলেছে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir haben zusammen gekocht.",
+          "bn": "আমরা একসাথে রান্না করেছি।",
+          "bn_pron": "ভির হাবের্ন ৎসুসামেন গেকখট",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "haben",
+              "bn": "আছি"
+            },
+            {
+              "t": "zusammen",
+              "bn": "একসাথে"
+            },
+            {
+              "t": "gekocht.",
+              "bn": "রান্না করেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe Musik gehört.",
+          "bn": "আমি গান শুনেছি।",
+          "bn_pron": "ইখ্ হাবে মুযীক গেহোয়ের্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "Musik",
+              "bn": "গান"
+            },
+            {
+              "t": "gehört.",
+              "bn": "শুনেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hast du deine Hausaufgaben gemacht?",
+          "bn": "তুমি কি তোমার হোমওয়ার্ক করেছো?",
+          "bn_pron": "হাস্ট দু ডাইনে হাউসআউফগাবেন গেমাখট",
+          "tokens": [
+            {
+              "t": "Hast",
+              "bn": "আছো"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "deine",
+              "bn": "তোমার"
+            },
+            {
+              "t": "Hausaufgaben",
+              "bn": "হোমওয়ার্ক"
+            },
+            {
+              "t": "gemacht?",
+              "bn": "করেছো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, ich habe alles fertig gemacht.",
+          "bn": "হ্যাঁ, আমি সবকিছু শেষ করেছি।",
+          "bn_pron": "ইয়া ইখ্ হাবে আলেস ফেয়ার্টিখ গেমাখট",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "alles",
+              "bn": "সব"
+            },
+            {
+              "t": "fertig",
+              "bn": "প্রস্তুত"
+            },
+            {
+              "t": "gemacht.",
+              "bn": "করেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir haben lange telefoniert.",
+          "bn": "আমরা অনেকক্ষণ ফোনে কথা বলেছি।",
+          "bn_pron": "ভির হাবের্ন লাঙে টেলিফোনিয়ার্ট",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "haben",
+              "bn": "আছি"
+            },
+            {
+              "t": "lange",
+              "bn": "অনেকক্ষণ"
+            },
+            {
+              "t": "telefoniert.",
+              "bn": "ফোনে কথা বলেছি"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "sein সহ পারফেক্ট কাল: স্থান পরিবর্তন (gefahren, gegangen)",
+      "title_target": "Perfekt mit sein",
+      "intro_bn": "এক স্থান থেকে অন্য স্থানে যাওয়া বা অবস্থার পরিবর্তন বোঝালে সহায়ক ক্রিয়া 'sein' বসে (Ich bin gefahren, Wir sind gegangen)।",
+      "structure": [
+        "sein (Pos 2)",
+        "Ortsangabe",
+        "Bewegungsverb (Ende)"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich bin nach Berlin gefahren.",
+          "bn": "আমি বার্লিনে গিয়েছিলাম (গাড়িতে/ট্রেনে)।",
+          "bn_pron": "ইখ্ বিন নাখ বের্লিন গেফারেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "nach",
+              "bn": "তে"
+            },
+            {
+              "t": "Berlin",
+              "bn": "বার্লিন"
+            },
+            {
+              "t": "gefahren.",
+              "bn": "ভ্রমণ করেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wann bist du aufgestanden?",
+          "bn": "তুমি কখন ঘুম থেকে উঠেছিলে?",
+          "bn_pron": "ভান বিস্ট দু আউফগেশ্টান্ডেন",
+          "tokens": [
+            {
+              "t": "Wann",
+              "bn": "কখন"
+            },
+            {
+              "t": "bist",
+              "bn": "হও"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "aufgestanden?",
+              "bn": "উঠেছিলে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin um sieben Uhr aufgestanden.",
+          "bn": "আমি সকাল সাতটায় ঘুম থেকে উঠেছিলাম।",
+          "bn_pron": "ইখ্ বিন উম যীবেন উর আউফগেশ্টান্ডেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "sieben",
+              "bn": "সাত"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "aufgestanden.",
+              "bn": "উঠেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir sind in den Park gegangen.",
+          "bn": "আমরা পার্কে হেঁটে গিয়েছিলাম।",
+          "bn_pron": "ভির জিন্ট ইন ডেন পার্ক গেগাঙ্গেন",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "sind",
+              "bn": "হই"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "den",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Park",
+              "bn": "পার্ক"
+            },
+            {
+              "t": "gegangen.",
+              "bn": "গিয়েছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er ist zu spät gekommen.",
+          "bn": "সে অনেক দেরিতে এসেছিল।",
+          "bn_pron": "এর ইস্ত ৎসু শ্পেট গেকমেন",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "zu",
+              "bn": "খুব"
+            },
+            {
+              "t": "spät",
+              "bn": "দেরি"
+            },
+            {
+              "t": "gekommen.",
+              "bn": "এসেছে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Bist du nach Hause gelaufen?",
+          "bn": "তুমি কি দৌড়ে বাসায় গিয়েছিলে?",
+          "bn_pron": "বিস্ট দু নাখ হাউজে গেলাউফেন",
+          "tokens": [
+            {
+              "t": "Bist",
+              "bn": "হও"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "nach",
+              "bn": "তে"
+            },
+            {
+              "t": "Hause",
+              "bn": "বাড়ি"
+            },
+            {
+              "t": "gelaufen?",
+              "bn": "দৌড়ে গিয়েছো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Flugzeug ist pünktlich gelandet.",
+          "bn": "বিমানটি সময়মতো অবতরণ করেছিল।",
+          "bn_pron": "ডাস ফ্লুকৎসয়ক ইস্ত প্যুনকটলিখ গেলান্ডেট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Flugzeug",
+              "bn": "বিমান"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "pünktlich",
+              "bn": "সময়মতো"
+            },
+            {
+              "t": "gelandet.",
+              "bn": "অবতরণ করেছে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie ist deine Reise gewesen?",
+          "bn": "তোমার ভ্রমণ কেমন ছিল (sein-এর পারফেক্ট)?",
+          "bn_pron": "ভী ইস্ত ডাইনে রাইজে গেভেজেন",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "deine",
+              "bn": "তোমার"
+            },
+            {
+              "t": "Reise",
+              "bn": "ভ্রমণ"
+            },
+            {
+              "t": "gewesen?",
+              "bn": "ছিল"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "গত ছুটির অভিজ্ঞতা বর্ণনা (Wochenendbericht)",
+      "title_target": "Über Vergangenes berichten",
+      "intro_bn": "ছুটির গল্প বা অতীতের কোনো দিন একটানা সাবলীলভাবে বলার ড্রিল।",
+      "structure": [
+        "Ereignis",
+        "Perfektform",
+        "Erlebnis"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Am Samstag habe ich Freunde getroffen.",
+          "bn": "শনিবার আমি বন্ধুদের সাথে দেখা করেছি।",
+          "bn_pron": "আম জামসতাক হাবে ইখ্ ফ্রয়ন্ডে গেট্রফেন",
+          "tokens": [
+            {
+              "t": "Am",
+              "bn": "এ"
+            },
+            {
+              "t": "Samstag",
+              "bn": "শনিবার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Freunde",
+              "bn": "বন্ধুদের"
+            },
+            {
+              "t": "getroffen.",
+              "bn": "দেখা করেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir haben Kaffee getrunken und geredet.",
+          "bn": "আমরা কফি পান করেছি ও আড্ডা দিয়েছি।",
+          "bn_pron": "ভির হাবের্ন কাফে গেট্রুনকেন উন্ট গেরেডেট",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "haben",
+              "bn": "আছি"
+            },
+            {
+              "t": "Kaffee",
+              "bn": "কফি"
+            },
+            {
+              "t": "getrunken",
+              "bn": "পান করেছি"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "geredet.",
+              "bn": "কথা বলেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Wetter war wirklich schön.",
+          "bn": "আবহাওয়া সত্যিই সুন্দর ছিল।",
+          "bn_pron": "ডাস ভেটার ভার ভির্কলিখ শোয়ন",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Wetter",
+              "bn": "আবহাওয়া"
+            },
+            {
+              "t": "war",
+              "bn": "ছিল"
+            },
+            {
+              "t": "wirklich",
+              "bn": "সত্যিই"
+            },
+            {
+              "t": "schön.",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Am Sonntag bin ich lange im Bett geblieben.",
+          "bn": "রবিবার আমি দীর্ঘ সময় বিছানায় শুয়ে ছিলাম।",
+          "bn_pron": "আম জোনতাক বিন ইখ্ লাঙে ইম বেট গেব্লীবেন",
+          "tokens": [
+            {
+              "t": "Am",
+              "bn": "এ"
+            },
+            {
+              "t": "Sonntag",
+              "bn": "রবিবার"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "lange",
+              "bn": "অনেকক্ষণ"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Bett",
+              "bn": "বিছানা"
+            },
+            {
+              "t": "geblieben.",
+              "bn": "থেকেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe einen Film auf Deutsch gesehen.",
+          "bn": "আমি জার্মানে একটি সিনেমা দেখেছি।",
+          "bn_pron": "ইখ্ হাবে আইনেন ফিল্ম আউফ ডয়চ গেজেহেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Film",
+              "bn": "সিনেমা"
+            },
+            {
+              "t": "auf",
+              "bn": "তে"
+            },
+            {
+              "t": "Deutsch",
+              "bn": "জার্মান"
+            },
+            {
+              "t": "gesehen.",
+              "bn": "দেখেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe fast alles verstanden.",
+          "bn": "আমি প্রায় সবকিছুই বুঝতে পেরেছি।",
+          "bn_pron": "ইখ্ হাবে ফাস্ট আলেস ফেয়ার্শ্টান্ডেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "fast",
+              "bn": "প্রায়"
+            },
+            {
+              "t": "alles",
+              "bn": "সব"
+            },
+            {
+              "t": "verstanden.",
+              "bn": "বুঝেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das war ein tolles Wochenende.",
+          "bn": "এটি একটি দারুণ সাপ্তাহিক ছুটি ছিল।",
+          "bn_pron": "ডাস ভার আইন টলেস ভখেনএন্ডে",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটি"
+            },
+            {
+              "t": "war",
+              "bn": "ছিল"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "tolles",
+              "bn": "চমৎকার"
+            },
+            {
+              "t": "Wochenende.",
+              "bn": "ছুটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe mich gut erholt.",
+          "bn": "আমি খুব ভালো সতেজতা বা বিশ্রাম পেয়েছি।",
+          "bn_pron": "ইখ্ হাবে নিখ্ গুট এয়ারহোল্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "mich",
+              "bn": "নিজেকে"
+            },
+            {
+              "t": "gut",
+              "bn": "ভালো"
+            },
+            {
+              "t": "erholt.",
+              "bn": "বিশ্রাম নিয়েছি"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "ছুটির অভিজ্ঞতা বিনিময়ের সংলাপ (Reiseerlebnis)",
+      "title_target": "Dialog: Urlaub & Reise",
+      "intro_bn": "ছুটি কোথায় কাটিয়েছেন এবং কেমন লাগলো তা নিয়ে পারস্পরিক কথোপকথন।",
+      "structure": [
+        "Sprecher A",
+        "Sprecher B",
+        "Urlaub"
+      ],
+      "items": [
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Hallo Alex, wo bist du im Urlaub gewesen?",
+          "bn": "হ্যালো অ্যালেক্স, তুমি ছুটিতে কোথায় গিয়েছিলে?",
+          "bn_pron": "হালো আলেকস ভো বিস্ট দু ইম উরলাউপ গেভেজেন",
+          "tokens": [
+            {
+              "t": "Hallo",
+              "bn": "হ্যালো"
+            },
+            {
+              "t": "Alex,",
+              "bn": "অ্যালেক্স"
+            },
+            {
+              "t": "wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "bist",
+              "bn": "হও"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Urlaub",
+              "bn": "ছুটি"
+            },
+            {
+              "t": "gewesen?",
+              "bn": "ছিলে"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ich bin nach München gefahren.",
+          "bn": "আমি মিউনিখে গিয়েছিলাম।",
+          "bn_pron": "ইখ্ বিন নাখ ম্যুনশেন গেফারেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "nach",
+              "bn": "তে"
+            },
+            {
+              "t": "München",
+              "bn": "মিউনিখ"
+            },
+            {
+              "t": "gefahren.",
+              "bn": "গিয়েছি"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Toll! Wie lange bist du dort geblieben?",
+          "bn": "দারুণ! তুমি সেখানে কতদিন ছিলে?",
+          "bn_pron": "টল ভী লাঙে বিস্ট দু ডর্ট গেব্লীবেন",
+          "tokens": [
+            {
+              "t": "Toll!",
+              "bn": "দারুণ"
+            },
+            {
+              "t": "Wie",
+              "bn": "কত"
+            },
+            {
+              "t": "lange",
+              "bn": "দীর্ঘ"
+            },
+            {
+              "t": "bist",
+              "bn": "হও"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "dort",
+              "bn": "সেখানে"
+            },
+            {
+              "t": "geblieben?",
+              "bn": "ছিলে"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ich bin eine Woche dort geblieben.",
+          "bn": "আমি সেখানে এক সপ্তাহ ছিলাম।",
+          "bn_pron": "ইখ্ বিন আইনে ভখে ডর্ট গেব্লীবেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "eine",
+              "bn": "এক"
+            },
+            {
+              "t": "Woche",
+              "bn": "সপ্তাহ"
+            },
+            {
+              "t": "dort",
+              "bn": "সেখানে"
+            },
+            {
+              "t": "geblieben.",
+              "bn": "থেকেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hast du das Schloss Neuschwanstein besucht?",
+          "bn": "তুমি কি নয়েইশোয়ানস্টাইন দুর্গ দেখতে গিয়েছিলে?",
+          "bn_pron": "হাস্ট দু ডাস শ্লস নয়াশোয়ানস্টাইন বেজুখট",
+          "tokens": [
+            {
+              "t": "Hast",
+              "bn": "আছো"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Schloss",
+              "bn": "দুর্গ"
+            },
+            {
+              "t": "Neuschwanstein",
+              "bn": "নয়েইশোয়ানস্টাইন"
+            },
+            {
+              "t": "besucht?",
+              "bn": "পরিদর্শন করেছো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, das Schloss war atemberaubend schön.",
+          "bn": "হ্যাঁ, দুর্গটি শ্বাসরুদ্ধকর সুন্দর ছিল।",
+          "bn_pron": "ইয়া ডাস শ্লস ভার আটেমবেরাউবেন্ট শোয়ন",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Schloss",
+              "bn": "দুর্গ"
+            },
+            {
+              "t": "war",
+              "bn": "ছিল"
+            },
+            {
+              "t": "atemberaubend",
+              "bn": "অবিশ্বাস্য"
+            },
+            {
+              "t": "schön.",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe viele Fotos gemacht.",
+          "bn": "আমি অনেক ছবি তুলেছি।",
+          "bn_pron": "ইখ্ হাবে ফীলে ফোটোস গেমাখট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "habe",
+              "bn": "আছি"
+            },
+            {
+              "t": "viele",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Fotos",
+              "bn": "ছবি"
+            },
+            {
+              "t": "gemacht.",
+              "bn": "তুলেছি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich zeige dir die Fotos morgen.",
+          "bn": "আমি কাল তোমাকে ছবিগুলো দেখাব।",
+          "bn_pron": "ইখ্ ৎসায়গে ডিয়ার ডী ফোটোস মর্গেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "zeige",
+              "bn": "দেখাব"
+            },
+            {
+              "t": "dir",
+              "bn": "তোমাকে"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Fotos",
+              "bn": "ছবিগুলো"
+            },
+            {
+              "t": "morgen.",
+              "bn": "কাল"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

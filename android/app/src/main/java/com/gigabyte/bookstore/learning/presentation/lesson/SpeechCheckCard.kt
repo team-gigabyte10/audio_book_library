@@ -53,11 +53,15 @@ internal const val UR_STANDARD_PREFIX = "ur-std-"
 /** ID prefix of the Hindi standard course (tools/hindi/build_hindi_course.py). */
 internal const val HI_STANDARD_PREFIX = "hi-std-"
 
+/** ID prefix of the German standard course (tools/german/build_german_course.py). */
+internal const val DE_STANDARD_PREFIX = "de-std-"
+
 /** Recognizer language for the speech check, or null when the item's course has no check. */
 internal fun speechCheckLanguage(itemId: String): String? = when {
     itemId.startsWith(JP_STANDARD_PREFIX) -> "ja-JP"
     itemId.startsWith(UR_STANDARD_PREFIX) -> "ur-PK"
     itemId.startsWith(HI_STANDARD_PREFIX) -> "hi-IN"
+    itemId.startsWith(DE_STANDARD_PREFIX) -> "de-DE"
     else -> null
 }
 

@@ -1,0 +1,725 @@
+{
+  "title_bn": "কেনাকাটা, পোশাক ও রঙ",
+  "title_target": "Kleidung, Farben & Gefallen",
+  "lessons": [
+    {
+      "title_bn": "পোশাকের নাম ও লিঙ্গ (Kleidungsstücke)",
+      "title_target": "Kleidung",
+      "intro_bn": "শার্ট das Hemd, প্যান্ট die Hose, জ্যাকেট die Jacke, এবং কোট der Mantel।",
+      "structure": [
+        "Artikel",
+        "Kleidung",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "das Hemd",
+          "bn": "শার্ট",
+          "bn_pron": "ডাস হেম্ট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Hemd",
+              "bn": "শার্ট"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Hose",
+          "bn": "প্যান্ট",
+          "bn_pron": "ডী হোজে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Hose",
+              "bn": "প্যান্ট"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "das Kleid",
+          "bn": "মেয়েদের জামা / ড্রেস",
+          "bn_pron": "ডাস ক্লাইট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Kleid",
+              "bn": "জামা"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Jacke",
+          "bn": "জ্যাকেট",
+          "bn_pron": "ডী ইয়াক্কে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Jacke",
+              "bn": "জ্যাকেট"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Mantel",
+          "bn": "কোট / ওভারকোট",
+          "bn_pron": "ডের মান্টেল",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Mantel",
+              "bn": "কোট"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Schuhe",
+          "bn": "জুতোজোড়া",
+          "bn_pron": "ডী শুহে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "গুলো"
+            },
+            {
+              "t": "Schuhe",
+              "bn": "জুতো"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "der Pullover",
+          "bn": "সোয়েটার / পুলওভার",
+          "bn_pron": "ডের পুলোভার",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Pullover",
+              "bn": "সোয়েটার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das T-Shirt",
+          "bn": "টি-শার্ট",
+          "bn_pron": "ডাস টী-শেয়ার্ট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "T-Shirt",
+              "bn": "টি-শার্ট"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    },
+    {
+      "title_bn": "রঙের নাম ও বিবরণ (Die Farben)",
+      "title_target": "Farben benennen",
+      "intro_bn": "লাল rot, নীল blau, সবুজ grün, হলুদ gelb, কালো schwarz, সাদা weiß।",
+      "structure": [
+        "Farbe",
+        "Objekt",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "rot",
+          "bn": "লাল",
+          "bn_pron": "রোট",
+          "tokens": [
+            {
+              "t": "rot",
+              "bn": "লাল"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "blau",
+          "bn": "নীল",
+          "bn_pron": "ব্লাউ",
+          "tokens": [
+            {
+              "t": "blau",
+              "bn": "নীল"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "grün",
+          "bn": "সবুজ",
+          "bn_pron": "গ্র্যূন",
+          "tokens": [
+            {
+              "t": "grün",
+              "bn": "সবুজ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "gelb",
+          "bn": "হলুদ",
+          "bn_pron": "গেল্প",
+          "tokens": [
+            {
+              "t": "gelb",
+              "bn": "হলুদ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "schwarz",
+          "bn": "কালো",
+          "bn_pron": "শ্ভার্ৎস",
+          "tokens": [
+            {
+              "t": "schwarz",
+              "bn": "কালো"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "weiß",
+          "bn": "সাদা",
+          "bn_pron": "ভাইস",
+          "tokens": [
+            {
+              "t": "weiß",
+              "bn": "সাদা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "grau",
+          "bn": "ধূসর",
+          "bn_pron": "গ্রাউ",
+          "tokens": [
+            {
+              "t": "grau",
+              "bn": "ধূসর"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "braun",
+          "bn": "বাদামি",
+          "bn_pron": "ব্রাউন",
+          "tokens": [
+            {
+              "t": "braun",
+              "bn": "বাদামি"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "পছন্দ হওয়া ও ফিটিং (gefallen & passen)",
+      "title_target": "Gefallen und Passen",
+      "intro_bn": "পছন্দ হলে 'gefallen' (Das Hemd gefällt mir) এবং সাইজ ঠিক হলে 'passen' (Die Hose passt gut) বসে।",
+      "structure": [
+        "Verb",
+        "Dativpronomen",
+        "Bewertung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie gefällt Ihnen dieser Mantel?",
+          "bn": "এই কোটটি আপনার কেমন লাগছে?",
+          "bn_pron": "ভী গেফেল্ট ইনেন ডীজার মান্টেল",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "gefällt",
+              "bn": "লাগে"
+            },
+            {
+              "t": "Ihnen",
+              "bn": "আপনার"
+            },
+            {
+              "t": "dieser",
+              "bn": "এই"
+            },
+            {
+              "t": "Mantel?",
+              "bn": "কোট"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Mantel gefällt mir sehr gut.",
+          "bn": "কোটটি আমার খুব পছন্দ হয়েছে।",
+          "bn_pron": "ডের মান্টেল গেফেল্ট মিয়ার জেয়ার গুট",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Mantel",
+              "bn": "কোট"
+            },
+            {
+              "t": "gefällt",
+              "bn": "পছন্দ হয়"
+            },
+            {
+              "t": "mir",
+              "bn": "আমার"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Welche Größe haben Sie?",
+          "bn": "আপনার সাইজ কত?",
+          "bn_pron": "ভেলখে গ্রোয়সে হাবের্ন যী",
+          "tokens": [
+            {
+              "t": "Welche",
+              "bn": "কোন"
+            },
+            {
+              "t": "Größe",
+              "bn": "সাইজ"
+            },
+            {
+              "t": "haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich trage Größe vierzig.",
+          "bn": "আমি চল্লিশ সাইজ পরি।",
+          "bn_pron": "ইখ্ ট্রাগে গ্রোয়সে ফিয়ারৎসিখ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "trage",
+              "bn": "পরি"
+            },
+            {
+              "t": "Größe",
+              "bn": "সাইজ"
+            },
+            {
+              "t": "vierzig.",
+              "bn": "চল্লিশ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Hose passt perfekt.",
+          "bn": "প্যান্টটি নিখুঁতভাবে ফিট হয়েছে।",
+          "bn_pron": "ডী হোজে পাসট পেরফেক্ট",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Hose",
+              "bn": "প্যান্ট"
+            },
+            {
+              "t": "passt",
+              "bn": "ফিট হয়"
+            },
+            {
+              "t": "perfekt.",
+              "bn": "নিখুঁত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das T-Shirt ist zu klein.",
+          "bn": "টি-শার্টটি বেশি ছোট হয়ে গেছে।",
+          "bn_pron": "ডাস টী-শেয়ার্ট ইস্ত ৎসু ক্লাইন",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "T-Shirt",
+              "bn": "টি-শার্ট"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "zu",
+              "bn": "খুব বেশি"
+            },
+            {
+              "t": "klein.",
+              "bn": "ছোট"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie das in Blau?",
+          "bn": "এটি কি নীল রঙে আছে?",
+          "bn_pron": "হাবের্ন যী ডাস ইন ব্লাউ",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনাদের"
+            },
+            {
+              "t": "das",
+              "bn": "এটি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Blau?",
+              "bn": "নীল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, einen Moment bitte.",
+          "bn": "হ্যাঁ, একটু অপেক্ষা করুন দয়া করে।",
+          "bn_pron": "ইয়া আইনেন মোমেন্ট বিটে",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "einen",
+              "bn": "এক"
+            },
+            {
+              "t": "Moment",
+              "bn": "মুহূর্ত"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "পোশাকের দোকানে কেনার সংলাপ (Im Modegeschäft)",
+      "title_target": "Dialog: Kleidung kaufen",
+      "intro_bn": "ট্রায়াল রুমে ট্রাই করা ও জামা কেনার কথোপকথন।",
+      "structure": [
+        "Sprecher A",
+        "Sprecher B",
+        "Kaufabwicklung"
+      ],
+      "items": [
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Kann ich Ihnen helfen?",
+          "bn": "আমি কি আপনাকে সাহায্য করতে পারি?",
+          "bn_pron": "কান ইখ্ ইনেন হেলফেন",
+          "tokens": [
+            {
+              "t": "Kann",
+              "bn": "পারি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Ihnen",
+              "bn": "আপনাকে"
+            },
+            {
+              "t": "helfen?",
+              "bn": "সাহায্য করতে"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ich suche eine schwarze Jacke.",
+          "bn": "আমি একটি কালো জ্যাকেট খুঁজছি।",
+          "bn_pron": "ইখ্ জুখে আইনে শ্ভারৎসে ইয়াক্কে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "suche",
+              "bn": "খুঁজছি"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "schwarze",
+              "bn": "কালো"
+            },
+            {
+              "t": "Jacke.",
+              "bn": "জ্যাকেট"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Hier ist eine schöne Jacke.",
+          "bn": "এই যে একটি সুন্দর জ্যাকেট আছে।",
+          "bn_pron": "হিয়ার ইস্ত আইনে শোয়নে ইয়াক্কে",
+          "tokens": [
+            {
+              "t": "Hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "schöne",
+              "bn": "সুন্দর"
+            },
+            {
+              "t": "Jacke.",
+              "bn": "জ্যাকেট"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Wo ist die Umkleidekabine?",
+          "bn": "ট্রায়াল রুমটি কোথায়?",
+          "bn_pron": "ভো ইস্ত ডী উমক্লাইডেকাবিনে",
+          "tokens": [
+            {
+              "t": "Wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Umkleidekabine?",
+              "bn": "ট্রায়াল রুম"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Kabine ist da hinten rechts.",
+          "bn": "ট্রায়াল রুমটি ওই পেছনে ডান দিকে।",
+          "bn_pron": "ডী কাবিনে ইস্ত ডা হিন্টেন রিখটস",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Kabine",
+              "bn": "রুম"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "da",
+              "bn": "ওই"
+            },
+            {
+              "t": "hinten",
+              "bn": "পেছনে"
+            },
+            {
+              "t": "rechts.",
+              "bn": "ডানে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Jacke passt mir sehr gut.",
+          "bn": "জ্যাকেটটি আমার খুব ভালো ফিট হয়েছে।",
+          "bn_pron": "ডী ইয়াক্কে পাসট মিয়ার জেয়ার গুট",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Jacke",
+              "bn": "জ্যাকেট"
+            },
+            {
+              "t": "passt",
+              "bn": "ফিট হয়"
+            },
+            {
+              "t": "mir",
+              "bn": "আমার"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich nehme sie gerne.",
+          "bn": "আমি এটি নিচ্ছি সানন্দে।",
+          "bn_pron": "ইখ্ নেমে যী গেয়ার্নে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "nehme",
+              "bn": "নিচ্ছি"
+            },
+            {
+              "t": "sie",
+              "bn": "এটি"
+            },
+            {
+              "t": "gerne.",
+              "bn": "সানন্দে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Bezahlen Sie bitte an der Kasse!",
+          "bn": "ক্যাশ কাউন্টারে বিল পরিশোধ করুন!",
+          "bn_pron": "বেৎসালেন যী বিটে আন ডের কাসে",
+          "tokens": [
+            {
+              "t": "Bezahlen",
+              "bn": "পরিশোধ করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "an",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Kasse!",
+              "bn": "কাউন্টার"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,854 @@
+{
+  "title_bn": "দেশ, ভাষা ও নাগরিকত্ব",
+  "title_target": "Länder, Sprachen & Herkunft",
+  "lessons": [
+    {
+      "title_bn": "দেশ ও কোথা থেকে এসেছেন (Woher kommen Sie?)",
+      "title_target": "Herkunft erfragen",
+      "intro_bn": "উৎস জানতে 'Woher' (কোথা থেকে) এবং 'aus' (থেকে) প্রেপজিশন ব্যবহৃত হয়।",
+      "structure": [
+        "Frage (Woher)",
+        "Verb (kommen)",
+        "Herkunftsland"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Woher kommen Sie?",
+          "bn": "আপনি কোথা থেকে এসেছেন?",
+          "bn_pron": "ভোহের কমেন যী",
+          "tokens": [
+            {
+              "t": "Woher",
+              "bn": "কোথা থেকে"
+            },
+            {
+              "t": "kommen",
+              "bn": "আসেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich komme aus Bangladesch.",
+          "bn": "আমি বাংলাদেশ থেকে এসেছি।",
+          "bn_pron": "ইখ্ কমে আউস বাংলাদেশ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "komme",
+              "bn": "আসি"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Bangladesch.",
+              "bn": "বাংলাদেশ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Woher kommst du?",
+          "bn": "তুমি কোথা থেকে এসেছো?",
+          "bn_pron": "ভোহের কমস্ট দু",
+          "tokens": [
+            {
+              "t": "Woher",
+              "bn": "কোথা থেকে"
+            },
+            {
+              "t": "kommst",
+              "bn": "এসেছো"
+            },
+            {
+              "t": "du?",
+              "bn": "তুমি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich komme aus Deutschland.",
+          "bn": "আমি জার্মানি থেকে এসেছি।",
+          "bn_pron": "ইখ্ কমে আউস ডয়চলান্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "komme",
+              "bn": "আসি"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Deutschland.",
+              "bn": "জার্মানি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er kommt aus Indien.",
+          "bn": "সে ভারত থেকে এসেছে।",
+          "bn_pron": "এর কমট আউস ইন্ডিয়েন",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "kommt",
+              "bn": "আসে"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Indien.",
+              "bn": "ভারত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie kommt aus Österreich.",
+          "bn": "তিনি অস্ট্রিয়া থেকে এসেছেন।",
+          "bn_pron": "যী কমট আউস ওস্টেরাইখ",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তিনি"
+            },
+            {
+              "t": "kommt",
+              "bn": "আসেন"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Österreich.",
+              "bn": "অস্ট্রিয়া"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Kommen Sie aus Italien?",
+          "bn": "আপনি কি ইতালি থেকে এসেছেন?",
+          "bn_pron": "কমেন যী আউস ইতালিয়েন",
+          "tokens": [
+            {
+              "t": "Kommen",
+              "bn": "আসেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Italien?",
+              "bn": "ইতালি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein, ich komme aus Spanien.",
+          "bn": "না, আমি স্পেন থেকে এসেছি।",
+          "bn_pron": "নাইন ইখ্ কমে আউস শ্পানিয়েন",
+          "tokens": [
+            {
+              "t": "Nein,",
+              "bn": "না"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "komme",
+              "bn": "আসি"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Spanien.",
+              "bn": "স্পেন"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "আর্টিকেলযুক্ত বিশেষ দেশসমূহ",
+      "title_target": "Länder mit Artikel",
+      "intro_bn": "বেশিরভাগ দেশের আগে আর্টিকেল লাগে না, তবে সুইজারল্যান্ড, তুরস্ক, ইরান বা মার্কিন যুক্তরাষ্ট্রের আগে আর্টিকেল আবশ্যক (aus der Schweiz, aus den USA)।",
+      "structure": [
+        "Land",
+        "Artikel",
+        "Dativendung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich komme aus der Schweiz.",
+          "bn": "আমি সুইজারল্যান্ড থেকে এসেছি।",
+          "bn_pron": "ইখ্ কমে আউস ডের শ্ভাইৎস",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "komme",
+              "bn": "আসি"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Schweiz.",
+              "bn": "সুইজারল্যান্ড"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er kommt aus der Türkei.",
+          "bn": "সে তুরস্ক থেকে এসেছে।",
+          "bn_pron": "এর কমট আউস ডের ত্যুর্কাই",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "kommt",
+              "bn": "আসে"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Türkei.",
+              "bn": "তুরস্ক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie kommen aus den USA.",
+          "bn": "তারা আমেরিকা থেকে এসেছে।",
+          "bn_pron": "যী কমেন আউস ডেন উ এস আ",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তারা"
+            },
+            {
+              "t": "kommen",
+              "bn": "আসে"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "den",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "USA.",
+              "bn": "আমেরিকা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mein Kollege kommt aus dem Iran.",
+          "bn": "আমার সহকর্মী ইরান থেকে এসেছেন।",
+          "bn_pron": "মাইন কোলেগে কমট আউস ডেম ইরান",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Kollege",
+              "bn": "সহকর্মী"
+            },
+            {
+              "t": "kommt",
+              "bn": "আসে"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "dem",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Iran.",
+              "bn": "ইরান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir fliegen in die Schweiz.",
+          "bn": "আমরা সুইজারল্যান্ডে যাচ্ছি (বিমানে)।",
+          "bn_pron": "ভির ফ্লীগেন ইন ডী শ্ভাইৎস",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "fliegen",
+              "bn": "উড়ছি"
+            },
+            {
+              "t": "in",
+              "bn": "তে"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Schweiz.",
+              "bn": "সুইজারল্যান্ড"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wohnen Sie in der Türkei?",
+          "bn": "আপনি কি তুরস্কে থাকেন?",
+          "bn_pron": "ভোনেন যী ইন ডের ত্যুর্কাই",
+          "tokens": [
+            {
+              "t": "Wohnen",
+              "bn": "থাকেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Türkei?",
+              "bn": "তুরস্ক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist ein schönes Land.",
+          "bn": "এটি একটি সুন্দর দেশ।",
+          "bn_pron": "ডাস ইস্ত আইন শোয়নেস লান্ট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "schönes",
+              "bn": "সুন্দর"
+            },
+            {
+              "t": "Land.",
+              "bn": "দেশ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich liebe dieses Land.",
+          "bn": "আমি এই দেশটিকে ভালোবাসি।",
+          "bn_pron": "ইখ্ লীবে ডীসেস লান্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "liebe",
+              "bn": "ভালোবাসি"
+            },
+            {
+              "t": "dieses",
+              "bn": "এই"
+            },
+            {
+              "t": "Land.",
+              "bn": "দেশ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "কে কোন ভাষায় কথা বলে (sprechen)",
+      "title_target": "Sprachen sprechen",
+      "intro_bn": "sprechen ক্রিয়াপদে du ও er/sie-তে ভেতরের 'e' বদলে 'i' হয়ে যায় (du sprichst, er spricht)।",
+      "structure": [
+        "Subjekt",
+        "Verbform",
+        "Sprache"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Welche Sprachen sprechen Sie?",
+          "bn": "আপনি কোন কোন ভাষায় কথা বলেন?",
+          "bn_pron": "ভেলখে শ্প প্রাখেন শ্প্রেখেন যী",
+          "tokens": [
+            {
+              "t": "Welche",
+              "bn": "কোন"
+            },
+            {
+              "t": "Sprachen",
+              "bn": "ভাষায়"
+            },
+            {
+              "t": "sprechen",
+              "bn": "বলেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich spreche Bengalisch und Englisch.",
+          "bn": "আমি বাংলা এবং ইংরেজি বলি।",
+          "bn_pron": "ইখ্ শ্প্রেখে বেঙ্গালিশ উন্ট এংলিশ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "spreche",
+              "bn": "বলি"
+            },
+            {
+              "t": "Bengalisch",
+              "bn": "বাংলা"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "Englisch.",
+              "bn": "ইংরেজি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sprichst du Deutsch?",
+          "bn": "তুমি কি জার্মান বলতে পারো?",
+          "bn_pron": "শ্প্রিখস্ট দু ডয়চ",
+          "tokens": [
+            {
+              "t": "Sprichst",
+              "bn": "বলো"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "Deutsch?",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, ich lerne jetzt Deutsch.",
+          "bn": "হ্যাঁ, আমি এখন জার্মান শিখছি।",
+          "bn_pron": "ইয়া ইখ্ লের্নে ইয়েৎস্ট ডয়চ",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "lerne",
+              "bn": "শিখছি"
+            },
+            {
+              "t": "jetzt",
+              "bn": "এখন"
+            },
+            {
+              "t": "Deutsch.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er spricht sehr gut Deutsch.",
+          "bn": "সে খুব ভালো জার্মান বলে।",
+          "bn_pron": "এর শ্প্রিখট জেয়ার গুট ডয়চ",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "spricht",
+              "bn": "বলে"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gut",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Deutsch.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich spreche nur ein bisschen Deutsch.",
+          "bn": "আমি কেবল অল্প একটু জার্মান বলি।",
+          "bn_pron": "ইখ্ শ্প্রেখে নুর আইন বিসখেন ডয়চ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "spreche",
+              "bn": "বলি"
+            },
+            {
+              "t": "nur",
+              "bn": "কেবল"
+            },
+            {
+              "t": "ein",
+              "bn": "এক"
+            },
+            {
+              "t": "bisschen",
+              "bn": "একটু"
+            },
+            {
+              "t": "Deutsch.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Meine Muttersprache ist Bengalisch.",
+          "bn": "আমার মাতৃভাষা বাংলা।",
+          "bn_pron": "মাইনে মুটারশ্প প্রাখে ইস্ত বেঙ্গালিশ",
+          "tokens": [
+            {
+              "t": "Meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Muttersprache",
+              "bn": "মাতৃভাষা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Bengalisch.",
+              "bn": "বাংলা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir sprechen alle Englisch.",
+          "bn": "আমরা সবাই ইংরেজি বলি।",
+          "bn_pron": "ভির শ্প্রেখেন আলে এংলিশ",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "sprechen",
+              "bn": "বলি"
+            },
+            {
+              "t": "alle",
+              "bn": "সবাই"
+            },
+            {
+              "t": "Englisch.",
+              "bn": "ইংরেজি"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "জাতীয়তা ও পরিচিতি (Nationalitäten)",
+      "title_target": "Nationalität angeben",
+      "intro_bn": "পুরুষ ও নারী জাতীয়তায় সামান্য পার্থক্য থাকে, যেমন: Deutscher বনাম Deutsche।",
+      "structure": [
+        "Person",
+        "Kopula",
+        "Nationalität"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Sind Sie Deutscher?",
+          "bn": "আপনি কি জার্মান (পুরুষ)?",
+          "bn_pron": "জিন্ট যী ডয়চার",
+          "tokens": [
+            {
+              "t": "Sind",
+              "bn": "হন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Deutscher?",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nein, ich bin Bangladescher.",
+          "bn": "না, আমি বাংলাদেশি।",
+          "bn_pron": "নাইন ইখ্ বিন বাংলাদেশার",
+          "tokens": [
+            {
+              "t": "Nein,",
+              "bn": "না"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "Bangladescher.",
+              "bn": "বাংলাদেশি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Meine Kollegin ist Deutsche.",
+          "bn": "আমার সহকর্মী জার্মান (নারী)।",
+          "bn_pron": "মাইনে কোলেগিন ইস্ত ডয়চে",
+          "tokens": [
+            {
+              "t": "Meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Kollegin",
+              "bn": "সহকর্মী"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "Deutsche.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er ist Franzose.",
+          "bn": "সে ফরাসি।",
+          "bn_pron": "এর ইস্ত ফ্রানৎসোজে",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Franzose.",
+              "bn": "ফরাসি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie ist Italienerin.",
+          "bn": "তিনি ইতালীয় (নারী)।",
+          "bn_pron": "যী ইস্ত ইতালিয়েনেরিন",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তিনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "Italienerin.",
+              "bn": "ইতালীয়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir sind internationale Studenten.",
+          "bn": "আমরা আন্তর্জাতিক শিক্ষার্থী।",
+          "bn_pron": "ভির জিন্ট ইন্টারনাসিওনালে শ্টুডেন্টেন",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "sind",
+              "bn": "হই"
+            },
+            {
+              "t": "internationale",
+              "bn": "আন্তর্জাতিক"
+            },
+            {
+              "t": "Studenten.",
+              "bn": "শিক্ষার্থী"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Berlin ist sehr international.",
+          "bn": "বার্লিন খুবই আন্তর্জাতিক শহর।",
+          "bn_pron": "বের্লিন ইস্ত জেয়ার ইন্টারনাসিওনাল",
+          "tokens": [
+            {
+              "t": "Berlin",
+              "bn": "বার্লিন"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "international.",
+              "bn": "আন্তর্জাতিক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Viele Menschen leben hier.",
+          "bn": "অনেক মানুষ এখানে বাস করে।",
+          "bn_pron": "ফীলে মেনশেন লেবেন হিয়ার",
+          "tokens": [
+            {
+              "t": "Viele",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Menschen",
+              "bn": "মানুষ"
+            },
+            {
+              "t": "leben",
+              "bn": "বাস করে"
+            },
+            {
+              "t": "hier.",
+              "bn": "এখানে"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

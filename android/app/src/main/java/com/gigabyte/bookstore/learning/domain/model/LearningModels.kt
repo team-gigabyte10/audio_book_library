@@ -10,7 +10,7 @@ enum class Level {
     }
 }
 
-enum class SpeechLang { EN, BN, JA, UR, HI }
+enum class SpeechLang { EN, BN, JA, UR, HI, DE }
 
 /**
  * The spoken target language of a lesson or item, from its ID prefix.
@@ -18,6 +18,7 @@ enum class SpeechLang { EN, BN, JA, UR, HI }
  * languages must not take the target language from the ladder.
  */
 fun targetLangForId(id: String): SpeechLang = when {
+    id.startsWith("de-") -> SpeechLang.DE
     id.startsWith("ur-") -> SpeechLang.UR
     id.startsWith("hi-") -> SpeechLang.HI
     id.startsWith("jp-") -> SpeechLang.JA
@@ -55,6 +56,7 @@ data class LadderStep(
                     SpeechLang.JA -> "ja"
                     SpeechLang.UR -> "ur"
                     SpeechLang.HI -> "hi"
+                    SpeechLang.DE -> "de"
                     else -> "en"
                 }
                 "$lang:${step.speed}" + (step.minLevel?.let { "@${it.name}" } ?: "")
@@ -67,7 +69,7 @@ data class LadderStep(
                 val (kind, rest) = token.split(':', limit = 2).takeIf { it.size == 2 } ?: return@mapNotNull null
                 when (kind) {
                     "pause" -> rest.toLongOrNull()?.let { LadderStep(pauseMs = it) }
-                    "en", "bn", "ja", "ur", "hi" -> {
+                    "en", "bn", "ja", "ur", "hi", "de" -> {
                         val speed = rest.substringBefore('@').toFloatOrNull() ?: return@mapNotNull null
                         val minLevel = rest.substringAfter('@', "").takeIf { it.isNotBlank() }?.let(Level::parse)
                         val playLang = when (kind) {
@@ -75,6 +77,7 @@ data class LadderStep(
                             "ja" -> SpeechLang.JA
                             "ur" -> SpeechLang.UR
                             "hi" -> SpeechLang.HI
+                            "de" -> SpeechLang.DE
                             else -> SpeechLang.EN
                         }
                         LadderStep(playLang, speed, minLevel)

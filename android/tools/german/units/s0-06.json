@@ -1,0 +1,586 @@
+{
+  "title_bn": "স্বরভঙ্গি, শব্দে জোর ও স্বরগ্রাম",
+  "title_target": "Wortakzent & Satzmelodie",
+  "lessons": [
+    {
+      "title_bn": "শব্দের মূল অংশে জোর (Stammbetonung)",
+      "title_target": "Betonung auf dem Stamm",
+      "intro_bn": "জার্মান আদি শব্দে সর্বদা প্রথম সিলেবল বা মূল ধাতুতে স্বাভাবিক জোর (Stress) থাকে।",
+      "structure": [
+        "Wort",
+        "Betonung",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Name",
+          "bn": "নাম",
+          "bn_pron": "না-মে",
+          "tokens": [
+            {
+              "t": "Name",
+              "bn": "নাম"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Danke",
+          "bn": "ধন্যবাদ",
+          "bn_pron": "ডা-ঙ্কে",
+          "tokens": [
+            {
+              "t": "Danke",
+              "bn": "ধন্যবাদ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "kommen",
+          "bn": "আসা",
+          "bn_pron": "ক-মেন",
+          "tokens": [
+            {
+              "t": "kommen",
+              "bn": "আসা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "wohnen",
+          "bn": "বাস করা",
+          "bn_pron": "ভো-নেন",
+          "tokens": [
+            {
+              "t": "wohnen",
+              "bn": "বাস করা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "lernen",
+          "bn": "শেখা",
+          "bn_pron": "লের-নেন",
+          "tokens": [
+            {
+              "t": "lernen",
+              "bn": "শেখা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "trinken",
+          "bn": "পান করা",
+          "bn_pron": "ট্রিং-কেন",
+          "tokens": [
+            {
+              "t": "trinken",
+              "bn": "পান করা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "arbeiten",
+          "bn": "কাজ করা",
+          "bn_pron": "আর-বাইতেন",
+          "tokens": [
+            {
+              "t": "arbeiten",
+              "bn": "কাজ করা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "hören",
+          "bn": "শোনা",
+          "bn_pron": "হোয়-রেন",
+          "tokens": [
+            {
+              "t": "hören",
+              "bn": "শোনা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "যৌগিক শব্দের প্রথম পদে জোর (Komposita)",
+      "title_target": "Akzent bei Komposita",
+      "intro_bn": "জার্মানিতে দুটি শব্দ জোড়া লাগলে সর্বদা প্রথম শব্দটিতে প্রধান জোর পড়ে।",
+      "structure": [
+        "Kompositum",
+        "Hauptakzent",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Haustür",
+          "bn": "বাড়ির দরজা",
+          "bn_pron": "হাউস-ত্যুর",
+          "tokens": [
+            {
+              "t": "Haustür",
+              "bn": "বাড়ির দরজা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Bahnhof",
+          "bn": "রেল স্টেশন",
+          "bn_pron": "বান-হোফ",
+          "tokens": [
+            {
+              "t": "Bahnhof",
+              "bn": "রেল স্টেশন"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Flughafen",
+          "bn": "বিমানবন্দর",
+          "bn_pron": "ফ্লুক-হাফেন",
+          "tokens": [
+            {
+              "t": "Flughafen",
+              "bn": "বিমানবন্দর"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Großvater",
+          "bn": "দাদু / নানা",
+          "bn_pron": "গ্রোস-ফাটার",
+          "tokens": [
+            {
+              "t": "Großvater",
+              "bn": "দাদু"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Wörterbuch",
+          "bn": "অভিধান",
+          "bn_pron": "ভোয়ের্টার-বুখ",
+          "tokens": [
+            {
+              "t": "Wörterbuch",
+              "bn": "অভিধান"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Kopfschmerzen",
+          "bn": "মাথাব্যথা",
+          "bn_pron": "কপফ-শ্মেরৎসেন",
+          "tokens": [
+            {
+              "t": "Kopfschmerzen",
+              "bn": "মাথাব্যথা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Fahrkarte",
+          "bn": "ভ্রমণের টিকিট",
+          "bn_pron": "ফার-কার্টে",
+          "tokens": [
+            {
+              "t": "Fahrkarte",
+              "bn": "টিকিট"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Hauptstadt",
+          "bn": "রাজধানী",
+          "bn_pron": "হাউপট-শ্টাট",
+          "tokens": [
+            {
+              "t": "Hauptstadt",
+              "bn": "রাজধানী"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "সাধারণ বাক্যের নিম্নগামী সুর (Aussagesatz)",
+      "title_target": "Fallende Satzmelodie",
+      "intro_bn": "বিবৃতিমূলক বাক্যের শেষে গলার স্বর নিচের দিকে নেমে যায় (Falling Intonation)।",
+      "structure": [
+        "Satz",
+        "Intonation",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich heiße Paul.",
+          "bn": "আমার নাম পল।",
+          "bn_pron": "ইখ্ হাইসে পাউল",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "heiße",
+              "bn": "নাম"
+            },
+            {
+              "t": "Paul.",
+              "bn": "পল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das ist gut.",
+          "bn": "এটা ভালো।",
+          "bn_pron": "ডাস ইস্ত গুট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich lerne Deutsch.",
+          "bn": "আমি জার্মান শিখছি।",
+          "bn_pron": "ইখ্ লের্নে ডয়চ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "lerne",
+              "bn": "শিখছি"
+            },
+            {
+              "t": "Deutsch.",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er kommt aus Berlin.",
+          "bn": "সে বার্লিন থেকে এসেছে।",
+          "bn_pron": "এর কম্ট আউস বের্লিন",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "kommt",
+              "bn": "আসে"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Berlin.",
+              "bn": "বার্লিন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir wohnen hier.",
+          "bn": "আমরা এখানে থাকি।",
+          "bn_pron": "ভির ভোনেন হিয়ার",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "wohnen",
+              "bn": "থাকি"
+            },
+            {
+              "t": "hier.",
+              "bn": "এখানে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Wetter ist schön.",
+          "bn": "আবহাওয়া সুন্দর।",
+          "bn_pron": "ডাস ভেটার ইস্ত শোয়ন",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Wetter",
+              "bn": "আবহাওয়া"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "schön.",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie trinken Kaffee.",
+          "bn": "তারা কফি পান করছে।",
+          "bn_pron": "যী ট্রিঙ্কেন কাফে",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তারা"
+            },
+            {
+              "t": "trinken",
+              "bn": "পান করে"
+            },
+            {
+              "t": "Kaffee.",
+              "bn": "কফি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Heute ist Montag.",
+          "bn": "আজ সোমবার।",
+          "bn_pron": "হয়টে ইস্ত মোনতাক",
+          "tokens": [
+            {
+              "t": "Heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "Montag.",
+              "bn": "সোমবার"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "প্রশ্নবোধক বাক্যের সুর (Fragesatz)",
+      "title_target": "Steigende & Fallende Melodie",
+      "intro_bn": "Ja/Nein প্রশ্নে সুর উঁচুতে ওঠে (Rising), আর W-Frage (Wann, Wo, Wer)-তে সুর নিচে নামে।",
+      "structure": [
+        "Frage",
+        "Intonation",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Kommen Sie aus Bonn?",
+          "bn": "আপনি কি বন থেকে এসেছেন?",
+          "bn_pron": "কমেন যী আউস বন",
+          "tokens": [
+            {
+              "t": "Kommen",
+              "bn": "আসেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "aus",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Bonn?",
+              "bn": "বন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sprechen Sie Deutsch?",
+          "bn": "আপনি কি জার্মান বলেন?",
+          "bn_pron": "শ্প্রেখেন যী ডয়চ",
+          "tokens": [
+            {
+              "t": "Sprechen",
+              "bn": "বলেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Deutsch?",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Trinken Sie Tee?",
+          "bn": "আপনি কি চা খাবেন?",
+          "bn_pron": "ট্রিঙ্কেন যী টে",
+          "tokens": [
+            {
+              "t": "Trinken",
+              "bn": "পান করেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Tee?",
+              "bn": "চা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ist das frei?",
+          "bn": "এটা কি খালি?",
+          "bn_pron": "ইস্ত ডাস ফ্রাই",
+          "tokens": [
+            {
+              "t": "Ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "das",
+              "bn": "এটা"
+            },
+            {
+              "t": "frei?",
+              "bn": "খালি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie heißen Sie?",
+          "bn": "আপনার নাম কী?",
+          "bn_pron": "ভী হাইসেন যী",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন/কী"
+            },
+            {
+              "t": "heißen",
+              "bn": "নাম"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wo wohnen Sie?",
+          "bn": "আপনি কোথায় থাকেন?",
+          "bn_pron": "ভো ভোনেন যী",
+          "tokens": [
+            {
+              "t": "Wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "wohnen",
+              "bn": "থাকেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Woher kommen Sie?",
+          "bn": "আপনি কোথা থেকে এসেছেন?",
+          "bn_pron": "ভোহের কমেন যী",
+          "tokens": [
+            {
+              "t": "Woher",
+              "bn": "কোথা থেকে"
+            },
+            {
+              "t": "kommen",
+              "bn": "আসেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Was machen Sie?",
+          "bn": "আপনি কী করছেন?",
+          "bn_pron": "ভাস মাখেন যী",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "machen",
+              "bn": "করেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

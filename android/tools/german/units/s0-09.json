@@ -1,0 +1,679 @@
+{
+  "title_bn": "জরুরি অভিবাদন ও ভদ্রোচিত শব্দ",
+  "title_target": "Begrüßung & Höflichkeitsformeln",
+  "lessons": [
+    {
+      "title_bn": "দিনের বেলার শুভেচ্ছা (Hallo, Guten Tag)",
+      "title_target": "Grüße im Tageslauf",
+      "intro_bn": "জার্মানিতে যেকোনো দেখা সাক্ষাতে অভিবাদন জানানো খুব গুরুত্বপূর্ণ একটি সামাজিক শিষ্টাচার।",
+      "structure": [
+        "Grußformel",
+        "Tageszeit",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Hallo",
+          "bn": "হ্যালো / হাই",
+          "bn_pron": "হালো",
+          "tokens": [
+            {
+              "t": "Hallo",
+              "bn": "হ্যালো"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Guten Morgen",
+          "bn": "শুভ সকাল",
+          "bn_pron": "গুটেন মর্গেন",
+          "tokens": [
+            {
+              "t": "Guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Morgen",
+              "bn": "সকাল"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Guten Tag",
+          "bn": "শুভ দিন / আসসালামু আলাইকুম",
+          "bn_pron": "গুটেন তাক",
+          "tokens": [
+            {
+              "t": "Guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Guten Abend",
+          "bn": "শুভ সন্ধ্যা",
+          "bn_pron": "গুটেন আবেন্ট",
+          "tokens": [
+            {
+              "t": "Guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Abend",
+              "bn": "সন্ধ্যা"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Grüß Gott",
+          "bn": "নমস্কার / শুভ দিন (দক্ষিণ জার্মানি)",
+          "bn_pron": "গ্র্যূস গট",
+          "tokens": [
+            {
+              "t": "Grüß",
+              "bn": "শুভেচ্ছা"
+            },
+            {
+              "t": "Gott",
+              "bn": "ঈশ্বর"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Moin Moin",
+          "bn": "হ্যালো / শুভ দিন (উত্তর জার্মানি)",
+          "bn_pron": "ময়ন ময়ন",
+          "tokens": [
+            {
+              "t": "Moin",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Moin",
+              "bn": "দিন"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Servus",
+          "bn": "হ্যালো / বাই (অস্ট্রিয়া ও বাভারিয়া)",
+          "bn_pron": "সেরভুস্",
+          "tokens": [
+            {
+              "t": "Servus",
+              "bn": "হ্যালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Herzlich willkommen!",
+          "bn": "আন্তরিক স্বাগতম!",
+          "bn_pron": "হেয়ার্ৎসলিখ্ ভিলকোমেন",
+          "tokens": [
+            {
+              "t": "Herzlich",
+              "bn": "আন্তরিক"
+            },
+            {
+              "t": "willkommen!",
+              "bn": "স্বাগতম"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বিদায় সম্ভাষণ (Auf Wiedersehen, Tschüss)",
+      "title_target": "Abschied nehmen",
+      "intro_bn": "আনুষ্ঠানিক বিদায়ে Auf Wiedersehen এবং বন্ধুদের মাঝে Tschüss ব্যবহার করা হয়।",
+      "structure": [
+        "Formel",
+        "Register",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "phrase",
+          "target": "Auf Wiedersehen",
+          "bn": "আবার দেখা হবে / বিদায় (আনুষ্ঠানিক)",
+          "bn_pron": "আউফ ভিডারজেহেন",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "পুনরায়"
+            },
+            {
+              "t": "Wiedersehen",
+              "bn": "দেখা হওয়া"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Tschüss",
+          "bn": "বিদায় (বন্ধুত্বপূর্ণ)",
+          "bn_pron": "ত্যুস",
+          "tokens": [
+            {
+              "t": "Tschüss",
+              "bn": "বিদায়"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Bis bald",
+          "bn": "শীঘ্রই দেখা হবে",
+          "bn_pron": "বিস বাল্ট",
+          "tokens": [
+            {
+              "t": "Bis",
+              "bn": "পর্যন্ত"
+            },
+            {
+              "t": "bald",
+              "bn": "শীঘ্রই"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Bis später",
+          "bn": "পরে দেখা হবে",
+          "bn_pron": "বিস শ্পেটার",
+          "tokens": [
+            {
+              "t": "Bis",
+              "bn": "পর্যন্ত"
+            },
+            {
+              "t": "später",
+              "bn": "পরে"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Bis morgen",
+          "bn": "কাল দেখা হবে",
+          "bn_pron": "বিস মর্গেন",
+          "tokens": [
+            {
+              "t": "Bis",
+              "bn": "পর্যন্ত"
+            },
+            {
+              "t": "morgen",
+              "bn": "কাল"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Gute Nacht",
+          "bn": "শুভ রাত্রি",
+          "bn_pron": "গুটে নাখ্ট",
+          "tokens": [
+            {
+              "t": "Gute",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Nacht",
+              "bn": "রাত্রি"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Schönes Wochenende",
+          "bn": "সাপ্তাহিক ছুটি শুভ হোক",
+          "bn_pron": "শোয়নেস ভখেনএন্ডে",
+          "tokens": [
+            {
+              "t": "Schönes",
+              "bn": "সুন্দর"
+            },
+            {
+              "t": "Wochenende",
+              "bn": "ছুটি"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Auf Wiederhören",
+          "bn": "ফোনে বিদায় সম্ভাষণ",
+          "bn_pron": "আউফ ভিডারহোয়েরেন",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "পুনরায়"
+            },
+            {
+              "t": "Wiederhören",
+              "bn": "শোনা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "ধন্যবাদ ও স্বাগতম (Danke, Bitte)",
+      "title_target": "Danke & Bitte sagen",
+      "intro_bn": "Danke ও Bitte হলো জার্মান ভাষার দুটি সবচেয়ে মধুর ও বহুল ব্যবহৃত শব্দ।",
+      "structure": [
+        "Ausdruck",
+        "Intensität",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Danke",
+          "bn": "ধন্যবাদ",
+          "bn_pron": "ডাঙ্কে",
+          "tokens": [
+            {
+              "t": "Danke",
+              "bn": "ধন্যবাদ"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Danke schön",
+          "bn": "অনেক ধন্যবাদ",
+          "bn_pron": "ডাঙ্কে শোয়ন",
+          "tokens": [
+            {
+              "t": "Danke",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "schön",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Vielen Dank",
+          "bn": "অসংখ্য ধন্যবাদ",
+          "bn_pron": "ফিলেন ডাঙ্ক",
+          "tokens": [
+            {
+              "t": "Vielen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Dank",
+              "bn": "ধন্যবাদ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Bitte",
+          "bn": "দয়া করে / স্বাগতম",
+          "bn_pron": "বিটে",
+          "tokens": [
+            {
+              "t": "Bitte",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Bitte schön",
+          "bn": "স্বাগতম / এই নিন",
+          "bn_pron": "বিটে শোয়ন",
+          "tokens": [
+            {
+              "t": "Bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "schön",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Gern geschehen",
+          "bn": "স্বাচ্ছন্দ্যে করেছি / কোনো ব্যাপার না",
+          "bn_pron": "গেয়ার্ন গেশেহেন",
+          "tokens": [
+            {
+              "t": "Gern",
+              "bn": "খুশিমনে"
+            },
+            {
+              "t": "geschehen",
+              "bn": "ঘটেছে"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Keine Ursache",
+          "bn": "ধন্যবাদ দিতে হবে না",
+          "bn_pron": "কাইনে উরযাখে",
+          "tokens": [
+            {
+              "t": "Keine",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Ursache",
+              "bn": "কারণ"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Sehr gerne",
+          "bn": "খুব আনন্দের সাথে",
+          "bn_pron": "জেয়ার গেয়ার্নে",
+          "tokens": [
+            {
+              "t": "Sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gerne",
+              "bn": "আনন্দের সাথে"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "দুঃখ প্রকাশ ও ক্ষমা চাওয়া (Entschuldigung)",
+      "title_target": "Sich entschuldigen",
+      "intro_bn": "কারো দৃষ্টি আকর্ষণ করতে বা ভুল হলে ক্ষমা চাইতে এই অভিব্যক্তিগুলো কাজে লাগবে।",
+      "structure": [
+        "Ausdruck",
+        "Situation",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Entschuldigung",
+          "bn": "মাফ করবেন / এক্সকিউজ মি",
+          "bn_pron": "এন্টশুলডিগুং",
+          "tokens": [
+            {
+              "t": "Entschuldigung",
+              "bn": "মাফ করবেন"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "sentence",
+          "target": "Es tut mir leid.",
+          "bn": "আমি দুঃখিত।",
+          "bn_pron": "এস টুট মিয়ার লাইট",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটা"
+            },
+            {
+              "t": "tut",
+              "bn": "করে"
+            },
+            {
+              "t": "mir",
+              "bn": "আমার"
+            },
+            {
+              "t": "leid.",
+              "bn": "কষ্ট"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Kein Problem",
+          "bn": "কোনো সমস্যা নেই",
+          "bn_pron": "কাইন প্রবলেম",
+          "tokens": [
+            {
+              "t": "Kein",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Problem",
+              "bn": "সমস্যা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Macht nichts.",
+          "bn": "কিছু মনে করবেন না / অসুবিধা নেই।",
+          "bn_pron": "মাখট নিখ্ট",
+          "tokens": [
+            {
+              "t": "Macht",
+              "bn": "করে"
+            },
+            {
+              "t": "nichts.",
+              "bn": "কিছু না"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Verzeihung bitte.",
+          "bn": "ক্ষমা করবেন দয়া করে।",
+          "bn_pron": "ফেয়ারৎসাইহুং বিটে",
+          "tokens": [
+            {
+              "t": "Verzeihung",
+              "bn": "ক্ষমা"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das macht nichts.",
+          "bn": "তাতে কিছু আসে যায় না।",
+          "bn_pron": "ডাস মাখট নিখ্ট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "তাতে"
+            },
+            {
+              "t": "macht",
+              "bn": "করে"
+            },
+            {
+              "t": "nichts.",
+              "bn": "কিছু না"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Alles gut",
+          "bn": "সব ঠিক আছে",
+          "bn_pron": "আলেস গুট",
+          "tokens": [
+            {
+              "t": "Alles",
+              "bn": "সব"
+            },
+            {
+              "t": "gut",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Schade eigentlich",
+          "bn": "আসলেই আফসোসের বিষয়",
+          "bn_pron": "শাডে আইগেন্টলিখ",
+          "tokens": [
+            {
+              "t": "Schade",
+              "bn": "আফসোস"
+            },
+            {
+              "t": "eigentlich",
+              "bn": "আসলে"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "হ্যাঁ, না এবং মতামত (Ja, Nein, Doch)",
+      "title_target": "Zustimmung & Verneinung",
+      "intro_bn": "নেতিবাচক প্রশ্নের উত্তরে হ্যাঁ বলতে বিশেষ শব্দ Doch ব্যবহৃত হয়। যেমন: তুমি কি যাবে না? - Doch! (অবশ্যই যাব!)।",
+      "structure": [
+        "Antwortwort",
+        "Bedeutung",
+        "Verwendung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Ja",
+          "bn": "হ্যাঁ",
+          "bn_pron": "ইয়া",
+          "tokens": [
+            {
+              "t": "Ja",
+              "bn": "হ্যাঁ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Nein",
+          "bn": "না",
+          "bn_pron": "নাইন",
+          "tokens": [
+            {
+              "t": "Nein",
+              "bn": "না"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Doch",
+          "bn": "হ্যাঁ (নেতিবাচক প্রশ্নের বিপরীতে)",
+          "bn_pron": "ডখ",
+          "tokens": [
+            {
+              "t": "Doch",
+              "bn": "অবশ্যই হ্যাঁ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Vielleicht",
+          "bn": "সম্ভবত / হয়তো",
+          "bn_pron": "ফীলাইখ্ট",
+          "tokens": [
+            {
+              "t": "Vielleicht",
+              "bn": "হয়তো"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Natürlich",
+          "bn": "অবশ্যই / স্বাভাবিকভাবে",
+          "bn_pron": "নাত্যুরলিখ",
+          "tokens": [
+            {
+              "t": "Natürlich",
+              "bn": "অবশ্যই"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Genau",
+          "bn": "একদম ঠিক / এক্স্যাক্টলি",
+          "bn_pron": "গেনাউ",
+          "tokens": [
+            {
+              "t": "Genau",
+              "bn": "একদম ঠিক"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Auf jeden Fall",
+          "bn": "যেকোনো মূল্যে / অবশ্যই",
+          "bn_pron": "আউফ ইয়েডেন ফাল",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "উপর"
+            },
+            {
+              "t": "jeden",
+              "bn": "প্রতিটি"
+            },
+            {
+              "t": "Fall",
+              "bn": "ঘটনা"
+            }
+          ]
+        },
+        {
+          "type": "phrase",
+          "target": "Auf keinen Fall",
+          "bn": "কখনই নয় / কোনো অবস্থাতেই না",
+          "bn_pron": "আউফ কাইনেন ফাল",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "উপর"
+            },
+            {
+              "t": "keinen",
+              "bn": "কোনো না"
+            },
+            {
+              "t": "Fall",
+              "bn": "ঘটনা"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

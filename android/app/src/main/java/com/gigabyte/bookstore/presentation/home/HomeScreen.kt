@@ -110,6 +110,7 @@ fun HomeScreen(
     onNavigateToLearnJapanese: () -> Unit = {},
     onNavigateToLearnUrdu: () -> Unit = {},
     onNavigateToLearnHindi: () -> Unit = {},
+    onNavigateToLearnGerman: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
@@ -139,6 +140,9 @@ fun HomeScreen(
     }
     val isHindiUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("hindi_course")
+    }
+    val isGermanUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("german_course")
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -456,6 +460,26 @@ fun HomeScreen(
                                 statsText = "🎧 ১০৫টি অডিও লেসন · শূন্য থেকে A1",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnHindi,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                             )
+                        }
+
+                        // 6. GERMAN LANGUAGE COURSE SHOWCASE CARD (German-Spoken-Curriculum-Plan.md)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "জার্মান স্পোকেন কোর্স (শূন্য থেকে A1)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে জার্মান উচ্চারণ, der/die/das ও দৈনন্দিন কথা বলা",
+                                badgeText = "🇩🇪 জার্মান ভাষা কোর্স",
+                                badgeColor = Color(0xFF004D40),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isGermanUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFF00695C), Color(0xFF004D40)),
+                                accentColor = Color(0xFF004D40),
+                                statsText = "🎧 ১০৫টি অডিও লেসন · শূন্য থেকে A1",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = onNavigateToLearnGerman,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

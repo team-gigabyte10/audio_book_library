@@ -72,6 +72,7 @@ fun LearnHomeScreen(
     val isJapanese = language.equals("japanese", ignoreCase = true)
     val isUrdu = language.equals("urdu", ignoreCase = true)
     val isHindi = language.equals("hindi", ignoreCase = true)
+    val isGerman = language.equals("german", ignoreCase = true)
 
     DisposableEffect(language) {
         viewModel.playWelcomeGreeting(language = language)
@@ -104,6 +105,11 @@ fun LearnHomeScreen(
     val hiStandardPartCount = hiStandardParts.size.coerceAtLeast(1)
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
     val hiStandardSentenceCount = hiStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 1100 }
+
+    val deStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-std-") && it.part.isEnabled } }
+    val deStandardPartCount = deStandardParts.size.coerceAtLeast(1)
+    val deStandardLessonCount = deStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
+    val deStandardSentenceCount = deStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 1200 }
 
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
@@ -139,6 +145,7 @@ fun LearnHomeScreen(
                             text = when {
                                 isUrdu -> "উর্দু স্পোকেন কোর্স"
                                 isHindi -> "হিন্দি স্পোকেন কোর্স"
+                                isGerman -> "জার্মান স্পোকেন কোর্স"
                                 isJapanese -> "জাপানিজ স্পোকেন মাস্টারক্লাস"
                                 else -> "স্পোকেন ইংলিশ মাস্টারক্লাস"
                             },
@@ -149,6 +156,7 @@ fun LearnHomeScreen(
                             text = when {
                                 isUrdu -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে উর্দু বলা"
                                 isHindi -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে হিন্দি বলা"
+                                isGerman -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে জার্মান বলা"
                                 isJapanese -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)"
                                 else -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি"
                             },
@@ -238,6 +246,28 @@ fun LearnHomeScreen(
                                 lessonCount = hiStandardLessonCount,
                                 sentenceCount = hiStandardSentenceCount,
                                 onClick = { onOpenCourse("hi_standard") }
+                            )
+                        }
+                    } else if (isGerman) {
+                        item {
+                            WelcomeBanner(
+                                text = "জার্মান স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি শব্দ ও বাক্য শুনুন এবং জোরে জোরে বলুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "german", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+                        // German-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1",
+                                title = "শূন্য থেকে জার্মান বলা (উচ্চারণ, ব্যাকরণ ও A1 স্পিকিং)",
+                                description = "জার্মান বর্ণমালা, উমলাউট (ä, ö, ü, ß), der/die/das আর্টিকেল, একুশে নিয়ম (V2) ও A1-এর ১৫টি পূর্ণাঙ্গ ইউনিট।",
+                                accentColor = Color(0xFF004D40),
+                                partCount = deStandardPartCount,
+                                lessonCount = deStandardLessonCount,
+                                sentenceCount = deStandardSentenceCount,
+                                onClick = { onOpenCourse("de_standard") }
                             )
                         }
                     } else if (!isJapanese) {

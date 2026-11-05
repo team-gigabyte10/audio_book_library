@@ -1,0 +1,459 @@
+{
+  "title_bn": "শব্দের শেষে ধ্বনি পরিবর্তন",
+  "title_target": "Auslautverhärtung & Endungen",
+  "lessons": [
+    {
+      "title_bn": "শব্দের শেষে \"d\" হয়ে যায় \"t\"",
+      "title_target": "Endlaut D wird T",
+      "intro_bn": "শব্দের শেষে d থাকলে সেটি শক্ত হয়ে 'ট' বা 'ত'-এর মতো উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Aussprache",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "und",
+          "bn": "এবং / ও",
+          "bn_pron": "উন্ট",
+          "tokens": [
+            {
+              "t": "und",
+              "bn": "এবং"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Bad",
+          "bn": "গোসলখানা / বাথ",
+          "bn_pron": "বাট",
+          "tokens": [
+            {
+              "t": "Bad",
+              "bn": "গোসলখানা"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Bild",
+          "bn": "ছবি",
+          "bn_pron": "বিল্ট",
+          "tokens": [
+            {
+              "t": "Bild",
+              "bn": "ছবি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Lied",
+          "bn": "গান",
+          "bn_pron": "লীট",
+          "tokens": [
+            {
+              "t": "Lied",
+              "bn": "গান"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Hund",
+          "bn": "কুকুর",
+          "bn_pron": "হুন্ট",
+          "tokens": [
+            {
+              "t": "Hund",
+              "bn": "কুকুর"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Hand",
+          "bn": "হাত",
+          "bn_pron": "হান্ট",
+          "tokens": [
+            {
+              "t": "Hand",
+              "bn": "হাত"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Kind",
+          "bn": "শিশু",
+          "bn_pron": "কিন্ট",
+          "tokens": [
+            {
+              "t": "Kind",
+              "bn": "শিশু"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Geld",
+          "bn": "টাকা / অর্থ",
+          "bn_pron": "গেল্ট",
+          "tokens": [
+            {
+              "t": "Geld",
+              "bn": "টাকা"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    },
+    {
+      "title_bn": "শব্দের শেষে \"b\" হয়ে যায় \"p\"",
+      "title_target": "Endlaut B wird P",
+      "intro_bn": "শব্দের শেষে বা সিলেবলের শেষে b বসলে তা শক্ত হয়ে 'প'-এর মতো উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Aussprache",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Abend",
+          "bn": "সন্ধ্যা",
+          "bn_pron": "আবেন্ট",
+          "tokens": [
+            {
+              "t": "Abend",
+              "bn": "সন্ধ্যা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "gelb",
+          "bn": "হলুদ",
+          "bn_pron": "গেল্প",
+          "tokens": [
+            {
+              "t": "gelb",
+              "bn": "হলুদ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Urlaub",
+          "bn": "ছুটি",
+          "bn_pron": "উরলাউপ",
+          "tokens": [
+            {
+              "t": "Urlaub",
+              "bn": "ছুটি"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Dieb",
+          "bn": "চোর",
+          "bn_pron": "দীপ",
+          "tokens": [
+            {
+              "t": "Dieb",
+              "bn": "চোর"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Korb",
+          "bn": "ঝুড়ি",
+          "bn_pron": "কর্প",
+          "tokens": [
+            {
+              "t": "Korb",
+              "bn": "ঝুড়ি"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "halb",
+          "bn": "অর্ধেক",
+          "bn_pron": "হাল্প",
+          "tokens": [
+            {
+              "t": "halb",
+              "bn": "অর্ধেক"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Kalb",
+          "bn": "বাছুর",
+          "bn_pron": "কাল্প",
+          "tokens": [
+            {
+              "t": "Kalb",
+              "bn": "বাছুর"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Klub",
+          "bn": "ক্লাব",
+          "bn_pron": "ক্লুপ",
+          "tokens": [
+            {
+              "t": "Klub",
+              "bn": "ক্লাব"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "শব্দের শেষে \"g\" হয়ে যায় \"k\"",
+      "title_target": "Endlaut G wird K",
+      "intro_bn": "শব্দের শেষে g থাকলে তা শক্ত হয়ে 'ক'-এর মতো উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Aussprache",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Tag",
+          "bn": "দিন",
+          "bn_pron": "তাক",
+          "tokens": [
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Zug",
+          "bn": "ট্রেন",
+          "bn_pron": "ৎসুক",
+          "tokens": [
+            {
+              "t": "Zug",
+              "bn": "ট্রেন"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Flug",
+          "bn": "ফ্লাইট / বিমান ভ্রমণ",
+          "bn_pron": "ফ্লুক",
+          "tokens": [
+            {
+              "t": "Flug",
+              "bn": "ফ্লাইট"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Weg",
+          "bn": "রাস্তা / পথ",
+          "bn_pron": "ভেক",
+          "tokens": [
+            {
+              "t": "Weg",
+              "bn": "পথ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "klug",
+          "bn": "চালাক / বুদ্ধিমান",
+          "bn_pron": "ক্লুক",
+          "tokens": [
+            {
+              "t": "klug",
+              "bn": "বুদ্ধিমান"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Berg",
+          "bn": "পাহাড় / পর্বত",
+          "bn_pron": "বের্ক",
+          "tokens": [
+            {
+              "t": "Berg",
+              "bn": "পাহাড়"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Burg",
+          "bn": "দুর্গ / কেল্লা",
+          "bn_pron": "বুর্ক",
+          "tokens": [
+            {
+              "t": "Burg",
+              "bn": "দুর্গ"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Sarg",
+          "bn": "কফিন",
+          "bn_pron": "যার্ক",
+          "tokens": [
+            {
+              "t": "Sarg",
+              "bn": "কফিন"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "শব্দের শেষে \"-ig\" হয়ে যায় \"-ich\"",
+      "title_target": "Die Endung -ig",
+      "intro_bn": "জার্মান স্ট্যান্ডার্ড উচ্চারণে শব্দের শেষের '-ig' কোমল ইখ্-লাউটের মতো '-ইখ্' বা '-ইশ' উচ্চারিত হয়।",
+      "structure": [
+        "Wort",
+        "Aussprache",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "richtig",
+          "bn": "সঠিক / ঠিক",
+          "bn_pron": "রিখ্টিখ্",
+          "tokens": [
+            {
+              "t": "richtig",
+              "bn": "সঠিক"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "wichtig",
+          "bn": "গুরুত্বপূর্ণ",
+          "bn_pron": "ভিখ্টিখ্",
+          "tokens": [
+            {
+              "t": "wichtig",
+              "bn": "গুরুত্বপূর্ণ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "ruhig",
+          "bn": "শান্ত",
+          "bn_pron": "রুহিখ্",
+          "tokens": [
+            {
+              "t": "ruhig",
+              "bn": "শান্ত"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "wenig",
+          "bn": "কম / সামান্য",
+          "bn_pron": "ভেনিGridখ্",
+          "tokens": [
+            {
+              "t": "wenig",
+              "bn": "কম"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "fertig",
+          "bn": "প্রস্তুত / শেষ",
+          "bn_pron": "ফেয়ার্টিখ্",
+          "tokens": [
+            {
+              "t": "fertig",
+              "bn": "প্রস্তুত"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "lustig",
+          "bn": "মজার / হাসিখুশি",
+          "bn_pron": "লুস্ টিখ্",
+          "tokens": [
+            {
+              "t": "lustig",
+              "bn": "মজার"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "traurig",
+          "bn": "দুঃখজনক / বিষণ্ণ",
+          "bn_pron": "ট্রাউরিখ্",
+          "tokens": [
+            {
+              "t": "traurig",
+              "bn": "বিষণ্ণ"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "König",
+          "bn": "রাজা",
+          "bn_pron": "কোয়নিখ্",
+          "tokens": [
+            {
+              "t": "König",
+              "bn": "রাজা"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    }
+  ]
+}

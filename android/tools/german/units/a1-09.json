@@ -1,0 +1,982 @@
+{
+  "title_bn": "বিচ্ছিন্নযোগ্য ক্রিয়াপদ",
+  "title_target": "Trennbare Verben im Alltag",
+  "lessons": [
+    {
+      "title_bn": "উপসর্গ ও আলাদা হওয়ার নিয়ম (an, auf, aus)",
+      "title_target": "Präfixe trennen",
+      "intro_bn": "বিচ্ছিন্নযোগ্য ক্রিয়াপদের উপসর্গটি (an, auf, aus, mit) বাক্যের একেবারে শেষে চলে যায়: aufstehen -> Ich stehe um sechs Uhr auf.",
+      "structure": [
+        "Verb",
+        "Präfix",
+        "Satzende"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Der Film fängt um acht Uhr an.",
+          "bn": "সিনেমাটি আটটায় শুরু হবে (anfangen)।",
+          "bn_pron": "ডের ফিল্ম ফেংট উম আখট উর আন",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Film",
+              "bn": "সিনেমা"
+            },
+            {
+              "t": "fängt",
+              "bn": "শুরু হয়"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "acht",
+              "bn": "আট"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "an.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wann hört der Unterricht auf?",
+          "bn": "ক্লাস কখন শেষ হয় (aufhören)?",
+          "bn_pron": "ভান হোয়ের্ট ডের উন্টাররিশ্ট আউফ",
+          "tokens": [
+            {
+              "t": "Wann",
+              "bn": "কখন"
+            },
+            {
+              "t": "hört",
+              "bn": "শেষ হয়"
+            },
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Unterricht",
+              "bn": "ক্লাস"
+            },
+            {
+              "t": "auf?",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Kurs hört um zwölf Uhr auf.",
+          "bn": "কোর্সটি বারোটায় শেষ হয়।",
+          "bn_pron": "ডের কুর্স হোয়ের্ট উম ৎস্ভোয়েলফ উর আউফ",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Kurs",
+              "bn": "কোর্স"
+            },
+            {
+              "t": "hört",
+              "bn": "শেষ হয়"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "zwölf",
+              "bn": "বারো"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "auf.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich ziehe eine Jacke an.",
+          "bn": "আমি একটি জ্যাকেট পরছি (anziehen)।",
+          "bn_pron": "ইখ্ ৎসীহে আইনে ইয়াক্কে আন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "ziehe",
+              "bn": "পরছি"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Jacke",
+              "bn": "জ্যাকেট"
+            },
+            {
+              "t": "an.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er zieht die Schuhe aus.",
+          "bn": "সে জুতো খুলছে (ausziehen)।",
+          "bn_pron": "এর ৎসীহট ডী শুহে আউস",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "zieht",
+              "bn": "খুলছে"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Schuhe",
+              "bn": "জুতো"
+            },
+            {
+              "t": "aus.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich steige am Bahnhof ein.",
+          "bn": "আমি স্টেশনে ট্রেনে উঠছি (einsteigen)।",
+          "bn_pron": "ইখ্ শ্টাইগে আম বানহোফ আইন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "steige",
+              "bn": "উঠছি"
+            },
+            {
+              "t": "am",
+              "bn": "এ"
+            },
+            {
+              "t": "Bahnhof",
+              "bn": "স্টেশন"
+            },
+            {
+              "t": "ein.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir steigen hier aus.",
+          "bn": "আমরা এখানে নামছি (aussteigen)।",
+          "bn_pron": "ভির শ্টাইগেন হিয়ার আউস",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "steigen",
+              "bn": "নামছি"
+            },
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "aus.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie steigen in Frankfurt um.",
+          "bn": "তারা ফ্রাঙ্কফুর্টে ট্রেন বদলাচ্ছে (umsteigen)।",
+          "bn_pron": "যী শ্টাইগেন ইন ফ্রাঙ্কফুর্ট উম",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তারা"
+            },
+            {
+              "t": "steigen",
+              "bn": "বদল করছে"
+            },
+            {
+              "t": "in",
+              "bn": "এ"
+            },
+            {
+              "t": "Frankfurt",
+              "bn": "ফ্রাঙ্কফুর্ট"
+            },
+            {
+              "t": "um.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "কেনাকাটা ও ফোন করা (einkaufen, anrufen)",
+      "title_target": "Einkaufen & Anrufen",
+      "intro_bn": "einkaufen (কেনাকাটা করা) ও anrufen (ফোন করা) ক্রিয়াপদের স্পোকেন ব্যবহার।",
+      "structure": [
+        "Verb (Pos 2)",
+        "Objekt",
+        "Präfix (Ende)"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich kaufe heute im Supermarkt ein.",
+          "bn": "আমি আজ সুপারমার্কেটে কেনাকাটা করব।",
+          "bn_pron": "ইখ্ কাউফে হয়টে ইম সুপারমার্কট আইন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "kaufe",
+              "bn": "কিনছি"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Supermarkt",
+              "bn": "মার্কেট"
+            },
+            {
+              "t": "ein.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Kaufst du bitte Milch ein?",
+          "bn": "তুমি কি দয়া করে দুধ কিনে আনবে?",
+          "bn_pron": "কাউফস্ট দু বিটে মিলখ আইন",
+          "tokens": [
+            {
+              "t": "Kaufst",
+              "bn": "কিনবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "Milch",
+              "bn": "দুধ"
+            },
+            {
+              "t": "ein?",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich rufe meine Mutter an.",
+          "bn": "আমি আমার মাকে ফোন করছি (anrufen)।",
+          "bn_pron": "ইখ্ রুফে মাইনে মুটার আন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "rufe",
+              "bn": "ডাকছি"
+            },
+            {
+              "t": "meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Mutter",
+              "bn": "মাকে"
+            },
+            {
+              "t": "an.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Rufst du mich später an?",
+          "bn": "তুমি কি আমাকে পরে ফোন করবে?",
+          "bn_pron": "রুফস্ট দু নিখ্ শ্পেটার আন",
+          "tokens": [
+            {
+              "t": "Rufst",
+              "bn": "ডাকবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "mich",
+              "bn": "আমাকে"
+            },
+            {
+              "t": "später",
+              "bn": "পরে"
+            },
+            {
+              "t": "an?",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er ruft den Arzt an.",
+          "bn": "সে ডাক্তারকে ফোন করছে।",
+          "bn_pron": "এর রুফট ডেন আর্ৎস্ট আন",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "ruft",
+              "bn": "ডাকছে"
+            },
+            {
+              "t": "den",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Arzt",
+              "bn": "ডাক্তারকে"
+            },
+            {
+              "t": "an.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir kaufen für das Fest ein.",
+          "bn": "আমরা উৎসবের জন্য কেনাকাটা করছি।",
+          "bn_pron": "ভির কাউফেন ফ্যুর ডাস ফেস্ট আইন",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "kaufen",
+              "bn": "কিনছি"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Fest",
+              "bn": "উৎসব"
+            },
+            {
+              "t": "ein.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Niemand ruft mich an.",
+          "bn": "কেউ আমাকে ফোন করে না।",
+          "bn_pron": "নীমান্ট রুফট নিখ্ আন",
+          "tokens": [
+            {
+              "t": "Niemand",
+              "bn": "কেউ না"
+            },
+            {
+              "t": "ruft",
+              "bn": "ডাকে"
+            },
+            {
+              "t": "mich",
+              "bn": "আমাকে"
+            },
+            {
+              "t": "an.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich rufe gleich zurück.",
+          "bn": "আমি এক্ষুণি ব্যাক করছি (কল ব্যাক)।",
+          "bn_pron": "ইখ্ রুফে গ্লাইখ ৎসুরু্যক",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "rufe",
+              "bn": "ডাকছি"
+            },
+            {
+              "t": "gleich",
+              "bn": "এক্ষুণি"
+            },
+            {
+              "t": "zurück.",
+              "bn": "ফিরে"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "আমন্ত্রণ ও সাথে আসা (mitkommen, mitbringen)",
+      "title_target": "Mitkommen & Mitbringen",
+      "intro_bn": "কারো সাথে কোথাও যাওয়া বা কিছু সাথে নিয়ে আসার জন্য 'mit-' উপসর্গ ব্যবহৃত হয়।",
+      "structure": [
+        "Einladung",
+        "mitnehmen",
+        "Reaktion"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Kommst du heute Abend mit?",
+          "bn": "তুমি কি আজ সন্ধ্যায় আমাদের সাথে আসবে?",
+          "bn_pron": "কমস্ট দু হয়টে আবেন্ট মিট",
+          "tokens": [
+            {
+              "t": "Kommst",
+              "bn": "আসবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "Abend",
+              "bn": "সন্ধ্যায়"
+            },
+            {
+              "t": "mit?",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, ich komme sehr gern mit.",
+          "bn": "হ্যাঁ, আমি খুব আনন্দের সাথে আসব।",
+          "bn_pron": "ইয়া ইখ্ কমে জেয়ার গেয়ার্ন মিট",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "komme",
+              "bn": "আসব"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gern",
+              "bn": "আনন্দে"
+            },
+            {
+              "t": "mit.",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir gehen ins Kino, kommst du mit?",
+          "bn": "আমরা সিনেমায় যাচ্ছি, তুমি কি যাবে?",
+          "bn_pron": "ভির গেহেন ইন্স কিনো কমস্ট দু মিট",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "gehen",
+              "bn": "যাচ্ছি"
+            },
+            {
+              "t": "ins",
+              "bn": "এ"
+            },
+            {
+              "t": "Kino,",
+              "bn": "সিনেমা"
+            },
+            {
+              "t": "kommst",
+              "bn": "আসবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "mit?",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Was bringst du zur Party mit?",
+          "bn": "তুমি পার্টিতে কী সাথে আনবে (mitbringen)?",
+          "bn_pron": "ভাস ব্রিংসট দু ৎসুর পার্টি মিট",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "bringst",
+              "bn": "আনবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "zur",
+              "bn": "তে"
+            },
+            {
+              "t": "Party",
+              "bn": "পার্টি"
+            },
+            {
+              "t": "mit?",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bringe einen Kuchen mit.",
+          "bn": "আমি একটি কেক সাথে আনব।",
+          "bn_pron": "ইখ্ ব্রিঙ্গে আইনেন কুখেন মিট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bringe",
+              "bn": "আনছি"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Kuchen",
+              "bn": "কেক"
+            },
+            {
+              "t": "mit.",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Nimmst du einen Schirm mit?",
+          "bn": "তুমি কি সাথে একটি ছাতা নেবে (mitnehmen)?",
+          "bn_pron": "নিমস্ট দু আইনেন শির্ম মিট",
+          "tokens": [
+            {
+              "t": "Nimmst",
+              "bn": "নেবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Schirm",
+              "bn": "ছাতা"
+            },
+            {
+              "t": "mit?",
+              "bn": "সাথে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, es regnet draußen.",
+          "bn": "হ্যাঁ, বাইরে বৃষ্টি হচ্ছে।",
+          "bn_pron": "ইয়া এস রেগনেট ড্রাউসেন",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "regnet",
+              "bn": "বৃষ্টি হচ্ছে"
+            },
+            {
+              "t": "draußen.",
+              "bn": "বাইরে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Danke für die Einladung!",
+          "bn": "দাওয়াত বা আমন্ত্রণের জন্য ধন্যবাদ!",
+          "bn_pron": "ডাঙ্কে ফ্যুর ডী আইনলাডুং",
+          "tokens": [
+            {
+              "t": "Danke",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Einladung!",
+              "bn": "দাওয়াত"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "ঘরের কাজে ক্রিয়াপদের বিচ্ছিন্ন রূপ (aufmachen, zumachen)",
+      "title_target": "Haushalt & Anweisungen",
+      "intro_bn": "জানালা খোলা (aufmachen), বন্ধ করা (zumachen) বা পরিষ্কার করার নির্দেশ।",
+      "structure": [
+        "Handlung",
+        "Mitteilung",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich mache das Fenster auf.",
+          "bn": "আমি জানালাটি খুলে দিচ্ছি।",
+          "bn_pron": "ইখ্ মাখে ডাস ফেনস্টার আউফ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "mache",
+              "bn": "করছি"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Fenster",
+              "bn": "জানালা"
+            },
+            {
+              "t": "auf.",
+              "bn": "উন্মুক্ত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Bitte machen Sie die Tür zu!",
+          "bn": "দয়া করে দরজাটি বন্ধ করুন!",
+          "bn_pron": "বিটে মাখেন যী ডী ত্যুর ৎসু",
+          "tokens": [
+            {
+              "t": "Bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "machen",
+              "bn": "করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Tür",
+              "bn": "দরজা"
+            },
+            {
+              "t": "zu!",
+              "bn": "বন্ধ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er schaltet das Licht an.",
+          "bn": "সে বাতি জ্বালাচ্ছে (anschalten)।",
+          "bn_pron": "এর শালটেট ডাস লিখ্ট আন",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "সে"
+            },
+            {
+              "t": "schaltet",
+              "bn": "চালু করছে"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Licht",
+              "bn": "বাতি"
+            },
+            {
+              "t": "an.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Schalten Sie bitte das Handy aus!",
+          "bn": "দয়া করে মোবাইল ফোন বন্ধ রাখুন!",
+          "bn_pron": "শালটেন যী বিটে ডাস হ্যান্ডি আউস",
+          "tokens": [
+            {
+              "t": "Schalten",
+              "bn": "রাখুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Handy",
+              "bn": "ফোন"
+            },
+            {
+              "t": "aus!",
+              "bn": "বন্ধ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich räume mein Zimmer auf.",
+          "bn": "আমি আমার ঘর গুছিয়ে রাখছি (aufräumen)।",
+          "bn_pron": "ইখ্ রয়মে মাইন ৎসিমার আউফ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "räume",
+              "bn": "গুছাচ্ছি"
+            },
+            {
+              "t": "mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Zimmer",
+              "bn": "ঘর"
+            },
+            {
+              "t": "auf.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wann räumst du die Küche auf?",
+          "bn": "তুমি রান্নাঘর কখন গুছাবে?",
+          "bn_pron": "ভান রয়মস্ট দু ডী ক্যুখে আউফ",
+          "tokens": [
+            {
+              "t": "Wann",
+              "bn": "কখন"
+            },
+            {
+              "t": "räumst",
+              "bn": "গুছাবে"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Küche",
+              "bn": "রান্নাঘর"
+            },
+            {
+              "t": "auf?",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Alles ist sauber und ordentlich.",
+          "bn": "সবকিছু পরিষ্কার ও পরিপাটি।",
+          "bn_pron": "আলেস ইস্ত জাউবার উন্ট অর্ডেন্টলিখ",
+          "tokens": [
+            {
+              "t": "Alles",
+              "bn": "সব"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "sauber",
+              "bn": "পরিষ্কার"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "ordentlich.",
+              "bn": "পরিপাটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das hast du toll gemacht!",
+          "bn": "তুমি এটা দারুণভাবে করেছো!",
+          "bn_pron": "ডাস হাস্ট দু টল গেমাখট",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "এটা"
+            },
+            {
+              "t": "hast",
+              "bn": "আছো"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "toll",
+              "bn": "দারুণ"
+            },
+            {
+              "t": "gemacht!",
+              "bn": "করেছো"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

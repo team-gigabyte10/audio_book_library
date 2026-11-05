@@ -103,6 +103,7 @@ fun LessonScreen(
     val banglaAvailable by viewModel.banglaAvailable.collectAsStateWithLifecycle()
     val urduAvailable by viewModel.urduAvailable.collectAsStateWithLifecycle()
     val hindiAvailable by viewModel.hindiAvailable.collectAsStateWithLifecycle()
+    val germanAvailable by viewModel.germanAvailable.collectAsStateWithLifecycle()
     val urFemaleSpeaker by viewModel.urFemaleSpeaker.collectAsStateWithLifecycle()
     val hiFemaleSpeaker by viewModel.hiFemaleSpeaker.collectAsStateWithLifecycle()
     var showSettings by remember { mutableStateOf(false) }
@@ -158,6 +159,12 @@ fun LessonScreen(
                     } else if (viewModel.isHindi) {
                         if (hindiAvailable == false) {
                             VoiceWarning("এই ফোনে হিন্দি ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Hindi (India) ভয়েস ইনস্টল করুন। ততক্ষণ হিন্দি লেখা দেখে পড়ুন।")
+                        } else if (banglaAvailable == false && settings.bnAudio) {
+                            VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
+                        }
+                    } else if (viewModel.isGerman) {
+                        if (germanAvailable == false) {
+                            VoiceWarning("এই ফোনে জার্মান ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে German (Germany) ভয়েস ইনস্টল করুন। ততক্ষণ জার্মান লেখা দেখে পড়ুন।")
                         } else if (banglaAvailable == false && settings.bnAudio) {
                             VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }

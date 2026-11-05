@@ -1,0 +1,572 @@
+{
+  "title_bn": "ব্যাঞ্জনবর্ণের বিশেষ উচ্চারণ",
+  "title_target": "Besondere Konsonanten-Regeln",
+  "lessons": [
+    {
+      "title_bn": "\"ch\": নরম ইখ্ ধ্বনি (ich-Laut)",
+      "title_target": "Der weiche ich-Laut",
+      "intro_bn": "e, i, ä, ö, ü এবং ব্যঞ্জনবর্ণের পরে ch বসলে তালুর সামনের অংশ দিয়ে কোমল 'খ' বা 'শ'-এর মধ্যবর্তী ফিসফিস ধ্বনি হয়।",
+      "structure": [
+        "Wort",
+        "Lautumgebung",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "ich",
+          "bn": "আমি",
+          "bn_pron": "ইখ্",
+          "tokens": [
+            {
+              "t": "ich",
+              "bn": "আমি"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "nicht",
+          "bn": "না / নয়",
+          "bn_pron": "নিখ্ট",
+          "tokens": [
+            {
+              "t": "nicht",
+              "bn": "না"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Milch",
+          "bn": "দুধ",
+          "bn_pron": "মিলখ্",
+          "tokens": [
+            {
+              "t": "Milch",
+              "bn": "দুধ"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "sprechen",
+          "bn": "কথা বলা",
+          "bn_pron": "শ্প্রেখেন",
+          "tokens": [
+            {
+              "t": "sprechen",
+              "bn": "কথা বলা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Recht",
+          "bn": "অধিকার / আইন",
+          "bn_pron": "রেখ্ট",
+          "tokens": [
+            {
+              "t": "Recht",
+              "bn": "অধিকার"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Licht",
+          "bn": "আলো",
+          "bn_pron": "লিখ্ট",
+          "tokens": [
+            {
+              "t": "Licht",
+              "bn": "আলো"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "welche",
+          "bn": "কোনটি",
+          "bn_pron": "ভেলখে",
+          "tokens": [
+            {
+              "t": "welche",
+              "bn": "কোনটি"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Küche",
+          "bn": "রান্নাঘর",
+          "bn_pron": "ক্যুখে",
+          "tokens": [
+            {
+              "t": "Küche",
+              "bn": "রান্নাঘর"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "\"ch\": শক্ত আখ্ ধ্বনি (ach-Laut)",
+      "title_target": "Der harte ach-Laut",
+      "intro_bn": "a, o, u এবং au-এর পরে ch বসলে গলার গভীর থেকে শক্ত ঘর্ষিত 'খ' (আর্বিক خ) ধ্বনি হয়।",
+      "structure": [
+        "Wort",
+        "Lautumgebung",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "ach",
+          "bn": "আহ্ / ওহ্",
+          "bn_pron": "আখ্",
+          "tokens": [
+            {
+              "t": "ach",
+              "bn": "আহ্"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Buch",
+          "bn": "বই",
+          "bn_pron": "বুখ্",
+          "tokens": [
+            {
+              "t": "Buch",
+              "bn": "বই"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Nacht",
+          "bn": "রাত",
+          "bn_pron": "নাখ্ট",
+          "tokens": [
+            {
+              "t": "Nacht",
+              "bn": "রাত"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "machen",
+          "bn": "করা / তৈরি করা",
+          "bn_pron": "মাখেন",
+          "tokens": [
+            {
+              "t": "machen",
+              "bn": "করা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "kochen",
+          "bn": "রান্না করা",
+          "bn_pron": "কখেন",
+          "tokens": [
+            {
+              "t": "kochen",
+              "bn": "রান্না করা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "hoch",
+          "bn": "উঁচু",
+          "bn_pron": "হোখ্",
+          "tokens": [
+            {
+              "t": "hoch",
+              "bn": "উঁচু"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Kuchen",
+          "bn": "কেক",
+          "bn_pron": "কুখেন",
+          "tokens": [
+            {
+              "t": "Kuchen",
+              "bn": "কেক"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Sprache",
+          "bn": "ভাষা",
+          "bn_pron": "শ্প প্রাখে",
+          "tokens": [
+            {
+              "t": "Sprache",
+              "bn": "ভাষা"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "\"sch\": তালব্য শ ধ্বনি",
+      "title_target": "Die Kombination SCH",
+      "intro_bn": "'sch' সর্বদা সুস্পষ্ট বাংলা তালব্য 'শ' বা ইংরেজি 'sh' ধ্বনি প্রকাশ করে।",
+      "structure": [
+        "Wort",
+        "Phonetik",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Schule",
+          "bn": "স্কুল",
+          "bn_pron": "শুলে",
+          "tokens": [
+            {
+              "t": "Schule",
+              "bn": "স্কুল"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "schön",
+          "bn": "সুন্দর",
+          "bn_pron": "শোয়ন",
+          "tokens": [
+            {
+              "t": "schön",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "schnell",
+          "bn": "দ্রুত",
+          "bn_pron": "শনেল",
+          "tokens": [
+            {
+              "t": "schnell",
+              "bn": "দ্রুত"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Tasche",
+          "bn": "ব্যাগ",
+          "bn_pron": "তাশে",
+          "tokens": [
+            {
+              "t": "Tasche",
+              "bn": "ব্যাগ"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Fisch",
+          "bn": "মাছ",
+          "bn_pron": "ফিশ",
+          "tokens": [
+            {
+              "t": "Fisch",
+              "bn": "মাছ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Tisch",
+          "bn": "টেবিল",
+          "bn_pron": "টিশ",
+          "tokens": [
+            {
+              "t": "Tisch",
+              "bn": "টেবিল"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Fleisch",
+          "bn": "মাংস",
+          "bn_pron": "ফ্লাইশ",
+          "tokens": [
+            {
+              "t": "Fleisch",
+              "bn": "মাংস"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "schlafen",
+          "bn": "ঘুমানো",
+          "bn_pron": "শ্লাফেন",
+          "tokens": [
+            {
+              "t": "schlafen",
+              "bn": "ঘুমানো"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "শব্দের শুরুতে \"sp\" ও \"st\"",
+      "title_target": "Anlaut SP und ST",
+      "intro_bn": "শব্দের শুরুতে sp উচ্চারিত হয় 'শ্প' এবং st উচ্চারিত হয় 'ষ্ট' বা 'শ্ত'।",
+      "structure": [
+        "Wort",
+        "Phonetik",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Sport",
+          "bn": "খেলাধুলা",
+          "bn_pron": "শ্পোর্ট",
+          "tokens": [
+            {
+              "t": "Sport",
+              "bn": "খেলাধুলা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "sprechen",
+          "bn": "কথা বলা",
+          "bn_pron": "শ্প্রেখেন",
+          "tokens": [
+            {
+              "t": "sprechen",
+              "bn": "কথা বলা"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "spät",
+          "bn": "দেরি",
+          "bn_pron": "শ্পেট",
+          "tokens": [
+            {
+              "t": "spät",
+              "bn": "দেরি"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Spanisch",
+          "bn": "স্প্যানিশ ভাষা",
+          "bn_pron": "শ্পানিশ",
+          "tokens": [
+            {
+              "t": "Spanisch",
+              "bn": "স্প্যানিশ"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Stadt",
+          "bn": "শহর",
+          "bn_pron": "শ্টাট",
+          "tokens": [
+            {
+              "t": "Stadt",
+              "bn": "শহর"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Straße",
+          "bn": "রাস্তা",
+          "bn_pron": "শ্ট্রাস়ে",
+          "tokens": [
+            {
+              "t": "Straße",
+              "bn": "রাস্তা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Stunde",
+          "bn": "ঘণ্টা / পিরিয়ড",
+          "bn_pron": "শ্টুন্ডে",
+          "tokens": [
+            {
+              "t": "Stunde",
+              "bn": "ঘণ্টা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Student",
+          "bn": "ছাত্র (বিশ্ববিদ্যালয়)",
+          "bn_pron": "শ্টুডেন্ট",
+          "tokens": [
+            {
+              "t": "Student",
+              "bn": "ছাত্র"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "\"pf\" ও \"qu\" ধ্বনি",
+      "title_target": "Kombinationen PF und QU",
+      "intro_bn": "'pf' হলো প ও ফ একসাথে বিস্ফোরণের মতো উচ্চারণ, আর 'qu' উচ্চারিত হয় 'ক্ভ' (kv) এর মতো।",
+      "structure": [
+        "Wort",
+        "Phonetik",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Apfel",
+          "bn": "আপেল",
+          "bn_pron": "আপফেল",
+          "tokens": [
+            {
+              "t": "Apfel",
+              "bn": "আপেল"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Pferd",
+          "bn": "ঘোড়া",
+          "bn_pron": "পফেয়ার্ট",
+          "tokens": [
+            {
+              "t": "Pferd",
+              "bn": "ঘোড়া"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Pfeffer",
+          "bn": "গোলমরিচ",
+          "bn_pron": "পফেফার",
+          "tokens": [
+            {
+              "t": "Pfeffer",
+              "bn": "গোলমরিচ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Pflanze",
+          "bn": "উদ্ভিদ / চারাগাছ",
+          "bn_pron": "পফ্লানৎসে",
+          "tokens": [
+            {
+              "t": "Pflanze",
+              "bn": "চারাগাছ"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Kopf",
+          "bn": "মাথা",
+          "bn_pron": "কপফ",
+          "tokens": [
+            {
+              "t": "Kopf",
+              "bn": "মাথা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Quelle",
+          "bn": "উৎস / ঝরনা",
+          "bn_pron": "ক্ভেলে",
+          "tokens": [
+            {
+              "t": "Quelle",
+              "bn": "উৎস"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "bequem",
+          "bn": "আরামদায়ক",
+          "bn_pron": "বেক্ভেম",
+          "tokens": [
+            {
+              "t": "bequem",
+              "bn": "আরামদায়ক"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Quittung",
+          "bn": "রশিদ / মানি রিসিট",
+          "bn_pron": "ক্ভিটুং",
+          "tokens": [
+            {
+              "t": "Quittung",
+              "bn": "রশিদ"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    }
+  ]
+}

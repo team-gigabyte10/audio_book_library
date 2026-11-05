@@ -1,0 +1,466 @@
+{
+  "title_bn": "বাংলা-জার্মান সমধ্বনি ও ইংরেজি মিল শব্দ",
+  "title_target": "Kognaten & Internationale Wörter",
+  "lessons": [
+    {
+      "title_bn": "সরাসরি পরিচিত মৌলিক শব্দ (House, Hand, Finger)",
+      "title_target": "Germanische Kognaten",
+      "intro_bn": "ইংরেজি ও জার্মান একই ভাষা পরিবারের সদস্য। বহু শব্দের বানান ও অর্থে অবিশ্বাস্য মিল রয়েছে।",
+      "structure": [
+        "Deutsch",
+        "Englisch",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Haus",
+          "bn": "বাড়ি (house)",
+          "bn_pron": "হাউস",
+          "tokens": [
+            {
+              "t": "Haus",
+              "bn": "বাড়ি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Hand",
+          "bn": "হাত (hand)",
+          "bn_pron": "হান্ট",
+          "tokens": [
+            {
+              "t": "Hand",
+              "bn": "হাত"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Finger",
+          "bn": "আঙুল (finger)",
+          "bn_pron": "ফিঙ্গার",
+          "tokens": [
+            {
+              "t": "Finger",
+              "bn": "আঙুল"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Arm",
+          "bn": "বাহু / হাত (arm)",
+          "bn_pron": "আর্ম",
+          "tokens": [
+            {
+              "t": "Arm",
+              "bn": "বাহু"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Gras",
+          "bn": "ঘাস (grass)",
+          "bn_pron": "গ্রাস",
+          "tokens": [
+            {
+              "t": "Gras",
+              "bn": "ঘাস"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Wind",
+          "bn": "বাতাস (wind)",
+          "bn_pron": "ভিন্ট",
+          "tokens": [
+            {
+              "t": "Wind",
+              "bn": "বাতাস"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Sommer",
+          "bn": "গ্রীষ্ম (summer)",
+          "bn_pron": "যোমার",
+          "tokens": [
+            {
+              "t": "Sommer",
+              "bn": "গ্রীষ্ম"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Winter",
+          "bn": "শীত (winter)",
+          "bn_pron": "ভinputencিন্টার",
+          "tokens": [
+            {
+              "t": "Winter",
+              "bn": "শীত"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "খাবার ও পানীয় সংক্রান্ত মিল শব্দ",
+      "title_target": "Essen & Trinken Kognaten",
+      "intro_bn": "জল, দুধ, রুটি ইত্যাদির জার্মান রূপগুলো ইংরেজি ও অন্যান্য ইন্দো-ইউরোপীয় ভাষার সাথে গভীরভাবে সম্পর্কিত।",
+      "structure": [
+        "Wort",
+        "Verwandtes Wort",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Wasser",
+          "bn": "পানি (water)",
+          "bn_pron": "ভাসার",
+          "tokens": [
+            {
+              "t": "Wasser",
+              "bn": "পানি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Milch",
+          "bn": "দুধ (milk)",
+          "bn_pron": "মিলখ্",
+          "tokens": [
+            {
+              "t": "Milch",
+              "bn": "দুধ"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Brot",
+          "bn": "রুটি (bread)",
+          "bn_pron": "ব্রোট",
+          "tokens": [
+            {
+              "t": "Brot",
+              "bn": "রুটি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Butter",
+          "bn": "মাখন (butter)",
+          "bn_pron": "বুটার",
+          "tokens": [
+            {
+              "t": "Butter",
+              "bn": "মাখন"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Apfel",
+          "bn": "আপেল (apple)",
+          "bn_pron": "আপফেল",
+          "tokens": [
+            {
+              "t": "Apfel",
+              "bn": "আপেল"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Salz",
+          "bn": "লবণ (salt)",
+          "bn_pron": "যাল্ৎস",
+          "tokens": [
+            {
+              "t": "Salz",
+              "bn": "লবণ"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Pfeffer",
+          "bn": "গোলমরিচ (pepper)",
+          "bn_pron": "পফেফার",
+          "tokens": [
+            {
+              "t": "Pfeffer",
+              "bn": "গোলমরিচ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Fisch",
+          "bn": "মাছ (fish)",
+          "bn_pron": "ফিশ",
+          "tokens": [
+            {
+              "t": "Fisch",
+              "bn": "মাছ"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "আন্তর্জাতিক পরিচিত শব্দ (Internationalismen)",
+      "title_target": "Internationale Wörter",
+      "intro_bn": "প্রযুক্তি, পর্যটন ও যোগাযোগ সংক্রান্ত আধুনিক আন্তর্জাতিক শব্দগুলো জার্মানে একইভাবে ব্যবহৃত হয়।",
+      "structure": [
+        "Wort",
+        "Bereich",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Hotel",
+          "bn": "হোটেল",
+          "bn_pron": "হোটেল",
+          "tokens": [
+            {
+              "t": "Hotel",
+              "bn": "হোটেল"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Computer",
+          "bn": "কম্পিউটার",
+          "bn_pron": "কম্পিউটার",
+          "tokens": [
+            {
+              "t": "Computer",
+              "bn": "কম্পিউটার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Telefon",
+          "bn": "টেলিফোন",
+          "bn_pron": "টেলিফোন",
+          "tokens": [
+            {
+              "t": "Telefon",
+              "bn": "টেলিফোন"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Kaffee",
+          "bn": "কফি",
+          "bn_pron": "কাফে",
+          "tokens": [
+            {
+              "t": "Kaffee",
+              "bn": "কফি"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Musik",
+          "bn": "গান / সঙ্গীত",
+          "bn_pron": "মুযীক",
+          "tokens": [
+            {
+              "t": "Musik",
+              "bn": "সঙ্গীত"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "Taxi",
+          "bn": "ট্যাক্সি",
+          "bn_pron": "ট্যাক্সি",
+          "tokens": [
+            {
+              "t": "Taxi",
+              "bn": "ট্যাক্সি"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "Bus",
+          "bn": "বাস",
+          "bn_pron": "বুস",
+          "tokens": [
+            {
+              "t": "Bus",
+              "bn": "বাস"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Restaurant",
+          "bn": "রেস্তোরাঁ",
+          "bn_pron": "রেস্টোরান্ট",
+          "tokens": [
+            {
+              "t": "Restaurant",
+              "bn": "রেস্তোরাঁ"
+            }
+          ],
+          "gender": "n"
+        }
+      ]
+    },
+    {
+      "title_bn": "মিথ্যা বন্ধু বা বিভ্রান্তিকর শব্দ (False Friends)",
+      "title_target": "Falsche Freunde vermeiden",
+      "intro_bn": "সাবধান! কিছু জার্মান শব্দ দেখতে ইংরেজির মতো হলেও অর্থ সম্পূর্ণ আলাদা। যেমন Gift মানে উপহার নয়, বিষ!",
+      "structure": [
+        "Wort",
+        "Scheinbedeutung",
+        "Echte Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "Gift",
+          "bn": "বিষ (উপহার নয়!)",
+          "bn_pron": "গিফ্ট",
+          "tokens": [
+            {
+              "t": "Gift",
+              "bn": "বিষ"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "bald",
+          "bn": "শীঘ্রই (ন্যাড়া নয়!)",
+          "bn_pron": "বাল্ট",
+          "tokens": [
+            {
+              "t": "bald",
+              "bn": "শীঘ্রই"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "bekommen",
+          "bn": "পাওয়া (হওয়া নয়!)",
+          "bn_pron": "বেকমেন",
+          "tokens": [
+            {
+              "t": "bekommen",
+              "bn": "পাওয়া"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Chef",
+          "bn": "বস / প্রধান কর্মকর্তা (বাবুর্চি নয়!)",
+          "bn_pron": "শেফ",
+          "tokens": [
+            {
+              "t": "Chef",
+              "bn": "বস"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "Fabrik",
+          "bn": "কারখানা (কাপড় নয়!)",
+          "bn_pron": "ফাব্রিক",
+          "tokens": [
+            {
+              "t": "Fabrik",
+              "bn": "কারখানা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "aktuell",
+          "bn": "সাম্প্রতিক / বর্তমান (প্রকৃত নয়!)",
+          "bn_pron": "আকতুয়েল",
+          "tokens": [
+            {
+              "t": "aktuell",
+              "bn": "বর্তমান"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "brav",
+          "bn": "ভদ্র / বাধ্য (সাহসী নয়!)",
+          "bn_pron": "ব্রাফ",
+          "tokens": [
+            {
+              "t": "brav",
+              "bn": "ভদ্র"
+            }
+          ]
+        },
+        {
+          "type": "word",
+          "target": "Rente",
+          "bn": "পেনশন (ভাড়া নয়!)",
+          "bn_pron": "রেন্টে",
+          "tokens": [
+            {
+              "t": "Rente",
+              "bn": "পেনশন"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    }
+  ]
+}

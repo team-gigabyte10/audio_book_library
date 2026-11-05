@@ -1,0 +1,818 @@
+{
+  "title_bn": "বাসা-বাড়ি, আসবাবপত্র ও কক্ষ",
+  "title_target": "Wohnen, Zimmer & Möbel",
+  "lessons": [
+    {
+      "title_bn": "বাসার কক্ষ ও স্থানসমূহ (Räume im Haus)",
+      "title_target": "Die Zimmer",
+      "intro_bn": "রান্নাঘর die Küche, বসার ঘর das Wohnzimmer, বাথরুম das Bad, এবং শোবার ঘর das Schlafzimmer।",
+      "structure": [
+        "Artikel",
+        "Zimmername",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "das Wohnzimmer",
+          "bn": "বসার ঘর / লিভিং রুম",
+          "bn_pron": "ডাস ভোনৎসিমার",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Wohnzimmer",
+              "bn": "বসার ঘর"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "das Schlafzimmer",
+          "bn": "শোবার ঘর / বেডরুম",
+          "bn_pron": "ডাস শ্লাফৎসিমার",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Schlafzimmer",
+              "bn": "শোবার ঘর"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Küche",
+          "bn": "রান্নাঘর",
+          "bn_pron": "ডী ক্যুখে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Küche",
+              "bn": "রান্নাঘর"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "das Bad",
+          "bn": "গোসলখানা / বাথরুম",
+          "bn_pron": "ডাস বাট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Bad",
+              "bn": "বাথরুম"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "der Balkon",
+          "bn": "বারান্দা",
+          "bn_pron": "ডের ব্যালকং",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Balkon",
+              "bn": "বারান্দা"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Flur",
+          "bn": "করিডোর / প্রবেশ পথ",
+          "bn_pron": "ডের ফ্লুর",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Flur",
+              "bn": "করিডোর"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Garten",
+          "bn": "বাগান",
+          "bn_pron": "ডের গার্টেন",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Garten",
+              "bn": "বাগান"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Wohnung",
+          "bn": "অ্যাপার্টমেন্ট / ফ্ল্যাট",
+          "bn_pron": "ডী ভোনুং",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Wohnung",
+              "bn": "অ্যাপার্টমেন্ট"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "আসবাবপত্র ও জিনিসপত্র (Möbel)",
+      "title_target": "Möbelstücke",
+      "intro_bn": "টেবিল der Tisch, চেয়ার der Stuhl, আলমারি der Schrank ও খাট das Bett।",
+      "structure": [
+        "Artikel",
+        "Möbel",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Tisch",
+          "bn": "টেবিল",
+          "bn_pron": "ডের টিশ",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Tisch",
+              "bn": "টেবিল"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Stuhl",
+          "bn": "চেয়ার",
+          "bn_pron": "ডের শ্টুল",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Stuhl",
+              "bn": "চেয়ার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das Bett",
+          "bn": "বিছানা / খাট",
+          "bn_pron": "ডাস বেট",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Bett",
+              "bn": "বিছানা"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "der Schrank",
+          "bn": "আলমারি / ওয়ারড্রোব",
+          "bn_pron": "ডের শ্রাঙ্ক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Schrank",
+              "bn": "আলমারি"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "das Sofa",
+          "bn": "সোফা",
+          "bn_pron": "ডাস জোফা",
+          "tokens": [
+            {
+              "t": "das",
+              "bn": "টি"
+            },
+            {
+              "t": "Sofa",
+              "bn": "সোফা"
+            }
+          ],
+          "gender": "n"
+        },
+        {
+          "type": "word",
+          "target": "die Lampe",
+          "bn": "বাতি / ল্যাম্প",
+          "bn_pron": "ডী লাম্পে",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Lampe",
+              "bn": "বাতি"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Kühlschrank",
+          "bn": "ফ্রিজ / রেফ্রিজারেটর",
+          "bn_pron": "ডের ক্যুলশ্রাঙ্ক",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Kühlschrank",
+              "bn": "ফ্রিজ"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "der Herd",
+          "bn": "চুলা",
+          "bn_pron": "ডের হেয়ার্ট",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Herd",
+              "bn": "চুলা"
+            }
+          ],
+          "gender": "m"
+        }
+      ]
+    },
+    {
+      "title_bn": "আসবাবপত্র কেনা ও আকুজাকটিভ প্র্যাকটিস",
+      "title_target": "Akkusativ bei Möbeln",
+      "intro_bn": "আকুজাকটিভে der বদলে den / einen হয়: Ich brauche einen Tisch, Wir kaufen einen Schrank।",
+      "structure": [
+        "Verb (brauchen/kaufen)",
+        "Akkusativform",
+        "Nomen"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Ich brauche einen Tisch.",
+          "bn": "আমার একটি টেবিল প্রয়োজন।",
+          "bn_pron": "ইখ্ ব্রাউখে আইনেন টিশ",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "brauche",
+              "bn": "প্রয়োজন"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Tisch.",
+              "bn": "টেবিল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wir kaufen einen neuen Schrank.",
+          "bn": "আমরা একটি নতুন আলমারি কিনছি।",
+          "bn_pron": "ভির কাউফেন আইনেন নয়েন শ্রাঙ্ক",
+          "tokens": [
+            {
+              "t": "Wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "kaufen",
+              "bn": "কিনছি"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "neuen",
+              "bn": "নতুন"
+            },
+            {
+              "t": "Schrank.",
+              "bn": "আলমারি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hast du ein bequemes Bett?",
+          "bn": "তোমার কি একটি আরামদায়ক বিছানা আছে?",
+          "bn_pron": "হাস্ট দু আইন বেক্ভেমেশ বেট",
+          "tokens": [
+            {
+              "t": "Hast",
+              "bn": "আছে"
+            },
+            {
+              "t": "du",
+              "bn": "তোমার"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "bequemes",
+              "bn": "আরামদায়ক"
+            },
+            {
+              "t": "Bett?",
+              "bn": "বিছানা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Küche hat einen Kühlschrank.",
+          "bn": "রান্নাঘরে একটি ফ্রিজ আছে।",
+          "bn_pron": "ডী ক্যুখে হাট আইনেন ক্যুলশ্রাঙ্ক",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Küche",
+              "bn": "রান্নাঘর"
+            },
+            {
+              "t": "hat",
+              "bn": "আছে"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Kühlschrank.",
+              "bn": "ফ্রিজ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Sofa ist sehr gemütlich.",
+          "bn": "সোফাটি ভীষণ আরামদায়ক।",
+          "bn_pron": "ডাস জোফা ইস্ত জেয়ার গেম্যূৎলিখ",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Sofa",
+              "bn": "সোফা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "gemütlich.",
+              "bn": "আরামদায়ক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Das Zimmer ist hell und groß.",
+          "bn": "রুমটি আলো ঝলমলে এবং বড়।",
+          "bn_pron": "ডাস ৎসিমার ইস্ত হেল উন্ট গ্রোস",
+          "tokens": [
+            {
+              "t": "Das",
+              "bn": "টি"
+            },
+            {
+              "t": "Zimmer",
+              "bn": "রুম"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "hell",
+              "bn": "উজ্জ্বল"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "groß.",
+              "bn": "বড়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Wohnung gefällt mir gut.",
+          "bn": "অ্যাপার্টমেন্টটি আমার খুব পছন্দ হয়েছে।",
+          "bn_pron": "ডী ভোনুং গেফেল্ট মিয়ার গুট",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "টি"
+            },
+            {
+              "t": "Wohnung",
+              "bn": "বাসা"
+            },
+            {
+              "t": "gefällt",
+              "bn": "পছন্দ হয়"
+            },
+            {
+              "t": "mir",
+              "bn": "আমার"
+            },
+            {
+              "t": "gut.",
+              "bn": "ভালো"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wie hoch ist die Miete?",
+          "bn": "বাড়ি ভাড়া কত?",
+          "bn_pron": "ভী হোখ ইস্ত ডী মীটে",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কত"
+            },
+            {
+              "t": "hoch",
+              "bn": "উঁচু"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Miete?",
+              "bn": "ভাড়া"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "বাসা খোঁজা ও ভাড়ার সংলাপ (Wohnungsbesichtigung)",
+      "title_target": "Dialog: Wohnung mieten",
+      "intro_bn": "বাড়িওয়ালা ও ভাড়াটিয়ার কথোপকথনের বাস্তবসম্মত স্পোকেন ড্রিল।",
+      "structure": [
+        "Sprecher A",
+        "Sprecher B",
+        "Wohnungssuche"
+      ],
+      "items": [
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Guten Tag, ist die Wohnung noch frei?",
+          "bn": "শুভ দিন, বাসাটি কি এখনও খালি আছে?",
+          "bn_pron": "গুটেন তাক ইস্ত ডী ভোনুং নখ ফ্রাই",
+          "tokens": [
+            {
+              "t": "Guten",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Tag,",
+              "bn": "দিন"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Wohnung",
+              "bn": "বাসা"
+            },
+            {
+              "t": "noch",
+              "bn": "এখনও"
+            },
+            {
+              "t": "frei?",
+              "bn": "খালি"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ja, sie hat drei Zimmer und einen Balkon.",
+          "bn": "হ্যাঁ, এতে তিনটি রুম এবং একটি বারান্দা আছে।",
+          "bn_pron": "ইয়া যী হাট ড্রাই ৎসিমার উন্ট আইনেন ব্যালকং",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "sie",
+              "bn": "এতে"
+            },
+            {
+              "t": "hat",
+              "bn": "আছে"
+            },
+            {
+              "t": "drei",
+              "bn": "তিনটি"
+            },
+            {
+              "t": "Zimmer",
+              "bn": "রুম"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "einen",
+              "bn": "একটি"
+            },
+            {
+              "t": "Balkon.",
+              "bn": "বারান্দা"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Wie viel kostet die Warmmiete im Monat?",
+          "bn": "মাসে গ্যাস-বিদ্যুৎসহ মোট ভাড়া কত পড়বে?",
+          "bn_pron": "ভী ফীল কস্টেট ডী ভার্মমীটে ইম মোনাট",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কত"
+            },
+            {
+              "t": "viel",
+              "bn": "বেশি"
+            },
+            {
+              "t": "kostet",
+              "bn": "খরচ পড়ে"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Warmmiete",
+              "bn": "সবসহ ভাড়া"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Monat?",
+              "bn": "মাস"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Die Miete beträgt achthundert Euro warm.",
+          "bn": "সব মিলিয়ে ভাড়া আটশত ইউরো।",
+          "bn_pron": "ডী মীটে বেট্রেখ্ট আখটহুন্ডার্ট অয়রো ভার্ম",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Miete",
+              "bn": "ভাড়া"
+            },
+            {
+              "t": "beträgt",
+              "bn": "পরিমাণ দাঁড়ায়"
+            },
+            {
+              "t": "achthundert",
+              "bn": "আটশত"
+            },
+            {
+              "t": "Euro",
+              "bn": "ইউরো"
+            },
+            {
+              "t": "warm.",
+              "bn": "উষ্ণসহ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Kann ich die Wohnung morgen besichtigen?",
+          "bn": "আমি কি কাল বাসাটি দেখতে পারি?",
+          "bn_pron": "কান ইখ্ ডী ভোনুং মর্গেন বেজিশ্টিগেন",
+          "tokens": [
+            {
+              "t": "Kann",
+              "bn": "পারি"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Wohnung",
+              "bn": "বাসা"
+            },
+            {
+              "t": "morgen",
+              "bn": "কাল"
+            },
+            {
+              "t": "besichtigen?",
+              "bn": "পরিদর্শন করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja gerne, um fünfzehn Uhr passt es.",
+          "bn": "হ্যাঁ সানন্দে, বিকাল তিনটায় সুবিধাজনক সময়।",
+          "bn_pron": "ইয়া গেয়ার্নে উম ফ্যুনফৎসেন উর পাসট এস",
+          "tokens": [
+            {
+              "t": "Ja",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "gerne,",
+              "bn": "সানন্দে"
+            },
+            {
+              "t": "um",
+              "bn": "এ"
+            },
+            {
+              "t": "fünfzehn",
+              "bn": "পনেরো"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "passt",
+              "bn": "খাপ খায়"
+            },
+            {
+              "t": "es.",
+              "bn": "এটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vielen Dank, bis morgen!",
+          "bn": "অনেক ধন্যবাদ, কাল দেখা হবে!",
+          "bn_pron": "ফিলেন ডাঙ্ক বিস মর্গেন",
+          "tokens": [
+            {
+              "t": "Vielen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Dank,",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "bis",
+              "bn": "পর্যন্ত"
+            },
+            {
+              "t": "morgen!",
+              "bn": "কাল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Auf Wiedersehen, schönen Tag noch!",
+          "bn": "বিদায়, বাকি দিনটি শুভ হোক!",
+          "bn_pron": "আউফ ভিডারজেহেন শোয়নেন তাক নখ",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "পুনরায়"
+            },
+            {
+              "t": "Wiedersehen,",
+              "bn": "দেখা"
+            },
+            {
+              "t": "schönen",
+              "bn": "সুন্দর"
+            },
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            },
+            {
+              "t": "noch!",
+              "bn": "হোক"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

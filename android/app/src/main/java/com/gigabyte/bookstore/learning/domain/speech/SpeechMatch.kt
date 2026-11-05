@@ -32,10 +32,18 @@ object SpeechMatch {
     /**
      * Drops spaces, punctuation, Arabic-script vowel marks and Devanagari nuqta dot, writes
      * katakana as hiragana (ネコ = ねこ), maps Arabic letter forms to Urdu ones (ي = ی, ك = ک, ه = ہ),
-     * and normalizes precomposed Devanagari nuqta letters and chandrabindu (ज़ = ज, फ़ = फ, ँ = ं).
+     * normalizes precomposed Devanagari nuqta letters and chandrabindu (ज़ = ज, फ़ = फ, ँ = ं),
+     * and normalizes German umlauts and eszett (ä = ae, ö = oe, ü = ue, ß = ss).
      */
     fun normalize(text: String): String = buildString {
-        for (c in text) {
+        val expanded = text.replace("ß", "ss")
+            .replace("ä", "ae")
+            .replace("ö", "oe")
+            .replace("ü", "ue")
+            .replace("Ä", "ae")
+            .replace("Ö", "oe")
+            .replace("Ü", "ue")
+        for (c in expanded) {
             when {
                 c.isWhitespace() -> Unit
                 c in PUNCTUATION -> Unit

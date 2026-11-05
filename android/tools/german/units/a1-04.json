@@ -1,0 +1,814 @@
+{
+  "title_bn": "পেশা ও কর্মক্ষেত্র",
+  "title_target": "Berufe & Arbeitswelt",
+  "lessons": [
+    {
+      "title_bn": "পেশার নাম ও লিঙ্গভেদ (-in প্রত্যয়)",
+      "title_target": "Männliche & weibliche Berufe",
+      "intro_bn": "জার্মানিতে যেকোনো পুরুষ পেশার শেষে '-in' যুক্ত করলেই নারী রূপ তৈরি হয় (der Lehrer -> die Lehrerin)।",
+      "structure": [
+        "männlich",
+        "weiblich",
+        "Bedeutung"
+      ],
+      "items": [
+        {
+          "type": "word",
+          "target": "der Lehrer",
+          "bn": "শিক্ষক",
+          "bn_pron": "ডের লেরার",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Lehrer",
+              "bn": "শিক্ষক"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Lehrerin",
+          "bn": "শিক্ষিকা",
+          "bn_pron": "ডী লেরারিন",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Lehrerin",
+              "bn": "শিক্ষিকা"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Arzt",
+          "bn": "ডাক্তার (পুরুষ)",
+          "bn_pron": "ডের আর্ৎস্ট",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Arzt",
+              "bn": "ডাক্তার"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Ärztin",
+          "bn": "ডাক্তার (নারী)",
+          "bn_pron": "ডী এয়ার্ৎসটিন",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Ärztin",
+              "bn": "ডাক্তার"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Ingenieur",
+          "bn": "প্রকৌশলী (ইঞ্জিনিয়ার)",
+          "bn_pron": "ডের ইনশেনিয়োয়ার",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Ingenieur",
+              "bn": "প্রকৌশলী"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Ingenieurin",
+          "bn": "প্রকৌশলী (নারী)",
+          "bn_pron": "ডী ইনশেনিয়োরিন",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Ingenieurin",
+              "bn": "প্রকৌশলী"
+            }
+          ],
+          "gender": "f"
+        },
+        {
+          "type": "word",
+          "target": "der Student",
+          "bn": "বিশ্ববিদ্যালয়ের ছাত্র",
+          "bn_pron": "ডের শ্টুডেন্ট",
+          "tokens": [
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Student",
+              "bn": "ছাত্র"
+            }
+          ],
+          "gender": "m"
+        },
+        {
+          "type": "word",
+          "target": "die Studentin",
+          "bn": "বিশ্ববিদ্যালয়ের ছাত্রী",
+          "bn_pron": "ডী শ্টুডেন্টিন",
+          "tokens": [
+            {
+              "t": "die",
+              "bn": "টি"
+            },
+            {
+              "t": "Studentin",
+              "bn": "ছাত্রী"
+            }
+          ],
+          "gender": "f"
+        }
+      ]
+    },
+    {
+      "title_bn": "পেশা ও পদবী জিজ্ঞাসা ও উত্তর",
+      "title_target": "Beruf erfragen und nennen",
+      "intro_bn": "পেশা বলতে ইংরেজিতে 'a' লাগলেও জার্মানে কোনো আর্টিকেল লাগে না: Ich bin Arzt (Ich bin ein Arzt নয়)।",
+      "structure": [
+        "Frage",
+        "Berufsangabe",
+        "Präposition als"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Was sind Sie von Beruf?",
+          "bn": "পেশায় আপনি কী করেন?",
+          "bn_pron": "ভাস জিন্ট যী ফন বেরুফ",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "sind",
+              "bn": "হন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "von",
+              "bn": "অনুযায়ী"
+            },
+            {
+              "t": "Beruf?",
+              "bn": "পেশা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin Programmierer.",
+          "bn": "আমি প্রোগ্রামার।",
+          "bn_pron": "ইখ্ বিন প্রগ্রামিয়ারার",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "Programmierer.",
+              "bn": "প্রোগ্রামার"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Was machst du beruflich?",
+          "bn": "তুমি পেশাগতভাবে কী করছো?",
+          "bn_pron": "ভাস মাখস্ট দু বেরুফলিখ",
+          "tokens": [
+            {
+              "t": "Was",
+              "bn": "কী"
+            },
+            {
+              "t": "machst",
+              "bn": "করো"
+            },
+            {
+              "t": "du",
+              "bn": "তুমি"
+            },
+            {
+              "t": "beruflich?",
+              "bn": "পেশাগতভাবে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich arbeite als Verkäufer.",
+          "bn": "আমি বিক্রেতা হিসেবে কাজ করি।",
+          "bn_pron": "ইখ্ আরবাইতে আলস ফেয়ারকয়ফার",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "arbeite",
+              "bn": "কাজ করি"
+            },
+            {
+              "t": "als",
+              "bn": "হিসেবে"
+            },
+            {
+              "t": "Verkäufer.",
+              "bn": "বিক্রেতা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich bin noch Student.",
+          "bn": "আমি এখনও ছাত্র।",
+          "bn_pron": "ইখ্ বিন নখ শ্টুডেন্ট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "bin",
+              "bn": "হই"
+            },
+            {
+              "t": "noch",
+              "bn": "এখনও"
+            },
+            {
+              "t": "Student.",
+              "bn": "ছাত্র"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie arbeitet als Krankenschwester.",
+          "bn": "তিনি সেবিকা (নার্স) হিসেবে কাজ করেন।",
+          "bn_pron": "যী আরবাইটেট আলস ক্রাঙ্কেনশ্ভেস্টার",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তিনি"
+            },
+            {
+              "t": "arbeitet",
+              "bn": "কাজ করেন"
+            },
+            {
+              "t": "als",
+              "bn": "হিসেবে"
+            },
+            {
+              "t": "Krankenschwester.",
+              "bn": "নার্স"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich suche eine Arbeit.",
+          "bn": "আমি একটি চাকরি খুঁজছি।",
+          "bn_pron": "ইখ্ জুখে আইনে আরবাইট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "suche",
+              "bn": "খুঁজছি"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Arbeit.",
+              "bn": "কাজ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er ist zurzeit arbeitslos.",
+          "bn": "তিনি বর্তমানে কর্মহীন / বেকার।",
+          "bn_pron": "এর ইস্ত ৎসুরৎসাইট আরবাইটস্লোস",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "তিনি"
+            },
+            {
+              "t": "ist",
+              "bn": "হন"
+            },
+            {
+              "t": "zurzeit",
+              "bn": "বর্তমানে"
+            },
+            {
+              "t": "arbeitslos.",
+              "bn": "বেকার"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "কর্মস্থল ও কোম্পানি (bei, in, an)",
+      "title_target": "Arbeitsplatz & Arbeitgeber",
+      "intro_bn": "কোনো কোম্পানিতে কাজ করতে 'bei' (যেমন bei BMW) এবং প্রতিষ্ঠানে কাজ করতে 'in/an' ব্যবহৃত হয়।",
+      "structure": [
+        "Präposition",
+        "Firma/Ort",
+        "Satz"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wo arbeiten Sie?",
+          "bn": "আপনি কোথায় কাজ করেন?",
+          "bn_pron": "ভো আরবাইতেন যী",
+          "tokens": [
+            {
+              "t": "Wo",
+              "bn": "কোথায়"
+            },
+            {
+              "t": "arbeiten",
+              "bn": "কাজ করেন"
+            },
+            {
+              "t": "Sie?",
+              "bn": "আপনি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich arbeite bei Siemens.",
+          "bn": "আমি সিমেন্স কোম্পানিতে কাজ করি।",
+          "bn_pron": "ইখ্ আরবাইতে বাই যীমেন্স",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "arbeite",
+              "bn": "কাজ করি"
+            },
+            {
+              "t": "bei",
+              "bn": "এ"
+            },
+            {
+              "t": "Siemens.",
+              "bn": "সিমেন্স"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Er arbeitet an der Universität.",
+          "bn": "তিনি বিশ্ববিদ্যালয়ে কাজ করেন।",
+          "bn_pron": "এর আরবাইটেট আন ডের উনিভার্সিটেট",
+          "tokens": [
+            {
+              "t": "Er",
+              "bn": "তিনি"
+            },
+            {
+              "t": "arbeitet",
+              "bn": "কাজ করেন"
+            },
+            {
+              "t": "an",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Universität.",
+              "bn": "বিশ্ববিদ্যালয়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie arbeitet im Krankenhaus.",
+          "bn": "তিনি হাসপাতালে কাজ করেন।",
+          "bn_pron": "যী আরবাইটেট ইম ক্রাঙ্কেনহাউস",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "তিনি"
+            },
+            {
+              "t": "arbeitet",
+              "bn": "কাজ করেন"
+            },
+            {
+              "t": "im",
+              "bn": "এ"
+            },
+            {
+              "t": "Krankenhaus.",
+              "bn": "হাসপাতাল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich arbeite von zu Hause aus.",
+          "bn": "আমি বাসা থেকে কাজ করি (Home Office)।",
+          "bn_pron": "ইখ্ আরবাইতে ফন ৎসু হাউজে আউস",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "arbeite",
+              "bn": "কাজ করি"
+            },
+            {
+              "t": "von",
+              "bn": "থেকে"
+            },
+            {
+              "t": "zu",
+              "bn": "এ"
+            },
+            {
+              "t": "Hause",
+              "bn": "বাড়ি"
+            },
+            {
+              "t": "aus.",
+              "bn": "হতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Haben Sie heute Dienst?",
+          "bn": "আপনার কি আজ ডিউটি আছে?",
+          "bn_pron": "হাবের্ন যী হয়টে ডীনস্ট",
+          "tokens": [
+            {
+              "t": "Haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনার"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "Dienst?",
+              "bn": "ডিউটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Mein Büro ist sehr modern.",
+          "bn": "আমার অফিস খুবই আধুনিক।",
+          "bn_pron": "মাইন ব্যুরো ইস্ত জেয়ার মোডার্ন",
+          "tokens": [
+            {
+              "t": "Mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Büro",
+              "bn": "অফিস"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "modern.",
+              "bn": "আধুনিক"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich fahre mit dem Bus zur Arbeit.",
+          "bn": "আমি বাসে করে কাজে যাই।",
+          "bn_pron": "ইখ্ ফাহরে মিট ডেম বুস ৎসুর আরবাইট",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "fahre",
+              "bn": "যাই"
+            },
+            {
+              "t": "mit",
+              "bn": "দিয়ে"
+            },
+            {
+              "t": "dem",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Bus",
+              "bn": "বাস"
+            },
+            {
+              "t": "zur",
+              "bn": "এ"
+            },
+            {
+              "t": "Arbeit.",
+              "bn": "কাজ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "কর্মজীবনের দৈনন্দিন অনুভূতি ও কথা",
+      "title_target": "Über die Arbeit sprechen",
+      "intro_bn": "কাজের চাপ, ভালো লাগা বা ছুটির দিন নিয়ে কথা বলার সাবলীল এক্সপ্রেশন।",
+      "structure": [
+        "Gefühl",
+        "Mitteilung",
+        "Alltag"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Meine Arbeit macht viel Spaß.",
+          "bn": "আমার কাজ করতে খুব আনন্দ লাগে।",
+          "bn_pron": "মাইনে আরবাইট মাখট ফীল শ্পাস",
+          "tokens": [
+            {
+              "t": "Meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Arbeit",
+              "bn": "কাজ"
+            },
+            {
+              "t": "macht",
+              "bn": "দেয়"
+            },
+            {
+              "t": "viel",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Spaß.",
+              "bn": "আনন্দ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich habe heute viel zu tun.",
+          "bn": "আমার আজ অনেক কাজ করার আছে।",
+          "bn_pron": "ইখ্ হাবে হয়টে ফীল ৎসু তুন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "habe",
+              "bn": "আছে"
+            },
+            {
+              "t": "heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "viel",
+              "bn": "অনেক"
+            },
+            {
+              "t": "zu",
+              "bn": "তে"
+            },
+            {
+              "t": "tun.",
+              "bn": "করা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Kollegen sind sehr nett.",
+          "bn": "সহকর্মীরা খুবই চমৎকার/ভদ্র।",
+          "bn_pron": "ডী কোলেগেন জিন্ট জেয়ার নেট",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Kollegen",
+              "bn": "সহকর্মীরা"
+            },
+            {
+              "t": "sind",
+              "bn": "হন"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "nett.",
+              "bn": "ভদ্র"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Wann haben Sie Feierabend?",
+          "bn": "আপনার অফিস ছুটি কখন হয়?",
+          "bn_pron": "ভান হাবের্ন যী ফায়ারআবেন্ট",
+          "tokens": [
+            {
+              "t": "Wann",
+              "bn": "কখন"
+            },
+            {
+              "t": "haben",
+              "bn": "আছে"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Feierabend?",
+              "bn": "ছুটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Um siebzehn Uhr habe ich Feierabend.",
+          "bn": "বিকাল পাঁচটায় আমার ছুটি।",
+          "bn_pron": "উম যীপৎসেন উর হাবে ইখ্ ফায়ারআবেন্ট",
+          "tokens": [
+            {
+              "t": "Um",
+              "bn": "এ"
+            },
+            {
+              "t": "siebzehn",
+              "bn": "সতেরো"
+            },
+            {
+              "t": "Uhr",
+              "bn": "টায়"
+            },
+            {
+              "t": "habe",
+              "bn": "পাই"
+            },
+            {
+              "t": "ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "Feierabend.",
+              "bn": "ছুটি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ich mache eine Pause.",
+          "bn": "আমি একটি বিরতি নিচ্ছি।",
+          "bn_pron": "ইখ্ মাখে আইনে পাউজে",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "mache",
+              "bn": "নিচ্ছি"
+            },
+            {
+              "t": "eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Pause.",
+              "bn": "বিরতি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Trinken wir einen Kaffee?",
+          "bn": "চলুন এক কাপ কফি খাই?",
+          "bn_pron": "ট্রিঙ্কেন ভির আইনেন কাফে",
+          "tokens": [
+            {
+              "t": "Trinken",
+              "bn": "পান করি"
+            },
+            {
+              "t": "wir",
+              "bn": "আমরা"
+            },
+            {
+              "t": "einen",
+              "bn": "এক"
+            },
+            {
+              "t": "Kaffee?",
+              "bn": "কফি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja gerne, gute Idee!",
+          "bn": "হ্যাঁ সানন্দে, চমৎকার বুদ্ধি!",
+          "bn_pron": "ইয়া গেয়ার্নে গুটে ইডে",
+          "tokens": [
+            {
+              "t": "Ja",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "gerne,",
+              "bn": "সানন্দে"
+            },
+            {
+              "t": "gute",
+              "bn": "ভালো"
+            },
+            {
+              "t": "Idee!",
+              "bn": "বুদ্ধি"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

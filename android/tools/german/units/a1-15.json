@@ -1,0 +1,1030 @@
+{
+  "title_bn": "ভ্রমণ, আবহাওয়া ও A1 সমাপনী টেস্ট",
+  "title_target": "Reisen, Wetter & A1-Abschlusstest",
+  "lessons": [
+    {
+      "title_bn": "আবহাওয়া ও তাপমাত্রা (Das Wetter heute)",
+      "title_target": "Wetter & Temperatur",
+      "intro_bn": "বৃষ্টি হচ্ছে es regnet, রোদ উঠেছে die Sonne scheint, গরম es ist warm, ঠান্ডা es ist kalt।",
+      "structure": [
+        "Wetterphänomen",
+        "Temperatur",
+        "Jahreszeit"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Wie ist das Wetter heute?",
+          "bn": "আজকের আবহাওয়া কেমন?",
+          "bn_pron": "ভী ইস্ত ডাস ভেটার হয়টে",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "das",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Wetter",
+              "bn": "আবহাওয়া"
+            },
+            {
+              "t": "heute?",
+              "bn": "আজ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Die Sonne scheint den ganzen Tag.",
+          "bn": "সারাদিন সূর্য কিরণ দিচ্ছে / রোদ উজ্জ্বল।",
+          "bn_pron": "ডী জোনে শাইনট ডেন গানৎসেন তাক",
+          "tokens": [
+            {
+              "t": "Die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Sonne",
+              "bn": "সূর্য"
+            },
+            {
+              "t": "scheint",
+              "bn": "কিরণ দেয়"
+            },
+            {
+              "t": "den",
+              "bn": "পুরো"
+            },
+            {
+              "t": "ganzen",
+              "bn": "সারা"
+            },
+            {
+              "t": "Tag.",
+              "bn": "দিন"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es ist warm und sonnig.",
+          "bn": "আজকের দিনটি উষ্ণ ও রৌদ্রোজ্জ্বল।",
+          "bn_pron": "এস ইস্ত ভার্ম উন্ট জনিখ",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "warm",
+              "bn": "উষ্ণ"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "sonnig.",
+              "bn": "রৌদ্রোজ্জ্বল"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Heute regnet es leider.",
+          "bn": "আজ দুর্ভাগ্যবশত বৃষ্টি হচ্ছে।",
+          "bn_pron": "হয়টে রেগনেট এস লাইডার",
+          "tokens": [
+            {
+              "t": "Heute",
+              "bn": "আজ"
+            },
+            {
+              "t": "regnet",
+              "bn": "বৃষ্টি হচ্ছে"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "leider.",
+              "bn": "দুর্ভাগ্যবশত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Es hat zwanzig Grad.",
+          "bn": "আজকের তাপমাত্রা বিশ ডিগ্রি সেলসিয়াস।",
+          "bn_pron": "এস হাট ৎস্ভানৎসিখ গ্রাট",
+          "tokens": [
+            {
+              "t": "Es",
+              "bn": "এটি"
+            },
+            {
+              "t": "hat",
+              "bn": "আছে"
+            },
+            {
+              "t": "zwanzig",
+              "bn": "বিশ"
+            },
+            {
+              "t": "Grad.",
+              "bn": "ডিগ্রি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Im Winter ist es sehr windig.",
+          "bn": "শীতকালে বেশ বাতাস থাকে।",
+          "bn_pron": "ইম ভিন্টার ইস্ত এস জেয়ার ভিনডিখ",
+          "tokens": [
+            {
+              "t": "Im",
+              "bn": "এ"
+            },
+            {
+              "t": "Winter",
+              "bn": "শীত"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "windig.",
+              "bn": "বাতাসময়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Morgen wird es wieder schön.",
+          "bn": "কাল আবহাওয়া আবার সুন্দর হবে।",
+          "bn_pron": "মর্গেন ভির্ট এস ভিডার শোয়ন",
+          "tokens": [
+            {
+              "t": "Morgen",
+              "bn": "কাল"
+            },
+            {
+              "t": "wird",
+              "bn": "হবে"
+            },
+            {
+              "t": "es",
+              "bn": "এটি"
+            },
+            {
+              "t": "wieder",
+              "bn": "আবার"
+            },
+            {
+              "t": "schön.",
+              "bn": "সুন্দর"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vergiss deinen Regenschirm nicht!",
+          "bn": "তোমার ছাতাটি নিতে ভুলো না!",
+          "bn_pron": "ফেয়ারগিস ডাইনেন রেগেনশির্ম নিখ্ট",
+          "tokens": [
+            {
+              "t": "Vergiss",
+              "bn": "ভুলো না"
+            },
+            {
+              "t": "deinen",
+              "bn": "তোমার"
+            },
+            {
+              "t": "Regenschirm",
+              "bn": "ছাতা"
+            },
+            {
+              "t": "nicht!",
+              "bn": "না"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "গণপরিবহন ও স্টেশন ঘোষণা (Fahrkarten & Bahn)",
+      "title_target": "Öffentlicher Verkehr",
+      "intro_bn": "ট্রেনের টিকিট কাটা, প্লাটফর্ম ও ট্রেনের বিলম্ব সম্পর্কে ঘোষণার বাক্য।",
+      "structure": [
+        "Fahrkarte",
+        "Gleis",
+        "Verspätung"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Eine Fahrkarte nach Berlin bitte.",
+          "bn": "বার্লিনের জন্য একটি টিকিট দিন দয়া করে।",
+          "bn_pron": "আইনে ফারকার্টে নাখ বের্লিন বিটে",
+          "tokens": [
+            {
+              "t": "Eine",
+              "bn": "একটি"
+            },
+            {
+              "t": "Fahrkarte",
+              "bn": "টিকিট"
+            },
+            {
+              "t": "nach",
+              "bn": "তে"
+            },
+            {
+              "t": "Berlin",
+              "bn": "বার্লিন"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Einfach oder hin und zurück?",
+          "bn": "ওয়ান-ওয়ে নাকি আসা-যাওয়া (রিটার্ন)?",
+          "bn_pron": "আইনফাখ ওডার হিন উন্ট ৎসুরু্যক",
+          "tokens": [
+            {
+              "t": "Einfach",
+              "bn": "ওয়ান-ওয়ে"
+            },
+            {
+              "t": "oder",
+              "bn": "নাকি"
+            },
+            {
+              "t": "hin",
+              "bn": "যাওয়া"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "zurück?",
+              "bn": "ফেরা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Hin und zurück bitte.",
+          "bn": "আসা-যাওয়া রিটার্ন টিকিট দিন দয়া করে।",
+          "bn_pron": "হিন উন্ট ৎসুরু্যক বিটে",
+          "tokens": [
+            {
+              "t": "Hin",
+              "bn": "যাওয়া"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "zurück",
+              "bn": "ফেরা"
+            },
+            {
+              "t": "bitte.",
+              "bn": "দয়া করে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Von welchem Gleis fährt der Zug ab?",
+          "bn": "ট্রেনটি কোন প্ল্যাটফর্ম থেকে ছাড়বে?",
+          "bn_pron": "ফন ভেলখেম গ্লাইস ফেয়ার্ট ডের ৎসুক আপ",
+          "tokens": [
+            {
+              "t": "Von",
+              "bn": "থেকে"
+            },
+            {
+              "t": "welchem",
+              "bn": "কোন"
+            },
+            {
+              "t": "Gleis",
+              "bn": "প্ল্যাটফর্ম"
+            },
+            {
+              "t": "fährt",
+              "bn": "ছাড়ে"
+            },
+            {
+              "t": "der",
+              "bn": "টি"
+            },
+            {
+              "t": "Zug",
+              "bn": "ট্রেন"
+            },
+            {
+              "t": "ab?",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der Zug fährt von Gleis vier ab.",
+          "bn": "ট্রেনটি চার নম্বর প্ল্যাটফর্ম থেকে ছাড়বে।",
+          "bn_pron": "ডের ৎসুক ফেয়ার্ট ফন গ্লাইস ফিয়ার আপ",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "Zug",
+              "bn": "ট্রেন"
+            },
+            {
+              "t": "fährt",
+              "bn": "ছাড়ে"
+            },
+            {
+              "t": "von",
+              "bn": "থেকে"
+            },
+            {
+              "t": "Gleis",
+              "bn": "প্ল্যাটফর্ম"
+            },
+            {
+              "t": "vier",
+              "bn": "চার"
+            },
+            {
+              "t": "ab.",
+              "bn": "উপসর্গ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Der ICE hat zehn Minuten Verspätung.",
+          "bn": "আইসিই ট্রেনটির দশ মিনিট বিলম্ব আছে।",
+          "bn_pron": "ডের ই সে এ হাট ৎসেন মিনুটেন ফেয়ার্শ্পেটুং",
+          "tokens": [
+            {
+              "t": "Der",
+              "bn": "টি"
+            },
+            {
+              "t": "ICE",
+              "bn": "দ্রুতগামী ট্রেন"
+            },
+            {
+              "t": "hat",
+              "bn": "আছে"
+            },
+            {
+              "t": "zehn",
+              "bn": "দশ"
+            },
+            {
+              "t": "Minuten",
+              "bn": "মিনিট"
+            },
+            {
+              "t": "Verspätung.",
+              "bn": "দেরি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Vorsicht an der Bahnsteigkante!",
+          "bn": "প্ল্যাটফর্মের কিনারা থেকে সাবধানে থাকুন!",
+          "bn_pron": "ফোরজিখ্ট আন ডের বানশ্টাইগকান্টে",
+          "tokens": [
+            {
+              "t": "Vorsicht",
+              "bn": "সাবধান"
+            },
+            {
+              "t": "an",
+              "bn": "এ"
+            },
+            {
+              "t": "der",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Bahnsteigkante!",
+              "bn": "কিনারা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Gute Reise und auf Wiedersehen!",
+          "bn": "ভ্রমণ শুভ হোক এবং আবার দেখা হবে!",
+          "bn_pron": "গুটে রাইজে উন্ট আউফ ভিডারজেহেন",
+          "tokens": [
+            {
+              "t": "Gute",
+              "bn": "শুভ"
+            },
+            {
+              "t": "Reise",
+              "bn": "ভ্রমণ"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "auf",
+              "bn": "পুনরায়"
+            },
+            {
+              "t": "Wiedersehen!",
+              "bn": "দেখা"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "A1 স্পিকিং টেস্ট: প্রশ্ন ও উত্তরের চূড়ান্ত ড্রিল",
+      "title_target": "A1-Prüfungstraining Sprechen",
+      "intro_bn": "গেয়েটে ইন্সটিটিউট A1 স্পিকিং পরীক্ষার ৩টি অংশের ড্রিল: নিজের পরিচয়, তথ্য চাওয়া ও অনুরোধ করা।",
+      "structure": [
+        "Prüfungsteil",
+        "Aufgabe",
+        "Antwort"
+      ],
+      "items": [
+        {
+          "type": "sentence",
+          "target": "Können Sie Ihren Namen buchstabieren?",
+          "bn": "আপনি কি আপনার নামের বানান করতে পারবেন?",
+          "bn_pron": "কোয়ন্নেন যী ইরেন নামেন বুখশ্টাবিরেন",
+          "tokens": [
+            {
+              "t": "Können",
+              "bn": "পারবেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Ihren",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Namen",
+              "bn": "নাম"
+            },
+            {
+              "t": "buchstabieren?",
+              "bn": "বানান করতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, mein Name buchstabiert man H-A-S-A-N.",
+          "bn": "হ্যাঁ, আমার নাম এইচ-এ-এস-এ-এন।",
+          "bn_pron": "ইয়া মাইন নামে বুখশ্টাবিয়ার্ট মান হা আ এস আ এন",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "mein",
+              "bn": "আমার"
+            },
+            {
+              "t": "Name",
+              "bn": "নাম"
+            },
+            {
+              "t": "buchstabiert",
+              "bn": "বানান করে"
+            },
+            {
+              "t": "man",
+              "bn": "লোকে"
+            },
+            {
+              "t": "H-A-S-A-N.",
+              "bn": "হাসান"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Können Sie Ihre Telefonnummer sagen?",
+          "bn": "আপনার ফোন নম্বরটি কি বলতে পারবেন?",
+          "bn_pron": "কোয়ন্নেন যী ইরে টেলিফোননুমার জাগেন",
+          "tokens": [
+            {
+              "t": "Können",
+              "bn": "পারবেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "Ihre",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Telefonnummer",
+              "bn": "ফোন নম্বর"
+            },
+            {
+              "t": "sagen?",
+              "bn": "বলতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Meine Nummer ist null eins sieben sechs.",
+          "bn": "আমার নম্বর শূন্য এক সাত ছয়।",
+          "bn_pron": "মাইনে নুমার ইস্ত নুল আইনস যীবেন জেক্স",
+          "tokens": [
+            {
+              "t": "Meine",
+              "bn": "আমার"
+            },
+            {
+              "t": "Nummer",
+              "bn": "নম্বর"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "null",
+              "bn": "শূন্য"
+            },
+            {
+              "t": "eins",
+              "bn": "এক"
+            },
+            {
+              "t": "sieben",
+              "bn": "সাত"
+            },
+            {
+              "t": "sechs.",
+              "bn": "ছয়"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sprechen Sie bitte etwas lauter!",
+          "bn": "দয়া করে আরেকটু উচ্চস্বরে কথা বলুন!",
+          "bn_pron": "শ্প্রেখেন যী বিটে এতভাস লাউটার",
+          "tokens": [
+            {
+              "t": "Sprechen",
+              "bn": "বলুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "bitte",
+              "bn": "দয়া করে"
+            },
+            {
+              "t": "etwas",
+              "bn": "একটু"
+            },
+            {
+              "t": "lauter!",
+              "bn": "উচ্চস্বরে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Darf ich hier ein Foto machen?",
+          "bn": "আমি কি এখানে একটি ছবি তুলতে পারি?",
+          "bn_pron": "ডার্ফ ইখ্ হিয়ার আইন ফোটো মাখেন",
+          "tokens": [
+            {
+              "t": "Darf",
+              "bn": "অনুমতি আছে"
+            },
+            {
+              "t": "ich",
+              "bn": "আমার"
+            },
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "ein",
+              "bn": "একটি"
+            },
+            {
+              "t": "Foto",
+              "bn": "ছবি"
+            },
+            {
+              "t": "machen?",
+              "bn": "তুলতে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Ja, das ist hier erlaubt.",
+          "bn": "হ্যাঁ, এখানে ছবি তোলার অনুমতি আছে।",
+          "bn_pron": "ইয়া ডাস ইস্ত হিয়ার এয়ারলাউপট",
+          "tokens": [
+            {
+              "t": "Ja,",
+              "bn": "হ্যাঁ"
+            },
+            {
+              "t": "das",
+              "bn": "তা"
+            },
+            {
+              "t": "ist",
+              "bn": "হয়"
+            },
+            {
+              "t": "hier",
+              "bn": "এখানে"
+            },
+            {
+              "t": "erlaubt.",
+              "bn": "অনুমোদিত"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Sie haben die Prüfung bestanden!",
+          "bn": "আপনি পরীক্ষায় পাস করেছেন / উত্তীর্ণ হয়েছেন!",
+          "bn_pron": "যী হাবের্ন ডী প্যূফুং বেশ্টান্ডেন",
+          "tokens": [
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "haben",
+              "bn": "আছেন"
+            },
+            {
+              "t": "die",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Prüfung",
+              "bn": "পরীক্ষা"
+            },
+            {
+              "t": "bestanden!",
+              "bn": "পাস করেছেন"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title_bn": "সমাপনী মাস্টারক্লাস সংলাপ ও শুভেচ্ছা",
+      "title_target": "Abschluss-Dialog & Glückwunsch",
+      "intro_bn": "A1 কোর্স সম্পন্ন করার পর শিক্ষার্থী ও শিক্ষকের অভিনন্দন বিনিময় সংলাপ।",
+      "structure": [
+        "Sprecher A",
+        "Sprecher B",
+        "Zertifikat"
+      ],
+      "items": [
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Herzlichen Glückwunsch, Sie sprechen jetzt Deutsch!",
+          "bn": "আন্তরিক অভিনন্দন, আপনি এখন জার্মান বলতে পারেন!",
+          "bn_pron": "হেয়ার্ৎসলিখেন গ্ল্যুকভুন্শ যী শ্প্রেখেন ইয়েৎস্ট ডয়চ",
+          "tokens": [
+            {
+              "t": "Herzlichen",
+              "bn": "আন্তরিক"
+            },
+            {
+              "t": "Glückwunsch,",
+              "bn": "অভিনন্দন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "sprechen",
+              "bn": "বলছেন"
+            },
+            {
+              "t": "jetzt",
+              "bn": "এখন"
+            },
+            {
+              "t": "Deutsch!",
+              "bn": "জার্মান"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Vielen herzlichen Dank für Ihre Hilfe!",
+          "bn": "আপনার সাহায্যের জন্য অসংখ্য আন্তরিক ধন্যবাদ!",
+          "bn_pron": "ফিলেন হেয়ার্ৎসলিখেন ডাঙ্ক ফ্যুর ইরে হিলফে",
+          "tokens": [
+            {
+              "t": "Vielen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "herzlichen",
+              "bn": "আন্তরিক"
+            },
+            {
+              "t": "Dank",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "Ihre",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Hilfe!",
+              "bn": "সাহায্য"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "A",
+          "target": "Wie fühlen Sie sich nach dem Kurs?",
+          "bn": "কোর্সটি শেষ করে আপনার কেমন লাগছে?",
+          "bn_pron": "ভী ফ্যুলেন যী নিখ্ নাখ ডেম কুর্স",
+          "tokens": [
+            {
+              "t": "Wie",
+              "bn": "কেমন"
+            },
+            {
+              "t": "fühlen",
+              "bn": "অনুভব করছেন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "sich",
+              "bn": "নিজেকে"
+            },
+            {
+              "t": "nach",
+              "bn": "পর"
+            },
+            {
+              "t": "dem",
+              "bn": "নির্দিষ্ট"
+            },
+            {
+              "t": "Kurs?",
+              "bn": "কোর্স"
+            }
+          ]
+        },
+        {
+          "type": "dialogue_line",
+          "speaker": "B",
+          "target": "Ich fühle mich sehr sicher beim Sprechen.",
+          "bn": "কথা বলার ক্ষেত্রে আমি এখন খুবই আত্মবিশ্বাসী।",
+          "bn_pron": "ইখ্ ফ্যূলে নিখ্ জেয়ার জিশার বাইম শ্প্রেখেন",
+          "tokens": [
+            {
+              "t": "Ich",
+              "bn": "আমি"
+            },
+            {
+              "t": "fühle",
+              "bn": "অনুভব করি"
+            },
+            {
+              "t": "mich",
+              "bn": "নিজেকে"
+            },
+            {
+              "t": "sehr",
+              "bn": "খুব"
+            },
+            {
+              "t": "sicher",
+              "bn": "আত্মবিশ্বাসী"
+            },
+            {
+              "t": "beim",
+              "bn": "এ"
+            },
+            {
+              "t": "Sprechen.",
+              "bn": "বলা"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Üben Sie jeden Tag mit dieser App weiter!",
+          "bn": "প্রতিদিন এই অ্যাপের সাথে আরও অনুশীলন চালিয়ে যান!",
+          "bn_pron": "উ্যবেন যী ইয়েডেন তাক মিট ডীজার অ্যাপ ভাইটার",
+          "tokens": [
+            {
+              "t": "Üben",
+              "bn": "অনুশীলন করুন"
+            },
+            {
+              "t": "Sie",
+              "bn": "আপনি"
+            },
+            {
+              "t": "jeden",
+              "bn": "প্রতি"
+            },
+            {
+              "t": "Tag",
+              "bn": "দিন"
+            },
+            {
+              "t": "mit",
+              "bn": "দিয়ে"
+            },
+            {
+              "t": "dieser",
+              "bn": "এই"
+            },
+            {
+              "t": "App",
+              "bn": "অ্যাপ"
+            },
+            {
+              "t": "weiter!",
+              "bn": "চালিয়ে"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Deutsch lernen macht wirklich großen Spaß.",
+          "bn": "জার্মান ভাষা শেখা আসলেই চমৎকার আনন্দের।",
+          "bn_pron": "ডয়চ লের্নেন মাখট ভির্কলিখ গ্রোসেন শ্পাস",
+          "tokens": [
+            {
+              "t": "Deutsch",
+              "bn": "জার্মান"
+            },
+            {
+              "t": "lernen",
+              "bn": "শেখা"
+            },
+            {
+              "t": "macht",
+              "bn": "দেয়"
+            },
+            {
+              "t": "wirklich",
+              "bn": "সত্যিই"
+            },
+            {
+              "t": "großen",
+              "bn": "অনেক"
+            },
+            {
+              "t": "Spaß.",
+              "bn": "আনন্দ"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Alles Gute für Ihre Zukunft in Deutschland!",
+          "bn": "জার্মানিতে আপনার ভবিষ্যতের জন্য রইলো শুভকামনা!",
+          "bn_pron": "আলেস গুটে ফ্যুর ইরে ৎসুকুনফট ইন ডয়চলান্ট",
+          "tokens": [
+            {
+              "t": "Alles",
+              "bn": "সব"
+            },
+            {
+              "t": "Gute",
+              "bn": "ভালো"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "Ihre",
+              "bn": "আপনার"
+            },
+            {
+              "t": "Zukunft",
+              "bn": "ভবিষ্যত"
+            },
+            {
+              "t": "in",
+              "bn": "তে"
+            },
+            {
+              "t": "Deutschland!",
+              "bn": "জার্মানি"
+            }
+          ]
+        },
+        {
+          "type": "sentence",
+          "target": "Auf Wiedersehen und danke für alles!",
+          "bn": "বিদায় এবং সবকিছুর জন্য ধন্যবাদ!",
+          "bn_pron": "আউফ ভিডারজেহেন উন্ট ডাঙ্কে ফ্যুর আলেস",
+          "tokens": [
+            {
+              "t": "Auf",
+              "bn": "পুনরায়"
+            },
+            {
+              "t": "Wiedersehen",
+              "bn": "দেখা"
+            },
+            {
+              "t": "und",
+              "bn": "এবং"
+            },
+            {
+              "t": "danke",
+              "bn": "ধন্যবাদ"
+            },
+            {
+              "t": "für",
+              "bn": "জন্য"
+            },
+            {
+              "t": "alles!",
+              "bn": "সবকিছু"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
