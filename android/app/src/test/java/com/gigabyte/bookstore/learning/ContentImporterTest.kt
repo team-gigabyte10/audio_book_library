@@ -49,7 +49,7 @@ class ContentImporterTest {
     """.trimIndent()
 
     private fun importer(versionCode: Int, content: String) =
-        ContentImporter(context, db, versionCode) { content.byteInputStream() }
+        ContentImporter(context, db, versionCode, listOf("test.json")) { content.byteInputStream() }
 
     @Before
     fun setUp() {

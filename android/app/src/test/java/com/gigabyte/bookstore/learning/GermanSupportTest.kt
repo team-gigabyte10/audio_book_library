@@ -53,10 +53,10 @@ class GermanSupportTest {
 
     @Test
     fun `German speech match normalizes umlauts and eszett`() {
-        val spoken = "Ich moechte schoene Gruesse schliessen"
-        val expected = "Ich möchte schöne Grüße schließen."
-        val result = SpeechMatch.evaluate(spoken = spoken, expected = expected, language = "de-DE")
-        assertTrue("Expected score >= 80 but got ${result.score}", result.score >= 80)
+        val spoken = listOf("Ich moechte schoene Gruesse schliessen")
+        val expected = listOf("Ich möchte schöne Grüße schließen.")
+        val result = SpeechMatch.evaluate(heard = spoken, expected = expected)
+        assertEquals(SpeechMatch.Result.MATCH, result)
     }
 }
 

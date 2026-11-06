@@ -26,7 +26,8 @@ class ContentImporter(
     private val context: Context,
     private val database: LearningDatabase,
     private val appVersionCode: Int,
-    private val assetNames: List<String> = ASSET_NAMES
+    private val assetNames: List<String> = ASSET_NAMES,
+    private val openAsset: (String) -> java.io.InputStream = { context.assets.open(it) }
 ) {
 
     private val dao = database.learningDao()
@@ -35,9 +36,9 @@ class ContentImporter(
     suspend fun ensureImported(onProgress: (Int, Int) -> Unit = { _, _ -> }): Boolean = withContext(Dispatchers.IO) {
         val meta = dao.getMeta()
         val hash = hashAssets()
-        val hasJapanese = dao.getPart("jp-foundations-p1") != null
+        val needsMultiCourseMigration = assetNames == ASSET_NAMES && dao.getPart("jp-foundations-p1") == null
         when {
-            meta == null || !hasJapanese -> {
+            meta == null || needsMultiCourseMigration -> {
                 import(onProgress)
                 true
             }
@@ -67,7 +68,7 @@ class ContentImporter(
 
             for (assetName in assetNames) {
                 try {
-                    context.assets.open(assetName).source().buffer().use { buffered ->
+                    openAsset(assetName).source().buffer().use { buffered ->
                         val header = parser.parse(buffered, object : EscbContentSink {
                             override suspend fun onTotalLessons(total: Int) {
                                 totalLessons += total
@@ -115,7 +116,7 @@ class ContentImporter(
         val md = java.security.MessageDigest.getInstance("SHA-256")
         for (name in assetNames) {
             try {
-                context.assets.open(name).use { input ->
+                openAsset(name).use { input ->
                     val buf = ByteArray(8192)
                     var read: Int
                     while (input.read(buf).also { read = it } != -1) {

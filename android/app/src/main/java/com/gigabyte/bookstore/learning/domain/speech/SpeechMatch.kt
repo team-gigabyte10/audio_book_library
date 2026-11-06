@@ -47,7 +47,7 @@ object SpeechMatch {
             when {
                 c.isWhitespace() -> Unit
                 c in PUNCTUATION -> Unit
-                c in 'ً'..'ٟ' || c == 'ٰ' || c == '\u093C' -> Unit
+                c in 'ً'..'ٟ' || c == 'ٰ' || c == '\u093C' || c == 'ँ' || c == '\u0901' -> Unit
                 c in 'ァ'..'ヶ' -> append(c - 0x60)
                 else -> append(URDU_FORMS[c] ?: HINDI_FORMS[c] ?: c.lowercaseChar())
             }
@@ -83,14 +83,14 @@ object SpeechMatch {
     private val URDU_FORMS = mapOf('ي' to 'ی', 'ى' to 'ی', 'ك' to 'ک', 'ه' to 'ہ', 'ة' to 'ہ')
 
     private val HINDI_FORMS = mapOf(
-        'क़' to 'क',
-        'ख़' to 'ख',
-        'ग़' to 'ग',
-        'ज़' to 'ज',
-        'ड़' to 'ड',
-        'ढ़' to 'ढ',
-        'फ़' to 'फ',
-        'य़' to 'य',
+        '\u0958' to 'क', // क़ -> क
+        '\u0959' to 'ख', // ख़ -> ख
+        '\u095A' to 'ग', // ग़ -> ग
+        '\u095B' to 'ज', // ज़ -> ज
+        '\u095C' to 'ड', // ड़ -> ड
+        '\u095D' to 'ढ', // ढ़ -> ढ
+        '\u095E' to 'फ', // फ़ -> फ
+        '\u095F' to 'य', // य़ -> य
         'ँ' to 'ं'
     )
 }
