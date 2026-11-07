@@ -139,6 +139,7 @@ class ContentImporter(
             "spoken_japanese_standard_n5.json",
             "spoken_urdu_standard_a1.json",
             "spoken_urdu_standard_a2.json",
+            "spoken_urdu_standard_b1.json",
             "spoken_hindi_standard_a1.json",
             "spoken_german_standard_a1.json",
             "spoken_japanese_foundations.json",

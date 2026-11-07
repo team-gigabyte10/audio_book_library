@@ -110,6 +110,11 @@ fun LearnHomeScreen(
     val urA2LessonCount = urA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 22 }
     val urA2SentenceCount = urA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 57 }
 
+    val urB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-b1-") && it.part.isEnabled } }
+    val urB1PartCount = urB1Parts.size.coerceAtLeast(1)
+    val urB1LessonCount = urB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 16 }
+    val urB1SentenceCount = urB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 48 }
+
     val hiStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-std-") && it.part.isEnabled } }
     val hiStandardPartCount = hiStandardParts.size.coerceAtLeast(1)
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -283,6 +288,21 @@ fun LearnHomeScreen(
                                 sentenceCount = urA2SentenceCount,
                                 customPills = listOf("🇵🇰 ১৫টি পার্ট", "🗣️ অতীত ও نے নিয়ম", "🏢 অফিস ও বাস্তব কাজ"),
                                 onClick = { onOpenCourse("ur_a2") }
+                            )
+                        }
+
+                        // Urdu B1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 স্ট্যান্ডার্ড কোর্স: লেভেল B1",
+                                title = "উর্দু B1: শর্ত, অনুমান, যুক্তি ও সাবলীল স্পোকেন",
+                                description = "শর্তসাপেক্ষ বাক্য (যদি...তবে), সম্বন্ধসূচক বাক্য, পরোক্ষ উক্তি, কর্মবাচ্য, প্রযোজক ক্রিয়া, অভিমত প্রকাশ ও প্রবাদ-বাগধারা।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = urB1PartCount,
+                                lessonCount = urB1LessonCount,
+                                sentenceCount = urB1SentenceCount,
+                                customPills = listOf("🇵🇰 ১৬টি পার্ট", "🧠 শর্ত ও মতামত", "💬 সাবলীল ইন্টারমিডিয়েট"),
+                                onClick = { onOpenCourse("ur_b1") }
                             )
                         }
                     } else if (isHindi) {
