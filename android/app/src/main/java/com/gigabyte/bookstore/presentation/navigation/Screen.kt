@@ -49,6 +49,9 @@ sealed class Screen(val route: String) {
         fun createRoute(course: String = "present") = "learn/course/syllabus?course=$course"
     }
     object JapaneseKanaChart : Screen("learn/japanese/kana-chart")
+    object AlphabetChart : Screen("learn/{lang}/alphabet-chart") {
+        fun createRoute(lang: String) = "learn/$lang/alphabet-chart"
+    }
     object LastRead : Screen("last-read")
 }
 

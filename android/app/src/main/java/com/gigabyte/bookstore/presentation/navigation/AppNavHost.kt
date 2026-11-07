@@ -53,6 +53,8 @@ import com.gigabyte.bookstore.learning.presentation.intro.CourseIntroScreen
 import com.gigabyte.bookstore.learning.presentation.syllabus.CourseSyllabusScreen
 import com.gigabyte.bookstore.learning.presentation.kana.JapaneseKanaChartScreen
 import com.gigabyte.bookstore.learning.presentation.kana.JapaneseKanaChartViewModel
+import com.gigabyte.bookstore.learning.presentation.alphabet.AlphabetChartScreen
+import com.gigabyte.bookstore.learning.presentation.alphabet.AlphabetChartViewModel
 import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 
@@ -483,7 +485,8 @@ fun AppNavHost(
                 onBackClick = { navController.popBackStack() },
                 onOpenCourse = { course -> navController.navigate(Screen.CourseSyllabus.createRoute(course)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) },
-                onOpenKanaChart = { navController.navigate(Screen.JapaneseKanaChart.route) }
+                onOpenKanaChart = { navController.navigate(Screen.JapaneseKanaChart.route) },
+                onOpenAlphabetChart = { langName -> navController.navigate(Screen.AlphabetChart.createRoute(langName)) }
             )
         }
 
@@ -493,6 +496,23 @@ fun AppNavHost(
             })
             JapaneseKanaChartScreen(
                 viewModel = kanaViewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Screen.AlphabetChart.route,
+            arguments = listOf(navArgument("lang") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val langCode = backStackEntry.arguments?.getString("lang") ?: "english"
+            val alphabetViewModel: AlphabetChartViewModel = viewModel(
+                key = "alphabet_chart_$langCode",
+                factory = SimpleViewModelFactory {
+                    AlphabetChartViewModel(application, langCode)
+                }
+            )
+            AlphabetChartScreen(
+                viewModel = alphabetViewModel,
                 onBackClick = { navController.popBackStack() }
             )
         }

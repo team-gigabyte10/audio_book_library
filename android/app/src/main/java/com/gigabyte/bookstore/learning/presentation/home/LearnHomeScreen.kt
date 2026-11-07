@@ -65,7 +65,8 @@ fun LearnHomeScreen(
     onBackClick: () -> Unit,
     onOpenCourse: (String) -> Unit,
     onOpenIntro: (String) -> Unit,
-    onOpenKanaChart: () -> Unit = {}
+    onOpenKanaChart: () -> Unit = {},
+    onOpenAlphabetChart: (String) -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -215,6 +216,24 @@ fun LearnHomeScreen(
                                 onStopTts = { viewModel.stopWelcomeGreeting() }
                             )
                         }
+
+                        // Urdu Alphabet Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 হুরুফে তাহাজ্জি · ৫৩ ধ্বনি",
+                                title = "উর্দু বর্ণমালা ও উচ্চারণ চার্ট (حروف تہجی)",
+                                description = "৩৯টি একক হরফ ও ১৪টি দো-চশমী মহাপ্রাণ যুক্তধ্বনি, রোমাজি ও বাংলা উচ্চারণ। প্রতিটি হরফে ট্যাপ করলেই সঠিক অডিও শুনুন।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = 2,
+                                lessonCount = 53,
+                                sentenceCount = 53,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇵🇰 ৫৩ হরফ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenAlphabetChart("urdu") }
+                            )
+                        }
+
                         // Urdu-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -237,6 +256,24 @@ fun LearnHomeScreen(
                                 onStopTts = { viewModel.stopWelcomeGreeting() }
                             )
                         }
+
+                        // Hindi Varnamala Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 দেবনাগরী বর্ণমালা · ৫৭ ধ্বনি",
+                                title = "হিন্দি বর্ণমালা ও উচ্চারণ চার্ট (वर्णमाला)",
+                                description = "১৩টি স্বরবর্ণ, ৩৩টি ব্যঞ্জনবর্ণ ও ১১টি যুক্ত/নুক্তা ধ্বনি, রোমাজি ও বাংলা উচ্চারণ। প্রতিটি অক্ষরে ট্যাপ করলেই সঠিক অডিও শুনুন।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 3,
+                                lessonCount = 57,
+                                sentenceCount = 57,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇮🇳 ৫৭ বর্ণ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenAlphabetChart("hindi") }
+                            )
+                        }
+
                         // Hindi-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -259,6 +296,24 @@ fun LearnHomeScreen(
                                 onStopTts = { viewModel.stopWelcomeGreeting() }
                             )
                         }
+
+                        // German Alphabet Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 জার্মান বর্ণমালা · ৩৮ ধ্বনি",
+                                title = "জার্মান বর্ণমালা ও উমলাউত চার্ট (Alphabet)",
+                                description = "২৬টি বর্ণমালা, ৪টি বিশেষ উমলাউত (Ä, Ö, Ü, ß) ও ৮টি প্রয়োজনীয় ধ্বনিগুচ্ছ। প্রতিটি বর্ণে ট্যাপ করলেই সঠিক জার্মান অডিও শুনুন।",
+                                accentColor = Color(0xFF004D40),
+                                partCount = 3,
+                                lessonCount = 38,
+                                sentenceCount = 38,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇩🇪 ৩৮ ধ্বনি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenAlphabetChart("german") }
+                            )
+                        }
+
                         // German-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -287,6 +342,23 @@ fun LearnHomeScreen(
                         item {
                             CourseIntroHeroCard(
                                 onClick = { onOpenIntro("Intro.md") }
+                            )
+                        }
+
+                        // English Alphabet & Phonics Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 বর্ণমালা ও ফোনেটিক্স · ৩৪ ধ্বনি",
+                                title = "ইংরেজি বর্ণমালা ও ফোনেটিক্স চার্ট (Alphabet & Phonics)",
+                                description = "২৬টি ইংরেজি বর্ণ (A-Z) ও ৮টি জরুরি ফোনেটিক ব্লেন্ডস (Ch, Sh, Th...) ও বাংলা উচ্চারণ। প্রতিটি অক্ষরে ট্যাপ করলেই সঠিক অডিও শুনুন।",
+                                accentColor = Color(0xFF1565C0),
+                                partCount = 3,
+                                lessonCount = 34,
+                                sentenceCount = 34,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇬🇧 ৩৪ ধ্বনি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenAlphabetChart("english") }
                             )
                         }
 
