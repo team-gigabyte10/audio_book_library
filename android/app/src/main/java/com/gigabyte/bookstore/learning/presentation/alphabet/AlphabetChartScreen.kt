@@ -100,12 +100,14 @@ fun AlphabetChartScreen(
                         Text(
                             text = config.titleBn,
                             fontWeight = FontWeight.Bold,
-                            fontSize = 17.5.sp
+                            fontSize = 17.5.sp,
+                            color = Color.White
                         )
                         Text(
                             text = config.subtitleBn,
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            fontSize = 12.sp,
+                            color = Color.White.copy(alpha = 0.88f)
                         )
                     }
                 },
@@ -113,7 +115,8 @@ fun AlphabetChartScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back"
+                            contentDescription = "Back",
+                            tint = Color.White
                         )
                     }
                 },

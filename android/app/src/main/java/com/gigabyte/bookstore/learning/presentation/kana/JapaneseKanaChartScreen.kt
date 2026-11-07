@@ -1,6 +1,5 @@
 package com.gigabyte.bookstore.learning.presentation.kana
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -51,8 +50,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Surface
@@ -104,8 +101,6 @@ fun JapaneseKanaChartScreen(
     val activeSpeakingId by viewModel.audioPlayer.activeSpeakingId.collectAsState()
     val context = LocalContext.current
 
-    var isSearchVisible by remember { mutableStateOf(false) }
-
     Scaffold(
         topBar = {
             ThemedTopAppBar(
@@ -114,12 +109,14 @@ fun JapaneseKanaChartScreen(
                         Text(
                             text = "জাপানি বর্ণমালা ও উচ্চারণ চার্ট",
                             fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp
+                            fontSize = 18.sp,
+                            color = Color.White
                         )
                         Text(
                             text = "সব বর্ণ ও যুক্তধ্বনি · ট্যাপ করলেই অডিও",
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            fontSize = 12.sp,
+                            color = Color.White.copy(alpha = 0.88f)
                         )
                     }
                 },
@@ -127,69 +124,19 @@ fun JapaneseKanaChartScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back"
+                            contentDescription = "Back",
+                            tint = Color.White
                         )
                     }
                 },
                 actions = {
-                    // Search toggle
-                    IconButton(onClick = { isSearchVisible = !isSearchVisible }) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "Search",
-                            tint = if (searchQuery.isNotEmpty()) JapaneseCrimson else MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-
-                    // Audio & Voice Settings Button
-                    IconButton(onClick = { viewModel.openSettingsSheet() }) {
-                        Icon(
-                            imageVector = Icons.Default.Settings,
-                            contentDescription = "Audio Settings",
-                            tint = JapaneseCrimson
-                        )
-                    }
-
-                    // Speed Toggle Button
-                    Surface(
-                        onClick = { viewModel.toggleSpeechRate() },
-                        shape = RoundedCornerShape(12.dp),
-                        color = JapaneseCrimson.copy(alpha = 0.12f),
-                        border = BorderStroke(1.dp, JapaneseCrimson.copy(alpha = 0.35f)),
-                        modifier = Modifier.padding(end = 6.dp)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Speed,
-                                contentDescription = null,
-                                tint = JapaneseCrimson,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Spacer(modifier = Modifier.width(4.dp))
-                            val speedText = when {
-                                speechRate <= 0.75f -> "0.7x (ধীর)"
-                                speechRate <= 0.90f -> "0.88x (স্পষ্ট)"
-                                else -> "1.0x"
-                            }
-                            Text(
-                                text = speedText,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = JapaneseCrimson
-                            )
-                        }
-                    }
-
                     // Stop button if audio is playing
                     if (isSpeaking) {
                         IconButton(onClick = { viewModel.stopAudio() }) {
                             Icon(
                                 imageVector = Icons.Default.Stop,
                                 contentDescription = "Stop Audio",
-                                tint = JapaneseCrimson
+                                tint = Color.White
                             )
                         }
                     }
@@ -202,39 +149,6 @@ fun JapaneseKanaChartScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            // Search Input Field (Collapsible)
-            AnimatedVisibility(visible = isSearchVisible) {
-                Surface(
-                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    OutlinedTextField(
-                        value = searchQuery,
-                        onValueChange = { viewModel.setSearchQuery(it) },
-                        placeholder = { Text("রোমাজি বা বাংলায় খুঁজুন (যেমন: ka, sa, কা, ফুল)...") },
-                        leadingIcon = {
-                            Icon(imageVector = Icons.Default.Search, contentDescription = null)
-                        },
-                        trailingIcon = {
-                            if (searchQuery.isNotEmpty()) {
-                                IconButton(onClick = { viewModel.setSearchQuery("") }) {
-                                    Icon(imageVector = Icons.Default.Clear, contentDescription = "Clear")
-                                }
-                            }
-                        },
-                        singleLine = true,
-                        shape = RoundedCornerShape(14.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = JapaneseCrimson,
-                            unfocusedBorderColor = MaterialTheme.colorScheme.outlineVariant
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp)
-                    )
-                }
-            }
-
             // Script Mode Selector Chips (হিরাগানা | কাতাকানা | উভয়)
             ScriptModeSelector(
                 currentMode = scriptMode,
