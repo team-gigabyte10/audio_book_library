@@ -1,6 +1,5 @@
 package com.gigabyte.bookstore.learning.presentation.alphabet
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -46,8 +45,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Surface
@@ -90,8 +87,6 @@ fun AlphabetChartScreen(
     val isSpeaking by viewModel.audioPlayer.isSpeaking.collectAsState()
     val activeSpeakingId by viewModel.audioPlayer.activeSpeakingId.collectAsState()
 
-    var isSearchVisible by remember { mutableStateOf(false) }
-
     Scaffold(
         topBar = {
             ThemedTopAppBar(
@@ -121,47 +116,12 @@ fun AlphabetChartScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { isSearchVisible = !isSearchVisible }) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "Search",
-                            tint = if (searchQuery.isNotEmpty()) accentColor else MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-
-                    Surface(
-                        onClick = { viewModel.toggleSpeechRate() },
-                        shape = RoundedCornerShape(12.dp),
-                        color = accentColor.copy(alpha = 0.12f),
-                        border = BorderStroke(1.dp, accentColor.copy(alpha = 0.35f)),
-                        modifier = Modifier.padding(end = 6.dp)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Speed,
-                                contentDescription = null,
-                                tint = accentColor,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(
-                                text = if (speechRate == 1.0f) "1.0x" else "0.7x (Slow)",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = accentColor
-                            )
-                        }
-                    }
-
                     if (isSpeaking) {
                         IconButton(onClick = { viewModel.stopAudio() }) {
                             Icon(
                                 imageVector = Icons.Default.Stop,
                                 contentDescription = "Stop Audio",
-                                tint = accentColor
+                                tint = Color.White
                             )
                         }
                     }
@@ -174,36 +134,38 @@ fun AlphabetChartScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            // Search Bar
-            AnimatedVisibility(visible = isSearchVisible) {
-                Surface(
-                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f),
-                    modifier = Modifier.fillMaxWidth()
+            // Speed & Articulation Control Bar
+            Surface(
+                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 14.dp, vertical = 6.dp)
                 ) {
-                    OutlinedTextField(
-                        value = searchQuery,
-                        onValueChange = { viewModel.setSearchQuery(it) },
-                        placeholder = { Text("বর্ণ, উচ্চারণ বা বাংলায় খুঁজুন...") },
-                        leadingIcon = {
-                            Icon(imageVector = Icons.Default.Search, contentDescription = null)
-                        },
-                        trailingIcon = {
-                            if (searchQuery.isNotEmpty()) {
-                                IconButton(onClick = { viewModel.setSearchQuery("") }) {
-                                    Icon(imageVector = Icons.Default.Clear, contentDescription = "Clear")
-                                }
-                            }
-                        },
-                        singleLine = true,
-                        shape = RoundedCornerShape(14.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = accentColor,
-                            unfocusedBorderColor = MaterialTheme.colorScheme.outlineVariant
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp)
+                    Text(
+                        text = "🔊 প্রতিটি অক্ষরে ট্যাপ করলেই সঠিক উচ্চারণ শুনবেন",
+                        style = MaterialTheme.typography.bodySmall,
+                        fontSize = 11.5.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
+                    Surface(
+                        onClick = { viewModel.toggleSpeechRate() },
+                        shape = RoundedCornerShape(8.dp),
+                        color = MaterialTheme.colorScheme.surface,
+                        border = BorderStroke(1.dp, accentColor.copy(alpha = 0.45f))
+                    ) {
+                        Text(
+                            text = if (speechRate <= 0.75f) "⚡ ০.৭x (ধীর)" else "⚡ ১.০x (স্বাভাবিক)",
+                            fontSize = 11.5.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = accentColor,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
                 }
             }
 

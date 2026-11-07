@@ -97,14 +97,14 @@ object EnglishAlphabetData {
                 subtitleTarget = "CH · SH · TH · PH · WH · CK · NG · QU",
                 categoryId = "digraphs",
                 letters = listOf(
-                    AlphabetLetter("en_ch", "Ch", "ch", "tʃ", "চ", "digraphs", "Chair", "Chair", "tʃeər", "চেয়ার", "বাংলা স্পষ্ট 'চ' ধ্বনি।"),
-                    AlphabetLetter("en_sh", "Sh", "sh", "ʃ", "শ", "digraphs", "Ship", "Ship", "ʃɪp", "জাহাজ", "তালব্য নরম 'শ' ধ্বনি।"),
-                    AlphabetLetter("en_th", "Th", "th", "θ / ð", "থ / দ", "digraphs", "Thank", "Thank", "θæŋk", "ধন্যবাদ", "জিহ্বার ডগা দুই পাটি দাঁতের মাঝে রেখে 'থ' (Think) বা 'দ' (This)।"),
-                    AlphabetLetter("en_ph", "Ph", "ph", "f", "ফ", "digraphs", "Phone", "Phone", "foʊn", "ফোন", "'f' এর মতো দাঁত ও ঠোঁট স্পর্শ করে 'ফ'।"),
-                    AlphabetLetter("en_wh", "Wh", "wh", "w", "ওয়", "digraphs", "White", "White", "waɪt", "সাদা"),
-                    AlphabetLetter("en_ck", "Ck", "ck", "k", "ক", "digraphs", "Duck", "Duck", "dʌk", "হাঁস", "শব্দের শেষে দৃঢ় 'ক' ধ্বনি।"),
-                    AlphabetLetter("en_ng", "Ng", "ng", "ŋ", "ঙ / ং", "digraphs", "Song", "Song", "sɒŋ", "গান", "বাংলা অনুস্বর বা 'ঙ' ধ্বনি।"),
-                    AlphabetLetter("en_qu", "Qu", "qu", "kw", "কোয়া", "digraphs", "Quick", "Quick", "kwɪk", "দ্রুত")
+                    AlphabetLetter("en_ch", "Ch", "ch", "tʃ", "চ", "digraphs", "ch", "Chair", "tʃeər", "চেয়ার", "বাংলা স্পষ্ট 'চ' ধ্বনি।"),
+                    AlphabetLetter("en_sh", "Sh", "sh", "ʃ", "শ", "digraphs", "sh", "Ship", "ʃɪp", "জাহাজ", "তালব্য নরম 'শ' ধ্বনি।"),
+                    AlphabetLetter("en_th", "Th", "th", "θ / ð", "থ / দ", "digraphs", "th", "Thank", "θæŋk", "ধন্যবাদ", "জিহ্বার ডগা দুই পাটি দাঁতের মাঝে রেখে 'থ' (Think) বা 'দ' (This)।"),
+                    AlphabetLetter("en_ph", "Ph", "ph", "f", "ফ", "digraphs", "ph", "Phone", "foʊn", "ফোন", "'f' এর মতো দাঁত ও ঠোঁট স্পর্শ করে 'ফ'।"),
+                    AlphabetLetter("en_wh", "Wh", "wh", "w", "ওয়", "digraphs", "wh", "White", "waɪt", "সাদা"),
+                    AlphabetLetter("en_ck", "Ck", "ck", "k", "ক", "digraphs", "ck", "Duck", "dʌk", "হাঁস", "শব্দের শেষে দৃঢ় 'ক' ধ্বনি।"),
+                    AlphabetLetter("en_ng", "Ng", "ng", "ŋ", "ঙ / ং", "digraphs", "ng", "Song", "sɒŋ", "গান", "বাংলা অনুস্বর বা 'ঙ' ধ্বনি।"),
+                    AlphabetLetter("en_qu", "Qu", "qu", "kw", "কোয়া", "digraphs", "qu", "Quick", "kwɪk", "দ্রুত")
                 )
             )
         )
