@@ -141,6 +141,15 @@ class AppPreferences(context: Context) {
         _learnHiFemaleSpeaker.value = female
     }
 
+    /** Japanese course voice gender: "female", "male", or "auto". */
+    private val _learnJaSpeakerGender = MutableStateFlow(prefs.getString(KEY_LEARN_JA_SPEAKER_GENDER, "female") ?: "female")
+    val learnJaSpeakerGender: StateFlow<String> = _learnJaSpeakerGender.asStateFlow()
+
+    fun setLearnJaSpeakerGender(gender: String) {
+        prefs.edit().putString(KEY_LEARN_JA_SPEAKER_GENDER, gender).apply()
+        _learnJaSpeakerGender.value = gender
+    }
+
     companion object {
         private const val KEY_SPEECH_RATE = "speech_rate"
         private const val KEY_SPEECH_PITCH = "speech_pitch"
@@ -158,6 +167,7 @@ class AppPreferences(context: Context) {
         private const val KEY_LEARN_REPEAT_ITEM = "learn_repeat_item"
         private const val KEY_LEARN_UR_SPEAKER_GENDER = "learn_ur_speaker_gender"
         private const val KEY_LEARN_HI_SPEAKER_GENDER = "learn_hi_speaker_gender"
+        private const val KEY_LEARN_JA_SPEAKER_GENDER = "learn_ja_speaker_gender"
 
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"

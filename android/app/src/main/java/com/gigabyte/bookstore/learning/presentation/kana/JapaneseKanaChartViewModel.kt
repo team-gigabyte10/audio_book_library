@@ -1,8 +1,11 @@
 package com.gigabyte.bookstore.learning.presentation.kana
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceGender
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -13,6 +16,7 @@ import kotlinx.coroutines.flow.stateIn
 class JapaneseKanaChartViewModel(application: Application) : AndroidViewModel(application) {
 
     val audioPlayer = KanaAudioPlayer(application)
+    val voiceGender: StateFlow<JapaneseVoiceGender> = audioPlayer.voiceGender
 
     private val _scriptMode = MutableStateFlow(ScriptMode.HIRAGANA)
     val scriptMode: StateFlow<ScriptMode> = _scriptMode.asStateFlow()
@@ -20,7 +24,8 @@ class JapaneseKanaChartViewModel(application: Application) : AndroidViewModel(ap
     private val _category = MutableStateFlow(KanaCategory.ALL)
     val category: StateFlow<KanaCategory> = _category.asStateFlow()
 
-    private val _speechRate = MutableStateFlow(1.0f)
+    // 0.88f is the optimal articulation speed for learner clarity (neither rushed nor dragging)
+    private val _speechRate = MutableStateFlow(0.88f)
     val speechRate: StateFlow<Float> = _speechRate.asStateFlow()
 
     private val _searchQuery = MutableStateFlow("")
@@ -28,6 +33,9 @@ class JapaneseKanaChartViewModel(application: Application) : AndroidViewModel(ap
 
     private val _selectedLetterForDetail = MutableStateFlow<KanaLetter?>(null)
     val selectedLetterForDetail: StateFlow<KanaLetter?> = _selectedLetterForDetail.asStateFlow()
+
+    private val _isSettingsSheetVisible = MutableStateFlow(false)
+    val isSettingsSheetVisible: StateFlow<Boolean> = _isSettingsSheetVisible.asStateFlow()
 
     val filteredRows: StateFlow<List<KanaRow>> = combine(_category, _searchQuery) { cat, query ->
         val baseRows = when (cat) {
@@ -69,8 +77,28 @@ class JapaneseKanaChartViewModel(application: Application) : AndroidViewModel(ap
         _category.value = category
     }
 
+    fun setVoiceGender(gender: JapaneseVoiceGender) {
+        audioPlayer.setVoiceGender(gender)
+    }
+
+    fun setSpeechRate(rate: Float) {
+        _speechRate.value = rate
+    }
+
     fun toggleSpeechRate() {
-        _speechRate.value = if (_speechRate.value == 1.0f) 0.7f else 1.0f
+        _speechRate.value = when {
+            _speechRate.value <= 0.75f -> 0.88f
+            _speechRate.value <= 0.90f -> 1.0f
+            else -> 0.70f
+        }
+    }
+
+    fun openSettingsSheet() {
+        _isSettingsSheetVisible.value = true
+    }
+
+    fun closeSettingsSheet() {
+        _isSettingsSheetVisible.value = false
     }
 
     fun setSearchQuery(query: String) {
@@ -101,6 +129,14 @@ class JapaneseKanaChartViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
+    fun playTestPhrase(phrase: String = "あ・い・う・え・お、こんにちは。") {
+        audioPlayer.speakText(phrase, null, _speechRate.value)
+    }
+
+    fun openDeviceTtsSettings(context: Context) {
+        JapaneseVoiceManager.openDeviceTtsSettings(context)
+    }
+
     fun stopAudio() {
         audioPlayer.stop()
     }
@@ -110,4 +146,3 @@ class JapaneseKanaChartViewModel(application: Application) : AndroidViewModel(ap
         audioPlayer.shutdown()
     }
 }
-

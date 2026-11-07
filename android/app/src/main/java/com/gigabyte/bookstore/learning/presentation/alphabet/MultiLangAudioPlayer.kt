@@ -3,6 +3,9 @@ package com.gigabyte.bookstore.learning.presentation.alphabet
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
+import com.gigabyte.bookstore.data.preferences.AppPreferences
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceGender
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceManager
 import com.gigabyte.bookstore.learning.domain.audio.TtsStepEngine
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import kotlinx.coroutines.CoroutineScope
@@ -23,6 +26,7 @@ import kotlin.coroutines.resume
 class MultiLangAudioPlayer(context: Context) {
 
     private val scope = CoroutineScope(Dispatchers.Main + Job())
+    private val appPreferences = AppPreferences(context)
 
     private val _isReady = MutableStateFlow(false)
     val isReady: StateFlow<Boolean> = _isReady.asStateFlow()
@@ -52,6 +56,9 @@ class MultiLangAudioPlayer(context: Context) {
 
     private fun setupEngine() {
         val engine = tts ?: return
+        runCatching {
+            engine.setAudioAttributes(JapaneseVoiceManager.createAudioAttributes())
+        }
         engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
             override fun onStart(utteranceId: String?) {
                 _isSpeaking.value = true
@@ -108,9 +115,13 @@ class MultiLangAudioPlayer(context: Context) {
         val switched = runCatching { engine.language = targetLocale }.isSuccess
         if (switched) {
             currentLang = lang
-            // Optimize voice pitch
+            // Optimize voice pitch and select clearest voice
             if (lang == SpeechLang.JA) {
-                engine.setPitch(1.05f)
+                val jaGender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
+                JapaneseVoiceManager.selectBestVoice(engine, jaGender)?.let { voice ->
+                    runCatching { engine.voice = voice }
+                }
+                engine.setPitch(JapaneseVoiceManager.getOptimizedPitch(jaGender))
             } else {
                 engine.setPitch(1.0f)
             }
@@ -122,7 +133,12 @@ class MultiLangAudioPlayer(context: Context) {
         stopSequence()
         scope.launch {
             _activeSpeakingId.value = letter.id
-            speakInternal(letter.ttsText, lang, speechRate)
+            val ttsText = if (lang == SpeechLang.JA) {
+                JapaneseVoiceManager.formatForClearPronunciation(letter.ttsText)
+            } else {
+                letter.ttsText
+            }
+            speakInternal(ttsText, lang, speechRate)
             _activeSpeakingId.value = null
             _isSpeaking.value = false
         }
@@ -144,7 +160,12 @@ class MultiLangAudioPlayer(context: Context) {
             _isSpeaking.value = true
             for (letter in letters) {
                 _activeSpeakingId.value = letter.id
-                speakInternal(letter.ttsText, lang, speechRate)
+                val ttsText = if (lang == SpeechLang.JA) {
+                    JapaneseVoiceManager.formatForClearPronunciation(letter.ttsText)
+                } else {
+                    letter.ttsText
+                }
+                speakInternal(ttsText, lang, speechRate)
                 delay(400L) // pause between row letters for comprehension
             }
             _activeSpeakingId.value = null

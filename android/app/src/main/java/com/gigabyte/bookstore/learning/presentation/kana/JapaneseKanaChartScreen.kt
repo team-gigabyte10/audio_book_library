@@ -10,6 +10,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,6 +36,7 @@ import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.Button
@@ -48,6 +50,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
@@ -68,11 +71,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceGender
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 
 private val JapaneseCrimson = Color(0xFFC62828)
@@ -89,12 +94,15 @@ fun JapaneseKanaChartScreen(
     val scriptMode by viewModel.scriptMode.collectAsState()
     val category by viewModel.category.collectAsState()
     val speechRate by viewModel.speechRate.collectAsState()
+    val voiceGender by viewModel.voiceGender.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
     val rows by viewModel.filteredRows.collectAsState()
     val selectedLetter by viewModel.selectedLetterForDetail.collectAsState()
+    val isSettingsSheetVisible by viewModel.isSettingsSheetVisible.collectAsState()
 
     val isSpeaking by viewModel.audioPlayer.isSpeaking.collectAsState()
     val activeSpeakingId by viewModel.audioPlayer.activeSpeakingId.collectAsState()
+    val context = LocalContext.current
 
     var isSearchVisible by remember { mutableStateOf(false) }
 
@@ -133,6 +141,15 @@ fun JapaneseKanaChartScreen(
                         )
                     }
 
+                    // Audio & Voice Settings Button
+                    IconButton(onClick = { viewModel.openSettingsSheet() }) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Audio Settings",
+                            tint = JapaneseCrimson
+                        )
+                    }
+
                     // Speed Toggle Button
                     Surface(
                         onClick = { viewModel.toggleSpeechRate() },
@@ -152,8 +169,13 @@ fun JapaneseKanaChartScreen(
                                 modifier = Modifier.size(16.dp)
                             )
                             Spacer(modifier = Modifier.width(4.dp))
+                            val speedText = when {
+                                speechRate <= 0.75f -> "0.7x (ধীর)"
+                                speechRate <= 0.90f -> "0.88x (স্পষ্ট)"
+                                else -> "1.0x"
+                            }
                             Text(
-                                text = if (speechRate == 1.0f) "1.0x" else "0.7x (Slow)",
+                                text = speedText,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = JapaneseCrimson
@@ -217,6 +239,15 @@ fun JapaneseKanaChartScreen(
             ScriptModeSelector(
                 currentMode = scriptMode,
                 onModeSelected = { viewModel.setScriptMode(it) }
+            )
+
+            // Voice & Speed Quick Controls Bar (নারী | পুরুষ | গতি | সেটিংস)
+            VoiceQuickControlBar(
+                selectedGender = voiceGender,
+                speechRate = speechRate,
+                onGenderSelected = { viewModel.setVoiceGender(it) },
+                onOpenSettings = { viewModel.openSettingsSheet() },
+                onToggleSpeed = { viewModel.toggleSpeechRate() }
             )
 
             // Category Tabs (সব | মূল বর্ণ | ভয়েসড | যুক্তধ্বনি)
@@ -308,6 +339,24 @@ fun JapaneseKanaChartScreen(
                 onPlayLetter = { viewModel.playLetter(letter) },
                 onPlayExample = { viewModel.playExample(letter) },
                 onDismiss = { viewModel.closeDetail() }
+            )
+        }
+    }
+
+    // Modal Bottom Sheet for Japanese Voice & Clarity Settings
+    if (isSettingsSheetVisible) {
+        ModalBottomSheet(
+            onDismissRequest = { viewModel.closeSettingsSheet() },
+            sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+        ) {
+            JapaneseVoiceSettingsSheetContent(
+                selectedGender = voiceGender,
+                speechRate = speechRate,
+                onGenderSelected = { viewModel.setVoiceGender(it) },
+                onSpeedSelected = { viewModel.setSpeechRate(it) },
+                onPlayTestPhrase = { viewModel.playTestPhrase() },
+                onOpenTtsSettings = { viewModel.openDeviceTtsSettings(context) },
+                onDismiss = { viewModel.closeSettingsSheet() }
             )
         }
     }
@@ -787,6 +836,324 @@ private fun KanaDetailContent(
         }
 
         Spacer(modifier = Modifier.height(16.dp))
+    }
+}
+
+@Composable
+private fun VoiceQuickControlBar(
+    selectedGender: JapaneseVoiceGender,
+    speechRate: Float,
+    onGenderSelected: (JapaneseVoiceGender) -> Unit,
+    onOpenSettings: () -> Unit,
+    onToggleSpeed: () -> Unit
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        LazyRow(
+            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            item {
+                FilterChip(
+                    selected = selectedGender == JapaneseVoiceGender.FEMALE,
+                    onClick = { onGenderSelected(JapaneseVoiceGender.FEMALE) },
+                    label = {
+                        Text(
+                            text = "👩 নারী কণ্ঠ",
+                            fontSize = 12.sp,
+                            fontWeight = if (selectedGender == JapaneseVoiceGender.FEMALE) FontWeight.Bold else FontWeight.Normal
+                        )
+                    },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = JapaneseCrimson,
+                        selectedLabelColor = Color.White
+                    ),
+                    border = FilterChipDefaults.filterChipBorder(
+                        enabled = true,
+                        selected = selectedGender == JapaneseVoiceGender.FEMALE,
+                        borderColor = if (selectedGender == JapaneseVoiceGender.FEMALE) JapaneseCrimson else MaterialTheme.colorScheme.outlineVariant
+                    )
+                )
+            }
+            item {
+                FilterChip(
+                    selected = selectedGender == JapaneseVoiceGender.MALE,
+                    onClick = { onGenderSelected(JapaneseVoiceGender.MALE) },
+                    label = {
+                        Text(
+                            text = "👨 পুরুষ কণ্ঠ",
+                            fontSize = 12.sp,
+                            fontWeight = if (selectedGender == JapaneseVoiceGender.MALE) FontWeight.Bold else FontWeight.Normal
+                        )
+                    },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = JapaneseCrimson,
+                        selectedLabelColor = Color.White
+                    ),
+                    border = FilterChipDefaults.filterChipBorder(
+                        enabled = true,
+                        selected = selectedGender == JapaneseVoiceGender.MALE,
+                        borderColor = if (selectedGender == JapaneseVoiceGender.MALE) JapaneseCrimson else MaterialTheme.colorScheme.outlineVariant
+                    )
+                )
+            }
+            item {
+                val speedText = when {
+                    speechRate <= 0.75f -> "⚡ ০.৭x (ধীর)"
+                    speechRate <= 0.90f -> "⚡ ০.৮৮x (স্পষ্ট)"
+                    else -> "⚡ ১.০x (স্বাভাবিক)"
+                }
+                Surface(
+                    onClick = onToggleSpeed,
+                    shape = RoundedCornerShape(8.dp),
+                    color = MaterialTheme.colorScheme.surface,
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
+                ) {
+                    Text(
+                        text = speedText,
+                        fontSize = 11.5.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                    )
+                }
+            }
+            item {
+                Surface(
+                    onClick = onOpenSettings,
+                    shape = RoundedCornerShape(8.dp),
+                    color = MaterialTheme.colorScheme.surface,
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = null,
+                            tint = JapaneseCrimson,
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "সেটিংস",
+                            fontSize = 11.5.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = JapaneseCrimson
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun JapaneseVoiceSettingsSheetContent(
+    selectedGender: JapaneseVoiceGender,
+    speechRate: Float,
+    onGenderSelected: (JapaneseVoiceGender) -> Unit,
+    onSpeedSelected: (Float) -> Unit,
+    onPlayTestPhrase: () -> Unit,
+    onOpenTtsSettings: () -> Unit,
+    onDismiss: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp, vertical = 12.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = "জাপানি অডিও ও উচ্চারণ স্পষ্টতা",
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            IconButton(onClick = onDismiss) {
+                Icon(imageVector = Icons.Default.Clear, contentDescription = "Close")
+            }
+        }
+
+        Text(
+            text = "যদি অডিও স্পষ্ট না শোনা যায়, নারী বা পুরুষ কণ্ঠ পরিবর্তন করুন এবং স্পষ্ট উচ্চারণ গতি বেছে নিন।",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Voice Option 1: Clear Female Voice
+        VoiceOptionCard(
+            title = "👩 স্পষ্ট নারী কণ্ঠ (Clear Female)",
+            subtitle = "উষ্ণ ও প্রাকৃতিক উচ্চারণ, হাই-ফ্রিকোয়েন্সি তীক্ষ্ণতা কমানো হয়েছে।",
+            isSelected = selectedGender == JapaneseVoiceGender.FEMALE,
+            onClick = { onGenderSelected(JapaneseVoiceGender.FEMALE) }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Voice Option 2: Clear Male Voice
+        VoiceOptionCard(
+            title = "👨 স্পষ্ট পুরুষ কণ্ঠ (Clear Male)",
+            subtitle = "গভীর ও স্পষ্ট উচ্চারণ, ফোনের স্পিকারে প্রতিটি ধ্বনি সহজে বোঝা যায়।",
+            isSelected = selectedGender == JapaneseVoiceGender.MALE,
+            onClick = { onGenderSelected(JapaneseVoiceGender.MALE) }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Test Pronunciation Button
+        Button(
+            onClick = onPlayTestPhrase,
+            shape = RoundedCornerShape(12.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = JapaneseCrimson),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Icon(imageVector = Icons.Default.PlayArrow, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(modifier = Modifier.width(6.dp))
+            Text(
+                text = "উচ্চারণ টেস্ট শুনুন (あ・い・う・え・お)",
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Speech Rate Selector
+        Text(
+            text = "উচ্চারণ গতি (Articulation Speed):",
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 14.sp
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            listOf(
+                0.70f to "০.৭x (ধীর)",
+                0.88f to "০.৮৮x (স্পষ্ট)",
+                1.00f to "১.০x (স্বাভাবিক)"
+            ).forEach { (rate, label) ->
+                val isSelected = kotlin.math.abs(speechRate - rate) < 0.05f
+                FilterChip(
+                    selected = isSelected,
+                    onClick = { onSpeedSelected(rate) },
+                    label = {
+                        Text(
+                            text = label,
+                            fontSize = 11.5.sp,
+                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                        )
+                    },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = JapaneseIndigo,
+                        selectedLabelColor = Color.White
+                    ),
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        // High Quality Voice Download Guide Card
+        Card(
+            shape = RoundedCornerShape(14.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
+        ) {
+            Column(modifier = Modifier.padding(14.dp)) {
+                Text(
+                    text = "💡 গুগল স্পিচ সার্ভিস এইচডি ভয়েস গাইড",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.5.sp,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "আপনার অ্যান্ড্রয়েড ফোনের Text-to-Speech সেটিংসে জাপানি ভাষার হাই-কোয়ালিটি বা ন্যাচারাল ভয়েস ডাটা ডাউনলোড করা থাকলে উচ্চারণ অনেক বেশি পরিষ্কার ও জীবন্ত শোনাবে।",
+                    style = MaterialTheme.typography.bodySmall,
+                    fontSize = 12.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                OutlinedButton(
+                    onClick = onOpenTtsSettings,
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("📲 ফোনের ভয়েস সেটিংস খুলুন", fontSize = 13.sp)
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+    }
+}
+
+@Composable
+private fun VoiceOptionCard(
+    title: String,
+    subtitle: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isSelected) JapaneseCrimson.copy(alpha = 0.10f) else MaterialTheme.colorScheme.surface
+        ),
+        border = BorderStroke(
+            1.5.dp,
+            if (isSelected) JapaneseCrimson else MaterialTheme.colorScheme.outlineVariant
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(12.dp)
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.5.sp,
+                    color = if (isSelected) JapaneseCrimson else MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    fontSize = 11.5.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            if (isSelected) {
+                Surface(
+                    shape = CircleShape,
+                    color = JapaneseCrimson,
+                    modifier = Modifier.size(22.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text("✓", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                    }
+                }
+            }
+        }
     }
 }
 

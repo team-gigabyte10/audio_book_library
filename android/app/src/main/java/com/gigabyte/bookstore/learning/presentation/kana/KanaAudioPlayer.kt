@@ -3,7 +3,9 @@ package com.gigabyte.bookstore.learning.presentation.kana
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
-import android.speech.tts.Voice
+import com.gigabyte.bookstore.data.preferences.AppPreferences
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceGender
+import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,9 +21,10 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicLong
 import kotlin.coroutines.resume
 
-class KanaAudioPlayer(context: Context) {
+class KanaAudioPlayer(private val context: Context) {
 
     private val scope = CoroutineScope(Dispatchers.Main + Job())
+    private val prefs = AppPreferences(context)
 
     private val _isReady = MutableStateFlow(false)
     val isReady: StateFlow<Boolean> = _isReady.asStateFlow()
@@ -31,6 +34,9 @@ class KanaAudioPlayer(context: Context) {
 
     private val _activeSpeakingId = MutableStateFlow<String?>(null)
     val activeSpeakingId: StateFlow<String?> = _activeSpeakingId.asStateFlow()
+
+    private val _voiceGender = MutableStateFlow(JapaneseVoiceGender.fromId(prefs.learnJaSpeakerGender.value))
+    val voiceGender: StateFlow<JapaneseVoiceGender> = _voiceGender.asStateFlow()
 
     private val pending = ConcurrentHashMap<String, () -> Unit>()
     private val counter = AtomicLong()
@@ -50,6 +56,12 @@ class KanaAudioPlayer(context: Context) {
 
     private fun setupJapaneseVoice() {
         val engine = tts ?: return
+
+        // Set speech-optimized AudioAttributes so hardware speaker delivers clear voice
+        runCatching {
+            engine.setAudioAttributes(JapaneseVoiceManager.createAudioAttributes())
+        }
+
         val candidates = listOf(Locale.JAPAN, Locale.JAPANESE)
         val selectedLocale = candidates.firstOrNull {
             val res = engine.isLanguageAvailable(it)
@@ -60,16 +72,7 @@ class KanaAudioPlayer(context: Context) {
 
         engine.language = selectedLocale
 
-        // Best quality offline Japanese voice
-        runCatching {
-            engine.voices.orEmpty()
-                .filter { it.locale.language == Locale.JAPANESE.language }
-                .filter { !it.isNetworkConnectionRequired }
-                .maxByOrNull { it.quality }
-                ?.let { engine.voice = it }
-        }
-
-        engine.setPitch(1.05f) // Optimized formant pitch for clear Japanese consonants
+        applyVoiceAndPitch(engine)
 
         engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
             override fun onStart(utteranceId: String?) {
@@ -97,6 +100,25 @@ class KanaAudioPlayer(context: Context) {
         _isReady.value = true
     }
 
+    private fun applyVoiceAndPitch(engine: TextToSpeech) {
+        val gender = _voiceGender.value
+        val bestVoice = JapaneseVoiceManager.selectBestVoice(engine, gender)
+        if (bestVoice != null) {
+            runCatching { engine.voice = bestVoice }
+        }
+
+        // Set pitch: 0.97f for female removes high-frequency tinny/sibilant distortion; 1.0f for male
+        val pitch = JapaneseVoiceManager.getOptimizedPitch(gender)
+        engine.setPitch(pitch)
+    }
+
+    fun setVoiceGender(gender: JapaneseVoiceGender) {
+        _voiceGender.value = gender
+        prefs.setLearnJaSpeakerGender(gender.id)
+        val engine = tts ?: return
+        applyVoiceAndPitch(engine)
+    }
+
     private fun finishUtterance(utteranceId: String?) {
         if (utteranceId != null) {
             pending.remove(utteranceId)?.invoke()
@@ -107,17 +129,18 @@ class KanaAudioPlayer(context: Context) {
         }
     }
 
-    fun speakLetter(letter: KanaLetter, speechRate: Float = 1.0f) {
+    fun speakLetter(letter: KanaLetter, speechRate: Float = 0.88f) {
         stopSequence()
         scope.launch {
             _activeSpeakingId.value = letter.id
-            speakInternal(letter.hiragana, speechRate)
+            val formatted = JapaneseVoiceManager.formatForClearPronunciation(letter.hiragana)
+            speakInternal(formatted, speechRate)
             _activeSpeakingId.value = null
             _isSpeaking.value = false
         }
     }
 
-    fun speakText(text: String, letterId: String? = null, speechRate: Float = 1.0f) {
+    fun speakText(text: String, letterId: String? = null, speechRate: Float = 0.90f) {
         stopSequence()
         scope.launch {
             if (letterId != null) _activeSpeakingId.value = letterId
@@ -127,14 +150,15 @@ class KanaAudioPlayer(context: Context) {
         }
     }
 
-    fun playRowSequence(letters: List<KanaLetter>, speechRate: Float = 1.0f) {
+    fun playRowSequence(letters: List<KanaLetter>, speechRate: Float = 0.88f) {
         stopSequence()
         sequenceJob = scope.launch {
             _isSpeaking.value = true
             for (letter in letters) {
                 _activeSpeakingId.value = letter.id
-                speakInternal(letter.hiragana, speechRate)
-                delay(350L) // pause between row letters for learner comprehension
+                val formatted = JapaneseVoiceManager.formatForClearPronunciation(letter.hiragana)
+                speakInternal(formatted, speechRate)
+                delay(400L) // Comfortable interval between row letters for learner comprehension
             }
             _activeSpeakingId.value = null
             _isSpeaking.value = false
@@ -180,4 +204,3 @@ class KanaAudioPlayer(context: Context) {
         tts = null
     }
 }
-

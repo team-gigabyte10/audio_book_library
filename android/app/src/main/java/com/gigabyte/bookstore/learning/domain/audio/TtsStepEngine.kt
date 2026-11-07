@@ -4,6 +4,7 @@ import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
+import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.CompletableDeferred
@@ -32,6 +33,8 @@ interface StepAudioEngine {
  * only when a step needs a different language from the previous step.
  */
 class TtsStepEngine(private val context: Context) : StepAudioEngine {
+
+    private val appPreferences = AppPreferences(context)
 
     private val _englishAvailable = MutableStateFlow<Boolean?>(null)
     override val englishAvailable: StateFlow<Boolean?> = _englishAvailable.asStateFlow()
@@ -93,6 +96,9 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 finishInit(ok = false)
                 return
             }
+            runCatching {
+                tts.setAudioAttributes(JapaneseVoiceManager.createAudioAttributes())
+            }
             resolve(SpeechLang.EN, ENGLISH_LOCALES)
             resolve(SpeechLang.BN, BANGLA_LOCALES)
             resolve(SpeechLang.JA, JAPANESE_LOCALES)
@@ -114,7 +120,12 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         private fun resolve(lang: SpeechLang, candidates: List<Locale>) {
             val locale = candidates.firstOrNull { isAvailable(tts.isLanguageAvailable(it)) } ?: return
             locales[lang] = locale
-            bestOfflineVoice(locale)?.let { voices[lang] = it }
+            if (lang == SpeechLang.JA) {
+                val gender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
+                JapaneseVoiceManager.selectBestVoice(tts, gender)?.let { voices[lang] = it }
+            } else {
+                bestOfflineVoice(locale)?.let { voices[lang] = it }
+            }
         }
 
         private fun finishInit(ok: Boolean) {
@@ -158,7 +169,12 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             if (text.isBlank() || !ready.await()) return
             if (!switchTo(lang)) return // language not installed: skip this step
             if (lang == SpeechLang.JA) {
-                tts.setPitch(1.05f) // Clear articulation for Japanese formants (shi, chi, tsu, fu)
+                val jaGender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
+                JapaneseVoiceManager.selectBestVoice(tts, jaGender)?.let { voice ->
+                    runCatching { tts.voice = voice }
+                }
+                val pitch = JapaneseVoiceManager.getOptimizedPitch(jaGender)
+                tts.setPitch(pitch)
             } else {
                 tts.setPitch(1.0f)
             }
