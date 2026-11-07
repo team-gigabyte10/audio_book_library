@@ -43,6 +43,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.widget.Toast
@@ -63,7 +64,8 @@ fun LearnHomeScreen(
     language: String = "english",
     onBackClick: () -> Unit,
     onOpenCourse: (String) -> Unit,
-    onOpenIntro: (String) -> Unit
+    onOpenIntro: (String) -> Unit,
+    onOpenKanaChart: () -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -352,6 +354,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // 3.1 All Japanese Letters & Sounds Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 বর্ণমালা চার্ট · ১০৪ ধ্বনি",
+                                title = "জাপানি বর্ণমালা ও উচ্চারণ চার্ট (All Letters & Sounds)",
+                                description = "হিরাগানা ও কাতাকানা সমস্ত ১০৪টি বর্ণ, রোমাজি ও বাংলা উচ্চারণ। প্রতিটি অক্ষরে ট্যাপ করলেই সঠিক জাপানি অডিও সাউন্ড শুনুন।",
+                                accentColor = Color(0xFFC62828),
+                                partCount = 3,
+                                lessonCount = 104,
+                                sentenceCount = 104,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🈁 ১০৪ বর্ণ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = onOpenKanaChart
+                            )
+                        }
+
                         // Standard curriculum (Japanese-Spoken-Curriculum-Plan.md, phase 1): Stage 0 + N5
                         item {
                             MainCourseCard(
@@ -555,6 +574,8 @@ private fun MainCourseCard(
     lessonCount: Int,
     sentenceCount: Int,
     badgeText: String = "১০০% ফ্রি",
+    actionButtonText: String = "লেসনগুলো দেখুন",
+    customPills: List<String>? = null,
     onClick: () -> Unit
 ) {
     Card(
@@ -635,9 +656,15 @@ private fun MainCourseCard(
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ")
-                        InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন")
-                        InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য")
+                        if (customPills != null) {
+                            customPills.forEach { pillText ->
+                                InfoPill(text = pillText)
+                            }
+                        } else {
+                            InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ")
+                            InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন")
+                            InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য")
+                        }
                     }
 
                     Surface(
@@ -649,7 +676,7 @@ private fun MainCourseCard(
                             modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
                         ) {
                             Text(
-                                text = "লেসনগুলো দেখুন",
+                                text = actionButtonText,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White

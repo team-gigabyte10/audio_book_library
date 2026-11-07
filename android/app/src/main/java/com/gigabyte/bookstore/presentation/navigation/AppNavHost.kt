@@ -51,6 +51,8 @@ import com.gigabyte.bookstore.learning.presentation.quiz.QuizScreen
 import com.gigabyte.bookstore.learning.presentation.quiz.QuizViewModel
 import com.gigabyte.bookstore.learning.presentation.intro.CourseIntroScreen
 import com.gigabyte.bookstore.learning.presentation.syllabus.CourseSyllabusScreen
+import com.gigabyte.bookstore.learning.presentation.kana.JapaneseKanaChartScreen
+import com.gigabyte.bookstore.learning.presentation.kana.JapaneseKanaChartViewModel
 import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 
@@ -480,7 +482,18 @@ fun AppNavHost(
                 language = lang,
                 onBackClick = { navController.popBackStack() },
                 onOpenCourse = { course -> navController.navigate(Screen.CourseSyllabus.createRoute(course)) },
-                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
+                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) },
+                onOpenKanaChart = { navController.navigate(Screen.JapaneseKanaChart.route) }
+            )
+        }
+
+        composable(Screen.JapaneseKanaChart.route) {
+            val kanaViewModel: JapaneseKanaChartViewModel = viewModel(factory = SimpleViewModelFactory {
+                JapaneseKanaChartViewModel(application)
+            })
+            JapaneseKanaChartScreen(
+                viewModel = kanaViewModel,
+                onBackClick = { navController.popBackStack() }
             )
         }
 

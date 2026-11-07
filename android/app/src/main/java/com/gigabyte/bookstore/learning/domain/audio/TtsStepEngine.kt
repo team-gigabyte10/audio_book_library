@@ -39,6 +39,10 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private val _banglaAvailable = MutableStateFlow<Boolean?>(null)
     override val banglaAvailable: StateFlow<Boolean?> = _banglaAvailable.asStateFlow()
 
+    /** Japanese only: the Japanese course shows a warning when this is false. Not part of [StepAudioEngine]. */
+    private val _japaneseAvailable = MutableStateFlow<Boolean?>(null)
+    val japaneseAvailable: StateFlow<Boolean?> = _japaneseAvailable.asStateFlow()
+
     /** Urdu only: the Urdu course shows a warning when this is false. Not part of [StepAudioEngine]. */
     private val _urduAvailable = MutableStateFlow<Boolean?>(null)
     val urduAvailable: StateFlow<Boolean?> = _urduAvailable.asStateFlow()
@@ -116,6 +120,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         private fun finishInit(ok: Boolean) {
             _englishAvailable.value = ok && SpeechLang.EN in locales
             _banglaAvailable.value = ok && SpeechLang.BN in locales
+            _japaneseAvailable.value = ok && SpeechLang.JA in locales
             _urduAvailable.value = ok && SpeechLang.UR in locales
             _hindiAvailable.value = ok && SpeechLang.HI in locales
             _germanAvailable.value = ok && SpeechLang.DE in locales
