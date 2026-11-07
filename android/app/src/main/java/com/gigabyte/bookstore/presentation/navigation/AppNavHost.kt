@@ -55,6 +55,8 @@ import com.gigabyte.bookstore.learning.presentation.kana.JapaneseKanaChartScreen
 import com.gigabyte.bookstore.learning.presentation.kana.JapaneseKanaChartViewModel
 import com.gigabyte.bookstore.learning.presentation.alphabet.AlphabetChartScreen
 import com.gigabyte.bookstore.learning.presentation.alphabet.AlphabetChartViewModel
+import com.gigabyte.bookstore.learning.presentation.numbers.NumbersChartScreen
+import com.gigabyte.bookstore.learning.presentation.numbers.NumbersChartViewModel
 import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 
@@ -486,7 +488,8 @@ fun AppNavHost(
                 onOpenCourse = { course -> navController.navigate(Screen.CourseSyllabus.createRoute(course)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) },
                 onOpenKanaChart = { navController.navigate(Screen.JapaneseKanaChart.route) },
-                onOpenAlphabetChart = { langName -> navController.navigate(Screen.AlphabetChart.createRoute(langName)) }
+                onOpenAlphabetChart = { langName -> navController.navigate(Screen.AlphabetChart.createRoute(langName)) },
+                onOpenNumbersChart = { langName -> navController.navigate(Screen.NumbersChart.createRoute(langName)) }
             )
         }
 
@@ -513,6 +516,23 @@ fun AppNavHost(
             )
             AlphabetChartScreen(
                 viewModel = alphabetViewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Screen.NumbersChart.route,
+            arguments = listOf(navArgument("lang") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val langCode = backStackEntry.arguments?.getString("lang") ?: "japanese"
+            val numbersViewModel: NumbersChartViewModel = viewModel(
+                key = "numbers_chart_$langCode",
+                factory = SimpleViewModelFactory {
+                    NumbersChartViewModel(application, langCode)
+                }
+            )
+            NumbersChartScreen(
+                viewModel = numbersViewModel,
                 onBackClick = { navController.popBackStack() }
             )
         }

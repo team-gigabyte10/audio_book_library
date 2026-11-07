@@ -66,7 +66,8 @@ fun LearnHomeScreen(
     onOpenCourse: (String) -> Unit,
     onOpenIntro: (String) -> Unit,
     onOpenKanaChart: () -> Unit = {},
-    onOpenAlphabetChart: (String) -> Unit = {}
+    onOpenAlphabetChart: (String) -> Unit = {},
+    onOpenNumbersChart: (String) -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -234,6 +235,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // Urdu Numbers 1-100 Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 সংখ্যা ও গণনা · ১ থেকে ১০০",
+                                title = "১ থেকে ১০০ উর্দু সংখ্যা ও গণনা (اردو گنتی)",
+                                description = "১ থেকে ১০০ পর্যন্ত প্রতিটি সংখ্যার উর্দু লিপি, সংখ্যা ও বাংলা উচ্চারণ। প্রতিটি সংখ্যায় ট্যাপ করলেই সঠিক অডিও শুনুন।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 ১-১০০ গিনতি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenNumbersChart("urdu") }
+                            )
+                        }
+
                         // Urdu-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -274,6 +292,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // Hindi Numbers 1-100 Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 সংখ্যা ও গণনা · ১ থেকে ১০০",
+                                title = "১ থেকে ১০০ হিন্দি সংখ্যা ও গণনা (हिंदी गिनती)",
+                                description = "১ থেকে ১০০ পর্যন্ত প্রতিটি সংখ্যার দেবনাগরী লিপি, সংখ্যা ও বাংলা উচ্চারণ। প্রতিটি সংখ্যায় ট্যাপ করলেই সঠিক অডিও শুনুন।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 ১-১০০ গিনতি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenNumbersChart("hindi") }
+                            )
+                        }
+
                         // Hindi-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -311,6 +346,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇩🇪 ৩৮ ধ্বনি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenAlphabetChart("german") }
+                            )
+                        }
+
+                        // German Numbers 1-100 Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 সংখ্যা ও গণনা · ১ থেকে ১০০",
+                                title = "১ থেকে ১০০ জার্মান সংখ্যা (Deutsche Zahlen)",
+                                description = "১ থেকে ১০০ পর্যন্ত প্রতিটি জার্মান সংখ্যার বানান, উচ্চারণ ও একুশে নিয়ম। প্রতিটি সংখ্যায় ট্যাপ করলেই সঠিক জার্মান অডিও শুনুন।",
+                                accentColor = Color(0xFF4527A0),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenNumbersChart("german") }
                             )
                         }
 
@@ -440,6 +492,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🈁 ১০৪ বর্ণ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = onOpenKanaChart
+                            )
+                        }
+
+                        // Japanese Numbers 1-100 Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 সংখ্যা ও গণনা · ১ থেকে ১০০",
+                                title = "১ থেকে ১০০ জাপানি সংখ্যা ও গণনা (数字 1-100)",
+                                description = "১ থেকে ১০০ পর্যন্ত প্রতিটি সংখ্যার কানজি, হিরাগানা, রোমাজি ও বাংলা উচ্চারণ। প্রতিটি সংখ্যায় ট্যাপ করলেই সঠিক জাপানি অডিও শুনুন।",
+                                accentColor = Color(0xFFC62828),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenNumbersChart("japanese") }
                             )
                         }
 
