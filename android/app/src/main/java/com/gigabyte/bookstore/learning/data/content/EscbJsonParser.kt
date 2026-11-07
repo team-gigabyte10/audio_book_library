@@ -172,9 +172,18 @@ class EscbJsonParser {
                 "title_target" -> titleTarget = reader.stringOrNull()
                 "intro_bn" -> introBn = reader.stringOrNull()
                 "structure" -> {
-                    reader.beginArray()
-                    while (reader.hasNext()) reader.stringOrNull()?.let { structure += it }
-                    reader.endArray()
+                    when (reader.peek()) {
+                        JsonReader.Token.BEGIN_ARRAY -> {
+                            reader.beginArray()
+                            while (reader.hasNext()) reader.stringOrNull()?.let { structure += it }
+                            reader.endArray()
+                        }
+                        JsonReader.Token.STRING -> {
+                            reader.stringOrNull()?.let { structure += it }
+                        }
+                        JsonReader.Token.NULL -> reader.nextNull<Any>()
+                        else -> reader.skipValue()
+                    }
                 }
                 "source_section" -> sourceSection = reader.stringOrNull()
                 "items" -> {

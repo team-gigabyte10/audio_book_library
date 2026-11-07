@@ -6,6 +6,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -745,6 +747,7 @@ private fun Int.toBanglaDigits(): String {
     return this.toString().map { if (it in '0'..'9') bnDigits[it - '0'] else it }.joinToString("")
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun MainCourseCard(
     tag: String,
@@ -828,33 +831,36 @@ private fun MainCourseCard(
 
                 Spacer(modifier = Modifier.height(14.dp))
 
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    if (customPills != null) {
+                        customPills.forEach { pillText ->
+                            InfoPill(text = pillText)
+                        }
+                    } else {
+                        InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ")
+                        InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন")
+                        InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য")
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                    horizontalArrangement = Arrangement.End,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        if (customPills != null) {
-                            customPills.forEach { pillText ->
-                                InfoPill(text = pillText)
-                            }
-                        } else {
-                            InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ")
-                            InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন")
-                            InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য")
-                        }
-                    }
-
                     Surface(
                         color = accentColor,
                         shape = RoundedCornerShape(10.dp)
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 7.dp)
                         ) {
                             Text(
                                 text = actionButtonText,
@@ -862,7 +868,7 @@ private fun MainCourseCard(
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White
                             )
-                            Spacer(Modifier.width(4.dp))
+                            Spacer(Modifier.width(6.dp))
                             Icon(
                                 Icons.AutoMirrored.Filled.ArrowForward,
                                 contentDescription = null,

@@ -1,6 +1,14 @@
 package com.gigabyte.bookstore.learning
 
+import com.gigabyte.bookstore.learning.data.content.EscbContentSink
+import com.gigabyte.bookstore.learning.data.content.EscbJsonParser
+import com.gigabyte.bookstore.learning.data.db.ItemEntity
+import com.gigabyte.bookstore.learning.data.db.LessonEntity
+import com.gigabyte.bookstore.learning.data.db.PartEntity
 import com.squareup.moshi.Moshi
+import kotlinx.coroutines.runBlocking
+import okio.buffer
+import okio.source
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -54,6 +62,35 @@ class UrduB1CourseTest {
                 }
             }
         }
+    }
+
+    @Test
+    fun `EscbJsonParser successfully streams Urdu B1 course without exceptions`() = runBlocking {
+        val assetFile = File("src/main/assets/spoken_urdu_standard_b1.json")
+        assertTrue(assetFile.exists())
+
+        var partsCount = 0
+        var lessonsCount = 0
+        var itemsCount = 0
+
+        val sink = object : EscbContentSink {
+            override suspend fun onPart(part: PartEntity) {
+                partsCount++
+            }
+            override suspend fun onLesson(lesson: LessonEntity, items: List<ItemEntity>) {
+                lessonsCount++
+                itemsCount += items.size
+            }
+        }
+
+        val parser = EscbJsonParser()
+        assetFile.source().buffer().use {
+            parser.parse(it, sink)
+        }
+
+        assertTrue("Parsed parts count >= 16", partsCount >= 16)
+        assertTrue("Parsed lessons count > 0", lessonsCount > 0)
+        assertTrue("Parsed items count > 0", itemsCount > 0)
     }
 }
 
