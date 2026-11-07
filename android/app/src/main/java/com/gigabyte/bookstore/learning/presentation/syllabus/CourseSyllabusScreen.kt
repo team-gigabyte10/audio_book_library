@@ -167,6 +167,7 @@ fun CourseSyllabusScreen(
     val isPast = courseType.equals("past", ignoreCase = true)
     val isFuture = courseType.equals("future", ignoreCase = true)
     val isUrStandard = courseType.equals("ur_standard", ignoreCase = true)
+    val isUrA2 = courseType.equals("ur_a2", ignoreCase = true)
     val isHiStandard = courseType.equals("hi_standard", ignoreCase = true)
     val isDeStandard = courseType.equals("de_standard", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
@@ -179,6 +180,7 @@ fun CourseSyllabusScreen(
         isPast -> "অতীতের কথা বলুন (Past Tense)"
         isFuture -> "ভবিষ্যতের কথা বলুন (Future Tense)"
         isUrStandard -> "উর্দু স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
+        isUrA2 -> "উর্দু স্পোকেন কোর্স: লেভেল A2"
         isHiStandard -> "হিন্দি স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isDeStandard -> "জার্মান স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
@@ -192,6 +194,7 @@ fun CourseSyllabusScreen(
         isPast -> "Was/Were, Had, Did/Didn't & Past Stories"
         isFuture -> "Will, Shall, Be Going To & Future Plans"
         isUrStandard -> "উর্দু হরফ, নতুন ধ্বনি ও A1 স্পিকিং টেস্ট"
+        isUrA2 -> "অতীত কাল, 'نے' নিয়ম, তুলনা ও কর্মক্ষেত্র স্পোকেন"
         isHiStandard -> "দেবনগরী বর্ণমালা, উচ্চারণ ও A1 স্পিকিং টেস্ট"
         isDeStandard -> "জার্মান বর্ণমালা, উমলাউট ও A1 স্পিকিং টেস্ট"
         isJpStandard -> "অক্ষর, শব্দ ও উচ্চারণ ড্রিল থেকে N5 স্পিকিং টেস্ট"
@@ -207,6 +210,7 @@ fun CourseSyllabusScreen(
             isPast -> syllabus.filter { it.part.id.startsWith("past-") }
             isFuture -> syllabus.filter { it.part.id.startsWith("fut-") }
             isUrStandard -> syllabus.filter { it.part.id.startsWith("ur-std-") }
+            isUrA2 -> syllabus.filter { it.part.id.startsWith("ur-a2-") }
             isHiStandard -> syllabus.filter { it.part.id.startsWith("hi-std-") }
             isDeStandard -> syllabus.filter { it.part.id.startsWith("de-std-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }

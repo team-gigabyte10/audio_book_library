@@ -105,6 +105,11 @@ fun LearnHomeScreen(
     val urStandardLessonCount = urStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
     val urStandardSentenceCount = urStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 900 }
 
+    val urA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-a2-") && it.part.isEnabled } }
+    val urA2PartCount = urA2Parts.size.coerceAtLeast(1)
+    val urA2LessonCount = urA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 22 }
+    val urA2SentenceCount = urA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 57 }
+
     val hiStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-std-") && it.part.isEnabled } }
     val hiStandardPartCount = hiStandardParts.size.coerceAtLeast(1)
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -263,6 +268,21 @@ fun LearnHomeScreen(
                                 lessonCount = urStandardLessonCount,
                                 sentenceCount = urStandardSentenceCount,
                                 onClick = { onOpenCourse("ur_standard") }
+                            )
+                        }
+
+                        // Urdu A2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 স্ট্যান্ডার্ড কোর্স: লেভেল A2",
+                                title = "উর্দু A2: অতীত কাল, 'নে' নিয়ম ও কর্মক্ষেত্র",
+                                description = "অতীতের কাজ, সকর্মক ক্রিয়ার 'نے' নিয়ম, ইচ্ছা-প্রয়োজন, তুলনা, স্বাস্থ্য, দিকনির্দেশনা ও কর্মক্ষেত্রের বাস্তব স্পোকেন।",
+                                accentColor = Color(0xFF2E7D32),
+                                partCount = urA2PartCount,
+                                lessonCount = urA2LessonCount,
+                                sentenceCount = urA2SentenceCount,
+                                customPills = listOf("🇵🇰 ১৫টি পার্ট", "🗣️ অতীত ও نے নিয়ম", "🏢 অফিস ও বাস্তব কাজ"),
+                                onClick = { onOpenCourse("ur_a2") }
                             )
                         }
                     } else if (isHindi) {
