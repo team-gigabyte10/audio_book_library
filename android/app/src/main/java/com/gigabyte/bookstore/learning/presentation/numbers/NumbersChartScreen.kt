@@ -287,7 +287,7 @@ fun NumberItemCard(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(horizontal = 6.dp, vertical = 8.dp)
         ) {
-            // Header: Western Digit & Native Numeral
+            // Header: Western Digit & Audio Indicator
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -296,66 +296,79 @@ fun NumberItemCard(
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(32.dp)
                         .clip(CircleShape)
-                        .background(accentColor.copy(alpha = 0.12f))
+                        .background(accentColor.copy(alpha = 0.15f))
                 ) {
                     Text(
                         text = item.digitDisplay,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.ExtraBold,
                         color = accentColor
                     )
                 }
 
-                if (item.nativeNumeral != null && item.nativeNumeral != item.digitDisplay) {
+                Icon(
+                    imageVector = Icons.Default.VolumeUp,
+                    contentDescription = "Speak",
+                    tint = if (isSpeaking) accentColor else MaterialTheme.colorScheme.outline.copy(alpha = 0.5f),
+                    modifier = Modifier.size(16.dp)
+                )
+            }
+
+            Spacer(Modifier.height(6.dp))
+
+            // Highlighted Native Numeral (e.g. Japanese Kanji / Urdu / Hindi numeral)
+            if (item.nativeNumeral != null && item.nativeNumeral != item.digitDisplay) {
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = accentColor.copy(alpha = if (isSpeaking) 0.22f else 0.10f),
+                    modifier = Modifier.padding(vertical = 2.dp)
+                ) {
                     Text(
                         text = item.nativeNumeral,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                } else {
-                    Icon(
-                        imageVector = Icons.Default.VolumeUp,
-                        contentDescription = "Speak",
-                        tint = if (isSpeaking) accentColor else MaterialTheme.colorScheme.outline.copy(alpha = 0.6f),
-                        modifier = Modifier.size(14.dp)
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = accentColor,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 2.dp)
                     )
                 }
+
+                Spacer(Modifier.height(3.dp))
+
+                // Native script word (e.g. Hiragana: いち, に, さん / Urdu: ایک)
+                Text(
+                    text = item.wordTarget,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp,
+                    color = if (isSpeaking) accentColor else MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            } else {
+                // For languages without separate native numeral (e.g. German)
+                Text(
+                    text = item.wordTarget,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 17.sp,
+                    color = if (isSpeaking) accentColor else MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
 
             Spacer(Modifier.height(4.dp))
 
-            // Main Target Word
-            Text(
-                text = item.wordTarget,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
-                color = if (isSpeaking) accentColor else MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-
-            // Romanized / Transliteration
-            Text(
-                text = item.phoneticTranslit,
-                fontSize = 11.sp,
-                color = accentColor,
-                fontWeight = FontWeight.Medium,
-                textAlign = TextAlign.Center,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-
-            Spacer(Modifier.height(2.dp))
-
-            // Bangla Pronunciation
+            // Bangla Pronunciation (Enlarged, Clear, English translation removed)
             Text(
                 text = item.bnPron,
-                fontSize = 10.5.sp,
+                fontSize = 12.5.sp,
+                fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
                 maxLines = 1,
@@ -386,23 +399,31 @@ fun NumberDetailSheetContent(
 
         Spacer(Modifier.height(10.dp))
 
+        if (item.nativeNumeral != null && item.nativeNumeral != item.digitDisplay) {
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = accentColor.copy(alpha = 0.12f),
+                modifier = Modifier.padding(vertical = 4.dp)
+            ) {
+                Text(
+                    text = item.nativeNumeral,
+                    style = MaterialTheme.typography.headlineLarge,
+                    fontWeight = FontWeight.ExtraBold,
+                    color = accentColor,
+                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp)
+                )
+            }
+            Spacer(Modifier.height(4.dp))
+        }
+
         Text(
             text = item.wordTarget,
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
-            color = accentColor
-        )
-
-        Spacer(Modifier.height(4.dp))
-
-        Text(
-            text = item.phoneticTranslit,
-            style = MaterialTheme.typography.titleSmall,
-            fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(10.dp))
 
         Surface(
             shape = RoundedCornerShape(8.dp),
@@ -411,8 +432,8 @@ fun NumberDetailSheetContent(
         ) {
             Text(
                 text = "বাংলা উচ্চারণ: ${item.bnPron}",
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Medium,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold,
                 color = accentColor,
                 modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp)
             )

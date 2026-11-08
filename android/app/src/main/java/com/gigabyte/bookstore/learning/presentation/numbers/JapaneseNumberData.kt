@@ -17,15 +17,15 @@ object JapaneseNumberData {
     )
 
     private val TENS_PREFIX = listOf(
-        Triple("", "じゅう", "juu" to "জিউ"),
-        Triple("二", "にじゅう", "nijuu" to "নিজিউ"),
-        Triple("三", "さんじゅう", "sanjuu" to "সানজিউ"),
-        Triple("四", "よんじゅう", "yonjuu" to "ইয়োন্জিউ"),
-        Triple("五", "ごじゅう", "gojuu" to "গোজিউ"),
-        Triple("六", "ろくじゅう", "rokujuu" to "রোকুজিউ"),
-        Triple("七", "ななじゅう", "nanajuu" to "নানাজিউ"),
-        Triple("八", "はちじゅう", "hachijuu" to "হাচিজু"),
-        Triple("九", "きゅうじゅう", "kyuujuu" to "কিউজিউ")
+        Triple("", "じゅう", "juu" to "জু"),
+        Triple("二", "にじゅう", "nijuu" to "নি-জু"),
+        Triple("三", "さんじゅう", "sanjuu" to "সান-জু"),
+        Triple("四", "よんじゅう", "yonjuu" to "ইয়োন-জু"),
+        Triple("五", "ごじゅう", "gojuu" to "গো-জু"),
+        Triple("六", "ろくじゅう", "rokujuu" to "রোকু-জু"),
+        Triple("七", "ななじゅう", "nanajuu" to "নানা-জু"),
+        Triple("八", "はちじゅう", "hachijuu" to "হাচি-জু"),
+        Triple("九", "きゅうじゅう", "kyuujuu" to "কিউ-জু")
     )
 
     private fun buildJapaneseNumbers(): List<LanguageNumber> {
@@ -50,7 +50,7 @@ object JapaneseNumberData {
                         secondaryDisplay = kanji,
                         phoneticTranslit = pair.first,
                         bnPron = pair.second,
-                        ttsText = kanji,
+                        ttsText = hira,
                         rangeGroup = rangeGroup
                     )
                 )
@@ -62,8 +62,8 @@ object JapaneseNumberData {
                         wordTarget = "じゅう",
                         secondaryDisplay = "十",
                         phoneticTranslit = "juu",
-                        bnPron = "জিউ",
-                        ttsText = "十",
+                        bnPron = "জু",
+                        ttsText = "じゅう",
                         rangeGroup = rangeGroup
                     )
                 )
@@ -83,7 +83,7 @@ object JapaneseNumberData {
                             secondaryDisplay = kanjiTen,
                             phoneticTranslit = tensInfo.third.first,
                             bnPron = tensInfo.third.second,
-                            ttsText = kanjiTen,
+                            ttsText = tensInfo.second,
                             rangeGroup = rangeGroup
                         )
                     )
@@ -102,7 +102,7 @@ object JapaneseNumberData {
                             secondaryDisplay = fullKanji,
                             phoneticTranslit = fullRomaji,
                             bnPron = fullBn,
-                            ttsText = fullKanji,
+                            ttsText = fullHira,
                             rangeGroup = rangeGroup
                         )
                     )
@@ -116,7 +116,7 @@ object JapaneseNumberData {
                         secondaryDisplay = "百",
                         phoneticTranslit = "hyaku",
                         bnPron = "হিয়াকু",
-                        ttsText = "百",
+                        ttsText = "ひゃく",
                         rangeGroup = rangeGroup
                     )
                 )
@@ -129,7 +129,7 @@ object JapaneseNumberData {
         langCode = "japanese",
         speechLang = SpeechLang.JA,
         titleBn = "জাপানি সংখ্যা ও গণনা (১ থেকে ১০০)",
-        subtitleBn = "কানজি, হিরাগানা ও রোমাজিসহ প্রতিটি সংখ্যার সঠিক উচ্চারণ",
+        subtitleBn = "কানজি ও হিরাগানাসহ প্রতিটি সংখ্যার সঠিক উচ্চারণ",
         nativeTitle = "数字 (Suuji 1-100)",
         accentColorHex = 0xFFC62828,
         categories = listOf(
@@ -143,4 +143,3 @@ object JapaneseNumberData {
         numbers = buildJapaneseNumbers()
     )
 }
-
