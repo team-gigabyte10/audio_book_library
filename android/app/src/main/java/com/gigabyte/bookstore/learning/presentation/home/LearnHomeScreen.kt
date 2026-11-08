@@ -109,8 +109,8 @@ fun LearnHomeScreen(
 
     val urA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-a2-") && it.part.isEnabled } }
     val urA2PartCount = urA2Parts.size.coerceAtLeast(1)
-    val urA2LessonCount = urA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 22 }
-    val urA2SentenceCount = urA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 57 }
+    val urA2LessonCount = urA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
+    val urA2SentenceCount = urA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
 
     val urB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-b1-") && it.part.isEnabled } }
     val urB1PartCount = urB1Parts.size.coerceAtLeast(1)

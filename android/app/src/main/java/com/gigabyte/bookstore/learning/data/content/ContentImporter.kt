@@ -37,7 +37,11 @@ class ContentImporter(
         val meta = dao.getMeta()
         val hash = hashAssets()
         val needsMultiCourseMigration = assetNames == ASSET_NAMES && dao.getPart("jp-foundations-p1") == null
-        val needsUrduMigration = assetNames == ASSET_NAMES && (dao.getPart("ur-a2-01") == null || dao.getPart("ur-b1-01") == null)
+        val needsUrduMigration = assetNames == ASSET_NAMES && (
+            dao.getPart("ur-a2-01") == null ||
+            dao.getPart("ur-b1-01") == null ||
+            dao.getLesson("ur-a2-01-l04") == null
+        )
         when {
             meta == null || needsMultiCourseMigration || needsUrduMigration -> {
                 import(onProgress)

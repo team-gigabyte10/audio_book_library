@@ -428,8 +428,8 @@ fun HomeScreen(
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             HomeShowcaseCard(
-                                title = "উর্দু স্পোকেন কোর্স (শূন্য থেকে A1)",
-                                subtitle = "বাংলা থেকে সহজ নিয়মে উর্দু হরফ, উচ্চারণ ও দৈনন্দিন কথা বলা",
+                                title = "উর্দু স্পোকেন কোর্স (A1 + A2 + B1)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে উর্দু হরফ, উচ্চারণ, অতীত কাল ও সাবলীল কথা বলা",
                                 badgeText = "🇵🇰 উর্দু ভাষা কোর্স",
                                 badgeColor = Color(0xFF1B5E20),
                                 priceText = "১০০ টাকা",
@@ -437,7 +437,7 @@ fun HomeScreen(
                                 imageUrl = null,
                                 fallbackGradientColors = listOf(Color(0xFF2E7D32), Color(0xFF1B5E20)),
                                 accentColor = Color(0xFF1B5E20),
-                                statsText = "🎧 ১০৫টি অডিও লেসন · শূন্য থেকে A1",
+                                statsText = "🎧 ১৮০+ অডিও লেসন · A1, A2 ও B1 কোর্স",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnUrdu,
                                 modifier = Modifier.padding(horizontal = 16.dp)
