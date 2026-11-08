@@ -61,7 +61,7 @@
        "type": "kana",
        "level": "A0",
        "target": "あ",
-       "bn": "আ ধ্বনি · মুখ পুরো খুলুন",
+       "bn": "আ ধ্বনি",
        "bn_pron": "a · আ",
        "tokens": [],
        "tags": {
@@ -78,7 +78,7 @@
        "type": "kana",
        "level": "A0",
        "target": "い",
-       "bn": "ই ধ্বনি · ছোট ও পরিষ্কার",
+       "bn": "ই ধ্বনি",
        "bn_pron": "i · ই",
        "tokens": [],
        "tags": {
@@ -95,7 +95,7 @@
        "type": "kana",
        "level": "A0",
        "target": "う",
-       "bn": "উ ধ্বনি · ঠোঁট গোল করবেন না",
+       "bn": "উ ধ্বনি",
        "bn_pron": "u · উ",
        "tokens": [],
        "tags": {
@@ -264,7 +264,7 @@
        "type": "kana",
        "level": "A0",
        "target": "え",
-       "bn": "এ ধ্বনি · অ্যা নয়",
+       "bn": "এ ধ্বনি",
        "bn_pron": "e · এ",
        "tokens": [],
        "tags": {
@@ -281,7 +281,7 @@
        "type": "kana",
        "level": "A0",
        "target": "お",
-       "bn": "ও ধ্বনি · ঠোঁট গোল করুন",
+       "bn": "ও ধ্বনি",
        "bn_pron": "o · ও",
        "tokens": [],
        "tags": {
@@ -765,7 +765,7 @@
        "type": "word",
        "level": "A0",
        "target": "ねこ",
-       "bn": "বিড়াল · ২ তাল",
+       "bn": "বিড়াল",
        "bn_pron": "neko · নেকো",
        "tokens": [
         {
@@ -791,7 +791,7 @@
        "type": "word",
        "level": "A0",
        "target": "きょう",
-       "bn": "আজ · ২ তাল",
+       "bn": "আজ",
        "bn_pron": "kyou · কিয়োউ",
        "tokens": [
         {
@@ -817,7 +817,7 @@
        "type": "word",
        "level": "A0",
        "target": "たまご",
-       "bn": "ডিম · ৩ তাল",
+       "bn": "ডিম",
        "bn_pron": "tamago · তামাগো",
        "tokens": [
         {
@@ -847,7 +847,7 @@
        "type": "word",
        "level": "A0",
        "target": "さかな",
-       "bn": "মাছ · ৩ তাল",
+       "bn": "মাছ",
        "bn_pron": "sakana · সাকানা",
        "tokens": [
         {
@@ -877,7 +877,7 @@
        "type": "word",
        "level": "A0",
        "target": "あおい",
-       "bn": "নীল রঙের · ৩ তাল",
+       "bn": "নীল রঙের",
        "bn_pron": "aoi · আওই",
        "tokens": [
         {
@@ -907,7 +907,7 @@
        "type": "word",
        "level": "A0",
        "target": "いいえ",
-       "bn": "না · ৩ তাল",
+       "bn": "না",
        "bn_pron": "iie · ইঈএ",
        "tokens": [
         {
@@ -937,7 +937,7 @@
        "type": "word",
        "level": "A0",
        "target": "りょこう",
-       "bn": "ভ্রমণ · ৩ তাল",
+       "bn": "ভ্রমণ",
        "bn_pron": "ryokou · রিয়োকোউ",
        "tokens": [
         {
@@ -967,7 +967,7 @@
        "type": "word",
        "level": "A0",
        "target": "にほん",
-       "bn": "জাপান · ৩ তাল",
+       "bn": "জাপান",
        "bn_pron": "nihon · নিহোন",
        "tokens": [
         {
@@ -997,7 +997,7 @@
        "type": "word",
        "level": "A0",
        "target": "がっこう",
-       "bn": "স্কুল · ৪ তাল",
+       "bn": "স্কুল",
        "bn_pron": "gakkou · গাক্কোউ",
        "tokens": [
         {
@@ -1031,7 +1031,7 @@
        "type": "word",
        "level": "A0",
        "target": "せんせい",
-       "bn": "শিক্ষক · ৪ তাল",
+       "bn": "শিক্ষক",
        "bn_pron": "sensei · সেনসেই",
        "tokens": [
         {
@@ -1124,7 +1124,7 @@
        "type": "kana",
        "level": "A0",
        "target": "く",
-       "bn": "কু ধ্বনি · ঠোঁট গোল নয়",
+       "bn": "কু ধ্বনি",
        "bn_pron": "ku · কু",
        "tokens": [],
        "tags": {
@@ -1377,7 +1377,7 @@
        "type": "kana",
        "level": "A0",
        "target": "さ",
-       "bn": "সা ধ্বনি · শ নয়",
+       "bn": "সা ধ্বনি",
        "bn_pron": "sa · সা",
        "tokens": [],
        "tags": {
@@ -1394,7 +1394,7 @@
        "type": "kana",
        "level": "A0",
        "target": "し",
-       "bn": "শি ধ্বনি · এই সারিতে শুধু এটাই শ",
+       "bn": "শি ধ্বনি",
        "bn_pron": "shi · শি",
        "tokens": [],
        "tags": {
@@ -1411,7 +1411,7 @@
        "type": "kana",
        "level": "A0",
        "target": "す",
-       "bn": "সু ধ্বনি · শ নয়",
+       "bn": "সু ধ্বনি",
        "bn_pron": "su · সু",
        "tokens": [],
        "tags": {
@@ -1672,7 +1672,7 @@
        "type": "kana",
        "level": "A0",
        "target": "た",
-       "bn": "তা ধ্বনি · ট নয়",
+       "bn": "তা ধ্বনি",
        "bn_pron": "ta · তা",
        "tokens": [],
        "tags": {
@@ -1706,7 +1706,7 @@
        "type": "kana",
        "level": "A0",
        "target": "つ",
-       "bn": "ৎসু ধ্বনি · ত আর স একসাথে",
+       "bn": "ৎসু ধ্বনি",
        "bn_pron": "tsu · ৎসু",
        "tokens": [],
        "tags": {
@@ -2013,7 +2013,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ぬ",
-       "bn": "নু ধ্বনি · ঠোঁট গোল নয়",
+       "bn": "নু ধ্বনি",
        "bn_pron": "nu · নু",
        "tokens": [],
        "tags": {
@@ -3063,7 +3063,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ふ",
-       "bn": "নরম ফু · দাঁত ঠোঁটে লাগাবেন না",
+       "bn": "ফু ধ্বনি",
        "bn_pron": "fu · ফু",
        "tokens": [],
        "tags": {
@@ -3362,7 +3362,7 @@
        "type": "kana",
        "level": "A0",
        "target": "む",
-       "bn": "মু ধ্বনি · ঠোঁট গোল নয়",
+       "bn": "মু ধ্বনি",
        "bn_pron": "mu · মু",
        "tokens": [],
        "tags": {
@@ -3621,7 +3621,7 @@
        "type": "kana",
        "level": "A0",
        "target": "や",
-       "bn": "ইয়া ধ্বনি · এক তালে",
+       "bn": "ইয়া ধ্বনি",
        "bn_pron": "ya · ইয়া",
        "tokens": [],
        "tags": {
@@ -3638,7 +3638,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ゆ",
-       "bn": "ইউ ধ্বনি · এক তালে",
+       "bn": "ইউ ধ্বনি",
        "bn_pron": "yu · ইউ",
        "tokens": [],
        "tags": {
@@ -3655,7 +3655,7 @@
        "type": "kana",
        "level": "A0",
        "target": "よ",
-       "bn": "ইয়ো ধ্বনি · এক তালে",
+       "bn": "ইয়ো ধ্বনি",
        "bn_pron": "yo · ইয়ো",
        "tokens": [],
        "tags": {
@@ -3878,7 +3878,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ら",
-       "bn": "রা ধ্বনি · জিভ একবার টোকা দিন",
+       "bn": "রা ধ্বনি",
        "bn_pron": "ra · রা",
        "tokens": [],
        "tags": {
@@ -3895,7 +3895,7 @@
        "type": "kana",
        "level": "A0",
        "target": "り",
-       "bn": "রি ধ্বনি · এক টোকা",
+       "bn": "রি ধ্বনি",
        "bn_pron": "ri · রি",
        "tokens": [],
        "tags": {
@@ -3912,7 +3912,7 @@
        "type": "kana",
        "level": "A0",
        "target": "る",
-       "bn": "রু ধ্বনি · এক টোকা",
+       "bn": "রু ধ্বনি",
        "bn_pron": "ru · রু",
        "tokens": [],
        "tags": {
@@ -3929,7 +3929,7 @@
        "type": "kana",
        "level": "A0",
        "target": "れ",
-       "bn": "রে ধ্বনি · এক টোকা",
+       "bn": "রে ধ্বনি",
        "bn_pron": "re · রে",
        "tokens": [],
        "tags": {
@@ -3946,7 +3946,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ろ",
-       "bn": "রো ধ্বনি · এক টোকা",
+       "bn": "রো ধ্বনি",
        "bn_pron": "ro · রো",
        "tokens": [],
        "tags": {
@@ -4193,7 +4193,7 @@
        "type": "kana",
        "level": "A0",
        "target": "を",
-       "bn": "ও ধ্বনি · শুধু কণা হিসেবে",
+       "bn": "ও ধ্বনি",
        "bn_pron": "o · ও",
        "tokens": [],
        "tags": {
@@ -4210,7 +4210,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ん",
-       "bn": "ন্ ধ্বনি · নিজেই এক তাল",
+       "bn": "ন্ ধ্বনি",
        "bn_pron": "n · ন্",
        "tokens": [],
        "tags": {
@@ -4967,7 +4967,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ぐ",
-       "bn": "গু ধ্বনি · ঠোঁট গোল নয়",
+       "bn": "গু ধ্বনি",
        "bn_pron": "গু",
        "tokens": [],
        "tags": {
@@ -5245,7 +5245,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ざ",
-       "bn": "যা ধ্বনি · ইংরেজি z, গুঞ্জন দিয়ে",
+       "bn": "যা ধ্বনি",
        "bn_pron": "যা",
        "tokens": [],
        "tags": {
@@ -5279,7 +5279,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ず",
-       "bn": "যু ধ্বনি · z দিয়ে",
+       "bn": "যু ধ্বনি",
        "bn_pron": "যু",
        "tokens": [],
        "tags": {
@@ -5296,7 +5296,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ぜ",
-       "bn": "যে ধ্বনি · z দিয়ে",
+       "bn": "যে ধ্বনি",
        "bn_pron": "যে",
        "tokens": [],
        "tags": {
@@ -5313,7 +5313,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ぞ",
-       "bn": "যো ধ্বনি · z দিয়ে",
+       "bn": "যো ধ্বনি",
        "bn_pron": "যো",
        "tokens": [],
        "tags": {
@@ -5546,7 +5546,7 @@
        "type": "kana",
        "level": "A0",
        "target": "だ",
-       "bn": "দা ধ্বনি · ড নয়",
+       "bn": "দা ধ্বনি",
        "bn_pron": "দা",
        "tokens": [],
        "tags": {
@@ -5563,7 +5563,7 @@
        "type": "kana",
        "level": "A0",
        "target": "ぢ",
-       "bn": "জি ধ্বনি · じ-এর মতো, কম ব্যবহার",
+       "bn": "জি ধ্বনি",
        "bn_pron": "জি",
        "tokens": [],
        "tags": {
@@ -5580,7 +5580,7 @@
        "type": "kana",
        "level": "A0",
        "target": "づ",
-       "bn": "যু ধ্বনি · ず-এর মতো, কম ব্যবহার",
+       "bn": "যু ধ্বনি",
        "bn_pron": "যু",
        "tokens": [],
        "tags": {
@@ -5897,7 +5897,7 @@
        "type": "sound",
        "level": "A0",
        "target": "は、ば、ぱ",
-       "bn": "হ, ব, প · তিনটি আলাদা ধ্বনি",
+       "bn": "হ, ব, প ধ্বনি",
        "bn_pron": "হা, বা, পা",
        "tokens": [],
        "tags": {
@@ -6918,7 +6918,7 @@
        "type": "sound",
        "level": "A0",
        "target": "りゃ、りゅ、りょ",
-       "bn": "র-এর যুক্ত ধ্বনি · এক টোকা",
+       "bn": "র-এর যুক্ত ধ্বনি",
        "bn_pron": "রিয়া, রিউ, রিয়ো",
        "tokens": [],
        "tags": {

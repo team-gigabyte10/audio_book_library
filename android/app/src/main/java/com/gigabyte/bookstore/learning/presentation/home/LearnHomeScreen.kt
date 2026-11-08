@@ -69,7 +69,8 @@ fun LearnHomeScreen(
     onOpenIntro: (String) -> Unit,
     onOpenKanaChart: () -> Unit = {},
     onOpenAlphabetChart: (String) -> Unit = {},
-    onOpenNumbersChart: (String) -> Unit = {}
+    onOpenNumbersChart: (String) -> Unit = {},
+    onOpenCalendarChart: (String) -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -304,6 +305,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // Urdu Calendar & Time Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 দিন, মাস ও ঋতু · ৩৮টি শব্দ",
+                                title = "উর্দু দিন, মাস ও ঋতু চার্ট (دن، مہینے اور موسم)",
+                                description = "সপ্তাহের ৭ দিন, ১২ মাস, ৫টি ঋতু এবং আজ, কাল, সকাল, রাতসহ সময় সংক্রান্ত প্রয়োজনীয় শব্দাবলি ও অডিও উচ্চারণ।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = 4,
+                                lessonCount = 38,
+                                sentenceCount = 38,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৫ ঋতু", "⏰ দিনকাল"),
+                                onClick = { onOpenCalendarChart("urdu") }
+                            )
+                        }
+
                         // Urdu-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -406,6 +424,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // Hindi Calendar & Time Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 দিন, মাস ও ঋতু · ৩৯টি শব্দ",
+                                title = "হিন্দি দিন, মাস ও ঋতু চার্ট (दिन, महीने और ऋतुएँ)",
+                                description = "সপ্তাহের ৭ দিন, ১২ মাস, ৬টি ঋতু এবং আজ, কাল, সকাল, রাতসহ সময় সংক্রান্ত প্রয়োজনীয় শব্দাবলি ও অডিও উচ্চারণ।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 4,
+                                lessonCount = 39,
+                                sentenceCount = 39,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৬ ঋতু", "⏰ দিনকাল"),
+                                onClick = { onOpenCalendarChart("hindi") }
+                            )
+                        }
+
                         // Hindi-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -490,6 +525,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("german") }
+                            )
+                        }
+
+                        // German Calendar & Time Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 দিন, মাস ও ঋতু · ৩৮টি শব্দ",
+                                title = "জার্মান দিন, মাস ও ঋতু চার্ট (Tage, Monate & Jahreszeiten)",
+                                description = "সপ্তাহের ৭ দিন, ১২ মাস, ৪টি ঋতু এবং আজ, কাল, সকাল, রাতসহ সময় সংক্রান্ত প্রয়োজনীয় শব্দাবলি ও অডিও উচ্চারণ।",
+                                accentColor = Color(0xFF004D40),
+                                partCount = 4,
+                                lessonCount = 38,
+                                sentenceCount = 38,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ দিনকাল"),
+                                onClick = { onOpenCalendarChart("german") }
                             )
                         }
 
@@ -583,6 +635,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇬🇧 ৩৪ ধ্বনি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenAlphabetChart("english") }
+                            )
+                        }
+
+                        // English Calendar & Time Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 দিন, মাস ও ঋতু · ৪০টি শব্দ",
+                                title = "ইংরেজি দিন, মাস ও ঋতু চার্ট (Days, Months & Seasons)",
+                                description = "সপ্তাহের ৭ দিন, ১২ মাস, ৬টি ঋতু এবং আজ, কাল, সকাল, রাতসহ সময় সংক্রান্ত প্রয়োজনীয় শব্দাবলি ও অডিও উচ্চারণ।",
+                                accentColor = Color(0xFF1565C0),
+                                partCount = 4,
+                                lessonCount = 40,
+                                sentenceCount = 40,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৬ ঋতু", "⏰ দিনকাল"),
+                                onClick = { onOpenCalendarChart("english") }
                             )
                         }
 
@@ -681,6 +750,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("japanese") }
+                            )
+                        }
+
+                        // Japanese Calendar & Time Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 দিন, মাস ও ঋতু · ৩৮টি শব্দ",
+                                title = "জাপানি দিন, মাস ও ঋতু চার্ট (曜日・月・季節)",
+                                description = "সপ্তাহের ৭ দিন, ১২ মাস, ৪টি ঋতু এবং আজ, কাল, সকাল, রাতসহ সময় সংক্রান্ত প্রয়োজনীয় শব্দাবলি ও অডিও উচ্চারণ।",
+                                accentColor = Color(0xFFC62828),
+                                partCount = 4,
+                                lessonCount = 38,
+                                sentenceCount = 38,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ দিনকাল"),
+                                onClick = { onOpenCalendarChart("japanese") }
                             )
                         }
 
