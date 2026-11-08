@@ -56,3 +56,4 @@ assert total_lessons == 64
 assert total_items == 512
 print(f"B1 ASSET VERIFIED SUCCESSFULLY!")
 print(f"Parts: {len(parts)}, Lessons: {total_lessons}, Items: {total_items}")
+

@@ -137,6 +137,11 @@ fun LearnHomeScreen(
     val deB1LessonCount = deB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val deB1SentenceCount = deB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val deSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-sp-") && it.part.isEnabled } }
+    val deSpPartCount = deSpParts.size.coerceAtLeast(1)
+    val deSpLessonCount = deSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val deSpSentenceCount = deSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -459,6 +464,21 @@ fun LearnHomeScreen(
                                 sentenceCount = deB1SentenceCount,
                                 customPills = listOf("🇩🇪 ১৬টি পার্ট", "🗣️ Passiv & Konjunktiv", "🎯 গোয়েথে B1 স্পিকিং"),
                                 onClick = { onOpenCourse("de_b1") }
+                            )
+                        }
+
+                        // German Specialist Professional Track Card (Nursing & Higher Education)
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 স্পেশালিস্ট প্রফেশনাল কোর্স (B2/C1 প্রিপারেশন)",
+                                title = "জার্মান স্পেশালিস্ট: নার্সিং, ক্লিনিক্যাল ও বিশ্ববিদ্যালয়",
+                                description = "নার্স ও ডাক্তারদের জন্য ক্লিনিক্যাল অ্যানামনেসিস, ওষুধ ও ISBAR হ্যান্ডওভার এবং উচ্চশিক্ষা শিক্ষার্থীদের জন্য APS, Uni-Assist, ভিসা ইন্টারভিউ ও মাস্টার্স থিসিস ডিফেন্স।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = deSpPartCount,
+                                lessonCount = deSpLessonCount,
+                                sentenceCount = deSpSentenceCount,
+                                customPills = listOf("🇩🇪 ১৬টি পার্ট", "🏥 নার্সিং ও ক্লিনিক্যাল", "🎓 বিশ্ববিদ্যালয় ও ভিসা"),
+                                onClick = { onOpenCourse("de_specialist") }
                             )
                         }
                     } else if (!isJapanese) {

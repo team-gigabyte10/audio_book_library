@@ -173,6 +173,7 @@ fun CourseSyllabusScreen(
     val isDeStandard = courseType.equals("de_standard", ignoreCase = true)
     val isDeA2 = courseType.equals("de_a2", ignoreCase = true)
     val isDeB1 = courseType.equals("de_b1", ignoreCase = true)
+    val isDeSpecialist = courseType.equals("de_specialist", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
     val isJpFoundations = courseType.equals("jp_foundations", ignoreCase = true)
     val isJpPast = courseType.equals("jp_past", ignoreCase = true)
@@ -189,6 +190,7 @@ fun CourseSyllabusScreen(
         isDeStandard -> "জার্মান স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isDeA2 -> "জার্মান স্পোকেন কোর্স: লেভেল A2"
         isDeB1 -> "জার্মান স্পোকেন কোর্স: লেভেল B1"
+        isDeSpecialist -> "জার্মান স্পেশালিস্ট কোর্স (নার্সিং ও বিশ্ববিদ্যালয়)"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
         isJpFoundations -> "জাপানিজ স্পোকেন বেসিক্স (JLPT N5)"
         isJpPast -> "জাপানিজ অতীত কাল ও অভিজ্ঞতা (JLPT N5/N4)"
@@ -206,6 +208,7 @@ fun CourseSyllabusScreen(
         isDeStandard -> "জার্মান বর্ণমালা, উমলাউট ও A1 স্পিকিং টেস্ট"
         isDeA2 -> "ডাটিক কেস, Wechselpräpositionen, কারণ (weil) ও গোয়েথে A2"
         isDeB1 -> "Konjunktiv II, Passiv, Relativsätze, আউসবিল্ডুং ও B1 স্পিকিং"
+        isDeSpecialist -> "ক্লিনিক্যাল নার্সিং, অ্যানামনেসিস, ISBAR, APS, Uni-Assist ও ভিসা ইন্টারভিউ"
         isJpStandard -> "অক্ষর, শব্দ ও উচ্চারণ ড্রিল থেকে N5 স্পিকিং টেস্ট"
         isJpFoundations -> "Desu/Masu, Q&A, দৈনন্দিন পরিচয় ও গতিশীল ড্রিল"
         isJpPast -> "Deshita/Mashita, 〜たことがあります ও অতীত স্মৃতি"
@@ -225,6 +228,7 @@ fun CourseSyllabusScreen(
             isDeStandard -> syllabus.filter { it.part.id.startsWith("de-std-") }
             isDeA2 -> syllabus.filter { it.part.id.startsWith("de-a2-") }
             isDeB1 -> syllabus.filter { it.part.id.startsWith("de-b1-") }
+            isDeSpecialist -> syllabus.filter { it.part.id.startsWith("de-sp-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }
             isJpFoundations -> syllabus.filter { it.part.id.startsWith("jp-foundations-") }
             isJpPast -> syllabus.filter { it.part.id.startsWith("jp-past-") }
