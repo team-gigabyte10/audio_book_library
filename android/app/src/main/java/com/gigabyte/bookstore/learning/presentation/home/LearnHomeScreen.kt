@@ -132,6 +132,11 @@ fun LearnHomeScreen(
     val hiA2LessonCount = hiA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
     val hiA2SentenceCount = hiA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
 
+    val hiB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-b1-") && it.part.isEnabled } }
+    val hiB1PartCount = hiB1Parts.size.coerceAtLeast(1)
+    val hiB1LessonCount = hiB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val hiB1SentenceCount = hiB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val deStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-std-") && it.part.isEnabled } }
     val deStandardPartCount = deStandardParts.size.coerceAtLeast(1)
     val deStandardLessonCount = deStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -337,13 +342,13 @@ fun LearnHomeScreen(
                         item {
                             MainCourseCard(
                                 tag = "🇵🇰 স্ট্যান্ডার্ড কোর্স: লেভেল B2",
-                                title = "উর্দু B2: মার্জিত শিষ্টাচার, اضافت ও পেশাদার উর্দু",
-                                description = "উচ্চাঙ্গের ফর্মাল রেজিস্টার, ইযাফত সমাস, চাকরির ইন্টারভিউ, অফিস মিটিং, উপস্থাপনা, দরকষাকষি, সংবাদ ও বিতর্ক।",
+                                title = "উর্দু B2: মার্জিত শিষ্টাচার, اضافত ও পেশাদার উর্দু",
+                                description = "উচ্চাঙ্গের ফর্মাল রেজিস্টার, ইযাফত সমাস, চাকরির ইন্টারভিউ, অফিস মিটিং, ব্যবসায়িক দরকষাকষি, সংবাদ বিশ্লেষণ ও টেলিভিশন টকশো বিতর্ক।",
                                 accentColor = Color(0xFF004D40),
                                 partCount = urB2PartCount,
                                 lessonCount = urB2LessonCount,
                                 sentenceCount = urB2SentenceCount,
-                                customPills = listOf("🇵🇰 ১৬টি পার্ট", "🎩 মার্জিত উর্দু ও اضافت", "💼 ইন্টারভিউ ও বিতর্ক"),
+                                customPills = listOf("🇵🇰 ১৬টি পার্ট", "💼 মার্জিত রেজিস্টার ও اضافত", "📺 মিডিয়া ও বিজনেস"),
                                 onClick = { onOpenCourse("ur_b2") }
                             )
                         }
@@ -417,6 +422,21 @@ fun LearnHomeScreen(
                                 sentenceCount = hiA2SentenceCount,
                                 customPills = listOf("🇮🇳 ১৫টি পার্ট", "🗣️ 'ने' নিয়ম ও অতীত কাল", "🏥 হাসপাতাল ও কর্মক্ষেত্র"),
                                 onClick = { onOpenCourse("hi_a2") }
+                            )
+                        }
+
+                        // Hindi B1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 স্ট্যান্ডার্ড কোর্স: লেভেল B1",
+                                title = "হিন্দি B1: শর্তসাপেক্ষ বাক্য, সাপেক্ষ পদ ও কর্মবাচ্য",
+                                description = "বাস্তব ও কল্পনামূলক শর্ত (अगर ... तो), সম্বন্ধসূচক ও সাপেক্ষ পদ (जो ... वह), পরোক্ষ উক্তি, কর্মবাচ্য, প্রযোজক ক্রিয়া (करवाना) ও বাগধারা।",
+                                accentColor = Color(0xFFD84315),
+                                partCount = hiB1PartCount,
+                                lessonCount = hiB1LessonCount,
+                                sentenceCount = hiB1SentenceCount,
+                                customPills = listOf("🇮🇳 ১৬টি পার্ট", "🗣️ শর্ত ও সাপেক্ষ পদ", "📝 প্রযোজক ক্রিয়া ও বাগধারা"),
+                                onClick = { onOpenCourse("hi_b1") }
                             )
                         }
                     } else if (isGerman) {

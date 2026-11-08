@@ -448,8 +448,8 @@ fun HomeScreen(
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             HomeShowcaseCard(
-                                title = "হিন্দি স্পোকেন কোর্স (A1 + A2)",
-                                subtitle = "বাংলা থেকে সহজ নিয়মে দেবনগরী, উচ্চারণ, অতীত কাল, 'ने' নিয়ম ও হিন্দি কথা বলা",
+                                title = "হিন্দি স্পোকেন কোর্স (A1 + A2 + B1)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে দেবনগরী, অতীত কাল, শর্তসাপেক্ষ বাক্য ও কথ্য হিন্দি",
                                 badgeText = "🇮🇳 হিন্দি ভাষা কোর্স",
                                 badgeColor = Color(0xFFE65100),
                                 priceText = "১০০ টাকা",
@@ -457,7 +457,7 @@ fun HomeScreen(
                                 imageUrl = null,
                                 fallbackGradientColors = listOf(Color(0xFFF57C00), Color(0xFFE65100)),
                                 accentColor = Color(0xFFE65100),
-                                statsText = "🎧 ১৬৫টি অডিও লেসন · A1 ও A2 সম্পূর্ণ কোর্স",
+                                statsText = "🎧 ২২৫+ অডিও লেসন · A1, A2 ও B1 সম্পূর্ণ কোর্স",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnHindi,
                                 modifier = Modifier.padding(horizontal = 16.dp)
