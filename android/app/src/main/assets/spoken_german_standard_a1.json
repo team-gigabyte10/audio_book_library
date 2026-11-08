@@ -79,7 +79,7 @@
        "level": "A0",
        "target": "Abend",
        "bn": "সন্ধ্যা",
-       "bn_pron": "আবেন্ট · পুং (der)",
+       "bn_pron": "আবেন্ট",
        "tokens": [
         {
          "t": "Abend",
@@ -117,7 +117,7 @@
        "level": "A0",
        "target": "Essen",
        "bn": "খাবার / খাওয়া",
-       "bn_pron": "এসেন · ক্লীব (das)",
+       "bn_pron": "এসেন",
        "tokens": [
         {
          "t": "Essen",
@@ -155,7 +155,7 @@
        "level": "A0",
        "target": "Igel",
        "bn": "সজারু",
-       "bn_pron": "ইগেল · পুং (der)",
+       "bn_pron": "ইগেল",
        "tokens": [
         {
          "t": "Igel",
@@ -193,7 +193,7 @@
        "level": "A0",
        "target": "Opa",
        "bn": "দাদু / নানা",
-       "bn_pron": "ওপা · পুং (der)",
+       "bn_pron": "ওপা",
        "tokens": [
         {
          "t": "Opa",
@@ -231,7 +231,7 @@
        "level": "A0",
        "target": "Uhr",
        "bn": "ঘড়ি",
-       "bn_pron": "উর · স্ত্রী (die)",
+       "bn_pron": "উর",
        "tokens": [
         {
          "t": "Uhr",
@@ -304,7 +304,7 @@
        "level": "A0",
        "target": "Mädchen",
        "bn": "মেয়ে / বালিকা",
-       "bn_pron": "মেডশেন · ক্লীব (das)",
+       "bn_pron": "মেডশেন",
        "tokens": [
         {
          "t": "Mädchen",
@@ -342,7 +342,7 @@
        "level": "A0",
        "target": "Öl",
        "bn": "তেল",
-       "bn_pron": "ওয়েল · ক্লীব (das)",
+       "bn_pron": "ওয়েল",
        "tokens": [
         {
          "t": "Öl",
@@ -422,7 +422,7 @@
        "level": "A0",
        "target": "Tür",
        "bn": "দরজা",
-       "bn_pron": "ত্যুর · স্ত্রী (die)",
+       "bn_pron": "ত্যুর",
        "tokens": [
         {
          "t": "Tür",
@@ -474,7 +474,7 @@
        "level": "A0",
        "target": "Straße",
        "bn": "রাস্তা",
-       "bn_pron": "শ্ট্রাস়ে · স্ত্রী (die)",
+       "bn_pron": "শ্ট্রাস়ে",
        "tokens": [
         {
          "t": "Straße",
@@ -538,7 +538,7 @@
        "level": "A0",
        "target": "Kaffee",
        "bn": "কফি",
-       "bn_pron": "কাফে · পুং (der)",
+       "bn_pron": "কাফে",
        "tokens": [
         {
          "t": "Kaffee",
@@ -560,7 +560,7 @@
        "level": "A0",
        "target": "Wasser",
        "bn": "পানি",
-       "bn_pron": "ভাসার · ক্লীব (das)",
+       "bn_pron": "ভাসার",
        "tokens": [
         {
          "t": "Wasser",
@@ -603,7 +603,7 @@
        "level": "A0",
        "target": "Sonne",
        "bn": "সূর্য",
-       "bn_pron": "যোনে · স্ত্রী (die)",
+       "bn_pron": "যোনে",
        "tokens": [
         {
          "t": "Sonne",
@@ -655,7 +655,7 @@
        "level": "A0",
        "target": "Buch",
        "bn": "বই",
-       "bn_pron": "বুখ · ক্লীব (das)",
+       "bn_pron": "বুখ",
        "tokens": [
         {
          "t": "Buch",
@@ -804,7 +804,7 @@
        "level": "A0",
        "target": "Mutter",
        "bn": "মা",
-       "bn_pron": "মুটার · স্ত্রী (die)",
+       "bn_pron": "মুটার",
        "tokens": [
         {
          "t": "Mutter",
@@ -856,7 +856,7 @@
        "level": "A0",
        "target": "Reis",
        "bn": "চাল / ভাত",
-       "bn_pron": "রাইস · পুং (der)",
+       "bn_pron": "রাইস",
        "tokens": [
         {
          "t": "Reis",
@@ -894,7 +894,7 @@
        "level": "A0",
        "target": "Vater",
        "bn": "বাবা",
-       "bn_pron": "ফাটার · পুং (der)",
+       "bn_pron": "ফাটার",
        "tokens": [
         {
          "t": "Vater",
@@ -932,7 +932,7 @@
        "level": "A0",
        "target": "Wagen",
        "bn": "গাড়ি",
-       "bn_pron": "ভাগেন · পুং (der)",
+       "bn_pron": "ভাগেন",
        "tokens": [
         {
          "t": "Wagen",
@@ -970,7 +970,7 @@
        "level": "A0",
        "target": "Zug",
        "bn": "ট্রেন",
-       "bn_pron": "ৎসুক · পুং (der)",
+       "bn_pron": "ৎসুক",
        "tokens": [
         {
          "t": "Zug",
@@ -992,7 +992,7 @@
        "level": "A0",
        "target": "Zimmer",
        "bn": "রুম / ঘর",
-       "bn_pron": "ৎসিমার · ক্লীব (das)",
+       "bn_pron": "ৎসিমার",
        "tokens": [
         {
          "t": "Zimmer",
@@ -1037,7 +1037,7 @@
        "level": "A0",
        "target": "Tag",
        "bn": "দিন",
-       "bn_pron": "তা-ক · পুং (der)",
+       "bn_pron": "তা-ক",
        "tokens": [
         {
          "t": "Tag",
@@ -1101,7 +1101,7 @@
        "level": "A0",
        "target": "Zahn",
        "bn": "দাঁত",
-       "bn_pron": "ৎসা-ন · পুং (der)",
+       "bn_pron": "ৎসা-ন",
        "tokens": [
         {
          "t": "Zahn",
@@ -1123,7 +1123,7 @@
        "level": "A0",
        "target": "Uhr",
        "bn": "ঘড়ি / সময়",
-       "bn_pron": "উ-র · স্ত্রী (die)",
+       "bn_pron": "উ-র",
        "tokens": [
         {
          "t": "Uhr",
@@ -1145,7 +1145,7 @@
        "level": "A0",
        "target": "Weg",
        "bn": "পথ / রাস্তা",
-       "bn_pron": "ভে-ক · পুং (der)",
+       "bn_pron": "ভে-ক",
        "tokens": [
         {
          "t": "Weg",
@@ -1167,7 +1167,7 @@
        "level": "A0",
        "target": "Name",
        "bn": "নাম",
-       "bn_pron": "না-মে · পুং (der)",
+       "bn_pron": "না-মে",
        "tokens": [
         {
          "t": "Name",
@@ -1224,7 +1224,7 @@
        "level": "A0",
        "target": "Mann",
        "bn": "পুরুষ / স্বামী",
-       "bn_pron": "মান · পুং (der)",
+       "bn_pron": "মান",
        "tokens": [
         {
          "t": "Mann",
@@ -1246,7 +1246,7 @@
        "level": "A0",
        "target": "Bett",
        "bn": "বিছানা",
-       "bn_pron": "বেট · ক্লীব (das)",
+       "bn_pron": "বেট",
        "tokens": [
         {
          "t": "Bett",
@@ -1268,7 +1268,7 @@
        "level": "A0",
        "target": "Kind",
        "bn": "শিশু / বাচ্চা",
-       "bn_pron": "কিন্ট · ক্লীব (das)",
+       "bn_pron": "কিন্ট",
        "tokens": [
         {
          "t": "Kind",
@@ -1311,7 +1311,7 @@
        "level": "A0",
        "target": "Bus",
        "bn": "বাস",
-       "bn_pron": "বুস · পুং (der)",
+       "bn_pron": "বুস",
        "tokens": [
         {
          "t": "Bus",
@@ -1354,7 +1354,7 @@
        "level": "A0",
        "target": "Teller",
        "bn": "থালা / প্লেট",
-       "bn_pron": "টেলার · পুং (der)",
+       "bn_pron": "টেলার",
        "tokens": [
         {
          "t": "Teller",
@@ -1411,7 +1411,7 @@
        "level": "A0",
        "target": "Haar",
        "bn": "চুল",
-       "bn_pron": "হা-র · ক্লীব (das)",
+       "bn_pron": "হা-র",
        "tokens": [
         {
          "t": "Haar",
@@ -1433,7 +1433,7 @@
        "level": "A0",
        "target": "Paar",
        "bn": "জোড়া",
-       "bn_pron": "পা-র · ক্লীব (das)",
+       "bn_pron": "পা-র",
        "tokens": [
         {
          "t": "Paar",
@@ -1455,7 +1455,7 @@
        "level": "A0",
        "target": "See",
        "bn": "হ্রদ / সমুদ্র",
-       "bn_pron": "যে- · পুং (der)",
+       "bn_pron": "যে-",
        "tokens": [
         {
          "t": "See",
@@ -1477,7 +1477,7 @@
        "level": "A0",
        "target": "Tee",
        "bn": "চা",
-       "bn_pron": "টে- · পুং (der)",
+       "bn_pron": "টে-",
        "tokens": [
         {
          "t": "Tee",
@@ -1499,7 +1499,7 @@
        "level": "A0",
        "target": "Kaffee",
        "bn": "কফি",
-       "bn_pron": "কাফে- · পুং (der)",
+       "bn_pron": "কাফে-",
        "tokens": [
         {
          "t": "Kaffee",
@@ -1521,7 +1521,7 @@
        "level": "A0",
        "target": "Boot",
        "bn": "নৌকা",
-       "bn_pron": "বো-ট · ক্লীব (das)",
+       "bn_pron": "বো-ট",
        "tokens": [
         {
          "t": "Boot",
@@ -1543,7 +1543,7 @@
        "level": "A0",
        "target": "Moor",
        "bn": "জলাভূমি",
-       "bn_pron": "মো-র · ক্লীব (das)",
+       "bn_pron": "মো-র",
        "tokens": [
         {
          "t": "Moor",
@@ -1565,7 +1565,7 @@
        "level": "A0",
        "target": "Zoo",
        "bn": "চিড়িয়াখানা",
-       "bn_pron": "ৎসো- · পুং (der)",
+       "bn_pron": "ৎসো-",
        "tokens": [
         {
          "t": "Zoo",
@@ -1601,7 +1601,7 @@
        "level": "A0",
        "target": "Bier",
        "bn": "বিয়ার / পানীয়",
-       "bn_pron": "বী-র · ক্লীব (das)",
+       "bn_pron": "বী-র",
        "tokens": [
         {
          "t": "Bier",
@@ -1665,7 +1665,7 @@
        "level": "A0",
        "target": "Tier",
        "bn": "পশু / প্রাণী",
-       "bn_pron": "টী-র · ক্লীব (das)",
+       "bn_pron": "টী-র",
        "tokens": [
         {
          "t": "Tier",
@@ -1729,7 +1729,7 @@
        "level": "A0",
        "target": "Liebe",
        "bn": "ভালোবাসা",
-       "bn_pron": "লী-বে · স্ত্রী (die)",
+       "bn_pron": "লী-বে",
        "tokens": [
         {
          "t": "Liebe",
@@ -1751,7 +1751,7 @@
        "level": "A0",
        "target": "Lied",
        "bn": "গান",
-       "bn_pron": "লী-ট · ক্লীব (das)",
+       "bn_pron": "লী-ট",
        "tokens": [
         {
          "t": "Lied",
@@ -1901,7 +1901,7 @@
        "level": "A0",
        "target": "Mai",
        "bn": "মে মাস",
-       "bn_pron": "মাই · পুং (der)",
+       "bn_pron": "মাই",
        "tokens": [
         {
          "t": "Mai",
@@ -1979,7 +1979,7 @@
        "level": "A0",
        "target": "Haus",
        "bn": "বাড়ি / ঘর",
-       "bn_pron": "হাউস · ক্লীব (das)",
+       "bn_pron": "হাউস",
        "tokens": [
         {
          "t": "Haus",
@@ -2001,7 +2001,7 @@
        "level": "A0",
        "target": "Frau",
        "bn": "মহিলা / স্ত্রী / মিসেস",
-       "bn_pron": "ফ্রাউ · স্ত্রী (die)",
+       "bn_pron": "ফ্রাউ",
        "tokens": [
         {
          "t": "Frau",
@@ -2023,7 +2023,7 @@
        "level": "A0",
        "target": "Baum",
        "bn": "গাছ",
-       "bn_pron": "বাউম · পুং (der)",
+       "bn_pron": "বাউম",
        "tokens": [
         {
          "t": "Baum",
@@ -2087,7 +2087,7 @@
        "level": "A0",
        "target": "Auge",
        "bn": "চোখ",
-       "bn_pron": "আউগে · ক্লীব (das)",
+       "bn_pron": "আউগে",
        "tokens": [
         {
          "t": "Auge",
@@ -2109,7 +2109,7 @@
        "level": "A0",
        "target": "Auto",
        "bn": "গাড়ি",
-       "bn_pron": "আউটো · ক্লীব (das)",
+       "bn_pron": "আউটো",
        "tokens": [
         {
          "t": "Auto",
@@ -2187,7 +2187,7 @@
        "level": "A0",
        "target": "Euro",
        "bn": "ইউরো (মুদ্রা)",
-       "bn_pron": "অয়রো · পুং (der)",
+       "bn_pron": "অয়রো",
        "tokens": [
         {
          "t": "Euro",
@@ -2209,7 +2209,7 @@
        "level": "A0",
        "target": "Freund",
        "bn": "বন্ধু",
-       "bn_pron": "ফ্রয়ন্ট · পুং (der)",
+       "bn_pron": "ফ্রয়ন্ট",
        "tokens": [
         {
          "t": "Freund",
@@ -2315,7 +2315,7 @@
        "level": "A0",
        "target": "Fräulein",
        "bn": "কুমারী",
-       "bn_pron": "ফ্রয়লাইন · ক্লীব (das)",
+       "bn_pron": "ফ্রয়লাইন",
        "tokens": [
         {
          "t": "Fräulein",
@@ -2616,7 +2616,7 @@
        "level": "A0",
        "target": "Milch",
        "bn": "দুধ",
-       "bn_pron": "মিলখ্ · স্ত্রী (die)",
+       "bn_pron": "মিলখ্",
        "tokens": [
         {
          "t": "Milch",
@@ -2659,7 +2659,7 @@
        "level": "A0",
        "target": "Recht",
        "bn": "অধিকার / আইন",
-       "bn_pron": "রেখ্ট · ক্লীব (das)",
+       "bn_pron": "রেখ্ট",
        "tokens": [
         {
          "t": "Recht",
@@ -2681,7 +2681,7 @@
        "level": "A0",
        "target": "Licht",
        "bn": "আলো",
-       "bn_pron": "লিখ্ট · ক্লীব (das)",
+       "bn_pron": "লিখ্ট",
        "tokens": [
         {
          "t": "Licht",
@@ -2724,7 +2724,7 @@
        "level": "A0",
        "target": "Küche",
        "bn": "রান্নাঘর",
-       "bn_pron": "ক্যুখে · স্ত্রী (die)",
+       "bn_pron": "ক্যুখে",
        "tokens": [
         {
          "t": "Küche",
@@ -2781,7 +2781,7 @@
        "level": "A0",
        "target": "Buch",
        "bn": "বই",
-       "bn_pron": "বুখ্ · ক্লীব (das)",
+       "bn_pron": "বুখ্",
        "tokens": [
         {
          "t": "Buch",
@@ -2803,7 +2803,7 @@
        "level": "A0",
        "target": "Nacht",
        "bn": "রাত",
-       "bn_pron": "নাখ্ট · স্ত্রী (die)",
+       "bn_pron": "নাখ্ট",
        "tokens": [
         {
          "t": "Nacht",
@@ -2888,7 +2888,7 @@
        "level": "A0",
        "target": "Kuchen",
        "bn": "কেক",
-       "bn_pron": "কুখেন · পুং (der)",
+       "bn_pron": "কুখেন",
        "tokens": [
         {
          "t": "Kuchen",
@@ -2910,7 +2910,7 @@
        "level": "A0",
        "target": "Sprache",
        "bn": "ভাষা",
-       "bn_pron": "শ্প প্রাখে · স্ত্রী (die)",
+       "bn_pron": "শ্প প্রাখে",
        "tokens": [
         {
          "t": "Sprache",
@@ -2946,7 +2946,7 @@
        "level": "A0",
        "target": "Schule",
        "bn": "স্কুল",
-       "bn_pron": "শুলে · স্ত্রী (die)",
+       "bn_pron": "শুলে",
        "tokens": [
         {
          "t": "Schule",
@@ -3010,7 +3010,7 @@
        "level": "A0",
        "target": "Tasche",
        "bn": "ব্যাগ",
-       "bn_pron": "তাশে · স্ত্রী (die)",
+       "bn_pron": "তাশে",
        "tokens": [
         {
          "t": "Tasche",
@@ -3032,7 +3032,7 @@
        "level": "A0",
        "target": "Fisch",
        "bn": "মাছ",
-       "bn_pron": "ফিশ · পুং (der)",
+       "bn_pron": "ফিশ",
        "tokens": [
         {
          "t": "Fisch",
@@ -3054,7 +3054,7 @@
        "level": "A0",
        "target": "Tisch",
        "bn": "টেবিল",
-       "bn_pron": "টিশ · পুং (der)",
+       "bn_pron": "টিশ",
        "tokens": [
         {
          "t": "Tisch",
@@ -3076,7 +3076,7 @@
        "level": "A0",
        "target": "Fleisch",
        "bn": "মাংস",
-       "bn_pron": "ফ্লাইশ · ক্লীব (das)",
+       "bn_pron": "ফ্লাইশ",
        "tokens": [
         {
          "t": "Fleisch",
@@ -3133,7 +3133,7 @@
        "level": "A0",
        "target": "Sport",
        "bn": "খেলাধুলা",
-       "bn_pron": "শ্পোর্ট · পুং (der)",
+       "bn_pron": "শ্পোর্ট",
        "tokens": [
         {
          "t": "Sport",
@@ -3197,7 +3197,7 @@
        "level": "A0",
        "target": "Spanisch",
        "bn": "স্প্যানিশ ভাষা",
-       "bn_pron": "শ্পানিশ · ক্লীব (das)",
+       "bn_pron": "শ্পানিশ",
        "tokens": [
         {
          "t": "Spanisch",
@@ -3219,7 +3219,7 @@
        "level": "A0",
        "target": "Stadt",
        "bn": "শহর",
-       "bn_pron": "শ্টাট · স্ত্রী (die)",
+       "bn_pron": "শ্টাট",
        "tokens": [
         {
          "t": "Stadt",
@@ -3241,7 +3241,7 @@
        "level": "A0",
        "target": "Straße",
        "bn": "রাস্তা",
-       "bn_pron": "শ্ট্রাস়ে · স্ত্রী (die)",
+       "bn_pron": "শ্ট্রাস়ে",
        "tokens": [
         {
          "t": "Straße",
@@ -3263,7 +3263,7 @@
        "level": "A0",
        "target": "Stunde",
        "bn": "ঘণ্টা / পিরিয়ড",
-       "bn_pron": "শ্টুন্ডে · স্ত্রী (die)",
+       "bn_pron": "শ্টুন্ডে",
        "tokens": [
         {
          "t": "Stunde",
@@ -3285,7 +3285,7 @@
        "level": "A0",
        "target": "Student",
        "bn": "ছাত্র (বিশ্ববিদ্যালয়)",
-       "bn_pron": "শ্টুডেন্ট · পুং (der)",
+       "bn_pron": "শ্টুডেন্ট",
        "tokens": [
         {
          "t": "Student",
@@ -3321,7 +3321,7 @@
        "level": "A0",
        "target": "Apfel",
        "bn": "আপেল",
-       "bn_pron": "আপফেল · পুং (der)",
+       "bn_pron": "আপফেল",
        "tokens": [
         {
          "t": "Apfel",
@@ -3343,7 +3343,7 @@
        "level": "A0",
        "target": "Pferd",
        "bn": "ঘোড়া",
-       "bn_pron": "পফেয়ার্ট · ক্লীব (das)",
+       "bn_pron": "পফেয়ার্ট",
        "tokens": [
         {
          "t": "Pferd",
@@ -3365,7 +3365,7 @@
        "level": "A0",
        "target": "Pfeffer",
        "bn": "গোলমরিচ",
-       "bn_pron": "পফেফার · পুং (der)",
+       "bn_pron": "পফেফার",
        "tokens": [
         {
          "t": "Pfeffer",
@@ -3387,7 +3387,7 @@
        "level": "A0",
        "target": "Pflanze",
        "bn": "উদ্ভিদ / চারাগাছ",
-       "bn_pron": "পফ্লানৎসে · স্ত্রী (die)",
+       "bn_pron": "পফ্লানৎসে",
        "tokens": [
         {
          "t": "Pflanze",
@@ -3409,7 +3409,7 @@
        "level": "A0",
        "target": "Kopf",
        "bn": "মাথা",
-       "bn_pron": "কপফ · পুং (der)",
+       "bn_pron": "কপফ",
        "tokens": [
         {
          "t": "Kopf",
@@ -3431,7 +3431,7 @@
        "level": "A0",
        "target": "Quelle",
        "bn": "উৎস / ঝরনা",
-       "bn_pron": "ক্ভেলে · স্ত্রী (die)",
+       "bn_pron": "ক্ভেলে",
        "tokens": [
         {
          "t": "Quelle",
@@ -3474,7 +3474,7 @@
        "level": "A0",
        "target": "Quittung",
        "bn": "রশিদ / মানি রিসিট",
-       "bn_pron": "ক্ভিটুং · স্ত্রী (die)",
+       "bn_pron": "ক্ভিটুং",
        "tokens": [
         {
          "t": "Quittung",
@@ -3540,7 +3540,7 @@
        "level": "A0",
        "target": "Bad",
        "bn": "গোসলখানা / বাথ",
-       "bn_pron": "বাট · ক্লীব (das)",
+       "bn_pron": "বাট",
        "tokens": [
         {
          "t": "Bad",
@@ -3562,7 +3562,7 @@
        "level": "A0",
        "target": "Bild",
        "bn": "ছবি",
-       "bn_pron": "বিল্ট · ক্লীব (das)",
+       "bn_pron": "বিল্ট",
        "tokens": [
         {
          "t": "Bild",
@@ -3584,7 +3584,7 @@
        "level": "A0",
        "target": "Lied",
        "bn": "গান",
-       "bn_pron": "লীট · ক্লীব (das)",
+       "bn_pron": "লীট",
        "tokens": [
         {
          "t": "Lied",
@@ -3606,7 +3606,7 @@
        "level": "A0",
        "target": "Hund",
        "bn": "কুকুর",
-       "bn_pron": "হুন্ট · পুং (der)",
+       "bn_pron": "হুন্ট",
        "tokens": [
         {
          "t": "Hund",
@@ -3628,7 +3628,7 @@
        "level": "A0",
        "target": "Hand",
        "bn": "হাত",
-       "bn_pron": "হান্ট · স্ত্রী (die)",
+       "bn_pron": "হান্ট",
        "tokens": [
         {
          "t": "Hand",
@@ -3650,7 +3650,7 @@
        "level": "A0",
        "target": "Kind",
        "bn": "শিশু",
-       "bn_pron": "কিন্ট · ক্লীব (das)",
+       "bn_pron": "কিন্ট",
        "tokens": [
         {
          "t": "Kind",
@@ -3672,7 +3672,7 @@
        "level": "A0",
        "target": "Geld",
        "bn": "টাকা / অর্থ",
-       "bn_pron": "গেল্ট · ক্লীব (das)",
+       "bn_pron": "গেল্ট",
        "tokens": [
         {
          "t": "Geld",
@@ -3708,7 +3708,7 @@
        "level": "A0",
        "target": "Abend",
        "bn": "সন্ধ্যা",
-       "bn_pron": "আবেন্ট · পুং (der)",
+       "bn_pron": "আবেন্ট",
        "tokens": [
         {
          "t": "Abend",
@@ -3751,7 +3751,7 @@
        "level": "A0",
        "target": "Urlaub",
        "bn": "ছুটি",
-       "bn_pron": "উরলাউপ · পুং (der)",
+       "bn_pron": "উরলাউপ",
        "tokens": [
         {
          "t": "Urlaub",
@@ -3773,7 +3773,7 @@
        "level": "A0",
        "target": "Dieb",
        "bn": "চোর",
-       "bn_pron": "দীপ · পুং (der)",
+       "bn_pron": "দীপ",
        "tokens": [
         {
          "t": "Dieb",
@@ -3795,7 +3795,7 @@
        "level": "A0",
        "target": "Korb",
        "bn": "ঝুড়ি",
-       "bn_pron": "কর্প · পুং (der)",
+       "bn_pron": "কর্প",
        "tokens": [
         {
          "t": "Korb",
@@ -3838,7 +3838,7 @@
        "level": "A0",
        "target": "Kalb",
        "bn": "বাছুর",
-       "bn_pron": "কাল্প · ক্লীব (das)",
+       "bn_pron": "কাল্প",
        "tokens": [
         {
          "t": "Kalb",
@@ -3860,7 +3860,7 @@
        "level": "A0",
        "target": "Klub",
        "bn": "ক্লাব",
-       "bn_pron": "ক্লুপ · পুং (der)",
+       "bn_pron": "ক্লুপ",
        "tokens": [
         {
          "t": "Klub",
@@ -3896,7 +3896,7 @@
        "level": "A0",
        "target": "Tag",
        "bn": "দিন",
-       "bn_pron": "তাক · পুং (der)",
+       "bn_pron": "তাক",
        "tokens": [
         {
          "t": "Tag",
@@ -3918,7 +3918,7 @@
        "level": "A0",
        "target": "Zug",
        "bn": "ট্রেন",
-       "bn_pron": "ৎসুক · পুং (der)",
+       "bn_pron": "ৎসুক",
        "tokens": [
         {
          "t": "Zug",
@@ -3940,7 +3940,7 @@
        "level": "A0",
        "target": "Flug",
        "bn": "ফ্লাইট / বিমান ভ্রমণ",
-       "bn_pron": "ফ্লুক · পুং (der)",
+       "bn_pron": "ফ্লুক",
        "tokens": [
         {
          "t": "Flug",
@@ -3962,7 +3962,7 @@
        "level": "A0",
        "target": "Weg",
        "bn": "রাস্তা / পথ",
-       "bn_pron": "ভেক · পুং (der)",
+       "bn_pron": "ভেক",
        "tokens": [
         {
          "t": "Weg",
@@ -4005,7 +4005,7 @@
        "level": "A0",
        "target": "Berg",
        "bn": "পাহাড় / পর্বত",
-       "bn_pron": "বের্ক · পুং (der)",
+       "bn_pron": "বের্ক",
        "tokens": [
         {
          "t": "Berg",
@@ -4027,7 +4027,7 @@
        "level": "A0",
        "target": "Burg",
        "bn": "দুর্গ / কেল্লা",
-       "bn_pron": "বুর্ক · স্ত্রী (die)",
+       "bn_pron": "বুর্ক",
        "tokens": [
         {
          "t": "Burg",
@@ -4049,7 +4049,7 @@
        "level": "A0",
        "target": "Sarg",
        "bn": "কফিন",
-       "bn_pron": "যার্ক · পুং (der)",
+       "bn_pron": "যার্ক",
        "tokens": [
         {
          "t": "Sarg",
@@ -4232,7 +4232,7 @@
        "level": "A0",
        "target": "König",
        "bn": "রাজা",
-       "bn_pron": "কোয়নিখ্ · পুং (der)",
+       "bn_pron": "কোয়নিখ্",
        "tokens": [
         {
          "t": "König",
@@ -4277,7 +4277,7 @@
        "level": "A0",
        "target": "Name",
        "bn": "নাম",
-       "bn_pron": "না-মে · পুং (der)",
+       "bn_pron": "না-মে",
        "tokens": [
         {
          "t": "Name",
@@ -4460,7 +4460,7 @@
        "level": "A0",
        "target": "Haustür",
        "bn": "বাড়ির দরজা",
-       "bn_pron": "হাউস-ত্যুর · স্ত্রী (die)",
+       "bn_pron": "হাউস-ত্যুর",
        "tokens": [
         {
          "t": "Haustür",
@@ -4482,7 +4482,7 @@
        "level": "A0",
        "target": "Bahnhof",
        "bn": "রেল স্টেশন",
-       "bn_pron": "বান-হোফ · পুং (der)",
+       "bn_pron": "বান-হোফ",
        "tokens": [
         {
          "t": "Bahnhof",
@@ -4504,7 +4504,7 @@
        "level": "A0",
        "target": "Flughafen",
        "bn": "বিমানবন্দর",
-       "bn_pron": "ফ্লুক-হাফেন · পুং (der)",
+       "bn_pron": "ফ্লুক-হাফেন",
        "tokens": [
         {
          "t": "Flughafen",
@@ -4526,7 +4526,7 @@
        "level": "A0",
        "target": "Großvater",
        "bn": "দাদু / নানা",
-       "bn_pron": "গ্রোস-ফাটার · পুং (der)",
+       "bn_pron": "গ্রোস-ফাটার",
        "tokens": [
         {
          "t": "Großvater",
@@ -4548,7 +4548,7 @@
        "level": "A0",
        "target": "Wörterbuch",
        "bn": "অভিধান",
-       "bn_pron": "ভোয়ের্টার-বুখ · ক্লীব (das)",
+       "bn_pron": "ভোয়ের্টার-বুখ",
        "tokens": [
         {
          "t": "Wörterbuch",
@@ -4591,7 +4591,7 @@
        "level": "A0",
        "target": "Fahrkarte",
        "bn": "ভ্রমণের টিকিট",
-       "bn_pron": "ফার-কার্টে · স্ত্রী (die)",
+       "bn_pron": "ফার-কার্টে",
        "tokens": [
         {
          "t": "Fahrkarte",
@@ -4613,7 +4613,7 @@
        "level": "A0",
        "target": "Hauptstadt",
        "bn": "রাজধানী",
-       "bn_pron": "হাউপট-শ্টাট · স্ত্রী (die)",
+       "bn_pron": "হাউপট-শ্টাট",
        "tokens": [
         {
          "t": "Hauptstadt",
@@ -6207,7 +6207,7 @@
        "level": "A0",
        "target": "Haus",
        "bn": "বাড়ি (house)",
-       "bn_pron": "হাউস · ক্লীব (das)",
+       "bn_pron": "হাউস",
        "tokens": [
         {
          "t": "Haus",
@@ -6229,7 +6229,7 @@
        "level": "A0",
        "target": "Hand",
        "bn": "হাত (hand)",
-       "bn_pron": "হান্ট · স্ত্রী (die)",
+       "bn_pron": "হান্ট",
        "tokens": [
         {
          "t": "Hand",
@@ -6251,7 +6251,7 @@
        "level": "A0",
        "target": "Finger",
        "bn": "আঙুল (finger)",
-       "bn_pron": "ফিঙ্গার · পুং (der)",
+       "bn_pron": "ফিঙ্গার",
        "tokens": [
         {
          "t": "Finger",
@@ -6273,7 +6273,7 @@
        "level": "A0",
        "target": "Arm",
        "bn": "বাহু / হাত (arm)",
-       "bn_pron": "আর্ম · পুং (der)",
+       "bn_pron": "আর্ম",
        "tokens": [
         {
          "t": "Arm",
@@ -6295,7 +6295,7 @@
        "level": "A0",
        "target": "Gras",
        "bn": "ঘাস (grass)",
-       "bn_pron": "গ্রাস · ক্লীব (das)",
+       "bn_pron": "গ্রাস",
        "tokens": [
         {
          "t": "Gras",
@@ -6317,7 +6317,7 @@
        "level": "A0",
        "target": "Wind",
        "bn": "বাতাস (wind)",
-       "bn_pron": "ভিন্ট · পুং (der)",
+       "bn_pron": "ভিন্ট",
        "tokens": [
         {
          "t": "Wind",
@@ -6339,7 +6339,7 @@
        "level": "A0",
        "target": "Sommer",
        "bn": "গ্রীষ্ম (summer)",
-       "bn_pron": "যোমার · পুং (der)",
+       "bn_pron": "যোমার",
        "tokens": [
         {
          "t": "Sommer",
@@ -6361,7 +6361,7 @@
        "level": "A0",
        "target": "Winter",
        "bn": "শীত (winter)",
-       "bn_pron": "ভinputencিন্টার · পুং (der)",
+       "bn_pron": "ভinputencিন্টার",
        "tokens": [
         {
          "t": "Winter",
@@ -6397,7 +6397,7 @@
        "level": "A0",
        "target": "Wasser",
        "bn": "পানি (water)",
-       "bn_pron": "ভাসার · ক্লীব (das)",
+       "bn_pron": "ভাসার",
        "tokens": [
         {
          "t": "Wasser",
@@ -6419,7 +6419,7 @@
        "level": "A0",
        "target": "Milch",
        "bn": "দুধ (milk)",
-       "bn_pron": "মিলখ্ · স্ত্রী (die)",
+       "bn_pron": "মিলখ্",
        "tokens": [
         {
          "t": "Milch",
@@ -6441,7 +6441,7 @@
        "level": "A0",
        "target": "Brot",
        "bn": "রুটি (bread)",
-       "bn_pron": "ব্রোট · ক্লীব (das)",
+       "bn_pron": "ব্রোট",
        "tokens": [
         {
          "t": "Brot",
@@ -6463,7 +6463,7 @@
        "level": "A0",
        "target": "Butter",
        "bn": "মাখন (butter)",
-       "bn_pron": "বুটার · স্ত্রী (die)",
+       "bn_pron": "বুটার",
        "tokens": [
         {
          "t": "Butter",
@@ -6485,7 +6485,7 @@
        "level": "A0",
        "target": "Apfel",
        "bn": "আপেল (apple)",
-       "bn_pron": "আপফেল · পুং (der)",
+       "bn_pron": "আপফেল",
        "tokens": [
         {
          "t": "Apfel",
@@ -6507,7 +6507,7 @@
        "level": "A0",
        "target": "Salz",
        "bn": "লবণ (salt)",
-       "bn_pron": "যাল্ৎস · ক্লীব (das)",
+       "bn_pron": "যাল্ৎস",
        "tokens": [
         {
          "t": "Salz",
@@ -6529,7 +6529,7 @@
        "level": "A0",
        "target": "Pfeffer",
        "bn": "গোলমরিচ (pepper)",
-       "bn_pron": "পফেফার · পুং (der)",
+       "bn_pron": "পফেফার",
        "tokens": [
         {
          "t": "Pfeffer",
@@ -6551,7 +6551,7 @@
        "level": "A0",
        "target": "Fisch",
        "bn": "মাছ (fish)",
-       "bn_pron": "ফিশ · পুং (der)",
+       "bn_pron": "ফিশ",
        "tokens": [
         {
          "t": "Fisch",
@@ -6587,7 +6587,7 @@
        "level": "A0",
        "target": "Hotel",
        "bn": "হোটেল",
-       "bn_pron": "হোটেল · ক্লীব (das)",
+       "bn_pron": "হোটেল",
        "tokens": [
         {
          "t": "Hotel",
@@ -6609,7 +6609,7 @@
        "level": "A0",
        "target": "Computer",
        "bn": "কম্পিউটার",
-       "bn_pron": "কম্পিউটার · পুং (der)",
+       "bn_pron": "কম্পিউটার",
        "tokens": [
         {
          "t": "Computer",
@@ -6631,7 +6631,7 @@
        "level": "A0",
        "target": "Telefon",
        "bn": "টেলিফোন",
-       "bn_pron": "টেলিফোন · ক্লীব (das)",
+       "bn_pron": "টেলিফোন",
        "tokens": [
         {
          "t": "Telefon",
@@ -6653,7 +6653,7 @@
        "level": "A0",
        "target": "Kaffee",
        "bn": "কফি",
-       "bn_pron": "কাফে · পুং (der)",
+       "bn_pron": "কাফে",
        "tokens": [
         {
          "t": "Kaffee",
@@ -6675,7 +6675,7 @@
        "level": "A0",
        "target": "Musik",
        "bn": "গান / সঙ্গীত",
-       "bn_pron": "মুযীক · স্ত্রী (die)",
+       "bn_pron": "মুযীক",
        "tokens": [
         {
          "t": "Musik",
@@ -6697,7 +6697,7 @@
        "level": "A0",
        "target": "Taxi",
        "bn": "ট্যাক্সি",
-       "bn_pron": "ট্যাক্সি · ক্লীব (das)",
+       "bn_pron": "ট্যাক্সি",
        "tokens": [
         {
          "t": "Taxi",
@@ -6719,7 +6719,7 @@
        "level": "A0",
        "target": "Bus",
        "bn": "বাস",
-       "bn_pron": "বুস · পুং (der)",
+       "bn_pron": "বুস",
        "tokens": [
         {
          "t": "Bus",
@@ -6741,7 +6741,7 @@
        "level": "A0",
        "target": "Restaurant",
        "bn": "রেস্তোরাঁ",
-       "bn_pron": "রেস্টোরান্ট · ক্লীব (das)",
+       "bn_pron": "রেস্টোরান্ট",
        "tokens": [
         {
          "t": "Restaurant",
@@ -6777,7 +6777,7 @@
        "level": "A0",
        "target": "Gift",
        "bn": "বিষ (উপহার নয়!)",
-       "bn_pron": "গিফ্ট · ক্লীব (das)",
+       "bn_pron": "গিফ্ট",
        "tokens": [
         {
          "t": "Gift",
@@ -6841,7 +6841,7 @@
        "level": "A0",
        "target": "Chef",
        "bn": "বস / প্রধান কর্মকর্তা (বাবুর্চি নয়!)",
-       "bn_pron": "শেফ · পুং (der)",
+       "bn_pron": "শেফ",
        "tokens": [
         {
          "t": "Chef",
@@ -6863,7 +6863,7 @@
        "level": "A0",
        "target": "Fabrik",
        "bn": "কারখানা (কাপড় নয়!)",
-       "bn_pron": "ফাব্রিক · স্ত্রী (die)",
+       "bn_pron": "ফাব্রিক",
        "tokens": [
         {
          "t": "Fabrik",
@@ -6927,7 +6927,7 @@
        "level": "A0",
        "target": "Rente",
        "bn": "পেনশন (ভাড়া নয়!)",
-       "bn_pron": "রেন্টে · স্ত্রী (die)",
+       "bn_pron": "রেন্টে",
        "tokens": [
         {
          "t": "Rente",
@@ -7594,7 +7594,7 @@
        "level": "A0",
        "target": "Entschuldigung",
        "bn": "মাফ করবেন / এক্সকিউজ মি",
-       "bn_pron": "এন্টশুলডিগুং · স্ত্রী (die)",
+       "bn_pron": "এন্টশুলডিগুং",
        "tokens": [
         {
          "t": "Entschuldigung",
@@ -9195,7 +9195,7 @@
        "level": "A0",
        "target": "Lektion",
        "bn": "লেসন / পাঠ",
-       "bn_pron": "লেকৎসিওন · স্ত্রী (die)",
+       "bn_pron": "লেকৎসিওন",
        "tokens": [
         {
          "t": "Lektion",
@@ -11462,7 +11462,7 @@
        "level": "A1",
        "target": "der Vater",
        "bn": "বাবা",
-       "bn_pron": "ডের ফাটার · পুং (der)",
+       "bn_pron": "ডের ফাটার",
        "tokens": [
         {
          "t": "der",
@@ -11488,7 +11488,7 @@
        "level": "A1",
        "target": "die Mutter",
        "bn": "মা",
-       "bn_pron": "ডী মুটার · স্ত্রী (die)",
+       "bn_pron": "ডী মুটার",
        "tokens": [
         {
          "t": "die",
@@ -11514,7 +11514,7 @@
        "level": "A1",
        "target": "das Kind",
        "bn": "সন্তান / বাচ্চা",
-       "bn_pron": "ডাস কিন্ট · ক্লীব (das)",
+       "bn_pron": "ডাস কিন্ট",
        "tokens": [
         {
          "t": "das",
@@ -11565,7 +11565,7 @@
        "level": "A1",
        "target": "der Sohn",
        "bn": "ছেলে / পুত্র",
-       "bn_pron": "ডের জোন · পুং (der)",
+       "bn_pron": "ডের জোন",
        "tokens": [
         {
          "t": "der",
@@ -11591,7 +11591,7 @@
        "level": "A1",
        "target": "die Tochter",
        "bn": "মেয়ে / কন্যা",
-       "bn_pron": "ডী টখটার · স্ত্রী (die)",
+       "bn_pron": "ডী টখটার",
        "tokens": [
         {
          "t": "die",
@@ -11642,7 +11642,7 @@
        "level": "A1",
        "target": "die Familie",
        "bn": "পরিবার",
-       "bn_pron": "ডী ফামিলিয়ে · স্ত্রী (die)",
+       "bn_pron": "ডী ফামিলিয়ে",
        "tokens": [
         {
          "t": "die",
@@ -11682,7 +11682,7 @@
        "level": "A1",
        "target": "der Bruder",
        "bn": "ভাই",
-       "bn_pron": "ডের ব্রুডার · পুং (der)",
+       "bn_pron": "ডের ব্রুডার",
        "tokens": [
         {
          "t": "der",
@@ -11708,7 +11708,7 @@
        "level": "A1",
        "target": "die Schwester",
        "bn": "বোন",
-       "bn_pron": "ডী শ্ভেস্টার · স্ত্রী (die)",
+       "bn_pron": "ডী শ্ভেস্টার",
        "tokens": [
         {
          "t": "die",
@@ -11759,7 +11759,7 @@
        "level": "A1",
        "target": "der Großvater",
        "bn": "দাদু / নানা",
-       "bn_pron": "ডের গ্রোসফাটার · পুং (der)",
+       "bn_pron": "ডের গ্রোসফাটার",
        "tokens": [
         {
          "t": "der",
@@ -11785,7 +11785,7 @@
        "level": "A1",
        "target": "die Großmutter",
        "bn": "দাদি / নানি",
-       "bn_pron": "ডী গ্রোসমুটার · স্ত্রী (die)",
+       "bn_pron": "ডী গ্রোসমুটার",
        "tokens": [
         {
          "t": "die",
@@ -11811,7 +11811,7 @@
        "level": "A1",
        "target": "der Onkel",
        "bn": "চাচা / মামা / খালু",
-       "bn_pron": "ডের অঙ্কেল · পুং (der)",
+       "bn_pron": "ডের অঙ্কেল",
        "tokens": [
         {
          "t": "der",
@@ -11837,7 +11837,7 @@
        "level": "A1",
        "target": "die Tante",
        "bn": "ফুফু / খালা / চাচি",
-       "bn_pron": "ডী টান্টে · স্ত্রী (die)",
+       "bn_pron": "ডী টান্টে",
        "tokens": [
         {
          "t": "die",
@@ -11863,7 +11863,7 @@
        "level": "A1",
        "target": "der Cousin",
        "bn": "মামাতো/চাচাতো ভাই",
-       "bn_pron": "ডের কুজেং · পুং (der)",
+       "bn_pron": "ডের কুজেং",
        "tokens": [
         {
          "t": "der",
@@ -12472,7 +12472,7 @@
        "level": "A1",
        "target": "der Lehrer",
        "bn": "শিক্ষক",
-       "bn_pron": "ডের লেরার · পুং (der)",
+       "bn_pron": "ডের লেরার",
        "tokens": [
         {
          "t": "der",
@@ -12498,7 +12498,7 @@
        "level": "A1",
        "target": "die Lehrerin",
        "bn": "শিক্ষিকা",
-       "bn_pron": "ডী লেরারিন · স্ত্রী (die)",
+       "bn_pron": "ডী লেরারিন",
        "tokens": [
         {
          "t": "die",
@@ -12524,7 +12524,7 @@
        "level": "A1",
        "target": "der Arzt",
        "bn": "ডাক্তার (পুরুষ)",
-       "bn_pron": "ডের আর্ৎস্ট · পুং (der)",
+       "bn_pron": "ডের আর্ৎস্ট",
        "tokens": [
         {
          "t": "der",
@@ -12550,7 +12550,7 @@
        "level": "A1",
        "target": "die Ärztin",
        "bn": "ডাক্তার (নারী)",
-       "bn_pron": "ডী এয়ার্ৎসটিন · স্ত্রী (die)",
+       "bn_pron": "ডী এয়ার্ৎসটিন",
        "tokens": [
         {
          "t": "die",
@@ -12576,7 +12576,7 @@
        "level": "A1",
        "target": "der Ingenieur",
        "bn": "প্রকৌশলী (ইঞ্জিনিয়ার)",
-       "bn_pron": "ডের ইনশেনিয়োয়ার · পুং (der)",
+       "bn_pron": "ডের ইনশেনিয়োয়ার",
        "tokens": [
         {
          "t": "der",
@@ -12602,7 +12602,7 @@
        "level": "A1",
        "target": "die Ingenieurin",
        "bn": "প্রকৌশলী (নারী)",
-       "bn_pron": "ডী ইনশেনিয়োরিন · স্ত্রী (die)",
+       "bn_pron": "ডী ইনশেনিয়োরিন",
        "tokens": [
         {
          "t": "die",
@@ -12628,7 +12628,7 @@
        "level": "A1",
        "target": "der Student",
        "bn": "বিশ্ববিদ্যালয়ের ছাত্র",
-       "bn_pron": "ডের শ্টুডেন্ট · পুং (der)",
+       "bn_pron": "ডের শ্টুডেন্ট",
        "tokens": [
         {
          "t": "der",
@@ -12654,7 +12654,7 @@
        "level": "A1",
        "target": "die Studentin",
        "bn": "বিশ্ববিদ্যালয়ের ছাত্রী",
-       "bn_pron": "ডী শ্টুডেন্টিন · স্ত্রী (die)",
+       "bn_pron": "ডী শ্টুডেন্টিন",
        "tokens": [
         {
          "t": "die",
@@ -13585,7 +13585,7 @@
        "level": "A1",
        "target": "der Apfel",
        "bn": "আপেল",
-       "bn_pron": "ডের আপফেল · পুং (der)",
+       "bn_pron": "ডের আপফেল",
        "tokens": [
         {
          "t": "der",
@@ -13611,7 +13611,7 @@
        "level": "A1",
        "target": "das Brot",
        "bn": "রুটি",
-       "bn_pron": "ডাস ব্রোট · ক্লীব (das)",
+       "bn_pron": "ডাস ব্রোট",
        "tokens": [
         {
          "t": "das",
@@ -13637,7 +13637,7 @@
        "level": "A1",
        "target": "die Milch",
        "bn": "দুধ",
-       "bn_pron": "ডী মিলখ · স্ত্রী (die)",
+       "bn_pron": "ডী মিলখ",
        "tokens": [
         {
          "t": "die",
@@ -13663,7 +13663,7 @@
        "level": "A1",
        "target": "der Käse",
        "bn": "পনির / চিজ",
-       "bn_pron": "ডের কেজে · পুং (der)",
+       "bn_pron": "ডের কেজে",
        "tokens": [
         {
          "t": "der",
@@ -13689,7 +13689,7 @@
        "level": "A1",
        "target": "das Ei",
        "bn": "ডিম",
-       "bn_pron": "ডাস আই · ক্লীব (das)",
+       "bn_pron": "ডাস আই",
        "tokens": [
         {
          "t": "das",
@@ -13715,7 +13715,7 @@
        "level": "A1",
        "target": "das Fleisch",
        "bn": "মাংস",
-       "bn_pron": "ডাস ফ্লাইশ · ক্লীব (das)",
+       "bn_pron": "ডাস ফ্লাইশ",
        "tokens": [
         {
          "t": "das",
@@ -13741,7 +13741,7 @@
        "level": "A1",
        "target": "der Reis",
        "bn": "চাল / ভাত",
-       "bn_pron": "ডের রাইস · পুং (der)",
+       "bn_pron": "ডের রাইস",
        "tokens": [
         {
          "t": "der",
@@ -13767,7 +13767,7 @@
        "level": "A1",
        "target": "das Gemüse",
        "bn": "শাকসবজি",
-       "bn_pron": "ডাস গেম্যূজে · ক্লীব (das)",
+       "bn_pron": "ডাস গেম্যূজে",
        "tokens": [
         {
          "t": "das",
@@ -16391,7 +16391,7 @@
        "level": "A1",
        "target": "der Montag",
        "bn": "সোমবার",
-       "bn_pron": "ডের মোনতাক · পুং (der)",
+       "bn_pron": "ডের মোনতাক",
        "tokens": [
         {
          "t": "der",
@@ -16417,7 +16417,7 @@
        "level": "A1",
        "target": "der Dienstag",
        "bn": "মঙ্গলবার",
-       "bn_pron": "ডের ডীনসতাক · পুং (der)",
+       "bn_pron": "ডের ডীনসতাক",
        "tokens": [
         {
          "t": "der",
@@ -16443,7 +16443,7 @@
        "level": "A1",
        "target": "der Mittwoch",
        "bn": "বুধবার",
-       "bn_pron": "ডের মিটভখ · পুং (der)",
+       "bn_pron": "ডের মিটভখ",
        "tokens": [
         {
          "t": "der",
@@ -16469,7 +16469,7 @@
        "level": "A1",
        "target": "der Donnerstag",
        "bn": "বৃহস্পতিবার",
-       "bn_pron": "ডের ডোনারসতাক · পুং (der)",
+       "bn_pron": "ডের ডোনারসতাক",
        "tokens": [
         {
          "t": "der",
@@ -16495,7 +16495,7 @@
        "level": "A1",
        "target": "der Freitag",
        "bn": "শুক্রবার",
-       "bn_pron": "ডের ফ্রাইতাক · পুং (der)",
+       "bn_pron": "ডের ফ্রাইতাক",
        "tokens": [
         {
          "t": "der",
@@ -16521,7 +16521,7 @@
        "level": "A1",
        "target": "der Samstag",
        "bn": "শনিবার",
-       "bn_pron": "ডের জামসতাক · পুং (der)",
+       "bn_pron": "ডের জামসতাক",
        "tokens": [
         {
          "t": "der",
@@ -16547,7 +16547,7 @@
        "level": "A1",
        "target": "der Sonntag",
        "bn": "রবিবার",
-       "bn_pron": "ডের জোনতাক · পুং (der)",
+       "bn_pron": "ডের জোনতাক",
        "tokens": [
         {
          "t": "der",
@@ -19470,7 +19470,7 @@
        "level": "A1",
        "target": "der Bahnhof",
        "bn": "রেল স্টেশন",
-       "bn_pron": "ডের বানহোফ · পুং (der)",
+       "bn_pron": "ডের বানহোফ",
        "tokens": [
         {
          "t": "der",
@@ -19496,7 +19496,7 @@
        "level": "A1",
        "target": "die Post",
        "bn": "ডাকঘর / পোস্ট অফিস",
-       "bn_pron": "ডী পোস্ট · স্ত্রী (die)",
+       "bn_pron": "ডী পোস্ট",
        "tokens": [
         {
          "t": "die",
@@ -19522,7 +19522,7 @@
        "level": "A1",
        "target": "die Bank",
        "bn": "ব্যাংক",
-       "bn_pron": "ডী বাঙ্ক · স্ত্রী (die)",
+       "bn_pron": "ডী বাঙ্ক",
        "tokens": [
         {
          "t": "die",
@@ -19548,7 +19548,7 @@
        "level": "A1",
        "target": "die Apotheke",
        "bn": "ওষুধের দোকান / ফার্মেসি",
-       "bn_pron": "ডী আপোথেকে · স্ত্রী (die)",
+       "bn_pron": "ডী আপোথেকে",
        "tokens": [
         {
          "t": "die",
@@ -19574,7 +19574,7 @@
        "level": "A1",
        "target": "das Hotel",
        "bn": "হোটেল",
-       "bn_pron": "ডাস হোটেল · ক্লীব (das)",
+       "bn_pron": "ডাস হোটেল",
        "tokens": [
         {
          "t": "das",
@@ -19600,7 +19600,7 @@
        "level": "A1",
        "target": "das Museum",
        "bn": "জাদুঘর",
-       "bn_pron": "ডাস মুজেউম · ক্লীব (das)",
+       "bn_pron": "ডাস মুজেউম",
        "tokens": [
         {
          "t": "das",
@@ -19626,7 +19626,7 @@
        "level": "A1",
        "target": "der Park",
        "bn": "পার্ক / উদ্যান",
-       "bn_pron": "ডের পার্ক · পুং (der)",
+       "bn_pron": "ডের পার্ক",
        "tokens": [
         {
          "t": "der",
@@ -19652,7 +19652,7 @@
        "level": "A1",
        "target": "die Haltestelle",
        "bn": "বাস বা ট্রাম স্টপ",
-       "bn_pron": "ডী হাল্টেশ্টেলে · স্ত্রী (die)",
+       "bn_pron": "ডী হাল্টেশ্টেলে",
        "tokens": [
         {
          "t": "die",
@@ -20655,7 +20655,7 @@
        "level": "A1",
        "target": "das Wohnzimmer",
        "bn": "বসার ঘর / লিভিং রুম",
-       "bn_pron": "ডাস ভোনৎসিমার · ক্লীব (das)",
+       "bn_pron": "ডাস ভোনৎসিমার",
        "tokens": [
         {
          "t": "das",
@@ -20681,7 +20681,7 @@
        "level": "A1",
        "target": "das Schlafzimmer",
        "bn": "শোবার ঘর / বেডরুম",
-       "bn_pron": "ডাস শ্লাফৎসিমার · ক্লীব (das)",
+       "bn_pron": "ডাস শ্লাফৎসিমার",
        "tokens": [
         {
          "t": "das",
@@ -20707,7 +20707,7 @@
        "level": "A1",
        "target": "die Küche",
        "bn": "রান্নাঘর",
-       "bn_pron": "ডী ক্যুখে · স্ত্রী (die)",
+       "bn_pron": "ডী ক্যুখে",
        "tokens": [
         {
          "t": "die",
@@ -20733,7 +20733,7 @@
        "level": "A1",
        "target": "das Bad",
        "bn": "গোসলখানা / বাথরুম",
-       "bn_pron": "ডাস বাট · ক্লীব (das)",
+       "bn_pron": "ডাস বাট",
        "tokens": [
         {
          "t": "das",
@@ -20759,7 +20759,7 @@
        "level": "A1",
        "target": "der Balkon",
        "bn": "বারান্দা",
-       "bn_pron": "ডের ব্যালকং · পুং (der)",
+       "bn_pron": "ডের ব্যালকং",
        "tokens": [
         {
          "t": "der",
@@ -20785,7 +20785,7 @@
        "level": "A1",
        "target": "der Flur",
        "bn": "করিডোর / প্রবেশ পথ",
-       "bn_pron": "ডের ফ্লুর · পুং (der)",
+       "bn_pron": "ডের ফ্লুর",
        "tokens": [
         {
          "t": "der",
@@ -20811,7 +20811,7 @@
        "level": "A1",
        "target": "der Garten",
        "bn": "বাগান",
-       "bn_pron": "ডের গার্টেন · পুং (der)",
+       "bn_pron": "ডের গার্টেন",
        "tokens": [
         {
          "t": "der",
@@ -20837,7 +20837,7 @@
        "level": "A1",
        "target": "die Wohnung",
        "bn": "অ্যাপার্টমেন্ট / ফ্ল্যাট",
-       "bn_pron": "ডী ভোনুং · স্ত্রী (die)",
+       "bn_pron": "ডী ভোনুং",
        "tokens": [
         {
          "t": "die",
@@ -20877,7 +20877,7 @@
        "level": "A1",
        "target": "der Tisch",
        "bn": "টেবিল",
-       "bn_pron": "ডের টিশ · পুং (der)",
+       "bn_pron": "ডের টিশ",
        "tokens": [
         {
          "t": "der",
@@ -20903,7 +20903,7 @@
        "level": "A1",
        "target": "der Stuhl",
        "bn": "চেয়ার",
-       "bn_pron": "ডের শ্টুল · পুং (der)",
+       "bn_pron": "ডের শ্টুল",
        "tokens": [
         {
          "t": "der",
@@ -20929,7 +20929,7 @@
        "level": "A1",
        "target": "das Bett",
        "bn": "বিছানা / খাট",
-       "bn_pron": "ডাস বেট · ক্লীব (das)",
+       "bn_pron": "ডাস বেট",
        "tokens": [
         {
          "t": "das",
@@ -20955,7 +20955,7 @@
        "level": "A1",
        "target": "der Schrank",
        "bn": "আলমারি / ওয়ারড্রোব",
-       "bn_pron": "ডের শ্রাঙ্ক · পুং (der)",
+       "bn_pron": "ডের শ্রাঙ্ক",
        "tokens": [
         {
          "t": "der",
@@ -20981,7 +20981,7 @@
        "level": "A1",
        "target": "das Sofa",
        "bn": "সোফা",
-       "bn_pron": "ডাস জোফা · ক্লীব (das)",
+       "bn_pron": "ডাস জোফা",
        "tokens": [
         {
          "t": "das",
@@ -21007,7 +21007,7 @@
        "level": "A1",
        "target": "die Lampe",
        "bn": "বাতি / ল্যাম্প",
-       "bn_pron": "ডী লাম্পে · স্ত্রী (die)",
+       "bn_pron": "ডী লাম্পে",
        "tokens": [
         {
          "t": "die",
@@ -21033,7 +21033,7 @@
        "level": "A1",
        "target": "der Kühlschrank",
        "bn": "ফ্রিজ / রেফ্রিজারেটর",
-       "bn_pron": "ডের ক্যুলশ্রাঙ্ক · পুং (der)",
+       "bn_pron": "ডের ক্যুলশ্রাঙ্ক",
        "tokens": [
         {
          "t": "der",
@@ -21059,7 +21059,7 @@
        "level": "A1",
        "target": "der Herd",
        "bn": "চুলা",
-       "bn_pron": "ডের হেয়ার্ট · পুং (der)",
+       "bn_pron": "ডের হেয়ার্ট",
        "tokens": [
         {
          "t": "der",
@@ -21772,7 +21772,7 @@
        "level": "A1",
        "target": "das Hemd",
        "bn": "শার্ট",
-       "bn_pron": "ডাস হেম্ট · ক্লীব (das)",
+       "bn_pron": "ডাস হেম্ট",
        "tokens": [
         {
          "t": "das",
@@ -21798,7 +21798,7 @@
        "level": "A1",
        "target": "die Hose",
        "bn": "প্যান্ট",
-       "bn_pron": "ডী হোজে · স্ত্রী (die)",
+       "bn_pron": "ডী হোজে",
        "tokens": [
         {
          "t": "die",
@@ -21824,7 +21824,7 @@
        "level": "A1",
        "target": "das Kleid",
        "bn": "মেয়েদের জামা / ড্রেস",
-       "bn_pron": "ডাস ক্লাইট · ক্লীব (das)",
+       "bn_pron": "ডাস ক্লাইট",
        "tokens": [
         {
          "t": "das",
@@ -21850,7 +21850,7 @@
        "level": "A1",
        "target": "die Jacke",
        "bn": "জ্যাকেট",
-       "bn_pron": "ডী ইয়াক্কে · স্ত্রী (die)",
+       "bn_pron": "ডী ইয়াক্কে",
        "tokens": [
         {
          "t": "die",
@@ -21876,7 +21876,7 @@
        "level": "A1",
        "target": "der Mantel",
        "bn": "কোট / ওভারকোট",
-       "bn_pron": "ডের মান্টেল · পুং (der)",
+       "bn_pron": "ডের মান্টেল",
        "tokens": [
         {
          "t": "der",
@@ -21927,7 +21927,7 @@
        "level": "A1",
        "target": "der Pullover",
        "bn": "সোয়েটার / পুলওভার",
-       "bn_pron": "ডের পুলোভার · পুং (der)",
+       "bn_pron": "ডের পুলোভার",
        "tokens": [
         {
          "t": "der",
@@ -21953,7 +21953,7 @@
        "level": "A1",
        "target": "das T-Shirt",
        "bn": "টি-শার্ট",
-       "bn_pron": "ডাস টী-শেয়ার্ট · ক্লীব (das)",
+       "bn_pron": "ডাস টী-শেয়ার্ট",
        "tokens": [
         {
          "t": "das",
@@ -22796,7 +22796,7 @@
        "level": "A1",
        "target": "der Kopf",
        "bn": "মাথা",
-       "bn_pron": "ডের কপফ · পুং (der)",
+       "bn_pron": "ডের কপফ",
        "tokens": [
         {
          "t": "der",
@@ -22822,7 +22822,7 @@
        "level": "A1",
        "target": "der Bauch",
        "bn": "পেট",
-       "bn_pron": "ডের বাউখ · পুং (der)",
+       "bn_pron": "ডের বাউখ",
        "tokens": [
         {
          "t": "der",
@@ -22848,7 +22848,7 @@
        "level": "A1",
        "target": "der Rücken",
        "bn": "পিঠ",
-       "bn_pron": "ডের র্যুকেন · পুং (der)",
+       "bn_pron": "ডের র্যুকেন",
        "tokens": [
         {
          "t": "der",
@@ -22874,7 +22874,7 @@
        "level": "A1",
        "target": "der Hals",
        "bn": "গলা",
-       "bn_pron": "ডের হালস · পুং (der)",
+       "bn_pron": "ডের হালস",
        "tokens": [
         {
          "t": "der",
@@ -22900,7 +22900,7 @@
        "level": "A1",
        "target": "das Auge",
        "bn": "চোখ",
-       "bn_pron": "ডাস আউগে · ক্লীব (das)",
+       "bn_pron": "ডাস আউগে",
        "tokens": [
         {
          "t": "das",
@@ -22926,7 +22926,7 @@
        "level": "A1",
        "target": "das Ohr",
        "bn": "কান",
-       "bn_pron": "ডাস ওর · ক্লীব (das)",
+       "bn_pron": "ডাস ওর",
        "tokens": [
         {
          "t": "das",
@@ -22952,7 +22952,7 @@
        "level": "A1",
        "target": "die Hand",
        "bn": "হাত",
-       "bn_pron": "ডী হান্ট · স্ত্রী (die)",
+       "bn_pron": "ডী হান্ট",
        "tokens": [
         {
          "t": "die",
@@ -22978,7 +22978,7 @@
        "level": "A1",
        "target": "das Bein",
        "bn": "পা",
-       "bn_pron": "ডাস বাইন · ক্লীব (das)",
+       "bn_pron": "ডাস বাইন",
        "tokens": [
         {
          "t": "das",
