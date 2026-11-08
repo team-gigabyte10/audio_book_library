@@ -468,8 +468,8 @@ fun HomeScreen(
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             HomeShowcaseCard(
-                                title = "জার্মান স্পোকেন কোর্স (শূন্য থেকে A1)",
-                                subtitle = "বাংলা থেকে সহজ নিয়মে জার্মান উচ্চারণ, der/die/das ও দৈনন্দিন কথা বলা",
+                                title = "জার্মান স্পোকেন কোর্স (A1 + A2)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে জার্মান উচ্চারণ, der/die/das, ডাটিক ও দৈনন্দিন কথা বলা",
                                 badgeText = "🇩🇪 জার্মান ভাষা কোর্স",
                                 badgeColor = Color(0xFF004D40),
                                 priceText = "১০০ টাকা",
@@ -477,7 +477,7 @@ fun HomeScreen(
                                 imageUrl = null,
                                 fallbackGradientColors = listOf(Color(0xFF00695C), Color(0xFF004D40)),
                                 accentColor = Color(0xFF004D40),
-                                statsText = "🎧 ১০৫টি অডিও লেসন · শূন্য থেকে A1",
+                                statsText = "🎧 ১৬৫টি অডিও লেসন · A1 ও A2 সম্পূর্ণ কোর্স",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnGerman,
                                 modifier = Modifier.padding(horizontal = 16.dp)

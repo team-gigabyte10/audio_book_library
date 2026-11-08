@@ -127,6 +127,11 @@ fun LearnHomeScreen(
     val deStandardLessonCount = deStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
     val deStandardSentenceCount = deStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 1200 }
 
+    val deA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-a2-") && it.part.isEnabled } }
+    val deA2PartCount = deA2Parts.size.coerceAtLeast(1)
+    val deA2LessonCount = deA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
+    val deA2SentenceCount = deA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -419,6 +424,21 @@ fun LearnHomeScreen(
                                 lessonCount = deStandardLessonCount,
                                 sentenceCount = deStandardSentenceCount,
                                 onClick = { onOpenCourse("de_standard") }
+                            )
+                        }
+
+                        // German A2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 স্ট্যান্ডার্ড কোর্স: লেভেল A2",
+                                title = "জার্মান A2: ডাটিক, দিকনির্দেশনা ও জটিল বাক্য",
+                                description = "ডাটিক কেস, উভমুখী অব্যয় (Wechselpräpositionen), ডাক্তারের পরামর্শ, কারণ ও শর্ত (weil, dass, wenn) এবং গোয়েথে A2 প্রস্তুতি।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = deA2PartCount,
+                                lessonCount = deA2LessonCount,
+                                sentenceCount = deA2SentenceCount,
+                                customPills = listOf("🇩🇪 ১৫টি পার্ট", "🗣️ ডাটিক ও কারণ (weil)", "🎯 গোয়েথে A2 স্পিকিং"),
+                                onClick = { onOpenCourse("de_a2") }
                             )
                         }
                     } else if (!isJapanese) {

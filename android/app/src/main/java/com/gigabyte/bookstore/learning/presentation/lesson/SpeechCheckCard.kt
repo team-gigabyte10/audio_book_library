@@ -58,10 +58,10 @@ internal const val DE_STANDARD_PREFIX = "de-std-"
 
 /** Recognizer language for the speech check, or null when the item's course has no check. */
 internal fun speechCheckLanguage(itemId: String): String? = when {
-    itemId.startsWith(JP_STANDARD_PREFIX) -> "ja-JP"
-    itemId.startsWith(UR_STANDARD_PREFIX) -> "ur-PK"
-    itemId.startsWith(HI_STANDARD_PREFIX) -> "hi-IN"
-    itemId.startsWith(DE_STANDARD_PREFIX) -> "de-DE"
+    itemId.startsWith("jp-") -> "ja-JP"
+    itemId.startsWith("ur-") -> "ur-PK"
+    itemId.startsWith("hi-") -> "hi-IN"
+    itemId.startsWith("de-") -> "de-DE"
     else -> null
 }
 
