@@ -53,8 +53,11 @@ class ContentImporter(
             dao.getPart("hi-a2-01") == null ||
             dao.getPart("hi-b1-01") == null
         )
+        val needsJapaneseMigration = assetNames == ASSET_NAMES && (
+            dao.getPart("jp-n4-01") == null
+        )
         when {
-            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration -> {
+            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration -> {
                 import(onProgress)
                 true
             }
@@ -153,6 +156,7 @@ class ContentImporter(
             "spoken_english_past_tense.json",
             "spoken_english_future_tense.json",
             "spoken_japanese_standard_n5.json",
+            "spoken_japanese_standard_n4.json",
             "spoken_urdu_standard_a1.json",
             "spoken_urdu_standard_a2.json",
             "spoken_urdu_standard_b1.json",

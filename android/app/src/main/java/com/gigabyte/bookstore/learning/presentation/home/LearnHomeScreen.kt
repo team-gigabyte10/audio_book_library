@@ -162,6 +162,11 @@ fun LearnHomeScreen(
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
     val jpStandardSentenceCount = jpStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 900 }
 
+    val jpN4Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-n4-") && it.part.isEnabled } }
+    val jpN4PartCount = jpN4Parts.size.coerceAtLeast(1)
+    val jpN4LessonCount = jpN4Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
+    val jpN4SentenceCount = jpN4Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
+
     val jpFoundationsParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-foundations-") && it.part.isEnabled } }
     val jpFoundationsPartCount = jpFoundationsParts.size.coerceAtLeast(1)
     val jpFoundationsLessonCount = jpFoundationsParts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
@@ -685,6 +690,20 @@ fun LearnHomeScreen(
                                 lessonCount = jpStandardLessonCount,
                                 sentenceCount = jpStandardSentenceCount,
                                 onClick = { onOpenCourse("jp_standard") }
+                            )
+                        }
+
+                        // Standard curriculum (Japanese-Spoken-Curriculum-Plan.md, phase 2): Elementary N4
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 স্ট্যান্ডার্ড কোর্স: লেভেল JLPT N4",
+                                title = "সাবলীল জাপানিজ (Plain Form, শর্ত, কর্মবাচ্য, কজেটিভ ও কেইগো)",
+                                description = "সাধারণ কথ্য রূপ, চার প্রকার শর্তসাপেক্ষ বাক্য, দেওয়া-নেওয়া, অনুমান ও সম্ভাবনা, কর্মবাচ্য, প্রযোজক ক্রিয়া ও বিনম্র ভাষা কেইগো।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = jpN4PartCount,
+                                lessonCount = jpN4LessonCount,
+                                sentenceCount = jpN4SentenceCount,
+                                onClick = { onOpenCourse("jp_n4") }
                             )
                         }
 
