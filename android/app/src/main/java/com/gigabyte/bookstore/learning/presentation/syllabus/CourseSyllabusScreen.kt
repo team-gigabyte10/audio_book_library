@@ -169,6 +169,7 @@ fun CourseSyllabusScreen(
     val isUrStandard = courseType.equals("ur_standard", ignoreCase = true)
     val isUrA2 = courseType.equals("ur_a2", ignoreCase = true)
     val isUrB1 = courseType.equals("ur_b1", ignoreCase = true)
+    val isUrB2 = courseType.equals("ur_b2", ignoreCase = true)
     val isHiStandard = courseType.equals("hi_standard", ignoreCase = true)
     val isHiA2 = courseType.equals("hi_a2", ignoreCase = true)
     val isDeStandard = courseType.equals("de_standard", ignoreCase = true)
@@ -187,6 +188,7 @@ fun CourseSyllabusScreen(
         isUrStandard -> "উর্দু স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isUrA2 -> "উর্দু স্পোকেন কোর্স: লেভেল A2"
         isUrB1 -> "উর্দু স্পোকেন কোর্স: লেভেল B1"
+        isUrB2 -> "উর্দু স্পোকেন কোর্স: লেভেল B2"
         isHiStandard -> "হিন্দি স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isHiA2 -> "হিন্দি স্পোকেন কোর্স: লেভেল A2"
         isDeStandard -> "জার্মান স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
@@ -206,6 +208,7 @@ fun CourseSyllabusScreen(
         isUrStandard -> "উর্দু হরফ, নতুন ধ্বনি ও A1 স্পিকিং টেস্ট"
         isUrA2 -> "অতীত কাল, 'نے' নিয়ম, তুলনা ও কর্মক্ষেত্র স্পোকেন"
         isUrB1 -> "শর্তসাপেক্ষ বাক্য, মতামত প্রকাশ, পরোক্ষ উক্তি ও বাস্তব যোগাযোগ"
+        isUrB2 -> "মার্জিত শিষ্টাচার, اضافত, চাকরির ইন্টারভিউ, মিডিয়া ও বিতর্ক"
         isHiStandard -> "দেবনগরী বর্ণমালা, উচ্চারণ ও A1 স্পিকিং টেস্ট"
         isHiA2 -> "অতীত কাল, 'ने' নিয়ম, ডাক্তার-হাসপাতাল ও কর্মক্ষেত্র স্পোকেন"
         isDeStandard -> "জার্মান বর্ণমালা, উমলাউট ও A1 স্পিকিং টেস্ট"
@@ -227,6 +230,7 @@ fun CourseSyllabusScreen(
             isUrStandard -> syllabus.filter { it.part.id.startsWith("ur-std-") }
             isUrA2 -> syllabus.filter { it.part.id.startsWith("ur-a2-") }
             isUrB1 -> syllabus.filter { it.part.id.startsWith("ur-b1-") }
+            isUrB2 -> syllabus.filter { it.part.id.startsWith("ur-b2-") }
             isHiStandard -> syllabus.filter { it.part.id.startsWith("hi-std-") }
             isHiA2 -> syllabus.filter { it.part.id.startsWith("hi-a2-") }
             isDeStandard -> syllabus.filter { it.part.id.startsWith("de-std-") }

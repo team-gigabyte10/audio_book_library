@@ -40,6 +40,7 @@ class ContentImporter(
         val needsUrduMigration = assetNames == ASSET_NAMES && (
             dao.getPart("ur-a2-01") == null ||
             dao.getPart("ur-b1-01") == null ||
+            dao.getPart("ur-b2-01") == null ||
             dao.getLesson("ur-a2-01-l04") == null ||
             dao.getLesson("ur-b1-01-l04") == null
         )
@@ -154,6 +155,7 @@ class ContentImporter(
             "spoken_urdu_standard_a1.json",
             "spoken_urdu_standard_a2.json",
             "spoken_urdu_standard_b1.json",
+            "spoken_urdu_standard_b2.json",
             "spoken_hindi_standard_a1.json",
             "spoken_hindi_standard_a2.json",
             "spoken_german_standard_a1.json",

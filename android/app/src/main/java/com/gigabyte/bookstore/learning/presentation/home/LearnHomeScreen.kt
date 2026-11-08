@@ -117,6 +117,11 @@ fun LearnHomeScreen(
     val urB1LessonCount = urB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val urB1SentenceCount = urB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val urB2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-b2-") && it.part.isEnabled } }
+    val urB2PartCount = urB2Parts.size.coerceAtLeast(1)
+    val urB2LessonCount = urB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val urB2SentenceCount = urB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val hiStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-std-") && it.part.isEnabled } }
     val hiStandardPartCount = hiStandardParts.size.coerceAtLeast(1)
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -325,6 +330,21 @@ fun LearnHomeScreen(
                                 sentenceCount = urB1SentenceCount,
                                 customPills = listOf("🇵🇰 ১৬টি পার্ট", "🧠 শর্ত ও মতামত", "💬 সাবলীল ইন্টারমিডিয়েট"),
                                 onClick = { onOpenCourse("ur_b1") }
+                            )
+                        }
+
+                        // Urdu B2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 স্ট্যান্ডার্ড কোর্স: লেভেল B2",
+                                title = "উর্দু B2: মার্জিত শিষ্টাচার, اضافت ও পেশাদার উর্দু",
+                                description = "উচ্চাঙ্গের ফর্মাল রেজিস্টার, ইযাফত সমাস, চাকরির ইন্টারভিউ, অফিস মিটিং, উপস্থাপনা, দরকষাকষি, সংবাদ ও বিতর্ক।",
+                                accentColor = Color(0xFF004D40),
+                                partCount = urB2PartCount,
+                                lessonCount = urB2LessonCount,
+                                sentenceCount = urB2SentenceCount,
+                                customPills = listOf("🇵🇰 ১৬টি পার্ট", "🎩 মার্জিত উর্দু ও اضافت", "💼 ইন্টারভিউ ও বিতর্ক"),
+                                onClick = { onOpenCourse("ur_b2") }
                             )
                         }
                     } else if (isHindi) {
