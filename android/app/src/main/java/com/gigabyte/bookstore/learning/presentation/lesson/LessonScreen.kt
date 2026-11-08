@@ -295,7 +295,8 @@ fun LessonScreen(
                                 revealTarget = true,
                                 onSpeakToken = viewModel::speakToken,
                                 onSpeakTarget = { viewModel.speakText(currentItem.target) },
-                                onSpeakText = { viewModel.speakText(it) }
+                                onSpeakText = { viewModel.speakText(it) },
+                                isFemaleSpeaker = if (viewModel.isHindi) hiFemaleSpeaker else (urFemaleSpeaker ?: false)
                             )
                         } else {
                             // "নিজে বলুন" tab: 10x Speed Drill Timer Challenge with English sentence & Bangla meaning
@@ -409,15 +410,97 @@ private fun ItemCard(
     revealTarget: Boolean,
     onSpeakToken: (Token) -> Unit,
     onSpeakTarget: () -> Unit,
-    onSpeakText: (String) -> Unit = {}
+    onSpeakText: (String) -> Unit = {},
+    isFemaleSpeaker: Boolean = false
 ) {
     val speakingBn = (currentStep as? PlaybackStep.Speak)?.lang == SpeechLang.BN
     val speakingRate = (currentStep as? PlaybackStep.Speak)?.takeIf { it.lang == SpeechLang.EN || it.lang == SpeechLang.JA }?.rate
 
     Card(modifier = Modifier.fillMaxWidth(), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
         Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            item.speaker?.let {
-                Text(it, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary)
+            if (revealTarget && !item.exampleTarget.isNullOrBlank() && (isUrduItem(item.id) || item.id.startsWith("hi-"))) {
+                val isMainFemale = isFemaleSpeaker
+                val mainBadgeBg = if (isMainFemale) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
+                val mainBorderColor = if (isMainFemale) Color(0xFFF48FB1) else Color(0xFF90CAF9)
+                val mainTextColor = if (isMainFemale) Color(0xFFC2185B) else Color(0xFF1565C0)
+                val mainBadgeText = if (isMainFemale) "👩 নারী রূপ (Feminine)" else "👨 পুরুষ রূপ (Masculine)"
+
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = mainBadgeBg,
+                    border = BorderStroke(1.dp, mainBorderColor)
+                ) {
+                    Text(
+                        mainBadgeText,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = mainTextColor,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+            } else if (item.speaker?.startsWith("gender:") == true) {
+                val g = item.speaker.removePrefix("gender:")
+                val isDe = item.id.startsWith("de-")
+                val badgeBg = when (g) {
+                    "m" -> Color(0xFFE3F2FD)
+                    "f" -> Color(0xFFFCE4EC)
+                    "n" -> Color(0xFFE8F5E9)
+                    else -> MaterialTheme.colorScheme.surfaceVariant
+                }
+                val borderCol = when (g) {
+                    "m" -> Color(0xFF90CAF9)
+                    "f" -> Color(0xFFF48FB1)
+                    "n" -> Color(0xFFA5D6A7)
+                    else -> MaterialTheme.colorScheme.outline
+                }
+                val textCol = when (g) {
+                    "m" -> Color(0xFF1565C0)
+                    "f" -> Color(0xFFC2185B)
+                    "n" -> Color(0xFF2E7D32)
+                    else -> MaterialTheme.colorScheme.onSurface
+                }
+                val label = when (g) {
+                    "m" -> if (isDe) "🔵 der • পুংলিঙ্গ (Maskulin)" else "👨 পুংলিঙ্গ (Masculine)"
+                    "f" -> if (isDe) "🔴 die • স্ত্রীলিঙ্গ (Feminin)" else "👩 স্ত্রীলিঙ্গ (Feminine)"
+                    "n" -> "🟢 das • ক্লীবলিঙ্গ (Neutral)"
+                    else -> g
+                }
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = badgeBg,
+                    border = BorderStroke(1.dp, borderCol)
+                ) {
+                    Text(
+                        label,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = textCol,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+            } else if (item.id.startsWith("jp-") && (item.target == "俺" || item.target == "僕" || item.target == "あたし")) {
+                val isAtashi = item.target == "あたし"
+                val bg = if (isAtashi) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
+                val border = if (isAtashi) Color(0xFFF48FB1) else Color(0xFF90CAF9)
+                val col = if (isAtashi) Color(0xFFC2185B) else Color(0xFF1565C0)
+                val label = if (isAtashi) "👩 স্ত্রীবাচক কথ্য রূপ" else "👨 পুরুষবাচক কথ্য রূপ"
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = bg,
+                    border = BorderStroke(1.dp, border)
+                ) {
+                    Text(
+                        label,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = col,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+            } else {
+                item.speaker?.let {
+                    Text(it, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary)
+                }
             }
             if (revealTarget) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -551,19 +634,72 @@ private fun ItemCard(
             }
 
             if (revealTarget && !item.exampleTarget.isNullOrBlank()) {
-                if (isUrduItem(item.id)) {
-                    // Urdu: the example slot holds the other speaker-gender version (plan decision 11.5).
-                    Text("অন্য রূপ (পুরুষ / নারী বক্তা)", style = MaterialTheme.typography.labelMedium)
-                    Text(item.exampleTarget, style = urduTextStyle(20.sp))
-                } else if (item.id.startsWith("hi-")) {
-                    // Hindi: the example slot holds the other speaker-gender version (plan decision 11.3).
-                    Text("অন্য রূপ (পুরুষ / নারী বক্তা)", style = MaterialTheme.typography.labelMedium)
-                    Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
+                if (isUrduItem(item.id) || item.id.startsWith("hi-")) {
+                    val isAltFemale = !isFemaleSpeaker
+                    val cardBg = if (isAltFemale) Color(0xFFFCE4EC).copy(alpha = 0.5f) else Color(0xFFE3F2FD).copy(alpha = 0.5f)
+                    val borderColor = if (isAltFemale) Color(0xFFF48FB1) else Color(0xFF90CAF9)
+                    val headerColor = if (isAltFemale) Color(0xFFC2185B) else Color(0xFF1565C0)
+                    val headerText = if (isAltFemale) "👩 নারী রূপ (বক্তা বা শ্রোতা নারী হলে)" else "👨 পুরুষ রূপ (বক্তা বা শ্রোতা পুরুষ হলে)"
+
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = cardBg,
+                        border = BorderStroke(1.dp, borderColor),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Text(
+                                    headerText,
+                                    style = MaterialTheme.typography.labelMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = headerColor
+                                )
+                                IconButton(
+                                    onClick = { onSpeakText(item.exampleTarget) },
+                                    modifier = Modifier.size(32.dp)
+                                ) {
+                                    Icon(
+                                        Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "শুনুন",
+                                        tint = headerColor,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+                            }
+                            if (isUrduItem(item.id)) {
+                                Text(
+                                    item.exampleTarget,
+                                    style = urduTextStyle(22.sp, bold = true),
+                                    modifier = Modifier.clickable { onSpeakText(item.exampleTarget) }
+                                )
+                            } else {
+                                Text(
+                                    item.exampleTarget,
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    modifier = Modifier.clickable { onSpeakText(item.exampleTarget) }
+                                )
+                            }
+                            item.exampleBn?.let {
+                                Text(
+                                    it,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
                 } else {
                     Text("উদাহরণ", style = MaterialTheme.typography.labelMedium)
                     Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
+                    item.exampleBn?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
                 }
-                item.exampleBn?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
             }
         }
     }

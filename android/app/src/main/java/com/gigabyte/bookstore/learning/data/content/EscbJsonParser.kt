@@ -219,6 +219,7 @@ class EscbJsonParser {
         var exampleTarget: String? = null
         var exampleBn: String? = null
         var speaker: String? = null
+        var gender: String? = null
         var source: String? = null
         var status = "needs_review"
         val flags = mutableListOf<String>()
@@ -288,6 +289,7 @@ class EscbJsonParser {
                     }
                 }
                 "speaker" -> speaker = reader.stringOrNull()
+                "gender" -> gender = reader.stringOrNull()
                 "source" -> source = reader.stringOrNull()
                 "status" -> status = reader.stringOrNull() ?: status
                 "review_flags" -> {
@@ -327,7 +329,7 @@ class EscbJsonParser {
             wh = wh,
             exampleTarget = exampleTarget,
             exampleBn = exampleBn,
-            speaker = speaker,
+            speaker = speaker ?: gender?.let { "gender:$it" },
             source = source,
             status = status,
             reviewFlags = flags.joinToString(",")
