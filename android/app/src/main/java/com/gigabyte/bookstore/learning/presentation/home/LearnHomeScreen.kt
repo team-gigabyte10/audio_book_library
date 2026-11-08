@@ -132,6 +132,11 @@ fun LearnHomeScreen(
     val deA2LessonCount = deA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
     val deA2SentenceCount = deA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
 
+    val deB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-b1-") && it.part.isEnabled } }
+    val deB1PartCount = deB1Parts.size.coerceAtLeast(1)
+    val deB1LessonCount = deB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val deB1SentenceCount = deB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -439,6 +444,21 @@ fun LearnHomeScreen(
                                 sentenceCount = deA2SentenceCount,
                                 customPills = listOf("🇩🇪 ১৫টি পার্ট", "🗣️ ডাটিক ও কারণ (weil)", "🎯 গোয়েথে A2 স্পিকিং"),
                                 onClick = { onOpenCourse("de_a2") }
+                            )
+                        }
+
+                        // German B1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 স্ট্যান্ডার্ড কোর্স: লেভেল B1",
+                                title = "জার্মান B1: প্যাসিভ, কনজুঙ্কটিভ ও গোয়েথে B1 স্পিকিং",
+                                description = "Konjunktiv II, Passiv, Relativsätze, ইনফিনিটিভ ক্লজ, চাকরি ও আউসবিল্ডুং ইন্টারভিউ এবং সম্পূর্ণ গোয়েথে B1 স্পিকিং পরীক্ষা মডেল।",
+                                accentColor = Color(0xFF0D47A1),
+                                partCount = deB1PartCount,
+                                lessonCount = deB1LessonCount,
+                                sentenceCount = deB1SentenceCount,
+                                customPills = listOf("🇩🇪 ১৬টি পার্ট", "🗣️ Passiv & Konjunktiv", "🎯 গোয়েথে B1 স্পিকিং"),
+                                onClick = { onOpenCourse("de_b1") }
                             )
                         }
                     } else if (!isJapanese) {
