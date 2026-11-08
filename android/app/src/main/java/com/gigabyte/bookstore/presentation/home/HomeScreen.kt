@@ -437,7 +437,7 @@ fun HomeScreen(
                                 imageUrl = null,
                                 fallbackGradientColors = listOf(Color(0xFF2E7D32), Color(0xFF1B5E20)),
                                 accentColor = Color(0xFF1B5E20),
-                                statsText = "🎧 ১৮০+ অডিও লেসন · A1, A2 ও B1 কোর্স",
+                                statsText = "🎧 ২২৫+ অডিও লেসন · A1, A2 ও B1 সম্পূর্ণ কোর্স",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnUrdu,
                                 modifier = Modifier.padding(horizontal = 16.dp)

@@ -40,7 +40,8 @@ class ContentImporter(
         val needsUrduMigration = assetNames == ASSET_NAMES && (
             dao.getPart("ur-a2-01") == null ||
             dao.getPart("ur-b1-01") == null ||
-            dao.getLesson("ur-a2-01-l04") == null
+            dao.getLesson("ur-a2-01-l04") == null ||
+            dao.getLesson("ur-b1-01-l04") == null
         )
         when {
             meta == null || needsMultiCourseMigration || needsUrduMigration -> {

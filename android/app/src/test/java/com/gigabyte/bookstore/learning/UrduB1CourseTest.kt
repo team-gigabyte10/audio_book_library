@@ -88,9 +88,9 @@ class UrduB1CourseTest {
             parser.parse(it, sink)
         }
 
-        assertTrue("Parsed parts count >= 16", partsCount >= 16)
-        assertTrue("Parsed lessons count > 0", lessonsCount > 0)
-        assertTrue("Parsed items count > 0", itemsCount > 0)
+        assertEquals("Parsed parts count must be 16", 16, partsCount)
+        assertEquals("Parsed lessons count must be 64", 64, lessonsCount)
+        assertEquals("Parsed items count must be 512", 512, itemsCount)
     }
 }
 
