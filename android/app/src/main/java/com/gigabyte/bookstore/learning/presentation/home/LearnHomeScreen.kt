@@ -167,6 +167,11 @@ fun LearnHomeScreen(
     val jpN4LessonCount = jpN4Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
     val jpN4SentenceCount = jpN4Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
 
+    val jpN3Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-n3-") && it.part.isEnabled } }
+    val jpN3PartCount = jpN3Parts.size.coerceAtLeast(1)
+    val jpN3LessonCount = jpN3Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val jpN3SentenceCount = jpN3Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpFoundationsParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-foundations-") && it.part.isEnabled } }
     val jpFoundationsPartCount = jpFoundationsParts.size.coerceAtLeast(1)
     val jpFoundationsLessonCount = jpFoundationsParts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
@@ -704,6 +709,20 @@ fun LearnHomeScreen(
                                 lessonCount = jpN4LessonCount,
                                 sentenceCount = jpN4SentenceCount,
                                 onClick = { onOpenCourse("jp_n4") }
+                            )
+                        }
+
+                        // Standard curriculum (Japanese-Spoken-Curriculum-Plan.md, phase 3): Intermediate N3
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 স্ট্যান্ডার্ড কোর্স: লেভেল JLPT N3",
+                                title = "ইন্টারমিডিয়েট জাপানিজ (পূর্ণাঙ্গ কেইগো, অফিস ও টেলিফোন)",
+                                description = "অভ্যাস ও পরিবর্তন, যুক্তি ও কর্তব্য, পূর্ণাঙ্গ কেইগো, টেলিফোন ও বার্তা গ্রহণ, কর্মক্ষেত্রে যোগাযোগ এবং অনোমাটোপিয়া।",
+                                accentColor = Color(0xFF2E7D32),
+                                partCount = jpN3PartCount,
+                                lessonCount = jpN3LessonCount,
+                                sentenceCount = jpN3SentenceCount,
+                                onClick = { onOpenCourse("jp_n3") }
                             )
                         }
 
