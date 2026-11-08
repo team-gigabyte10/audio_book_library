@@ -122,6 +122,11 @@ fun LearnHomeScreen(
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
     val hiStandardSentenceCount = hiStandardParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 1100 }
 
+    val hiA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-a2-") && it.part.isEnabled } }
+    val hiA2PartCount = hiA2Parts.size.coerceAtLeast(1)
+    val hiA2LessonCount = hiA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 60 }
+    val hiA2SentenceCount = hiA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 480 }
+
     val deStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-std-") && it.part.isEnabled } }
     val deStandardPartCount = deStandardParts.size.coerceAtLeast(1)
     val deStandardLessonCount = deStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -377,6 +382,21 @@ fun LearnHomeScreen(
                                 lessonCount = hiStandardLessonCount,
                                 sentenceCount = hiStandardSentenceCount,
                                 onClick = { onOpenCourse("hi_standard") }
+                            )
+                        }
+
+                        // Hindi A2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 স্ট্যান্ডার্ড কোর্স: লেভেল A2",
+                                title = "হিন্দি A2: অতীত কাল, 'ने' নিয়ম ও কথোপকথন",
+                                description = "অতীত কাল (था/थी/थे), এরগেটিভ कर्ता ও 'ने' নিয়ম, ইচ্ছা ও বাধ্যবাধকতা (चाहिए/पड़ता है), ডাক্তার-হাসপাতাল ও কর্মক্ষেত্রের সম্পূর্ণ স্পোকেন।",
+                                accentColor = Color(0xFFBF360C),
+                                partCount = hiA2PartCount,
+                                lessonCount = hiA2LessonCount,
+                                sentenceCount = hiA2SentenceCount,
+                                customPills = listOf("🇮🇳 ১৫টি পার্ট", "🗣️ 'ने' নিয়ম ও অতীত কাল", "🏥 হাসপাতাল ও কর্মক্ষেত্র"),
+                                onClick = { onOpenCourse("hi_a2") }
                             )
                         }
                     } else if (isGerman) {
