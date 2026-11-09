@@ -171,10 +171,12 @@ fun CourseSyllabusScreen(
     val isUrB1 = courseType.equals("ur_b1", ignoreCase = true)
     val isUrB2 = courseType.equals("ur_b2", ignoreCase = true)
     val isUrC1 = courseType.equals("ur_c1", ignoreCase = true)
+    val isUrSpecialist = courseType.equals("ur_specialist", ignoreCase = true)
     val isHiStandard = courseType.equals("hi_standard", ignoreCase = true)
     val isHiA2 = courseType.equals("hi_a2", ignoreCase = true)
     val isHiB1 = courseType.equals("hi_b1", ignoreCase = true)
     val isHiB2 = courseType.equals("hi_b2", ignoreCase = true)
+    val isHiSpecialist = courseType.equals("hi_specialist", ignoreCase = true)
     val isDeStandard = courseType.equals("de_standard", ignoreCase = true)
     val isDeA2 = courseType.equals("de_a2", ignoreCase = true)
     val isDeB1 = courseType.equals("de_b1", ignoreCase = true)
@@ -195,10 +197,12 @@ fun CourseSyllabusScreen(
         isUrB1 -> "উর্দু স্পোকেন কোর্স: লেভেল B1"
         isUrB2 -> "উর্দু স্পোকেন কোর্স: লেভেল B2"
         isUrC1 -> "উর্দু স্পোকেন কোর্স: লেভেল C1"
+        isUrSpecialist -> "উর্দু স্পেশালিস্ট কোর্স (গাল্ফ, বাণিজ্য ও সাহিত্য)"
         isHiStandard -> "হিন্দি স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isHiA2 -> "হিন্দি স্পোকেন কোর্স: লেভেল A2"
         isHiB1 -> "হিন্দি স্পোকেন কোর্স: লেভেল B1"
         isHiB2 -> "হিন্দি স্পোকেন কোর্স: লেভেল B2"
+        isHiSpecialist -> "হিন্দি স্পেশালিস্ট কোর্স (মেডিকেল ট্যুরিজম, বাণিজ্য ও প্রবাস)"
         isDeStandard -> "জার্মান স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isDeA2 -> "জার্মান স্পোকেন কোর্স: লেভেল A2"
         isDeB1 -> "জার্মান স্পোকেন কোর্স: লেভেল B1"
@@ -220,10 +224,12 @@ fun CourseSyllabusScreen(
         isUrB1 -> "শর্তসাপেক্ষ বাক্য, মতামত প্রকাশ, পরোক্ষ উক্তি ও বাস্তব যোগাযোগ"
         isUrB2 -> "মার্জিত শিষ্টাচার, اضافত, চাকরির ইন্টারভিউ, মিডিয়া ও বিতর্ক"
         isUrC1 -> "বাগধারা, প্রবাদ, গজল ও নজম, সাহিত্যিক গদ্য, বিতর্ক ও মিডিয়া"
+        isUrSpecialist -> "গাল্ফ কর্মক্ষেত্র, আমদানি-রপ্তানি, সিরাত ও দোভাষী দক্ষতা"
         isHiStandard -> "দেবনগরী বর্ণমালা, উচ্চারণ ও A1 স্পিকিং টেস্ট"
         isHiA2 -> "অতীত কাল, 'ने' নিয়ম, ডাক্তার-হাসপাতাল ও কর্মক্ষেত্র স্পোকেন"
         isHiB1 -> "শর্তসাপেক্ষ বাক্য, সাপেক্ষ পদ, পরোক্ষ উক্তি ও কর্মবাচ্য"
         isHiB2 -> "শুদ্ধ হিন্দি, চাকরির ইন্টারভিউ, অফিস মিটিং, প্রেজেন্টেশন ও বিতর্ক"
+        isHiSpecialist -> "ভারত ভ্রমণ, হাসপাতাল কনসালটেশন, পাইকারি বাণিজ্য ও দোভাষী"
         isDeStandard -> "জার্মান বর্ণমালা, উমলাউট ও A1 স্পিকিং টেস্ট"
         isDeA2 -> "ডাটিক কেস, Wechselpräpositionen, কারণ (weil) ও গোয়েথে A2"
         isDeB1 -> "Konjunktiv II, Passiv, Relativsätze, আউসবিল্ডুং ও B1 স্পিকিং"
@@ -247,10 +253,12 @@ fun CourseSyllabusScreen(
             isUrB1 -> syllabus.filter { it.part.id.startsWith("ur-b1-") }
             isUrB2 -> syllabus.filter { it.part.id.startsWith("ur-b2-") }
             isUrC1 -> syllabus.filter { it.part.id.startsWith("ur-c1-") }
+            isUrSpecialist -> syllabus.filter { it.part.id.startsWith("ur-sp-") }
             isHiStandard -> syllabus.filter { it.part.id.startsWith("hi-std-") }
             isHiA2 -> syllabus.filter { it.part.id.startsWith("hi-a2-") }
             isHiB1 -> syllabus.filter { it.part.id.startsWith("hi-b1-") }
             isHiB2 -> syllabus.filter { it.part.id.startsWith("hi-b2-") }
+            isHiSpecialist -> syllabus.filter { it.part.id.startsWith("hi-sp-") }
             isDeStandard -> syllabus.filter { it.part.id.startsWith("de-std-") }
             isDeA2 -> syllabus.filter { it.part.id.startsWith("de-a2-") }
             isDeB1 -> syllabus.filter { it.part.id.startsWith("de-b1-") }

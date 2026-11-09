@@ -128,6 +128,11 @@ fun LearnHomeScreen(
     val urC1LessonCount = urC1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val urC1SentenceCount = urC1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val urSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-sp-") && it.part.isEnabled } }
+    val urSpPartCount = urSpParts.size.coerceAtLeast(1)
+    val urSpLessonCount = urSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val urSpSentenceCount = urSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val hiStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-std-") && it.part.isEnabled } }
     val hiStandardPartCount = hiStandardParts.size.coerceAtLeast(1)
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -147,6 +152,11 @@ fun LearnHomeScreen(
     val hiB2PartCount = hiB2Parts.size.coerceAtLeast(1)
     val hiB2LessonCount = hiB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val hiB2SentenceCount = hiB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val hiSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-sp-") && it.part.isEnabled } }
+    val hiSpPartCount = hiSpParts.size.coerceAtLeast(1)
+    val hiSpLessonCount = hiSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val hiSpSentenceCount = hiSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
     val deStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-std-") && it.part.isEnabled } }
     val deStandardPartCount = deStandardParts.size.coerceAtLeast(1)
@@ -405,6 +415,21 @@ fun LearnHomeScreen(
                                 onClick = { onOpenCourse("ur_c1") }
                             )
                         }
+
+                        // Urdu Specialist Professional Track Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 স্পেশালিস্ট প্রফেশনাল কোর্স (গাল্ফ, বাণিজ্য ও সাহিত্য)",
+                                title = "উর্দু স্পেশালিস্ট: গাল্ফ কর্মক্ষেত্র, বাণিজ্য ও দোভাষী",
+                                description = "দুবাই, সৌদি ও কাতারের কর্মক্ষেত্র ও নির্মাণ সাইট, গাল্ফ রিটেইল ও হাসপাতাল, গার্মেন্টস ও আমদানি-রপ্তানি বাণিজ্য, ইসলামিক সাহিত্য ও দোভাষী দক্ষতা।",
+                                accentColor = Color(0xFF004D40),
+                                partCount = urSpPartCount,
+                                lessonCount = urSpLessonCount,
+                                sentenceCount = urSpSentenceCount,
+                                customPills = listOf("🇵🇰 ১৬টি পার্ট", "🏗️ গাল্ফ কর্মক্ষেত্র ও বাণিজ্য", "🕌 সিরাত, না'ত ও দোভাষী"),
+                                onClick = { onOpenCourse("ur_specialist") }
+                            )
+                        }
                     } else if (isHindi) {
                         item {
                             WelcomeBanner(
@@ -522,6 +547,21 @@ fun LearnHomeScreen(
                                 sentenceCount = hiB2SentenceCount,
                                 customPills = listOf("🇮🇳 ১৬টি পার্ট", "💼 শুদ্ধ হিন্দি ও ইন্টারভিউ", "🤝 মিটিং ও দরকষাকষি"),
                                 onClick = { onOpenCourse("hi_b2") }
+                            )
+                        }
+
+                        // Hindi Specialist Professional Track Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 স্পেশালিস্ট প্রফেশনাল কোর্স (মেডিকেল, বাণিজ্য ও প্রবাস)",
+                                title = "হিন্দি স্পেশালিস্ট: মেডিকেল ট্যুরিজম, বাণিজ্য ও দোভাষী",
+                                description = "ভারত ভ্রমণ ও ইমিগ্রেশন, চেন্নাই-ভেলোর-দিল্লির হাসপাতাল কনসালটেশন ও সার্জারি, পাইকারি বাজার ও এলসি আমদানি, প্রবাসী কর্মক্ষেত্র ও দোভাষী দক্ষতা।",
+                                accentColor = Color(0xFF880E4F),
+                                partCount = hiSpPartCount,
+                                lessonCount = hiSpLessonCount,
+                                sentenceCount = hiSpSentenceCount,
+                                customPills = listOf("🇮🇳 ১৬টি পার্ট", "🏥 মেডিকেল ট্যুরিজম ও হাসপাতাল", "🚢 পাইকারি বাণিজ্য ও দোভাষী"),
+                                onClick = { onOpenCourse("hi_specialist") }
                             )
                         }
                     } else if (isGerman) {
