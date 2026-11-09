@@ -329,7 +329,7 @@ class EscbJsonParser {
             wh = wh,
             exampleTarget = exampleTarget,
             exampleBn = exampleBn,
-            speaker = speaker ?: gender?.let { "gender:$it" },
+            speaker = speaker,
             source = source,
             status = status,
             reviewFlags = flags.joinToString(",")

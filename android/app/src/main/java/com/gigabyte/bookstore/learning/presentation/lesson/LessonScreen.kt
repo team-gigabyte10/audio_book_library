@@ -438,46 +438,6 @@ private fun ItemCard(
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
                     )
                 }
-            } else if (item.speaker?.startsWith("gender:") == true) {
-                val g = item.speaker.removePrefix("gender:")
-                val isDe = item.id.startsWith("de-")
-                val badgeBg = when (g) {
-                    "m" -> Color(0xFFE3F2FD)
-                    "f" -> Color(0xFFFCE4EC)
-                    "n" -> Color(0xFFE8F5E9)
-                    else -> MaterialTheme.colorScheme.surfaceVariant
-                }
-                val borderCol = when (g) {
-                    "m" -> Color(0xFF90CAF9)
-                    "f" -> Color(0xFFF48FB1)
-                    "n" -> Color(0xFFA5D6A7)
-                    else -> MaterialTheme.colorScheme.outline
-                }
-                val textCol = when (g) {
-                    "m" -> Color(0xFF1565C0)
-                    "f" -> Color(0xFFC2185B)
-                    "n" -> Color(0xFF2E7D32)
-                    else -> MaterialTheme.colorScheme.onSurface
-                }
-                val label = when (g) {
-                    "m" -> if (isDe) "🔵 der • পুংলিঙ্গ (Maskulin)" else "👨 পুংলিঙ্গ (Masculine)"
-                    "f" -> if (isDe) "🔴 die • স্ত্রীলিঙ্গ (Feminin)" else "👩 স্ত্রীলিঙ্গ (Feminine)"
-                    "n" -> "🟢 das • ক্লীবলিঙ্গ (Neutral)"
-                    else -> g
-                }
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = badgeBg,
-                    border = BorderStroke(1.dp, borderCol)
-                ) {
-                    Text(
-                        label,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = textCol,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                    )
-                }
             } else if (item.id.startsWith("jp-") && (item.target == "俺" || item.target == "僕" || item.target == "あたし")) {
                 val isAtashi = item.target == "あたし"
                 val bg = if (isAtashi) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
