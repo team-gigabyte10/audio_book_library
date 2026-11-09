@@ -58,6 +58,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gigabyte.bookstore.learning.presentation.lesson.NastaliqFontFamily
+import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 
 @Composable
 fun VocabVaultScreen(
@@ -71,12 +72,62 @@ fun VocabVaultScreen(
 
     Scaffold(
         topBar = {
-            VocabTopBar(
-                config = uiState.config,
-                accentColor = accentColor,
-                totalCount = uiState.totalCount,
-                filteredCount = uiState.filteredCount,
-                onBack = onBack
+            ThemedTopAppBar(
+                title = {
+                    Column {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Text(
+                                text = uiState.config.titleBn,
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = Color.White.copy(alpha = 0.2f)
+                            ) {
+                                Text(
+                                    text = "১,০০০ শব্দ",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White,
+                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                )
+                            }
+                        }
+                        Text(
+                            text = "${uiState.config.nativeTitle} • একবচন ও বহুবচন",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.White.copy(alpha = 0.88f),
+                            fontSize = 11.5.sp,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "ফিরে যান",
+                            tint = Color.White
+                        )
+                    }
+                },
+                actions = {
+                    if (uiState.isSpeaking) {
+                        IconButton(onClick = { viewModel.stopAudio() }) {
+                            Icon(
+                                imageVector = Icons.Default.Stop,
+                                contentDescription = "অডিও থামান",
+                                tint = Color.White
+                            )
+                        }
+                    }
+                }
             )
         }
     ) { innerPadding ->
@@ -181,82 +232,6 @@ fun VocabVaultScreen(
                     item {
                         Spacer(modifier = Modifier.height(32.dp))
                     }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun VocabTopBar(
-    config: VocabLanguageConfig,
-    accentColor: Color,
-    totalCount: Int,
-    filteredCount: Int,
-    onBack: () -> Unit
-) {
-    Surface(
-        color = MaterialTheme.colorScheme.surface,
-        shadowElevation = 3.dp
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            accentColor.copy(alpha = 0.12f),
-                            Color.Transparent
-                        )
-                    )
-                )
-                .padding(horizontal = 12.dp, vertical = 10.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(onClick = onBack) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "ফিরে যান",
-                        tint = MaterialTheme.colorScheme.onSurface
-                    )
-                }
-
-                Spacer(modifier = Modifier.width(8.dp))
-
-                Column(modifier = Modifier.weight(1f)) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text(
-                            text = config.titleBn,
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                        Surface(
-                            shape = RoundedCornerShape(12.dp),
-                            color = accentColor.copy(alpha = 0.15f)
-                        ) {
-                            Text(
-                                text = "১,০০০ শব্দ",
-                                style = MaterialTheme.typography.labelSmall,
-                                fontWeight = FontWeight.Bold,
-                                color = accentColor,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
-                            )
-                        }
-                    }
-                    Text(
-                        text = "${config.nativeTitle} • একবচন ও বহুবচন",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
                 }
             }
         }
