@@ -65,7 +65,9 @@ class ContentImporter(
         )
         val needsEnglishMigration = assetNames == ASSET_NAMES && (
             dao.getPart("en-a1-01") == null ||
-            dao.getLesson("en-a1-01-l04") == null
+            dao.getLesson("en-a1-01-l04") == null ||
+            dao.getPart("en-a2-01") == null ||
+            dao.getLesson("en-a2-01-l04") == null
         )
         when {
             meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration -> {
@@ -164,6 +166,7 @@ class ContentImporter(
         const val ASSET_NAME = "spoken_english_foundations.json"
         val ASSET_NAMES = listOf(
             "spoken_english_standard_a1.json",
+            "spoken_english_standard_a2.json",
             "spoken_english_foundations.json",
             "spoken_english_past_tense.json",
             "spoken_english_future_tense.json",

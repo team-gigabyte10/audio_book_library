@@ -167,6 +167,7 @@ fun CourseSyllabusScreen(
     val isPast = courseType.equals("past", ignoreCase = true)
     val isFuture = courseType.equals("future", ignoreCase = true)
     val isEnStandardA1 = courseType.equals("en_standard_a1", ignoreCase = true) || courseType.equals("en_standard", ignoreCase = true)
+    val isEnStandardA2 = courseType.equals("en_standard_a2", ignoreCase = true) || courseType.equals("en_a2", ignoreCase = true)
     val isUrStandard = courseType.equals("ur_standard", ignoreCase = true)
     val isUrA2 = courseType.equals("ur_a2", ignoreCase = true)
     val isUrB1 = courseType.equals("ur_b1", ignoreCase = true)
@@ -194,6 +195,7 @@ fun CourseSyllabusScreen(
 
     val courseTitleBn = when {
         isEnStandardA1 -> "ইংরেজি স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
+        isEnStandardA2 -> "ইংরেজি স্ট্যান্ডার্ড কোর্স: লেভেল A2"
         isPast -> "অতীতের কথা বলুন (Past Tense)"
         isFuture -> "ভবিষ্যতের কথা বলুন (Future Tense)"
         isUrStandard -> "উর্দু স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
@@ -224,6 +226,7 @@ fun CourseSyllabusScreen(
     }
     val courseSubtitle = when {
         isEnStandardA1 -> "মৌলিক পরিচয়, দৈনন্দিন রুটিন, কেনাকাটা ও A1 স্পিকিং টেস্ট"
+        isEnStandardA2 -> "অতীতের গল্প, ভ্রমণ, হোটেল, কেনাকাটা ও প্রাত্যহিক ফ্লুয়েন্সি"
         isPast -> "Was/Were, Had, Did/Didn't & Past Stories"
         isFuture -> "Will, Shall, Be Going To & Future Plans"
         isUrStandard -> "উর্দু হরফ, নতুন ধ্বনি ও A1 স্পিকিং টেস্ট"
@@ -282,7 +285,8 @@ fun CourseSyllabusScreen(
             isJpCasual -> syllabus.filter { it.part.id.startsWith("jp-casual-") }
             isJpBusiness -> syllabus.filter { it.part.id.startsWith("jp-business-") }
             isEnStandardA1 -> syllabus.filter { it.part.id.startsWith("en-a1-") }
-            else -> syllabus.filter { it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-")) }
+            isEnStandardA2 -> syllabus.filter { it.part.id.startsWith("en-a2-") }
+            else -> syllabus.filter { it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-") && !it.part.id.startsWith("en-a2-")) }
         }
     }
 

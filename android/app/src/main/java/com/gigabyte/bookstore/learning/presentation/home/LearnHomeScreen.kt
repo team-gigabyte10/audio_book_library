@@ -93,7 +93,12 @@ fun LearnHomeScreen(
     val enStandardA1LessonCount = enStandardA1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val enStandardA1SentenceCount = enStandardA1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
-    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-"))) && it.part.isEnabled } }
+    val enStandardA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-a2-") && it.part.isEnabled } }
+    val enStandardA2PartCount = enStandardA2Parts.size.coerceAtLeast(1)
+    val enStandardA2LessonCount = enStandardA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val enStandardA2SentenceCount = enStandardA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-") && !it.part.id.startsWith("en-a2-"))) && it.part.isEnabled } }
     val presentPartCount = presentParts.size.coerceAtLeast(1)
     val presentLessonCount = presentParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
     val presentSentenceCount = presentParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
@@ -777,6 +782,21 @@ fun LearnHomeScreen(
                                 sentenceCount = enStandardA1SentenceCount,
                                 customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 A1 ফ্লুয়েন্সি"),
                                 onClick = { onOpenCourse("en_standard_a1") }
+                            )
+                        }
+
+                        // English Level A2: Standard Course
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 স্ট্যান্ডার্ড কোর্স: লেভেল A2",
+                                title = "প্রাত্যহিক ফ্লুয়েন্সি (English A2: Elementary Fluency)",
+                                description = "অতীতের গল্প, Was/Were ও ভার্বস, ভবিষ্যৎ পরিকল্পনা (Going to/Will), প্রস্তাব ও নিমন্ত্রণ, বাধ্যবাধকতা (Must), পরামর্শ (Should), স্বাস্থ্য, হোটেল, বিমানবন্দর, তুলনা, পোশাক কেনাকাটা ও অফিসিয়াল যোগাযোগ।",
+                                accentColor = Color(0xFF0F766E),
+                                partCount = enStandardA2PartCount,
+                                lessonCount = enStandardA2LessonCount,
+                                sentenceCount = enStandardA2SentenceCount,
+                                customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 A2 ফ্লুয়েন্সি"),
+                                onClick = { onOpenCourse("en_standard_a2") }
                             )
                         }
 
