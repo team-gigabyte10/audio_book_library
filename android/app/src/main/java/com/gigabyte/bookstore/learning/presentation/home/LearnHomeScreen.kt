@@ -98,7 +98,12 @@ fun LearnHomeScreen(
     val enStandardA2LessonCount = enStandardA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val enStandardA2SentenceCount = enStandardA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
-    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-") && !it.part.id.startsWith("en-a2-"))) && it.part.isEnabled } }
+    val enStandardB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-b1-") && it.part.isEnabled } }
+    val enStandardB1PartCount = enStandardB1Parts.size.coerceAtLeast(1)
+    val enStandardB1LessonCount = enStandardB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val enStandardB1SentenceCount = enStandardB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-") && !it.part.id.startsWith("en-a2-") && !it.part.id.startsWith("en-b1-"))) && it.part.isEnabled } }
     val presentPartCount = presentParts.size.coerceAtLeast(1)
     val presentLessonCount = presentParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
     val presentSentenceCount = presentParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
@@ -797,6 +802,21 @@ fun LearnHomeScreen(
                                 sentenceCount = enStandardA2SentenceCount,
                                 customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 A2 ফ্লুয়েন্সি"),
                                 onClick = { onOpenCourse("en_standard_a2") }
+                            )
+                        }
+
+                        // English Level B1: Standard Course
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 স্ট্যান্ডার্ড কোর্স: লেভেল B1",
+                                title = "ইন্টারমিডিয়েট ফ্লুয়েন্সি (English B1: Intermediate Fluency)",
+                                description = "মতামত প্রকাশ ও বিতর্ক, পরামর্শ ও মোডাল ভার্ব, কাল্পনিক পরিস্থিতি ও শর্তমূলক বাক্য, প্যাসিভ ভয়েস, পরোক্ষ উক্তি, রিলেটিভ ক্লজ, ফ্রেজাল ভার্ব, প্রফেশনাল নেটওয়ার্কিং ও ৩ মিনিটের প্রেজেন্টেশন।",
+                                accentColor = Color(0xFF6B21A8),
+                                partCount = enStandardB1PartCount,
+                                lessonCount = enStandardB1LessonCount,
+                                sentenceCount = enStandardB1SentenceCount,
+                                customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 B1 ফ্লুয়েন্সি"),
+                                onClick = { onOpenCourse("en_standard_b1") }
                             )
                         }
 
