@@ -88,7 +88,12 @@ fun LearnHomeScreen(
         }
     }
 
-    val presentParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-") && it.part.isEnabled } }
+    val enStandardA1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-a1-") && it.part.isEnabled } }
+    val enStandardA1PartCount = enStandardA1Parts.size.coerceAtLeast(1)
+    val enStandardA1LessonCount = enStandardA1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val enStandardA1SentenceCount = enStandardA1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-"))) && it.part.isEnabled } }
     val presentPartCount = presentParts.size.coerceAtLeast(1)
     val presentLessonCount = presentParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
     val presentSentenceCount = presentParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
@@ -760,11 +765,26 @@ fun LearnHomeScreen(
                             )
                         }
 
-                        // 4. Present Tens (বর্তমান কাল)
+                        // English Level A1: Standard Course
                         item {
                             MainCourseCard(
-                                tag = "🇬🇧 Present Tens (বর্তমান কাল)",
-                                title = "সহজ নিয়মে কথা বলুন (Present Tens: Be-Verbs, Q&A & Presentation)",
+                                tag = "🇬🇧 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1",
+                                title = "মৌলিক স্পোকেন ইংলিশ (English A1: Foundations)",
+                                description = "প্রথম পরিচয়, পরিবার, সংখ্যা, দৈনন্দিন রুটিন, সময় ও তারিখ, প্রেজেন্ট কন্টিনিউয়াস, WH প্রশ্ন, কেনাকাটা, রেস্তোরাঁ, দিকনির্দেশনা ও A1 স্পিকিং টেস্ট।",
+                                accentColor = Color(0xFF1E3A8A),
+                                partCount = enStandardA1PartCount,
+                                lessonCount = enStandardA1LessonCount,
+                                sentenceCount = enStandardA1SentenceCount,
+                                customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 A1 ফ্লুয়েন্সি"),
+                                onClick = { onOpenCourse("en_standard_a1") }
+                            )
+                        }
+
+                        // 4. Present Tense (বর্তমান কাল)
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 Present Tense (বর্তমান কাল)",
+                                title = "সহজ নিয়মে কথা বলুন (Present Tense: Be-Verbs, Q&A & Presentation)",
                                 description = "পেশা, ব্যক্তিত্ব, দৈনন্দিন বস্তু, অবস্থান, প্রশ্ন-উত্তর, গুড অ্যাট/ব্যাড অ্যাট ও সম্পূর্ণ প্রেজেন্টেশন বর্তমান কালে সাবলীলভাবে অনুশীলন করুন।",
                                 accentColor = Color(0xFF00796B),
                                 partCount = presentPartCount,
@@ -774,10 +794,10 @@ fun LearnHomeScreen(
                             )
                         }
 
-                        // 5. Past Tens (অতীত কাল)
+                        // 5. Past Tense (অতীত কাল)
                         item {
                             MainCourseCard(
-                                tag = "🇬🇧 Past Tens (অতীত কাল)",
+                                tag = "🇬🇧 Past Tense (অতীত কাল)",
                                 title = "অতীতের কথা বলুন (Was/Were, Had & Past Actions)",
                                 description = "অতীতের অভ্যাস, স্মৃতি, অভিজ্ঞতা ও অতীতের কাজ বর্ণনার সহজ স্পোকেন রুলস ও অডিও ড্রিল।",
                                 accentColor = Color(0xFF5E35B1),
@@ -788,10 +808,10 @@ fun LearnHomeScreen(
                             )
                         }
 
-                        // 6. Future Tens (ভবিষ্যৎ কাল)
+                        // 6. Future Tense (ভবিষ্যৎ কাল)
                         item {
                             MainCourseCard(
-                                tag = "🇬🇧 Future Tens (ভবিষ্যৎ কাল)",
+                                tag = "🇬🇧 Future Tense (ভবিষ্যৎ কাল)",
                                 title = "ভবিষ্যতের কথা বলুন (Will, Shall & Future Plans)",
                                 description = "ভবিষ্যতের পরিকল্পনা, প্রতিশ্রুতি ও সম্ভাবনা প্রকাশের আধুনিক স্পোকেন স্ট্রাকচার।",
                                 accentColor = Color(0xFFC2410C),
