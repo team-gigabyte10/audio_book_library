@@ -123,6 +123,11 @@ fun LearnHomeScreen(
     val urB2LessonCount = urB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val urB2SentenceCount = urB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val urC1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ur-c1-") && it.part.isEnabled } }
+    val urC1PartCount = urC1Parts.size.coerceAtLeast(1)
+    val urC1LessonCount = urC1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val urC1SentenceCount = urC1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val hiStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-std-") && it.part.isEnabled } }
     val hiStandardPartCount = hiStandardParts.size.coerceAtLeast(1)
     val hiStandardLessonCount = hiStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 105 }
@@ -137,6 +142,11 @@ fun LearnHomeScreen(
     val hiB1PartCount = hiB1Parts.size.coerceAtLeast(1)
     val hiB1LessonCount = hiB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val hiB1SentenceCount = hiB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val hiB2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("hi-b2-") && it.part.isEnabled } }
+    val hiB2PartCount = hiB2Parts.size.coerceAtLeast(1)
+    val hiB2LessonCount = hiB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val hiB2SentenceCount = hiB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
     val deStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-std-") && it.part.isEnabled } }
     val deStandardPartCount = deStandardParts.size.coerceAtLeast(1)
@@ -380,6 +390,21 @@ fun LearnHomeScreen(
                                 onClick = { onOpenCourse("ur_b2") }
                             )
                         }
+
+                        // Urdu C1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 স্ট্যান্ডার্ড কোর্স: লেভেল C1",
+                                title = "উর্দু C1: বাগধারা, গজল-নজম, সাহিত্যিক গদ্য ও বিতর্ক",
+                                description = "উর্দু বাগধারা (محاورے), প্রবাদ, ধ্রুপদী গজল ও আধুনিক কবিতা, সাহিত্যিক গদ্য, একাডেমিক পরিভাষা, আঞ্চলিক উপভাষা ও লাইভ মিডিয়া সাক্ষাৎকার।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = urC1PartCount,
+                                lessonCount = urC1LessonCount,
+                                sentenceCount = urC1SentenceCount,
+                                customPills = listOf("🇵🇰 ১৬টি পার্ট", "📜 গজল, বাগধারা ও সাহিত্য", "🎙️ বিতর্ক ও মিডিয়া"),
+                                onClick = { onOpenCourse("ur_c1") }
+                            )
+                        }
                     } else if (isHindi) {
                         item {
                             WelcomeBanner(
@@ -482,6 +507,21 @@ fun LearnHomeScreen(
                                 sentenceCount = hiB1SentenceCount,
                                 customPills = listOf("🇮🇳 ১৬টি পার্ট", "🗣️ শর্ত ও সাপেক্ষ পদ", "📝 প্রযোজক ক্রিয়া ও বাগধারা"),
                                 onClick = { onOpenCourse("hi_b1") }
+                            )
+                        }
+
+                        // Hindi B2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 স্ট্যান্ডার্ড কোর্স: লেভেল B2",
+                                title = "হিন্দি B2: শুদ্ধ হিন্দি, অফিস মিটিং, ইন্টারভিউ ও বিতর্ক",
+                                description = "কথ্য হিন্দুস্তানি বনাম শুদ্ধ হিন্দি, আনুষ্ঠানিক শিষ্টাচার, চাকরির ইন্টারভিউ, কর্মক্ষেত্রের মিটিং, প্রেজেন্টেশন, পাইকারি বাণিজ্য ও যুক্তিতর্ক।",
+                                accentColor = Color(0xFFB71C1C),
+                                partCount = hiB2PartCount,
+                                lessonCount = hiB2LessonCount,
+                                sentenceCount = hiB2SentenceCount,
+                                customPills = listOf("🇮🇳 ১৬টি পার্ট", "💼 শুদ্ধ হিন্দি ও ইন্টারভিউ", "🤝 মিটিং ও দরকষাকষি"),
+                                onClick = { onOpenCourse("hi_b2") }
                             )
                         }
                     } else if (isGerman) {

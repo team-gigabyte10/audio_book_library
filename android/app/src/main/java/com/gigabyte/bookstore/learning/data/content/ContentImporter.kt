@@ -41,6 +41,7 @@ class ContentImporter(
             dao.getPart("ur-a2-01") == null ||
             dao.getPart("ur-b1-01") == null ||
             dao.getPart("ur-b2-01") == null ||
+            dao.getPart("ur-c1-01") == null ||
             dao.getLesson("ur-a2-01-l04") == null ||
             dao.getLesson("ur-b1-01-l04") == null
         )
@@ -51,7 +52,8 @@ class ContentImporter(
         )
         val needsHindiMigration = assetNames == ASSET_NAMES && (
             dao.getPart("hi-a2-01") == null ||
-            dao.getPart("hi-b1-01") == null
+            dao.getPart("hi-b1-01") == null ||
+            dao.getPart("hi-b2-01") == null
         )
         val needsJapaneseMigration = assetNames == ASSET_NAMES && (
             dao.getPart("jp-n4-01") == null ||
@@ -163,9 +165,11 @@ class ContentImporter(
             "spoken_urdu_standard_a2.json",
             "spoken_urdu_standard_b1.json",
             "spoken_urdu_standard_b2.json",
+            "spoken_urdu_standard_c1.json",
             "spoken_hindi_standard_a1.json",
             "spoken_hindi_standard_a2.json",
             "spoken_hindi_standard_b1.json",
+            "spoken_hindi_standard_b2.json",
             "spoken_german_standard_a1.json",
             "spoken_german_standard_a2.json",
             "spoken_german_standard_b1.json",
