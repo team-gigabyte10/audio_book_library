@@ -69,7 +69,9 @@ class ContentImporter(
             dao.getPart("en-a2-01") == null ||
             dao.getLesson("en-a2-01-l04") == null ||
             dao.getPart("en-b1-01") == null ||
-            dao.getLesson("en-b1-01-l04") == null
+            dao.getLesson("en-b1-01-l04") == null ||
+            dao.getPart("en-b2-01") == null ||
+            dao.getLesson("en-b2-01-l04") == null
         )
         when {
             meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration -> {
@@ -170,6 +172,7 @@ class ContentImporter(
             "spoken_english_standard_a1.json",
             "spoken_english_standard_a2.json",
             "spoken_english_standard_b1.json",
+            "spoken_english_standard_b2.json",
             "spoken_english_foundations.json",
             "spoken_english_past_tense.json",
             "spoken_english_future_tense.json",

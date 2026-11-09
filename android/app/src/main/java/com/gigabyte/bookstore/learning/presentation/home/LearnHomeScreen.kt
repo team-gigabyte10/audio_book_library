@@ -103,7 +103,12 @@ fun LearnHomeScreen(
     val enStandardB1LessonCount = enStandardB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val enStandardB1SentenceCount = enStandardB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
-    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-") && !it.part.id.startsWith("en-a2-") && !it.part.id.startsWith("en-b1-"))) && it.part.isEnabled } }
+    val enStandardB2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-b2-") && it.part.isEnabled } }
+    val enStandardB2PartCount = enStandardB2Parts.size.coerceAtLeast(1)
+    val enStandardB2LessonCount = enStandardB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val enStandardB2SentenceCount = enStandardB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val presentParts = remember(syllabus) { syllabus.filter { (it.part.id.startsWith("en-foundations-") || (it.part.id.startsWith("en-") && !it.part.id.startsWith("en-a1-") && !it.part.id.startsWith("en-a2-") && !it.part.id.startsWith("en-b1-") && !it.part.id.startsWith("en-b2-"))) && it.part.isEnabled } }
     val presentPartCount = presentParts.size.coerceAtLeast(1)
     val presentLessonCount = presentParts.sumOf { it.lessons.size }.let { if (it > 0) it else 20 }
     val presentSentenceCount = presentParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 400 }
@@ -817,6 +822,21 @@ fun LearnHomeScreen(
                                 sentenceCount = enStandardB1SentenceCount,
                                 customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 B1 ফ্লুয়েন্সি"),
                                 onClick = { onOpenCourse("en_standard_b1") }
+                            )
+                        }
+
+                        // English Level B2: Standard Course
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 স্ট্যান্ডার্ড কোর্স: লেভেল B2",
+                                title = "কর্পোরেট ও ক্যারিয়ার ফ্লুয়েন্সি (English B2: Corporate & Career Mastery)",
+                                description = "হাই-ইমপ্যাক্ট সেলফ-ইন্ট্রোডাকশন, STAR ইন্টারভিউ মেথড, মিটিং পরিচালনা, বিজনেস পিচ, নেগোসিয়েশন, কনস্ট্রাক্টিভ ফিডব্যাক, সংকট নিরসন, ডিপ্লোম্যাটিক ভাষা, ইডিয়াম ও এক্সিকিউটিভ অ্যাসেসমেন্ট।",
+                                accentColor = Color(0xFF4338CA),
+                                partCount = enStandardB2PartCount,
+                                lessonCount = enStandardB2LessonCount,
+                                sentenceCount = enStandardB2SentenceCount,
+                                customPills = listOf("🇬🇧 ১৬ ইউনিট", "💬 ৫১২ বাক্য", "🎯 B2 ফ্লুয়েন্সি"),
+                                onClick = { onOpenCourse("en_standard_b2") }
                             )
                         }
 
