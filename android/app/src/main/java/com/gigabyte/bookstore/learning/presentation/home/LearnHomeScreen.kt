@@ -173,6 +173,11 @@ fun LearnHomeScreen(
     val deB1LessonCount = deB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val deB1SentenceCount = deB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val deB2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-b2-") && it.part.isEnabled } }
+    val deB2PartCount = deB2Parts.size.coerceAtLeast(1)
+    val deB2LessonCount = deB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val deB2SentenceCount = deB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val deSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("de-sp-") && it.part.isEnabled } }
     val deSpPartCount = deSpParts.size.coerceAtLeast(1)
     val deSpLessonCount = deSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
@@ -192,6 +197,11 @@ fun LearnHomeScreen(
     val jpN3PartCount = jpN3Parts.size.coerceAtLeast(1)
     val jpN3LessonCount = jpN3Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val jpN3SentenceCount = jpN3Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val jpN2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-n2-") && it.part.isEnabled } }
+    val jpN2PartCount = jpN2Parts.size.coerceAtLeast(1)
+    val jpN2LessonCount = jpN2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val jpN2SentenceCount = jpN2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
     val jpFoundationsParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-foundations-") && it.part.isEnabled } }
     val jpFoundationsPartCount = jpFoundationsParts.size.coerceAtLeast(1)
@@ -669,6 +679,21 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // German B2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 স্ট্যান্ডার্ড কোর্স: লেভেল B2",
+                                title = "জার্মান B2: মিটিং, দরকষাকষি ও গোয়েথে B2 স্পিকিং",
+                                description = "কর্পোরেট মিটিং ও টিম ডিসকাশন, ব্যবসায়িক দরকষাকষি, বিরোধ নিরসন, জার্মান সংবাদ বিশ্লেষণ, হাই-স্কিল জব ইন্টারভিউ ও গোয়েথে B2 স্পিকিং মডেল।",
+                                accentColor = Color(0xFF1565C0),
+                                partCount = deB2PartCount,
+                                lessonCount = deB2LessonCount,
+                                sentenceCount = deB2SentenceCount,
+                                customPills = listOf("🇩🇪 ১৬টি পার্ট", "💼 বিজনেস মিটিং ও জব ইন্টারভিউ", "🎯 গোয়েথে B2 স্পিকিং"),
+                                onClick = { onOpenCourse("de_b2") }
+                            )
+                        }
+
                         // German Specialist Professional Track Card (Nursing & Higher Education)
                         item {
                             MainCourseCard(
@@ -889,6 +914,21 @@ fun LearnHomeScreen(
                                 lessonCount = jpN3LessonCount,
                                 sentenceCount = jpN3SentenceCount,
                                 onClick = { onOpenCourse("jp_n3") }
+                            )
+                        }
+
+                        // Standard curriculum (Japanese-Spoken-Curriculum-Plan.md, phase 4): Upper Intermediate N2
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 স্ট্যান্ডার্ড কোর্স: লেভেল JLPT N2",
+                                title = "জাপানিজ N2: মিটিং, প্রেজেন্টেশন ও N2 স্পিকিং",
+                                description = "ব্যবসায়িক মিটিং ও এজেন্ডা, ৫ মিনিটের প্রেজেন্টেশন, সংবাদ ও সমাজ বিশ্লেষণ, কেইগো শিষ্টাচার, গ্রাহক সেবা ও JLPT N2 স্পিকিং টেস্ট।",
+                                accentColor = Color(0xFF4A148C),
+                                partCount = jpN2PartCount,
+                                lessonCount = jpN2LessonCount,
+                                sentenceCount = jpN2SentenceCount,
+                                customPills = listOf("🇯🇵 ১৬টি পার্ট", "💼 বিজনেস মিটিং ও প্রেজেন্টেশন", "🎯 JLPT N2 স্পিকিং"),
+                                onClick = { onOpenCourse("jp_n2") }
                             )
                         }
 

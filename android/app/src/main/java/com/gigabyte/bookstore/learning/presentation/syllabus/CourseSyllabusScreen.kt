@@ -180,10 +180,12 @@ fun CourseSyllabusScreen(
     val isDeStandard = courseType.equals("de_standard", ignoreCase = true)
     val isDeA2 = courseType.equals("de_a2", ignoreCase = true)
     val isDeB1 = courseType.equals("de_b1", ignoreCase = true)
+    val isDeB2 = courseType.equals("de_b2", ignoreCase = true)
     val isDeSpecialist = courseType.equals("de_specialist", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
     val isJpN4 = courseType.equals("jp_n4", ignoreCase = true)
     val isJpN3 = courseType.equals("jp_n3", ignoreCase = true)
+    val isJpN2 = courseType.equals("jp_n2", ignoreCase = true)
     val isJpFoundations = courseType.equals("jp_foundations", ignoreCase = true)
     val isJpPast = courseType.equals("jp_past", ignoreCase = true)
     val isJpCasual = courseType.equals("jp_casual", ignoreCase = true)
@@ -206,10 +208,12 @@ fun CourseSyllabusScreen(
         isDeStandard -> "জার্মান স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1"
         isDeA2 -> "জার্মান স্পোকেন কোর্স: লেভেল A2"
         isDeB1 -> "জার্মান স্পোকেন কোর্স: লেভেল B1"
+        isDeB2 -> "জার্মান স্পোকেন কোর্স: লেভেল B2"
         isDeSpecialist -> "জার্মান স্পেশালিস্ট কোর্স (নার্সিং ও বিশ্ববিদ্যালয়)"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
         isJpN4 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N4"
         isJpN3 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N3"
+        isJpN2 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N2"
         isJpFoundations -> "জাপানিজ স্পোকেন বেসিক্স (JLPT N5)"
         isJpPast -> "জাপানিজ অতীত কাল ও অভিজ্ঞতা (JLPT N5/N4)"
         isJpCasual -> "ক্যাজুয়াল জাপানিজ ও প্লেইন ফর্ম (JLPT N4)"
@@ -233,10 +237,12 @@ fun CourseSyllabusScreen(
         isDeStandard -> "জার্মান বর্ণমালা, উমলাউট ও A1 স্পিকিং টেস্ট"
         isDeA2 -> "ডাটিক কেস, Wechselpräpositionen, কারণ (weil) ও গোয়েথে A2"
         isDeB1 -> "Konjunktiv II, Passiv, Relativsätze, আউসবিল্ডুং ও B1 স্পিকিং"
+        isDeB2 -> "কর্পোরেট মিটিং, দরকষাকষি, বিরোধ নিরসন ও গোয়েথে B2 স্পিকিং"
         isDeSpecialist -> "ক্লিনিক্যাল নার্সিং, অ্যানামনেসিস, ISBAR, APS, Uni-Assist ও ভিসা ইন্টারভিউ"
         isJpStandard -> "অক্ষর, শব্দ ও উচ্চারণ ড্রিল থেকে N5 স্পিকিং টেস্ট"
         isJpN4 -> "সাধারণ কথ্য রূপ, শর্তসাপেক্ষ বাক্য, কর্মবাচ্য, প্রযোজক ক্রিয়া ও কেইগো"
         isJpN3 -> "অভ্যাস ও পরিবর্তন, যুক্তি ও কর্তব্য, পূর্ণাঙ্গ কেইগো, টেলিফোন ও কর্মক্ষেত্র স্পোকেন"
+        isJpN2 -> "ব্যবসায়িক মিটিং, প্রেজেন্টেশন, যুক্তিখণ্ডন ও N2 স্পিকিং টেস্ট"
         isJpFoundations -> "Desu/Masu, Q&A, দৈনন্দিন পরিচয় ও গতিশীল ড্রিল"
         isJpPast -> "Deshita/Mashita, 〜たことがあります ও অতীত স্মৃতি"
         isJpCasual -> "Dictionary/Nai Form, ফ্রেন্ডলি কথোপকথন ও আড্ডা"
@@ -262,10 +268,12 @@ fun CourseSyllabusScreen(
             isDeStandard -> syllabus.filter { it.part.id.startsWith("de-std-") }
             isDeA2 -> syllabus.filter { it.part.id.startsWith("de-a2-") }
             isDeB1 -> syllabus.filter { it.part.id.startsWith("de-b1-") }
+            isDeB2 -> syllabus.filter { it.part.id.startsWith("de-b2-") }
             isDeSpecialist -> syllabus.filter { it.part.id.startsWith("de-sp-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }
             isJpN4 -> syllabus.filter { it.part.id.startsWith("jp-n4-") }
             isJpN3 -> syllabus.filter { it.part.id.startsWith("jp-n3-") }
+            isJpN2 -> syllabus.filter { it.part.id.startsWith("jp-n2-") }
             isJpFoundations -> syllabus.filter { it.part.id.startsWith("jp-foundations-") }
             isJpPast -> syllabus.filter { it.part.id.startsWith("jp-past-") }
             isJpCasual -> syllabus.filter { it.part.id.startsWith("jp-casual-") }

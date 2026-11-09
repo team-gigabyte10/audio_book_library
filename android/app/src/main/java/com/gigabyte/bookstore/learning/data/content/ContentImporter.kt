@@ -49,6 +49,7 @@ class ContentImporter(
         val needsGermanMigration = assetNames == ASSET_NAMES && (
             dao.getPart("de-a2-01") == null ||
             dao.getPart("de-b1-01") == null ||
+            dao.getPart("de-b2-01") == null ||
             dao.getPart("de-sp-01") == null
         )
         val needsHindiMigration = assetNames == ASSET_NAMES && (
@@ -59,7 +60,8 @@ class ContentImporter(
         )
         val needsJapaneseMigration = assetNames == ASSET_NAMES && (
             dao.getPart("jp-n4-01") == null ||
-            dao.getPart("jp-n3-01") == null
+            dao.getPart("jp-n3-01") == null ||
+            dao.getPart("jp-n2-01") == null
         )
         when {
             meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration -> {
@@ -163,6 +165,7 @@ class ContentImporter(
             "spoken_japanese_standard_n5.json",
             "spoken_japanese_standard_n4.json",
             "spoken_japanese_standard_n3.json",
+            "spoken_japanese_standard_n2.json",
             "spoken_urdu_standard_a1.json",
             "spoken_urdu_standard_a2.json",
             "spoken_urdu_standard_b1.json",
@@ -177,6 +180,7 @@ class ContentImporter(
             "spoken_german_standard_a1.json",
             "spoken_german_standard_a2.json",
             "spoken_german_standard_b1.json",
+            "spoken_german_standard_b2.json",
             "spoken_german_specialist_pro.json",
             "spoken_japanese_foundations.json",
             "spoken_japanese_past_tense.json",
