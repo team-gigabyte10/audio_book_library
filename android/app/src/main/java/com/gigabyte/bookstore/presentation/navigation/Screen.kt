@@ -58,6 +58,9 @@ sealed class Screen(val route: String) {
     object CalendarChart : Screen("learn/{lang}/calendar-chart") {
         fun createRoute(lang: String) = "learn/$lang/calendar-chart"
     }
+    object VocabVault : Screen("learn/{lang}/vocab-vault") {
+        fun createRoute(lang: String) = "learn/$lang/vocab-vault"
+    }
     object LastRead : Screen("last-read")
 }
 

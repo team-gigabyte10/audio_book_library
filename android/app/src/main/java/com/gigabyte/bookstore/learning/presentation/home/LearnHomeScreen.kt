@@ -70,7 +70,8 @@ fun LearnHomeScreen(
     onOpenKanaChart: () -> Unit = {},
     onOpenAlphabetChart: (String) -> Unit = {},
     onOpenNumbersChart: (String) -> Unit = {},
-    onOpenCalendarChart: (String) -> Unit = {}
+    onOpenCalendarChart: (String) -> Unit = {},
+    onOpenVocabVault: (String) -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -372,6 +373,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // Urdu 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇵🇰 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ দৈনন্দিন প্রয়োজনীয় উর্দু শব্দ (الفاظ کا خزانہ)",
+                                description = "পরিবার, শরীর, খাবার, পোশাক, শহর, ভ্রমণসহ ২০টি বিষয়ে ১,০০০টি গুরুত্বপূর্ণ উর্দু শব্দ, একবচন-বহুবচন, লিঙ্গ ও দ্বৈত অডিও উচ্চারণ।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "👥 একবচন ও বহুবচন", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("urdu") }
+                            )
+                        }
+
                         // Urdu-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -521,6 +539,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // Hindi 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇮🇳 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ দৈনন্দিন প্রয়োজনীয় হিন্দি শব্দ (हिन्दी शब्दकोश)",
+                                description = "পরিবার, শরীর, খাদ্য, বাসস্থান, ভ্রমণসহ ২০টি বিষয়ে ১,০০০টি নিত্যপ্রয়োজনীয় হিন্দি শব্দ, একবচন-বহুবচন, পুং/স্ত্রীলিঙ্গ ও দ্বৈত অডিও উচ্চারণ।",
+                                accentColor = Color(0xFFD84315),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "👥 একবচন ও বহুবচন", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("hindi") }
+                            )
+                        }
+
                         // Hindi-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -655,6 +690,23 @@ fun LearnHomeScreen(
                             )
                         }
 
+                        // German 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇩🇪 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ প্রয়োজনীয় জার্মান শব্দ (Deutscher Wortschatz)",
+                                description = "der/die/das আর্টিকেল, একবচন ও বহুবচন রূপ সহ ২০টি প্রধান বিষয়ের ১,০০০টি অতিপ্রয়োজনীয় জার্মান শব্দ ও দ্বৈত অডিও উচ্চারণ।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "🏷️ der/die/das", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("german") }
+                            )
+                        }
+
                         // German-Spoken-Curriculum-Plan.md, phase 1: Stage 0 + A1
                         item {
                             MainCourseCard(
@@ -777,6 +829,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৬ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("english") }
+                            )
+                        }
+
+                        // English 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇬🇧 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ দৈনন্দিন প্রয়োজনীয় ইংরেজি শব্দ (Vocabulary Vault)",
+                                description = "পরিবার, কাজ, ব্যবসা, প্রযুক্তি, স্বাস্থ্যসহ ২০টি জীবনের গুরুত্বপূর্ণ বিষয়ের ১,০০০টি ইংরেজি শব্দ, একবচন-বহুবচন ও সঠিক অডিও উচ্চারণ।",
+                                accentColor = Color(0xFF1976D2),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "👥 একবচন ও বহুবচন", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("english") }
                             )
                         }
 
@@ -952,6 +1021,23 @@ fun LearnHomeScreen(
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("japanese") }
+                            )
+                        }
+
+                        // Japanese 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇯🇵 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ প্রয়োজনীয় জাপানি শব্দ (日本語 必須単語 1000)",
+                                description = "কাঞ্জি, হিরাগানা রিডিং, একবচন-বহুবচন ও অর্থসহ দৈনন্দিন জীবনের ২০টি বিষয়ের ১,০০০টি অতিপ্রয়োজনীয় জাপানি শব্দ ও দ্বৈত অডিও।",
+                                accentColor = Color(0xFFAD1457),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "🈁 কাঞ্জি ও হিরাগানা", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("japanese") }
                             )
                         }
 

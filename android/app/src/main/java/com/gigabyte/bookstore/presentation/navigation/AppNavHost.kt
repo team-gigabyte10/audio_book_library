@@ -59,6 +59,8 @@ import com.gigabyte.bookstore.learning.presentation.numbers.NumbersChartScreen
 import com.gigabyte.bookstore.learning.presentation.numbers.NumbersChartViewModel
 import com.gigabyte.bookstore.learning.presentation.calendar.CalendarChartScreen
 import com.gigabyte.bookstore.learning.presentation.calendar.CalendarChartViewModel
+import com.gigabyte.bookstore.learning.presentation.vocab.VocabVaultScreen
+import com.gigabyte.bookstore.learning.presentation.vocab.VocabVaultViewModel
 import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 
@@ -492,7 +494,8 @@ fun AppNavHost(
                 onOpenKanaChart = { navController.navigate(Screen.JapaneseKanaChart.route) },
                 onOpenAlphabetChart = { langName -> navController.navigate(Screen.AlphabetChart.createRoute(langName)) },
                 onOpenNumbersChart = { langName -> navController.navigate(Screen.NumbersChart.createRoute(langName)) },
-                onOpenCalendarChart = { langName -> navController.navigate(Screen.CalendarChart.createRoute(langName)) }
+                onOpenCalendarChart = { langName -> navController.navigate(Screen.CalendarChart.createRoute(langName)) },
+                onOpenVocabVault = { langName -> navController.navigate(Screen.VocabVault.createRoute(langName)) }
             )
         }
 
@@ -554,6 +557,21 @@ fun AppNavHost(
             CalendarChartScreen(
                 viewModel = calendarViewModel,
                 onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Screen.VocabVault.route,
+            arguments = listOf(navArgument("lang") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val langCode = backStackEntry.arguments?.getString("lang") ?: "english"
+            val vocabViewModel: VocabVaultViewModel = viewModel(
+                key = "vocab_vault_$langCode",
+                factory = VocabVaultViewModel.Factory(application, langCode)
+            )
+            VocabVaultScreen(
+                viewModel = vocabViewModel,
+                onBack = { navController.popBackStack() }
             )
         }
 
