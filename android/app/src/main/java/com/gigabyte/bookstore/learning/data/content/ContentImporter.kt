@@ -83,8 +83,12 @@ class ContentImporter(
             dao.getPart("bd-khl-01") == null ||
             dao.getPart("bd-mym-01") == null
         )
+        val needsQuranMigration = assetNames == ASSET_NAMES && (
+            dao.getPart("qr-p1-u01") == null ||
+            dao.getPart("qr-p4-u08") == null
+        )
         when {
-            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration || needsRegionalBanglaMigration -> {
+            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration || needsRegionalBanglaMigration || needsQuranMigration -> {
                 import(onProgress)
                 true
             }
@@ -210,7 +214,8 @@ class ContentImporter(
             "spoken_japanese_past_tense.json",
             "spoken_japanese_casual_fluency.json",
             "spoken_japanese_business_advanced.json",
-            "spoken_bangla_regional_divisions.json"
+            "spoken_bangla_regional_divisions.json",
+            "quran_learning_noorani_complete.json"
         )
     }
 }

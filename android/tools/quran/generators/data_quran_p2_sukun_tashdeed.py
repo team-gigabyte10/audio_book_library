@@ -223,3 +223,4 @@ UNITS_QURAN_P2 = [
         "lessons": u04_lessons
     }
 ]
+

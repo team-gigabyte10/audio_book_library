@@ -104,6 +104,7 @@ fun LessonScreen(
     val urduAvailable by viewModel.urduAvailable.collectAsStateWithLifecycle()
     val hindiAvailable by viewModel.hindiAvailable.collectAsStateWithLifecycle()
     val germanAvailable by viewModel.germanAvailable.collectAsStateWithLifecycle()
+    val arabicAvailable by viewModel.arabicAvailable.collectAsStateWithLifecycle()
     val urFemaleSpeaker by viewModel.urFemaleSpeaker.collectAsStateWithLifecycle()
     val hiFemaleSpeaker by viewModel.hiFemaleSpeaker.collectAsStateWithLifecycle()
     var showSettings by remember { mutableStateOf(false) }
@@ -171,6 +172,12 @@ fun LessonScreen(
                     } else if (viewModel.isRegionalBangla) {
                         if (banglaAvailable == false) {
                             VoiceWarning("বাংলা ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে বাংলা ভয়েস ইনস্টল করুন।")
+                        }
+                    } else if (viewModel.isQuran) {
+                        if (arabicAvailable == false) {
+                            VoiceWarning("এই ফোনে আরবি ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Arabic (Saudi Arabia) ভয়েস ইনস্টল করুন। ততক্ষণ আরবি লেখা দেখে মশ্‌ক করুন।")
+                        } else if (banglaAvailable == false && settings.bnAudio) {
+                            VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }
                     } else if (englishAvailable == false) {
                         VoiceWarning("ইংরেজি ভয়েস ইনস্টল করা নেই। ফোনের Text-to-speech সেটিংস থেকে English (US) ভয়েস ইনস্টল করুন।")
@@ -479,6 +486,12 @@ private fun ItemCard(
                         Text(
                             item.target,
                             style = urduTextStyle(28.sp, bold = true),
+                            modifier = Modifier.weight(1f).clickable(onClick = onSpeakTarget)
+                        )
+                    } else if (isQuranItem(item.id)) {
+                        Text(
+                            item.target,
+                            style = quranTextStyle(28.sp, bold = true),
                             modifier = Modifier.weight(1f).clickable(onClick = onSpeakTarget)
                         )
                     } else {
@@ -1073,7 +1086,7 @@ private fun SpeedDrillChallengeCard(
                         Text(
                             text = item.target,
                             fontSize = 24.sp,
-                            lineHeight = if (isUrduItem(item.id)) 44.sp else 32.sp,
+                            lineHeight = if (isUrduItem(item.id)) 44.sp else if (isQuranItem(item.id)) 42.sp else 32.sp,
                             fontFamily = if (isUrduItem(item.id)) NastaliqFontFamily else null,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface,

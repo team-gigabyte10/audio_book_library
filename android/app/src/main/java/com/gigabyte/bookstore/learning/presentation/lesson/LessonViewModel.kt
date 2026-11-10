@@ -53,12 +53,14 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val urduAvailable: StateFlow<Boolean?> = engine.urduAvailable
     val hindiAvailable: StateFlow<Boolean?> = engine.hindiAvailable
     val germanAvailable: StateFlow<Boolean?> = engine.germanAvailable
+    val arabicAvailable: StateFlow<Boolean?> = engine.arabicAvailable
     val urFemaleSpeaker: StateFlow<Boolean> = preferences.learnUrFemaleSpeaker
     val hiFemaleSpeaker: StateFlow<Boolean> = preferences.learnHiFemaleSpeaker
     val isUrdu: Boolean = lessonId.startsWith("ur-")
     val isHindi: Boolean = lessonId.startsWith("hi-")
     val isGerman: Boolean = lessonId.startsWith("de-")
     val isRegionalBangla: Boolean = lessonId.startsWith("bd-")
+    val isQuran: Boolean = lessonId.startsWith("qr-")
 
     val settings: StateFlow<LearnSettings> = combine(
         combine(
