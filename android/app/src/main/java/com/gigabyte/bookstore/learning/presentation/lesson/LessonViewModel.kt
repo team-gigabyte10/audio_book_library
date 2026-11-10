@@ -58,6 +58,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val isUrdu: Boolean = lessonId.startsWith("ur-")
     val isHindi: Boolean = lessonId.startsWith("hi-")
     val isGerman: Boolean = lessonId.startsWith("de-")
+    val isRegionalBangla: Boolean = lessonId.startsWith("bd-")
 
     val settings: StateFlow<LearnSettings> = combine(
         combine(

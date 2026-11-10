@@ -73,8 +73,18 @@ class ContentImporter(
             dao.getPart("en-b2-01") == null ||
             dao.getLesson("en-b2-01-l04") == null
         )
+        val needsRegionalBanglaMigration = assetNames == ASSET_NAMES && (
+            dao.getPart("bd-ctg-01") == null ||
+            dao.getPart("bd-syl-01") == null ||
+            dao.getPart("bd-dhk-01") == null ||
+            dao.getPart("bd-bar-01") == null ||
+            dao.getPart("bd-raj-01") == null ||
+            dao.getPart("bd-rng-01") == null ||
+            dao.getPart("bd-khl-01") == null ||
+            dao.getPart("bd-mym-01") == null
+        )
         when {
-            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration -> {
+            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration || needsRegionalBanglaMigration -> {
                 import(onProgress)
                 true
             }
@@ -199,7 +209,8 @@ class ContentImporter(
             "spoken_japanese_foundations.json",
             "spoken_japanese_past_tense.json",
             "spoken_japanese_casual_fluency.json",
-            "spoken_japanese_business_advanced.json"
+            "spoken_japanese_business_advanced.json",
+            "spoken_bangla_regional_divisions.json"
         )
     }
 }

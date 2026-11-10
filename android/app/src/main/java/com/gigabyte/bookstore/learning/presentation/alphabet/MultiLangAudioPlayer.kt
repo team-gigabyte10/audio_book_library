@@ -104,7 +104,7 @@ class MultiLangAudioPlayer(context: Context) {
             SpeechLang.HI -> TtsStepEngine.HINDI_LOCALES
             SpeechLang.DE -> TtsStepEngine.GERMAN_LOCALES
             SpeechLang.JA -> TtsStepEngine.JAPANESE_LOCALES
-            SpeechLang.BN -> TtsStepEngine.BANGLA_LOCALES
+            SpeechLang.BN, SpeechLang.BD -> TtsStepEngine.BANGLA_LOCALES
         }
 
         val targetLocale = locales.firstOrNull {

@@ -101,6 +101,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             }
             resolve(SpeechLang.EN, ENGLISH_LOCALES)
             resolve(SpeechLang.BN, BANGLA_LOCALES)
+            resolve(SpeechLang.BD, BANGLA_LOCALES)
             resolve(SpeechLang.JA, JAPANESE_LOCALES)
             resolve(SpeechLang.UR, URDU_LOCALES)
             resolve(SpeechLang.HI, HINDI_LOCALES)

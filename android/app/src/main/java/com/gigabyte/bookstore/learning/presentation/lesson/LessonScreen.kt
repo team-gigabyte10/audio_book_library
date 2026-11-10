@@ -168,6 +168,10 @@ fun LessonScreen(
                         } else if (banglaAvailable == false && settings.bnAudio) {
                             VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }
+                    } else if (viewModel.isRegionalBangla) {
+                        if (banglaAvailable == false) {
+                            VoiceWarning("বাংলা ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে বাংলা ভয়েস ইনস্টল করুন।")
+                        }
                     } else if (englishAvailable == false) {
                         VoiceWarning("ইংরেজি ভয়েস ইনস্টল করা নেই। ফোনের Text-to-speech সেটিংস থেকে English (US) ভয়েস ইনস্টল করুন।")
                     } else if (banglaAvailable == false && settings.bnAudio) {

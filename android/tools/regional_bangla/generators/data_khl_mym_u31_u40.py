@@ -223,3 +223,4 @@ UNITS_KHL_MYM_U31_U40 = [
         "lessons": u36_lessons
     }
 ]
+
