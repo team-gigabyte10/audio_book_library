@@ -14,7 +14,8 @@ object JapaneseVocabData {
             pluralBnPron = "ওতোওসানতাচি",
             pluralSecondary = "おとうさんたち",
             bnMeaning = "বাবা / পিতা",
-            gender = GrammaticalGender.NONE
+            gender = GrammaticalGender.NONE,
+            noteBn = "কাঞ্জি: 父 (হিরাগানা পাঠ: ちち - চিচি)। নিজের বাবার পরিচয়ে 'চিচি' (父) এবং অন্যের বাবা বা বাবাকে সরাসরি সম্মানে ডাকতে 'ওতোওসান' (お父さん) ব্যবহৃত হয়।"
         ),
         VocabItem(
             id = "ja_vocab_2",
@@ -26,7 +27,8 @@ object JapaneseVocabData {
             pluralBnPron = "ওকাআসানতাচি",
             pluralSecondary = "おかあさんたち",
             bnMeaning = "মা / মাতা",
-            gender = GrammaticalGender.NONE
+            gender = GrammaticalGender.NONE,
+            noteBn = "কাঞ্জি: 母 (হিরাগানা পাঠ: はは - হাহা)। নিজের মায়ের পরিচয়ে 'হাহা' (母) এবং অন্যের মা বা মাকে সরাসরি সম্মানে ডাকতে 'ওকাআসান' (お母さん) ব্যবহৃত হয়।"
         ),
         VocabItem(
             id = "ja_vocab_3",
@@ -59,7 +61,7 @@ object JapaneseVocabData {
             singularBnPron = "আনি",
             singularSecondary = "あに",
             pluralTarget = "兄たち",
-            pluralBnPron = "আনিহিগে",
+            pluralBnPron = "আনিতাচি",
             pluralSecondary = "あにたち",
             bnMeaning = "ভাই",
             gender = GrammaticalGender.NONE
