@@ -106,6 +106,7 @@ fun HomeScreen(
     onNavigateToReferral: () -> Unit,
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
+    onNavigateToLearnRegionalBangla: () -> Unit = {},
     onNavigateToLearnEnglish: () -> Unit = {},
     onNavigateToLearnJapanese: () -> Unit = {},
     onNavigateToLearnUrdu: () -> Unit = {},
@@ -128,6 +129,9 @@ fun HomeScreen(
 
     val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("audiobook_bundle")
+    }
+    val isRegionalBanglaUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("regional_course")
     }
     val isEnglishUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("english_course")
@@ -360,7 +364,27 @@ fun HomeScreen(
                             )
                         }
 
-                        // 2. 🇬🇧 ENGLISH LANGUAGE COURSE SHOWCASE CARD
+                        // 2. 🇧🇩 BANGLADESHI REGIONAL DIVISION SPOKEN COURSE SHOWCASE CARD (Shown on TOP of English course)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্স",
+                                subtitle = "৮টি বিভাগের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা (চাটগাঁইয়া, নোয়াখালী, সিলেটি, ঢাকাইয়া, বরিশাইল্লা, বরেন্দ্রী, রংপুরিয়া ও ময়মনসিংহ)",
+                                badgeText = "🇧🇩 বিভাগীয় আঞ্চলিক ভাষা",
+                                badgeColor = Color(0xFF006A4E),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isRegionalBanglaUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFF006A4E), Color(0xFF004D38)),
+                                accentColor = Color(0xFF006A4E),
+                                statsText = "🎧 ৪০টি অডিও লেসন · ৩২০+ কথ্য ডায়ালগ · ৮টি বিভাগ",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = onNavigateToLearnRegionalBangla,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 3. 🇬🇧 ENGLISH LANGUAGE COURSE SHOWCASE CARD
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             val englishCourse = uiState.englishCourses.firstOrNull()

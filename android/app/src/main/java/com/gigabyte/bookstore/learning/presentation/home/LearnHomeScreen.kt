@@ -81,6 +81,7 @@ fun LearnHomeScreen(
     val isUrdu = language.equals("urdu", ignoreCase = true)
     val isHindi = language.equals("hindi", ignoreCase = true)
     val isGerman = language.equals("german", ignoreCase = true)
+    val isRegionalBangla = language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)
 
     DisposableEffect(language) {
         viewModel.playWelcomeGreeting(language = language)
@@ -88,6 +89,11 @@ fun LearnHomeScreen(
             viewModel.stopWelcomeGreeting()
         }
     }
+
+    val bdParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("bd-") && it.part.isEnabled } }
+    val bdPartCount = bdParts.size.coerceAtLeast(1)
+    val bdLessonCount = bdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 40 }
+    val bdSentenceCount = bdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 320 }
 
     val enStandardA1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-a1-") && it.part.isEnabled } }
     val enStandardA1PartCount = enStandardA1Parts.size.coerceAtLeast(1)
@@ -251,6 +257,7 @@ fun LearnHomeScreen(
                     Column {
                         Text(
                             text = when {
+                                isRegionalBangla -> "বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্স"
                                 isUrdu -> "উর্দু স্পোকেন কোর্স"
                                 isHindi -> "হিন্দি স্পোকেন কোর্স"
                                 isGerman -> "জার্মান স্পোকেন কোর্স"
@@ -262,6 +269,7 @@ fun LearnHomeScreen(
                         )
                         Text(
                             text = when {
+                                isRegionalBangla -> "৮টি বিভাগের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা শিক্ষা"
                                 isUrdu -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে উর্দু বলা"
                                 isHindi -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে হিন্দি বলা"
                                 isGerman -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে জার্মান বলা"
@@ -778,6 +786,30 @@ fun LearnHomeScreen(
                                 sentenceCount = deSpSentenceCount,
                                 customPills = listOf("🇩🇪 ১৬টি পার্ট", "🏥 নার্সিং ও ক্লিনিক্যাল", "🎓 বিশ্ববিদ্যালয় ও ভিসা"),
                                 onClick = { onOpenCourse("de_specialist") }
+                            )
+                        }
+                    } else if (isRegionalBangla) {
+                        item {
+                            WelcomeBanner(
+                                text = "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি শব্দ ও বাক্য শুনুন এবং জোরে জোরে বলুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "regional_bangla", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+
+                        // Complete 8 Divisions Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇧🇩 ৮টি বিভাগ · সম্পূর্ণ কোর্স",
+                                title = "বাংলাদেশের ৮টি বিভাগীয় আঞ্চলিক কথ্য ভাষা",
+                                description = "চট্টগ্রাম (চাটগাঁইয়া ও নোয়াখালী), সিলেট, পুরান ঢাকা, বরিশাল, রাজশাহী, রংপুর, খুলনা ও ময়মনসিংহ অঞ্চলের খাঁটি কথ্য রূপ ও উপভাষা।",
+                                accentColor = Color(0xFF006A4E),
+                                partCount = bdPartCount,
+                                lessonCount = bdLessonCount,
+                                sentenceCount = bdSentenceCount,
+                                customPills = listOf("🇧🇩 ১০টি পার্ট", "🎧 ৪০টি অডিও লেসন", "🗣️ ৩২০টি বাস্তব ডায়ালগ"),
+                                onClick = { onOpenCourse("regional_bangla") }
                             )
                         }
                     } else if (!isJapanese) {

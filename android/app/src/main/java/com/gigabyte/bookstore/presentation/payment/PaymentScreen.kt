@@ -147,6 +147,20 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
+                id = "regional_course",
+                title = "বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্স",
+                subtitle = "৮টি বিভাগের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = "নতুন",
+                highlights = listOf(
+                    "চট্টগ্রাম (চাটগাঁইয়া ও নোয়াখালী), সিলেট ও পুরান ঢাকা",
+                    "বরিশাল, রাজশাহী, রংপুর, খুলনা ও ময়মনসিংহ উপভাষা",
+                    "৪০টি অডিও লেসন ও ৩২০টি রিয়েল-লাইফ কথ্য ডায়ালগ"
+                )
+            ),
+            AppCoursePackage(
                 id = "mega_bundle",
                 title = "অল-ইন-ওয়ান মেগা বান্ডেল",
                 subtitle = "৩টি কোর্স একসাথে (৫০ টাকা ছাড়!)",
