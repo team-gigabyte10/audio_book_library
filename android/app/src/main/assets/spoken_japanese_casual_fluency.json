@@ -68,7 +68,7 @@
               "target_kana": "あしたとうきょうえいく。",
               "romaji": "Ashita Toukyou e iku.",
               "bn": "কাল টোকিও যাব। (ইনফরমাল)",
-              "bn_pron": "আশিতা তোকিও এ ইকু।",
+              "bn_pron": "আশিতা তোকিও এ ইকু৷",
               "ipa": "Ashita Toukyou e iku.",
               "tokens": [
                 {
@@ -109,7 +109,7 @@
               "target_kana": "いまからごはんたべる。",
               "romaji": "Ima kara gohan taberu.",
               "bn": "এখন খাবার খাব।",
-              "bn_pron": "ইমা কারা গোহান তাবেরু।",
+              "bn_pron": "ইমা কারা গোহান তাবেরু৷",
               "ipa": "Ima kara gohan taberu.",
               "tokens": [
                 {
@@ -150,7 +150,7 @@
               "target_kana": "こんばんえいがみる？うん、みる。",
               "romaji": "Konban eiga miru? Un, miru.",
               "bn": "আজ রাতে সিনেমা দেখবি? হ্যাঁ, দেখব।",
-              "bn_pron": "কোনবান এইগা মিরু? উন, মিরু।",
+              "bn_pron": "কোনবান এইগা মিরু? উন, মিরু৷",
               "ipa": "Konban eiga miru? Un, miru.",
               "tokens": [
                 {
@@ -209,7 +209,7 @@
               "target_kana": "きょうわどこえもいかない。",
               "romaji": "Kyou wa doko e mo ikanai.",
               "bn": "আজ কোথাও যাব না।",
-              "bn_pron": "কিওও ওয়া দোকো এ মো ইকনাই।",
+              "bn_pron": "কিওও ওয়া দোকো এ মো ইকনাই৷",
               "ipa": "Kyou wa doko e mo ikanai.",
               "tokens": [
                 {
@@ -250,7 +250,7 @@
               "target_kana": "おさけわのまない。",
               "romaji": "Osake wa nomanai.",
               "bn": "মদ খাই না।",
-              "bn_pron": "ওসাকে ওয়া নোমানাই।",
+              "bn_pron": "ওসাকে ওয়া নোমানাই৷",
               "ipa": "Osake wa nomanai.",
               "tokens": [
                 {
@@ -285,7 +285,7 @@
               "target_kana": "あさはんたべないの？うん、たべない。",
               "romaji": "Asagohan tabenai no? Un, tabenai.",
               "bn": "সকালের নাস্তা খাবি না? না, খাব না।",
-              "bn_pron": "আসাগোহান তাবেনাই নো? উন, তাবেনাই।",
+              "bn_pron": "আসাগোহান তাবেনাই নো? উন, তাবেনাই৷",
               "ipa": "Asagohan tabenai no? Un, tabenai.",
               "tokens": [
                 {
@@ -344,7 +344,7 @@
               "target_kana": "きのうおもしろいえいがをみた。",
               "romaji": "Kinou omoshiroi eiga o mita.",
               "bn": "গতকাল একটি মজার সিনেমা দেখলাম।",
-              "bn_pron": "কিনোও ওমোশিরোই এইগা ও মিতা।",
+              "bn_pron": "কিনোও ওমোশিরোই এইগা ও মিতা৷",
               "ipa": "Kinou omoshiroi eiga o mita.",
               "tokens": [
                 {
@@ -391,7 +391,7 @@
               "target_kana": "きのうわべんきょうしなかった。",
               "romaji": "Kinou wa benkyou shinakatta.",
               "bn": "গতকাল পড়িনি।",
-              "bn_pron": "কিনোও ওয়া বেনকিওও শিনাকাত্তা।",
+              "bn_pron": "কিনোও ওয়া বেনকিওও শিনাকাত্তা৷",
               "ipa": "Kinou wa benkyou shinakatta.",
               "tokens": [
                 {
@@ -426,7 +426,7 @@
               "target_kana": "てすとどうだった？むずかしかった。",
               "romaji": "Tesuto dou datta? Muzukashikatta.",
               "bn": "পরীক্ষা কেমন হয়েছিল? কঠিন ছিল।",
-              "bn_pron": "তেসুতো দোও দাত্ত কা? মুজুকাশিকাত্তা।",
+              "bn_pron": "তেসুতো দোও দাত্ত কা? মুজুকাশিকাত্তা৷",
               "ipa": "Tesuto dou datta? Muzukashikatta.",
               "tokens": [
                 {
@@ -484,7 +484,7 @@
               "target_kana": "かれわにほんえいく。",
               "romaji": "Kare wa Nihon e iku.",
               "bn": "১. হ্যাঁ-বোধক: সে জাপানে যাবে।",
-              "bn_pron": "কারে ওয়া নিহোন এ ইকু।",
+              "bn_pron": "কারে ওয়া নিহোন এ ইকু৷",
               "ipa": "Kare wa Nihon e iku.",
               "tokens": [
                 {
@@ -513,7 +513,7 @@
               "target_kana": "かれわにほんえいかない。",
               "romaji": "Kare wa Nihon e ikanai.",
               "bn": "২. না-বোধক: সে জাপানে যাবে না।",
-              "bn_pron": "কারে ওয়া নিহোন এ ইকনাই।",
+              "bn_pron": "কারে ওয়া নিহোন এ ইকনাই৷",
               "ipa": "Kare wa Nihon e ikanai.",
               "tokens": [
                 {
@@ -600,7 +600,7 @@
               "target_kana": "かれわいつにほんえいく？らいげついくよ。",
               "romaji": "Kare wa itsu Nihon e iku? Raigetsu iku yo.",
               "bn": "৫. WH-প্রশ্ন: সে কবে জাপান যাবে? আগামী মাসে যাবে।",
-              "bn_pron": "কারে ওয়া ইতসু নিহোন এ ইকু? রাইগেতসু ইকু ইয়ো।",
+              "bn_pron": "কারে ওয়া ইতসু নিহোন এ ইকু? রাইগেতসু ইকু ইয়ো৷",
               "ipa": "Kare wa itsu Nihon e iku? Raigetsu iku yo.",
               "tokens": [
                 {
@@ -681,7 +681,7 @@
               "target_kana": "わたしわにほんごがすこしはなせます。",
               "romaji": "Watashi wa nihongo ga sukoshi hanasemasu.",
               "bn": "আমি কিছুটা জাপানি ভাষায় কথা বলতে পারি।",
-              "bn_pron": "ওয়াতাশি ওয়া নিহঙ্গো গা সুকোশি হানাসেমাসু।",
+              "bn_pron": "ওয়াতাশি ওয়া নিহঙ্গো গা সুকোশি হানাসেমাসু৷",
               "ipa": "Watashi wa nihongo ga sukoshi hanasemasu.",
               "tokens": [
                 {
@@ -728,7 +728,7 @@
               "target_kana": "なまざかながたべられますか。はい、たべられます。",
               "romaji": "Namazakana ga taberaremasu ka. Hai, taberaremasu.",
               "bn": "কাঁচা মাছ খেতে পারেন? হ্যাঁ, পারি।",
-              "bn_pron": "নামাজাকানা গা তাবেরারেমাসু কা? হাই, তাবেরারেমাসু।",
+              "bn_pron": "নামাজাকানা গা তাবেরারেমাসু কা? হাই, তাবেরারেমাসু৷",
               "ipa": "Namazakana ga taberaremasu ka. Hai, taberaremasu.",
               "tokens": [
                 {
@@ -828,7 +828,7 @@
               "target_kana": "わたしわかんじがあまりかけません。",
               "romaji": "Watashi wa kanji ga amari kakemasen.",
               "bn": "আমি খুব একটা কাঞ্জি লিখতে পারি না।",
-              "bn_pron": "ওয়াতাশি ওয়া কাঞ্জি গা আমারি কাকেমাসেন।",
+              "bn_pron": "ওয়াতাশি ওয়া কাঞ্জি গা আমারি কাকেমাসেন৷",
               "ipa": "Watashi wa kanji ga amari kakemasen.",
               "tokens": [
                 {
@@ -875,7 +875,7 @@
               "target_kana": "およぐことができません。",
               "romaji": "Oyogu koto ga dekimasen.",
               "bn": "সাঁতার কাটতে পারি না।",
-              "bn_pron": "ওয়োগু কোতো গা দেকিমাসেন।",
+              "bn_pron": "ওয়োগু কোতো গা দেকিমাসেন৷",
               "ipa": "Oyogu koto ga dekimasen.",
               "tokens": [
                 {
@@ -922,7 +922,7 @@
               "target_kana": "このかふぇでむりょうのわいふぁいがつかえます。",
               "romaji": "Kono kafe de muryou no waifai ga tsukaemasu.",
               "bn": "এই ক্যাফেতে ফ্রি ওয়াইফাই ব্যবহার করা যায়।",
-              "bn_pron": "কোনো কাফে দে মুরিয়োও নো ওয়াইফাই গা তসুকায়েমাসু।",
+              "bn_pron": "কোনো কাফে দে মুরিয়োও নো ওয়াইফাই গা তসুকায়েমাসু৷",
               "ipa": "Kono kafe de muryou no waifai ga tsukaemasu.",
               "tokens": [
                 {
@@ -963,7 +963,7 @@
               "target_kana": "えきのまえのこんびにできっぷがかえます。",
               "romaji": "Eki no mae no konbini de kippu ga kaemasu.",
               "bn": "স্টেশনের সামনের কনভেনিয়েন্স স্টোরে টিকিট কেনা যায়।",
-              "bn_pron": "একি নো মায়ে নো কোনবিনি দে কিপ্পু গা কায়েমাশু।",
+              "bn_pron": "একি নো মায়ে নো কোনবিনি দে কিপ্পু গা কায়েমাশু৷",
               "ipa": "Eki no mae no konbini de kippu ga kaemasu.",
               "tokens": [
                 {
@@ -1031,7 +1031,7 @@
               "target_kana": "あしたあめがふったら、うちでやすみます。",
               "romaji": "Ashita ame ga futtara, uchi de yasumimasu.",
               "bn": "আগামীকাল বৃষ্টি হলে বাড়িতে বিশ্রাম নেব।",
-              "bn_pron": "আশিতা আমে গা ফুত্তারা, উচি দে ইয়াসুমিমাসু।",
+              "bn_pron": "আশিতা আমে গা ফুত্তারা, উচি দে ইয়াসুমিমাসু৷",
               "ipa": "Ashita ame ga futtara, uchi de yasumimasu.",
               "tokens": [
                 {
@@ -1078,7 +1078,7 @@
               "target_kana": "えきについたら、でんわしてください。",
               "romaji": "Eki ni tsuitara, denwa shite kudasai.",
               "bn": "স্টেশনে পৌঁছালে ফোন করবেন দয়া করে।",
-              "bn_pron": "একি নি তসুইতারা, দেনওয়া শিতে কুদাসাই।",
+              "bn_pron": "একি নি তসুইতারা, দেনওয়া শিতে কুদাসাই৷",
               "ipa": "Eki ni tsuitara, denwa shite kudasai.",
               "tokens": [
                 {
@@ -1113,7 +1113,7 @@
               "target_kana": "おかねがあったら、せかいりょこうにいきたいです。",
               "romaji": "Okane ga attara, sekai ryokou ni ikitai desu.",
               "bn": "টাকা থাকলে বিশ্বভ্রমণে যেতে চাই।",
-              "bn_pron": "ওকানে গা আত্তারা, সেকাই রিওকোও নি ইকিতাই দেস।",
+              "bn_pron": "ওকানে গা আত্তারা, সেকাই রিওকোও নি ইকিতাই দেস৷",
               "ipa": "Okane ga attara, sekai ryokou ni ikitai desu.",
               "tokens": [
                 {
@@ -1166,7 +1166,7 @@
               "target_kana": "にほんえいくなら、きょうとがおすすめす。",
               "romaji": "Nihon e iku nara, Kyouto ga osusume desu.",
               "bn": "জাপানে যদি যান, তবে কিয়োটো সবচেয়ে উত্তম প্রস্তাবনা।",
-              "bn_pron": "নিহোন এ ইকু নারা, কিওওতো গা ওসুসুমে দেস।",
+              "bn_pron": "নিহোন এ ইকু নারা, কিওওতো গা ওসুসুমে দেস৷",
               "ipa": "Nihon e iku nara, Kyouto ga osusume desu.",
               "tokens": [
                 {
@@ -1207,7 +1207,7 @@
               "target_kana": "ぱそこんなら、あきはばらのみせやすいですよ。",
               "romaji": "Pasokon nara, Akihabara no mise ga yasui desu yo.",
               "bn": "কম্পিউটারের ব্যাপার হলে আকিহাবারার দোকানগুলো সস্তা।",
-              "bn_pron": "পাসোকোন নারা, আকিহাবারা নো মিসে গা ইয়াসুই দেসু ইয়ো।",
+              "bn_pron": "পাসোকোন নারা, আকিহাবারা নো মিসে গা ইয়াসুই দেসু ইয়ো৷",
               "ipa": "Pasokon nara, Akihabara no mise ga yasui desu yo.",
               "tokens": [
                 {
@@ -1260,7 +1260,7 @@
               "target_kana": "やすければ、たくさんかいます。",
               "romaji": "Yasukereba, takusan kaimasu.",
               "bn": "যদি সস্তা হয়, তবে অনেক কিনব।",
-              "bn_pron": "ইয়াসুকেরোবা, তাকুসান কাইমাসু।",
+              "bn_pron": "ইয়াসুকেরোবা, তাকুসান কাইমাসু৷",
               "ipa": "Yasukereba, takusan kaimasu.",
               "tokens": [
                 {
@@ -1301,7 +1301,7 @@
               "target_kana": "まいにちれんしゅうすれば、じょうずになりますよ。",
               "romaji": "Mainichi renshuu sureba, jouzu ni narimasu yo.",
               "bn": "প্রতিদিন অনুশীলন করলে পারদর্শী হয়ে উঠবেন।",
-              "bn_pron": "মাইনিচি রেনশুউ সুরেবা, জোওজু নি নারিমাসু ইয়ো।",
+              "bn_pron": "মাইনিচি রেনশুউ সুরেবা, জোওজু নি নারিমাসু ইয়ো৷",
               "ipa": "Mainichi renshuu sureba, jouzu ni narimasu yo.",
               "tokens": [
                 {
@@ -1360,7 +1360,7 @@
               "target_kana": "このぼたんをおすと、おつりがでます。",
               "romaji": "Kono botan o osu to, otsuri ga demasu.",
               "bn": "এই বোতামটি চাপলেই অবশিষ্ট ভাঙতি টাকা বের হবে।",
-              "bn_pron": "কোনো বোতান ও ওসু তো, ওতসুরি গা দেমাসু।",
+              "bn_pron": "কোনো বোতান ও ওসু তো, ওতসুরি গা দেমাসু৷",
               "ipa": "Kono botan o osu to, otsuri ga demasu.",
               "tokens": [
                 {
@@ -1407,7 +1407,7 @@
               "target_kana": "はるになると、さくらがさきます。",
               "romaji": "Haru ni naru to, sakura ga sakimasu.",
               "bn": "বসন্ত এলেই চেরি ফুল ফোটে।",
-              "bn_pron": "হারু নি নারু তো, সাকুরা গা সাকিমাসু।",
+              "bn_pron": "হারু নি নারু তো, সাকুরা গা সাকিমাসু৷",
               "ipa": "Haru ni naru to, sakura ga sakimasu.",
               "tokens": [
                 {
@@ -1469,7 +1469,7 @@
               "target_kana": "いっしょにこーひーをのもう。",
               "romaji": "Issho ni koohii o nomou.",
               "bn": "একসাথে কফি খাই চল।",
-              "bn_pron": "ইশশো নি কোওহিই ও নোমোও।",
+              "bn_pron": "ইশশো নি কোওহিই ও নোমোও৷",
               "ipa": "Issho ni koohii o nomou.",
               "tokens": [
                 {
@@ -1510,7 +1510,7 @@
               "target_kana": "しゅうまつうみえいこうとおもっています。",
               "romaji": "Shuumatsu umi e ikou to omotte imasu.",
               "bn": "সাপ্তাহিক ছুটিতে সমুদ্রে যাব বলে ভাবছি।",
-              "bn_pron": "শুউমাতসু উমি এ ইকোও তো ওমোত্তে ইমাসু।",
+              "bn_pron": "শুউমাতসু উমি এ ইকোও তো ওমোত্তে ইমাসু৷",
               "ipa": "Shuumatsu umi e ikou to omotte imasu.",
               "tokens": [
                 {
@@ -1563,7 +1563,7 @@
               "target_kana": "らいねんにほんえりゅうがくするつもりです。",
               "romaji": "Rainen Nihon e ryuugaku suru tsumori desu.",
               "bn": "আগামী বছর জাপানে উচ্চশিক্ষায় যাওয়ার ইচ্ছে আছে।",
-              "bn_pron": "রাইনেন নিহোন এ রিউউগাকু সুরু তসুমোরি দেস।",
+              "bn_pron": "রাইনেন নিহোন এ রিউউগাকু সুরু তসুমোরি দেস৷",
               "ipa": "Rainen Nihon e ryuugaku suru tsumori desu.",
               "tokens": [
                 {
@@ -1610,7 +1610,7 @@
               "target_kana": "きょうわおさけをのまないつもりです。",
               "romaji": "Kyou wa osake o nomanai tsumori desu.",
               "bn": "আজ মদ না খাওয়ার সংকল্প করেছি।",
-              "bn_pron": "কিওও ওয়া ওসাকে ও নোমানাই তসুমোরি দেস।",
+              "bn_pron": "কিওও ওয়া ওসাকে ও নোমানাই তসুমোরি দেস৷",
               "ipa": "Kyou wa osake o nomanai tsumori desu.",
               "tokens": [
                 {
@@ -1663,7 +1663,7 @@
               "target_kana": "かいぎわごごさんじにはじまるよていです。",
               "romaji": "Kaigi wa gogo sanji ni hajimaru yotei desu.",
               "bn": "মিটিং বিকেল ৩টায় শুরু হওয়ার কথা রয়েছে।",
-              "bn_pron": "কাইগি ওয়া গোগো সানজি নি হাজিমারু ইয়োতেই দেস।",
+              "bn_pron": "কাইগি ওয়া গোগো সানজি নি হাজিমারু ইয়োতেই দেস৷",
               "ipa": "Kaigi wa gogo sanji ni hajimaru yotei desu.",
               "tokens": [
                 {
@@ -1704,7 +1704,7 @@
               "target_kana": "らいしゅうしゅっちょうのよていです。",
               "romaji": "Raishuu shutchou no yotei desu.",
               "bn": "আগামী সপ্তাহে ব্যবসায়িক সফরের সূচি রয়েছে।",
-              "bn_pron": "রাইশুউ শুচ্চোও নো ইয়োতেই দেস।",
+              "bn_pron": "রাইশুউ শুচ্চোও নো ইয়োতেই দেস৷",
               "ipa": "Raishuu shutchou no yotei desu.",
               "tokens": [
                 {
@@ -1758,7 +1758,7 @@
               "target_kana": "けんこうのために、まいにちうんどうすることにしました。",
               "romaji": "Kenkou no tame ni, mainichi undou suru koto ni shimashita.",
               "bn": "স্বাস্থ্যের জন্য প্রতিদিন ব্যায়াম করার সিদ্ধান্ত নিয়েছি।",
-              "bn_pron": "কেনকোও নো তামে নি, মাইনিচি উনদোও সুরু কোতো নি শিমাশিতা।",
+              "bn_pron": "কেনকোও নো তামে নি, মাইনিচি উনদোও সুরু কোতো নি শিমাশিতা৷",
               "ipa": "Kenkou no tame ni, mainichi undou suru koto ni shimashita.",
               "tokens": [
                 {
@@ -1799,7 +1799,7 @@
               "target_kana": "らいげつからおおさかえてんきんすることになりました。",
               "romaji": "Raigetsu kara Oosaka e tenkin suru koto ni narimashita.",
               "bn": "আগামী মাস থেকে ওসাকায় বদলি হওয়ার সিদ্ধান্ত হয়েছে (অফিসের নিয়মে)।",
-              "bn_pron": "রাইগেতসু কারা ওওসাকা এ তেনকিন সুরু কোতো নি নারিমাশিতা।",
+              "bn_pron": "রাইগেতসু কারা ওওসাকা এ তেনকিন সুরু কোতো নি নারিমাশিতা৷",
               "ipa": "Raigetsu kara Oosaka e tenkin suru koto ni narimashita.",
               "tokens": [
                 {
@@ -1861,7 +1861,7 @@
               "target_kana": "あしたわあめがふるとおもいます。",
               "romaji": "Ashita wa ame ga furu to omoimasu.",
               "bn": "আমার মনে হয় কাল বৃষ্টি হবে।",
-              "bn_pron": "আশিতা ওয়া আমে গা ফুরু তো ওমোইমাসু।",
+              "bn_pron": "আশিতা ওয়া আমে গা ফুরু তো ওমোইমাসু৷",
               "ipa": "Ashita wa ame ga furu to omoimasu.",
               "tokens": [
                 {
@@ -1902,7 +1902,7 @@
               "target_kana": "にほんのぶっかわたかいとおもいます。",
               "romaji": "Nihon no bukka wa takai to omoimasu.",
               "bn": "আমার মনে হয় জাপানের জিনিসপত্রের দাম অনেক বেশি।",
-              "bn_pron": "নিহোন নো বুক্কা ওয়া তাকাই তো ওমোইমাসু।",
+              "bn_pron": "নিহোন নো বুক্কা ওয়া তাকাই তো ওমোইমাসু৷",
               "ipa": "Nihon no bukka wa takai to omoimasu.",
               "tokens": [
                 {
@@ -1943,7 +1943,7 @@
               "target_kana": "たなかさんわあしたこないとおもいます。",
               "romaji": "Tanaka-san wa ashita konai to omoimasu.",
               "bn": "আমার ধারণা তানাকা বাবু কাল আসবেন না।",
-              "bn_pron": "তানাকা-সান ওয়া আশিতা কোনাই তো ওমোইমাসু।",
+              "bn_pron": "তানাকা-সান ওয়া আশিতা কোনাই তো ওমোইমাসু৷",
               "ipa": "Tanaka-san wa ashita konai to omoimasu.",
               "tokens": [
                 {
@@ -2002,7 +2002,7 @@
               "target_kana": "せんせいわ「しゅくだいをしてください」といいました。",
               "romaji": "Sensei wa \"shukudai o shite kudasai\" to iimashita.",
               "bn": "শিক্ষক বলেছিলেন, \"হোমওয়ার্ক করুন দয়া করে।\"",
-              "bn_pron": "সেনসেই ওয়া শুকুদাই ও শিতে কুদাসাই তো ইইমাশিতা।",
+              "bn_pron": "সেনসেই ওয়া শুকুদাই ও শিতে কুদাসাই তো ইইমাশিতা৷",
               "ipa": "Sensei wa \"shukudai o shite kudasai\" to iimashita.",
               "tokens": [
                 {
@@ -2043,7 +2043,7 @@
               "target_kana": "かれわあしたこられないといっていました。",
               "romaji": "Kare wa ashita korarenai to itte imashita.",
               "bn": "সে বলছিল যে কাল নাকি আসতে পারবে না।",
-              "bn_pron": "কারে ওয়া আশিতা কোরোরেলাই তো ইত্তে ইমাশিতা।",
+              "bn_pron": "কারে ওয়া আশিতা কোরোরেলাই তো ইত্তে ইমাশিতা৷",
               "ipa": "Kare wa ashita korarenai to itte imashita.",
               "tokens": [
                 {
@@ -2097,7 +2097,7 @@
               "target_kana": "はやくびょういんえいったほうがいいですよ。",
               "romaji": "Hayaku byouin e itta hou ga ii desu yo.",
               "bn": "তাড়াতাড়ি হাসপাতালে যাওয়াই ভালো হবে কিন্তু।",
-              "bn_pron": "হায়াকু বিয়োওইন এ ইত্তা হোও গা ইই দেসু ইয়ো।",
+              "bn_pron": "হায়াকু বিয়োওইন এ ইত্তা হোও গা ইই দেসু ইয়ো৷",
               "ipa": "Hayaku byouin e itta hou ga ii desu yo.",
               "tokens": [
                 {
@@ -2138,7 +2138,7 @@
               "target_kana": "あまりむりをしないほうがいいです。",
               "romaji": "Amari muri o shinai hou ga ii desu.",
               "bn": "অতিরিক্ত চাপ না নেওয়াই ভালো।",
-              "bn_pron": "আমারি মুরি ও শিনাই হোও গা ইই দেস।",
+              "bn_pron": "আমারি মুরি ও শিনাই হোও গা ইই দেস৷",
               "ipa": "Amari muri o shinai hou ga ii desu.",
               "tokens": [
                 {
@@ -2200,7 +2200,7 @@
               "target_kana": "わたしわせんせいにほめられました。",
               "romaji": "Watashi wa sensei ni homeraremashita.",
               "bn": "আমি শিক্ষকের দ্বারা প্রশংসিত হয়েছিলাম।",
-              "bn_pron": "ওয়াতাশি ওয়া সেনসেই নি হোমেরারেমাশিতা।",
+              "bn_pron": "ওয়াতাশি ওয়া সেনসেই নি হোমেরারেমাশিতা৷",
               "ipa": "Watashi wa sensei ni homeraremashita.",
               "tokens": [
                 {
@@ -2241,7 +2241,7 @@
               "target_kana": "でんしゃのなかであしをふまれました。",
               "romaji": "Densha no naka de ashi o fumaremashita.",
               "bn": "ট্রেনের ভেতর কেউ আমার পায়ে পাড়া দিয়েছিল।",
-              "bn_pron": "দেনশা নো নাকা দে আশি ও ফুমারেমাশিতা।",
+              "bn_pron": "দেনশা নো নাকা দে আশি ও ফুমারেমাশিতা৷",
               "ipa": "Densha no naka de ashi o fumaremashita.",
               "tokens": [
                 {
@@ -2282,7 +2282,7 @@
               "target_kana": "あめにふられて、ぬれてしまいました。",
               "romaji": "Ame ni furarete, nurete shimaimashita.",
               "bn": "বৃষ্টিতে ভিজে একাকার হয়ে গিয়েছি।",
-              "bn_pron": "আমে নি ফুরারেতে, নুরেতে শিমাইমাশিতা।",
+              "bn_pron": "আমে নি ফুরারেতে, নুরেতে শিমাইমাশিতা৷",
               "ipa": "Ame ni furarete, nurete shimaimashita.",
               "tokens": [
                 {
@@ -2329,7 +2329,7 @@
               "target_kana": "きょうわはやくかえらせてください。",
               "romaji": "Kyou wa hayaku kaerasete kudasai.",
               "bn": "আজ আমাকে একটু তাড়াতাড়ি বাড়ি ফিরতে দিন।",
-              "bn_pron": "কিওও ওয়া হায়াকু কায়েরাসেতে কুদাসাই।",
+              "bn_pron": "কিওও ওয়া হায়াকু কায়েরাসেতে কুদাসাই৷",
               "ipa": "Kyou wa hayaku kaerasete kudasai.",
               "tokens": [
                 {
@@ -2370,7 +2370,7 @@
               "target_kana": "わたしにそのしごとをやらせてください。",
               "romaji": "Watashi ni sono shigoto o yarasete kudasai.",
               "bn": "আমাকে ওই কাজটি করতে দিন।",
-              "bn_pron": "ওয়াতাশি নি সোনো শিগাতো ও ইয়ারাচেতে কুদাসাই।",
+              "bn_pron": "ওয়াতাশি নি সোনো শিগাতো ও ইয়ারাচেতে কুদাসাই৷",
               "ipa": "Watashi ni sono shigoto o yarasete kudasai.",
               "tokens": [
                 {
@@ -2423,7 +2423,7 @@
               "target_kana": "こんしゅうまつなにかよていある？ううん、とくにないよ。どうして？",
               "romaji": "A: Konshuumatsu nanika yotei aru? B: Uun, tokuni nai yo. Doushite?",
               "bn": "A: এই সাপ্তাহিক ছুটিতে কোনো পরিকল্পনা আছে কি তোর? B: না রে, তেমন কিছু নেই। কেন বল তো?",
-              "bn_pron": "এ: কোনশুউমাতসু নানিকা ইয়োতেই আরু? বি: উউউন, তোকুনি নাই ইয়ো। দোওশিতে?",
+              "bn_pron": "এ: কোনশুউমাতসু নানিকা ইয়োতেই আরু? বি: উউউন, তোকুনি নাই ইয়ো৷ দোওশিতে?",
               "ipa": "A: Konshuumatsu nanika yotei aru? B: Uun, tokuni nai yo. Doushite?",
               "tokens": [
                 {
@@ -2498,7 +2498,7 @@
               "target_kana": "にほんごがはなせる。",
               "romaji": "Nihongo ga hanaseru.",
               "bn": "১. হ্যাঁ-বোধক: জাপানি ভাষা বলতে পারি।",
-              "bn_pron": "নিহঙ্গো গা হানাসেরু।",
+              "bn_pron": "নিহঙ্গো গা হানাসেরু৷",
               "ipa": "Nihongo ga hanaseru.",
               "tokens": [
                 {
@@ -2527,7 +2527,7 @@
               "target_kana": "にほんごがはなせない。",
               "romaji": "Nihongo ga hanasenai.",
               "bn": "২. না-বোধক: জাপানি ভাষা বলতে পারি না।",
-              "bn_pron": "নিহঙ্গো গা হানাসেনাই।",
+              "bn_pron": "নিহঙ্গো গা হানাসেনাই৷",
               "ipa": "Nihongo ga hanasenai.",
               "tokens": [
                 {
@@ -2614,7 +2614,7 @@
               "target_kana": "どのくらいにほんごがはなせる？すこしはなせるよ。",
               "romaji": "Dono kurai nihongo ga hanaseru? Sukoshi hanaseru yo.",
               "bn": "৫. WH-প্রশ্ন: কতটা জাপানি বলতে পারিস? একটু পারি।",
-              "bn_pron": "দোনো কুরাই নিহঙ্গো গা হানাসেরু? সুকোশি হানাসেরু ইয়ো।",
+              "bn_pron": "দোনো কুরাই নিহঙ্গো গা হানাসেরু? সুকোশি হানাসেরু ইয়ো৷",
               "ipa": "Dono kurai nihongo ga hanaseru? Sukoshi hanaseru yo.",
               "tokens": [
                 {

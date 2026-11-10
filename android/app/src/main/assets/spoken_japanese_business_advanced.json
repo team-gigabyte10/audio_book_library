@@ -68,7 +68,7 @@
               "target_kana": "しゃちょうわもうおかえりになられました。",
               "romaji": "Shachou wa mou okaeri ni nararemashita.",
               "bn": "কোম্পানি প্রধান (সিইও) ইতিমধ্যে বাড়ি ফিরে গিয়েছেন।",
-              "bn_pron": "শাচোও ওয়া মোও ওকায়েরি নি নারারেমাশিতা।",
+              "bn_pron": "শাচোও ওয়া মোও ওকায়েরি নি নারারেমাশিতা৷",
               "ipa": "Shachou wa mou okaeri ni nararemashita.",
               "tokens": [
                 {
@@ -156,7 +156,7 @@
               "target_kana": "どうぞあたたかいおちゃをめしあがってください。",
               "romaji": "Douzo atatakai ocha o meshiagatte kudasai.",
               "bn": "অনুগ্রহ করে গরম চা গ্রহণ করুন। (খাওয়া ও পানের সম্মানসূচক রূপ)",
-              "bn_pron": "দোওজো আতাতাকাই ওচা ও মেশিয়াগাত্তে কুদাসাই।",
+              "bn_pron": "দোওজো আতাতাকাই ওচা ও মেশিয়াগাত্তে কুদাসাই৷",
               "ipa": "Douzo atatakai ocha o meshiagatte kudasai.",
               "tokens": [
                 {
@@ -298,7 +298,7 @@
               "target_kana": "どうぞこちらにおかけください。",
               "romaji": "Douzo kochira ni okake kudasai.",
               "bn": "অনুগ্রহ করে এখানে আসন গ্রহণ করুন/বসুন।",
-              "bn_pron": "দোওজো কোচিরা নি ওকেকে কুদাসাই।",
+              "bn_pron": "দোওজো কোচিরা নি ওকেকে কুদাসাই৷",
               "ipa": "Douzo kochira ni okake kudasai.",
               "tokens": [
                 {
@@ -489,7 +489,7 @@
               "target_kana": "わたしわらひむともうします。",
               "romaji": "Watashi wa Rahimu to moushimasu.",
               "bn": "আমার নাম রহিম। (নিজের নাম বিনম্রভাবে বলার রূপ)",
-              "bn_pron": "ওয়াতাশি ওয়া রাহিমু তো মোওশিমাসু।",
+              "bn_pron": "ওয়াতাশি ওয়া রাহিমু তো মোওশিমাসু৷",
               "ipa": "Watashi wa Rahimu to moushimasu.",
               "tokens": [
                 {
@@ -530,7 +530,7 @@
               "target_kana": "あしたごぜんじゅうじにそちらえまいります。",
               "romaji": "Ashita gozen juuji ni sochira e mairimasu.",
               "bn": "আগামীকাল সকাল ১০টায় আপনাদের দফতরে উপস্থিত হব।",
-              "bn_pron": "আশিতা গোজেন জুউজি নি সোচিরা এ মাইরিমাসু।",
+              "bn_pron": "আশিতা গোজেন জুউজি নি সোচিরা এ মাইরিমাসু৷",
               "ipa": "Ashita gozen juuji ni sochira e mairimasu.",
               "tokens": [
                 {
@@ -571,7 +571,7 @@
               "target_kana": "ただいまからぷれぜんてーしょんをいたします。",
               "romaji": "Tadaima kara purezenteeshon o itashimasu.",
               "bn": "এখন থেকে প্রেজেন্টেশন উপস্থাপন করছি।",
-              "bn_pron": "তাদাইমা কারা পুরেজেনতেএশোন ও ইতাশিমাসু।",
+              "bn_pron": "তাদাইমা কারা পুরেজেনতেএশোন ও ইতাশিমাসু৷",
               "ipa": "Tadaima kara purezenteeshon o itashimasu.",
               "tokens": [
                 {
@@ -612,7 +612,7 @@
               "target_kana": "おくっていただいたしりょうをはいけんいたしました。",
               "romaji": "Okutte itadaita shiryou o haiken itashimashita.",
               "bn": "আপনার পাঠানো নথিপত্রগুলো গভীর শ্রদ্ধায় পর্যালোচনা করেছি।",
-              "bn_pron": "ওকুত্তে ইতাদাইতা শিরিওও ও হাইকেন ইতাশিমাশিতা।",
+              "bn_pron": "ওকুত্তে ইতাদাইতা শিরিওও ও হাইকেন ইতাশিমাশিতা৷",
               "ipa": "Okutte itadaita shiryou o haiken itashimashita.",
               "tokens": [
                 {
@@ -700,7 +700,7 @@
               "target_kana": "くわしいないようをごあんないいたします。",
               "romaji": "Kuwashii naiyou o goannai itashimasu.",
               "bn": "বিস্তারিত বিষয়বস্তু আমি বুঝিয়ে ও প্রদর্শন করে দিচ্ছি।",
-              "bn_pron": "কুওয়াশিই নাইয়োও ও গোআন্নাই ইতাশিমাসু।",
+              "bn_pron": "কুওয়াশিই নাইয়োও ও গোআন্নাই ইতাশিমাসু৷",
               "ipa": "Kuwashii naiyou o goannai itashimasu.",
               "tokens": [
                 {
@@ -735,7 +735,7 @@
               "target_kana": "のちほどめーるでごれんらくいたします。",
               "romaji": "Nochihodo meeru de gorenraku itashimasu.",
               "bn": "কিছুক্ষণ পর ইমেইলের মাধ্যমে যোগাযোগ করে নিচ্ছি।",
-              "bn_pron": "নোচিহো দো মেরু দে গোরেনরাকু ইতাশিমাসু।",
+              "bn_pron": "নোচিহো দো মেরু দে গোরেনরাকু ইতাশিমাসু৷",
               "ipa": "Nochihodo meeru de gorenraku itashimasu.",
               "tokens": [
                 {
@@ -788,7 +788,7 @@
               "target_kana": "へいしゃわあたらしいあいてぃーそりゅーしょんをていきょうしております。",
               "romaji": "Heisha wa atarashii aiteii soryuushon o teikyou shite orimasu.",
               "bn": "আমাদের প্রতিষ্ঠান সর্বাধুনিক আইটি সলিউশন সেবা প্রদান করে আসছে।",
-              "bn_pron": "হেইশা ওয়া আতারাসিই আইতিই সোরিউউশোন ও তেইকিওও শিতে ওরিমাছু।",
+              "bn_pron": "হেইশা ওয়া আতারাসিই আইতিই সোরিউউশোন ও তেইকিওও শিতে ওরিমাছু৷",
               "ipa": "Heisha wa atarashii aiteii soryuushon o teikyou shite orimasu.",
               "tokens": [
                 {
@@ -829,7 +829,7 @@
               "target_kana": "おんしゃのぷろじぇくとにぜひさんかさせていただきたいです。",
               "romaji": "Onsha no purojekuto ni zehi sanka sasete itadakitai desu.",
               "bn": "আপনাদের সম্মানিত প্রতিষ্ঠানে প্রকল্পে অংশগ্রহণের সুযোগ পেতে আগ্রহী।",
-              "bn_pron": "ওনশা নো পুরোজেকুত নি জেহি সানকা সাসেতে ইতাদাকিতাই দেস।",
+              "bn_pron": "ওনশা নো পুরোজেকুত নি জেহি সানকা সাসেতে ইতাদাকিতাই দেস৷",
               "ipa": "Onsha no purojekuto ni zehi sanka sasete itadakitai desu.",
               "tokens": [
                 {
@@ -1026,7 +1026,7 @@
               "target_kana": "おてすうをおかけしますが、ごへんしんをおねがいもうしあげます。",
               "romaji": "Otesuu o okake shimasu ga, gohenshin o onegai moushiagemasu.",
               "bn": "আপনাকে শ্রম দিচ্ছি, তবে দয়া করে প্রত্যুত্তর পাঠানোর বিনীত অনুরোধ রইল।",
-              "bn_pron": "ওতেসুউ ও ওকেকে শিমাসু গা, গোহেনশিন ও ওনেগাই মোওশিয়াগেমাসু।",
+              "bn_pron": "ওতেসুউ ও ওকেকে শিমাসু গা, গোহেনশিন ও ওনেগাই মোওশিয়াগেমাসু৷",
               "ipa": "Otesuu o okake shimasu ga, gohenshin o onegai moushiagemasu.",
               "tokens": [
                 {
@@ -1079,7 +1079,7 @@
               "target_kana": "あいにくですが、そのひわせんやくがございまして。",
               "romaji": "Ainiku desu ga, sono hi wa senyaku ga gozaimashite.",
               "bn": "দুঃখজনক হলেও সত্যি, ওই দিন আগে থেকেই আমার অন্য একটি অ্যাপয়েন্টমেন্ট রয়েছে।",
-              "bn_pron": "আইনিকু দেসু গা, সোনো হি ওয়া সেনইয়াকু গা গোজাইমাশিতে।",
+              "bn_pron": "আইনিকু দেসু গা, সোনো হি ওয়া সেনইয়াকু গা গোজাইমাশিতে৷",
               "ipa": "Ainiku desu ga, sono hi wa senyaku ga gozaimashite.",
               "tokens": [
                 {
@@ -1120,7 +1120,7 @@
               "target_kana": "たいへんもうしあげにくいのですが、こんかいわみおくらせていただきます。",
               "romaji": "Taihen moushiagenikui no desu ga, konkai wa miokurasete itadakimasu.",
               "bn": "বলতে অত্যন্ত কষ্ট হচ্ছে, তবে এবারের মতো বিষয়টি স্থগিত বা ফিরিয়ে দিতে বাধ্য হচ্ছি।",
-              "bn_pron": "তাইহেন মোওশিয়াগেনিকুই নো দেসু গা, কোনকাই ওয়া মিওকুরাসেতে ইতাদাকিমাসু।",
+              "bn_pron": "তাইহেন মোওশিয়াগেনিকুই নো দেসু গা, কোনকাই ওয়া মিওকুরাসেতে ইতাদাকিমাসু৷",
               "ipa": "Taihen moushiagenikui no desu ga, konkai wa miokurasete itadakimasu.",
               "tokens": [
                 {
@@ -1182,7 +1182,7 @@
               "target_kana": "はい、えーびーしーしょうじでございます。いつもおせわになっております。",
               "romaji": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
               "bn": "হ্যাঁ, এটি এবিসি ট্রেডিং কোম্পানি বলছি। আপনাদের নিরবচ্ছিন্ন সহযোগিতার জন্য ধন্যবাদ।",
-              "bn_pron": "হাই, এবিসি শোওজি দে গোজাইমাসু। ইতসুমো ওসেওয়া নি নাত্তে ওরিমাছু।",
+              "bn_pron": "হাই, এবিসি শোওজি দে গোজাইমাসু৷ ইতসুমো ওসেওয়া নি নাত্তে ওরিমাছু৷",
               "ipa": "Hai, Eebiishee shouji de gozaimasu. Itsumo osewa ni natte orimasu.",
               "tokens": [
                 {
@@ -1252,7 +1252,7 @@
               "target_kana": "あいにくたなかわただいまがいしゅつしております。",
               "romaji": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
               "bn": "দুঃখজনকভাবে তানাকা বাবু এই মুহূর্তে বাইরে অবস্থান করছেন।",
-              "bn_pron": "আইনিকু তানাকা ওয়া তাদাইমা গাইশুতসু শিতে ওরিমাছু।",
+              "bn_pron": "আইনিকু তানাকা ওয়া তাদাইমা গাইশুতসু শিতে ওরিমাছু৷",
               "ipa": "Ainiku Tanaka wa tadaima gaishutsu shite orimasu.",
               "tokens": [
                 {
@@ -1322,7 +1322,7 @@
               "target_kana": "へんしんがおそくなり、たいへんもうしわけございません。",
               "romaji": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
               "bn": "উত্তর দিতে বিলম্ব হওয়ায় আমি আন্তরিকভাবে ক্ষমা প্রার্থনা করছি।",
-              "bn_pron": "হেনশিন গা ওসোকুনারি, তাইহেন মোওশিওয়াকে গোজাইমাসেন।",
+              "bn_pron": "হেনশিন গা ওসোকুনারি, তাইহেন মোওশিওয়াকে গোজাইমাসেন৷",
               "ipa": "Henshin ga osokunari, taihen moushiwake gozaimasen.",
               "tokens": [
                 {
@@ -1351,7 +1351,7 @@
               "target_kana": "ごめいわくをおかけして、まことにもうしわけございません。",
               "romaji": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
               "bn": "আপনাদের অসুবিধায় ফেলার জন্য সত্যিই অত্যন্ত দুঃখ প্রকাশ করছি।",
-              "bn_pron": "গোমেইওয়াকু ও ওকেকে শিতে, মাকোতো নি মোওশিওয়াকে গোজাইমাসেন।",
+              "bn_pron": "গোমেইওয়াকু ও ওকেকে শিতে, মাকোতো নি মোওশিওয়াকে গোজাইমাসেন৷",
               "ipa": "Gomeiwaku o okake shite, makoto ni moushiwake gozaimasen.",
               "tokens": [
                 {
@@ -1402,7 +1402,7 @@
               "target_kana": "せんせいのおかげで、じぇいえるぴーてぃーにごうかくできました。",
               "romaji": "Sensei no okage de, JLPT ni goukaku dekimashita.",
               "bn": "শিক্ষকের অনুপ্রেরণা ও অবদানের কারণে JLPT পরীক্ষায় উত্তীর্ণ হতে পেরেছি।",
-              "bn_pron": "সেনসেই নো ওকেগে দে, জেএলপিটি নি গোওকাকু দেকিমাশিতা।",
+              "bn_pron": "সেনসেই নো ওকেগে দে, জেএলপিটি নি গোওকাকু দেকিমাশিতা৷",
               "ipa": "Sensei no okage de, JLPT ni goukaku dekimashita.",
               "tokens": [
                 {
@@ -1431,7 +1431,7 @@
               "target_kana": "たいふうのせいで、ひこうきがけっこうになりました。",
               "romaji": "Taifuu no sei de, hikouki ga kekkou ni narimashita.",
               "bn": "টাইফুনের বিপত্তির কারণে ফ্লাইট বাতিল হয়ে গেল।",
-              "bn_pron": "তাইফুউ নো সেই দে, হিকোওকি গা কেক্কোও নি নারিমাশিতা।",
+              "bn_pron": "তাইফুউ নো সেই দে, হিকোওকি গা কেক্কোও নি নারিমাশিতা৷",
               "ipa": "Taifuu no sei de, hikouki ga kekkou ni narimashita.",
               "tokens": [
                 {
@@ -1472,7 +1472,7 @@
               "target_kana": "さいしんのでーたにもとづいて、けいかくをたてました。",
               "romaji": "Saishin no deeta ni motozuite, keikaku o tatemashita.",
               "bn": "সর্বাধুনিক তথ্যের ওপর ভিত্তি করে কর্মপরিকল্পনা প্রণয়ন করেছি।",
-              "bn_pron": "সাইশিন নো দেএতা নি মোতোজুইতে, কেইকাকু ও তাতেমাশিতা।",
+              "bn_pron": "সাইশিন নো দেএতা নি মোতোজুইতে, কেইকাকু ও তাতেমাশিতা৷",
               "ipa": "Saishin no deeta ni motozuite, keikaku o tatemashita.",
               "tokens": [
                 {
@@ -1501,7 +1501,7 @@
               "target_kana": "ほうりつにもとづいて、こうせいにしょりいたします。",
               "romaji": "Houritsu ni motozuite, kousei ni shori itashimasu.",
               "bn": "আইন অনুযায়ী যথাযথ ন্যায়পরায়ণতার সাথে নিষ্পত্তি করব।",
-              "bn_pron": "হোওরিতসু নি মোতোজুইতে, কোওসেই নি শোরি ইতাশিমাসু।",
+              "bn_pron": "হোওরিতসু নি মোতোজুইতে, কোওসেই নি শোরি ইতাশিমাসু৷",
               "ipa": "Houritsu ni motozuite, kousei ni shori itashimasu.",
               "tokens": [
                 {
@@ -1542,7 +1542,7 @@
               "target_kana": "かれわまいにちどりょくしているから、せいこうするにちがいない。",
               "romaji": "Kare wa mainichi doryoku shite iru kara, seikou suru ni chigainai.",
               "bn": "সে প্রতিদিন নিরন্তর পরিশ্রম করছে, কাজেই সে সফল হবেই এতে সন্দেহ নেই।",
-              "bn_pron": "কারে ওয়া মাইনিচি দোরিওকু শিতে ইরু কারা, সেইকোও সুরু নি চিগাইনাই।",
+              "bn_pron": "কারে ওয়া মাইনিচি দোরিওকু শিতে ইরু কারা, সেইকোও সুরু নি চিগাইনাই৷",
               "ipa": "Kare wa mainichi doryoku shite iru kara, seikou suru ni chigainai.",
               "tokens": [
                 {
@@ -1571,7 +1571,7 @@
               "target_kana": "このしんせいひんわしじょうでにんきがでるにちがいない。",
               "romaji": "Kono shinseihin wa shijou de ninki ga deru ni chigainai.",
               "bn": "এই নতুন পণ্যটি বাজারে অত্যন্ত জনপ্রিয়তা পাবে তাতে কোনো সন্দেহ নেই।",
-              "bn_pron": "কোনো শিনসেইহিন ওয়া শিজোও দে নিনকি গা দেরু নি চিগাইনাই।",
+              "bn_pron": "কোনো শিনসেইহিন ওয়া শিজোও দে নিনকি গা দেরু নি চিগাইনাই৷",
               "ipa": "Kono shinseihin wa shijou de ninki ga deru ni chigainai.",
               "tokens": [
                 {
@@ -1621,7 +1621,7 @@
               "target_kana": "おっしゃるとおりでございます。たいへんべんきょうになります。",
               "romaji": "Ossharu toori de gozaimasu. Taihen benkyou ni narimasu.",
               "bn": "আপনি যথার্থই বলেছেন। অনেক মূল্যবান বিষয় শিখতে পারলাম।",
-              "bn_pron": "ওশ্শারু তোওরি দে গোজাইমাসু। তাইহেন বেনকিওও নি নারিমাসু।",
+              "bn_pron": "ওশ্শারু তোওরি দে গোজাইমাসু৷ তাইহেন বেনকিওও নি নারিমাসু৷",
               "ipa": "Ossharu toori de gozaimasu. Taihen benkyou ni narimasu.",
               "tokens": [
                 {
@@ -1650,7 +1650,7 @@
               "target_kana": "たしかにそのとおりですね。ごしてきありがとうございます。",
               "romaji": "Tashika ni sono toori desu ne. Goshiteki arigatou gozaimasu.",
               "bn": "নিশ্চয়ই বিষয়টি ঠিক তাই। ধরিয়ে দেওয়ার জন্য ধন্যবাদ।",
-              "bn_pron": "তাশিকানি সোনো তোওরি দেসু নে। গোশিতেকি আরিগাতোও গোজাইমাসু।",
+              "bn_pron": "তাশিকানি সোনো তোওরি দেসু নে৷ গোশিতেকি আরিগাতোও গোজাইমাসু৷",
               "ipa": "Tashika ni sono toori desu ne. Goshiteki arigatou gozaimasu.",
               "tokens": [
                 {
@@ -1691,7 +1691,7 @@
               "target_kana": "そのてんにつきましてわ、しょうしょうけねんがございます。",
               "romaji": "Sono ten ni tsukimashite wa, shoushou kenen ga gozaimasu.",
               "bn": "ওই বিষয়টিতে আমাদের সামান্য কিছুটা উদ্বেগ বা সংশয় রয়েছে।",
-              "bn_pron": "সোনো তেন নি তসুকিমাশিতে ওয়া, শোওশোও কেনেন গা গোজাইমাসু।",
+              "bn_pron": "সোনো তেন নি তসুকিমাশিতে ওয়া, শোওশোও কেনেন গা গোজাইমাসু৷",
               "ipa": "Sono ten ni tsukimashite wa, shoushou kenen ga gozaimasu.",
               "tokens": [
                 {
@@ -1770,7 +1770,7 @@
               "target_kana": "しぼうどうきをおきかせいただけますでしょうか。にほんのせんたんぎじゅつをまなび、きしゃにこうけんしたいとおもいました。",
               "romaji": "Shibou douki o okikase itadakemasu deshou ka. Nihon no sentan gijutsu o manabi, kisha ni kouken shitai to omoimashita.",
               "bn": "আবেদনের কারণ জানাতে পারেন কি? জাপানের সর্বাধুনিক প্রযুক্তি শিখে আপনাদের কোম্পানিতে অবদান রাখতে আগ্রহী হয়েছি।",
-              "bn_pron": "শিবোও দোওকি ও ওকিকাসে ইতাদাকেমাসু দেশোও কা? নিহোন নো সেনতান গিজুতসু ও মানাবি, কিশা নি কোওকেন শিতাই তো ওমোইমাশিতা।",
+              "bn_pron": "শিবোও দোওকি ও ওকিকাসে ইতাদাকেমাসু দেশোও কা? নিহোন নো সেনতান গিজুতসু ও মানাবি, কিশা নি কোওকেন শিতাই তো ওমোইমাশিতা৷",
               "ipa": "Shibou douki o okikase itadakemasu deshou ka. Nihon no sentan gijutsu o manabi, kisha ni kouken shitai to omoimashita.",
               "tokens": [
                 {
@@ -1799,7 +1799,7 @@
               "target_kana": "ごじしんのちょうしょわなんですか。ねばりづよくさいごまでやりぬくことです。",
               "romaji": "Gojishin no chousho wa nan desu ka. Nebarizuyoku saigo made yarinuku koto desu.",
               "bn": "আপনার ইতিবাচক গুণ কী? শেষ মুহূর্ত পর্যন্ত একাগ্র নিষ্ঠার সাথে কাজ সম্পন্ন করা।",
-              "bn_pron": "গোজিশিন নো চোওশো ওয়া নান দেসু কা? নেবারিজুয়োকু সাইগো মাদে ইয়ারিনুকু কোতো দেস।",
+              "bn_pron": "গোজিশিন নো চোওশো ওয়া নান দেসু কা? নেবারিজুয়োকু সাইগো মাদে ইয়ারিনুকু কোতো দেস৷",
               "ipa": "Gojishin no chousho wa nan desu ka. Nebarizuyoku saigo made yarinuku koto desu.",
               "tokens": [
                 {
@@ -1845,7 +1845,7 @@
               "target_kana": "あしたそっちえいくよ。",
               "romaji": "Ashita sotchi e iku yo.",
               "bn": "১. ইনফরমাল বন্ধুমহল: কাল তোদের ওখানে যাব।",
-              "bn_pron": "আশিতা সোচ্চি এ ইকু ইয়ো।",
+              "bn_pron": "আশিতা সোচ্চি এ ইকু ইয়ো৷",
               "ipa": "Ashita sotchi e iku yo.",
               "tokens": [
                 {
@@ -1874,7 +1874,7 @@
               "target_kana": "あしたそちらえいきます。",
               "romaji": "Ashita sochira e ikimasu.",
               "bn": "২. মার্জিত সাধারণ: কাল আপনাদের ওখানে যাব।",
-              "bn_pron": "আশিতা সোচিরা এ ইকিমাসু।",
+              "bn_pron": "আশিতা সোচিরা এ ইকিমাসু৷",
               "ipa": "Ashita sochira e ikimasu.",
               "tokens": [
                 {
@@ -1932,7 +1932,7 @@
               "target_kana": "あしたわたしがそちらえまいります。",
               "romaji": "Ashita watashi ga sochira e mairimasu.",
               "bn": "৪. কেনজৌগো বিনম্র: কাল আমি আপনাদের ওখানে বিনীতভাবে উপস্থিত হব।",
-              "bn_pron": "আশিতা ওয়াতাশি গা সোচিরা এ মাইরিমাসু।",
+              "bn_pron": "আশিতা ওয়াতাশি গা সোচিরা এ মাইরিমাসু৷",
               "ipa": "Ashita watashi ga sochira e mairimasu.",
               "tokens": [
                 {
