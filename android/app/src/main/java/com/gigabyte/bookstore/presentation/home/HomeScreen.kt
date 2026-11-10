@@ -106,6 +106,7 @@ fun HomeScreen(
     onNavigateToReferral: () -> Unit,
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
+    onNavigateToLearnQuran: () -> Unit = {},
     onNavigateToLearnRegionalBangla: () -> Unit = {},
     onNavigateToLearnEnglish: () -> Unit = {},
     onNavigateToLearnJapanese: () -> Unit = {},
@@ -129,6 +130,9 @@ fun HomeScreen(
 
     val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("audiobook_bundle")
+    }
+    val isQuranUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("quran_course")
     }
     val isRegionalBanglaUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("regional_course")
@@ -364,7 +368,27 @@ fun HomeScreen(
                             )
                         }
 
-                        // 2. 🇧🇩 BANGLADESHI REGIONAL DIVISION SPOKEN COURSE SHOWCASE CARD (Shown on TOP of English course)
+                        // 2. 📖 EASILY QURAN LEARNING & TAJWEED COURSE SHOWCASE CARD (Shown on TOP of Regional Bangla course)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
+                                subtitle = "নূরানী ও নাদিয়াতুল ক্বোরআন মেথডে শূন্য থেকে সহীহ তিলাওয়াত, মাখরাজ, তাজবীদ, ওয়াক্ফ ও ১০টি ছোট সূরা",
+                                badgeText = "📖 নূরানী কুরআন শিক্ষা",
+                                badgeColor = Color(0xFF1B5E20),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isQuranUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFF1B5E20), Color(0xFF0A3311)),
+                                accentColor = Color(0xFF1B5E20),
+                                statsText = "🎧 ৩১টি অডিও লেসন · ২৪৮টি আয়াত ও মশ্‌ক · ৮টি পর্যায়",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = onNavigateToLearnQuran,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 3. 🇧🇩 BANGLADESHI REGIONAL DIVISION SPOKEN COURSE SHOWCASE CARD
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             HomeShowcaseCard(

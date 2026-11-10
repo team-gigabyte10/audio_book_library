@@ -16,3 +16,4 @@ internal fun quranTextStyle(fontSize: TextUnit, bold: Boolean = false): TextStyl
     textDirection = TextDirection.Rtl,
     textAlign = TextAlign.Right
 )
+

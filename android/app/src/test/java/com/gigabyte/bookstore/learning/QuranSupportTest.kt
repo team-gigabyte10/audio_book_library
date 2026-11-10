@@ -80,3 +80,4 @@ class QuranSupportTest {
         assertTrue("Part 8 must exist", partIds.contains("qr-p4-u08"))
     }
 }
+

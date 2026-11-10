@@ -61,7 +61,9 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
         if (hasAutoPlayedWelcome && !force) return
         hasAutoPlayedWelcome = true
 
-        val text = if (language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)) {
+        val text = if (language.equals("quran", ignoreCase = true) || language.startsWith("qr")) {
+            "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্সে আপনাকে স্বাগতম। প্রতিটি হরফ, মাখরাজ ও আয়াত মনোযোগ দিয়ে শুনুন এবং তিলাওয়াত অনুশীলন করুন।"
+        } else if (language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)) {
             "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্সে আপনাকে স্বাগতম। প্রতিটি অঞ্চলের কথ্য ভাষা শুনুন এবং জোরে জোরে অনুশীলন করুন।"
         } else if (language.equals("urdu", ignoreCase = true)) {
             "উর্দু স্পোকেন কোর্সে আপনাকে স্বাগতম। প্রতিটি শব্দ শুনুন এবং জোরে জোরে বলুন।"

@@ -48,6 +48,7 @@ enum class PaymentFilter(val label: String) {
 fun getPaymentPackageLabel(packageType: String): String {
     return when (packageType) {
         "english_course" -> "🗣️ স্পোকেন ইংলিশ (৳১০০)"
+        "quran_course" -> "📖 সহজে কুরআন শিক্ষা (৳১০০)"
         "regional_course" -> "🇧🇩 বিভাগীয় আঞ্চলিক ভাষা (৳১০০)"
         "japanese_course" -> "🇯🇵 জাপানিজ স্পোকেন (৳১০০)"
         "urdu_course" -> "🇵🇰 উর্দু স্পোকেন (৳১০০)"

@@ -189,6 +189,9 @@ fun AppNavHost(
                 onNavigateToBookCategories = { bundleId ->
                     navController.navigate(Screen.BookCategories.createRoute(bundleId))
                 },
+                onNavigateToLearnQuran = {
+                    navController.navigate(Screen.CourseSyllabus.createRoute("quran"))
+                },
                 onNavigateToLearnRegionalBangla = {
                     navController.navigate(Screen.CourseSyllabus.createRoute("regional_bangla"))
                 },

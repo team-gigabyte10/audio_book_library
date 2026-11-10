@@ -82,6 +82,7 @@ fun LearnHomeScreen(
     val isHindi = language.equals("hindi", ignoreCase = true)
     val isGerman = language.equals("german", ignoreCase = true)
     val isRegionalBangla = language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)
+    val isQuran = language.equals("quran", ignoreCase = true) || language.startsWith("qr")
 
     DisposableEffect(language) {
         viewModel.playWelcomeGreeting(language = language)
@@ -89,6 +90,11 @@ fun LearnHomeScreen(
             viewModel.stopWelcomeGreeting()
         }
     }
+
+    val qrParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("qr-") && it.part.isEnabled } }
+    val qrPartCount = qrParts.size.coerceAtLeast(1)
+    val qrLessonCount = qrParts.sumOf { it.lessons.size }.let { if (it > 0) it else 31 }
+    val qrSentenceCount = qrParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 248 }
 
     val bdParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("bd-") && it.part.isEnabled } }
     val bdPartCount = bdParts.size.coerceAtLeast(1)
@@ -257,6 +263,7 @@ fun LearnHomeScreen(
                     Column {
                         Text(
                             text = when {
+                                isQuran -> "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স"
                                 isRegionalBangla -> "বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্স"
                                 isUrdu -> "উর্দু স্পোকেন কোর্স"
                                 isHindi -> "হিন্দি স্পোকেন কোর্স"
@@ -269,6 +276,7 @@ fun LearnHomeScreen(
                         )
                         Text(
                             text = when {
+                                isQuran -> "নূরানী পদ্ধতিতে শূন্য থেকে সহীহ তিলাওয়াত ও তাজবীদ"
                                 isRegionalBangla -> "৮টি বিভাগের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা শিক্ষা"
                                 isUrdu -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে উর্দু বলা"
                                 isHindi -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে হিন্দি বলা"
@@ -786,6 +794,30 @@ fun LearnHomeScreen(
                                 sentenceCount = deSpSentenceCount,
                                 customPills = listOf("🇩🇪 ১৬টি পার্ট", "🏥 নার্সিং ও ক্লিনিক্যাল", "🎓 বিশ্ববিদ্যালয় ও ভিসা"),
                                 onClick = { onOpenCourse("de_specialist") }
+                            )
+                        }
+                    } else if (isQuran) {
+                        item {
+                            WelcomeBanner(
+                                text = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্সে আপনাকে স্বাগতম! প্রতিটি হরফ, মাখরাজ ও আয়াত শুনুন এবং তিলাওয়াত অনুশীলন করুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "quran", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+
+                        // Complete 8 Stages Quran Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "📖 নূরানী ও নাদিয়াতুল ক্বোরআন মেথডোলজি",
+                                title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স (৮টি পর্যায়)",
+                                description = "আরবি ২৯টি হরফ, ১৭টি মাখরাজ, হরকত, তানভীন, জযম, তাশদীদ, নূন সাকিন, মীম সাকিন, মাদ্দ ও ১০টি ছোট সূরা।",
+                                accentColor = Color(0xFF1B5E20),
+                                partCount = qrPartCount,
+                                lessonCount = qrLessonCount,
+                                sentenceCount = qrSentenceCount,
+                                customPills = listOf("📖 ৮টি পর্যায়", "🎧 ৩১টি অডিও লেসন", "🕌 ২৪৮টি মশ্‌ক ও আয়াত"),
+                                onClick = { onOpenCourse("quran") }
                             )
                         }
                     } else if (isRegionalBangla) {
