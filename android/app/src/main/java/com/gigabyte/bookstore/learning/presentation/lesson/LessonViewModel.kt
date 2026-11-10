@@ -164,6 +164,23 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
     fun speakText(text: String) = player.speakOnce(text, targetLang, rate = 1.05f)
 
+    fun speakPronunciation(rawPron: String) {
+        val cleanText = if (rawPron.contains(" · ")) {
+            rawPron.substringAfter(" · ").trim()
+        } else {
+            rawPron.trim()
+        }
+        if (cleanText.isNotBlank()) {
+            player.speakOnce(cleanText, SpeechLang.BN, rate = 0.95f)
+        }
+    }
+
+    fun speakMeaning(meaning: String) {
+        if (meaning.isNotBlank()) {
+            player.speakOnce(meaning.trim(), SpeechLang.BN, rate = 1.05f)
+        }
+    }
+
     fun setBnAudio(enabled: Boolean) = preferences.setLearnBnAudio(enabled)
     fun setWordByWord(enabled: Boolean) = preferences.setLearnWordByWord(enabled)
     fun setAutoAdvance(enabled: Boolean) = preferences.setLearnAutoAdvance(enabled)

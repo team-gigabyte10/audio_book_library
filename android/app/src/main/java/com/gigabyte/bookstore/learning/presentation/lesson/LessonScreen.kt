@@ -296,6 +296,8 @@ fun LessonScreen(
                                 onSpeakToken = viewModel::speakToken,
                                 onSpeakTarget = { viewModel.speakText(currentItem.target) },
                                 onSpeakText = { viewModel.speakText(it) },
+                                onSpeakPronunciation = { viewModel.speakPronunciation(it) },
+                                onSpeakMeaning = { viewModel.speakMeaning(it) },
                                 isFemaleSpeaker = if (viewModel.isHindi) hiFemaleSpeaker else (urFemaleSpeaker ?: false)
                             )
                         } else {
@@ -303,6 +305,9 @@ fun LessonScreen(
                             SpeedDrillChallengeCard(
                                 item = currentItem,
                                 onSpeakTarget = { viewModel.speakText(currentItem.target) },
+                                onSpeakText = { viewModel.speakText(it) },
+                                onSpeakPronunciation = { viewModel.speakPronunciation(it) },
+                                onSpeakMeaning = { viewModel.speakMeaning(it) },
                                 onNextItem = viewModel::next,
                                 hasNextItem = index < items.lastIndex,
                                 onStartChallenge = viewModel::pause
@@ -411,6 +416,8 @@ private fun ItemCard(
     onSpeakToken: (Token) -> Unit,
     onSpeakTarget: () -> Unit,
     onSpeakText: (String) -> Unit = {},
+    onSpeakPronunciation: (String) -> Unit = {},
+    onSpeakMeaning: (String) -> Unit = {},
     isFemaleSpeaker: Boolean = false
 ) {
     val speakingBn = (currentStep as? PlaybackStep.Speak)?.lang == SpeechLang.BN
@@ -488,28 +495,96 @@ private fun ItemCard(
                 }
 
                 if (!item.bnPron.isNullOrBlank()) {
-                    Surface(
-                        shape = RoundedCornerShape(10.dp),
-                        color = Color(0xFFC62828).copy(alpha = 0.08f),
-                        border = BorderStroke(1.dp, Color(0xFFC62828).copy(alpha = 0.25f)),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                    val rawPron = item.bnPron
+                    val hasReading = rawPron.contains(" · ")
+                    val readingPart = if (hasReading) rawPron.substringBefore(" · ").trim() else null
+                    val pronPart = if (hasReading) rawPron.substringAfter(" · ").trim() else rawPron.trim()
+
+                    if (!readingPart.isNullOrBlank()) {
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f),
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Text(
-                                text = "🗣️ উচ্চারণ: ",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFFC62828)
-                            )
-                            Text(
-                                text = item.bnPron,
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = Color(0xFFC62828)
-                            )
+                            Row(
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.weight(1f)
+                                ) {
+                                    Text(
+                                        text = if (item.id.startsWith("jp-")) "🇯🇵 রিডিং: " else "📖 মূল রূপ: ",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.secondary
+                                    )
+                                    Text(
+                                        text = readingPart,
+                                        fontSize = 15.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                                    )
+                                }
+                                IconButton(
+                                    onClick = { onSpeakText(readingPart) },
+                                    modifier = Modifier.size(28.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "রিডিং শুনুন",
+                                        tint = MaterialTheme.colorScheme.secondary,
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    if (pronPart.isNotBlank()) {
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = Color(0xFFC62828).copy(alpha = 0.08f),
+                            border = BorderStroke(1.dp, Color(0xFFC62828).copy(alpha = 0.25f)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.weight(1f)
+                                ) {
+                                    Text(
+                                        text = "🗣️ উচ্চারণ: ",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFFC62828)
+                                    )
+                                    Text(
+                                        text = pronPart,
+                                        fontSize = 16.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = Color(0xFFC62828)
+                                    )
+                                }
+                                IconButton(
+                                    onClick = { onSpeakPronunciation(pronPart) },
+                                    modifier = Modifier.size(32.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "উচ্চারণ শুনুন",
+                                        tint = Color(0xFFC62828),
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -518,40 +593,68 @@ private fun ItemCard(
             }
 
             item.bn?.let { bn ->
-                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    if (speakingBn) {
-                        Surface(
-                            shape = RoundedCornerShape(6.dp),
-                            color = MaterialTheme.colorScheme.primaryContainer,
-                            modifier = Modifier.padding(bottom = 2.dp)
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = if (speakingBn) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f),
+                    border = BorderStroke(
+                        width = if (speakingBn) 1.5.dp else 1.dp,
+                        color = if (speakingBn) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(
+                        modifier = Modifier.padding(12.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Row(
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
-                                verticalAlignment = Alignment.CenterVertically
+                            Surface(
+                                shape = RoundedCornerShape(6.dp),
+                                color = if (speakingBn) MaterialTheme.colorScheme.primary else Color(0xFF00796B),
+                                modifier = Modifier.padding(bottom = 2.dp)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 7.dp, vertical = 2.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = null,
+                                        tint = Color.White,
+                                        modifier = Modifier.size(12.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text(
+                                        text = if (speakingBn) "🔊 বাংলায় অর্থ শুনছেন" else "📖 বাংলা অর্থ",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White
+                                    )
+                                }
+                            }
+                            IconButton(
+                                onClick = { onSpeakMeaning(bn) },
+                                modifier = Modifier.size(28.dp)
                             ) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.VolumeUp,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                                    modifier = Modifier.size(13.dp)
-                                )
-                                Spacer(modifier = Modifier.width(4.dp))
-                                Text(
-                                    text = "🔊 বাংলায় অর্থ শুনছেন",
-                                    fontSize = 11.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                                    contentDescription = "বাংলা অর্থ শুনুন",
+                                    tint = if (speakingBn) MaterialTheme.colorScheme.primary else Color(0xFF00796B),
+                                    modifier = Modifier.size(18.dp)
                                 )
                             }
                         }
+                        Text(
+                            text = bn,
+                            fontSize = 20.sp,
+                            lineHeight = 28.sp,
+                            fontWeight = if (speakingBn) FontWeight.Bold else FontWeight.Medium,
+                            color = if (speakingBn) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+                        )
                     }
-                    Text(
-                        bn,
-                        fontSize = 20.sp,
-                        lineHeight = 28.sp,
-                        fontWeight = if (speakingBn) FontWeight.Bold else FontWeight.Normal,
-                        color = if (speakingBn) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
-                    )
                 }
             }
 
@@ -739,7 +842,7 @@ private fun SettingsSheet(
             Column(Modifier.weight(1f)) {
                 Text("বার বার শুনুন")
                 Text(
-                    "প্রতিবার ইংরেজি ১ বার + বাংলা ১ বার",
+                    "প্রতিবার মূল ভাষা ১ বার + বাংলা অর্থ ১ বার",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -754,7 +857,7 @@ private fun SettingsSheet(
                 enabled = settings.repeatCount < LearnSettings.MAX_REPEAT_COUNT
             ) { Icon(Icons.Default.Add, contentDescription = "বাড়ান") }
         }
-        SettingRow("বাংলা অর্থ শুনুন", settings.bnAudio, onBnAudio)
+        SettingRow("বাংলা অনুবাদ শুনুন (অডিওতে অর্থ শোনা যাবে)", settings.bnAudio, onBnAudio)
         SettingRow("শব্দে শব্দে শুনুন (বাক্য)", settings.wordByWord, onWordByWord)
         SettingRow("স্বয়ংক্রিয়ভাবে পরের আইটেমে যান", settings.autoAdvance, onAutoAdvance)
         SettingRow("লেসন বারবার চালান", settings.loopLesson, onLoop)
@@ -843,6 +946,9 @@ private fun SpeakingPromptBanner(isPlaying: Boolean) {
 private fun SpeedDrillChallengeCard(
     item: LessonItem,
     onSpeakTarget: () -> Unit,
+    onSpeakText: (String) -> Unit = {},
+    onSpeakPronunciation: (String) -> Unit = {},
+    onSpeakMeaning: (String) -> Unit = {},
     onNextItem: () -> Unit,
     hasNextItem: Boolean,
     onStartChallenge: () -> Unit = {}
@@ -982,42 +1088,143 @@ private fun SpeedDrillChallengeCard(
                     }
 
                     if (!item.bnPron.isNullOrBlank()) {
-                        Spacer(Modifier.height(6.dp))
-                        Surface(
-                            shape = RoundedCornerShape(8.dp),
-                            color = Color(0xFFC62828).copy(alpha = 0.08f),
-                            border = BorderStroke(1.dp, Color(0xFFC62828).copy(alpha = 0.25f)),
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Row(
-                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
-                                verticalAlignment = Alignment.CenterVertically
+                        Spacer(Modifier.height(8.dp))
+                        val rawPron = item.bnPron
+                        val hasReading = rawPron.contains(" · ")
+                        val readingPart = if (hasReading) rawPron.substringBefore(" · ").trim() else null
+                        val pronPart = if (hasReading) rawPron.substringAfter(" · ").trim() else rawPron.trim()
+
+                        if (!readingPart.isNullOrBlank()) {
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f),
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
+                                modifier = Modifier.fillMaxWidth()
                             ) {
-                                Text(
-                                    text = "🗣️ উচ্চারণ: ",
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color(0xFFC62828)
-                                )
-                                Text(
-                                    text = item.bnPron,
-                                    fontSize = 15.sp,
-                                    fontWeight = FontWeight.SemiBold,
-                                    color = Color(0xFFC62828)
-                                )
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.weight(1f)
+                                    ) {
+                                        Text(
+                                            text = if (item.id.startsWith("jp-")) "🇯🇵 রিডিং: " else "📖 মূল রূপ: ",
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.secondary
+                                        )
+                                        Text(
+                                            text = readingPart,
+                                            fontSize = 14.sp,
+                                            fontWeight = FontWeight.Medium,
+                                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = { onSpeakText(readingPart) },
+                                        modifier = Modifier.size(26.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                            contentDescription = "রিডিং শুনুন",
+                                            tint = MaterialTheme.colorScheme.secondary,
+                                            modifier = Modifier.size(15.dp)
+                                        )
+                                    }
+                                }
+                            }
+                            Spacer(Modifier.height(4.dp))
+                        }
+
+                        if (pronPart.isNotBlank()) {
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color(0xFFC62828).copy(alpha = 0.08f),
+                                border = BorderStroke(1.dp, Color(0xFFC62828).copy(alpha = 0.25f)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.weight(1f)
+                                    ) {
+                                        Text(
+                                            text = "🗣️ উচ্চারণ: ",
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color(0xFFC62828)
+                                        )
+                                        Text(
+                                            text = pronPart,
+                                            fontSize = 15.sp,
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = Color(0xFFC62828)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = { onSpeakPronunciation(pronPart) },
+                                        modifier = Modifier.size(28.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                            contentDescription = "উচ্চারণ শুনুন",
+                                            tint = Color(0xFFC62828),
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
 
                     if (!item.bn.isNullOrBlank()) {
-                        Spacer(Modifier.height(6.dp))
-                        Text(
-                            text = item.bn,
-                            fontSize = 18.sp,
-                            lineHeight = 25.sp,
-                            fontWeight = FontWeight.Medium,
-                            color = Color(0xFF00796B)
-                        )
+                        Spacer(Modifier.height(8.dp))
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = Color(0xFF00796B).copy(alpha = 0.08f),
+                            border = BorderStroke(1.dp, Color(0xFF00796B).copy(alpha = 0.25f)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Text(
+                                        text = "📖 বাংলা অর্থ:",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFF00796B)
+                                    )
+                                    Text(
+                                        text = item.bn,
+                                        fontSize = 17.sp,
+                                        lineHeight = 24.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        color = Color(0xFF00796B)
+                                    )
+                                }
+                                IconButton(
+                                    onClick = { onSpeakMeaning(item.bn) },
+                                    modifier = Modifier.size(28.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "বাংলা অর্থ শুনুন",
+                                        tint = Color(0xFF00796B),
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
             }
