@@ -23946,8 +23946,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Is there a river in your home-town?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার গ্রামের বাড়িতে কি কোনো নদী আছে?",
+              "bn_pron": "ইজ দেয়ার আ রিভার ইন ইউর হোম-টাউন?",
               "tokens": [
                 {
                   "t": "Is",
@@ -23995,8 +23995,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you live in a big city?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি কোনো বড় শহরে বাস করেন?",
+              "bn_pron": "ডু ইউ লিভ ইন আ বিগ সিটি?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24044,8 +24044,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Is there a park near your house?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার বাসার কাছে কি কোনো পার্ক আছে?",
+              "bn_pron": "ইজ দেয়ার আ পার্ক নিয়ার ইউর হাউজ?",
               "tokens": [
                 {
                   "t": "Is",
@@ -24093,8 +24093,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you have your own room?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার কি নিজের আলাদা ঘর আছে?",
+              "bn_pron": "ডু ইউ হ্যাভ ইউর ওন রুম?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24138,8 +24138,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Is your neighborhood noisy?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার আশেপাশের পরিবেশ কি কোলাহলপূর্ণ?",
+              "bn_pron": "ইজ ইউর নেইবারহুড নয়েজি?",
               "tokens": [
                 {
                   "t": "Is",
@@ -24175,8 +24175,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Are there many trees around your home?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার বাড়ির আশেপাশে কি অনেক গাছপালা আছে?",
+              "bn_pron": "আর দেয়ার মেনি ট্রিজ এরাউন্ড ইউর হোম?",
               "tokens": [
                 {
                   "t": "Are",
@@ -24224,8 +24224,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you know your neighbors well?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি আপনার প্রতিবেশীদের ভালো করে চেনেন?",
+              "bn_pron": "ডু ইউ নো ইউর নেইবার্স ওয়েল?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24269,8 +24269,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Is there a hospital near your home?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার বাসার কাছে কি কোনো হাসপাতাল আছে?",
+              "bn_pron": "ইজ দেয়ার আ হসপিটাল নিয়ার ইউর হোম?",
               "tokens": [
                 {
                   "t": "Is",
@@ -24318,8 +24318,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you have a garden in front of your house?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার বাড়ির সামনে কি কোনো বাগান আছে?",
+              "bn_pron": "ডু ইউ হ্যাভ আ গার্ডেন ইন ফ্রন্ট অব ইউর হাউজ?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24379,8 +24379,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Is public transport easily available in your area?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার এলাকায় কি সহজে গণপরিবহন পাওয়া যায়?",
+              "bn_pron": "ইজ পাবলিক ট্রান্সপোর্ট ইজিলি অ্যাভেইলেবল ইন ইউর এরিয়া?",
               "tokens": [
                 {
                   "t": "Is",
@@ -24444,8 +24444,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you wake up early in the morning?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি খুব সকালে ঘুম থেকে ওঠেন?",
+              "bn_pron": "ডু ইউ ওয়েক আপ আর্লি ইন দ্য মর্নিং?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24497,8 +24497,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you exercise every day?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি প্রতিদিন ব্যায়াম করেন?",
+              "bn_pron": "ডু ইউ এক্সারসাইজ এভরি ডে?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24538,8 +24538,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you drink coffee in the morning?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি সকালে কফি পান করেন?",
+              "bn_pron": "ডু ইউ ড্রিংক কফি ইন দ্য মর্নিং?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24587,8 +24587,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you take a nap in the afternoon?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি দুপুরে কিছুক্ষণ ঘুমান?",
+              "bn_pron": "ডু ইউ টেক আ ন্যাপ ইন দি আফটারনুন?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24640,8 +24640,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you read books before going to bed?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "ঘুমাতে যাওয়ার আগে আপনি কি বই পড়েন?",
+              "bn_pron": "ডু ইউ রিড বুকস বিফোর গোয়িং টু বেড?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24693,8 +24693,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you go for a walk in the evening?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি সন্ধ্যায় হাঁটতে যান?",
+              "bn_pron": "ডু ইউ গো ফর আ ওয়াক ইন দি ইভনিং?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24750,8 +24750,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Are you busy on weekends?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "সাপ্তাহিক ছুটির দিনে আপনি কি ব্যস্ত থাকেন?",
+              "bn_pron": "আর ইউ বিজি অন উইকেন্ডস?",
               "tokens": [
                 {
                   "t": "Are",
@@ -24791,8 +24791,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you cook your own meals?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি নিজের খাবার নিজে রান্না করেন?",
+              "bn_pron": "ডু ইউ কুক ইউর ওন মিলস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24836,8 +24836,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you watch television regularly?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি নিয়মিত টেলিভিশন দেখেন?",
+              "bn_pron": "ডু ইউ ওয়াচ টেলিভিশন রেগুলারলি?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24877,8 +24877,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you sleep for at least eight hours?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি অন্তত আট ঘণ্টা ঘুমান?",
+              "bn_pron": "ডু ইউ স্লিপ ফর অ্যাট লিস্ট এইট আওয়ার্স?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24942,8 +24942,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like spicy food?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি ঝাল খাবার পছন্দ করেন?",
+              "bn_pron": "ডু ইউ লাইক স্পাইসি ফুড?",
               "tokens": [
                 {
                   "t": "Do",
@@ -24983,8 +24983,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you prefer tea over coffee?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "কফির চেয়ে কি আপনি চা বেশি পছন্দ করেন?",
+              "bn_pron": "ডু ইউ প্রেফার টি ওভার কফি?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25028,8 +25028,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you eat fast food often?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি প্রায়ই ফাস্টফুড খান?",
+              "bn_pron": "ডু ইউ ইট ফাস্ট ফুড অফেন?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25073,8 +25073,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Are you a vegetarian?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি নিরামিষভোজী?",
+              "bn_pron": "আর ইউ আ ভেজিটেরিয়ান?",
               "tokens": [
                 {
                   "t": "Are",
@@ -25110,8 +25110,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like eating sweet dishes?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি মিষ্টি জাতীয় খাবার পছন্দ করেন?",
+              "bn_pron": "ডু ইউ লাইক ইটিং সুইট ডিশেস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25155,8 +25155,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you drink enough water every day?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি প্রতিদিন পর্যাপ্ত পানি পান করেন?",
+              "bn_pron": "ডু ইউ ড্রিংক এনাফ ওয়াটার এভরি ডে?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25204,8 +25204,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Have you ever tried Italian food?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি কখনো ইতালীয় খাবার খেয়ে দেখেছেন?",
+              "bn_pron": "হ্যাভ ইউ এভার ট্রাইড ইতালিয়ান ফুড?",
               "tokens": [
                 {
                   "t": "Have",
@@ -25249,8 +25249,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you enjoy eating fruits?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি ফল খেতে ভালোবাসেন?",
+              "bn_pron": "ডু ইউ এনজয় ইটিং ফ্রুটস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25290,8 +25290,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you often eat dinner outside?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি প্রায়ই বাইরে রাতের খাবার খান?",
+              "bn_pron": "ডু ইউ অফেন ইট ডিনার আউটসাইড?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25335,8 +25335,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Can you make a cup of tea?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি এক কাপ চা বানাতে পারেন?",
+              "bn_pron": "ক্যান ইউ মেক আ কাপ অব টি?",
               "tokens": [
                 {
                   "t": "Can",
@@ -25396,8 +25396,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like traveling to new places?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি নতুন নতুন জায়গায় ভ্রমণ করতে ভালোবাসেন?",
+              "bn_pron": "ডু ইউ লাইক ট্রাভেলিং টু নিউ প্লেসেস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25445,8 +25445,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Can you ride a bicycle?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি সাইকেল চালাতে পারেন?",
+              "bn_pron": "ক্যান ইউ রাইড আ বাইসাইকেল?",
               "tokens": [
                 {
                   "t": "Can",
@@ -25486,8 +25486,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you have a driving license?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনার কি ড্রাইভিং লাইসেন্স আছে?",
+              "bn_pron": "ডু ইউ হ্যাভ আ ড্রাইভিং লাইসেন্স?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25531,8 +25531,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Have you ever traveled by plane?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি কখনো বিমানে ভ্রমণ করেছেন?",
+              "bn_pron": "হ্যাভ ইউ এভার ট্রাভেল্ড বাই প্লেইন?",
               "tokens": [
                 {
                   "t": "Have",
@@ -25576,8 +25576,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you prefer the sea over mountains?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "পাহাড়ের চেয়ে কি আপনি সমুদ্র বেশি পছন্দ করেন?",
+              "bn_pron": "ডু ইউ প্রেফার দ্য সি ওভার মাউন্টেনস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25625,8 +25625,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like rain and monsoon weather?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি বৃষ্টি এবং বর্ষার আবহাওয়া পছন্দ করেন?",
+              "bn_pron": "ডু ইউ লাইক রেইন অ্যান্ড মনসুন ওয়েদার?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25674,8 +25674,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you enjoy listening to music while traveling?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "ভ্রমণের সময় আপনি কি গান শুনতে পছন্দ করেন?",
+              "bn_pron": "ডু ইউ এনজয় লিসেনিং টু মিউজিক হোয়াইল ট্রাভেলিং?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25727,8 +25727,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Have you visited any historical places?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি কোনো ঐতিহাসিক স্থানে ভ্রমণ করেছেন?",
+              "bn_pron": "হ্যাভ ইউ ভিজিটেড এনি হিস্টোরিক্যাল প্লেসেস?",
               "tokens": [
                 {
                   "t": "Have",
@@ -25772,8 +25772,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like going on long train journeys?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি ট্রেনে দীর্ঘ ভ্রমণ করতে পছন্দ করেন?",
+              "bn_pron": "ডু ইউ লাইক গোয়িং অন লং ট্রেইন জার্নিজ?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25825,8 +25825,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you usually pack light for trips?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "ভ্রমণের সময় আপনি কি সাধারণত হালকা জিনিসপত্র সাথে নেন?",
+              "bn_pron": "ডু ইউ ইউজুয়ালি প্যাক লাইট ফর ট্রিপস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25886,8 +25886,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Can you speak English fluently?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি সাবলীলভাবে ইংরেজিতে কথা বলতে পারেন?",
+              "bn_pron": "ক্যান ইউ স্পিক ইংলিশ ফ্লুয়েন্টলি?",
               "tokens": [
                 {
                   "t": "Can",
@@ -25927,8 +25927,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you use a computer every day?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি প্রতিদিন কম্পিউটার ব্যবহার করেন?",
+              "bn_pron": "ডু ইউ ইউজ আ কম্পিউটার এভরি ডে?",
               "tokens": [
                 {
                   "t": "Do",
@@ -25976,8 +25976,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Can you swim?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি সাঁতার কাটতে পারেন?",
+              "bn_pron": "ক্যান ইউ সুইম?",
               "tokens": [
                 {
                   "t": "Can",
@@ -26009,8 +26009,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like playing outdoor sports?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি ঘরের বাইরের খেলাধুলা পছন্দ করেন?",
+              "bn_pron": "ডু ইউ লাইক প্লেয়িং আউটডোর স্পোর্টস?",
               "tokens": [
                 {
                   "t": "Do",
@@ -26054,8 +26054,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Can you play any musical instrument?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি কোনো বাদ্যযন্ত্র বাজাতে পারেন?",
+              "bn_pron": "ক্যান ইউ প্লে এনি মিউজিক্যাল ইন্সট্রুমেন্ট?",
               "tokens": [
                 {
                   "t": "Can",
@@ -26099,8 +26099,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you spend a lot of time on social media?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি সোশ্যাল মিডিয়ায় অনেক সময় কাটান?",
+              "bn_pron": "ডু ইউ স্পেন্ড আ লট অব টাইম অন সোশ্যাল মিডিয়া?",
               "tokens": [
                 {
                   "t": "Do",
@@ -26160,8 +26160,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Are you interested in photography?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "ফটোগ্রাফিতে কি আপনার আগ্রহ আছে?",
+              "bn_pron": "আর ইউ ইন্টারেস্টেড ইন ফটোগ্রাফি?",
               "tokens": [
                 {
                   "t": "Are",
@@ -26201,8 +26201,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you practice speaking English every day?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি প্রতিদিন ইংরেজি বলা অনুশীলন করেন?",
+              "bn_pron": "ডু ইউ প্র্যাকটিস স্পিকিং ইংলিশ এভরি ডে?",
               "tokens": [
                 {
                   "t": "Do",
@@ -26250,8 +26250,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Do you like watching English movies?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আপনি কি ইংরেজি সিনেমা দেখতে পছন্দ করেন?",
+              "bn_pron": "ডু ইউ লাইক ওয়াচিং ইংলিশ মুভিজ?",
               "tokens": [
                 {
                   "t": "Do",
@@ -26295,8 +26295,8 @@
               "type": "sentence",
               "level": "A1",
               "target": "Are you ready to improve your English today?",
-              "bn": null,
-              "bn_pron": null,
+              "bn": "আজ থেকেই নিজের ইংরেজি উন্নত করতে আপনি কি প্রস্তুত?",
+              "bn_pron": "আর ইউ রেডি টু ইমপ্রুভ ইউর ইংলিশ টুডে?",
               "tokens": [
                 {
                   "t": "Are",
@@ -33506,126 +33506,126 @@
               "order": 1,
               "target": "I have finished my breakfast.",
               "bn": "আমি আমার সকালের নাস্তা শেষ করেছি।",
-              "pron_bn": "আই হ্যাভ ফিনিশড মাই ব্রেকফাস্ট।",
               "ipa": "I have finished my breakfast.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভ ফিনিশড মাই ব্রেকফাস্ট৷"
             },
             {
               "id": "en-p9-l48-002",
               "order": 2,
               "target": "I have completed my assigned task for today.",
               "bn": "আমি আজকের জন্য আমার নির্ধারিত কাজটি সম্পন্ন করেছি।",
-              "pron_bn": "আই হ্যাভ কমপ্লিটেড মাই অ্যাসাইন্ড টাস্ক ফর টুডে।",
               "ipa": "I have completed my assigned task for today.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভ কমপ্লিটেড মাই অ্যাসাইন্ড টাস্ক ফর টুডে৷"
             },
             {
               "id": "en-p9-l48-003",
               "order": 3,
               "target": "He has just arrived at the office.",
               "bn": "তিনি এইমাত্র অফিসে পৌঁছেছেন।",
-              "pron_bn": "হি হ্যাজ জাস্ট অ্যারাইভড অ্যাট দি অফিস।",
               "ipa": "He has just arrived at the office.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হি হ্যাজ জাস্ট অ্যারাইভড অ্যাট দি অফিস৷"
             },
             {
               "id": "en-p9-l48-004",
               "order": 4,
               "target": "She has left for home a few minutes ago.",
               "bn": "সে কয়েক মিনিট আগে বাড়ির উদ্দেশ্যে রওনা হয়েছে।",
-              "pron_bn": "শি হ্যাজ লেফট ফর হোম আ ফিউ মিনিট্স এগো।",
               "ipa": "She has left for home a few minutes ago.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "শি হ্যাজ লেফট ফর হোম আ ফিউ মিনিট্স এগো৷"
             },
             {
               "id": "en-p9-l48-005",
               "order": 5,
               "target": "We have already sent the official email to the manager.",
               "bn": "আমরা ইতিমধ্যে ম্যানেজারের কাছে অফিশিয়াল ইমেইল পাঠিয়েছি।",
-              "pron_bn": "উই হ্যাভ অলরেডি সেন্ট দি অফিশিয়াল ইমেইল টু দ্য ম্যানেজার।",
               "ipa": "We have already sent the official email to the manager.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "উই হ্যাভ অলরেডি সেন্ট দি অফিশিয়াল ইমেইল টু দ্য ম্যানেজার৷"
             },
             {
               "id": "en-p9-l48-006",
               "order": 6,
               "target": "They have sold their old car and bought a new one.",
               "bn": "তারা তাদের পুরোনো গাড়ি বিক্রি করে একটি নতুন গাড়ি কিনেছে।",
-              "pron_bn": "দে হ্যাভ সোল্ড দেয়ার ওল্ড কার অ্যান্ড বট আ নিউ ওয়ান।",
               "ipa": "They have sold their old car and bought a new one.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "দে হ্যাভ সোল্ড দেয়ার ওল্ড কার অ্যান্ড বট আ নিউ ওয়ান৷"
             },
             {
               "id": "en-p9-l48-007",
               "order": 7,
               "target": "I have lost my house keys.",
               "bn": "আমি আমার ঘরের চাবি হারিয়ে ফেলেছি।",
-              "pron_bn": "আই হ্যাভ লস্ট মাই হাউজ কিজ।",
               "ipa": "I have lost my house keys.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভ লস্ট মাই হাউজ কিজ৷"
             },
             {
               "id": "en-p9-l48-008",
               "order": 8,
               "target": "Have you finished your homework? Yes, I have finished my homework. No, I haven't finished yet.",
               "bn": "তুমি কি তোমার বাড়ির কাজ শেষ করেছ? হ্যাঁ, আমি আমার বাড়ির কাজ শেষ করেছি। না, আমি এখনও শেষ করিনি।",
-              "pron_bn": "হ্যাভ ইউ ফিনিশড ইয়োর হোমওয়ার্ক? ইয়েস, আই হ্যাভ ফিনিশড মাই হোমওয়ার্ক। নো, আই হ্যাভন্ট ফিনিশড ইয়েট।",
               "ipa": "Have you finished your homework? Yes, I have finished my homework. No, I haven't finished yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ ফিনিশড ইয়োর হোমওয়ার্ক? ইয়েস, আই হ্যাভ ফিনিশড মাই হোমওয়ার্ক৷ নো, আই হ্যাভন্ট ফিনিশড ইয়েট৷"
             },
             {
               "id": "en-p9-l48-009",
               "order": 9,
               "target": "The express train has just arrived at the central station.",
               "bn": "এক্সপ্রেস ট্রেনটি এইমাত্র সেন্ট্রাল স্টেশনে পৌঁছেছে।",
-              "pron_bn": "দি এক্সপ্রেস ট্রেন হ্যাজ জাস্ট অ্যারাইভড অ্যাট দ্য সেন্ট্রাল স্টেশন।",
               "ipa": "The express train has just arrived at the central station.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "দি এক্সপ্রেস ট্রেন হ্যাজ জাস্ট অ্যারাইভড অ্যাট দ্য সেন্ট্রাল স্টেশন৷"
             }
           ]
         },
@@ -33645,112 +33645,112 @@
               "order": 1,
               "target": "I haven't received your message yet.",
               "bn": "আমি এখনও আপনার বার্তা পাইনি।",
-              "pron_bn": "আই হ্যাভন্ট রিসিভড ইয়োর মেসেজ ইয়েট।",
               "ipa": "I haven't received your message yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভন্ট রিসিভড ইয়োর মেসেজ ইয়েট৷"
             },
             {
               "id": "en-p9-l49-002",
               "order": 2,
               "target": "He hasn't eaten lunch yet.",
               "bn": "সে এখনও দুপুরের খাবার খায়নি।",
-              "pron_bn": "হি হ্যাজন্ট ইটেন লাঞ্চ ইয়েট।",
               "ipa": "He hasn't eaten lunch yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হি হ্যাজন্ট ইটেন লাঞ্চ ইয়েট৷"
             },
             {
               "id": "en-p9-l49-003",
               "order": 3,
               "target": "She hasn't called me back today.",
               "bn": "সে আজ আমাকে আর ফোন করেনি।",
-              "pron_bn": "শি হ্যাজন্ট কল্ড মি ব্যাক টুডে।",
               "ipa": "She hasn't called me back today.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "শি হ্যাজন্ট কল্ড মি ব্যাক টুডে৷"
             },
             {
               "id": "en-p9-l49-004",
               "order": 4,
               "target": "We haven't decided where to go this weekend.",
               "bn": "আমরা এই ছুটির দিনে কোথায় যাব এখনও সিদ্ধান্ত নিইনি।",
-              "pron_bn": "উই হ্যাভন্ট ডিসাইডেড হোয়ার টু গো দিজ উইকেন্ড।",
               "ipa": "We haven't decided where to go this weekend.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "উই হ্যাভন্ট ডিসাইডেড হোয়ার টু গো দিজ উইকেন্ড৷"
             },
             {
               "id": "en-p9-l49-005",
               "order": 5,
               "target": "They haven't replied to our important email yet.",
               "bn": "তারা এখনও আমাদের গুরুত্বপূর্ণ ইমেইলের উত্তর দেয়নি।",
-              "pron_bn": "দে হ্যাভন্ট রিপ্লাইড টু আওয়ার ইম্পরট্যান্ট ইমেইল ইয়েট।",
               "ipa": "They haven't replied to our important email yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "দে হ্যাভন্ট রিপ্লাইড টু আওয়ার ইম্পরট্যান্ট ইমেইল ইয়েট৷"
             },
             {
               "id": "en-p9-l49-006",
               "order": 6,
               "target": "I haven't seen him since last Friday.",
               "bn": "গত শুক্রবারের পর থেকে আমি তাকে দেখিনি।",
-              "pron_bn": "আই হ্যাভন্ট সিন হিম সিন্স লাস্ট ফ্রাইডে।",
               "ipa": "I haven't seen him since last Friday.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভন্ট সিন হিম সিন্স লাস্ট ফ্রাইডে৷"
             },
             {
               "id": "en-p9-l49-007",
               "order": 7,
               "target": "Has he called you yet? Yes, he has called me. No, he hasn't called me yet.",
               "bn": "সে কি তোমাকে ফোন করেছে? হ্যাঁ, সে আমাকে ফোন করেছে। না, সে এখনও আমাকে ফোন করেনি।",
-              "pron_bn": "হ্যাজ হি কল্ড ইউ ইয়েট? ইয়েস, হি হ্যাজ কল্ড মি। নো, হি হ্যাজন্ট কল্ড মি ইয়েট।",
               "ipa": "Has he called you yet? Yes, he has called me. No, he hasn't called me yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাজ হি কল্ড ইউ ইয়েট? ইয়েস, হি হ্যাজ কল্ড মি৷ নো, হি হ্যাজন্ট কল্ড মি ইয়েট৷"
             },
             {
               "id": "en-p9-l49-008",
               "order": 8,
               "target": "I haven't tried this delicious food before.",
               "bn": "আমি আগে কখনো এই সুস্বাদু খাবার খাইনি।",
-              "pron_bn": "আই হ্যাভন্ট ট্রাইড দিজ ডেলিশাস ফুড বিফোর।",
               "ipa": "I haven't tried this delicious food before.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভন্ট ট্রাইড দিজ ডেলিশাস ফুড বিফোর৷"
             }
           ]
         },
@@ -33770,112 +33770,112 @@
               "order": 1,
               "target": "Have you ever been to Cox's Bazar? Yes, I have been there twice. No, I have never been there.",
               "bn": "আপনি কি কখনো কক্সবাজার গিয়েছেন? হ্যাঁ, আমি দুইবার গিয়েছি। না, আমি কখনো যাইনি।",
-              "pron_bn": "হ্যাভ ইউ এভার বিন টু কক্সবাজার? ইয়েস, আই হ্যাভ বিন দেয়ার টুয়াইস। নো, আই হ্যাভ নেভার বিন দেয়ার।",
               "ipa": "Have you ever been to Cox's Bazar? Yes, I have been there twice. No, I have never been there.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ এভার বিন টু কক্সবাজার? ইয়েস, আই হ্যাভ বিন দেয়ার টুয়াইস৷ নো, আই হ্যাভ নেভার বিন দেয়ার৷"
             },
             {
               "id": "en-p9-l50-002",
               "order": 2,
               "target": "Have you ever eaten Japanese food? Yes, I have eaten sushi. No, I have never tried it.",
               "bn": "আপনি কি কখনো জাপানি খাবার খেয়েছেন? হ্যাঁ, আমি সুশি খেয়েছি। না, আমি কখনো খাইনি।",
-              "pron_bn": "হ্যাভ ইউ এভার ইটেন জাপানিজ ফুড? ইয়েস, আই হ্যাভ ইটেন সুশি। নো, আই হ্যাভ নেভার ট্রাইড ইট।",
               "ipa": "Have you ever eaten Japanese food? Yes, I have eaten sushi. No, I have never tried it.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ এভার ইটেন জাপানিজ ফুড? ইয়েস, আই হ্যাভ ইটেন সুশি৷ নো, আই হ্যাভ নেভার ট্রাইড ইট৷"
             },
             {
               "id": "en-p9-l50-003",
               "order": 3,
               "target": "Have you ever spoken English in front of a large audience?",
               "bn": "আপনি কি কখনো বিশাল জনতার সামনে ইংরেজিতে কথা বলেছেন?",
-              "pron_bn": "হ্যাভ ইউ এভার স্পোকেন ইংলিশ ইন ফ্রন্ট অব আ লার্জ অডিয়েন্স?",
               "ipa": "Have you ever spoken English in front of a large audience?",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ এভার স্পোকেন ইংলিশ ইন ফ্রন্ট অব আ লার্জ অডিয়েন্স?"
             },
             {
               "id": "en-p9-l50-004",
               "order": 4,
               "target": "Have you seen the new movie yet? Yes, I have already watched it. No, not yet.",
               "bn": "আপনি কি নতুন সিনেমাটি দেখেছেন? হ্যাঁ, আমি ইতিমধ্যে দেখেছি। না, এখনও দেখিনি।",
-              "pron_bn": "হ্যাভ ইউ সিন দ্য নিউ মুভি ইয়েট? ইয়েস, আই হ্যাভ অলরেডি ওয়াচড ইট। নো, নট ইয়েট।",
               "ipa": "Have you seen the new movie yet? Yes, I have already watched it. No, not yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ সিন দ্য নিউ মুভি ইয়েট? ইয়েস, আই হ্যাভ অলরেডি ওয়াচড ইট৷ নো, নট ইয়েট৷"
             },
             {
               "id": "en-p9-l50-005",
               "order": 5,
               "target": "Have you ever travelled abroad alone?",
               "bn": "আপনি কি কখনো একা একা বিদেশ ভ্রমণ করেছেন?",
-              "pron_bn": "হ্যাভ ইউ এভার ট্রাভেল্ড অ্যাব্রড অ্যালোন?",
               "ipa": "Have you ever travelled abroad alone?",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ এভার ট্রাভেল্ড অ্যাব্রড অ্যালোন?"
             },
             {
               "id": "en-p9-l50-006",
               "order": 6,
               "target": "I have never seen such a breathtaking sunset before.",
               "bn": "আমি আগে কখনো এমন চোখজুড়ানো সূর্যাস্ত দেখিনি।",
-              "pron_bn": "আই হ্যাভ নেভার সিন সাচ আ ব্রেথটেকিং সানসেট বিফোর।",
               "ipa": "I have never seen such a breathtaking sunset before.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভ নেভার সিন সাচ আ ব্রেথটেকিং সানসেট বিফোর৷"
             },
             {
               "id": "en-p9-l50-007",
               "order": 7,
               "target": "Have you finished reading this novel? Yes, I have finished it. No, I haven't finished it yet.",
               "bn": "তুমি কি এই উপন্যাসটি পড়া শেষ করেছ? হ্যাঁ, আমি শেষ করেছি। না, আমি এখনও শেষ করিনি।",
-              "pron_bn": "হ্যাভ ইউ ফিনিশড রিডিং দিজ নভেল? ইয়েস, আই হ্যাভ ফিনিশড ইট। নো, আই হ্যাভন্ট ফিনিশড ইট ইয়েট।",
               "ipa": "Have you finished reading this novel? Yes, I have finished it. No, I haven't finished it yet.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ ফিনিশড রিডিং দিজ নভেল? ইয়েস, আই হ্যাভ ফিনিশড ইট৷ নো, আই হ্যাভন্ট ফিনিশড ইট ইয়েট৷"
             },
             {
               "id": "en-p9-l50-008",
               "order": 8,
               "target": "What has happened here? Nothing serious has happened.",
               "bn": "এখানে কী ঘটেছে? গুরুতর কিছু ঘটেনি।",
-              "pron_bn": "হোয়াট হ্যাজ হ্যাপেন্ড হেয়ার? নাথিং সিরিয়াস হ্যাজ হ্যাপেন্ড।",
               "ipa": "What has happened here? Nothing serious has happened.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হোয়াট হ্যাজ হ্যাপেন্ড হেয়ার? নাথিং সিরিয়াস হ্যাজ হ্যাপেন্ড৷"
             }
           ]
         },
@@ -33895,112 +33895,112 @@
               "order": 1,
               "target": "I have lived in Dhaka for five years.",
               "bn": "আমি পাঁচ বছর ধরে ঢাকায় বসবাস করছি।",
-              "pron_bn": "আই হ্যাভ লিভড ইন ঢাকা ফর ফাইভ ইয়ার্স।",
               "ipa": "I have lived in Dhaka for five years.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভ লিভড ইন ঢাকা ফর ফাইভ ইয়ার্স৷"
             },
             {
               "id": "en-p9-l51-002",
               "order": 2,
               "target": "She has worked at this company since 2020.",
               "bn": "তিনি ২০২০ সাল থেকে এই কোম্পানিতে কাজ করছেন।",
-              "pron_bn": "শি হ্যাজ ওয়ার্কড অ্যাট দিজ কোম্পানি সিন্স টুয়েন্টি-টুয়েন্টি।",
               "ipa": "She has worked at this company since 2020.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "শি হ্যাজ ওয়ার্কড অ্যাট দিজ কোম্পানি সিন্স টুয়েন্টি-টুয়েন্টি৷"
             },
             {
               "id": "en-p9-l51-003",
               "order": 3,
               "target": "I have known him since our childhood days.",
               "bn": "আমি ছেলেবেলা থেকেই তাকে চিনি।",
-              "pron_bn": "আই হ্যাভ নোন হিম সিন্স আওয়ার চাইল্ডহুড ডেইজ।",
               "ipa": "I have known him since our childhood days.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "আই হ্যাভ নোন হিম সিন্স আওয়ার চাইল্ডহুড ডেইজ৷"
             },
             {
               "id": "en-p9-l51-004",
               "order": 4,
               "target": "How long have you lived in this city? I have lived here for three years.",
               "bn": "আপনি কতদিন ধরে এই শহরে থাকছেন? আমি তিন বছর ধরে এখানে থাকছি।",
-              "pron_bn": "হাউ লং হ্যাভ ইউ লিভড ইন দিজ সিটি? আই হ্যাভ লিভড হেয়ার ফর থ্রি ইয়ার্স।",
               "ipa": "How long have you lived in this city? I have lived here for three years.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাভ ইউ লিভড ইন দিজ সিটি? আই হ্যাভ লিভড হেয়ার ফর থ্রি ইয়ার্স৷"
             },
             {
               "id": "en-p9-l51-005",
               "order": 5,
               "target": "How long have you practiced English? I have practiced English for two months.",
               "bn": "আপনি কতদিন ধরে ইংরেজি অনুশীলন করছেন? আমি দুই মাস ধরে ইংরেজি অনুশীলন করছি।",
-              "pron_bn": "হাউ লং হ্যাভ ইউ প্র্যাকটিসড ইংলিশ? আই হ্যাভ প্র্যাকটিসড ইংলিশ ফর টু মান্থস।",
               "ipa": "How long have you practiced English? I have practiced English for two months.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাভ ইউ প্র্যাকটিসড ইংলিশ? আই হ্যাভ প্র্যাকটিসড ইংলিশ ফর টু মান্থস৷"
             },
             {
               "id": "en-p9-l51-006",
               "order": 6,
               "target": "We have been good friends for more than ten years.",
               "bn": "আমরা দশ বছরেরও বেশি সময় ধরে ভালো বন্ধু।",
-              "pron_bn": "উই হ্যাভ বিন গুড ফ্রেন্ডস ফর মোর দ্যান টেন ইয়ার্স।",
               "ipa": "We have been good friends for more than ten years.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "উই হ্যাভ বিন গুড ফ্রেন্ডস ফর মোর দ্যান টেন ইয়ার্স৷"
             },
             {
               "id": "en-p9-l51-007",
               "order": 7,
               "target": "It has been raining continuously since early morning.",
               "bn": "সকাল থেকে একটানা বৃষ্টি হচ্ছে।",
-              "pron_bn": "ইট হ্যাজ বিন রেইনিং কন্টিনিউয়াসলি সিন্স আর্লি মর্নিং।",
               "ipa": "It has been raining continuously since early morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "ইট হ্যাজ বিন রেইনিং কন্টিনিউয়াসলি সিন্স আর্লি মর্নিং৷"
             },
             {
               "id": "en-p9-l51-008",
               "order": 8,
               "target": "Have you known each other for a long time? Yes, we have known each other for five years.",
               "bn": "আপনারা কি একে অপরকে দীর্ঘদিন ধরে চেনেন? হ্যাঁ, আমরা পাঁচ বছর ধরে একে অপরকে চিনি।",
-              "pron_bn": "হ্যাভ ইউ নোন ইচ আদার ফর আ লং টাইম? ইয়েস, উই হ্যাভ নোন ইচ আদার ফর ফাইভ ইয়ার্স।",
               "ipa": "Have you known each other for a long time? Yes, we have known each other for five years.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect",
                 "tense": "present_perfect"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ নোন ইচ আদার ফর আ লং টাইম? ইয়েস, উই হ্যাভ নোন ইচ আদার ফর ফাইভ ইয়ার্স৷"
             }
           ]
         }
@@ -34029,112 +34029,112 @@
               "order": 1,
               "target": "I have been waiting here for two hours.",
               "bn": "আমি এখানে দুই ঘণ্টা ধরে অপেক্ষা করছি।",
-              "pron_bn": "আই হ্যাভ বিন ওয়েটিং হেয়ার ফর টু আওয়ার্স।",
               "ipa": "I have been waiting here for two hours.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "আই হ্যাভ বিন ওয়েটিং হেয়ার ফর টু আওয়ার্স৷"
             },
             {
               "id": "en-p10-l52-002",
               "order": 2,
               "target": "He has been working at this software company for three years.",
               "bn": "সে তিন বছর ধরে এই সফটওয়্যার কোম্পানিতে কাজ করছে।",
-              "pron_bn": "হি হ্যাজ বিন ওয়ার্কিং অ্যাট দিজ সফটওয়্যার কোম্পানি ফর থ্রি ইয়ার্স।",
               "ipa": "He has been working at this software company for three years.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হি হ্যাজ বিন ওয়ার্কিং অ্যাট দিজ সফটওয়্যার কোম্পানি ফর থ্রি ইয়ার্স৷"
             },
             {
               "id": "en-p10-l52-003",
               "order": 3,
               "target": "She has been studying English for six months.",
               "bn": "তিনি ছয় মাস ধরে ইংরেজি শিখছেন।",
-              "pron_bn": "শি হ্যাজ বিন স্টাডিয়িং ইংলিশ ফর সিক্স মান্থস।",
               "ipa": "She has been studying English for six months.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "শি হ্যাজ বিন স্টাডিয়িং ইংলিশ ফর সিক্স মান্থস৷"
             },
             {
               "id": "en-p10-l52-004",
               "order": 4,
               "target": "They have been playing football for an hour in the field.",
               "bn": "তারা মাঠে এক ঘণ্টা ধরে ফুটবল খেলছে।",
-              "pron_bn": "দে হ্যাভ বিন প্লেয়িং ফুটবল ফর অ্যান আওয়ার ইন দ্য ফিল্ড।",
               "ipa": "They have been playing football for an hour in the field.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "দে হ্যাভ বিন প্লেয়িং ফুটবল ফর অ্যান আওয়ার ইন দ্য ফিল্ড৷"
             },
             {
               "id": "en-p10-l52-005",
               "order": 5,
               "target": "It has been raining continuously for four hours.",
               "bn": "চার ঘণ্টা ধরে একটানা বৃষ্টি হচ্ছে।",
-              "pron_bn": "ইট হ্যাজ বিন রেইনিং কন্টিনিউয়াসলি ফর ফোর আওয়ার্স।",
               "ipa": "It has been raining continuously for four hours.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "ইট হ্যাজ বিন রেইনিং কন্টিনিউয়াসলি ফর ফোর আওয়ার্স৷"
             },
             {
               "id": "en-p10-l52-006",
               "order": 6,
               "target": "We have been living in this neighborhood for five years.",
               "bn": "আমরা পাঁচ বছর ধরে এই এলাকায় বসবাস করছি।",
-              "pron_bn": "উই হ্যাভ বিন লিভিং ইন দিজ নেইবারহুড ফর ফাইভ ইয়ার্স।",
               "ipa": "We have been living in this neighborhood for five years.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "উই হ্যাভ বিন লিভিং ইন দিজ নেইবারহুড ফর ফাইভ ইয়ার্স৷"
             },
             {
               "id": "en-p10-l52-007",
               "order": 7,
               "target": "He hasn't been feeling well for the past two days.",
               "bn": "বিগত দুই দিন ধরে তার শরীর ভালো লাগছে না।",
-              "pron_bn": "হি হ্যাজন্ট বিন ফিলিং ওয়েল ফর দ্য পাস্ট টু ডেইজ।",
               "ipa": "He hasn't been feeling well for the past two days.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হি হ্যাজন্ট বিন ফিলিং ওয়েল ফর দ্য পাস্ট টু ডেইজ৷"
             },
             {
               "id": "en-p10-l52-008",
               "order": 8,
               "target": "I have been reading this informative book for two hours.",
               "bn": "আমি দুই ঘণ্টা ধরে এই তথ্যবহুল বইটি পড়ছি।",
-              "pron_bn": "আই হ্যাভ বিন রিডিং দিজ ইনফরম্যাটিভ বুক ফর টু আওয়ার্স।",
               "ipa": "I have been reading this informative book for two hours.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "আই হ্যাভ বিন রিডিং দিজ ইনফরম্যাটিভ বুক ফর টু আওয়ার্স৷"
             }
           ]
         },
@@ -34154,112 +34154,112 @@
               "order": 1,
               "target": "It has been raining heavily since early morning.",
               "bn": "সকাল থেকেই মুষলধারে বৃষ্টি হচ্ছে।",
-              "pron_bn": "ইট হ্যাজ বিন রেইনিং হেভিলি সিন্স আর্লি মর্নিং।",
               "ipa": "It has been raining heavily since early morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "ইট হ্যাজ বিন রেইনিং হেভিলি সিন্স আর্লি মর্নিং৷"
             },
             {
               "id": "en-p10-l53-002",
               "order": 2,
               "target": "She has been cooking in the kitchen since noon.",
               "bn": "সে দুপুর থেকেই রান্নাঘরে রান্না করছে।",
-              "pron_bn": "শি হ্যাজ বিন কুকিং ইন দ্য কিচেন সিন্স নুন।",
               "ipa": "She has been cooking in the kitchen since noon.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "শি হ্যাজ বিন কুকিং ইন দ্য কিচেন সিন্স নুন৷"
             },
             {
               "id": "en-p10-l53-003",
               "order": 3,
               "target": "I have been preparing for this exam since last month.",
               "bn": "আমি গত মাস থেকে এই পরীক্ষার প্রস্তুতি নিচ্ছি।",
-              "pron_bn": "আই হ্যাভ বিন প্রিপেয়ারিং ফর দিজ এক্সাম সিন্স লাস্ট মান্থ।",
               "ipa": "I have been preparing for this exam since last month.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "আই হ্যাভ বিন প্রিপেয়ারিং ফর দিজ এক্সাম সিন্স লাস্ট মান্থ৷"
             },
             {
               "id": "en-p10-l53-004",
               "order": 4,
               "target": "They have been living here since 2018.",
               "bn": "তারা ২০১৮ সাল থেকে এখানে বসবাস করছে।",
-              "pron_bn": "দে হ্যাভ বিন লিভিং হেয়ার সিন্স টুয়েন্টি এইটিন।",
               "ipa": "They have been living here since 2018.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "দে হ্যাভ বিন লিভিং হেয়ার সিন্স টুয়েন্টি এইটিন৷"
             },
             {
               "id": "en-p10-l53-005",
               "order": 5,
               "target": "He has been practicing spoken English since yesterday.",
               "bn": "তিনি গতকাল থেকে স্পোকেন ইংলিশ অনুশীলন করছেন।",
-              "pron_bn": "হি হ্যাজ বিন প্র্যাকটিসড স্পোকেন ইংলিশ সিন্স ইয়েস্টারডে।",
               "ipa": "He has been practicing spoken English since yesterday.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হি হ্যাজ বিন প্র্যাকটিসড স্পোকেন ইংলিশ সিন্স ইয়েস্টারডে৷"
             },
             {
               "id": "en-p10-l53-006",
               "order": 6,
               "target": "We have been planning this family trip since January.",
               "bn": "আমরা জানুয়ারি মাস থেকে এই পারিবারিক ভ্রমণের পরিকল্পনা করছি।",
-              "pron_bn": "উই হ্যাভ বিন প্ল্যানিং দিজ ফ্যামিলি ট্রিপ সিন্স জানুয়ারি।",
               "ipa": "We have been planning this family trip since January.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "উই হ্যাভ বিন প্ল্যানিং দিজ ফ্যামিলি ট্রিপ সিন্স জানুয়ারি৷"
             },
             {
               "id": "en-p10-l53-007",
               "order": 7,
               "target": "She hasn't been taking her medicine properly since Friday.",
               "bn": "শুক্রবার থেকে সে নিয়মিত ওষুধ খাচ্ছে না।",
-              "pron_bn": "শি হ্যাজন্ট বিন টেকিং হার মেডিসিন প্রপারলি সিন্স ফ্রাইডে।",
               "ipa": "She hasn't been taking her medicine properly since Friday.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "শি হ্যাজন্ট বিন টেকিং হার মেডিসিন প্রপারলি সিন্স ফ্রাইডে৷"
             },
             {
               "id": "en-p10-l53-008",
               "order": 8,
               "target": "The baby has been sleeping peacefully since nine o'clock.",
               "bn": "শিশুটির নয়টা থেকে শান্তভাবে ঘুমাচ্ছে।",
-              "pron_bn": "দ্য বেবি হ্যাজ বিন স্লিপিং পিসফুলি সিন্স নাইন ও'ক্লক।",
               "ipa": "The baby has been sleeping peacefully since nine o'clock.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "দ্য বেবি হ্যাজ বিন স্লিপিং পিসফুলি সিন্স নাইন ও'ক্লক৷"
             }
           ]
         },
@@ -34279,112 +34279,112 @@
               "order": 1,
               "target": "How long have you been waiting here? I have been waiting for thirty minutes.",
               "bn": "আপনি কতক্ষণ ধরে এখানে অপেক্ষা করছেন? আমি ত্রিশ মিনিট ধরে অপেক্ষা করছি।",
-              "pron_bn": "হাউ লং হ্যাভ ইউ বিন ওয়েটিং হেয়ার? আই হ্যাভ বিন ওয়েটিং ফর থার্টি মিনিট্স।",
               "ipa": "How long have you been waiting here? I have been waiting for thirty minutes.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাভ ইউ বিন ওয়েটিং হেয়ার? আই হ্যাভ বিন ওয়েটিং ফর থার্টি মিনিট্স৷"
             },
             {
               "id": "en-p10-l54-002",
               "order": 2,
               "target": "How long has he been working on this project? He has been working on it for two weeks.",
               "bn": "তিনি কতদিন ধরে এই প্রজেক্টে কাজ করছেন? তিনি দুই সপ্তাহ ধরে এতে কাজ করছেন।",
-              "pron_bn": "হাউ লং হ্যাজ হি বিন ওয়ার্কিং অন দিজ প্রজেক্ট? হি হ্যাজ বিন ওয়ার্কিং অন ইট ফর টু উইকস।",
               "ipa": "How long has he been working on this project? He has been working on it for two weeks.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাজ হি বিন ওয়ার্কিং অন দিজ প্রজেক্ট? হি হ্যাজ বিন ওয়ার্কিং অন ইট ফর টু উইকস৷"
             },
             {
               "id": "en-p10-l54-003",
               "order": 3,
               "target": "How long have you been learning English? I have been learning English for three months.",
               "bn": "আপনি কতদিন ধরে ইংরেজি শিখছেন? আমি তিন মাস ধরে ইংরেজি শিখছি।",
-              "pron_bn": "হাউ লং হ্যাভ ইউ বিন লার্নিং ইংলিশ? আই হ্যাভ বিন লার্নিং ইংলিশ ফর থ্রি মান্থস।",
               "ipa": "How long have you been learning English? I have been learning English for three months.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাভ ইউ বিন লার্নিং ইংলিশ? আই হ্যাভ বিন লার্নিং ইংলিশ ফর থ্রি মান্থস৷"
             },
             {
               "id": "en-p10-l54-004",
               "order": 4,
               "target": "How long has it been raining? It has been raining since early morning.",
               "bn": "কতক্ষণ ধরে বৃষ্টি হচ্ছে? সকাল থেকে বৃষ্টি হচ্ছে।",
-              "pron_bn": "হাউ লং হ্যাজ ইট বিন রেইনিং? ইট হ্যাজ বিন রেইনিং সিন্স আর্লি মর্নিং।",
               "ipa": "How long has it been raining? It has been raining since early morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাজ ইট বিন রেইনিং? ইট হ্যাজ বিন রেইনিং সিন্স আর্লি মর্নিং৷"
             },
             {
               "id": "en-p10-l54-005",
               "order": 5,
               "target": "Has he been waiting here for two hours? Yes, he has been waiting for two hours. No, he hasn't been waiting that long.",
               "bn": "সে কি এখানে দুই ঘণ্টা ধরে অপেক্ষা করছে? হ্যাঁ, সে দুই ঘণ্টা ধরে অপেক্ষা করছে। না, সে এতক্ষণ ধরে অপেক্ষা করছে না।",
-              "pron_bn": "হ্যাজ হি বিন ওয়েটিং হেয়ার ফর টু আওয়ার্স? ইয়েস, হি হ্যাজ বিন ওয়েটিং ফর টু আওয়ার্স। নো, হি হ্যাজন্ট বিন ওয়েটিং দ্যাট লং।",
               "ipa": "Has he been waiting here for two hours? Yes, he has been waiting for two hours. No, he hasn't been waiting that long.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হ্যাজ হি বিন ওয়েটিং হেয়ার ফর টু আওয়ার্স? ইয়েস, হি হ্যাজ বিন ওয়েটিং ফর টু আওয়ার্স৷ নো, হি হ্যাজন্ট বিন ওয়েটিং দ্যাট লং৷"
             },
             {
               "id": "en-p10-l54-006",
               "order": 6,
               "target": "Have you been practicing regularly? Yes, I have been practicing every single day.",
               "bn": "আপনি কি নিয়মিত অনুশীলন করছেন? হ্যাঁ, আমি প্রতিদিন অনুশীলন করছি।",
-              "pron_bn": "হ্যাভ ইউ বিন প্র্যাকটিসিং রেগুলারলি? ইয়েস, আই হ্যাভ বিন প্র্যাকটিসিং এভরি সিঙ্গেল ডে।",
               "ipa": "Have you been practicing regularly? Yes, I have been practicing every single day.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হ্যাভ ইউ বিন প্র্যাকটিসিং রেগুলারলি? ইয়েস, আই হ্যাভ বিন প্র্যাকটিসিং এভরি সিঙ্গেল ডে৷"
             },
             {
               "id": "en-p10-l54-007",
               "order": 7,
               "target": "How long have they been discussing this issue? They have been discussing it for one hour.",
               "bn": "তারা কতক্ষণ ধরে এই বিষয়টি আলোচনা করছেন? তারা এক ঘণ্টা ধরে আলোচনা করছেন।",
-              "pron_bn": "হাউ লং হ্যাভ দে বিন ডিসকাসিং দিজ ইস্যু? দে হ্যাভ বিন ডিসকাসিং ইট ফর ওয়ান আওয়ার।",
               "ipa": "How long have they been discussing this issue? They have been discussing it for one hour.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হাউ লং হ্যাভ দে বিন ডিসকাসিং দিজ ইস্যু? দে হ্যাভ বিন ডিসকাসিং ইট ফর ওয়ান আওয়ার৷"
             },
             {
               "id": "en-p10-l54-008",
               "order": 8,
               "target": "What have you been doing since morning? I have been completing my office assignments.",
               "bn": "সকাল থেকে আপনি কী করছেন? আমি আমার অফিসের দায়িত্বসমূহ সম্পন্ন করছি।",
-              "pron_bn": "হোয়াট হ্যাভ ইউ বিন ডুইং সিন্স মর্নিং? আই হ্যাভ বিন কমপ্লিটিং মাই অফিস অ্যাসাইনমেন্টস।",
               "ipa": "What have you been doing since morning? I have been completing my office assignments.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হোয়াট হ্যাভ ইউ বিন ডুইং সিন্স মর্নিং? আই হ্যাভ বিন কমপ্লিটিং মাই অফিস অ্যাসাইনমেন্টস৷"
             }
           ]
         },
@@ -34404,112 +34404,112 @@
               "order": 1,
               "target": "She is cooking right now. She has been cooking for two hours.",
               "bn": "সে এখন রান্না করছে। সে দুই ঘণ্টা ধরে রান্না করছে।",
-              "pron_bn": "শি ইজ কুকিং রাইট নাও। শি হ্যাজ বিন কুকিং ফর টু আওয়ার্স।",
               "ipa": "She is cooking right now. She has been cooking for two hours.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "শি ইজ কুকিং রাইট নাও৷ শি হ্যাজ বিন কুকিং ফর টু আওয়ার্স৷"
             },
             {
               "id": "en-p10-l55-002",
               "order": 2,
               "target": "It is raining now. It has been raining since early morning.",
               "bn": "এখন বৃষ্টি হচ্ছে। সকাল থেকে বৃষ্টি হচ্ছে।",
-              "pron_bn": "ইট ইজ রেইনিং নাও। ইট হ্যাজ বিন রেইনিং সিন্স আর্লি মর্নিং।",
               "ipa": "It is raining now. It has been raining since early morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "ইট ইজ রেইনিং নাও৷ ইট হ্যাজ বিন রেইনিং সিন্স আর্লি মর্নিং৷"
             },
             {
               "id": "en-p10-l55-003",
               "order": 3,
               "target": "I am studying now. I have been studying English for six months.",
               "bn": "আমি এখন পড়াশোনা করছি। আমি ছয় মাস ধরে ইংরেজি শিখছি।",
-              "pron_bn": "আই অ্যাম স্টাডিয়িং নাও। আই হ্যাভ বিন স্টাডিয়িং ইংলিশ ফর সিক্স মান্থস।",
               "ipa": "I am studying now. I have been studying English for six months.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "আই অ্যাম স্টাডিয়িং নাও৷ আই হ্যাভ বিন স্টাডিয়িং ইংলিশ ফর সিক্স মান্থস৷"
             },
             {
               "id": "en-p10-l55-004",
               "order": 4,
               "target": "They are playing cricket. They have been playing for over an hour.",
               "bn": "তারা ক্রিকেট খেলছে। তারা এক ঘণ্টারও বেশি সময় ধরে খেলছে।",
-              "pron_bn": "দে আর প্লেয়িং ক্রিকেট। দে হ্যাভ বিন প্লেয়িং ফর ওভার অ্যান আওয়ার।",
               "ipa": "They are playing cricket. They have been playing for over an hour.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "দে আর প্লেয়িং ক্রিকেট৷ দে হ্যাভ বিন প্লেয়িং ফর ওভার অ্যান আওয়ার৷"
             },
             {
               "id": "en-p10-l55-005",
               "order": 5,
               "target": "He is working today. He has been working at this company since 2021.",
               "bn": "তিনি আজ কাজ করছেন। তিনি ২০২১ সাল থেকে এই কোম্পানিতে কাজ করছেন।",
-              "pron_bn": "হি ইজ ওয়ার্কিং টুডে। হি হ্যাজ বিন ওয়ার্কিং অ্যাট দিজ কোম্পানি সিন্স টুয়েন্টি-টুয়েন্টি-ওয়ান।",
               "ipa": "He is working today. He has been working at this company since 2021.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হি ইজ ওয়ার্কিং টুডে৷ হি হ্যাজ বিন ওয়ার্কিং অ্যাট দিজ কোম্পানি সিন্স টুয়েন্টি-টুয়েন্টি-ওয়ান৷"
             },
             {
               "id": "en-p10-l55-006",
               "order": 6,
               "target": "We are discussing the matter. We have been discussing it since morning.",
               "bn": "আমরা বিষয়টি নিয়ে আলোচনা করছি। আমরা সকাল থেকে এটি নিয়ে আলোচনা করছি।",
-              "pron_bn": "উই আর ডিসকাসিং দ্য ম্যাটার। উই হ্যাভ বিন ডিসকাসিং ইট সিন্স মর্নিং।",
               "ipa": "We are discussing the matter. We have been discussing it since morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "উই আর ডিসকাসিং দ্য ম্যাটার৷ উই হ্যাভ বিন ডিসকাসিং ইট সিন্স মর্নিং৷"
             },
             {
               "id": "en-p10-l55-007",
               "order": 7,
               "target": "Why are your eyes red? Because I have been working on the screen for five hours.",
               "bn": "আপনার চোখ লাল কেন? কারণ আমি পাঁচ ঘণ্টা ধরে স্ক্রিনে কাজ করছি।",
-              "pron_bn": "হোয়াই আর ইয়োর আইজ রেড? বিকজ আই হ্যাভ বিন ওয়ার্কিং অন দ্য স্ক্রিন ফর ফাইভ আওয়ার্স।",
               "ipa": "Why are your eyes red? Because I have been working on the screen for five hours.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "হোয়াই আর ইয়োর আইজ রেড? বিকজ আই হ্যাভ বিন ওয়ার্কিং অন দ্য স্ক্রিন ফর ফাইভ আওয়ার্স৷"
             },
             {
               "id": "en-p10-l55-008",
               "order": 8,
               "target": "Are you tired? Yes, I have been cleaning the whole house all afternoon.",
               "bn": "আপনি কি ক্লান্ত? হ্যাঁ, আমি পুরো বিকেল ধরে পুরো বাড়ি পরিষ্কার করছি।",
-              "pron_bn": "আর ইউ টায়ার্ড? ইয়েস, আই হ্যাভ বিন ক্লিনিং দ্য হোল হাউজ অল আফটারনুন।",
               "ipa": "Are you tired? Yes, I have been cleaning the whole house all afternoon.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_perfect_continuous",
                 "tense": "present_perfect_continuous"
-              }
+              },
+              "bn_pron": "আর ইউ টায়ার্ড? ইয়েস, আই হ্যাভ বিন ক্লিনিং দ্য হোল হাউজ অল আফটারনুন৷"
             }
           ]
         }
@@ -35597,112 +35597,112 @@
               "order": 1,
               "target": "English is spoken all over the world.",
               "bn": "সারা বিশ্বে ইংরেজি বলা হয়।",
-              "pron_bn": "ইংলিশ ইজ স্পোকেন অল ওভার দ্য ওয়ার্ল্ড।",
               "ipa": "English is spoken all over the world.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইংলিশ ইজ স্পোকেন অল ওভার দ্য ওয়ার্ল্ড৷"
             },
             {
               "id": "en-p12-l57-002",
               "order": 2,
               "target": "Rice is grown in large quantities in Bangladesh.",
               "bn": "বাংলাদেশে প্রচুর পরিমাণে ধান উৎপাদিত হয়।",
-              "pron_bn": "রাইস ইজ গ্রোন ইন লার্জ কোয়ান্টিটিস ইন বাংলাদেশ।",
               "ipa": "Rice is grown in large quantities in Bangladesh.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "রাইস ইজ গ্রোন ইন লার্জ কোয়ান্টিটিস ইন বাংলাদেশ৷"
             },
             {
               "id": "en-p12-l57-003",
               "order": 3,
               "target": "Hot tea is served to all the guests.",
               "bn": "সকল অতিথিকে গরম চা পরিবেশন করা হয়।",
-              "pron_bn": "হট টি ইজ সার্ভড টু অল দ্য গেস্টস।",
               "ipa": "Hot tea is served to all the guests.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "হট টি ইজ সার্ভড টু অল দ্য গেস্টস৷"
             },
             {
               "id": "en-p12-l57-004",
               "order": 4,
               "target": "He is given a handsome monthly salary.",
               "bn": "তাকে ভালো অঙ্কের মাসিক বেতন দেওয়া হয়।",
-              "pron_bn": "হি ইজ গিভেন আ হ্যান্ডসাম মান্থলি স্যালারি।",
               "ipa": "He is given a handsome monthly salary.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "হি ইজ গিভেন আ হ্যান্ডসাম মান্থলি স্যালারি৷"
             },
             {
               "id": "en-p12-l57-005",
               "order": 5,
               "target": "Official emails are sent every single morning.",
               "bn": "প্রতিদিন সকালে অফিশিয়াল ইমেইল পাঠানো হয়।",
-              "pron_bn": "অফিশিয়াল ইমেইলস আর সেন্ট এভরি সিঙ্গেল মর্নিং।",
               "ipa": "Official emails are sent every single morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "অফিশিয়াল ইমেইলস আর সেন্ট এভরি সিঙ্গেল মর্নিং৷"
             },
             {
               "id": "en-p12-l57-006",
               "order": 6,
               "target": "Original books are sold in this bookstore.",
               "bn": "এই বইয়ের দোকানে আসল বই বিক্রি করা হয়।",
-              "pron_bn": "অরিজিনাল বুকস আর সোল্ড ইন দিজ বুকস্টোর।",
               "ipa": "Original books are sold in this bookstore.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "অরিজিনাল বুকস আর সোল্ড ইন দিজ বুকস্টোর৷"
             },
             {
               "id": "en-p12-l57-007",
               "order": 7,
               "target": "Is English spoken here? Yes, English is spoken here. No, English is not spoken here.",
               "bn": "এখানে কি ইংরেজি বলা হয়? হ্যাঁ, এখানে ইংরেজি বলা হয়। না, এখানে ইংরেজি বলা হয় না।",
-              "pron_bn": "ইজ ইংলিশ স্পোকেন হেয়ার? ইয়েস, ইংলিশ ইজ স্পোকেন হেয়ার। নো, ইংলিশ ইজ নট স্পোকেন হেয়ার।",
               "ipa": "Is English spoken here? Yes, English is spoken here. No, English is not spoken here.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইজ ইংলিশ স্পোকেন হেয়ার? ইয়েস, ইংলিশ ইজ স্পোকেন হেয়ার৷ নো, ইংলিশ ইজ নট স্পোকেন হেয়ার৷"
             },
             {
               "id": "en-p12-l57-008",
               "order": 8,
               "target": "The bright moon is seen clearly in the clear night sky.",
               "bn": "মেঘমুক্ত রাতের আকাশে উজ্জ্বল চাঁদ স্পষ্টভাবে দেখা যায়।",
-              "pron_bn": "দ্য ব্রাইট মুন ইজ সিন ক্লিয়ারলি ইন দ্য ক্লিয়ার নাইট স্কাই।",
               "ipa": "The bright moon is seen clearly in the clear night sky.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "দ্য ব্রাইট মুন ইজ সিন ক্লিয়ারলি ইন দ্য ক্লিয়ার নাইট স্কাই৷"
             }
           ]
         },
@@ -35722,112 +35722,112 @@
               "order": 1,
               "target": "The damaged road is being repaired right now.",
               "bn": "ক্ষতিগ্রস্ত রাস্তাটি এই মুহূর্তে মেরামত করা হচ্ছে।",
-              "pron_bn": "দ্য ড্যামেজড রোড ইজ বিয়িং রিপেয়ার্ড রাইট নাও।",
               "ipa": "The damaged road is being repaired right now.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "দ্য ড্যামেজড রোড ইজ বিয়িং রিপেয়ার্ড রাইট নাও৷"
             },
             {
               "id": "en-p12-l58-002",
               "order": 2,
               "target": "A modern bridge is being built over the river.",
               "bn": "নদীর ওপর একটি আধুনিক সেতু তৈরি করা হচ্ছে।",
-              "pron_bn": "আ মডার্ন ব্রিজ ইজ বিয়িং বিল্ট ওভার দ্য রিভার।",
               "ipa": "A modern bridge is being built over the river.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "আ মডার্ন ব্রিজ ইজ বিয়িং বিল্ট ওভার দ্য রিভার৷"
             },
             {
               "id": "en-p12-l58-003",
               "order": 3,
               "target": "An urgent meeting is being held in the main conference room.",
               "bn": "প্রধান সম্মেলন কক্ষে একটি জরুরি বৈঠক অনুষ্ঠিত হচ্ছে।",
-              "pron_bn": "অ্যান আর্জেন্ট মিটিং ইজ বিয়িং হেল্ড ইন দ্য মেইন কনফারেন্স রুম।",
               "ipa": "An urgent meeting is being held in the main conference room.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "অ্যান আর্জেন্ট মিটিং ইজ বিয়িং হেল্ড ইন দ্য মেইন কনফারেন্স রুম৷"
             },
             {
               "id": "en-p12-l58-004",
               "order": 4,
               "target": "The suspicious activities are being tracked by the cyber security team.",
               "bn": "সন্দেহজনক কার্যক্রম সাইবার নিরাপত্তা দল দ্বারা পর্যবেক্ষণ করা হচ্ছে।",
-              "pron_bn": "দ্য সাসপিশাস অ্যাক্টিভিটিস আর বিয়িং ট্র্যাক্ট বাই দ্য সাইবার সিকিউরিটি টিম।",
               "ipa": "The suspicious activities are being tracked by the cyber security team.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "দ্য সাসপিশাস অ্যাক্টিভিটিস আর বিয়িং ট্র্যাক্ট বাই দ্য সাইবার সিকিউরিটি টিম৷"
             },
             {
               "id": "en-p12-l58-005",
               "order": 5,
               "target": "Delicious dinner is being prepared in the kitchen.",
               "bn": "রান্নাঘরে সুস্বাদু রাতের খাবার তৈরি করা হচ্ছে।",
-              "pron_bn": "ডেলিশাস ডিনার ইজ বিয়িং প্রিপেয়ার্ড ইন দ্য কিচেন।",
               "ipa": "Delicious dinner is being prepared in the kitchen.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ডেলিশাস ডিনার ইজ বিয়িং প্রিপেয়ার্ড ইন দ্য কিচেন৷"
             },
             {
               "id": "en-p12-l58-006",
               "order": 6,
               "target": "Our official documents are being verified very carefully.",
               "bn": "আমাদের অফিশিয়াল কাগজপত্র অত্যন্ত সতর্কতার সাথে যাচাই করা হচ্ছে।",
-              "pron_bn": "আওয়ার অফিশিয়াল ডকুমেন্টস আর বিয়িং ভেরিফাইড ভেরি কেয়ারফুলি।",
               "ipa": "Our official documents are being verified very carefully.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "আওয়ার অফিশিয়াল ডকুমেন্টস আর বিয়িং ভেরিফাইড ভেরি কেয়ারফুলি৷"
             },
             {
               "id": "en-p12-l58-007",
               "order": 7,
               "target": "Is the car being washed right now? Yes, it is being washed. No, it is not being washed.",
               "bn": "গাড়িটি কি এখন ধোয়া হচ্ছে? হ্যাঁ, এটি ধোয়া হচ্ছে। না, এটি ধোয়া হচ্ছে না।",
-              "pron_bn": "ইজ দ্য কার বিয়িং ওয়াশড রাইট নাও? ইয়েস, ইট ইজ বিয়িং ওয়াশড। নো, ইট ইজ নট বিয়িং ওয়াশড।",
               "ipa": "Is the car being washed right now? Yes, it is being washed. No, it is not being washed.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইজ দ্য কার বিয়িং ওয়াশড রাইট নাও? ইয়েস, ইট ইজ বিয়িং ওয়াশড৷ নো, ইট ইজ নট বিয়িং ওয়াশড৷"
             },
             {
               "id": "en-p12-l58-008",
               "order": 8,
               "target": "Many new residential buildings are being constructed in this area.",
               "bn": "এই এলাকায় অনেক নতুন আবাসিক ভবন নির্মাণ করা হচ্ছে।",
-              "pron_bn": "মেনি নিউ রেসিডেনশিয়াল বিল্ডিংস আর বিয়িং কনস্ট্রাক্টেড ইন দিজ এরিয়া।",
               "ipa": "Many new residential buildings are being constructed in this area.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "মেনি নিউ রেসিডেনশিয়াল বিল্ডিংস আর বিয়িং কনস্ট্রাক্টেড ইন দিজ এরিয়া৷"
             }
           ]
         },
@@ -35847,112 +35847,112 @@
               "order": 1,
               "target": "Where is this cotton shirt made? It is made in Bangladesh.",
               "bn": "এই সুতি শার্টটি কোথায় তৈরি? এটি বাংলাদেশে তৈরি।",
-              "pron_bn": "হোয়ার ইজ দিজ কটন শার্ট মেইড? ইট ইজ মেইড ইন বাংলাদেশ।",
               "ipa": "Where is this cotton shirt made? It is made in Bangladesh.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "হোয়ার ইজ দিজ কটন শার্ট মেইড? ইট ইজ মেইড ইন বাংলাদেশ৷"
             },
             {
               "id": "en-p12-l59-002",
               "order": 2,
               "target": "Are credit cards accepted here? Yes, credit cards are accepted here. No, only cash is accepted.",
               "bn": "এখানে কি ক্রেডিট কার্ড গ্রহণ করা হয়? হ্যাঁ, এখানে ক্রেডিট কার্ড নেওয়া হয়। না, শুধু নগদ টাকা নেওয়া হয়।",
-              "pron_bn": "আর ক্রেডিট কার্ডস অ্যাকসেপ্টেড হেয়ার? ইয়েস, ক্রেডিট কার্ডস আর অ্যাকসেপ্টেড হেয়ার। নো, অনলি ক্যাশ ইজ অ্যাকসেপ্টেড।",
               "ipa": "Are credit cards accepted here? Yes, credit cards are accepted here. No, only cash is accepted.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "আর ক্রেডিট কার্ডস অ্যাকসেপ্টেড হেয়ার? ইয়েস, ক্রেডিট কার্ডস আর অ্যাকসেপ্টেড হেয়ার৷ নো, অনলি ক্যাশ ইজ অ্যাকসেপ্টেড৷"
             },
             {
               "id": "en-p12-l59-003",
               "order": 3,
               "target": "How is this traditional dish cooked? It is cooked with fresh aromatic spices.",
               "bn": "এই ঐতিহ্যবাহী খাবারটি কীভাবে রান্না করা হয়? এটি তাজা সুগন্ধি মশলা দিয়ে রান্না করা হয়।",
-              "pron_bn": "হাউ ইজ দিজ ট্র্যাডিশনাল ডিশ কুক্ট? ইট ইজ কুক্ট উইথ ফ্রেশ অ্যারোম্যাটিক স্পাইসেস।",
               "ipa": "How is this traditional dish cooked? It is cooked with fresh aromatic spices.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "হাউ ইজ দিজ ট্র্যাডিশনাল ডিশ কুক্ট? ইট ইজ কুক্ট উইথ ফ্রেশ অ্যারোম্যাটিক স্পাইসেস৷"
             },
             {
               "id": "en-p12-l59-004",
               "order": 4,
               "target": "Is home delivery included in the price? Yes, free home delivery is included.",
               "bn": "মূল্যের মধ্যে কি হোম ডেলিভারি অন্তর্ভুক্ত? হ্যাঁ, বিনামূল্যে হোম ডেলিভারি অন্তর্ভুক্ত।",
-              "pron_bn": "ইজ হোম ডেলিভারি ইনক্লুডেড ইন দ্য প্রাইস? ইয়েস, ফ্রি হোম ডেলিভারি ইনক্লুডেড।",
               "ipa": "Is home delivery included in the price? Yes, free home delivery is included.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইজ হোম ডেলিভারি ইনক্লুডেড ইন দ্য প্রাইস? ইয়েস, ফ্রি হোম ডেলিভারি ইনক্লুডেড৷"
             },
             {
               "id": "en-p12-l59-005",
               "order": 5,
               "target": "Are all spoken English classes conducted online? Yes, all classes are conducted live online.",
               "bn": "সকল স্পোকেন ইংলিশ ক্লাস কি অনলাইনে হয়? হ্যাঁ, সব ক্লাস সরাসরি অনলাইনে পরিচালিত হয়।",
-              "pron_bn": "আর অল স্পোকেন ইংলিশ ক্লাসেস কনডাক্টেড অনলাইন? ইয়েস, অল ক্লাসেস আর কনডাক্টেড লাইভ অনলাইন।",
               "ipa": "Are all spoken English classes conducted online? Yes, all classes are conducted live online.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "আর অল স্পোকেন ইংলিশ ক্লাসেস কনডাক্টেড অনলাইন? ইয়েস, অল ক্লাসেস আর কনডাক্টেড লাইভ অনলাইন৷"
             },
             {
               "id": "en-p12-l59-006",
               "order": 6,
               "target": "When are the daily newspapers delivered? They are delivered early every morning.",
               "bn": "দৈনিক পত্রিকা কখন দেওয়া হয়? প্রতিদিন ভোরে পত্রিকা পৌঁছে দেওয়া হয়।",
-              "pron_bn": "হোয়েন আর দ্য ডেইলি নিউজপেপার্স ডেলিভার্ড? দে আর ডেলিভার্ড আর্লি এভরি মর্নিং।",
               "ipa": "When are the daily newspapers delivered? They are delivered early every morning.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "হোয়েন আর দ্য ডেইলি নিউজপেপার্স ডেলিভার্ড? দে আর ডেলিভার্ড আর্লি এভরি মর্নিং৷"
             },
             {
               "id": "en-p12-l59-007",
               "order": 7,
               "target": "Who is invited to the award ceremony? All registered members are invited.",
               "bn": "পুরস্কার বিতরণী অনুষ্ঠানে কাকে আমন্ত্রণ জানানো হয়েছে? সকল নিবন্ধিত সদস্যকে আমন্ত্রণ জানানো হয়েছে।",
-              "pron_bn": "হু ইজ ইনভাইটেড টু দি অ্যাওয়ার্ড সেরেমনি? অল রেজিস্টার্ড মেম্বার্স আর ইনভাইটেড।",
               "ipa": "Who is invited to the award ceremony? All registered members are invited.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "হু ইজ ইনভাইটেড টু দি অ্যাওয়ার্ড সেরেমনি? অল রেজিস্টার্ড মেম্বার্স আর ইনভাইটেড৷"
             },
             {
               "id": "en-p12-l59-008",
               "order": 8,
               "target": "Is complimentary breakfast provided at this hotel? Yes, breakfast is served from seven am.",
               "bn": "এই হোটেলে কি কমপ্লিমেন্টারি নাস্তা দেওয়া হয়? হ্যাঁ, সকাল সাতটা থেকে নাস্তা পরিবেশন করা হয়।",
-              "pron_bn": "ইজ কমপ্লিমেন্টারি ব্রেকফাস্ট প্রোভাইডেড অ্যাট দিজ হোটেল? ইয়েস, ব্রেকফাস্ট ইজ সার্ভড ফ্রম সেভেন এএম।",
               "ipa": "Is complimentary breakfast provided at this hotel? Yes, breakfast is served from seven am.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইজ কমপ্লিমেন্টারি ব্রেকফাস্ট প্রোভাইডেড অ্যাট দিজ হোটেল? ইয়েস, ব্রেকফাস্ট ইজ সার্ভড ফ্রম সেভেন এএম৷"
             }
           ]
         },
@@ -35972,112 +35972,112 @@
               "order": 1,
               "target": "You are cordially invited to attend our annual corporate conference.",
               "bn": "আমাদের বার্ষিক করপোরেট সম্মেলনে অংশ নিতে আপনাকে আন্তরিকভাবে আমন্ত্রণ জানানো হচ্ছে।",
-              "pron_bn": "ইউ আর কর্ডিয়ালি ইনভাইটেড টু অ্যাটেন্ড আওয়ার অ্যানুয়াল করপোরেট কনফারেন্স।",
               "ipa": "You are cordially invited to attend our annual corporate conference.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইউ আর কর্ডিয়ালি ইনভাইটেড টু অ্যাটেন্ড আওয়ার অ্যানুয়াল করপোরেট কনফারেন্স৷"
             },
             {
               "id": "en-p12-l60-002",
               "order": 2,
               "target": "All employees are requested to wear their identity cards at all times.",
               "bn": "সকল কর্মচারীকে সার্বক্ষণিক তাদের পরিচয়পত্র পরিধান করার অনুরোধ করা হচ্ছে।",
-              "pron_bn": "অল এমপ্লয়িজ আর রিকোয়েস্টেড টু ওয়্যার দেয়ার আইডেন্টিটি কার্ডস অ্যাট অল টাইমস।",
               "ipa": "All employees are requested to wear their identity cards at all times.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "অল এমপ্লয়িজ আর রিকোয়েস্টেড টু ওয়্যার দেয়ার আইডেন্টিটি কার্ডস অ্যাট অল টাইমস৷"
             },
             {
               "id": "en-p12-l60-003",
               "order": 3,
               "target": "Mobile phones are not allowed inside the confidential meeting room.",
               "bn": "গোপনীয় সভা কক্ষের ভেতরে মোবাইল ফোন ব্যবহারের অনুমতি নেই।",
-              "pron_bn": "মোবাইল ফোনস আর নট অ্যালাউড ইনসাইড দ্য কনফিডেনশিয়াল মিটিং রুম।",
               "ipa": "Mobile phones are not allowed inside the confidential meeting room.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "মোবাইল ফোনস আর নট অ্যালাউড ইনসাইড দ্য কনফিডেনশিয়াল মিটিং রুম৷"
             },
             {
               "id": "en-p12-l60-004",
               "order": 4,
               "target": "The monthly sales report is submitted on time every month.",
               "bn": "প্রতি মাসে সময়মতো মাসিক বিক্রয় প্রতিবেদন জমা দেওয়া হয়।",
-              "pron_bn": "দ্য মান্থলি সেলস রিপোর্ট ইজ সাবমিটেড অন টাইম এভরি মান্থ।",
               "ipa": "The monthly sales report is submitted on time every month.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "দ্য মান্থলি সেলস রিপোর্ট ইজ সাবমিটেড অন টাইম এভরি মান্থ৷"
             },
             {
               "id": "en-p12-l60-005",
               "order": 5,
               "target": "All passengers are informed that the departure is on schedule.",
               "bn": "সকল যাত্রীকে জানানো যাচ্ছে যে বিমান সঠিক সময়ে ছেড়ে যাবে।",
-              "pron_bn": "অল প্যাসেঞ্জার্স আর ইনফর্মড দ্যাট দ্য ডিপার্চার ইজ অন শিডিউল।",
               "ipa": "All passengers are informed that the departure is on schedule.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "অল প্যাসেঞ্জার্স আর ইনফর্মড দ্যাট দ্য ডিপার্চার ইজ অন শিডিউল৷"
             },
             {
               "id": "en-p12-l60-006",
               "order": 6,
               "target": "Smoking is strictly prohibited on the entire hospital campus.",
               "bn": "পুরো হাসপাতাল প্রাঙ্গণে ধূমপান সম্পূর্ণ নিষিদ্ধ।",
-              "pron_bn": "স্মোকিং ইজ স্ট্রিক্টলি প্রহিবিটেড অন দি এনটায়ার হসপিটাল ক্যাম্পাস।",
               "ipa": "Smoking is strictly prohibited on the entire hospital campus.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "স্মোকিং ইজ স্ট্রিক্টলি প্রহিবিটেড অন দি এনটায়ার হসপিটাল ক্যাম্পাস৷"
             },
             {
               "id": "en-p12-l60-007",
               "order": 7,
               "target": "You are required to submit a valid photo identification document.",
               "bn": "একটি বৈধ ছবিযুক্ত পরিচয়পত্র জমা দেওয়া আপনার জন্য আবশ্যক।",
-              "pron_bn": "ইউ আর রিকোয়ার্ড টু সাবমিট আ ভ্যালিড ফটো আইডেন্টিফিকেশন ডকুমেন্ট।",
               "ipa": "You are required to submit a valid photo identification document.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "ইউ আর রিকোয়ার্ড টু সাবমিট আ ভ্যালিড ফটো আইডেন্টিফিকেশন ডকুমেন্ট৷"
             },
             {
               "id": "en-p12-l60-008",
               "order": 8,
               "target": "The monthly salary is directly deposited into your bank account.",
               "bn": "মাসিক বেতন সরাসরি আপনার ব্যাংক অ্যাকাউন্টে জমা দেওয়া হয়।",
-              "pron_bn": "দ্য মান্থলি স্যালারি ইজ ডিরেক্টলি ডিপোজিটেড ইনটু ইয়োর ব্যাংক অ্যাকাউন্ট।",
               "ipa": "The monthly salary is directly deposited into your bank account.",
               "status": "reviewed",
               "reviewFlags": "",
               "tags": {
                 "sentence_type": "present_passive",
                 "tense": "present_passive"
-              }
+              },
+              "bn_pron": "দ্য মান্থলি স্যালারি ইজ ডিরেক্টলি ডিপোজিটেড ইনটু ইয়োর ব্যাংক অ্যাকাউন্ট৷"
             }
           ]
         }

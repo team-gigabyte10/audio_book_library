@@ -233,7 +233,7 @@ class EscbJsonParser {
                 "level" -> level = reader.stringOrNull() ?: level
                 "target" -> target = reader.stringOrNull() ?: ""
                 "bn" -> bn = reader.stringOrNull()
-                "bn_pron" -> bnPron = reader.stringOrNull()
+                "bn_pron", "pron_bn" -> bnPron = reader.stringOrNull()
                 "tokens" -> {
                     reader.beginArray()
                     while (reader.hasNext()) {
