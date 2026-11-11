@@ -10,6 +10,7 @@ import com.gigabyte.bookstore.learning.data.translator.LiveTranslatorRepository
 import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import com.gigabyte.bookstore.learning.domain.model.Token
+import com.gigabyte.bookstore.learning.domain.translator.BanglaPronunciationEngine
 import com.gigabyte.bookstore.learning.domain.translator.RegionalDialectChoice
 import com.gigabyte.bookstore.learning.domain.translator.SpeechCaptureState
 import com.gigabyte.bookstore.learning.domain.translator.StreamingSpeechRecognizer
@@ -198,6 +199,10 @@ class LiveTranslatorViewModel(
         speakText(word, lang, rate = 0.82f, preferMale = lang == SpeechLang.AR)
     }
 
+    fun speakBangla(text: String) {
+        speakText(text, SpeechLang.BN, rate = 0.94f, preferMale = false)
+    }
+
     private fun speakText(text: String, lang: SpeechLang, rate: Float, preferMale: Boolean) {
         if (text.isBlank()) return
         speakJob?.cancel()
@@ -223,13 +228,14 @@ class LiveTranslatorViewModel(
     }
 
     fun selectHistoryItem(item: TranslationResult) {
+        val enriched = LiveTranslatorRepository.ensureBanglaPronunciation(item)
         _uiState.update {
             it.copy(
-                selectedLanguage = TranslatorLanguage.fromKey(item.languageKey),
-                selectedDialect = RegionalDialectChoice.fromKey(item.dialectKey),
-                direction = item.direction,
-                inputText = item.sourceText,
-                result = item,
+                selectedLanguage = TranslatorLanguage.fromKey(enriched.languageKey),
+                selectedDialect = RegionalDialectChoice.fromKey(enriched.dialectKey),
+                direction = enriched.direction,
+                inputText = enriched.sourceText,
+                result = enriched,
                 errorMessage = null
             )
         }
@@ -278,6 +284,9 @@ class LiveTranslatorViewModel(
                         tokArr.put(JSONObject().apply {
                             put("t", t.text)
                             put("bn", t.bn ?: "")
+                            if (!t.bnPron.isNullOrBlank()) {
+                                put("wpron", t.bnPron)
+                            }
                         })
                     }
                     put("tokens", tokArr)
@@ -302,21 +311,33 @@ class LiveTranslatorViewModel(
                         val tObj = tokArr.optJSONObject(j) ?: continue
                         val tw = tObj.optString("t", "").trim()
                         val tb = tObj.optString("bn", "").trim().takeIf { it.isNotEmpty() }
-                        if (tw.isNotEmpty()) tokList.add(Token(tw, tb))
+                        val tp = tObj.optString("wpron", "").trim().takeIf { it.isNotEmpty() }
+                        if (tw.isNotEmpty()) tokList.add(Token(tw, tb, tp))
                     }
                 }
+                val resolvedLang = TranslatorLanguage.fromKey(obj.optString("lang", "english"))
+                val resolvedDir = runCatching { TranslatorDirection.valueOf(obj.optString("dir")) }
+                    .getOrDefault(TranslatorDirection.BN_TO_TARGET)
+                val existingPron = obj.optString("pron", "").takeIf { it.isNotBlank() }
+                val existingRoman = obj.optString("rom", "").takeIf { it.isNotBlank() }
+                val foreignForPron = if (resolvedDir == TranslatorDirection.BN_TO_TARGET) dst else src
+                val resolvedPron = existingPron ?: BanglaPronunciationEngine.generate(
+                    targetText = foreignForPron,
+                    language = resolvedLang,
+                    romanizationHint = existingRoman,
+                    useVocabLookup = false
+                )
                 list.add(
                     TranslationResult(
                         sourceText = src,
                         targetText = dst,
-                        banglaPronunciation = obj.optString("pron", "").takeIf { it.isNotBlank() },
-                        romanization = obj.optString("rom", "").takeIf { it.isNotBlank() },
+                        banglaPronunciation = resolvedPron,
+                        romanization = existingRoman,
                         wordBreakdown = tokList,
                         grammarTipBn = obj.optString("tip", "").takeIf { it.isNotBlank() },
                         languageKey = obj.optString("lang", "english"),
                         dialectKey = obj.optString("dial", "").takeIf { it.isNotBlank() },
-                        direction = runCatching { TranslatorDirection.valueOf(obj.optString("dir")) }
-                            .getOrDefault(TranslatorDirection.BN_TO_TARGET),
+                        direction = resolvedDir,
                         sourceTier = runCatching { TranslationSourceTier.valueOf(obj.optString("tier")) }
                             .getOrDefault(TranslationSourceTier.AI_TUTOR),
                         timestampMs = obj.optLong("ts", 0L)

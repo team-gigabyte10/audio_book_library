@@ -96,7 +96,7 @@ data class LadderStep(
     }
 }
 
-data class Token(val text: String, val bn: String?)
+data class Token(val text: String, val bn: String?, val bnPron: String? = null)
 
 data class LessonItem(
     val id: String,

@@ -77,6 +77,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -85,6 +86,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.learning.domain.translator.BanglaPronunciationEngine
 import com.gigabyte.bookstore.learning.domain.translator.RegionalDialectChoice
 import com.gigabyte.bookstore.learning.domain.translator.SpeechCaptureState
 import com.gigabyte.bookstore.learning.domain.translator.TranslationResult
@@ -263,13 +265,49 @@ fun LiveTranslatorScreen(
                     }
 
                     Card(
+                        shape = RoundedCornerShape(20.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                        border = BorderStroke(
+                            width = 1.2.dp,
+                            color = if (isListening) Color(0xFFC62828).copy(alpha = 0.6f) else accent.copy(alpha = 0.28f)
+                        ),
                         modifier = Modifier.fillMaxWidth(),
-                        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
                     ) {
                         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = if (isListening) "🎙️ শুনছি... কথা বলুন" else "✍️ বাংলায় বলুন বা লিখুন",
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = if (isListening) Color(0xFFC62828) else accent
+                                )
+                                Surface(
+                                    color = accent.copy(alpha = 0.1f),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) {
+                                    Text(
+                                        text = if (uiState.direction == TranslatorDirection.BN_TO_TARGET) {
+                                            "বাংলা ➔ ${uiState.selectedLanguage.titleBn}"
+                                        } else {
+                                            "${uiState.selectedLanguage.titleBn} ➔ বাংলা"
+                                        },
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = accent,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                                    )
+                                }
+                            }
+
                             OutlinedTextField(
                                 value = displayedInput,
                                 onValueChange = viewModel::updateInputText,
+                                shape = RoundedCornerShape(14.dp),
                                 label = {
                                     Text(
                                         if (uiState.direction == TranslatorDirection.BN_TO_TARGET) {
@@ -292,72 +330,79 @@ fun LiveTranslatorScreen(
                             )
 
                             // Live Voice Mic & Animated Waveform Row
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                            Surface(
+                                shape = RoundedCornerShape(16.dp),
+                                color = if (isListening) Color(0xFFC62828).copy(alpha = 0.08f) else accent.copy(alpha = 0.06f),
+                                modifier = Modifier.fillMaxWidth()
                             ) {
-                                val pulse = rememberInfiniteTransition(label = "micPulse")
-                                val animScale by pulse.animateFloat(
-                                    initialValue = 1.0f,
-                                    targetValue = if (isListening) 1.12f else 1.0f,
-                                    animationSpec = infiniteRepeatable(
-                                        tween(650, easing = FastOutSlowInEasing),
-                                        RepeatMode.Reverse
-                                    ),
-                                    label = "micScale"
-                                )
-
-                                FloatingActionButton(
-                                    onClick = { if (isListening) viewModel.stopVoiceCapture() else triggerVoiceCapture() },
-                                    containerColor = if (isListening) Color(0xFFC62828) else accent,
-                                    contentColor = Color.White,
-                                    modifier = Modifier.size(52.dp).scale(if (isListening) animScale else 1.0f),
-                                    shape = CircleShape
+                                Row(
+                                    modifier = Modifier.padding(10.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                                 ) {
-                                    Icon(
-                                        imageVector = if (isListening) Icons.Default.Stop else Icons.Default.Mic,
-                                        contentDescription = if (isListening) "শোনা থামান" else "কথা বলে লিখুন"
+                                    val pulse = rememberInfiniteTransition(label = "micPulse")
+                                    val animScale by pulse.animateFloat(
+                                        initialValue = 1.0f,
+                                        targetValue = if (isListening) 1.12f else 1.0f,
+                                        animationSpec = infiniteRepeatable(
+                                            tween(650, easing = FastOutSlowInEasing),
+                                            RepeatMode.Reverse
+                                        ),
+                                        label = "micScale"
                                     )
-                                }
 
-                                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                                    if (isListening) {
-                                        val rms = liveListening?.rmsNormalized ?: 0.3f
-                                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                                            Icon(Icons.Default.GraphicEq, contentDescription = null, tint = Color(0xFFC62828), modifier = Modifier.size(18.dp))
-                                            Text("শুনছি... পরিষ্কারভাবে বলুন", fontWeight = FontWeight.Bold, color = Color(0xFFC62828), fontSize = 13.sp)
-                                        }
-                                        LiveVoiceWaveBar(rmsNormalized = rms, color = Color(0xFFC62828))
-                                    } else {
-                                        Text(
-                                            if (uiState.direction == TranslatorDirection.BN_TO_TARGET) {
-                                                "মাইক চাপুন এবং বাংলায় কথা বলুন"
-                                            } else {
-                                                "মাইক চাপুন (${uiState.selectedLanguage.titleBn} ভয়েস)"
-                                            },
-                                            fontWeight = FontWeight.SemiBold,
-                                            fontSize = 13.sp
-                                        )
-                                        Text(
-                                            "কথা বলার সাথে সাথে লাইভ টেক্সট ও অনুবাদ হবে",
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    FloatingActionButton(
+                                        onClick = { if (isListening) viewModel.stopVoiceCapture() else triggerVoiceCapture() },
+                                        containerColor = if (isListening) Color(0xFFC62828) else accent,
+                                        contentColor = Color.White,
+                                        modifier = Modifier.size(54.dp).scale(if (isListening) animScale else 1.0f),
+                                        shape = CircleShape
+                                    ) {
+                                        Icon(
+                                            imageVector = if (isListening) Icons.Default.Stop else Icons.Default.Mic,
+                                            contentDescription = if (isListening) "শোনা থামান" else "কথা বলে লিখুন"
                                         )
                                     }
-                                }
 
-                                Button(
-                                    onClick = viewModel::translateNow,
-                                    enabled = !uiState.isTranslating && !isListening && uiState.inputText.isNotBlank(),
-                                    colors = ButtonDefaults.buttonColors(containerColor = accent)
-                                ) {
-                                    if (uiState.isTranslating) {
-                                        CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)
-                                    } else {
-                                        Icon(Icons.Default.Translate, contentDescription = null, modifier = Modifier.size(18.dp))
-                                        Spacer(Modifier.width(6.dp))
-                                        Text("অনুবাদ")
+                                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                                        if (isListening) {
+                                            val rms = liveListening?.rmsNormalized ?: 0.3f
+                                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                                Icon(Icons.Default.GraphicEq, contentDescription = null, tint = Color(0xFFC62828), modifier = Modifier.size(18.dp))
+                                                Text("পরিষ্কারভাবে বলুন...", fontWeight = FontWeight.Bold, color = Color(0xFFC62828), fontSize = 13.sp)
+                                            }
+                                            LiveVoiceWaveBar(rmsNormalized = rms, color = Color(0xFFC62828))
+                                        } else {
+                                            Text(
+                                                if (uiState.direction == TranslatorDirection.BN_TO_TARGET) {
+                                                    "মাইক চাপুন ও বাংলায় বলুন"
+                                                } else {
+                                                    "মাইক চাপুন (${uiState.selectedLanguage.titleBn} ভয়েস)"
+                                                },
+                                                fontWeight = FontWeight.SemiBold,
+                                                fontSize = 13.sp
+                                            )
+                                            Text(
+                                                "অনুবাদ + বাংলা উচ্চারণ + অডিও",
+                                                style = MaterialTheme.typography.labelSmall,
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                            )
+                                        }
+                                    }
+
+                                    Button(
+                                        onClick = viewModel::translateNow,
+                                        enabled = !uiState.isTranslating && !isListening && uiState.inputText.isNotBlank(),
+                                        shape = RoundedCornerShape(12.dp),
+                                        colors = ButtonDefaults.buttonColors(containerColor = accent)
+                                    ) {
+                                        if (uiState.isTranslating) {
+                                            CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)
+                                        } else {
+                                            Icon(Icons.Default.Translate, contentDescription = null, modifier = Modifier.size(18.dp))
+                                            Spacer(Modifier.width(6.dp))
+                                            Text("অনুবাদ", fontWeight = FontWeight.Bold)
+                                        }
                                     }
                                 }
                             }
@@ -435,24 +480,42 @@ fun LiveTranslatorScreen(
                     }
                     items(uiState.history.take(15)) { past ->
                         val pastLang = TranslatorLanguage.fromKey(past.languageKey)
+                        val pastAccent = Color(pastLang.accentHex)
+                        val pastPron = past.banglaPronunciation?.takeIf { it.isNotBlank() }
+                            ?: BanglaPronunciationEngine.generate(
+                                targetText = if (past.direction == TranslatorDirection.BN_TO_TARGET) past.targetText else past.sourceText,
+                                language = pastLang,
+                                romanizationHint = past.romanization,
+                                useVocabLookup = false
+                            )
                         Surface(
-                            shape = RoundedCornerShape(12.dp),
+                            shape = RoundedCornerShape(14.dp),
                             color = MaterialTheme.colorScheme.surface,
-                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
+                            border = BorderStroke(1.dp, pastAccent.copy(alpha = 0.25f)),
                             modifier = Modifier.fillMaxWidth().clickable { viewModel.selectHistoryItem(past) }
                         ) {
                             Row(
                                 modifier = Modifier.padding(12.dp),
-                                verticalAlignment = Alignment.CenterVertically
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(10.dp)
                             ) {
-                                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                                    Text("${pastLang.flag} ${past.sourceText}", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                                    Text(past.targetText, fontWeight = FontWeight.Bold, fontSize = 15.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                                    past.banglaPronunciation?.let {
-                                        Text("উচ্চারণ: $it", fontSize = 12.sp, color = Color(pastLang.accentHex), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                Surface(
+                                    shape = CircleShape,
+                                    color = pastAccent.copy(alpha = 0.12f),
+                                    modifier = Modifier.size(36.dp)
+                                ) {
+                                    Box(contentAlignment = Alignment.Center) {
+                                        Text(pastLang.flag, fontSize = 16.sp)
                                     }
                                 }
-                                Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "শুনুন", tint = Color(pastLang.accentHex))
+                                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                                    Text(past.sourceText, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                    Text(past.targetText, fontWeight = FontWeight.Bold, fontSize = 15.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                    pastPron?.let {
+                                        Text("🗣️ উচ্চারণ: $it", fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = pastAccent, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                    }
+                                }
+                                Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "শুনুন", tint = pastAccent)
                             }
                         }
                     }
@@ -499,133 +562,224 @@ private fun TranslationOutputCard(
 ) {
     val accent = Color(language.accentHex)
     val isRtlTarget = result.direction == TranslatorDirection.BN_TO_TARGET && language.isRtl
+    val displayBanglaPron = result.banglaPronunciation?.takeIf { it.isNotBlank() }
+        ?: BanglaPronunciationEngine.generate(
+            targetText = if (result.direction == TranslatorDirection.BN_TO_TARGET) result.targetText else result.sourceText,
+            language = language,
+            romanizationHint = result.romanization
+        )
 
     Card(
+        shape = RoundedCornerShape(20.dp),
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(1.5.dp, accent.copy(alpha = 0.4f)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
+        border = BorderStroke(1.5.dp, accent.copy(alpha = 0.45f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+        Column(modifier = Modifier.fillMaxWidth()) {
+            // Tinted Header Banner
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Brush.horizontalGradient(
+                            colors = listOf(
+                                accent.copy(alpha = 0.16f),
+                                accent.copy(alpha = 0.05f)
+                            )
+                        )
+                    )
+                    .padding(horizontal = 16.dp, vertical = 10.dp)
             ) {
-                Surface(shape = RoundedCornerShape(10.dp), color = accent.copy(alpha = 0.12f)) {
-                    Text(
-                        "${language.flag} ${result.sourceTier.badgeBn}",
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = accent,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                    )
-                }
-                IconButton(onClick = onCopy, modifier = Modifier.size(32.dp)) {
-                    Icon(Icons.Default.ContentCopy, contentDescription = "কপি করুন", tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(18.dp))
-                }
-            }
-
-            // Target translated text with native script styling
-            if (isRtlTarget && language == TranslatorLanguage.URDU) {
-                Text(result.targetText, style = urduTextStyle(26.sp, bold = true))
-            } else if (isRtlTarget && language == TranslatorLanguage.ARABIC) {
-                Text(result.targetText, style = quranTextStyle(26.sp, bold = true))
-            } else {
-                Text(
-                    result.targetText,
-                    fontSize = 22.sp,
-                    lineHeight = 30.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            }
-
-            // Bangla Pronunciation Bridge & Romanization
-            if (!result.banglaPronunciation.isNullOrBlank() || !result.romanization.isNullOrBlank()) {
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = accent.copy(alpha = 0.08f),
-                    modifier = Modifier.fillMaxWidth()
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        result.banglaPronunciation?.let {
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Surface(shape = RoundedCornerShape(8.dp), color = accent) {
                             Text(
-                                "বাংলা উচ্চারণ: $it",
+                                "${language.flag} ${language.titleBn}",
+                                fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = accent,
-                                fontSize = 15.sp
+                                color = Color.White,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                             )
                         }
-                        result.romanization?.let {
+                        Surface(shape = RoundedCornerShape(8.dp), color = MaterialTheme.colorScheme.surface.copy(alpha = 0.85f)) {
                             Text(
-                                "পঠন সহায়িকা: $it",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                result.sourceTier.badgeBn,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = accent,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                             )
                         }
+                    }
+                    IconButton(onClick = onCopy, modifier = Modifier.size(30.dp)) {
+                        Icon(
+                            Icons.Default.ContentCopy,
+                            contentDescription = "কপি করুন",
+                            tint = accent,
+                            modifier = Modifier.size(18.dp)
+                        )
                     }
                 }
             }
 
-            // Audio Buttons
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-                Button(
-                    onClick = onPlayNormal,
-                    colors = ButtonDefaults.buttonColors(containerColor = accent),
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text("শুনুন")
-                }
-                OutlinedButton(
-                    onClick = onPlaySlow,
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Icon(Icons.Default.SlowMotionVideo, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text("ধীরে শুনুন")
-                }
-            }
-
-            // Tap-to-hear Word Breakdown
-            if (result.wordBreakdown.isNotEmpty() && result.direction == TranslatorDirection.BN_TO_TARGET) {
-                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                // Target translated text with native script styling
+                if (isRtlTarget && language == TranslatorLanguage.URDU) {
+                    Text(result.targetText, style = urduTextStyle(26.sp, bold = true))
+                } else if (isRtlTarget && language == TranslatorLanguage.ARABIC) {
+                    Text(result.targetText, style = quranTextStyle(26.sp, bold = true))
+                } else {
                     Text(
-                        "শব্দে ট্যাপ করে আলাদা উচ্চারণ শুনুন:",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        result.targetText,
+                        fontSize = 23.sp,
+                        lineHeight = 31.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
                     )
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        result.wordBreakdown.forEach { tok ->
-                            AssistChip(
-                                onClick = { onSpeakWord(tok.text) },
-                                label = {
-                                    Text(
-                                        if (!tok.bn.isNullOrBlank()) "${tok.text} · ${tok.bn}" else tok.text,
-                                        fontSize = 12.sp
-                                    )
+                }
+
+                // Highlighted Bangla Pronunciation Bridge Box (Always visible when available!)
+                if (!displayBanglaPron.isNullOrBlank() || !result.romanization.isNullOrBlank()) {
+                    Surface(
+                        shape = RoundedCornerShape(14.dp),
+                        color = accent.copy(alpha = 0.09f),
+                        border = BorderStroke(1.dp, accent.copy(alpha = 0.32f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(5.dp)) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = if (result.direction == TranslatorDirection.TARGET_TO_BN) {
+                                        "🗣️ মূল বাক্যের বাংলা উচ্চারণ"
+                                    } else {
+                                        "🗣️ বাংলা উচ্চারণ"
+                                    },
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = accent
+                                )
+                                Surface(
+                                    shape = RoundedCornerShape(6.dp),
+                                    color = accent.copy(alpha = 0.14f),
+                                    modifier = Modifier.clickable(onClick = onPlaySlow)
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                                    ) {
+                                        Icon(
+                                            Icons.AutoMirrored.Filled.VolumeUp,
+                                            contentDescription = "উচ্চারণ শুনুন",
+                                            tint = accent,
+                                            modifier = Modifier.size(13.dp)
+                                        )
+                                        Spacer(Modifier.width(4.dp))
+                                        Text("ধীরে শুনুন", fontSize = 10.sp, fontWeight = FontWeight.Bold, color = accent)
+                                    }
                                 }
-                            )
+                            }
+                            displayBanglaPron?.let { pron ->
+                                Text(
+                                    text = pron,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    fontSize = 17.sp,
+                                    lineHeight = 24.sp
+                                )
+                            }
+                            result.romanization?.let { rom ->
+                                Text(
+                                    text = "পঠন সহায়িকা: $rom",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
                     }
                 }
-            }
 
-            // Grammar / Politeness Tip
-            result.grammarTipBn?.let { tip ->
-                Surface(
-                    shape = RoundedCornerShape(10.dp),
-                    color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.65f),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(
-                        "💡 $tip",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        modifier = Modifier.padding(10.dp)
-                    )
+                // Audio Buttons
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
+                    Button(
+                        onClick = onPlayNormal,
+                        shape = RoundedCornerShape(12.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = accent),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(Modifier.width(6.dp))
+                        Text("শুনুন", fontWeight = FontWeight.Bold)
+                    }
+                    OutlinedButton(
+                        onClick = onPlaySlow,
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, accent.copy(alpha = 0.45f)),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Icon(Icons.Default.SlowMotionVideo, contentDescription = null, tint = accent, modifier = Modifier.size(18.dp))
+                        Spacer(Modifier.width(6.dp))
+                        Text("ধীরে শুনুন", color = accent, fontWeight = FontWeight.SemiBold)
+                    }
+                }
+
+                // Tap-to-hear Word Breakdown with Bangla Pronunciation & Meaning
+                if (result.wordBreakdown.isNotEmpty() && result.direction == TranslatorDirection.BN_TO_TARGET) {
+                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Text(
+                            "শব্দে ট্যাপ করে আলাদা উচ্চারণ ও অর্থ দেখুন/শুনুন:",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            result.wordBreakdown.forEach { tok ->
+                                val wordPron = tok.bnPron?.takeIf { it.isNotBlank() }
+                                    ?: BanglaPronunciationEngine.generateWord(tok.text, language)
+                                val labelText = buildString {
+                                    append(tok.text)
+                                    if (!wordPron.isNullOrBlank() && wordPron != tok.text) {
+                                        append(" (").append(wordPron).append(")")
+                                    }
+                                    if (!tok.bn.isNullOrBlank()) {
+                                        append(" · ").append(tok.bn)
+                                    }
+                                }
+                                AssistChip(
+                                    onClick = { onSpeakWord(tok.text) },
+                                    label = {
+                                        Text(
+                                            text = labelText,
+                                            fontSize = 12.sp
+                                        )
+                                    }
+                                )
+                            }
+                        }
+                    }
+                }
+
+                // Grammar / Politeness Tip
+                result.grammarTipBn?.let { tip ->
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.65f),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            "💡 $tip",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            modifier = Modifier.padding(10.dp)
+                        )
+                    }
                 }
             }
         }

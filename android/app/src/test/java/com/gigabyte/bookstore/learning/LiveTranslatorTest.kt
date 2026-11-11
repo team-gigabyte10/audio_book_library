@@ -2,6 +2,7 @@ package com.gigabyte.bookstore.learning
 
 import com.gigabyte.bookstore.learning.data.translator.LiveTranslatorRepository
 import com.gigabyte.bookstore.learning.domain.model.Token
+import com.gigabyte.bookstore.learning.domain.translator.BanglaPronunciationEngine
 import com.gigabyte.bookstore.learning.domain.translator.RegionalDialectChoice
 import com.gigabyte.bookstore.learning.domain.translator.TranslationResult
 import com.gigabyte.bookstore.learning.domain.translator.TranslationSourceTier
@@ -9,9 +10,17 @@ import com.gigabyte.bookstore.learning.domain.translator.TranslatorDirection
 import com.gigabyte.bookstore.learning.domain.translator.TranslatorLanguage
 import com.gigabyte.bookstore.learning.presentation.translator.LiveTranslatorViewModel
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [34], manifest = Config.NONE)
 class LiveTranslatorTest {
 
     @Test
@@ -117,6 +126,83 @@ class LiveTranslatorTest {
         val encoded = LiveTranslatorViewModel.encodeHistory(listOf(sample))
         val decoded = LiveTranslatorViewModel.decodeHistory(encoded)
         assertEquals(listOf(sample), decoded)
+    }
+
+    @Test
+    fun `parseGoogleTranslatePayload extracts translation and dt=rm romanization safely`() {
+        val raw = """[[["お元気ですか？","আপনি কেমন আছেন?",null,null,1],[null,null,"Ogenki desu ka?","Apni kemon achen?"]],null,"bn"]"""
+        val payload = LiveTranslatorRepository.parseGoogleTranslatePayload(raw)!!
+        assertEquals("お元気ですか？", payload.translatedText)
+        assertEquals("Ogenki desu ka?", payload.targetRomanization)
+        assertEquals("Apni kemon achen?", payload.sourceRomanization)
+    }
+
+    @Test
+    fun `BanglaPronunciationEngine generates Bengali script pronunciation across all 7 languages`() {
+        val enPron = BanglaPronunciationEngine.generate("How are you?", TranslatorLanguage.ENGLISH)!!
+        assertTrue("Expected Bengali script for English, got: $enPron", enPron.contains("হাউ"))
+
+        val hiPron = BanglaPronunciationEngine.generate("नमस्ते", TranslatorLanguage.HINDI)!!
+        assertEquals("নমস্তে", hiPron)
+
+        val jaKanaPron = BanglaPronunciationEngine.generate("ありがとう", TranslatorLanguage.JAPANESE)!!
+        assertTrue("Expected Bengali script for Japanese kana, got: $jaKanaPron", jaKanaPron.any { it in '\u0980'..'\u09FF' })
+
+        val jaKanjiPron = BanglaPronunciationEngine.generate(
+            targetText = "お元気ですか？",
+            language = TranslatorLanguage.JAPANESE,
+            romanizationHint = "Ogenki desu ka?"
+        )!!
+        assertTrue("Expected Bengali script for Japanese kanji+romaji, got: $jaKanjiPron", jaKanjiPron.any { it in '\u0980'..'\u09FF' })
+
+        val dePron = BanglaPronunciationEngine.generate("Guten Morgen", TranslatorLanguage.GERMAN)!!
+        assertEquals("গুটেন মর্গেন", dePron)
+
+        val arPron = BanglaPronunciationEngine.generate(
+            targetText = "مرحبا",
+            language = TranslatorLanguage.ARABIC,
+            romanizationHint = "Marhaban"
+        )!!
+        assertEquals("মারহাবান", arPron)
+
+        val urPron = BanglaPronunciationEngine.generate(
+            targetText = "آپ کیسے ہیں",
+            language = TranslatorLanguage.URDU,
+            romanizationHint = "Aap kaise hain"
+        )!!
+        assertTrue("Expected Bengali script for Urdu, got: $urPron", urPron.any { it in '\u0980'..'\u09FF' })
+
+        val bdPron = BanglaPronunciationEngine.generate("কেমন আছ?", TranslatorLanguage.REGIONAL_BANGLA)!!
+        assertEquals("কেমন আছ?", bdPron)
+    }
+
+    @Test
+    fun `ensureBanglaPronunciation guarantees pronunciation and token readings when missing`() {
+        val webResult = TranslationResult(
+            sourceText = "দাম কত?",
+            targetText = "How much is this?",
+            banglaPronunciation = null,
+            wordBreakdown = emptyList(),
+            languageKey = TranslatorLanguage.ENGLISH.key,
+            direction = TranslatorDirection.BN_TO_TARGET,
+            sourceTier = TranslationSourceTier.WEB_FALLBACK
+        )
+        val enriched = LiveTranslatorRepository.ensureBanglaPronunciation(webResult)
+        assertNotNull(enriched.banglaPronunciation)
+        assertFalse(enriched.banglaPronunciation.isNullOrBlank())
+        assertTrue(enriched.wordBreakdown.isNotEmpty())
+        assertTrue(enriched.wordBreakdown.all { !it.bnPron.isNullOrBlank() })
+
+        val reverseResult = TranslationResult(
+            sourceText = "Guten Morgen",
+            targetText = "শুভ সকাল",
+            banglaPronunciation = null,
+            languageKey = TranslatorLanguage.GERMAN.key,
+            direction = TranslatorDirection.TARGET_TO_BN,
+            sourceTier = TranslationSourceTier.WEB_FALLBACK
+        )
+        val enrichedReverse = LiveTranslatorRepository.ensureBanglaPronunciation(reverseResult)
+        assertEquals("গুটেন মর্গেন", enrichedReverse.banglaPronunciation)
     }
 }
 

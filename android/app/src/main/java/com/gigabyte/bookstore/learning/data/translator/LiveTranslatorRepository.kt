@@ -3,6 +3,7 @@ package com.gigabyte.bookstore.learning.data.translator
 import com.gigabyte.bookstore.learning.data.LearningRepository
 import com.gigabyte.bookstore.learning.domain.model.LessonItem
 import com.gigabyte.bookstore.learning.domain.model.Token
+import com.gigabyte.bookstore.learning.domain.translator.BanglaPronunciationEngine
 import com.gigabyte.bookstore.learning.domain.translator.RegionalDialectChoice
 import com.gigabyte.bookstore.learning.domain.translator.TranslationResult
 import com.gigabyte.bookstore.learning.domain.translator.TranslationSourceTier
@@ -42,26 +43,26 @@ class LiveTranslatorRepository(
 
         // Tier 1: Exact / near-exact match from local Room DB & VocabVault (0ms, 100% offline).
         findExactOfflineMatch(cleanInput, language, direction, dialect)?.let {
-            return@withContext Result.success(it)
+            return@withContext Result.success(ensureBanglaPronunciation(it, language))
         }
 
         // Tier 2: Firebase AI Gemini educational translation (script + bn_pron + word breakdown + grammar tip).
         val aiResult = translateViaFirebaseAi(cleanInput, language, direction, dialect)
         if (aiResult != null) {
-            return@withContext Result.success(aiResult)
+            return@withContext Result.success(ensureBanglaPronunciation(aiResult, language))
         }
 
         // Tier 3: Resilient HTTP fallback when online (non-regional standard languages).
         if (language != TranslatorLanguage.REGIONAL_BANGLA) {
             val webResult = translateViaHttpFallback(cleanInput, language, direction)
             if (webResult != null) {
-                return@withContext Result.success(webResult)
+                return@withContext Result.success(ensureBanglaPronunciation(webResult, language))
             }
         }
 
         // Soft fallback: best partial match offline if available.
         findPartialOfflineMatch(cleanInput, language, direction, dialect)?.let {
-            return@withContext Result.success(it)
+            return@withContext Result.success(ensureBanglaPronunciation(it, language))
         }
 
         Result.failure(
@@ -106,22 +107,33 @@ class LiveTranslatorRepository(
             val vocabItems = runCatching { VocabRepository.getConfigForLanguage(language.key).items }.getOrDefault(emptyList())
             val exactVocab = vocabItems.firstOrNull { vocab ->
                 if (reverse) {
-                    normalizeForMatch(vocab.singularTarget) == normQuery
+                    normalizeForMatch(vocab.singularTarget) == normQuery ||
+                        (!vocab.pluralTarget.isNullOrBlank() && normalizeForMatch(vocab.pluralTarget) == normQuery)
                 } else {
                     vocab.bnMeaning.split('/', ',').any { part -> normalizeForMatch(part) == normQuery }
                 }
             }
             if (exactVocab != null) {
-                val outText = if (reverse) exactVocab.bnMeaning else exactVocab.singularTarget
-                val bnPron = if (reverse) null else exactVocab.singularBnPron
-                val targetWord = exactVocab.singularTarget
+                val matchedPlural = reverse &&
+                    !exactVocab.pluralTarget.isNullOrBlank() &&
+                    normalizeForMatch(exactVocab.pluralTarget) == normQuery
+                val matchedTarget = if (matchedPlural) exactVocab.pluralTarget!! else exactVocab.singularTarget
+                val matchedPron = if (matchedPlural) {
+                    exactVocab.pluralBnPron ?: exactVocab.singularBnPron
+                } else {
+                    exactVocab.singularBnPron
+                }
+                val outText = if (reverse) exactVocab.bnMeaning else matchedTarget
+                val secondary = if (matchedPlural) exactVocab.pluralSecondary else exactVocab.singularSecondary
                 return TranslationResult(
                     sourceText = query,
                     targetText = outText,
-                    banglaPronunciation = bnPron,
-                    romanization = if (reverse) null else exactVocab.singularSecondary,
-                    wordBreakdown = listOf(Token(targetWord, exactVocab.bnMeaning)),
-                    grammarTipBn = exactVocab.noteBn,
+                    banglaPronunciation = matchedPron,
+                    romanization = if (reverse) null else secondary,
+                    wordBreakdown = listOf(Token(matchedTarget, exactVocab.bnMeaning, matchedPron)),
+                    grammarTipBn = exactVocab.noteBn ?: if (exactVocab.pluralTarget != null) {
+                        "একবচন: ${exactVocab.singularTarget} (${exactVocab.singularBnPron}) • বহুবচন: ${exactVocab.pluralTarget} (${exactVocab.pluralBnPron.orEmpty()})"
+                    } else null,
                     languageKey = language.key,
                     direction = direction,
                     sourceTier = TranslationSourceTier.OFFLINE_CURRICULUM
@@ -146,8 +158,49 @@ class LiveTranslatorRepository(
             reverseTargetToBn = reverse,
             speakerQuery = speakerQuery
         )
-        val first = dbHits.firstOrNull() ?: return null
-        return lessonItemToResult(first, query, language, direction, dialect)
+        val first = dbHits.firstOrNull()
+        if (first != null) {
+            return lessonItemToResult(first, query, language, direction, dialect)
+        }
+
+        if (language in listOf(
+                TranslatorLanguage.ENGLISH,
+                TranslatorLanguage.JAPANESE,
+                TranslatorLanguage.URDU,
+                TranslatorLanguage.HINDI,
+                TranslatorLanguage.GERMAN
+            )
+        ) {
+            val normQuery = normalizeForMatch(query)
+            val vocabItems = runCatching { VocabRepository.getConfigForLanguage(language.key).items }.getOrDefault(emptyList())
+            val partialVocab = vocabItems.firstOrNull { vocab ->
+                if (reverse) {
+                    normalizeForMatch(vocab.singularTarget).contains(normQuery) ||
+                        normQuery.contains(normalizeForMatch(vocab.singularTarget))
+                } else {
+                    normalizeForMatch(vocab.bnMeaning).contains(normQuery) ||
+                        vocab.bnMeaning.split('/', ',').any { part ->
+                            val np = normalizeForMatch(part)
+                            np.isNotEmpty() && (np.contains(normQuery) || normQuery.contains(np))
+                        }
+                }
+            }
+            if (partialVocab != null) {
+                val outText = if (reverse) partialVocab.bnMeaning else partialVocab.singularTarget
+                return TranslationResult(
+                    sourceText = query,
+                    targetText = outText,
+                    banglaPronunciation = partialVocab.singularBnPron,
+                    romanization = if (reverse) null else partialVocab.singularSecondary,
+                    wordBreakdown = listOf(Token(partialVocab.singularTarget, partialVocab.bnMeaning, partialVocab.singularBnPron)),
+                    grammarTipBn = partialVocab.noteBn ?: "শব্দভাণ্ডার ভল্ট থেকে পাওয়া কাছাকাছি অনুবাদ।",
+                    languageKey = language.key,
+                    direction = direction,
+                    sourceTier = TranslationSourceTier.OFFLINE_CURRICULUM
+                )
+            }
+        }
+        return null
     }
 
     private fun lessonItemToResult(
@@ -158,11 +211,15 @@ class LiveTranslatorRepository(
         dialect: RegionalDialectChoice
     ): TranslationResult {
         val reverse = direction == TranslatorDirection.TARGET_TO_BN
+        val pron = item.bnPron?.takeIf { it.isNotBlank() }
+            ?: BanglaPronunciationEngine.generate(item.target, language)
         return TranslationResult(
             sourceText = query,
             targetText = if (reverse) item.bn.orEmpty() else item.target,
-            banglaPronunciation = if (reverse) null else item.bnPron,
-            wordBreakdown = item.tokens,
+            banglaPronunciation = pron,
+            wordBreakdown = item.tokens.map { tok ->
+                tok.copy(bnPron = tok.bnPron ?: BanglaPronunciationEngine.generateWord(tok.text, language))
+            },
             grammarTipBn = if (reverse) "মূল বাক্য: ${item.target}" else "কোর্স কারিকুলাম থেকে নেওয়া সঠিক অনুবাদ।",
             languageKey = language.key,
             dialectKey = if (language == TranslatorLanguage.REGIONAL_BANGLA) dialect.key else null,
@@ -200,7 +257,7 @@ class LiveTranslatorRepository(
         val src = if (direction == TranslatorDirection.BN_TO_TARGET) "bn" else language.isoCode
         val dst = if (direction == TranslatorDirection.BN_TO_TARGET) language.isoCode else "bn"
         val encoded = URLEncoder.encode(query, "UTF-8")
-        val url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=$src&tl=$dst&dt=t&q=$encoded"
+        val url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=$src&tl=$dst&dt=t&dt=rm&q=$encoded"
         val request = Request.Builder()
             .url(url)
             .header("User-Agent", "Mozilla/5.0")
@@ -208,13 +265,25 @@ class LiveTranslatorRepository(
         httpClient.newCall(request).execute().use { resp ->
             if (!resp.isSuccessful) return@runCatching null
             val body = resp.body?.string() ?: return@runCatching null
-            val translated = parseGoogleTranslateArrayJson(body) ?: return@runCatching null
+            val payload = parseGoogleTranslatePayload(body) ?: return@runCatching null
+            val foreignText = if (direction == TranslatorDirection.BN_TO_TARGET) payload.translatedText else query
+            val romanHint = if (direction == TranslatorDirection.BN_TO_TARGET) payload.targetRomanization else payload.sourceRomanization
+            val bnPron = BanglaPronunciationEngine.generate(
+                targetText = foreignText,
+                language = language,
+                romanizationHint = romanHint
+            )
+            val tokens = if (direction == TranslatorDirection.BN_TO_TARGET) {
+                payload.translatedText.split(Regex("\\s+")).filter { it.isNotBlank() }.take(10).map { w ->
+                    Token(w, null, BanglaPronunciationEngine.generateWord(w, language))
+                }
+            } else emptyList()
             TranslationResult(
                 sourceText = query,
-                targetText = translated,
-                wordBreakdown = if (direction == TranslatorDirection.BN_TO_TARGET) {
-                    translated.split(Regex("\\s+")).filter { it.isNotBlank() }.take(10).map { Token(it, null) }
-                } else emptyList(),
+                targetText = payload.translatedText,
+                banglaPronunciation = bnPron,
+                romanization = romanHint,
+                wordBreakdown = tokens,
                 languageKey = language.key,
                 direction = direction,
                 sourceTier = TranslationSourceTier.WEB_FALLBACK
@@ -224,6 +293,43 @@ class LiveTranslatorRepository(
 
     companion object {
         private val PUNCT_STRIP = Regex("[।॥,?!.,:;'\'\"“”\\s]+")
+
+        internal data class WebTranslatePayload(
+            val translatedText: String,
+            val targetRomanization: String? = null,
+            val sourceRomanization: String? = null
+        )
+
+        internal fun ensureBanglaPronunciation(
+            result: TranslationResult,
+            language: TranslatorLanguage = TranslatorLanguage.fromKey(result.languageKey)
+        ): TranslationResult {
+            val foreignText = if (result.direction == TranslatorDirection.BN_TO_TARGET) {
+                result.targetText
+            } else {
+                result.sourceText
+            }
+            val filledPron = result.banglaPronunciation?.takeIf { it.isNotBlank() }
+                ?: BanglaPronunciationEngine.generate(
+                    targetText = foreignText,
+                    language = language,
+                    romanizationHint = result.romanization
+                )
+            val enrichedTokens = if (result.wordBreakdown.isEmpty() && result.direction == TranslatorDirection.BN_TO_TARGET) {
+                foreignText.split(Regex("\\s+")).filter { it.isNotBlank() }.take(10).map { w ->
+                    Token(w, null, BanglaPronunciationEngine.generateWord(w, language))
+                }
+            } else {
+                result.wordBreakdown.map { tok ->
+                    if (!tok.bnPron.isNullOrBlank()) tok
+                    else tok.copy(bnPron = BanglaPronunciationEngine.generateWord(tok.text, language))
+                }
+            }
+            return result.copy(
+                banglaPronunciation = filledPron,
+                wordBreakdown = enrichedTokens
+            )
+        }
 
         internal fun normalizeForMatch(text: String): String =
             PUNCT_STRIP.replace(text.trim().lowercase(), "")
@@ -250,7 +356,7 @@ class LiveTranslatorRepository(
                   "translated_text": "natural spoken sentence in target script",
                   "bangla_pronunciation": "accurate phonetic pronunciation written strictly in Bengali script for a Bengali learner",
                   "romanization": "optional Romaji or transliteration, empty string if not needed",
-                  "word_breakdown": [{"t": "target_word", "bn": "short_bangla_meaning"}],
+                  "word_breakdown": [{"t": "target_word", "bn": "short_bangla_meaning", "pron": "bangla_pronunciation_of_word"}],
                   "grammar_tip_bn": "one helpful sentence in Bangla explaining politeness, tone, or usage"
                 }
                 """.trimIndent()
@@ -262,9 +368,9 @@ class LiveTranslatorRepository(
                 Return ONLY a valid JSON object with NO markdown fences and exact keys:
                 {
                   "translated_text": "natural Standard Bangla meaning",
-                  "bangla_pronunciation": "",
+                  "bangla_pronunciation": "accurate phonetic pronunciation of the original foreign input written strictly in Bengali script",
                   "romanization": "",
-                  "word_breakdown": [{"t": "source_word", "bn": "bangla_meaning"}],
+                  "word_breakdown": [{"t": "source_word", "bn": "bangla_meaning", "pron": "bangla_pronunciation_of_word"}],
                   "grammar_tip_bn": "one helpful sentence in Bangla about context or reply suggestion"
                 }
                 """.trimIndent()
@@ -305,7 +411,8 @@ class LiveTranslatorRepository(
                     val obj = arr.optJSONObject(i) ?: continue
                     val w = obj.optString("t", "").trim()
                     val m = obj.optString("bn", "").trim().takeIf { it.isNotEmpty() }
-                    if (w.isNotEmpty()) tokensList.add(Token(w, m))
+                    val wp = obj.optString("pron", "").trim().takeIf { it.isNotEmpty() }
+                    if (w.isNotEmpty()) tokensList.add(Token(w, m, wp))
                 }
             }
 
@@ -323,17 +430,42 @@ class LiveTranslatorRepository(
             )
         }.getOrNull()
 
-        internal fun parseGoogleTranslateArrayJson(rawBody: String): String? = runCatching {
+        internal fun parseGoogleTranslatePayload(rawBody: String): WebTranslatePayload? = runCatching {
             val root = JSONArray(rawBody)
             val segments = root.optJSONArray(0) ?: return@runCatching null
-            val sb = StringBuilder()
+            val translatedSb = StringBuilder()
+            val targetRomaSb = StringBuilder()
+            val sourceRomaSb = StringBuilder()
             for (i in 0 until segments.length()) {
                 val seg = segments.optJSONArray(i) ?: continue
-                val text = seg.optString(0, "")
-                sb.append(text)
+                if (!seg.isNull(0)) {
+                    translatedSb.append(seg.optString(0, ""))
+                }
+                if (!seg.isNull(2)) {
+                    val tr = seg.optString(2, "").trim()
+                    if (tr.isNotEmpty()) {
+                        if (targetRomaSb.isNotEmpty()) targetRomaSb.append(' ')
+                        targetRomaSb.append(tr)
+                    }
+                }
+                if (!seg.isNull(3)) {
+                    val sr = seg.optString(3, "").trim()
+                    if (sr.isNotEmpty()) {
+                        if (sourceRomaSb.isNotEmpty()) sourceRomaSb.append(' ')
+                        sourceRomaSb.append(sr)
+                    }
+                }
             }
-            sb.toString().trim().takeIf { it.isNotEmpty() }
+            val translated = translatedSb.toString().trim().takeIf { it.isNotEmpty() } ?: return@runCatching null
+            WebTranslatePayload(
+                translatedText = translated,
+                targetRomanization = targetRomaSb.toString().trim().takeIf { it.isNotEmpty() },
+                sourceRomanization = sourceRomaSb.toString().trim().takeIf { it.isNotEmpty() }
+            )
         }.getOrNull()
+
+        internal fun parseGoogleTranslateArrayJson(rawBody: String): String? =
+            parseGoogleTranslatePayload(rawBody)?.translatedText
     }
 }
 
