@@ -84,6 +84,48 @@ interface LearningDao {
     @Query("SELECT i.* FROM items i WHERE i.lessonId = :lessonId AND $VISIBLE_ITEM ORDER BY i.sort_order")
     suspend fun getVisibleItems(lessonId: String): List<ItemEntity>
 
+    /** Offline translator lookup: matches Bangla meaning against bundled course items. */
+    @Query(
+        """
+        SELECT i.* FROM items i
+        WHERE i.id LIKE :idPrefixPattern
+          AND i.bn IS NOT NULL AND TRIM(i.bn) != ''
+          AND (i.bn LIKE '%' || :query || '%' OR :query LIKE '%' || i.bn || '%')
+        LIMIT :limit
+        """
+    )
+    suspend fun findByBanglaMatch(idPrefixPattern: String, query: String, limit: Int = 5): List<ItemEntity>
+
+    /** Offline lookup filtered by region speaker label (for Regional Bangla translator). */
+    @Query(
+        """
+        SELECT i.* FROM items i
+        WHERE i.id LIKE :idPrefixPattern
+          AND i.speaker IS NOT NULL AND i.speaker LIKE '%' || :speakerQuery || '%'
+          AND i.bn IS NOT NULL AND TRIM(i.bn) != ''
+          AND (i.bn LIKE '%' || :query || '%' OR :query LIKE '%' || i.bn || '%')
+        LIMIT :limit
+        """
+    )
+    suspend fun findByBanglaAndSpeakerMatch(
+        idPrefixPattern: String,
+        speakerQuery: String,
+        query: String,
+        limit: Int = 5
+    ): List<ItemEntity>
+
+    /** Offline reverse lookup: matches target script phrases to Bangla meaning. */
+    @Query(
+        """
+        SELECT i.* FROM items i
+        WHERE i.id LIKE :idPrefixPattern
+          AND i.bn IS NOT NULL AND TRIM(i.bn) != ''
+          AND (i.target LIKE '%' || :query || '%' OR :query LIKE '%' || i.target || '%')
+        LIMIT :limit
+        """
+    )
+    suspend fun findByTargetMatch(idPrefixPattern: String, query: String, limit: Int = 5): List<ItemEntity>
+
     /** Distractor pool for quizzes: visible items elsewhere in the same part. */
     @Query(
         """

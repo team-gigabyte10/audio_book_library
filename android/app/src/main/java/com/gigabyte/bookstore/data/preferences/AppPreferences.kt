@@ -159,6 +159,22 @@ class AppPreferences(context: Context) {
         _learnQuranReciter.value = reciterId
     }
 
+    private val _learnTranslatorAutoSpeak = MutableStateFlow(prefs.getBoolean(KEY_LEARN_TRANSLATOR_AUTO_SPEAK, true))
+    val learnTranslatorAutoSpeak: StateFlow<Boolean> = _learnTranslatorAutoSpeak.asStateFlow()
+
+    fun setLearnTranslatorAutoSpeak(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_LEARN_TRANSLATOR_AUTO_SPEAK, enabled).apply()
+        _learnTranslatorAutoSpeak.value = enabled
+    }
+
+    private val _learnTranslatorHistoryJson = MutableStateFlow(prefs.getString(KEY_LEARN_TRANSLATOR_HISTORY, "[]") ?: "[]")
+    val learnTranslatorHistoryJson: StateFlow<String> = _learnTranslatorHistoryJson.asStateFlow()
+
+    fun setLearnTranslatorHistoryJson(json: String) {
+        prefs.edit().putString(KEY_LEARN_TRANSLATOR_HISTORY, json).apply()
+        _learnTranslatorHistoryJson.value = json
+    }
+
     companion object {
         private const val KEY_SPEECH_RATE = "speech_rate"
         private const val KEY_SPEECH_PITCH = "speech_pitch"
@@ -178,6 +194,8 @@ class AppPreferences(context: Context) {
         private const val KEY_LEARN_HI_SPEAKER_GENDER = "learn_hi_speaker_gender"
         private const val KEY_LEARN_JA_SPEAKER_GENDER = "learn_ja_speaker_gender"
         private const val KEY_LEARN_QURAN_RECITER = "learn_quran_reciter"
+        private const val KEY_LEARN_TRANSLATOR_AUTO_SPEAK = "learn_translator_auto_speak"
+        private const val KEY_LEARN_TRANSLATOR_HISTORY = "learn_translator_history"
 
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"

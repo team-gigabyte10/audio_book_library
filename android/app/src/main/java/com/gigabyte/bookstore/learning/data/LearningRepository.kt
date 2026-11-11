@@ -215,6 +215,23 @@ class LearningRepository(private val dao: LearningDao) {
         ContinueLesson(lesson.id, lesson.titleBn ?: lesson.titleTarget ?: lesson.id, progress.state == LessonProgressEntity.STATE_DONE)
     }
 
+    suspend fun searchOfflineTranslations(
+        idPrefix: String,
+        query: String,
+        reverseTargetToBn: Boolean = false,
+        speakerQuery: String? = null
+    ): List<LessonItem> = withContext(Dispatchers.IO) {
+        val pattern = "$idPrefix%"
+        val cleanQuery = query.trim().trimEnd('।', '.', '?', '!')
+        if (cleanQuery.length < 2) return@withContext emptyList()
+        val entities = when {
+            reverseTargetToBn -> dao.findByTargetMatch(pattern, cleanQuery, limit = 5)
+            !speakerQuery.isNullOrBlank() -> dao.findByBanglaAndSpeakerMatch(pattern, speakerQuery, cleanQuery, limit = 5)
+            else -> dao.findByBanglaMatch(pattern, cleanQuery, limit = 5)
+        }
+        entities.map { it.toLessonItem() }
+    }
+
     private fun now() = System.currentTimeMillis()
 
     companion object {

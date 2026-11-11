@@ -32,6 +32,7 @@ import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.RecordVoiceOver
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -65,6 +66,7 @@ import com.gigabyte.bookstore.learning.data.LessonItemSummary
 import com.gigabyte.bookstore.learning.data.PartSummary
 import com.gigabyte.bookstore.learning.data.content.ContentState
 import com.gigabyte.bookstore.learning.domain.model.LessonState
+import com.gigabyte.bookstore.learning.domain.translator.TranslatorLanguage
 import com.gigabyte.bookstore.learning.presentation.home.LearnHomeViewModel
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import androidx.compose.material.icons.filled.ChevronRight
@@ -158,7 +160,8 @@ fun CourseSyllabusScreen(
     onBackClick: () -> Unit,
     onOpenPart: (String) -> Unit,
     onOpenLesson: (String) -> Unit,
-    onOpenIntro: (String) -> Unit
+    onOpenIntro: (String) -> Unit,
+    onOpenTranslator: (String) -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -328,6 +331,11 @@ fun CourseSyllabusScreen(
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { onOpenTranslator(TranslatorLanguage.fromKey(courseType).key) }) {
+                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক")
                     }
                 }
             )

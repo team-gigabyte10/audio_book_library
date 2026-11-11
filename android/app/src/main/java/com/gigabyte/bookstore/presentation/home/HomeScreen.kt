@@ -113,6 +113,7 @@ fun HomeScreen(
     onNavigateToLearnUrdu: () -> Unit = {},
     onNavigateToLearnHindi: () -> Unit = {},
     onNavigateToLearnGerman: () -> Unit = {},
+    onNavigateToTranslator: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
@@ -276,6 +277,12 @@ fun HomeScreen(
                         }
                     },
                     actions = {
+                        IconButton(onClick = onNavigateToTranslator) {
+                            Icon(
+                                imageVector = Icons.Default.Translate,
+                                contentDescription = "লাইভ অনুবাদক"
+                            )
+                        }
                         IconButton(onClick = onNavigateToSearch) {
                             Icon(
                                 imageVector = Icons.Default.Search,
@@ -344,6 +351,49 @@ fun HomeScreen(
                                         )
                                     }
                                 )
+                            }
+                        }
+
+                        // 0. Quick Live Bangla-to-Foreign Speech Translator Pill
+                        item {
+                            Spacer(modifier = Modifier.height(12.dp))
+                            Surface(
+                                shape = RoundedCornerShape(14.dp),
+                                color = Color(0xFFE0F2F1),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF00796B).copy(alpha = 0.35f)),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp)
+                                    .clickable(onClick = onNavigateToTranslator)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Surface(
+                                        shape = CircleShape,
+                                        color = Color(0xFF00796B),
+                                        modifier = Modifier.size(38.dp)
+                                    ) {
+                                        Box(contentAlignment = Alignment.Center) {
+                                            Icon(Icons.Default.Translate, contentDescription = null, tint = Color.White, modifier = Modifier.size(20.dp))
+                                        }
+                                    }
+                                    Spacer(Modifier.width(12.dp))
+                                    Column(Modifier.weight(1f)) {
+                                        Text(
+                                            "🎙️ লাইভ বাংলা স্পিচ অনুবাদক",
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 14.sp,
+                                            color = Color(0xFF004D40)
+                                        )
+                                        Text(
+                                            "বাংলায় বলুন ➔ ইংরেজি, জাপানি, উর্দু, হিন্দি, জার্মান, আরবি ও আঞ্চলিক",
+                                            fontSize = 11.sp,
+                                            color = Color(0xFF00695C)
+                                        )
+                                    }
+                                }
                             }
                         }
 

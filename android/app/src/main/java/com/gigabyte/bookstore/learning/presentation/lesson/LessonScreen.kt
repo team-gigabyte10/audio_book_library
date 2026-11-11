@@ -43,6 +43,7 @@ import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -100,7 +101,8 @@ import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 fun LessonScreen(
     viewModel: LessonViewModel,
     onBackClick: () -> Unit,
-    onOpenQuiz: () -> Unit
+    onOpenQuiz: () -> Unit,
+    onOpenTranslator: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val playerState by viewModel.playerState.collectAsStateWithLifecycle()
@@ -141,6 +143,12 @@ fun LessonScreen(
                     }
                 },
                 actions = {
+                    IconButton(onClick = {
+                        viewModel.pause()
+                        onOpenTranslator()
+                    }) {
+                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক")
+                    }
                     IconButton(onClick = { showSettings = true }) {
                         Icon(Icons.Default.Settings, contentDescription = "সেটিংস")
                     }

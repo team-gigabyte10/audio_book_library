@@ -61,6 +61,9 @@ import com.gigabyte.bookstore.learning.presentation.calendar.CalendarChartScreen
 import com.gigabyte.bookstore.learning.presentation.calendar.CalendarChartViewModel
 import com.gigabyte.bookstore.learning.presentation.vocab.VocabVaultScreen
 import com.gigabyte.bookstore.learning.presentation.vocab.VocabVaultViewModel
+import com.gigabyte.bookstore.learning.domain.translator.TranslatorLanguage
+import com.gigabyte.bookstore.learning.presentation.translator.LiveTranslatorScreen
+import com.gigabyte.bookstore.learning.presentation.translator.LiveTranslatorViewModel
 import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 
@@ -209,6 +212,9 @@ fun AppNavHost(
                 },
                 onNavigateToLearnGerman = {
                     navController.navigate(Screen.Learn.createRoute("german"))
+                },
+                onNavigateToTranslator = {
+                    navController.navigate(Screen.LiveTranslator.createRoute("english"))
                 },
                 onNavigateToLastRead = {
                     navController.navigate(Screen.LastRead.route)
@@ -501,7 +507,8 @@ fun AppNavHost(
                 onOpenAlphabetChart = { langName -> navController.navigate(Screen.AlphabetChart.createRoute(langName)) },
                 onOpenNumbersChart = { langName -> navController.navigate(Screen.NumbersChart.createRoute(langName)) },
                 onOpenCalendarChart = { langName -> navController.navigate(Screen.CalendarChart.createRoute(langName)) },
-                onOpenVocabVault = { langName -> navController.navigate(Screen.VocabVault.createRoute(langName)) }
+                onOpenVocabVault = { langName -> navController.navigate(Screen.VocabVault.createRoute(langName)) },
+                onOpenTranslator = { langName -> navController.navigate(Screen.LiveTranslator.createRoute(TranslatorLanguage.fromKey(langName).key)) }
             )
         }
 
@@ -582,6 +589,24 @@ fun AppNavHost(
         }
 
         composable(
+            route = Screen.LiveTranslator.route,
+            arguments = listOf(navArgument("lang") {
+                type = NavType.StringType
+                defaultValue = "english"
+            })
+        ) { backStackEntry ->
+            val initialLang = backStackEntry.arguments?.getString("lang") ?: "english"
+            val translatorViewModel: LiveTranslatorViewModel = viewModel(
+                key = "live_translator_$initialLang",
+                factory = LiveTranslatorViewModel.Factory(application, initialLang)
+            )
+            LiveTranslatorScreen(
+                viewModel = translatorViewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(
             route = Screen.CourseSyllabus.route,
             arguments = listOf(navArgument("course") {
                 type = NavType.StringType
@@ -598,7 +623,8 @@ fun AppNavHost(
                 onBackClick = { navController.popBackStack() },
                 onOpenPart = { partId -> navController.navigate(Screen.LearnPart.createRoute(partId)) },
                 onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
-                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) }
+                onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) },
+                onOpenTranslator = { langName -> navController.navigate(Screen.LiveTranslator.createRoute(langName)) }
             )
         }
 
@@ -645,7 +671,8 @@ fun AppNavHost(
             LessonScreen(
                 viewModel = lessonViewModel,
                 onBackClick = { navController.popBackStack() },
-                onOpenQuiz = { navController.navigate(Screen.LearnQuiz.createRoute(lessonId)) }
+                onOpenQuiz = { navController.navigate(Screen.LearnQuiz.createRoute(lessonId)) },
+                onOpenTranslator = { navController.navigate(Screen.LiveTranslator.createRoute(TranslatorLanguage.fromKey(lessonId).key)) }
             )
         }
 

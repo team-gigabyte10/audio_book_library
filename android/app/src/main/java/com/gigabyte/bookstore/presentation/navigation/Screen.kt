@@ -61,6 +61,9 @@ sealed class Screen(val route: String) {
     object VocabVault : Screen("learn/{lang}/vocab-vault") {
         fun createRoute(lang: String) = "learn/$lang/vocab-vault"
     }
+    object LiveTranslator : Screen("learn/translator?lang={lang}") {
+        fun createRoute(lang: String = "english") = "learn/translator?lang=$lang"
+    }
     object LastRead : Screen("last-read")
 }
 

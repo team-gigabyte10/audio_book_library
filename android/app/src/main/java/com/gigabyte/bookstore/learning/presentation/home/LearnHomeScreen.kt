@@ -26,6 +26,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -71,7 +72,8 @@ fun LearnHomeScreen(
     onOpenAlphabetChart: (String) -> Unit = {},
     onOpenNumbersChart: (String) -> Unit = {},
     onOpenCalendarChart: (String) -> Unit = {},
-    onOpenVocabVault: (String) -> Unit = {}
+    onOpenVocabVault: (String) -> Unit = {},
+    onOpenTranslator: (String) -> Unit = {}
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
@@ -291,6 +293,11 @@ fun LearnHomeScreen(
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { onOpenTranslator(language) }) {
+                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক")
                     }
                 }
             )
