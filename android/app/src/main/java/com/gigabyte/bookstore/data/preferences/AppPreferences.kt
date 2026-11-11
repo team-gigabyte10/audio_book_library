@@ -150,6 +150,15 @@ class AppPreferences(context: Context) {
         _learnJaSpeakerGender.value = gender
     }
 
+    /** Quran course male Qari reciter profile: "husary_muallim" (default) or "alafasy". */
+    private val _learnQuranReciter = MutableStateFlow(prefs.getString(KEY_LEARN_QURAN_RECITER, "husary_muallim") ?: "husary_muallim")
+    val learnQuranReciter: StateFlow<String> = _learnQuranReciter.asStateFlow()
+
+    fun setLearnQuranReciter(reciterId: String) {
+        prefs.edit().putString(KEY_LEARN_QURAN_RECITER, reciterId).apply()
+        _learnQuranReciter.value = reciterId
+    }
+
     companion object {
         private const val KEY_SPEECH_RATE = "speech_rate"
         private const val KEY_SPEECH_PITCH = "speech_pitch"
@@ -168,6 +177,7 @@ class AppPreferences(context: Context) {
         private const val KEY_LEARN_UR_SPEAKER_GENDER = "learn_ur_speaker_gender"
         private const val KEY_LEARN_HI_SPEAKER_GENDER = "learn_hi_speaker_gender"
         private const val KEY_LEARN_JA_SPEAKER_GENDER = "learn_ja_speaker_gender"
+        private const val KEY_LEARN_QURAN_RECITER = "learn_quran_reciter"
 
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"

@@ -78,9 +78,27 @@ class LessonPlayer(
     }
 
     /** Speaks one text outside the queue (e.g. tapping a token). Pauses the queue first. */
-    fun speakOnce(text: String, lang: SpeechLang, rate: Float = 0.8f) {
+    fun speakOnce(
+        text: String,
+        lang: SpeechLang,
+        rate: Float = 0.8f,
+        itemId: String? = null,
+        preferMale: Boolean = false
+    ) {
         pause()
-        onceJob = scope.launch { engine.speak(text, lang, rate) }
+        onceJob = scope.launch {
+            engine.speakStep(
+                PlaybackStep.Speak(
+                    text = text,
+                    lang = lang,
+                    rate = rate,
+                    itemIndex = 0,
+                    phase = PlaybackStep.Phase.LADDER,
+                    itemId = itemId,
+                    preferMale = preferMale
+                )
+            )
+        }
     }
 
     fun release() {
@@ -94,7 +112,7 @@ class LessonPlayer(
                 val step = steps[position]
                 publish(isPlaying = true)
                 when (step) {
-                    is PlaybackStep.Speak -> engine.speak(step.text, step.lang, step.rate)
+                    is PlaybackStep.Speak -> engine.speakStep(step)
                     is PlaybackStep.Pause -> delay(step.ms)
                 }
                 position++

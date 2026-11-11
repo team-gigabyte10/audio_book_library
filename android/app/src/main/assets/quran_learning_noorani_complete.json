@@ -7,18 +7,18 @@
   "ladder_default": [
     {
       "play": "ar",
-      "speed": 0.75
+      "speed": 0.72
     },
     {
       "play": "bn",
-      "speed": 1.0
+      "speed": 0.95
     },
     {
       "play": "ar",
-      "speed": 0.9
+      "speed": 0.88
     },
     {
-      "pause": 1800
+      "pause": 2000
     }
   ],
   "parts": [

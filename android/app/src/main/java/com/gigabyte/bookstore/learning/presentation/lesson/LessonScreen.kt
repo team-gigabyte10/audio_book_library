@@ -58,12 +58,14 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -74,6 +76,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -81,6 +84,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.learning.domain.audio.QuranAudioCatalog
+import com.gigabyte.bookstore.learning.domain.audio.QuranReciter
+import com.gigabyte.bookstore.learning.domain.audio.QuranVoiceManager
 import com.gigabyte.bookstore.learning.domain.model.LearnSettings
 import com.gigabyte.bookstore.learning.domain.model.LessonItem
 import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
@@ -105,8 +111,11 @@ fun LessonScreen(
     val hindiAvailable by viewModel.hindiAvailable.collectAsStateWithLifecycle()
     val germanAvailable by viewModel.germanAvailable.collectAsStateWithLifecycle()
     val arabicAvailable by viewModel.arabicAvailable.collectAsStateWithLifecycle()
+    val arabicMaleVoiceAvailable by viewModel.arabicMaleVoiceAvailable.collectAsStateWithLifecycle()
+    val quranReciter by viewModel.quranReciter.collectAsStateWithLifecycle()
     val urFemaleSpeaker by viewModel.urFemaleSpeaker.collectAsStateWithLifecycle()
     val hiFemaleSpeaker by viewModel.hiFemaleSpeaker.collectAsStateWithLifecycle()
+    val context = LocalContext.current
     var showSettings by remember { mutableStateOf(false) }
 
     // Keep the screen on while the lesson is playing.
@@ -174,8 +183,26 @@ fun LessonScreen(
                             VoiceWarning("বাংলা ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে বাংলা ভয়েস ইনস্টল করুন।")
                         }
                     } else if (viewModel.isQuran) {
-                        if (arabicAvailable == false) {
+                        val hasMappedQariAudio = remember(content.lesson.id) {
+                            QuranAudioCatalog.audioRefsForLesson(content.lesson.id).isNotEmpty()
+                        }
+                        if (arabicAvailable == false && !hasMappedQariAudio) {
                             VoiceWarning("এই ফোনে আরবি ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Arabic (Saudi Arabia) ভয়েস ইনস্টল করুন। ততক্ষণ আরবি লেখা দেখে মশ্‌ক করুন।")
+                        } else if (arabicAvailable == true && arabicMaleVoiceAvailable == false && !hasMappedQariAudio) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    "পুরুষ কণ্ঠের আরবি ভয়েস না থাকায় গম্ভীর পুরুষ টিউনে চালানো হচ্ছে।",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                TextButton(onClick = { QuranVoiceManager.openDeviceTtsSettings(context) }) {
+                                    Text("ভয়েস সেটিংস")
+                                }
+                            }
                         } else if (banglaAvailable == false && settings.bnAudio) {
                             VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }
@@ -385,7 +412,10 @@ fun LessonScreen(
                     viewModel.isHindi -> hiFemaleSpeaker
                     else -> null
                 },
-                onUrFemaleSpeaker = viewModel::setUrFemaleSpeaker
+                onUrFemaleSpeaker = viewModel::setUrFemaleSpeaker,
+                isQuran = viewModel.isQuran,
+                quranReciterId = quranReciter,
+                onQuranReciterSelected = viewModel::setQuranReciter
             )
         }
     }
@@ -432,11 +462,26 @@ private fun ItemCard(
     isFemaleSpeaker: Boolean = false
 ) {
     val speakingBn = (currentStep as? PlaybackStep.Speak)?.lang == SpeechLang.BN
-    val speakingRate = (currentStep as? PlaybackStep.Speak)?.takeIf { it.lang == SpeechLang.EN || it.lang == SpeechLang.JA }?.rate
+    val speakingRate = (currentStep as? PlaybackStep.Speak)?.takeIf { it.lang == SpeechLang.EN || it.lang == SpeechLang.JA || it.lang == SpeechLang.AR }?.rate
 
     Card(modifier = Modifier.fillMaxWidth(), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
         Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            if (revealTarget && !item.exampleTarget.isNullOrBlank() && (isUrduItem(item.id) || item.id.startsWith("hi-"))) {
+            if (isQuranItem(item.id)) {
+                val isAyahTilawat = QuranAudioCatalog.audioRefForItem(item.id) != null
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color(0xFFE8F5E9),
+                    border = BorderStroke(1.dp, Color(0xFF81C784))
+                ) {
+                    Text(
+                        if (isAyahTilawat) "🎙️ পুরুষ কারী তিলাওয়াত (তারতীল)" else "🎙️ পুরুষ উস্তাদ মশ্‌ক (পুরুষ কণ্ঠ)",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF1B5E20),
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+            } else if (revealTarget && !item.exampleTarget.isNullOrBlank() && (isUrduItem(item.id) || item.id.startsWith("hi-"))) {
                 val isMainFemale = isFemaleSpeaker
                 val mainBadgeBg = if (isMainFemale) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
                 val mainBorderColor = if (isMainFemale) Color(0xFFF48FB1) else Color(0xFF90CAF9)
@@ -849,7 +894,10 @@ private fun SettingsSheet(
     onLoop: (Boolean) -> Unit,
     onRepeatCount: (Int) -> Unit,
     urFemaleSpeaker: Boolean? = null,
-    onUrFemaleSpeaker: (Boolean) -> Unit = {}
+    onUrFemaleSpeaker: (Boolean) -> Unit = {},
+    isQuran: Boolean = false,
+    quranReciterId: String = QuranReciter.HUSARY_MUALLIM.id,
+    onQuranReciterSelected: (String) -> Unit = {}
 ) {
     Column(Modifier.padding(horizontal = 20.dp, vertical = 8.dp)) {
         Text("প্লেব্যাক সেটিংস", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
@@ -878,6 +926,37 @@ private fun SettingsSheet(
         SettingRow("শব্দে শব্দে শুনুন (বাক্য)", settings.wordByWord, onWordByWord)
         SettingRow("স্বয়ংক্রিয়ভাবে পরের আইটেমে যান", settings.autoAdvance, onAutoAdvance)
         SettingRow("লেসন বারবার চালান", settings.loopLesson, onLoop)
+        if (isQuran) {
+            Spacer(Modifier.height(8.dp))
+            Text(
+                "কারী নির্বাচন (তিলাওয়াতকারী — পুরুষ কণ্ঠ)",
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF1B5E20)
+            )
+            QuranReciter.entries.forEach { reciter ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onQuranReciterSelected(reciter.id) }
+                        .padding(vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = quranReciterId.equals(reciter.id, ignoreCase = true),
+                        onClick = { onQuranReciterSelected(reciter.id) }
+                    )
+                    Column(Modifier.weight(1f)) {
+                        Text(reciter.titleBn, fontWeight = FontWeight.SemiBold)
+                        Text(
+                            reciter.subtitleBn,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+        }
         if (urFemaleSpeaker != null) {
             // Urdu plan decision 11.5: verbs and adjectives change with gender (جاتا / جاتی).
             // The female version covers a female speaker ("I") and a female listener ("you").

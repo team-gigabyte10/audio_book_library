@@ -12,6 +12,7 @@ object LessonQueueBuilder {
 
     private const val WORD_RATE = 0.95f
     private const val BANGLA_RATE = 1.15f
+    private const val QURAN_BANGLA_RATE = 0.95f
     private const val MAX_WORD_BY_WORD_TOKENS = 12
 
     fun buildLesson(
@@ -28,7 +29,10 @@ object LessonQueueBuilder {
     ): List<PlaybackStep> {
         val steps = mutableListOf<PlaybackStep>()
         val targetLang = ladder.firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: SpeechLang.EN
-        if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings, targetLang)
+        val isQuran = item.id.startsWith("qr-") || targetLang == SpeechLang.AR
+        val stepItemId = if (isQuran) item.id else null
+        val bnRate = if (isQuran) QURAN_BANGLA_RATE else BANGLA_RATE
+        if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings, targetLang, isQuran)
 
         val speeds = targetSpeeds(item, ladder, settings.repeatCount, targetLang)
         val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
@@ -37,20 +41,20 @@ object LessonQueueBuilder {
         if (qa != null) {
             // Sequential Q&A: [Target Question] -> [BN Question] -> [Target Answer] -> [BN Answer]
             for (speed in speeds) {
-                steps += PlaybackStep.Speak(qa.questionEn, targetLang, speed, itemIndex, Phase.LADDER)
+                steps += PlaybackStep.Speak(qa.questionEn, targetLang, speed, itemIndex, Phase.LADDER, itemId = stepItemId, preferMale = isQuran)
                 if (qa.questionBn != null) {
-                    steps += PlaybackStep.Speak(formatBnForSpeech(qa.questionBn), SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                    steps += PlaybackStep.Speak(formatBnForSpeech(qa.questionBn), SpeechLang.BN, bnRate, itemIndex, Phase.LADDER, preferMale = isQuran)
                 }
-                steps += PlaybackStep.Speak(qa.answerEn, targetLang, speed, itemIndex, Phase.LADDER)
+                steps += PlaybackStep.Speak(qa.answerEn, targetLang, speed, itemIndex, Phase.LADDER, itemId = stepItemId, preferMale = isQuran)
                 if (qa.answerBn != null) {
-                    steps += PlaybackStep.Speak(formatBnForSpeech(qa.answerBn), SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                    steps += PlaybackStep.Speak(formatBnForSpeech(qa.answerBn), SpeechLang.BN, bnRate, itemIndex, Phase.LADDER, preferMale = isQuran)
                 }
             }
         } else {
             // Standard single sentence Target -> BN pair
             for (speed in speeds) {
-                steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER)
-                if (bn != null) steps += PlaybackStep.Speak(formatBnForSpeech(bn), SpeechLang.BN, BANGLA_RATE, itemIndex, Phase.LADDER)
+                steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER, itemId = stepItemId, preferMale = isQuran)
+                if (bn != null) steps += PlaybackStep.Speak(formatBnForSpeech(bn), SpeechLang.BN, bnRate, itemIndex, Phase.LADDER, preferMale = isQuran)
             }
         }
 
@@ -117,22 +121,30 @@ object LessonQueueBuilder {
     private fun round2(value: Float): Float = Math.round(value * 100f) / 100f
 
     /** Each token (target → bn gloss when known), then cumulative prefixes: I → I eat → I eat rice. */
-    private fun wordByWord(item: LessonItem, itemIndex: Int, settings: LearnSettings, targetLang: SpeechLang): List<PlaybackStep> {
+    private fun wordByWord(
+        item: LessonItem,
+        itemIndex: Int,
+        settings: LearnSettings,
+        targetLang: SpeechLang,
+        isQuran: Boolean = false
+    ): List<PlaybackStep> {
         val tokens = item.tokens
-        if (!item.isSentenceLike || tokens.size < 2 || tokens.size > MAX_WORD_BY_WORD_TOKENS) return emptyList()
+        if ((!item.isSentenceLike && !isQuran) || tokens.size < 2 || tokens.size > MAX_WORD_BY_WORD_TOKENS) return emptyList()
 
+        val wordRate = if (isQuran) 0.78f else WORD_RATE
+        val bnRate = if (isQuran) QURAN_BANGLA_RATE else 1.0f
         val steps = mutableListOf<PlaybackStep>()
         for (token in tokens) {
-            steps += PlaybackStep.Speak(token.text, targetLang, WORD_RATE, itemIndex, Phase.WORD)
+            steps += PlaybackStep.Speak(token.text, targetLang, wordRate, itemIndex, Phase.WORD, preferMale = isQuran)
             val gloss = token.bn
             if (settings.bnAudio && !gloss.isNullOrBlank()) {
-                steps += PlaybackStep.Speak(gloss, SpeechLang.BN, 1.0f, itemIndex, Phase.WORD)
+                steps += PlaybackStep.Speak(gloss, SpeechLang.BN, bnRate, itemIndex, Phase.WORD, preferMale = isQuran)
             }
         }
         // The full sentence is covered by the EN → BN pairs, so build up to n-1 tokens only.
         for (end in 2 until tokens.size) {
             val prefix = tokens.subList(0, end).joinToString(" ") { it.text }
-            steps += PlaybackStep.Speak(prefix, targetLang, WORD_RATE, itemIndex, Phase.BUILD_UP)
+            steps += PlaybackStep.Speak(prefix, targetLang, wordRate, itemIndex, Phase.BUILD_UP, preferMale = isQuran)
         }
         return steps
     }

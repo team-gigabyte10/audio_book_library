@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
+import com.gigabyte.bookstore.learning.domain.audio.QuranVoiceManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -298,7 +299,9 @@ class BanglaTTSManager(
         }
     }
 
-    fun speakChunk(text: String, chunkIndex: Int): Boolean {
+    private var usingTemporaryMaleOverride = false
+
+    fun speakChunk(text: String, chunkIndex: Int, preferMaleVoice: Boolean = false): Boolean {
         val currentTts = tts
         if (currentTts == null || !isInitialized) {
             pendingChunk = Pair(text, chunkIndex)
@@ -308,8 +311,22 @@ class BanglaTTSManager(
             return false
         }
 
-        currentTts.setPitch(currentPitch)
-        currentTts.setSpeechRate(currentSpeechRate)
+        if (preferMaleVoice) {
+            val maleSelection = QuranVoiceManager.selectMaleBanglaVoice(currentTts)
+            maleSelection.voice?.let { v ->
+                runCatching { currentTts.voice = v }
+                usingTemporaryMaleOverride = true
+            }
+            currentTts.setPitch(QuranVoiceManager.getBanglaInstructorPitch(maleSelection.isVerifiedMale))
+            currentTts.setSpeechRate(0.95f)
+        } else {
+            if (usingTemporaryMaleOverride) {
+                usingTemporaryMaleOverride = false
+                selectVoiceProfile(_currentVoice.value, applyPitchSpeed = false)
+            }
+            currentTts.setPitch(currentPitch)
+            currentTts.setSpeechRate(currentSpeechRate)
+        }
 
         val utteranceId = "chunk_${chunkIndex}_${System.currentTimeMillis()}"
         activeUtteranceId = utteranceId

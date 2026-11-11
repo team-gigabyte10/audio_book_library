@@ -142,7 +142,9 @@ sealed interface PlaybackStep {
         val lang: SpeechLang,
         val rate: Float,
         override val itemIndex: Int,
-        val phase: Phase
+        val phase: Phase,
+        val itemId: String? = null,
+        val preferMale: Boolean = false
     ) : PlaybackStep
 
     data class Pause(val ms: Long, override val itemIndex: Int) : PlaybackStep

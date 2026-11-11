@@ -5,6 +5,7 @@ import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
 import com.gigabyte.bookstore.data.preferences.AppPreferences
+import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.CompletableDeferred
@@ -24,17 +25,18 @@ interface StepAudioEngine {
     val englishAvailable: StateFlow<Boolean?>
     val banglaAvailable: StateFlow<Boolean?>
     suspend fun speak(text: String, lang: SpeechLang, rate: Float)
+    suspend fun speakStep(step: PlaybackStep.Speak) = speak(step.text, step.lang, step.rate)
     fun stop()
 }
 
 /**
- * On-device TTS only (no audio files, by design).
- * One TextToSpeech instance for both languages: it switches language (and voice)
- * only when a step needs a different language from the previous step.
+ * On-device TTS engine paired with [QuranRecitationPlayer] for real Male Qari Quran Tilawat.
+ * Switches TTS language and voice cleanly per step without affecting other courses.
  */
 class TtsStepEngine(private val context: Context) : StepAudioEngine {
 
     private val appPreferences = AppPreferences(context)
+    private val quranRecitationPlayer = QuranRecitationPlayer(context.applicationContext)
 
     private val _englishAvailable = MutableStateFlow<Boolean?>(null)
     override val englishAvailable: StateFlow<Boolean?> = _englishAvailable.asStateFlow()
@@ -62,17 +64,47 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private val _arabicAvailable = MutableStateFlow<Boolean?>(null)
     val arabicAvailable: StateFlow<Boolean?> = _arabicAvailable.asStateFlow()
 
+    /** True when the device has a verified Male Arabic TTS voice for Qaida lessons. */
+    private val _arabicMaleVoiceAvailable = MutableStateFlow<Boolean?>(null)
+    val arabicMaleVoiceAvailable: StateFlow<Boolean?> = _arabicMaleVoiceAvailable.asStateFlow()
+
     private var engine = Engine()
 
-    override suspend fun speak(text: String, lang: SpeechLang, rate: Float) = engine.speak(text, lang, rate)
+    override suspend fun speak(text: String, lang: SpeechLang, rate: Float) {
+        engine.speak(text, lang, rate, preferMale = lang == SpeechLang.AR)
+    }
 
-    override fun stop() = engine.stop()
+    override suspend fun speakStep(step: PlaybackStep.Speak) {
+        if (step.lang == SpeechLang.AR) {
+            val audioRef = QuranAudioCatalog.audioRefForItem(step.itemId)
+            if (audioRef != null) {
+                engine.stop()
+                val reciter = QuranReciter.fromId(appPreferences.learnQuranReciter.value)
+                val played = quranRecitationPlayer.playAyah(audioRef, reciter, step.rate)
+                if (played) return
+            }
+        }
+        engine.speak(step.text, step.lang, step.rate, preferMale = step.preferMale || step.lang == SpeechLang.AR)
+    }
+
+    suspend fun prefetchQuranLesson(lessonId: String) {
+        val refs = QuranAudioCatalog.audioRefsForLesson(lessonId)
+        if (refs.isEmpty()) return
+        val reciter = QuranReciter.fromId(appPreferences.learnQuranReciter.value)
+        quranRecitationPlayer.prefetch(refs, reciter)
+    }
+
+    override fun stop() {
+        quranRecitationPlayer.stop()
+        engine.stop()
+    }
 
     /**
      * Restarts the engine so it sees newly installed voice data,
      * e.g. after the user returns from the install-voice screen.
      */
     fun refreshBangla() {
+        quranRecitationPlayer.stop()
         engine.shutdown()
         _englishAvailable.value = null
         _banglaAvailable.value = null
@@ -80,10 +112,14 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         _hindiAvailable.value = null
         _germanAvailable.value = null
         _arabicAvailable.value = null
+        _arabicMaleVoiceAvailable.value = null
         engine = Engine()
     }
 
-    fun shutdown() = engine.shutdown()
+    fun shutdown() {
+        quranRecitationPlayer.stop()
+        engine.shutdown()
+    }
 
     private inner class Engine : TextToSpeech.OnInitListener {
 
@@ -94,7 +130,10 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         /** Resolved once at init: the locale and best offline voice for each language (null = not installed). */
         private val locales = mutableMapOf<SpeechLang, Locale>()
         private val voices = mutableMapOf<SpeechLang, Voice>()
+        private var arabicMaleSelection = MaleVoiceSelection(null, isVerifiedMale = false)
+        private var banglaMaleSelection = MaleVoiceSelection(null, isVerifiedMale = false)
         private var currentLang: SpeechLang? = null
+        private var currentPreferMale: Boolean = false
 
         override fun onInit(status: Int) {
             if (status != TextToSpeech.SUCCESS) {
@@ -127,11 +166,22 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         private fun resolve(lang: SpeechLang, candidates: List<Locale>) {
             val locale = candidates.firstOrNull { isAvailable(tts.isLanguageAvailable(it)) } ?: return
             locales[lang] = locale
-            if (lang == SpeechLang.JA) {
-                val gender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
-                JapaneseVoiceManager.selectBestVoice(tts, gender)?.let { voices[lang] = it }
-            } else {
-                bestOfflineVoice(locale)?.let { voices[lang] = it }
+            when (lang) {
+                SpeechLang.JA -> {
+                    val gender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
+                    JapaneseVoiceManager.selectBestVoice(tts, gender)?.let { voices[lang] = it }
+                }
+                SpeechLang.AR -> {
+                    arabicMaleSelection = QuranVoiceManager.selectMaleArabicVoice(tts)
+                    arabicMaleSelection.voice?.let { voices[lang] = it }
+                }
+                SpeechLang.BN -> {
+                    bestOfflineVoice(locale)?.let { voices[lang] = it }
+                    banglaMaleSelection = QuranVoiceManager.selectMaleBanglaVoice(tts)
+                }
+                else -> {
+                    bestOfflineVoice(locale)?.let { voices[lang] = it }
+                }
             }
         }
 
@@ -143,6 +193,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             _hindiAvailable.value = ok && SpeechLang.HI in locales
             _germanAvailable.value = ok && SpeechLang.DE in locales
             _arabicAvailable.value = ok && SpeechLang.AR in locales
+            _arabicMaleVoiceAvailable.value = ok && (SpeechLang.AR in locales) && arabicMaleSelection.isVerifiedMale
             ready.complete(ok)
         }
 
@@ -159,23 +210,31 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 .maxByOrNull { it.quality }
         }.getOrNull()
 
-        /** Switches the single engine to [lang]. Returns false if that language is not installed. */
-        private fun switchTo(lang: SpeechLang): Boolean {
-            if (lang == currentLang) return true
+        /** Switches the single engine to [lang] respecting [preferMale]. Returns false if not installed. */
+        private fun switchTo(lang: SpeechLang, preferMale: Boolean): Boolean {
+            if (lang == currentLang && preferMale == currentPreferMale) return true
             val locale = locales[lang] ?: return false
-            val voice = voices[lang]
+            val voice = when {
+                lang == SpeechLang.AR -> arabicMaleSelection.voice ?: voices[lang]
+                lang == SpeechLang.BN && preferMale -> banglaMaleSelection.voice ?: voices[lang]
+                else -> voices[lang]
+            }
             val switched = if (voice != null) {
                 runCatching { tts.voice = voice }.isSuccess || runCatching { tts.language = locale }.isSuccess
             } else {
                 runCatching { tts.language = locale }.isSuccess
             }
-            if (switched) currentLang = lang
+            if (switched) {
+                currentLang = lang
+                currentPreferMale = preferMale
+            }
             return switched
         }
 
-        suspend fun speak(text: String, lang: SpeechLang, rate: Float) {
+        suspend fun speak(text: String, lang: SpeechLang, rate: Float, preferMale: Boolean = false) {
             if (text.isBlank() || !ready.await()) return
-            if (!switchTo(lang)) return // language not installed: skip this step
+            if (!switchTo(lang, preferMale)) return // language not installed: skip this step
+            val spokenText = if (lang == SpeechLang.AR) QuranProsodyFormatter.formatForTilawat(text) else text
             if (lang == SpeechLang.JA) {
                 val jaGender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
                 JapaneseVoiceManager.selectBestVoice(tts, jaGender)?.let { voice ->
@@ -183,12 +242,16 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 }
                 val pitch = JapaneseVoiceManager.getOptimizedPitch(jaGender)
                 tts.setPitch(pitch)
+            } else if (lang == SpeechLang.AR) {
+                tts.setPitch(QuranVoiceManager.getArabicQariPitch(arabicMaleSelection.isVerifiedMale))
+            } else if (lang == SpeechLang.BN && preferMale) {
+                tts.setPitch(QuranVoiceManager.getBanglaInstructorPitch(banglaMaleSelection.isVerifiedMale))
             } else {
                 tts.setPitch(1.0f)
             }
             tts.setSpeechRate(rate)
             // Guard against engines that never call onDone.
-            val timeoutMs = 4_000L + (text.length * 150L / rate.coerceAtLeast(0.3f)).toLong()
+            val timeoutMs = 4_000L + (spokenText.length * 180L / rate.coerceAtLeast(0.3f)).toLong()
             withTimeoutOrNull(timeoutMs) {
                 suspendCancellableCoroutine { cont ->
                     val id = "learn_${counter.incrementAndGet()}"
@@ -197,7 +260,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                         pending.remove(id)
                         runCatching { tts.stop() }
                     }
-                    val result = tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, id)
+                    val result = tts.speak(spokenText, TextToSpeech.QUEUE_FLUSH, null, id)
                     if (result != TextToSpeech.SUCCESS) {
                         pending.remove(id)?.resume(Unit)
                     }

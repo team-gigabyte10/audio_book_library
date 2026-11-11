@@ -61,7 +61,8 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
         if (hasAutoPlayedWelcome && !force) return
         hasAutoPlayedWelcome = true
 
-        val text = if (language.equals("quran", ignoreCase = true) || language.startsWith("qr")) {
+        val isQuranGreeting = language.equals("quran", ignoreCase = true) || language.startsWith("qr")
+        val text = if (isQuranGreeting) {
             "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্সে আপনাকে স্বাগতম। প্রতিটি হরফ, মাখরাজ ও আয়াত মনোযোগ দিয়ে শুনুন এবং তিলাওয়াত অনুশীলন করুন।"
         } else if (language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)) {
             "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্সে আপনাকে স্বাগতম। প্রতিটি অঞ্চলের কথ্য ভাষা শুনুন এবং জোরে জোরে অনুশীলন করুন।"
@@ -79,7 +80,7 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
 
         viewModelScope.launch(Dispatchers.IO) {
             delay(400) // Small delay to let screen transition settle
-            app.ttsManager.speakChunk(text, 0)
+            app.ttsManager.speakChunk(text, 0, preferMaleVoice = isQuranGreeting)
         }
     }
 

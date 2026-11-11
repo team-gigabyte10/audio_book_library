@@ -6,6 +6,8 @@ import android.speech.tts.UtteranceProgressListener
 import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceGender
 import com.gigabyte.bookstore.learning.domain.audio.JapaneseVoiceManager
+import com.gigabyte.bookstore.learning.domain.audio.QuranProsodyFormatter
+import com.gigabyte.bookstore.learning.domain.audio.QuranVoiceManager
 import com.gigabyte.bookstore.learning.domain.audio.TtsStepEngine
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import kotlinx.coroutines.CoroutineScope
@@ -123,6 +125,12 @@ class MultiLangAudioPlayer(context: Context) {
                     runCatching { engine.voice = voice }
                 }
                 engine.setPitch(JapaneseVoiceManager.getOptimizedPitch(jaGender))
+            } else if (lang == SpeechLang.AR) {
+                val arMale = QuranVoiceManager.selectMaleArabicVoice(engine)
+                arMale.voice?.let { voice ->
+                    runCatching { engine.voice = voice }
+                }
+                engine.setPitch(QuranVoiceManager.getArabicQariPitch(arMale.isVerifiedMale))
             } else {
                 engine.setPitch(1.0f)
             }
@@ -130,16 +138,17 @@ class MultiLangAudioPlayer(context: Context) {
         return switched
     }
 
+    private fun formatForLanguage(rawText: String, lang: SpeechLang): String = when (lang) {
+        SpeechLang.JA -> JapaneseVoiceManager.formatForClearPronunciation(rawText)
+        SpeechLang.AR -> QuranProsodyFormatter.formatForTilawat(rawText)
+        else -> rawText
+    }
+
     fun speakLetter(letter: AlphabetLetter, lang: SpeechLang, speechRate: Float = 1.0f) {
         stopSequence()
         scope.launch {
             _activeSpeakingId.value = letter.id
-            val ttsText = if (lang == SpeechLang.JA) {
-                JapaneseVoiceManager.formatForClearPronunciation(letter.ttsText)
-            } else {
-                letter.ttsText
-            }
-            speakInternal(ttsText, lang, speechRate)
+            speakInternal(formatForLanguage(letter.ttsText, lang), lang, speechRate)
             _activeSpeakingId.value = null
             _isSpeaking.value = false
         }
@@ -149,7 +158,7 @@ class MultiLangAudioPlayer(context: Context) {
         stopSequence()
         scope.launch {
             if (letterId != null) _activeSpeakingId.value = letterId
-            speakInternal(text, lang, speechRate)
+            speakInternal(formatForLanguage(text, lang), lang, speechRate)
             if (letterId != null) _activeSpeakingId.value = null
             _isSpeaking.value = false
         }
@@ -161,12 +170,7 @@ class MultiLangAudioPlayer(context: Context) {
             _isSpeaking.value = true
             for (letter in letters) {
                 _activeSpeakingId.value = letter.id
-                val ttsText = if (lang == SpeechLang.JA) {
-                    JapaneseVoiceManager.formatForClearPronunciation(letter.ttsText)
-                } else {
-                    letter.ttsText
-                }
-                speakInternal(ttsText, lang, speechRate)
+                speakInternal(formatForLanguage(letter.ttsText, lang), lang, speechRate)
                 delay(400L) // pause between row letters for comprehension
             }
             _activeSpeakingId.value = null

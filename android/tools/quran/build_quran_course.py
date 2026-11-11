@@ -99,10 +99,10 @@ def build_course():
         "title_bn": "নূরানী কায়দা থেকে সহীহ তিলাওয়াত ও নামাজের ছোট সূরা",
         "target_lang": "ar",
         "ladder_default": [
-            {"play": "ar", "speed": 0.75},
-            {"play": "bn", "speed": 1.0},
-            {"play": "ar", "speed": 0.90},
-            {"pause": 1800}
+            {"play": "ar", "speed": 0.72},
+            {"play": "bn", "speed": 0.95},
+            {"play": "ar", "speed": 0.88},
+            {"pause": 2000}
         ],
         "parts": parts
     }

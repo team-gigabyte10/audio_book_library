@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.learning.data.LessonContent
 import com.gigabyte.bookstore.learning.domain.ladder.LessonQueueBuilder
+import com.gigabyte.bookstore.learning.domain.model.LadderStep
 import com.gigabyte.bookstore.learning.domain.model.LearnSettings
 import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
@@ -54,6 +55,8 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     val hindiAvailable: StateFlow<Boolean?> = engine.hindiAvailable
     val germanAvailable: StateFlow<Boolean?> = engine.germanAvailable
     val arabicAvailable: StateFlow<Boolean?> = engine.arabicAvailable
+    val arabicMaleVoiceAvailable: StateFlow<Boolean?> = engine.arabicMaleVoiceAvailable
+    val quranReciter: StateFlow<String> = preferences.learnQuranReciter
     val urFemaleSpeaker: StateFlow<Boolean> = preferences.learnUrFemaleSpeaker
     val hiFemaleSpeaker: StateFlow<Boolean> = preferences.learnHiFemaleSpeaker
     val isUrdu: Boolean = lessonId.startsWith("ur-")
@@ -92,6 +95,10 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
                 showIntro = false
             )
             rebuildQueue(startItem)
+
+            if (isQuran) {
+                launch { engine.prefetchQuranLesson(lessonId) }
+            }
 
             if (isUrdu || isHindi) {
                 val genderFlow = if (isHindi) hiFemaleSpeaker else urFemaleSpeaker
@@ -156,16 +163,43 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
         if (isHindi) preferences.setLearnHiFemaleSpeaker(female) else preferences.setLearnUrFemaleSpeaker(female)
     }
 
+    fun setQuranReciter(reciterId: String) {
+        preferences.setLearnQuranReciter(reciterId)
+        if (isQuran) {
+            viewModelScope.launch { engine.prefetchQuranLesson(lessonId) }
+        }
+    }
+
     private fun forSpeaker(content: LessonContent, female: Boolean): LessonContent =
         if (!isUrdu && !isHindi) content else content.copy(items = content.items.map { it.forUrduSpeaker(female) })
 
-    /** The stored ladder is the English one; speak this lesson's target steps in its own language. */
-    private fun lessonLadder(content: LessonContent) =
-        content.ladder.map { if (it.play == SpeechLang.EN) it.copy(play = targetLang) else it }
+    /**
+     * Quran uses dedicated Tartil speeds (0.72x–0.88x) rather than inheriting English conversational speeds;
+     * other courses substitute their target language into the stored ladder.
+     */
+    private fun lessonLadder(content: LessonContent): List<LadderStep> =
+        if (isQuran) QURAN_LADDER
+        else content.ladder.map { if (it.play == SpeechLang.EN) it.copy(play = targetLang) else it }
 
-    fun speakToken(token: Token) = player.speakOnce(token.text, targetLang)
+    fun speakToken(token: Token) = player.speakOnce(
+        text = token.text,
+        lang = targetLang,
+        rate = if (isQuran) 0.78f else 0.8f,
+        preferMale = isQuran
+    )
 
-    fun speakText(text: String) = player.speakOnce(text, targetLang, rate = 1.05f)
+    fun speakText(text: String) {
+        val matchedItemId = if (isQuran) {
+            _uiState.value.content?.items?.firstOrNull { it.target == text }?.id
+        } else null
+        player.speakOnce(
+            text = text,
+            lang = targetLang,
+            rate = if (isQuran) 0.85f else 1.05f,
+            itemId = matchedItemId,
+            preferMale = isQuran
+        )
+    }
 
     fun speakPronunciation(rawPron: String) {
         val cleanText = if (rawPron.contains(" · ")) {
@@ -174,13 +208,18 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
             rawPron.trim()
         }
         if (cleanText.isNotBlank()) {
-            player.speakOnce(cleanText, SpeechLang.BN, rate = 0.95f)
+            player.speakOnce(cleanText, SpeechLang.BN, rate = 0.95f, preferMale = isQuran)
         }
     }
 
     fun speakMeaning(meaning: String) {
         if (meaning.isNotBlank()) {
-            player.speakOnce(meaning.trim(), SpeechLang.BN, rate = 1.05f)
+            player.speakOnce(
+                text = meaning.trim(),
+                lang = SpeechLang.BN,
+                rate = if (isQuran) 0.95f else 1.05f,
+                preferMale = isQuran
+            )
         }
     }
 
@@ -222,10 +261,19 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     /** Speak drill (lesson template step 5): show the Bangla, leave a gap to answer aloud, then play the answer. */
     private fun speakSteps(content: LessonContent): List<PlaybackStep> {
         val activeTargetLang = lessonLadder(content).firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: targetLang
+        val speakRate = if (isQuran) 0.85f else 1.0f
         return content.items.flatMapIndexed { index, item ->
             listOf(
                 PlaybackStep.Pause(SPEAK_GAP_MS, index),
-                PlaybackStep.Speak(item.target, activeTargetLang, 1.0f, index, PlaybackStep.Phase.LADDER),
+                PlaybackStep.Speak(
+                    text = item.target,
+                    lang = activeTargetLang,
+                    rate = speakRate,
+                    itemIndex = index,
+                    phase = PlaybackStep.Phase.LADDER,
+                    itemId = if (isQuran) item.id else null,
+                    preferMale = isQuran
+                ),
                 PlaybackStep.Pause(1_000L, index)
             )
         }
@@ -238,5 +286,11 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
     companion object {
         private const val SPEAK_GAP_MS = 4_000L
+        val QURAN_LADDER = listOf(
+            LadderStep(SpeechLang.AR, 0.72f),
+            LadderStep(SpeechLang.BN, 0.95f),
+            LadderStep(SpeechLang.AR, 0.88f),
+            LadderStep(pauseMs = 2_000L)
+        )
     }
 }
