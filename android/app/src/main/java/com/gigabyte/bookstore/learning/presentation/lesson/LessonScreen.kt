@@ -338,6 +338,23 @@ fun LessonScreen(
                                 onSpeakMeaning = { viewModel.speakMeaning(it) },
                                 isFemaleSpeaker = if (viewModel.isHindi) hiFemaleSpeaker else (urFemaleSpeaker ?: false)
                             )
+                            if (viewModel.isRegionalBangla) {
+                                val comparisonGroup = remember(items, currentItem.conceptId) {
+                                    items.withIndex().filter { it.value.conceptId == currentItem.conceptId }
+                                }
+                                if (comparisonGroup.size > 1) {
+                                    Spacer(Modifier.height(10.dp))
+                                    RegionalComparisonCard(
+                                        standardBn = currentItem.bn ?: "",
+                                        group = comparisonGroup,
+                                        activeItemIndex = index,
+                                        onSelectRegion = { targetIdx, regionItem ->
+                                            viewModel.jumpTo(targetIdx)
+                                            viewModel.speakText(regionItem.target)
+                                        }
+                                    )
+                                }
+                            }
                         } else {
                             // "নিজে বলুন" tab: 10x Speed Drill Timer Challenge with English sentence & Bangla meaning
                             SpeedDrillChallengeCard(
@@ -517,6 +534,20 @@ private fun ItemCard(
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
                         color = col,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+            } else if (item.id.startsWith("bd-") && !item.speaker.isNullOrBlank()) {
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color(0xFFE0F2F1),
+                    border = BorderStroke(1.dp, Color(0xFF4DB6AC))
+                ) {
+                    Text(
+                        item.speaker,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF006A4E),
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
                     )
                 }
@@ -824,6 +855,96 @@ private fun ItemCard(
                     Text("উদাহরণ", style = MaterialTheme.typography.labelMedium)
                     Text(item.exampleTarget, style = MaterialTheme.typography.bodyLarge)
                     item.exampleBn?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun RegionalComparisonCard(
+    standardBn: String,
+    group: List<IndexedValue<LessonItem>>,
+    activeItemIndex: Int,
+    onSelectRegion: (Int, LessonItem) -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, Color(0xFF006A4E).copy(alpha = 0.28f))
+    ) {
+        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    "🗺️ একই বাক্য সকল অঞ্চলে পাশাপাশি",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF006A4E)
+                )
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = Color(0xFFE0F2F1)
+                ) {
+                    Text(
+                        "${group.size}টি অঞ্চল",
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF006A4E),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
+                    )
+                }
+            }
+            if (standardBn.isNotBlank()) {
+                Text(
+                    "প্রমিত বাংলা: $standardBn",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            group.forEach { entry ->
+                val isActive = entry.index == activeItemIndex
+                val regionItem = entry.value
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = if (isActive) Color(0xFFE0F2F1) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f),
+                    border = BorderStroke(
+                        width = if (isActive) 1.5.dp else 1.dp,
+                        color = if (isActive) Color(0xFF006A4E) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.45f)
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onSelectRegion(entry.index, regionItem) }
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 9.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                            Text(
+                                text = regionItem.speaker ?: "",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isActive) Color(0xFF006A4E) else MaterialTheme.colorScheme.secondary
+                            )
+                            Text(
+                                text = regionItem.target,
+                                fontSize = 15.sp,
+                                fontWeight = if (isActive) FontWeight.Bold else FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                            contentDescription = "শুনুন",
+                            tint = if (isActive) Color(0xFF006A4E) else MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
                 }
             }
         }

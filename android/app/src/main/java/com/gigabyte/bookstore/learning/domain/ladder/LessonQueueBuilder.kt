@@ -19,7 +19,70 @@ object LessonQueueBuilder {
         items: List<LessonItem>,
         ladder: List<LadderStep>,
         settings: LearnSettings
-    ): List<PlaybackStep> = items.flatMapIndexed { index, item -> buildItem(item, index, ladder, settings) }
+    ): List<PlaybackStep> = items.flatMapIndexed { index, item ->
+        val prev = items.getOrNull(index - 1)
+        val next = items.getOrNull(index + 1)
+        val inComparativeGroup = item.id.startsWith("bd-") &&
+            (prev?.conceptId == item.conceptId || next?.conceptId == item.conceptId)
+        if (inComparativeGroup) {
+            buildComparativeRegionalItem(
+                item = item,
+                itemIndex = index,
+                ladder = ladder,
+                settings = settings,
+                isGroupStart = prev?.conceptId != item.conceptId,
+                isGroupEnd = next?.conceptId != item.conceptId
+            )
+        } else {
+            buildItem(item, index, ladder, settings)
+        }
+    }
+
+    private fun cleanRegionLabel(speaker: String?): String =
+        speaker.orEmpty()
+            .replace(Regex("[^\\u0980-\\u09FFa-zA-Z0-9\\s]"), " ")
+            .replace(Regex("\\s+"), " ")
+            .trim()
+
+    private fun buildComparativeRegionalItem(
+        item: LessonItem,
+        itemIndex: Int,
+        ladder: List<LadderStep>,
+        settings: LearnSettings,
+        isGroupStart: Boolean,
+        isGroupEnd: Boolean
+    ): List<PlaybackStep> {
+        val steps = mutableListOf<PlaybackStep>()
+        val targetLang = SpeechLang.BD
+        val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
+
+        // Speak Standard Bangla master sentence once at the start of the 9-region group.
+        if (isGroupStart && bn != null) {
+            steps += PlaybackStep.Speak(formatBnForSpeech(bn), SpeechLang.BN, 1.0f, itemIndex, Phase.LADDER)
+            steps += PlaybackStep.Pause(350L, itemIndex)
+        }
+
+        if (settings.wordByWord) {
+            steps += wordByWord(item, itemIndex, settings, targetLang, isQuran = false)
+        }
+
+        // Announce which region is speaking before playing the dialect repetitions.
+        val regionLabel = cleanRegionLabel(item.speaker)
+        if (regionLabel.isNotBlank()) {
+            steps += PlaybackStep.Speak(regionLabel, SpeechLang.BD, 1.0f, itemIndex, Phase.LADDER)
+            steps += PlaybackStep.Pause(250L, itemIndex)
+        }
+
+        val speeds = targetSpeeds(item, ladder, settings.repeatCount, targetLang)
+        for (speed in speeds) {
+            steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER)
+        }
+
+        val fullPauseMs = settings.gapMs ?: ladder.filter { it.isPause }.sumOf { it.pauseMs }
+        val pauseMs = if (isGroupEnd) fullPauseMs else minOf(fullPauseMs, 650L)
+        if (pauseMs > 0) steps += PlaybackStep.Pause(pauseMs, itemIndex)
+        return steps
+    }
 
     fun buildItem(
         item: LessonItem,

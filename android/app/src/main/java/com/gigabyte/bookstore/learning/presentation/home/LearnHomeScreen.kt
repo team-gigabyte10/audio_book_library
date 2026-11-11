@@ -98,8 +98,8 @@ fun LearnHomeScreen(
 
     val bdParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("bd-") && it.part.isEnabled } }
     val bdPartCount = bdParts.size.coerceAtLeast(1)
-    val bdLessonCount = bdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 40 }
-    val bdSentenceCount = bdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 320 }
+    val bdLessonCount = bdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 32 }
+    val bdSentenceCount = bdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 576 }
 
     val enStandardA1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-a1-") && it.part.isEnabled } }
     val enStandardA1PartCount = enStandardA1Parts.size.coerceAtLeast(1)
@@ -830,17 +830,17 @@ fun LearnHomeScreen(
                             )
                         }
 
-                        // Complete 8 Divisions Course Card
+                        // Complete 9 Regions Side-by-Side Comparative Course Card
                         item {
                             MainCourseCard(
-                                tag = "🇧🇩 ৮টি বিভাগ · সম্পূর্ণ কোর্স",
-                                title = "বাংলাদেশের ৮টি বিভাগীয় আঞ্চলিক কথ্য ভাষা",
-                                description = "চট্টগ্রাম (চাটগাঁইয়া ও নোয়াখালী), সিলেট, পুরান ঢাকা, বরিশাল, রাজশাহী, রংপুর, খুলনা ও ময়মনসিংহ অঞ্চলের খাঁটি কথ্য রূপ ও উপভাষা।",
+                                tag = "🇧🇩 ৯ অঞ্চল পাশাপাশি · তুলনামূলক কোর্স",
+                                title = "একই বাক্য ৯টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",
+                                description = "চট্টগ্রাম, নোয়াখালী, সিলেট, পুরান ঢাকা, বরিশাল, রাজশাহী, রংপুর, খুলনা ও ময়মনসিংহের খাঁটি কথ্য রূপ একসাথে তুলনা করে শিখুন।",
                                 accentColor = Color(0xFF006A4E),
                                 partCount = bdPartCount,
                                 lessonCount = bdLessonCount,
                                 sentenceCount = bdSentenceCount,
-                                customPills = listOf("🇧🇩 ১০টি পার্ট", "🎧 ৪০টি অডিও লেসন", "🗣️ ৩২০টি বাস্তব ডায়ালগ"),
+                                customPills = listOf("🇧🇩 ৮টি অধ্যায়", "🎧 ৩২টি তুলনামূলক লেসন", "🗣️ ৫৭৬টি আঞ্চলিক বাক্য"),
                                 onClick = { onOpenCourse("regional_bangla") }
                             )
                         }

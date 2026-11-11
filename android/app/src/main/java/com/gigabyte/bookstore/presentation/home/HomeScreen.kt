@@ -393,7 +393,7 @@ fun HomeScreen(
                             Spacer(modifier = Modifier.height(16.dp))
                             HomeShowcaseCard(
                                 title = "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্স",
-                                subtitle = "৮টি বিভাগের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা (চাটগাঁইয়া, নোয়াখালী, সিলেটি, ঢাকাইয়া, বরিশাইল্লা, বরেন্দ্রী, রংপুরিয়া ও ময়মনসিংহ)",
+                                subtitle = "একই বাক্য ৯টি অঞ্চলে পাশাপাশি (চাটগাঁইয়া, নোয়াখালী, সিলেটি, ঢাকাইয়া, বরিশাইল্লা, বরেন্দ্রী, রংপুরিয়া, খুলনা ও ময়মনসিংহ)",
                                 badgeText = "🇧🇩 বিভাগীয় আঞ্চলিক ভাষা",
                                 badgeColor = Color(0xFF006A4E),
                                 priceText = "১০০ টাকা",
@@ -401,7 +401,7 @@ fun HomeScreen(
                                 imageUrl = null,
                                 fallbackGradientColors = listOf(Color(0xFF006A4E), Color(0xFF004D38)),
                                 accentColor = Color(0xFF006A4E),
-                                statsText = "🎧 ৪০টি অডিও লেসন · ৩২০+ কথ্য ডায়ালগ · ৮টি বিভাগ",
+                                statsText = "🎧 ৩২টি তুলনামূলক লেসন · ৫৭৬টি আঞ্চলিক বাক্য · ৯ অঞ্চল একসাথে",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnRegionalBangla,
                                 modifier = Modifier.padding(horizontal = 16.dp)

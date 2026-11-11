@@ -74,14 +74,10 @@ class ContentImporter(
             dao.getLesson("en-b2-01-l04") == null
         )
         val needsRegionalBanglaMigration = assetNames == ASSET_NAMES && (
-            dao.getPart("bd-ctg-01") == null ||
-            dao.getPart("bd-syl-01") == null ||
-            dao.getPart("bd-dhk-01") == null ||
-            dao.getPart("bd-bar-01") == null ||
-            dao.getPart("bd-raj-01") == null ||
-            dao.getPart("bd-rng-01") == null ||
-            dao.getPart("bd-khl-01") == null ||
-            dao.getPart("bd-mym-01") == null
+            dao.getPart("bd-thm-01") == null ||
+            dao.getPart("bd-thm-04") == null ||
+            dao.getPart("bd-thm-08") == null ||
+            dao.getPart("bd-ctg-01") != null
         )
         val needsQuranMigration = assetNames == ASSET_NAMES && (
             dao.getPart("qr-p1-u01") == null ||
