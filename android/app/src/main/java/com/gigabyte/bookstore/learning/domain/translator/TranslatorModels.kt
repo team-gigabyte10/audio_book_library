@@ -152,3 +152,4 @@ data class TranslationResult(
     val sourceTier: TranslationSourceTier = TranslationSourceTier.AI_TUTOR,
     val timestampMs: Long = System.currentTimeMillis()
 )
+

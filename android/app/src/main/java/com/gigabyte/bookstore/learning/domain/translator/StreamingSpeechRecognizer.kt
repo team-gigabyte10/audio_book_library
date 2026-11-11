@@ -154,3 +154,4 @@ class StreamingSpeechRecognizer(private val context: Context) {
         _state.value = SpeechCaptureState.Idle
     }
 }
+

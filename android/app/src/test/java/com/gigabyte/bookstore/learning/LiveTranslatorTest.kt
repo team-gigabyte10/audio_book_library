@@ -119,3 +119,4 @@ class LiveTranslatorTest {
         assertEquals(listOf(sample), decoded)
     }
 }
+
