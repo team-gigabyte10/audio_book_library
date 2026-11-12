@@ -115,6 +115,7 @@ fun HomeScreen(
     onNavigateToLearnHindi: () -> Unit = {},
     onNavigateToLearnGerman: () -> Unit = {},
     onNavigateToLearnChinese: () -> Unit = {},
+    onNavigateToLearnArabic: () -> Unit = {},
     onNavigateToTranslator: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
@@ -157,6 +158,9 @@ fun HomeScreen(
     }
     val isChineseUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("chinese_course")
+    }
+    val isArabicUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("arabic_course")
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -569,6 +573,26 @@ fun HomeScreen(
                                 statsText = "🎧 ৬৪+ অডিও লেসন · পিনইন, ৪ সুর, ১,০০০ শব্দ ও HSK 1",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnChinese,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 8. SPOKEN ARABIC LANGUAGE COURSE SHOWCASE CARD (Arabic-Spoken-Curriculum-Plan.md)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "আরবি স্পোকেন কোর্স (শূন্য থেকে A1 ও গাল্ফ প্রবাস)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে মাখরাজ, হরকত, দৈনন্দিন আরবি ও সৌদি-দুবাই-ওমরাহ কথোপকথন",
+                                badgeText = "🇸🇦 আরবি ভাষা কোর্স",
+                                badgeColor = Color(0xFF006C35),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isArabicUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFF006C35), Color(0xFF004D25)),
+                                accentColor = Color(0xFF006C35),
+                                statsText = "🎧 ৬৪+ অডিও লেসন · হরফ ও হরকত, ১,০০০ শব্দ ও A1 স্পোকেন",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = onNavigateToLearnArabic,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

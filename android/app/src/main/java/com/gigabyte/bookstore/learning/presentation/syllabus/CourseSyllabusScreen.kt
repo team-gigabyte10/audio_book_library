@@ -194,6 +194,11 @@ fun CourseSyllabusScreen(
     val isZhHsk3 = courseType.equals("zh_hsk3", ignoreCase = true)
     val isZhHsk4 = courseType.equals("zh_hsk4", ignoreCase = true)
     val isZhSpecialist = courseType.equals("zh_specialist", ignoreCase = true)
+    val isArStandard = courseType.equals("ar_standard", ignoreCase = true)
+    val isArA2 = courseType.equals("ar_a2", ignoreCase = true)
+    val isArB1 = courseType.equals("ar_b1", ignoreCase = true)
+    val isArB2 = courseType.equals("ar_b2", ignoreCase = true)
+    val isArSpecialist = courseType.equals("ar_specialist", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
     val isJpN4 = courseType.equals("jp_n4", ignoreCase = true)
     val isJpN3 = courseType.equals("jp_n3", ignoreCase = true)
@@ -235,6 +240,11 @@ fun CourseSyllabusScreen(
         isZhHsk3 -> "চাইনিজ স্পোকেন কোর্স: HSK 3"
         isZhHsk4 -> "চাইনিজ স্পোকেন কোর্স: HSK 4"
         isZhSpecialist -> "চাইনিজ স্পেশালিস্ট প্রো (চায়না ট্রেড, ইঞ্জিনিয়ারিং ও সিএসসি)"
+        isArStandard -> "আরবি স্পোকেন কোর্স: শূন্য থেকে A1"
+        isArA2 -> "আরবি স্পোকেন কোর্স: লেভেল A2"
+        isArB1 -> "আরবি স্পোকেন কোর্স: লেভেল B1"
+        isArB2 -> "আরবি স্পোকেন কোর্স: লেভেল B2"
+        isArSpecialist -> "আরবি স্পেশালিস্ট প্রো (গাল্ফ প্রবাস, হজ্জ-ওমরাহ ও বাণিজ্য)"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
         isJpN4 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N4"
         isJpN3 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N3"
@@ -275,6 +285,11 @@ fun CourseSyllabusScreen(
         isZhHsk3 -> "把/被 গঠন, ক্যাম্পাস-সিএসসি ইন্টারভিউ, ভাড়া চুক্তি ও সাবলীল ফ্লুয়েন্সি (B1)"
         isZhHsk4 -> "বাগধারা (成语), বিতর্ক, অর্থনীতি, এআই ও থিসিস ডিফেন্স (B2)"
         isZhSpecialist -> "ক্যান্টন ফেয়ার, ইয়িউ মার্কেট, L/C-শিপিং, সাইট ইঞ্জিনিয়ারিং ও CSC ভাইভা"
+        isArStandard -> "মাখরাজ, হরকত, দৈনন্দিন আরবি ও A1 স্পিকিং প্রস্তুতি"
+        isArA2 -> "অতীত ও ভবিষ্যৎ কাল, হাসপাতাল, ব্যাংক-রেমিট্যান্স ও গাল্ফ দৈনন্দিন কথা (A2)"
+        isArB1 -> "শর্তমূলক বাক্য, বাসা ভাড়া, আবশের-সরকারি সেবা ও ইন্টারভিউ (B1)"
+        isArB2 -> "প্রমিত ফুসহা, আরবি প্রবাদ, অর্থনীতি, মিডিয়া ও উপস্থাপনা (B2)"
+        isArSpecialist -> "হজ্জ-ওমরাহ গাইড, সৌদি-দুবাই কর্মক্ষেত্র, ব্যবসা-চুক্তি ও দোভাষী"
         isJpStandard -> "অক্ষর, শব্দ ও উচ্চারণ ড্রিল থেকে N5 স্পিকিং টেস্ট"
         isJpN4 -> "সাধারণ কথ্য রূপ, শর্তসাপেক্ষ বাক্য, কর্মবাচ্য, প্রযোজক ক্রিয়া ও কেইগো"
         isJpN3 -> "অভ্যাস ও পরিবর্তন, যুক্তি ও কর্তব্য, পূর্ণাঙ্গ কেইগো, টেলিফোন ও কর্মক্ষেত্র স্পোকেন"
@@ -313,6 +328,11 @@ fun CourseSyllabusScreen(
             isZhHsk3 -> syllabus.filter { it.part.id.startsWith("zh-hsk3-") }
             isZhHsk4 -> syllabus.filter { it.part.id.startsWith("zh-hsk4-") }
             isZhSpecialist -> syllabus.filter { it.part.id.startsWith("zh-sp-") }
+            isArStandard -> syllabus.filter { it.part.id.startsWith("ar-std-") }
+            isArA2 -> syllabus.filter { it.part.id.startsWith("ar-a2-") }
+            isArB1 -> syllabus.filter { it.part.id.startsWith("ar-b1-") }
+            isArB2 -> syllabus.filter { it.part.id.startsWith("ar-b2-") }
+            isArSpecialist -> syllabus.filter { it.part.id.startsWith("ar-sp-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }
             isJpN4 -> syllabus.filter { it.part.id.startsWith("jp-n4-") }
             isJpN3 -> syllabus.filter { it.part.id.startsWith("jp-n3-") }

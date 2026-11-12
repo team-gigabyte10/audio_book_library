@@ -86,6 +86,7 @@ fun LearnHomeScreen(
     val isHindi = language.equals("hindi", ignoreCase = true)
     val isGerman = language.equals("german", ignoreCase = true)
     val isChinese = language.equals("chinese", ignoreCase = true) || language.equals("zh", ignoreCase = true)
+    val isArabic = language.equals("arabic", ignoreCase = true) || language.equals("ar", ignoreCase = true)
     val isRegionalBangla = language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)
     val isQuran = language.equals("quran", ignoreCase = true) || language.startsWith("qr")
 
@@ -246,6 +247,11 @@ fun LearnHomeScreen(
     val zhSpLessonCount = zhSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val zhSpSentenceCount = zhSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val arStdParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ar-std-") && it.part.isEnabled } }
+    val arStdPartCount = arStdParts.size.let { if (it > 0) it else 16 }
+    val arStdLessonCount = arStdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val arStdSentenceCount = arStdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -299,6 +305,7 @@ fun LearnHomeScreen(
                                 isHindi -> "হিন্দি স্পোকেন কোর্স"
                                 isGerman -> "জার্মান স্পোকেন কোর্স"
                                 isChinese -> "চাইনিজ (ম্যান্ডারিন) স্পোকেন কোর্স"
+                                isArabic -> "আরবি স্পোকেন কোর্স"
                                 isJapanese -> "জাপানিজ স্পোকেন মাস্টারক্লাস"
                                 else -> "স্পোকেন ইংলিশ মাস্টারক্লাস"
                             },
@@ -313,6 +320,7 @@ fun LearnHomeScreen(
                                 isHindi -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে হিন্দি বলা"
                                 isGerman -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে জার্মান বলা"
                                 isChinese -> "বাংলা থেকে সহজ নিয়মে পিনইন, ৪ সুর ও HSK 1 স্পোকেন"
+                                isArabic -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে আরবি ও গাল্ফ কথোপকথন"
                                 isJapanese -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)"
                                 else -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি"
                             },
@@ -990,6 +998,98 @@ fun LearnHomeScreen(
                                 sentenceCount = zhSpSentenceCount,
                                 customPills = listOf("🚢 স্পেশালিস্ট প্রো", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("zh_specialist") }
+                            )
+                        }
+                    } else if (isArabic) {
+                        item {
+                            WelcomeBanner(
+                                text = "আরবি স্পোকেন কোর্সে স্বাগতম! প্রতিটি মাখরাজ, হরকত ও বাক্য মন দিয়ে শুনুন এবং জোরে বলুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "arabic", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+
+                        // Arabic Alphabet & Makharij Sound Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 হরফ, মাখরাজ ও হরকত",
+                                title = "আরবি বর্ণমালা ও মাখরাজ চার্ট (الحروف والمخارج)",
+                                description = "২৮টি আরবি হরফ, হামযাহ, গোল তা (ة) ও হরকত-তানভীন-শাদ্দাহ। থ্রোট ও এমফ্যাটিক ধ্বনির সঠিক মাখরাজ এবং অডিও।",
+                                accentColor = Color(0xFF006C35),
+                                partCount = 5,
+                                lessonCount = 40,
+                                sentenceCount = 40,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇸🇦 মাখরাজ ও হরফ", "🔤 হরকত ও তানভীন", "🔊 সব অডিও"),
+                                onClick = { onOpenAlphabetChart("arabic") }
+                            )
+                        }
+
+                        // Arabic Numbers & Riyal/Dirham Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 সংখ্যা ও রিয়াল-দিরহাম",
+                                title = "আরবি সংখ্যা, রিয়াল ও সময় চার্ট (الأرقام العربية)",
+                                description = "আরবি সংখ্যা (٠–٩), ১ থেকে ১,০০০+, সৌদি রিয়াল ও দিরহাম গণনা এবং ঘড়ির সময় বলার নিয়ম ও অডিও।",
+                                accentColor = Color(0xFF4527A0),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 আরবি সংখ্যা", "💵 রিয়াল-দিরহাম", "🔊 সব অডিও"),
+                                onClick = { onOpenNumbersChart("arabic") }
+                            )
+                        }
+
+                        // Arabic Calendar & Hijri Months Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 দিন, মাস ও হিজরি ক্যালেন্ডার",
+                                title = "আরবি দিন, হিজরি ও ইংরেজি মাস চার্ট (الأيام والشهور)",
+                                description = "সপ্তাহের ৭ দিন (الأحد–السبت), ১২ হিজরি ও ইংরেজি মাস, ঋতু এবং আজ-কাল-এখন সংক্রান্ত শব্দ ও অডিও।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = 4,
+                                lessonCount = 41,
+                                sentenceCount = 41,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "🌙 ১২ হিজরি মাস", "📅 ১২ ইংরেজি মাস", "⏰ সময়কাল"),
+                                onClick = { onOpenCalendarChart("arabic") }
+                            )
+                        }
+
+                        // Arabic 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ প্রয়োজনীয় আরবি শব্দ (١٠٠٠ كلمة عربية)",
+                                description = "হরকতযুক্ত আরবি, বাংলা-আরবি কগনেট শব্দ, গাল্ফ প্রবাস, ওমরাহ, বাজার, হাসপাতাল ও দৈনন্দিন ২০ ক্যাটাগরির ১,০০০ শব্দ।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "📖 হরকতসহ", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("arabic") }
+                            )
+                        }
+
+                        // Arabic Stage 0 + A1 Standard Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1",
+                                title = "শূন্য থেকে আরবি বলা (মাখরাজ, হরকত ও A1)",
+                                description = "স্টেজ ০ মাখরাজ ও হরকত বুটক্যাম্প, শুভেচ্ছা, বাজার-দামদর, খাবার, যাতায়াত, এয়ারপোর্ট-হোটেল এবং মক্কা-মদিনা ওমরাহ রোল-প্লেসহ ১৬টি পূর্ণাঙ্গ ইউনিট।",
+                                accentColor = Color(0xFF006C35),
+                                partCount = arStdPartCount,
+                                lessonCount = arStdLessonCount,
+                                sentenceCount = arStdSentenceCount,
+                                customPills = listOf("🇸🇦 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ar_standard") }
                             )
                         }
                     } else if (isQuran) {

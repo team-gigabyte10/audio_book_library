@@ -161,6 +161,20 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
+                id = "arabic_course",
+                title = "আরবি স্পোকেন কোর্স",
+                subtitle = "শূন্য থেকে A1 ও গাল্ফ প্রবাস: মাখরাজ, হরকত ও কথা বলা",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = "নতুন",
+                highlights = listOf(
+                    "২৮টি হরফের মাখরাজ, হরকত-তানভীন ও আরবি-বাংলা কগনেট",
+                    "সৌদি-দুবাই প্রবাস, বাজার-দামদর, এয়ারপোর্ট ও ওমরাহ রোল-প্লে",
+                    "১,০০০ শব্দের ভল্ট ও ৬৪টি অডিও লেসন"
+                )
+            ),
+            AppCoursePackage(
                 id = "quran_course",
                 title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
                 subtitle = "নূরানী পদ্ধতিতে শূন্য থেকে সহীহ তিলাওয়াত ও তাজবীদ",
