@@ -109,3 +109,4 @@ object KoreanAlphabetData {
         )
     )
 }
+

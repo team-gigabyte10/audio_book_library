@@ -113,3 +113,4 @@ class KoreanSupportTest {
         assertEquals(listOf(SpeechLang.KO, SpeechLang.BN, SpeechLang.KO), header.ladder.map { it.play })
     }
 }
+
