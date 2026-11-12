@@ -41,6 +41,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.gigabyte.bookstore.data.models.Course
+import com.gigabyte.bookstore.presentation.components.CountryFlagBackdrop
+import com.gigabyte.bookstore.presentation.components.CourseCountry
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
 @Composable
@@ -84,15 +86,10 @@ fun CourseCard(
                         modifier = Modifier.fillMaxSize()
                     )
                 } else {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(
-                                Brush.linearGradient(
-                                    colors = if (isJapanese) listOf(Color(0xFF880E4F), Color(0xFFC2185B))
-                                    else listOf(Color(0xFF004D40), Color(0xFF00796B))
-                                )
-                            )
+                    val country = CourseCountry.fromLanguageKey(course.language)
+                    CountryFlagBackdrop(
+                        country = country,
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
 

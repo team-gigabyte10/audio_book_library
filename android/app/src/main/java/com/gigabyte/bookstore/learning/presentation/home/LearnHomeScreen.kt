@@ -60,6 +60,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.learning.data.content.ContentState
 import com.gigabyte.bookstore.learning.domain.translator.TranslatorLanguage
 import com.gigabyte.bookstore.presentation.components.AppBackground
+import com.gigabyte.bookstore.presentation.components.CountryFlagBackdrop
+import com.gigabyte.bookstore.presentation.components.CourseCountry
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
@@ -1910,8 +1912,23 @@ private fun MainCourseCard(
     badgeText: String = "১০০% ফ্রি",
     actionButtonText: String = "লেসনগুলো দেখুন",
     customPills: List<String>? = null,
+    country: CourseCountry? = null,
     onClick: () -> Unit
 ) {
+    val derivedCountry = country ?: when {
+        tag.contains("🇬🇧") -> CourseCountry.UK
+        tag.contains("🇯🇵") -> CourseCountry.JAPAN
+        tag.contains("🇵🇰") -> CourseCountry.PAKISTAN
+        tag.contains("🇮🇳") -> CourseCountry.INDIA
+        tag.contains("🇩🇪") -> CourseCountry.GERMANY
+        tag.contains("🇨🇳") -> CourseCountry.CHINA
+        tag.contains("🇸🇦") -> CourseCountry.SAUDI_ARABIA
+        tag.contains("🇰🇷") -> CourseCountry.SOUTH_KOREA
+        tag.contains("🇧🇩") -> CourseCountry.BANGLADESH
+        tag.contains("📖") || tag.contains("🕌") -> CourseCountry.QURAN
+        else -> null
+    }
+
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -1921,20 +1938,42 @@ private fun MainCourseCard(
             .fillMaxWidth()
             .clickable(onClick = onClick)
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            accentColor.copy(alpha = 0.18f),
-                            accentColor.copy(alpha = 0.08f)
-                        )
-                    )
+        Box(modifier = Modifier.fillMaxWidth()) {
+            if (derivedCountry != null) {
+                CountryFlagBackdrop(
+                    country = derivedCountry,
+                    modifier = Modifier.matchParentSize()
                 )
-                .padding(18.dp)
-        ) {
-            Column {
+                // Dark translucent scrim so text stays readable over the country flag
+                Box(
+                    modifier = Modifier
+                        .matchParentSize()
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(
+                                    Color(0xFF040A0D).copy(alpha = 0.72f),
+                                    Color(0xFF020608).copy(alpha = 0.88f),
+                                    Color(0xFF010405).copy(alpha = 0.95f)
+                                )
+                            )
+                        )
+                )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(
+                                    accentColor.copy(alpha = 0.18f),
+                                    accentColor.copy(alpha = 0.08f)
+                                )
+                            )
+                        )
+                )
+            }
+
+            Column(modifier = Modifier.fillMaxWidth().padding(18.dp)) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween,

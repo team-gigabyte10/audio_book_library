@@ -35,6 +35,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.gigabyte.bookstore.presentation.components.CountryFlagBackdrop
+import com.gigabyte.bookstore.presentation.components.CourseCountry
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
 @Composable
@@ -46,10 +48,11 @@ fun HomeShowcaseCard(
     priceText: String,
     isPurchased: Boolean,
     imageUrl: String?,
-    fallbackGradientColors: List<Color>,
+    fallbackGradientColors: List<Color> = emptyList(),
     accentColor: Color,
     statsText: String? = null,
     ctaText: String = "বিস্তারিত দেখুন →",
+    country: CourseCountry? = null,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -69,12 +72,17 @@ fun HomeShowcaseCard(
             .clickable { onClick() }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            // Background Image or Gradient Fallback
+            // Background Image or Country Flag or Gradient Fallback
             if (!imageUrl.isNullOrBlank()) {
                 AsyncImage(
                     model = imageUrl,
                     contentDescription = title,
                     contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+            } else if (country != null) {
+                CountryFlagBackdrop(
+                    country = country,
                     modifier = Modifier.fillMaxSize()
                 )
             } else {
@@ -85,16 +93,16 @@ fun HomeShowcaseCard(
                 )
             }
 
-            // Dark Multi-stop Gradient Overlay for guaranteed crystal-clear text readability
+            // Dark Multi-stop Gradient Overlay for guaranteed crystal-clear text readability over flags
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
-                                Color.Black.copy(alpha = 0.35f),
-                                Color(0xFF071317).copy(alpha = 0.75f),
-                                Color(0xFF040B0D).copy(alpha = 0.95f)
+                                Color.Black.copy(alpha = 0.28f),
+                                Color(0xFF040A0D).copy(alpha = 0.62f),
+                                Color(0xFF020608).copy(alpha = 0.92f)
                             )
                         )
                     )
