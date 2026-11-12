@@ -21,11 +21,14 @@ import com.gigabyte.bookstore.learning.presentation.vocab.VocabCategory
 import com.gigabyte.bookstore.learning.presentation.vocab.VocabRepository
 import kotlinx.coroutines.test.runTest
 import okio.Buffer
+import okio.buffer
+import okio.source
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.io.File
 
 class ChineseSupportTest {
 
@@ -147,4 +150,40 @@ class ChineseSupportTest {
             }
         }
     }
+
+    @Test
+    fun `bundled spoken_chinese_standard_hsk1 asset parses cleanly via EscbJsonParser`() = runTest {
+        val assetFile = File("src/main/assets/spoken_chinese_standard_hsk1.json")
+        assertTrue("Chinese HSK1 asset must exist at ${assetFile.path}", assetFile.exists())
+
+        val seenParts = mutableMapOf<String, PartEntity>()
+        val seenLessons = mutableListOf<LessonEntity>()
+        val seenItems = mutableListOf<ItemEntity>()
+
+        val sink = object : EscbContentSink {
+            override suspend fun onPart(part: PartEntity) {
+                seenParts[part.id] = part
+            }
+
+            override suspend fun onLesson(lesson: LessonEntity, items: List<ItemEntity>) {
+                seenLessons += lesson
+                seenItems += items
+            }
+        }
+
+        val header = assetFile.source().buffer().use { src ->
+            EscbJsonParser().parse(src, sink)
+        }
+
+        assertEquals(SpeechLang.ZH, header.targetLang)
+        assertEquals(16, seenParts.size)
+        assertEquals(64, seenLessons.size)
+        assertEquals(512, seenItems.size)
+        assertTrue(seenParts.keys.all { it.startsWith("zh-hsk1-") })
+        assertEquals("A0", seenParts["zh-hsk1-01"]?.level)
+        assertEquals("A0", seenParts["zh-hsk1-02"]?.level)
+        assertEquals("A1", seenParts["zh-hsk1-03"]?.level)
+        assertTrue(seenItems.all { it.target.isNotBlank() && !it.bn.isNullOrBlank() && !it.bnPron.isNullOrBlank() })
+    }
 }
+
