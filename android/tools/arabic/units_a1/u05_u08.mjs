@@ -336,3 +336,4 @@ export const arabicA1Units5To8 = [
     ],
   },
 ];
+

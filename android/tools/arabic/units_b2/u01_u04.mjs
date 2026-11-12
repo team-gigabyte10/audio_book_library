@@ -336,3 +336,4 @@ export const arabicB2Units1To4 = [
     ],
   },
 ];
+

@@ -118,3 +118,4 @@ object ArabicNumberData {
         numbers = buildArabicNumbers()
     )
 }
+

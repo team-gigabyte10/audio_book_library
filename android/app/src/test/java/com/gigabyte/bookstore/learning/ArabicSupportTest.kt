@@ -83,3 +83,4 @@ class ArabicSupportTest {
         assertFalse(vocab.items.any { it.singularTarget.isBlank() || it.singularBnPron.isBlank() || it.bnMeaning.isBlank() })
     }
 }
+
