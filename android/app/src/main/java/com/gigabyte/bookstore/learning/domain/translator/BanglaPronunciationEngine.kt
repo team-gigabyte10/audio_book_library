@@ -59,6 +59,7 @@ object BanglaPronunciationEngine {
             TranslatorLanguage.ARABIC -> transliterateArabicOrUrdu(clean, hint, TranslatorLanguage.ARABIC, useVocabLookup)
             TranslatorLanguage.URDU -> transliterateArabicOrUrdu(clean, hint, TranslatorLanguage.URDU, useVocabLookup)
             TranslatorLanguage.CHINESE -> transliterateChineseSentence(clean, hint, useVocabLookup)
+            TranslatorLanguage.KOREAN -> transliterateKoreanSentence(clean, hint, useVocabLookup)
         }
 
         val normalized = generated.replace(Regex("\\s+"), " ").trim()
@@ -79,7 +80,7 @@ object BanglaPronunciationEngine {
     }
 
     private fun getVocabMap(langKey: String): Map<String, String> {
-        if (langKey !in setOf("english", "japanese", "urdu", "hindi", "german", "chinese")) return emptyMap()
+        if (langKey !in setOf("english", "japanese", "urdu", "hindi", "german", "chinese", "korean")) return emptyMap()
         return vocabCache.getOrPut(langKey) {
             runCatching {
                 val items = VocabRepository.getConfigForLanguage(langKey).items
@@ -953,5 +954,63 @@ object BanglaPronunciationEngine {
         "吗" to "মা", "呢" to "ন্য", "了" to "ল্য", "的" to "দ্য", "请" to "ছিং", "看" to "খান্",
         "一" to "ই", "二" to "আর", "两" to "লিয়াং", "三" to "সান্", "四" to "স্যু", "五" to "উ",
         "六" to "লিউ", "七" to "ছি", "八" to "পা", "九" to "চিউ", "十" to "শি", "百" to "পাই"
+    )
+
+    private fun transliterateKoreanSentence(
+        text: String,
+        romanizationHint: String?,
+        useVocabLookup: Boolean
+    ): String {
+        val clean = text.trim()
+        if (useVocabLookup) {
+            lookupVocab("korean", clean)?.let { return it }
+        }
+        KOREAN_COMMON_PHRASES[clean.trimEnd('.', '?', '!', '。')]?.let { return it }
+        val hasHangul = clean.any { it in '\uAC00'..'\uD7A3' }
+        if (!hasHangul) {
+            return if (!romanizationHint.isNullOrBlank()) {
+                transliterateLatinSentence(romanizationHint, TranslatorLanguage.ENGLISH, false)
+            } else {
+                clean
+            }
+        }
+        val sb = StringBuilder()
+        for (ch in clean) {
+            when {
+                ch in '\uAC00'..'\uD7A3' -> {
+                    val code = ch.code - 0xAC00
+                    val jong = code % 28
+                    val jung = (code / 28) % 21
+                    val cho = code / (28 * 21)
+                    sb.append(HANGUL_CHO[cho])
+                    sb.append(HANGUL_JUNG[jung])
+                    sb.append(HANGUL_JONG[jong])
+                }
+                ch.isWhitespace() -> if (sb.isNotEmpty() && sb.last() != ' ') sb.append(' ')
+                ch in ",.?!" -> Unit
+                else -> sb.append(ch)
+            }
+        }
+        return sb.toString().trim().ifEmpty { clean }
+    }
+
+    private val HANGUL_CHO = arrayOf(
+        "গ", "ক্ক", "ন", "দ", "ত্ত", "র", "ম", "ব", "প্প", "স", "স্স", "", "জ", "চ্চ", "ছ", "খ", "থ", "ফ", "হ"
+    )
+    private val HANGUL_JUNG = arrayOf(
+        "া", "্যা", "অ", "্য", "ো", "য়ো", "ু", "্যু", "উ", "ওয়া", "ওয়ে", "ওয়ে", "য়ো", "ু", "উও", "উএ", "উই", "্যু", "উ", "উই", "ি"
+    )
+    private val HANGUL_JONG = arrayOf(
+        "", "ক", "ক্ক", "ক", "ন", "ন", "ন", "ত", "ল", "ল", "ম", "ব", "ল", "ল", "ল", "ল", "ম", "প", "প", "ত", "স্স", "ং", "ত", "ত", "ক", "ত", "প", "হ"
+    )
+    private val KOREAN_COMMON_PHRASES = mapOf(
+        "안녕하세요" to "আন্নিয়ংহাসেয়ো",
+        "감사합니다" to "কামসাহামনিদা",
+        "고맙습니다" to "কোমাপসুমনিদা",
+        "죄송합니다" to "চোয়েসোংহামনিদা",
+        "괜찮아요" to "কোয়েনছানায়ো",
+        "얼마예요" to "অলমায়েয়ো",
+        "물 주세요" to "মুল জুসেয়ো",
+        "안녕히 가세요" to "আন্নিয়ংহি গাসেয়ো"
     )
 }

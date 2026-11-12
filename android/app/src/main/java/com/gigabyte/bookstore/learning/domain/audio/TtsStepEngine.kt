@@ -68,6 +68,10 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private val _chineseAvailable = MutableStateFlow<Boolean?>(null)
     val chineseAvailable: StateFlow<Boolean?> = _chineseAvailable.asStateFlow()
 
+    /** Korean only: the Korean course shows a warning when this is false. Not part of [StepAudioEngine]. */
+    private val _koreanAvailable = MutableStateFlow<Boolean?>(null)
+    val koreanAvailable: StateFlow<Boolean?> = _koreanAvailable.asStateFlow()
+
     /** True when the device has a verified Male Arabic TTS voice for Qaida lessons. */
     private val _arabicMaleVoiceAvailable = MutableStateFlow<Boolean?>(null)
     val arabicMaleVoiceAvailable: StateFlow<Boolean?> = _arabicMaleVoiceAvailable.asStateFlow()
@@ -164,6 +168,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             resolve(SpeechLang.DE, GERMAN_LOCALES)
             resolve(SpeechLang.AR, ARABIC_LOCALES)
             resolve(SpeechLang.ZH, CHINESE_LOCALES)
+            resolve(SpeechLang.KO, KOREAN_LOCALES)
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String?) = Unit
                 override fun onDone(utteranceId: String?) = complete(utteranceId)
@@ -207,6 +212,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             _germanAvailable.value = ok && SpeechLang.DE in locales
             _arabicAvailable.value = ok && SpeechLang.AR in locales
             _chineseAvailable.value = ok && SpeechLang.ZH in locales
+            _koreanAvailable.value = ok && SpeechLang.KO in locales
             _arabicMaleVoiceAvailable.value = ok && (SpeechLang.AR in locales) && arabicMaleSelection.isVerifiedMale
             ready.complete(ok)
         }
@@ -313,6 +319,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         val GERMAN_LOCALES = listOf(Locale.GERMANY, Locale.GERMAN)
         val ARABIC_LOCALES = listOf(Locale("ar", "SA"), Locale("ar"))
         val CHINESE_LOCALES = listOf(Locale.SIMPLIFIED_CHINESE, Locale("zh", "CN"), Locale.CHINESE)
+        val KOREAN_LOCALES = listOf(Locale.KOREA, Locale.KOREAN, Locale("ko", "KR"))
 
         fun isAvailable(result: Int) = result == TextToSpeech.LANG_AVAILABLE ||
             result == TextToSpeech.LANG_COUNTRY_AVAILABLE ||

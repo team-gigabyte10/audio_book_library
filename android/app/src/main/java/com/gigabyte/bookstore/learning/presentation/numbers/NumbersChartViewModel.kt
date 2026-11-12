@@ -27,6 +27,7 @@ class NumbersChartViewModel(
         "german" -> GermanNumberData.CONFIG
         "chinese", "zh" -> ChineseNumberData.CONFIG
         "arabic", "ar" -> ArabicNumberData.CONFIG
+        "korean", "ko" -> KoreanNumberData.CONFIG
         else -> JapaneseNumberData.CONFIG
     }
 

@@ -108,6 +108,7 @@ class MultiLangAudioPlayer(context: Context) {
             SpeechLang.JA -> TtsStepEngine.JAPANESE_LOCALES
             SpeechLang.AR -> TtsStepEngine.ARABIC_LOCALES
             SpeechLang.ZH -> TtsStepEngine.CHINESE_LOCALES
+            SpeechLang.KO -> TtsStepEngine.KOREAN_LOCALES
             SpeechLang.BN, SpeechLang.BD -> TtsStepEngine.BANGLA_LOCALES
         }
 

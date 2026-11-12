@@ -10,6 +10,7 @@ object VocabRepository {
             "ja", "japanese" -> JapaneseVocabData.config
             "zh", "chinese" -> ChineseVocabData.config
             "ar", "arabic" -> ArabicVocabData.config
+            "ko", "korean" -> KoreanVocabData.config
             else -> EnglishVocabData.config
         }
     }

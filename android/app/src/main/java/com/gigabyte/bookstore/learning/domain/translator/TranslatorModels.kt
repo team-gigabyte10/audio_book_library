@@ -104,6 +104,17 @@ enum class TranslatorLanguage(
         isoCode = "zh-CN",
         itemIdPrefix = "zh-",
         accentHex = 0xFFD32F2F
+    ),
+    KOREAN(
+        key = "korean",
+        titleBn = "কোরিয়ান",
+        nativeName = "한국어 (Korean)",
+        flag = "🇰🇷",
+        speechLang = SpeechLang.KO,
+        sttLocaleTag = "ko-KR",
+        isoCode = "ko",
+        itemIdPrefix = "ko-",
+        accentHex = 0xFF0047A0
     );
 
     companion object {
@@ -116,6 +127,7 @@ enum class TranslatorLanguage(
                 v.startsWith("de") || v == "german" -> GERMAN
                 v.startsWith("qr") || v.startsWith("ar") || v == "quran" || v == "arabic" -> ARABIC
                 v.startsWith("zh") || v.startsWith("cn") || v.contains("chinese") || v.contains("mandarin") -> CHINESE
+                v.startsWith("ko") || v.contains("korean") || v.contains("hangul") -> KOREAN
                 v.startsWith("bd") || v.contains("regional") -> REGIONAL_BANGLA
                 else -> ENGLISH
             }
