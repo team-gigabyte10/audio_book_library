@@ -288,6 +288,16 @@ fun LearnHomeScreen(
     val koB1LessonCount = koB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val koB1SentenceCount = koB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val koB2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ko-b2-") && it.part.isEnabled } }
+    val koB2PartCount = koB2Parts.size.let { if (it > 0) it else 16 }
+    val koB2LessonCount = koB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val koB2SentenceCount = koB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val koSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ko-sp-") && it.part.isEnabled } }
+    val koSpPartCount = koSpParts.size.let { if (it > 0) it else 16 }
+    val koSpLessonCount = koSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val koSpSentenceCount = koSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -1310,6 +1320,36 @@ fun LearnHomeScreen(
                                 sentenceCount = koB1SentenceCount,
                                 customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("ko_b1") }
+                            )
+                        }
+
+                        // Korean Upper-Intermediate B2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 আপার-ইন্টারমিডিয়েট: লেভেল B2",
+                                title = "উচ্চতর ও একাডেমিক কোরিয়ান: B2",
+                                description = "আনুষ্ঠানিক উপস্থাপনা (하십시오체), বিতর্ক, কোরিয়ান প্রবাদ ও সাঁজা-সঙ্গঅ, অর্থনীতি, K-Tech/AI, সংবাদ বিশ্লেষণ ও TOPIK II (৪–৫)।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = koB2PartCount,
+                                lessonCount = koB2LessonCount,
+                                sentenceCount = koB2SentenceCount,
+                                customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ko_b2") }
+                            )
+                        }
+
+                        // Korean Specialist Pro Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 স্পেশালিস্ট প্রো: কর্ম ও উচ্চশিক্ষা",
+                                title = "EPS-TOPIK, চাকরি ও কোরিয়া জীবন",
+                                description = "কারখানা ও শিপইয়ার্ড নিরাপত্তা, কৃষি-মৎস্য, E-9/E-7-4 ভিসা ও ৪টি বড় বীমা, D-2/GKS বিশ্ববিদ্যালয়, বাণিজ্য ও দ্রুত সিউল স্ল্যাং।",
+                                accentColor = Color(0xFF4527A0),
+                                partCount = koSpPartCount,
+                                lessonCount = koSpLessonCount,
+                                sentenceCount = koSpSentenceCount,
+                                customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ko_specialist") }
                             )
                         }
                     } else if (isQuran) {
