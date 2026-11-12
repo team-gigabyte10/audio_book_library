@@ -278,6 +278,16 @@ fun LearnHomeScreen(
     val koStdLessonCount = koStdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val koStdSentenceCount = koStdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val koA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ko-a2-") && it.part.isEnabled } }
+    val koA2PartCount = koA2Parts.size.let { if (it > 0) it else 16 }
+    val koA2LessonCount = koA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val koA2SentenceCount = koA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val koB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ko-b1-") && it.part.isEnabled } }
+    val koB1PartCount = koB1Parts.size.let { if (it > 0) it else 16 }
+    val koB1LessonCount = koB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val koB1SentenceCount = koB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -1270,6 +1280,36 @@ fun LearnHomeScreen(
                                 sentenceCount = koStdSentenceCount,
                                 customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("ko_standard") }
+                            )
+                        }
+
+                        // Korean Elementary A2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 এলিমেন্টারি: লেভেল A2",
+                                title = "দৈনন্দিন প্রবাস ও TOPIK I: A2",
+                                description = "অতীত ও ভবিষ্যৎ কাল, ব্যাংক ও রেমিট্যান্স, হাসপাতাল-বীমা, বাসা মেরামত, HiKorea ভিসা নবায়ন, ঐতিহ্যবাহী বাজার ও কোরীয় উৎসব।",
+                                accentColor = Color(0xFF00796B),
+                                partCount = koA2PartCount,
+                                lessonCount = koA2LessonCount,
+                                sentenceCount = koA2SentenceCount,
+                                customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ko_a2") }
+                            )
+                        }
+
+                        // Korean Intermediate B1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 ইন্টারমিডিয়েট: লেভেল B1",
+                                title = "প্রফেশনাল ও সাবলীল কোরিয়ান: B1",
+                                description = "সম্মানসূচক ভাষা (높임말), পরোক্ষ উক্তি, বাসা ভাড়া চুক্তি (원룸/확정일자), Gov24, চাকরির ইন্টারভিউ, শ্রম আইন, প্রবাদ ও TOPIK II।",
+                                accentColor = Color(0xFF1565C0),
+                                partCount = koB1PartCount,
+                                lessonCount = koB1LessonCount,
+                                sentenceCount = koB1SentenceCount,
+                                customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ko_b1") }
                             )
                         }
                     } else if (isQuran) {

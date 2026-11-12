@@ -98,7 +98,9 @@ class ContentImporter(
                 dao.getPart("ar-sp-01") == null
             )
         val needsKoreanSpokenMigration = assetNames == ASSET_NAMES && (
-            dao.getPart("ko-std-01") == null
+            dao.getPart("ko-std-01") == null ||
+                dao.getPart("ko-a2-01") == null ||
+                dao.getPart("ko-b1-01") == null
             )
         when {
             meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration || needsRegionalBanglaMigration || needsQuranMigration || needsChineseMigration || needsArabicSpokenMigration || needsKoreanSpokenMigration -> {
@@ -239,7 +241,9 @@ class ContentImporter(
             "spoken_arabic_intermediate_b1.json",
             "spoken_arabic_upper_b2.json",
             "spoken_arabic_specialist_pro.json",
-            "spoken_korean_standard_a1.json"
+            "spoken_korean_standard_a1.json",
+            "spoken_korean_elementary_a2.json",
+            "spoken_korean_intermediate_b1.json"
         )
     }
 }
