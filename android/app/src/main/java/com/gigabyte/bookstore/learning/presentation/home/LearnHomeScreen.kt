@@ -226,6 +226,16 @@ fun LearnHomeScreen(
     val zhHsk1LessonCount = zhHsk1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val zhHsk1SentenceCount = zhHsk1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val zhHsk2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("zh-hsk2-") && it.part.isEnabled } }
+    val zhHsk2PartCount = zhHsk2Parts.size.let { if (it > 0) it else 16 }
+    val zhHsk2LessonCount = zhHsk2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val zhHsk2SentenceCount = zhHsk2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val zhHsk3Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("zh-hsk3-") && it.part.isEnabled } }
+    val zhHsk3PartCount = zhHsk3Parts.size.let { if (it > 0) it else 16 }
+    val zhHsk3LessonCount = zhHsk3Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val zhHsk3SentenceCount = zhHsk3Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -910,6 +920,36 @@ fun LearnHomeScreen(
                                 sentenceCount = zhHsk1SentenceCount,
                                 customPills = listOf("🇨🇳 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("zh_hsk1") }
+                            )
+                        }
+
+                        // Chinese HSK 2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🚄 এলিমেন্টারি (A2): HSK 2",
+                                title = "দৈনন্দিন চাইনিজ: HSK 2",
+                                description = "তুলনা (比/更/最), হাই-স্পিড ট্রেন ও বিমানবন্দর, হোটেল চেক-ইন, ব্যাংক ও আলিপে, হাসপাতাল, অফিস এবং ফলিত ক্রিয়া সম্পূরক।",
+                                accentColor = Color(0xFFD84315),
+                                partCount = zhHsk2PartCount,
+                                lessonCount = zhHsk2LessonCount,
+                                sentenceCount = zhHsk2SentenceCount,
+                                customPills = listOf("📘 HSK 2 (A2)", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("zh_hsk2") }
+                            )
+                        }
+
+                        // Chinese HSK 3 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🎓 ইন্টারমিডিয়েট (B1): HSK 3",
+                                title = "সাবলীল চাইনিজ কথোপকথন: HSK 3",
+                                description = "把 ও 被 বাক্যগঠন, দিক-নির্দেশক ও সম্ভাব্যতা, CSC স্কলারশিপ ও ক্যাম্পাস সাক্ষাৎকার, বাসা ভাড়া, চিকিৎসা, ডিজিটাল জীবন ও পরিবেশ-সমাজ।",
+                                accentColor = Color(0xFF00796B),
+                                partCount = zhHsk3PartCount,
+                                lessonCount = zhHsk3LessonCount,
+                                sentenceCount = zhHsk3SentenceCount,
+                                customPills = listOf("🎓 HSK 3 (B1)", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("zh_hsk3") }
                             )
                         }
                     } else if (isQuran) {

@@ -152,10 +152,14 @@ class ChineseSupportTest {
         }
     }
 
-    @Test
-    fun `bundled spoken_chinese_standard_hsk1 asset parses cleanly via EscbJsonParser`() = runTest {
-        val assetFile = File("src/main/assets/spoken_chinese_standard_hsk1.json")
-        assertTrue("Chinese HSK1 asset must exist at ${assetFile.path}", assetFile.exists())
+    private suspend fun verifyChineseCourseAsset(
+        assetName: String,
+        courseKey: String,
+        partPrefix: String,
+        expectedLevelsByIndex: (Int) -> String
+    ) {
+        val assetFile = File("src/main/assets/$assetName")
+        assertTrue("Chinese asset must exist at ${assetFile.path}", assetFile.exists())
 
         val seenParts = mutableMapOf<String, PartEntity>()
         val seenLessons = mutableListOf<LessonEntity>()
@@ -177,16 +181,47 @@ class ChineseSupportTest {
         }
 
         assertEquals(SpeechLang.ZH, header.targetLang)
-        assertTrue(ContentImporter.ASSET_NAMES.contains("spoken_chinese_standard_hsk1.json"))
-        assertEquals(TranslatorLanguage.CHINESE, TranslatorLanguage.fromKey("zh_hsk1"))
+        assertTrue(ContentImporter.ASSET_NAMES.contains(assetName))
+        assertEquals(TranslatorLanguage.CHINESE, TranslatorLanguage.fromKey(courseKey))
         assertEquals(16, seenParts.size)
         assertEquals(64, seenLessons.size)
         assertEquals(512, seenItems.size)
-        assertTrue(seenParts.keys.all { it.startsWith("zh-hsk1-") })
-        assertEquals("A0", seenParts["zh-hsk1-01"]?.level)
-        assertEquals("A0", seenParts["zh-hsk1-02"]?.level)
-        assertEquals("A1", seenParts["zh-hsk1-03"]?.level)
+        assertTrue(seenParts.keys.all { it.startsWith(partPrefix) })
+        for (idx in 1..16) {
+            val partId = "$partPrefix${idx.toString().padStart(2, '0')}"
+            assertEquals(expectedLevelsByIndex(idx), seenParts[partId]?.level)
+        }
         assertTrue(seenItems.all { it.target.isNotBlank() && !it.bn.isNullOrBlank() && !it.bnPron.isNullOrBlank() })
+    }
+
+    @Test
+    fun `bundled spoken_chinese_standard_hsk1 asset parses cleanly via EscbJsonParser`() = runTest {
+        verifyChineseCourseAsset(
+            assetName = "spoken_chinese_standard_hsk1.json",
+            courseKey = "zh_hsk1",
+            partPrefix = "zh-hsk1-",
+            expectedLevelsByIndex = { idx -> if (idx <= 2) "A0" else "A1" }
+        )
+    }
+
+    @Test
+    fun `bundled spoken_chinese_standard_hsk2 asset parses cleanly via EscbJsonParser`() = runTest {
+        verifyChineseCourseAsset(
+            assetName = "spoken_chinese_standard_hsk2.json",
+            courseKey = "zh_hsk2",
+            partPrefix = "zh-hsk2-",
+            expectedLevelsByIndex = { "A2" }
+        )
+    }
+
+    @Test
+    fun `bundled spoken_chinese_standard_hsk3 asset parses cleanly via EscbJsonParser`() = runTest {
+        verifyChineseCourseAsset(
+            assetName = "spoken_chinese_standard_hsk3.json",
+            courseKey = "zh_hsk3",
+            partPrefix = "zh-hsk3-",
+            expectedLevelsByIndex = { "B1" }
+        )
     }
 }
 

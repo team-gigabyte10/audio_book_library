@@ -50,9 +50,22 @@ let lessonsCount = 0;
 let itemsCount = 0;
 const seenIds = new Set();
 
+const fileName = path.basename(ASSET_PATH).toLowerCase();
+const levelArg = (process.argv[3] || "").toUpperCase();
+
 for (let pIdx = 0; pIdx < parts.length; pIdx++) {
   const part = parts[pIdx];
-  const expectedLevel = pIdx < 2 ? "A0" : "A1";
+  const expectedLevel = levelArg
+    ? levelArg
+    : fileName.includes("hsk2")
+      ? "A2"
+      : fileName.includes("hsk3")
+        ? "B1"
+        : fileName.includes("hsk4") || fileName.includes("specialist")
+          ? "B2"
+          : pIdx < 2
+            ? "A0"
+            : "A1";
   if (part.level !== expectedLevel) {
     errors.push(`${part.id}: expected level ${expectedLevel}, got ${part.level}`);
   }
