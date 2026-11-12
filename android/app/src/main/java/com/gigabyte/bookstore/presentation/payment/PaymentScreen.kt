@@ -147,6 +147,20 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
+                id = "chinese_course",
+                title = "চাইনিজ (ম্যান্ডারিন) স্পোকেন কোর্স",
+                subtitle = "শূন্য থেকে HSK 1: পিনইন, ৪টি সুর ও কথা বলা",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = "নতুন",
+                highlights = listOf(
+                    "পিনইন, ৪টি সুর ও টোন সন্ধি (Tone Sandhi) মাস্টারি",
+                    "হালাল খাবার, কেনাকাটা, মেট্রো ও হোটেল রোল-প্লে",
+                    "১,০০০ শব্দের ভল্ট ও ৬৪টি অডিও লেসন"
+                )
+            ),
+            AppCoursePackage(
                 id = "quran_course",
                 title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
                 subtitle = "নূরানী পদ্ধতিতে শূন্য থেকে সহীহ তিলাওয়াত ও তাজবীদ",

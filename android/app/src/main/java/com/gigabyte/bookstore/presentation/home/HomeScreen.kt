@@ -114,6 +114,7 @@ fun HomeScreen(
     onNavigateToLearnUrdu: () -> Unit = {},
     onNavigateToLearnHindi: () -> Unit = {},
     onNavigateToLearnGerman: () -> Unit = {},
+    onNavigateToLearnChinese: () -> Unit = {},
     onNavigateToTranslator: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
@@ -153,6 +154,9 @@ fun HomeScreen(
     }
     val isGermanUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("german_course")
+    }
+    val isChineseUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("chinese_course")
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -545,6 +549,26 @@ fun HomeScreen(
                                 statsText = "🎧 ২৮৫+ অডিও লেসন · A1, A2, B1 ও Specialist সম্পূর্ণ প্যাকেজ",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnGerman,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 7. CHINESE (MANDARIN) LANGUAGE COURSE SHOWCASE CARD (Chinese-Spoken-Curriculum-Plan.md)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "চাইনিজ (ম্যান্ডারিন) স্পোকেন কোর্স (শূন্য থেকে HSK 1)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে পিনইন, ৪টি সুর, হালাল খাবার, কেনাকাটা ও দৈনন্দিন ম্যান্ডারিন কথা বলা",
+                                badgeText = "🇨🇳 চাইনিজ ভাষা কোর্স",
+                                badgeColor = Color(0xFFC62828),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isChineseUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFFD32F2F), Color(0xFFB71C1C)),
+                                accentColor = Color(0xFFC62828),
+                                statsText = "🎧 ৬৪+ অডিও লেসন · পিনইন, ৪ সুর, ১,০০০ শব্দ ও HSK 1",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = onNavigateToLearnChinese,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

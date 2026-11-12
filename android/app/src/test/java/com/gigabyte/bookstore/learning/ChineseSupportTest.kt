@@ -1,5 +1,6 @@
 package com.gigabyte.bookstore.learning
 
+import com.gigabyte.bookstore.learning.data.content.ContentImporter
 import com.gigabyte.bookstore.learning.data.content.EscbContentSink
 import com.gigabyte.bookstore.learning.data.content.EscbJsonParser
 import com.gigabyte.bookstore.learning.data.db.ItemEntity
@@ -176,6 +177,8 @@ class ChineseSupportTest {
         }
 
         assertEquals(SpeechLang.ZH, header.targetLang)
+        assertTrue(ContentImporter.ASSET_NAMES.contains("spoken_chinese_standard_hsk1.json"))
+        assertEquals(TranslatorLanguage.CHINESE, TranslatorLanguage.fromKey("zh_hsk1"))
         assertEquals(16, seenParts.size)
         assertEquals(64, seenLessons.size)
         assertEquals(512, seenItems.size)

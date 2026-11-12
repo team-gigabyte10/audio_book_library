@@ -189,6 +189,7 @@ fun CourseSyllabusScreen(
     val isDeB1 = courseType.equals("de_b1", ignoreCase = true)
     val isDeB2 = courseType.equals("de_b2", ignoreCase = true)
     val isDeSpecialist = courseType.equals("de_specialist", ignoreCase = true)
+    val isZhHsk1 = courseType.equals("zh_hsk1", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
     val isJpN4 = courseType.equals("jp_n4", ignoreCase = true)
     val isJpN3 = courseType.equals("jp_n3", ignoreCase = true)
@@ -225,6 +226,7 @@ fun CourseSyllabusScreen(
         isDeB1 -> "জার্মান স্পোকেন কোর্স: লেভেল B1"
         isDeB2 -> "জার্মান স্পোকেন কোর্স: লেভেল B2"
         isDeSpecialist -> "জার্মান স্পেশালিস্ট কোর্স (নার্সিং ও বিশ্ববিদ্যালয়)"
+        isZhHsk1 -> "চাইনিজ স্পোকেন কোর্স: শূন্য থেকে HSK 1"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
         isJpN4 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N4"
         isJpN3 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N3"
@@ -260,6 +262,7 @@ fun CourseSyllabusScreen(
         isDeB1 -> "Konjunktiv II, Passiv, Relativsätze, আউসবিল্ডুং ও B1 স্পিকিং"
         isDeB2 -> "কর্পোরেট মিটিং, দরকষাকষি, বিরোধ নিরসন ও গোয়েথে B2 স্পিকিং"
         isDeSpecialist -> "ক্লিনিক্যাল নার্সিং, অ্যানামনেসিস, ISBAR, APS, Uni-Assist ও ভিসা ইন্টারভিউ"
+        isZhHsk1 -> "পিনইন, ৪টি সুর, জরুরি শব্দভাণ্ডার ও HSK 1 স্পিকিং"
         isJpStandard -> "অক্ষর, শব্দ ও উচ্চারণ ড্রিল থেকে N5 স্পিকিং টেস্ট"
         isJpN4 -> "সাধারণ কথ্য রূপ, শর্তসাপেক্ষ বাক্য, কর্মবাচ্য, প্রযোজক ক্রিয়া ও কেইগো"
         isJpN3 -> "অভ্যাস ও পরিবর্তন, যুক্তি ও কর্তব্য, পূর্ণাঙ্গ কেইগো, টেলিফোন ও কর্মক্ষেত্র স্পোকেন"
@@ -293,6 +296,7 @@ fun CourseSyllabusScreen(
             isDeB1 -> syllabus.filter { it.part.id.startsWith("de-b1-") }
             isDeB2 -> syllabus.filter { it.part.id.startsWith("de-b2-") }
             isDeSpecialist -> syllabus.filter { it.part.id.startsWith("de-sp-") }
+            isZhHsk1 -> syllabus.filter { it.part.id.startsWith("zh-hsk1-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }
             isJpN4 -> syllabus.filter { it.part.id.startsWith("jp-n4-") }
             isJpN3 -> syllabus.filter { it.part.id.startsWith("jp-n3-") }

@@ -83,8 +83,9 @@ class ContentImporter(
             dao.getPart("qr-p1-u01") == null ||
             dao.getPart("qr-p4-u08") == null
         )
+        val needsChineseMigration = assetNames == ASSET_NAMES && dao.getPart("zh-hsk1-01") == null
         when {
-            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration || needsRegionalBanglaMigration || needsQuranMigration -> {
+            meta == null || needsMultiCourseMigration || needsUrduMigration || needsGermanMigration || needsHindiMigration || needsJapaneseMigration || needsEnglishMigration || needsRegionalBanglaMigration || needsQuranMigration || needsChineseMigration -> {
                 import(onProgress)
                 true
             }
@@ -211,7 +212,8 @@ class ContentImporter(
             "spoken_japanese_casual_fluency.json",
             "spoken_japanese_business_advanced.json",
             "spoken_bangla_regional_divisions.json",
-            "quran_learning_noorani_complete.json"
+            "quran_learning_noorani_complete.json",
+            "spoken_chinese_standard_hsk1.json"
         )
     }
 }

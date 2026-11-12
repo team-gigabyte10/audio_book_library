@@ -85,6 +85,7 @@ fun LearnHomeScreen(
     val isUrdu = language.equals("urdu", ignoreCase = true)
     val isHindi = language.equals("hindi", ignoreCase = true)
     val isGerman = language.equals("german", ignoreCase = true)
+    val isChinese = language.equals("chinese", ignoreCase = true) || language.equals("zh", ignoreCase = true)
     val isRegionalBangla = language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)
     val isQuran = language.equals("quran", ignoreCase = true) || language.startsWith("qr")
 
@@ -220,6 +221,11 @@ fun LearnHomeScreen(
     val deSpLessonCount = deSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val deSpSentenceCount = deSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val zhHsk1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("zh-hsk1-") && it.part.isEnabled } }
+    val zhHsk1PartCount = zhHsk1Parts.size.let { if (it > 0) it else 16 }
+    val zhHsk1LessonCount = zhHsk1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val zhHsk1SentenceCount = zhHsk1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -272,6 +278,7 @@ fun LearnHomeScreen(
                                 isUrdu -> "উর্দু স্পোকেন কোর্স"
                                 isHindi -> "হিন্দি স্পোকেন কোর্স"
                                 isGerman -> "জার্মান স্পোকেন কোর্স"
+                                isChinese -> "চাইনিজ (ম্যান্ডারিন) স্পোকেন কোর্স"
                                 isJapanese -> "জাপানিজ স্পোকেন মাস্টারক্লাস"
                                 else -> "স্পোকেন ইংলিশ মাস্টারক্লাস"
                             },
@@ -285,6 +292,7 @@ fun LearnHomeScreen(
                                 isUrdu -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে উর্দু বলা"
                                 isHindi -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে হিন্দি বলা"
                                 isGerman -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে জার্মান বলা"
+                                isChinese -> "বাংলা থেকে সহজ নিয়মে পিনইন, ৪ সুর ও HSK 1 স্পোকেন"
                                 isJapanese -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)"
                                 else -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি"
                             },
@@ -810,6 +818,98 @@ fun LearnHomeScreen(
                                 sentenceCount = deSpSentenceCount,
                                 customPills = listOf("🇩🇪 ১৬টি পার্ট", "🏥 নার্সিং ও ক্লিনিক্যাল", "🎓 বিশ্ববিদ্যালয় ও ভিসা"),
                                 onClick = { onOpenCourse("de_specialist") }
+                            )
+                        }
+                    } else if (isChinese) {
+                        item {
+                            WelcomeBanner(
+                                text = "চাইনিজ ম্যান্ডারিন স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি সুর, হানয্য ও বাক্য শুনুন এবং জোরে জোরে বলুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "chinese", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+
+                        // Pinyin & 4-Tones Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇨🇳 পিনইন ও ৪টি সুর · ৪২ ধ্বনি",
+                                title = "চাইনিজ পিনইন ও ৪টি সুর চার্ট (Pinyin & Tones)",
+                                description = "ম্যান্ডারিনের ৪টি মূল সুর + নিউট্রাল টোন, ২৩টি ইনিশিয়াল ও ১৪টি ফাইনাল। প্রতিটি অক্ষরে ট্যাপ করলেই সঠিক চীনা অডিও শুনুন।",
+                                accentColor = Color(0xFFC62828),
+                                partCount = 3,
+                                lessonCount = 42,
+                                sentenceCount = 42,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇨🇳 ৪২ ধ্বনি", "🎵 ৪টি সুর", "🔊 সব অডিও"),
+                                onClick = { onOpenAlphabetChart("chinese") }
+                            )
+                        }
+
+                        // Chinese Numbers 1-100 Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇨🇳 সংখ্যা ও গণনা · ১ থেকে ১০০",
+                                title = "১ থেকে ১০০ চাইনিজ সংখ্যা (中文数字)",
+                                description = "১ থেকে ১০০ পর্যন্ত প্রতিটি চীনা সংখ্যা, হানয্য, পিনইন ও বাংলা উচ্চারণ। প্রতিটি সংখ্যায় ট্যাপ করলেই ম্যান্ডারিন অডিও শুনুন।",
+                                accentColor = Color(0xFF4527A0),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
+                                onClick = { onOpenNumbersChart("chinese") }
+                            )
+                        }
+
+                        // Chinese Calendar & Time Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇨🇳 দিন, মাস ও ঋতু · ৩৮টি শব্দ",
+                                title = "চাইনিজ দিন, মাস ও ঋতু চার্ট (星期 · 月份 · 季节)",
+                                description = "সপ্তাহের ৭ দিন, ১২ মাস, ৪টি ঋতু এবং আজ, কাল, এখন, সকাল-রাতসহ সময় সংক্রান্ত প্রয়োজনীয় শব্দাবলি ও অডিও।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = 4,
+                                lessonCount = 38,
+                                sentenceCount = 38,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ সময়কাল"),
+                                onClick = { onOpenCalendarChart("chinese") }
+                            )
+                        }
+
+                        // Chinese 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇨🇳 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ প্রয়োজনীয় চাইনিজ শব্দ (中文 常用词汇)",
+                                description = "হানয্য, পিনইন, পরিমাপক শব্দ ও খাঁটি বাংলা উচ্চারণসহ ২০টি দৈনন্দিন বিষয়ের ১,০০০টি অতিপ্রয়োজনীয় চীনা শব্দ ও দ্বৈত অডিও।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "🈶 হানয্য ও পিনইন", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("chinese") }
+                            )
+                        }
+
+                        // Chinese Stage 0 + HSK 1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇨🇳 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে HSK 1",
+                                title = "শূন্য থেকে চাইনিজ বলা (পিনইন, ৪ সুর ও HSK 1)",
+                                description = "স্টেজ ০ টোন বুটক্যাম্প, হালাল খাবার, কেনাকাটা ও আলিপে/উইচ্যাট পে, মেট্রো-ট্যাক্সি, হোটেল-ক্যাম্পাস রোল-প্লে এবং HSK 1-এর ১৬টি পূর্ণাঙ্গ ইউনিট।",
+                                accentColor = Color(0xFFC62828),
+                                partCount = zhHsk1PartCount,
+                                lessonCount = zhHsk1LessonCount,
+                                sentenceCount = zhHsk1SentenceCount,
+                                customPills = listOf("🇨🇳 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("zh_hsk1") }
                             )
                         }
                     } else if (isQuran) {

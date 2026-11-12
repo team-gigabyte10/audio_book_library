@@ -100,3 +100,4 @@ if (!process.argv.includes("--check")) {
   console.log(`Generated ${OUT_PATH}`);
 }
 console.log(`Built ${builtParts.length} parts, ${totalLessons} lessons, ${totalItems} items.`);
+
