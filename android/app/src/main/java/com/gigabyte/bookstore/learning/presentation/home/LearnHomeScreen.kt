@@ -262,6 +262,16 @@ fun LearnHomeScreen(
     val arB1LessonCount = arB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val arB1SentenceCount = arB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val arB2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ar-b2-") && it.part.isEnabled } }
+    val arB2PartCount = arB2Parts.size.let { if (it > 0) it else 16 }
+    val arB2LessonCount = arB2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val arB2SentenceCount = arB2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val arSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ar-sp-") && it.part.isEnabled } }
+    val arSpPartCount = arSpParts.size.let { if (it > 0) it else 16 }
+    val arSpLessonCount = arSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val arSpSentenceCount = arSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -1130,6 +1140,36 @@ fun LearnHomeScreen(
                                 sentenceCount = arB1SentenceCount,
                                 customPills = listOf("🇸🇦 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("ar_b1") }
+                            )
+                        }
+
+                        // Arabic Upper-Intermediate B2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 আপার-ইন্টারমিডিয়েট: লেভেল B2",
+                                title = "দক্ষ ও প্রমিত আরবি: B2",
+                                description = "উচ্চতর প্রমিত আরবি, বিতর্ক ও প্রবাদ, কর্পোরেট মিটিং, আইন ও চুক্তি, সংবাদ-মিডিয়া, এআই ও প্রযুক্তি এবং পেশাদার উপস্থাপনা।",
+                                accentColor = Color(0xFF6A1B9A),
+                                partCount = arB2PartCount,
+                                lessonCount = arB2LessonCount,
+                                sentenceCount = arB2SentenceCount,
+                                customPills = listOf("🇸🇦 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ar_b2") }
+                            )
+                        }
+
+                        // Arabic Specialist Pro Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🕋 প্রো স্পেশালাইজেশন: গাল্ফ ও হজ্জ",
+                                title = "স্পেশালিস্ট প্রো: গাল্ফ, হজ্জ ও বাণিজ্য",
+                                description = "হজ্জ-উমরাহ গাইডিং, দুবাই-রিয়াদ ইমপোর্ট ও এল/সি, গাল্ফ প্রবাসী জীবন, আদালত-থানা, ইসলামী দাওয়াহ ও দ্রুত গাল্ফ স্ল্যাং মাস্টারি।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = arSpPartCount,
+                                lessonCount = arSpLessonCount,
+                                sentenceCount = arSpSentenceCount,
+                                customPills = listOf("🕋 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ar_specialist") }
                             )
                         }
                     } else if (isQuran) {
