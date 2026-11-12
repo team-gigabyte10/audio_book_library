@@ -107,6 +107,7 @@ class MultiLangAudioPlayer(context: Context) {
             SpeechLang.DE -> TtsStepEngine.GERMAN_LOCALES
             SpeechLang.JA -> TtsStepEngine.JAPANESE_LOCALES
             SpeechLang.AR -> TtsStepEngine.ARABIC_LOCALES
+            SpeechLang.ZH -> TtsStepEngine.CHINESE_LOCALES
             SpeechLang.BN, SpeechLang.BD -> TtsStepEngine.BANGLA_LOCALES
         }
 
@@ -141,6 +142,7 @@ class MultiLangAudioPlayer(context: Context) {
     private fun formatForLanguage(rawText: String, lang: SpeechLang): String = when (lang) {
         SpeechLang.JA -> JapaneseVoiceManager.formatForClearPronunciation(rawText)
         SpeechLang.AR -> QuranProsodyFormatter.formatForTilawat(rawText)
+        SpeechLang.ZH -> rawText.trim().let { if (it.length <= 2 && !it.endsWith("。")) "$it。" else it }
         else -> rawText
     }
 

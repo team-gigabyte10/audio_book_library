@@ -78,7 +78,7 @@ object SpeechMatch {
         return previous[b.length]
     }
 
-    private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-۔،؟‌‍ـ।॥"
+    private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-۔،؟‌‍ـ।॥；：“”‘’（）《》"
 
     private val URDU_FORMS = mapOf('ي' to 'ی', 'ى' to 'ی', 'ك' to 'ک', 'ه' to 'ہ', 'ة' to 'ہ')
 

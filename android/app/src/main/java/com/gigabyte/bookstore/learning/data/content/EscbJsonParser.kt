@@ -102,6 +102,7 @@ class EscbJsonParser {
                     targetLang.equals("de", ignoreCase = true) -> SpeechLang.DE
                     targetLang.equals("bd", ignoreCase = true) -> SpeechLang.BD
                     targetLang.equals("ar", ignoreCase = true) -> SpeechLang.AR
+                    targetLang.equals("zh", ignoreCase = true) -> SpeechLang.ZH
                     else -> SpeechLang.EN
                 }
                 "ja" -> SpeechLang.JA
@@ -110,6 +111,7 @@ class EscbJsonParser {
                 "de" -> SpeechLang.DE
                 "bd" -> SpeechLang.BD
                 "ar" -> SpeechLang.AR
+                "zh" -> SpeechLang.ZH
                 "en" -> SpeechLang.EN
                 "bn" -> SpeechLang.BN
                 else -> null

@@ -113,6 +113,7 @@ fun LessonScreen(
     val hindiAvailable by viewModel.hindiAvailable.collectAsStateWithLifecycle()
     val germanAvailable by viewModel.germanAvailable.collectAsStateWithLifecycle()
     val arabicAvailable by viewModel.arabicAvailable.collectAsStateWithLifecycle()
+    val chineseAvailable by viewModel.chineseAvailable.collectAsStateWithLifecycle()
     val arabicMaleVoiceAvailable by viewModel.arabicMaleVoiceAvailable.collectAsStateWithLifecycle()
     val quranReciter by viewModel.quranReciter.collectAsStateWithLifecycle()
     val urFemaleSpeaker by viewModel.urFemaleSpeaker.collectAsStateWithLifecycle()
@@ -211,6 +212,12 @@ fun LessonScreen(
                                     Text("ভয়েস সেটিংস")
                                 }
                             }
+                        } else if (banglaAvailable == false && settings.bnAudio) {
+                            VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
+                        }
+                    } else if (viewModel.isChinese) {
+                        if (chineseAvailable == false) {
+                            VoiceWarning("এই ফোনে চাইনিজ ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে Chinese (China) ভয়েস ইনস্টল করুন। ততক্ষণ পিনইন ও বাংলা উচ্চারণ দেখে পড়ুন।")
                         } else if (banglaAvailable == false && settings.bnAudio) {
                             VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }

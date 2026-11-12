@@ -21,6 +21,7 @@ class AlphabetChartViewModel(
         "urdu" -> UrduAlphabetData.CONFIG
         "hindi" -> HindiVarnamalaData.CONFIG
         "german" -> GermanAlphabetData.CONFIG
+        "chinese", "zh" -> PinyinAlphabetData.CONFIG
         else -> EnglishAlphabetData.CONFIG
     }
 

@@ -8,6 +8,7 @@ object VocabRepository {
             "hi", "hindi" -> HindiVocabData.config
             "ur", "urdu" -> UrduVocabData.config
             "ja", "japanese" -> JapaneseVocabData.config
+            "zh", "chinese" -> ChineseVocabData.config
             else -> EnglishVocabData.config
         }
     }

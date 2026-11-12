@@ -101,7 +101,8 @@ class LiveTranslatorRepository(
                 TranslatorLanguage.JAPANESE,
                 TranslatorLanguage.URDU,
                 TranslatorLanguage.HINDI,
-                TranslatorLanguage.GERMAN
+                TranslatorLanguage.GERMAN,
+                TranslatorLanguage.CHINESE
             )
         ) {
             val vocabItems = runCatching { VocabRepository.getConfigForLanguage(language.key).items }.getOrDefault(emptyList())
@@ -168,7 +169,8 @@ class LiveTranslatorRepository(
                 TranslatorLanguage.JAPANESE,
                 TranslatorLanguage.URDU,
                 TranslatorLanguage.HINDI,
-                TranslatorLanguage.GERMAN
+                TranslatorLanguage.GERMAN,
+                TranslatorLanguage.CHINESE
             )
         ) {
             val normQuery = normalizeForMatch(query)

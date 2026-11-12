@@ -64,6 +64,10 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private val _arabicAvailable = MutableStateFlow<Boolean?>(null)
     val arabicAvailable: StateFlow<Boolean?> = _arabicAvailable.asStateFlow()
 
+    /** Chinese only: the Chinese course shows a warning when this is false. Not part of [StepAudioEngine]. */
+    private val _chineseAvailable = MutableStateFlow<Boolean?>(null)
+    val chineseAvailable: StateFlow<Boolean?> = _chineseAvailable.asStateFlow()
+
     /** True when the device has a verified Male Arabic TTS voice for Qaida lessons. */
     private val _arabicMaleVoiceAvailable = MutableStateFlow<Boolean?>(null)
     val arabicMaleVoiceAvailable: StateFlow<Boolean?> = _arabicMaleVoiceAvailable.asStateFlow()
@@ -112,6 +116,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         _hindiAvailable.value = null
         _germanAvailable.value = null
         _arabicAvailable.value = null
+        _chineseAvailable.value = null
         _arabicMaleVoiceAvailable.value = null
         engine = Engine()
     }
@@ -151,6 +156,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             resolve(SpeechLang.HI, HINDI_LOCALES)
             resolve(SpeechLang.DE, GERMAN_LOCALES)
             resolve(SpeechLang.AR, ARABIC_LOCALES)
+            resolve(SpeechLang.ZH, CHINESE_LOCALES)
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String?) = Unit
                 override fun onDone(utteranceId: String?) = complete(utteranceId)
@@ -193,6 +199,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             _hindiAvailable.value = ok && SpeechLang.HI in locales
             _germanAvailable.value = ok && SpeechLang.DE in locales
             _arabicAvailable.value = ok && SpeechLang.AR in locales
+            _chineseAvailable.value = ok && SpeechLang.ZH in locales
             _arabicMaleVoiceAvailable.value = ok && (SpeechLang.AR in locales) && arabicMaleSelection.isVerifiedMale
             ready.complete(ok)
         }
@@ -234,7 +241,11 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         suspend fun speak(text: String, lang: SpeechLang, rate: Float, preferMale: Boolean = false) {
             if (text.isBlank() || !ready.await()) return
             if (!switchTo(lang, preferMale)) return // language not installed: skip this step
-            val spokenText = if (lang == SpeechLang.AR) QuranProsodyFormatter.formatForTilawat(text) else text
+            val spokenText = when {
+                lang == SpeechLang.AR -> QuranProsodyFormatter.formatForTilawat(text)
+                lang == SpeechLang.ZH && text.trim().length <= 2 && !text.trim().endsWith("。") -> "${text.trim()}。"
+                else -> text
+            }
             if (lang == SpeechLang.JA) {
                 val jaGender = JapaneseVoiceGender.fromId(appPreferences.learnJaSpeakerGender.value)
                 JapaneseVoiceManager.selectBestVoice(tts, jaGender)?.let { voice ->
@@ -288,6 +299,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         val HINDI_LOCALES = listOf(Locale("hi", "IN"), Locale("hi"))
         val GERMAN_LOCALES = listOf(Locale.GERMANY, Locale.GERMAN)
         val ARABIC_LOCALES = listOf(Locale("ar", "SA"), Locale("ar"))
+        val CHINESE_LOCALES = listOf(Locale.SIMPLIFIED_CHINESE, Locale("zh", "CN"), Locale.CHINESE)
 
         fun isAvailable(result: Int) = result == TextToSpeech.LANG_AVAILABLE ||
             result == TextToSpeech.LANG_COUNTRY_AVAILABLE ||

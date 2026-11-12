@@ -64,6 +64,7 @@ internal fun speechCheckLanguage(itemId: String): String? = when {
     itemId.startsWith("de-") -> "de-DE"
     itemId.startsWith("bd-") -> "bn-BD"
     itemId.startsWith("qr-") -> "ar-SA"
+    itemId.startsWith("zh-") -> "zh-CN"
     itemId.startsWith("en-") -> "en-US"
     else -> null
 }

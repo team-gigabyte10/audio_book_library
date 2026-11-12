@@ -93,6 +93,17 @@ enum class TranslatorLanguage(
         isoCode = "bn",
         itemIdPrefix = "bd-",
         accentHex = 0xFF006A4E
+    ),
+    CHINESE(
+        key = "chinese",
+        titleBn = "চাইনিজ",
+        nativeName = "中文 (普通话)",
+        flag = "🇨🇳",
+        speechLang = SpeechLang.ZH,
+        sttLocaleTag = "zh-CN",
+        isoCode = "zh-CN",
+        itemIdPrefix = "zh-",
+        accentHex = 0xFFD32F2F
     );
 
     companion object {
@@ -104,6 +115,7 @@ enum class TranslatorLanguage(
                 v.startsWith("hi") || v == "hindi" -> HINDI
                 v.startsWith("de") || v == "german" -> GERMAN
                 v.startsWith("qr") || v.startsWith("ar") || v == "quran" || v == "arabic" -> ARABIC
+                v.startsWith("zh") || v.startsWith("cn") || v.contains("chinese") || v.contains("mandarin") -> CHINESE
                 v.startsWith("bd") || v.contains("regional") -> REGIONAL_BANGLA
                 else -> ENGLISH
             }

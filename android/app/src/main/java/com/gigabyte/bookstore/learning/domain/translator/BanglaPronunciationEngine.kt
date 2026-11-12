@@ -58,6 +58,7 @@ object BanglaPronunciationEngine {
             TranslatorLanguage.ENGLISH -> transliterateLatinSentence(clean, TranslatorLanguage.ENGLISH, useVocabLookup)
             TranslatorLanguage.ARABIC -> transliterateArabicOrUrdu(clean, hint, TranslatorLanguage.ARABIC, useVocabLookup)
             TranslatorLanguage.URDU -> transliterateArabicOrUrdu(clean, hint, TranslatorLanguage.URDU, useVocabLookup)
+            TranslatorLanguage.CHINESE -> transliterateChineseSentence(clean, hint, useVocabLookup)
         }
 
         val normalized = generated.replace(Regex("\\s+"), " ").trim()
@@ -78,7 +79,7 @@ object BanglaPronunciationEngine {
     }
 
     private fun getVocabMap(langKey: String): Map<String, String> {
-        if (langKey !in setOf("english", "japanese", "urdu", "hindi", "german")) return emptyMap()
+        if (langKey !in setOf("english", "japanese", "urdu", "hindi", "german", "chinese")) return emptyMap()
         return vocabCache.getOrPut(langKey) {
             runCatching {
                 val items = VocabRepository.getConfigForLanguage(langKey).items
@@ -874,5 +875,83 @@ object BanglaPronunciationEngine {
         "theek" to "ঠিক", "hoon" to "হুঁ", "hun" to "হুঁ", "hai" to "হ্যায়",
         "kitna" to "কিতনা", "kitni" to "কিতনি", "kahan" to "কাহাঁ", "pani" to "পানি",
         "thanda" to "ঠান্ডা", "madad" to "মদদ", "chahiye" to "চাহিয়ে", "shukriya" to "শুকরিয়া"
+    )
+
+    private fun transliterateChineseSentence(
+        text: String,
+        pinyinHint: String?,
+        useVocabLookup: Boolean
+    ): String {
+        val normKey = normalizeLookupKey(text)
+        CHINESE_COMMON_PHRASES[normKey]?.let { return it }
+
+        if (!pinyinHint.isNullOrBlank()) {
+            val cleanedPinyin = pinyinHint
+                .replace(Regex("[āáǎà]"), "a")
+                .replace(Regex("[ēéěè]"), "e")
+                .replace(Regex("[īíǐì]"), "i")
+                .replace(Regex("[ōóǒò]"), "o")
+                .replace(Regex("[ūúǔù]"), "u")
+                .replace(Regex("[ǖǘǚǜü]"), "yu")
+                .replace(Regex("[1-5]"), "")
+            val fromHint = transliterateLatinSentence(cleanedPinyin, TranslatorLanguage.ENGLISH, useVocabLookup = false)
+            if (BENGALI_CHAR.containsMatchIn(fromHint)) return fromHint
+        }
+
+        val sb = StringBuilder()
+        var i = 0
+        while (i < text.length) {
+            if (i + 2 <= text.length) {
+                val two = text.substring(i, i + 2)
+                val twoPron = CHINESE_WORD_READINGS[two] ?: if (useVocabLookup) lookupVocab("chinese", two) else null
+                if (twoPron != null) {
+                    if (sb.isNotEmpty() && sb.last() != ' ') sb.append(' ')
+                    sb.append(twoPron)
+                    i += 2
+                    continue
+                }
+            }
+            val one = text[i].toString()
+            val onePron = CHINESE_WORD_READINGS[one] ?: if (useVocabLookup) lookupVocab("chinese", one) else null
+            when {
+                onePron != null -> {
+                    if (sb.isNotEmpty() && sb.last() != ' ') sb.append(' ')
+                    sb.append(onePron)
+                }
+                text[i].isWhitespace() -> if (sb.isNotEmpty() && sb.last() != ' ') sb.append(' ')
+                text[i] in "，。？！、,.?!" -> sb.append(' ')
+            }
+            i++
+        }
+        return sb.toString().trim().ifEmpty { text }
+    }
+
+    private val CHINESE_COMMON_PHRASES = mapOf(
+        "你好" to "নি হাও",
+        "您好" to "নিন্ হাও",
+        "你好吗" to "নি হাও মা",
+        "我很好" to "ওও হেন্ হাও",
+        "谢谢" to "সিয়েসিয়ে",
+        "不客气" to "পু খ্যোছি",
+        "对不起" to "তুইবুছি",
+        "没关系" to "মেই কুয়ানসি",
+        "再见" to "দ্জাই চিয়ান্",
+        "多少钱" to "তুওশাও ছিয়ান্",
+        "太贵了" to "থাই কুই ল্য",
+        "请给我水" to "ছিং কেই ওও শুই"
+    )
+
+    private val CHINESE_WORD_READINGS = mapOf(
+        "你好" to "নি হাও", "谢谢" to "সিয়েসিয়ে", "再见" to "দ্জাই চিয়ান্", "请问" to "ছিং ওয়েন্",
+        "对不起" to "তুইবুছি", "没关系" to "মেই কুয়ানসি", "中国" to "চোংকুও", "孟加拉" to "মংচিয়ালা",
+        "多少" to "তুওশাও", "什么" to "শেন্ম্য", "哪里" to "নালি", "怎么" to "জেন্ম্য",
+        "今天" to "চিন্থিয়ান্", "明天" to "মিংথিয়ান্", "昨天" to "জুওথিয়ান্", "现在" to "সিয়ান্দজাই",
+        "我" to "ওও", "你" to "নি", "您" to "নিন্", "他" to "থা", "她" to "থা", "们" to "মেন্",
+        "好" to "হাও", "很" to "হেন্", "是" to "শি", "不" to "পু", "没" to "মেই", "有" to "ইয়ৌ",
+        "在" to "দ্জাই", "去" to "ছ্যু", "来" to "লাই", "吃" to "ছি", "喝" to "হ্য", "水" to "শুই",
+        "茶" to "ছা", "饭" to "ফান্", "钱" to "ছিয়ান্", "人" to "রেন্", "大" to "তা", "小" to "সিয়াও",
+        "吗" to "মা", "呢" to "ন্য", "了" to "ল্য", "的" to "দ্য", "请" to "ছিং", "看" to "খান্",
+        "一" to "ই", "二" to "আর", "两" to "লিয়াং", "三" to "সান্", "四" to "স্যু", "五" to "উ",
+        "六" to "লিউ", "七" to "ছি", "八" to "পা", "九" to "চিউ", "十" to "শি", "百" to "পাই"
     )
 }
