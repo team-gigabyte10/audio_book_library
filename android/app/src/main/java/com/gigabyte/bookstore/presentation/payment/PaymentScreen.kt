@@ -175,6 +175,20 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
+                id = "korean_course",
+                title = "কোরিয়ান স্পোকেন কোর্স",
+                subtitle = "শূন্য থেকে A1 ও EPS-TOPIK: হাঙ্গুল, বাচ্ছিম ও কথা বলা",
+                price = 100.0,
+                priceDisplay = "৳ ১০০",
+                icon = Icons.Default.Translate,
+                tag = "নতুন",
+                highlights = listOf(
+                    "হাঙ্গুল (한글) বর্ণমালা, বাচ্ছিম নিয়ম ও দ্বৈত সংখ্যা গণনা",
+                    "EPS-TOPIK কর্মক্ষেত্র, সাবওয়ে, হালাল খাবার ও হাসপাতাল রোল-প্লে",
+                    "১,০০০ শব্দের ভল্ট ও ৬৪টি অডিও লেসন"
+                )
+            ),
+            AppCoursePackage(
                 id = "quran_course",
                 title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
                 subtitle = "নূরানী পদ্ধতিতে শূন্য থেকে সহীহ তিলাওয়াত ও তাজবীদ",

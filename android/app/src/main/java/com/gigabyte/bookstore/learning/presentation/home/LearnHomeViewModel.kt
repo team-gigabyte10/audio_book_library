@@ -76,6 +76,8 @@ class LearnHomeViewModel(application: Application) : AndroidViewModel(applicatio
             "চাইনিজ ম্যান্ডারিন স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি সুর, হানয্য ও বাক্য শুনুন এবং জোরে জোরে বলুন।"
         } else if (language.equals("arabic", ignoreCase = true) || language.equals("ar", ignoreCase = true)) {
             "আরবি স্পোকেন কোর্সে স্বাগতম! প্রতিটি মাখরাজ, হরকত ও বাক্য মন দিয়ে শুনুন এবং জোরে বলুন।"
+        } else if (language.equals("korean", ignoreCase = true) || language.equals("ko", ignoreCase = true)) {
+            "কোরিয়ান স্পোকেন কোর্সে স্বাগতম! হাঙ্গুল, বাচ্ছিম এবং প্রতিটি বাক্য মন দিয়ে শুনুন ও জোরে বলুন।"
         } else if (language.equals("japanese", ignoreCase = true)) {
             "জাপানিজ স্পোকেন মাস্টারক্লাসে আপনাকে স্বাগতম। হিরাগানা, কাতাকানা, কাঞ্জি ও সাবলীল স্পোকেন ড্রিল বেশি বেশি অনুশীলন করুন।"
         } else {

@@ -199,6 +199,11 @@ fun CourseSyllabusScreen(
     val isArB1 = courseType.equals("ar_b1", ignoreCase = true)
     val isArB2 = courseType.equals("ar_b2", ignoreCase = true)
     val isArSpecialist = courseType.equals("ar_specialist", ignoreCase = true)
+    val isKoStandard = courseType.equals("ko_standard", ignoreCase = true)
+    val isKoA2 = courseType.equals("ko_a2", ignoreCase = true)
+    val isKoB1 = courseType.equals("ko_b1", ignoreCase = true)
+    val isKoB2 = courseType.equals("ko_b2", ignoreCase = true)
+    val isKoSpecialist = courseType.equals("ko_specialist", ignoreCase = true)
     val isJpStandard = courseType.equals("jp_standard", ignoreCase = true)
     val isJpN4 = courseType.equals("jp_n4", ignoreCase = true)
     val isJpN3 = courseType.equals("jp_n3", ignoreCase = true)
@@ -245,6 +250,11 @@ fun CourseSyllabusScreen(
         isArB1 -> "আরবি স্পোকেন কোর্স: লেভেল B1"
         isArB2 -> "আরবি স্পোকেন কোর্স: লেভেল B2"
         isArSpecialist -> "আরবি স্পেশালিস্ট প্রো (গাল্ফ প্রবাস, হজ্জ-ওমরাহ ও বাণিজ্য)"
+        isKoStandard -> "কোরিয়ান স্পোকেন কোর্স: শূন্য থেকে A1"
+        isKoA2 -> "কোরিয়ান স্পোকেন কোর্স: লেভেল A2"
+        isKoB1 -> "কোরিয়ান স্পোকেন কোর্স: লেভেল B1"
+        isKoB2 -> "কোরিয়ান স্পোকেন কোর্স: লেভেল B2"
+        isKoSpecialist -> "কোরিয়ান স্পেশালিস্ট প্রো (EPS-TOPIK, প্রবাস ও উচ্চশিক্ষা)"
         isJpStandard -> "জাপানিজ স্ট্যান্ডার্ড কোর্স: শূন্য থেকে N5"
         isJpN4 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N4"
         isJpN3 -> "জাপানিজ স্পোকেন কোর্স: লেভেল N3"
@@ -333,6 +343,11 @@ fun CourseSyllabusScreen(
             isArB1 -> syllabus.filter { it.part.id.startsWith("ar-b1-") }
             isArB2 -> syllabus.filter { it.part.id.startsWith("ar-b2-") }
             isArSpecialist -> syllabus.filter { it.part.id.startsWith("ar-sp-") }
+            isKoStandard -> syllabus.filter { it.part.id.startsWith("ko-std-") }
+            isKoA2 -> syllabus.filter { it.part.id.startsWith("ko-a2-") }
+            isKoB1 -> syllabus.filter { it.part.id.startsWith("ko-b1-") }
+            isKoB2 -> syllabus.filter { it.part.id.startsWith("ko-b2-") }
+            isKoSpecialist -> syllabus.filter { it.part.id.startsWith("ko-sp-") }
             isJpStandard -> syllabus.filter { it.part.id.startsWith("jp-std-") }
             isJpN4 -> syllabus.filter { it.part.id.startsWith("jp-n4-") }
             isJpN3 -> syllabus.filter { it.part.id.startsWith("jp-n3-") }

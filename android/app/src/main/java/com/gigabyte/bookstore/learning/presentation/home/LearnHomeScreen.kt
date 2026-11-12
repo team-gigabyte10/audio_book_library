@@ -87,6 +87,7 @@ fun LearnHomeScreen(
     val isGerman = language.equals("german", ignoreCase = true)
     val isChinese = language.equals("chinese", ignoreCase = true) || language.equals("zh", ignoreCase = true)
     val isArabic = language.equals("arabic", ignoreCase = true) || language.equals("ar", ignoreCase = true)
+    val isKorean = language.equals("korean", ignoreCase = true) || language.equals("ko", ignoreCase = true)
     val isRegionalBangla = language.equals("regional_bangla", ignoreCase = true) || language.equals("regional", ignoreCase = true)
     val isQuran = language.equals("quran", ignoreCase = true) || language.startsWith("qr")
 
@@ -272,6 +273,11 @@ fun LearnHomeScreen(
     val arSpLessonCount = arSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val arSpSentenceCount = arSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val koStdParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ko-std-") && it.part.isEnabled } }
+    val koStdPartCount = koStdParts.size.let { if (it > 0) it else 16 }
+    val koStdLessonCount = koStdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val koStdSentenceCount = koStdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -326,6 +332,7 @@ fun LearnHomeScreen(
                                 isGerman -> "জার্মান স্পোকেন কোর্স"
                                 isChinese -> "চাইনিজ (ম্যান্ডারিন) স্পোকেন কোর্স"
                                 isArabic -> "আরবি স্পোকেন কোর্স"
+                                isKorean -> "কোরিয়ান স্পোকেন কোর্স"
                                 isJapanese -> "জাপানিজ স্পোকেন মাস্টারক্লাস"
                                 else -> "স্পোকেন ইংলিশ মাস্টারক্লাস"
                             },
@@ -341,6 +348,7 @@ fun LearnHomeScreen(
                                 isGerman -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে জার্মান বলা"
                                 isChinese -> "বাংলা থেকে সহজ নিয়মে পিনইন, ৪ সুর ও HSK 1 স্পোকেন"
                                 isArabic -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে আরবি ও গাল্ফ কথোপকথন"
+                                isKorean -> "বাংলা থেকে সহজ নিয়মে হাঙ্গুল, বাচ্ছিম ও EPS-TOPIK স্পোকেন"
                                 isJapanese -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)"
                                 else -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি"
                             },
@@ -1170,6 +1178,98 @@ fun LearnHomeScreen(
                                 sentenceCount = arSpSentenceCount,
                                 customPills = listOf("🕋 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("ar_specialist") }
+                            )
+                        }
+                    } else if (isKorean) {
+                        item {
+                            WelcomeBanner(
+                                text = "কোরিয়ান স্পোকেন কোর্সে স্বাগতম! হাঙ্গুল, বাচ্ছিম এবং প্রতিটি বাক্য মন দিয়ে শুনুন ও জোরে বলুন।",
+                                isSpeaking = isSpeaking,
+                                onPlayTts = { viewModel.playWelcomeGreeting(language = "korean", force = true) },
+                                onStopTts = { viewModel.stopWelcomeGreeting() }
+                            )
+                        }
+
+                        // Korean Hangul & Batchim Sound Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 হাঙ্গুল ও বাচ্ছিম",
+                                title = "কোরিয়ান হাঙ্গুল বর্ণমালা ও বাচ্ছিম চার্ট (한글)",
+                                description = "১৪টি মৌলিক ব্যঞ্জন, ৫টি যুগ্ম ব্যঞ্জন, ২১টি স্বরবর্ণ ও ৭টি বাচ্ছিম (받침) উচ্চারণ নিয়ম এবং অডিও।",
+                                accentColor = Color(0xFF0047A0),
+                                partCount = 5,
+                                lessonCount = 47,
+                                sentenceCount = 47,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🇰🇷 মৌলিক ও যুগ্ম", "🔤 ২১টি স্বরবর্ণ", "🔊 সব অডিও"),
+                                onClick = { onOpenAlphabetChart("korean") }
+                            )
+                        }
+
+                        // Korean Dual Numbers & Won Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 দ্বৈত সংখ্যা ও ওন",
+                                title = "কোরিয়ান সংখ্যা ও গণনা চার্ট (숫자)",
+                                description = "সিনো-কোরিয়ান (일, 이, 삼) এবং নেটিভ কোরিয়ান (하나, 둘, 셋) সংখ্যা, বয়স, সময় ও ওন (원) গণনা ও অডিও।",
+                                accentColor = Color(0xFF4527A0),
+                                partCount = 5,
+                                lessonCount = 100,
+                                sentenceCount = 100,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "সংখ্যা দেখুন",
+                                customPills = listOf("🔢 ১–১০০ সংখ্যা", "💵 ওন ও সময়", "🔊 সব অডিও"),
+                                onClick = { onOpenNumbersChart("korean") }
+                            )
+                        }
+
+                        // Korean Calendar & Seasons Chart Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 দিন, মাস, ঋতু ও ছুটি",
+                                title = "কোরিয়ান ক্যালেন্ডার ও ঋতু চার্ট (요일·월)",
+                                description = "৭ দিন (월–일), ১২ মাস (1월–12월), ৪ ঋতু (বসন্ত-শীত) এবং সল্লাল-ছুসক ছুটিসহ ৩১টি কার্ড ও অডিও।",
+                                accentColor = Color(0xFF00695C),
+                                partCount = 4,
+                                lessonCount = 31,
+                                sentenceCount = 31,
+                                badgeText = "১০০% ফ্রি",
+                                actionButtonText = "চার্ট দেখুন",
+                                customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ সময় ও ছুটি"),
+                                onClick = { onOpenCalendarChart("korean") }
+                            )
+                        }
+
+                        // Korean 1000 Vocabulary Vault Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 শব্দভাণ্ডার · ১,০০০টি শব্দ",
+                                title = "১০০০ প্রয়োজনীয় কোরিয়ান শব্দ (필수 단어)",
+                                description = "পরিবার, খাবার-হালাল, কারখানা-যন্ত্রপাতি, সাবওয়ে, ব্যাংক, হাসপাতাল ও জরুরি ২০ ক্যাটাগরির ১,০০০ কোরিয়ান শব্দ।",
+                                accentColor = Color(0xFFE65100),
+                                partCount = 20,
+                                lessonCount = 1000,
+                                sentenceCount = 1000,
+                                badgeText = "Vault",
+                                actionButtonText = "শব্দভাণ্ডার খুলুন",
+                                customPills = listOf("🗂️ ২০ ক্যাটাগরি", "🗣️ ১,০০০ শব্দ", "📖 রোমানাইজেশন", "🔊 দ্বৈত অডিও"),
+                                onClick = { onOpenVocabVault("korean") }
+                            )
+                        }
+
+                        // Korean Stage 0 + A1 Standard Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇰🇷 স্ট্যান্ডার্ড কোর্স: শূন্য থেকে A1",
+                                title = "শূন্য থেকে কোরিয়ান বলা (হাঙ্গুল, বাচ্ছিম ও A1)",
+                                description = "স্টেজ ০ হাঙ্গুল ও বাচ্ছিম বুটক্যাম্প, অভিবাদন, দ্বৈত সংখ্যা, হালাল খাবার, সাবওয়ে-বাস, কারখানা-অফিস ও ১১২/১১৯ ইমার্জেন্সিসহ ১৬টি পূর্ণাঙ্গ ইউনিট।",
+                                accentColor = Color(0xFF0047A0),
+                                partCount = koStdPartCount,
+                                lessonCount = koStdLessonCount,
+                                sentenceCount = koStdSentenceCount,
+                                customPills = listOf("🇰🇷 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ko_standard") }
                             )
                         }
                     } else if (isQuran) {

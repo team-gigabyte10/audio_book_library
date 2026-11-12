@@ -116,6 +116,7 @@ fun HomeScreen(
     onNavigateToLearnGerman: () -> Unit = {},
     onNavigateToLearnChinese: () -> Unit = {},
     onNavigateToLearnArabic: () -> Unit = {},
+    onNavigateToLearnKorean: () -> Unit = {},
     onNavigateToTranslator: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
@@ -161,6 +162,9 @@ fun HomeScreen(
     }
     val isArabicUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("arabic_course")
+    }
+    val isKoreanUnlocked = remember(userStatus, unlockedBundles) {
+        viewModel.isBundleUnlocked("korean_course")
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -593,6 +597,26 @@ fun HomeScreen(
                                 statsText = "🎧 ৬৪+ অডিও লেসন · হরফ ও হরকত, ১,০০০ শব্দ ও A1 স্পোকেন",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnArabic,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 9. SPOKEN KOREAN LANGUAGE COURSE SHOWCASE CARD (Korean-Spoken-Curriculum-Plan.md)
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            HomeShowcaseCard(
+                                title = "কোরিয়ান স্পোকেন কোর্স (শূন্য থেকে A1 ও EPS-TOPIK)",
+                                subtitle = "বাংলা থেকে সহজ নিয়মে হাঙ্গুল, বাচ্ছিম, কোরিয়া প্রবাস, দৈনন্দিন ও কর্মক্ষেত্রের কথোপকথন",
+                                badgeText = "🇰🇷 কোরিয়ান ভাষা কোর্স",
+                                badgeColor = Color(0xFF0047A0),
+                                priceText = "১০০ টাকা",
+                                isPurchased = isKoreanUnlocked,
+                                imageUrl = null,
+                                fallbackGradientColors = listOf(Color(0xFF0047A0), Color(0xFF002B66)),
+                                accentColor = Color(0xFF0047A0),
+                                statsText = "🎧 ৬৪+ অডিও লেসন · হাঙ্গুল চার্ট, ১,০০০ শব্দ ও A1 স্পোকেন",
+                                ctaText = "কোর্সটি শুরু করুন",
+                                onClick = onNavigateToLearnKorean,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

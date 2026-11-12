@@ -56,6 +56,7 @@ fun getPaymentPackageLabel(packageType: String): String {
         "german_course" -> "🇩🇪 জার্মান স্পোকেন (৳১০০)"
         "chinese_course" -> "🇨🇳 চাইনিজ স্পোকেন (৳১০০)"
         "arabic_course" -> "🇸🇦 আরবি স্পোকেন (৳১০০)"
+        "korean_course" -> "🇰🇷 কোরিয়ান স্পোকেন (৳১০০)"
         "mega_bundle" -> "⭐ মেগা বান্ডেল (৩টি কোর্স - ৳২৫০)"
         else -> "📚 অডিওবুক বান্ডেল (৳১০০)"
     }

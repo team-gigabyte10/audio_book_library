@@ -134,3 +134,4 @@ if (errors.length > 0) {
 }
 
 console.log(`VERIFIED CLEANLY: ${parts.length} parts, ${lessonsCount} lessons, ${itemsCount} items in ${path.basename(ASSET_PATH)}.`);
+
