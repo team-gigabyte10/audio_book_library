@@ -23,7 +23,7 @@ fun targetLangForId(id: String): SpeechLang = when {
     id.startsWith("hi-") -> SpeechLang.HI
     id.startsWith("jp-") -> SpeechLang.JA
     id.startsWith("bd-") -> SpeechLang.BD
-    id.startsWith("qr-") -> SpeechLang.AR
+    id.startsWith("qr-") || id.startsWith("ar-") -> SpeechLang.AR
     id.startsWith("zh-") -> SpeechLang.ZH
     else -> SpeechLang.EN
 }

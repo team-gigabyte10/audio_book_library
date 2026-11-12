@@ -27,6 +27,7 @@ class CalendarChartViewModel(
         "german" -> GermanCalendarData.CONFIG
         "english" -> EnglishCalendarData.CONFIG
         "chinese", "zh" -> ChineseCalendarData.CONFIG
+        "arabic", "ar" -> ArabicCalendarData.CONFIG
         else -> JapaneseCalendarData.CONFIG
     }
 

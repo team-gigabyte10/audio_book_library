@@ -92,7 +92,7 @@ object LessonQueueBuilder {
     ): List<PlaybackStep> {
         val steps = mutableListOf<PlaybackStep>()
         val targetLang = ladder.firstOrNull { it.play != null && it.play != SpeechLang.BN }?.play ?: SpeechLang.EN
-        val isQuran = item.id.startsWith("qr-") || targetLang == SpeechLang.AR
+        val isQuran = item.id.startsWith("qr-")
         val stepItemId = if (isQuran) item.id else null
         val bnRate = if (isQuran) QURAN_BANGLA_RATE else BANGLA_RATE
         if (settings.wordByWord) steps += wordByWord(item, itemIndex, settings, targetLang, isQuran)

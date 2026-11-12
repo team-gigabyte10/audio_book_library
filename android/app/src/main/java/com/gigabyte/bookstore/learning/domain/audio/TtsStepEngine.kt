@@ -75,11 +75,12 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
     private var engine = Engine()
 
     override suspend fun speak(text: String, lang: SpeechLang, rate: Float) {
-        engine.speak(text, lang, rate, preferMale = lang == SpeechLang.AR)
+        engine.speak(text, lang, rate, preferMale = false, isTilawat = false)
     }
 
     override suspend fun speakStep(step: PlaybackStep.Speak) {
-        if (step.lang == SpeechLang.AR) {
+        val isQuranItem = step.itemId?.startsWith("qr-") == true
+        if (isQuranItem && step.lang == SpeechLang.AR) {
             val audioRef = QuranAudioCatalog.audioRefForItem(step.itemId)
             if (audioRef != null) {
                 engine.stop()
@@ -88,7 +89,13 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 if (played) return
             }
         }
-        engine.speak(step.text, step.lang, step.rate, preferMale = step.preferMale || step.lang == SpeechLang.AR)
+        engine.speak(
+            text = step.text,
+            lang = step.lang,
+            rate = step.rate,
+            preferMale = step.preferMale || isQuranItem,
+            isTilawat = isQuranItem
+        )
     }
 
     suspend fun prefetchQuranLesson(lessonId: String) {
@@ -238,11 +245,17 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
             return switched
         }
 
-        suspend fun speak(text: String, lang: SpeechLang, rate: Float, preferMale: Boolean = false) {
+        suspend fun speak(
+            text: String,
+            lang: SpeechLang,
+            rate: Float,
+            preferMale: Boolean = false,
+            isTilawat: Boolean = false
+        ) {
             if (text.isBlank() || !ready.await()) return
             if (!switchTo(lang, preferMale)) return // language not installed: skip this step
             val spokenText = when {
-                lang == SpeechLang.AR -> QuranProsodyFormatter.formatForTilawat(text)
+                lang == SpeechLang.AR && isTilawat -> QuranProsodyFormatter.formatForTilawat(text)
                 lang == SpeechLang.ZH && text.trim().length <= 2 && !text.trim().endsWith("。") -> "${text.trim()}。"
                 else -> text
             }

@@ -139,9 +139,9 @@ class MultiLangAudioPlayer(context: Context) {
         return switched
     }
 
-    private fun formatForLanguage(rawText: String, lang: SpeechLang): String = when (lang) {
+    private fun formatForLanguage(rawText: String, lang: SpeechLang, isQuran: Boolean = false): String = when (lang) {
         SpeechLang.JA -> JapaneseVoiceManager.formatForClearPronunciation(rawText)
-        SpeechLang.AR -> QuranProsodyFormatter.formatForTilawat(rawText)
+        SpeechLang.AR -> if (isQuran) QuranProsodyFormatter.formatForTilawat(rawText) else rawText
         SpeechLang.ZH -> rawText.trim().let { if (it.length <= 2 && !it.endsWith("。")) "$it。" else it }
         else -> rawText
     }
@@ -150,7 +150,7 @@ class MultiLangAudioPlayer(context: Context) {
         stopSequence()
         scope.launch {
             _activeSpeakingId.value = letter.id
-            speakInternal(formatForLanguage(letter.ttsText, lang), lang, speechRate)
+            speakInternal(formatForLanguage(letter.ttsText, lang, isQuran = letter.id.startsWith("qr")), lang, speechRate)
             _activeSpeakingId.value = null
             _isSpeaking.value = false
         }

@@ -80,7 +80,10 @@ object SpeechMatch {
 
     private const val PUNCTUATION = "。、．，,.!！?？「」『』・〜~…―-۔،؟‌‍ـ।॥；：“”‘’（）《》"
 
-    private val URDU_FORMS = mapOf('ي' to 'ی', 'ى' to 'ی', 'ك' to 'ک', 'ه' to 'ہ', 'ة' to 'ہ')
+    private val URDU_FORMS = mapOf(
+        'ي' to 'ی', 'ى' to 'ی', 'ك' to 'ک', 'ه' to 'ہ', 'ة' to 'ہ',
+        'أ' to 'ا', 'إ' to 'ا', 'آ' to 'ا', 'ٱ' to 'ا'
+    )
 
     private val HINDI_FORMS = mapOf(
         '\u0958' to 'क', // क़ -> क
