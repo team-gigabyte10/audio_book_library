@@ -252,6 +252,16 @@ fun LearnHomeScreen(
     val arStdLessonCount = arStdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val arStdSentenceCount = arStdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val arA2Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ar-a2-") && it.part.isEnabled } }
+    val arA2PartCount = arA2Parts.size.let { if (it > 0) it else 16 }
+    val arA2LessonCount = arA2Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val arA2SentenceCount = arA2Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val arB1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("ar-b1-") && it.part.isEnabled } }
+    val arB1PartCount = arB1Parts.size.let { if (it > 0) it else 16 }
+    val arB1LessonCount = arB1Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val arB1SentenceCount = arB1Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -1090,6 +1100,36 @@ fun LearnHomeScreen(
                                 sentenceCount = arStdSentenceCount,
                                 customPills = listOf("🇸🇦 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("ar_standard") }
+                            )
+                        }
+
+                        // Arabic Elementary A2 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 এলিমেন্টারি: লেভেল A2",
+                                title = "দৈনন্দিন প্রবাস ও গাল্ফ আরবি: A2",
+                                description = "অতীত ও ভবিষ্যৎ কাল, হাসপাতাল-ক্লিনিক, ব্যাংক-রেমিট্যান্স, হোটেল, এয়ারপোর্ট, ড্রাইভিং-সিম কার্ড ও গাল্ফ কথ্য আরবির ১৬টি ইউনিট।",
+                                accentColor = Color(0xFF00796B),
+                                partCount = arA2PartCount,
+                                lessonCount = arA2LessonCount,
+                                sentenceCount = arA2SentenceCount,
+                                customPills = listOf("🇸🇦 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ar_a2") }
+                            )
+                        }
+
+                        // Arabic Intermediate B1 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🇸🇦 ইন্টারমিডিয়েট: লেভেল B1",
+                                title = "প্রফেশনাল ও সাবলীল আরবি: B1",
+                                description = "শর্তমূলক বাক্য, মতামত ও যুক্তি, ইজার বাসা ভাড়া চুক্তি, আবশের-সরকারি সেবা, চাকরির ইন্টারভিউ, গ্রাহক সেবা ও প্রমিত-গাল্ফ সমন্বয়।",
+                                accentColor = Color(0xFF1565C0),
+                                partCount = arB1PartCount,
+                                lessonCount = arB1LessonCount,
+                                sentenceCount = arB1SentenceCount,
+                                customPills = listOf("🇸🇦 ১৬টি পার্ট", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("ar_b1") }
                             )
                         }
                     } else if (isQuran) {
