@@ -236,6 +236,16 @@ fun LearnHomeScreen(
     val zhHsk3LessonCount = zhHsk3Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
     val zhHsk3SentenceCount = zhHsk3Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
 
+    val zhHsk4Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("zh-hsk4-") && it.part.isEnabled } }
+    val zhHsk4PartCount = zhHsk4Parts.size.let { if (it > 0) it else 16 }
+    val zhHsk4LessonCount = zhHsk4Parts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val zhHsk4SentenceCount = zhHsk4Parts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
+    val zhSpParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("zh-sp-") && it.part.isEnabled } }
+    val zhSpPartCount = zhSpParts.size.let { if (it > 0) it else 16 }
+    val zhSpLessonCount = zhSpParts.sumOf { it.lessons.size }.let { if (it > 0) it else 64 }
+    val zhSpSentenceCount = zhSpParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 512 }
+
     val jpStandardParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("jp-std-") && it.part.isEnabled } }
     val jpStandardPartCount = jpStandardParts.size.coerceAtLeast(1)
     val jpStandardLessonCount = jpStandardParts.sumOf { it.lessons.size }.let { if (it > 0) it else 110 }
@@ -950,6 +960,36 @@ fun LearnHomeScreen(
                                 sentenceCount = zhHsk3SentenceCount,
                                 customPills = listOf("🎓 HSK 3 (B1)", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
                                 onClick = { onOpenCourse("zh_hsk3") }
+                            )
+                        }
+
+                        // Chinese HSK 4 Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🏆 আপার-ইন্টারমিডিয়েট (B2): HSK 4",
+                                title = "অ্যাডভান্সড চাইনিজ ও বাগধারা: HSK 4",
+                                description = "উচ্চতর যৌগিক বাক্য, চাইনিজ প্রবাদ (成语), অর্থনীতি, এআই ও প্রযুক্তি, পরিবেশ, থিসিস ডিফেন্স, নেতৃত্ব ও HSKK মক স্পিকিং।",
+                                accentColor = Color(0xFF6A1B9A),
+                                partCount = zhHsk4PartCount,
+                                lessonCount = zhHsk4LessonCount,
+                                sentenceCount = zhHsk4SentenceCount,
+                                customPills = listOf("🏆 HSK 4 (B2)", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("zh_hsk4") }
+                            )
+                        }
+
+                        // Chinese Specialist Pro Course Card
+                        item {
+                            MainCourseCard(
+                                tag = "🚢 স্পেশালিস্ট প্রো: চায়না ট্রেড, ইঞ্জিনিয়ারিং ও সিএসসি",
+                                title = "চায়না ব্যবসা, ইঞ্জিনিয়ারিং ও CSC স্কলারশিপ প্রো",
+                                description = "ক্যান্টন ফেয়ার ও ইয়িউ মার্কেট, MOQ/OEM, L/C ও শিপিং, গার্মেন্টস বায়িং, ১৬৮৮ সোর্সিং, মেট্রো-সোলার-ইটিপি সাইট এবং CSC ভাইভা সিমুলেশন।",
+                                accentColor = Color(0xFF1565C0),
+                                partCount = zhSpPartCount,
+                                lessonCount = zhSpLessonCount,
+                                sentenceCount = zhSpSentenceCount,
+                                customPills = listOf("🚢 স্পেশালিস্ট প্রো", "🎧 ৬৪টি অডিও লেসন", "🗣️ ৫১২টি বাক্য"),
+                                onClick = { onOpenCourse("zh_specialist") }
                             )
                         }
                     } else if (isQuran) {

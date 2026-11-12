@@ -223,5 +223,26 @@ class ChineseSupportTest {
             expectedLevelsByIndex = { "B1" }
         )
     }
+
+    @Test
+    fun `bundled spoken_chinese_standard_hsk4 asset parses cleanly via EscbJsonParser`() = runTest {
+        verifyChineseCourseAsset(
+            assetName = "spoken_chinese_standard_hsk4.json",
+            courseKey = "zh_hsk4",
+            partPrefix = "zh-hsk4-",
+            expectedLevelsByIndex = { "B2" }
+        )
+    }
+
+    @Test
+    fun `bundled spoken_chinese_specialist_pro asset parses cleanly via EscbJsonParser`() = runTest {
+        assertEquals(SpeechLang.ZH, targetLangForId("zh-sp-01-l01-001"))
+        verifyChineseCourseAsset(
+            assetName = "spoken_chinese_specialist_pro.json",
+            courseKey = "zh_specialist",
+            partPrefix = "zh-sp-",
+            expectedLevelsByIndex = { "B2" }
+        )
+    }
 }
 
