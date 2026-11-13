@@ -153,10 +153,10 @@ class AudiobookForegroundService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "Bangla Audiobook Playback",
+                "বাংলা অডিওবুক ও স্পোকেন প্লেয়ার",
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "বাংলা অডিওবুক প্লেয়ার নোটিফিকেশন"
+                description = "অডিওবুক ও অডিও লেসন প্লেয়ার নোটিফিকেশন"
                 setShowBadge(false)
             }
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

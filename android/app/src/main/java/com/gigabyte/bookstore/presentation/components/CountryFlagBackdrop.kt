@@ -1,6 +1,7 @@
 package com.gigabyte.bookstore.presentation.components
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -11,6 +12,9 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.gigabyte.bookstore.R
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -50,25 +54,35 @@ enum class CourseCountry(val code: String, val titleBn: String, val flagEmoji: S
 /**
  * High-performance, zero-APK-bloat Compose Canvas country flag renderer.
  * Accurately draws official country flag geometry, proportions, and emblems at 60fps.
+ * For Quran learning, renders the authentic high-resolution Holy Quran background image.
  */
 @Composable
 fun CountryFlagBackdrop(
     country: CourseCountry,
     modifier: Modifier = Modifier
 ) {
-    Canvas(modifier = modifier.fillMaxSize()) {
-        when (country) {
-            CourseCountry.UK -> drawUkFlag()
-            CourseCountry.JAPAN -> drawJapanFlag()
-            CourseCountry.PAKISTAN -> drawPakistanFlag()
-            CourseCountry.INDIA -> drawIndiaFlag()
-            CourseCountry.GERMANY -> drawGermanyFlag()
-            CourseCountry.CHINA -> drawChinaFlag()
-            CourseCountry.SAUDI_ARABIA -> drawSaudiFlag()
-            CourseCountry.SOUTH_KOREA -> drawKoreaFlag()
-            CourseCountry.BANGLADESH -> drawBangladeshFlag()
-            CourseCountry.QURAN -> drawQuranHeritage()
-            CourseCountry.BUNDLE -> drawBundleFlag()
+    if (country == CourseCountry.QURAN) {
+        Image(
+            painter = painterResource(id = R.drawable.quran_course_backdrop),
+            contentDescription = "Holy Quran Backdrop",
+            contentScale = ContentScale.Crop,
+            modifier = modifier.fillMaxSize()
+        )
+    } else {
+        Canvas(modifier = modifier.fillMaxSize()) {
+            when (country) {
+                CourseCountry.UK -> drawUkFlag()
+                CourseCountry.JAPAN -> drawJapanFlag()
+                CourseCountry.PAKISTAN -> drawPakistanFlag()
+                CourseCountry.INDIA -> drawIndiaFlag()
+                CourseCountry.GERMANY -> drawGermanyFlag()
+                CourseCountry.CHINA -> drawChinaFlag()
+                CourseCountry.SAUDI_ARABIA -> drawSaudiFlag()
+                CourseCountry.SOUTH_KOREA -> drawKoreaFlag()
+                CourseCountry.BANGLADESH -> drawBangladeshFlag()
+                CourseCountry.QURAN -> drawQuranHeritage()
+                CourseCountry.BUNDLE -> drawBundleFlag()
+            }
         }
     }
 }

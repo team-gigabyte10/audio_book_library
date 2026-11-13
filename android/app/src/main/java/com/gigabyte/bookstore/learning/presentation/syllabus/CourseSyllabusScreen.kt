@@ -2,6 +2,7 @@ package com.gigabyte.bookstore.learning.presentation.syllabus
 
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -55,13 +56,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.R
 import com.gigabyte.bookstore.learning.data.LessonItemSummary
 import com.gigabyte.bookstore.learning.data.PartSummary
 import com.gigabyte.bookstore.learning.data.content.ContentState
@@ -421,6 +425,12 @@ fun CourseSyllabusScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
+                    if (isQuran) {
+                        item(key = "quran_hero_banner") {
+                            QuranSyllabusHeroCard()
+                        }
+                    }
+
                     // Section Title
                     item {
                         Text(
@@ -459,6 +469,96 @@ fun CourseSyllabusScreen(
 }
 
 
+
+@Composable
+private fun QuranSyllabusHeroCard(
+    modifier: Modifier = Modifier
+) {
+    Card(
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        border = BorderStroke(1.5.dp, Color(0xFFFFD54F).copy(alpha = 0.55f)),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(180.dp)
+            .clip(RoundedCornerShape(20.dp))
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Image(
+                painter = painterResource(id = R.drawable.quran_course_backdrop),
+                contentDescription = "সহজে কুরআন শিক্ষা ও তাজবীদ",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+
+            // Multi-stop cinematic dark overlay for crystal clear contrast
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.verticalGradient(
+                            colors = listOf(
+                                Color(0xFF040A0D).copy(alpha = 0.40f),
+                                Color(0xFF020608).copy(alpha = 0.76f),
+                                Color(0xFF010405).copy(alpha = 0.94f)
+                            )
+                        )
+                    )
+            )
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Surface(
+                        color = Color(0xFF1B5E20),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = "📖 নূরানী ও নাদিয়াতুল ক্বোরআন",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+
+                    Text(
+                        text = "⭐ সহীহ তিলাওয়াত",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = GoldenAccent
+                    )
+                }
+
+                Column {
+                    Text(
+                        text = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = "৮টি পর্যায় • ৩১টি অডিও লেসন • নূরানী তাজবীদ ও ১০টি সূরা",
+                        fontSize = 12.sp,
+                        color = Color(0xFFE2E8F0),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            }
+        }
+    }
+}
 
 @Composable
 private fun SelfPresentationCard(

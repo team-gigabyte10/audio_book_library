@@ -374,7 +374,7 @@ fun AppDrawerContent(
                     }
                     Spacer(modifier = Modifier.height(3.dp))
                     Text(
-                        text = "Bangla Audiobook Library",
+                        text = "বাংলা অডিওবুক ও স্পোকেন কোর্স",
                         fontSize = 11.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
                     )
