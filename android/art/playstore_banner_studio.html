@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Store Feature Graphic Studio (1024x500)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #131b2e;
+      --border: #1e293b;
+      --accent: #38bdf8;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', 'Hind Siliguri', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .header {
+      text-align: center;
+      max-width: 900px;
+    }
+    .header h1 {
+      font-size: 26px;
+      color: #38bdf8;
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 1080px;
+    }
+    .canvas-wrapper {
+      position: relative;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      background: #000;
+    }
+    canvas {
+      display: block;
+      width: 1024px;
+      height: 500px;
+      max-width: 100%;
+      height: auto;
+    }
+    .safe-zone-overlay {
+      position: absolute;
+      top: 50px;
+      left: 102px;
+      width: 820px;
+      height: 400px;
+      border: 2px dashed rgba(251, 191, 36, 0.85);
+      pointer-events: none;
+      display: none;
+      box-sizing: border-box;
+    }
+    .safe-zone-label {
+      position: absolute;
+      top: 6px;
+      left: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fbbf24;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: #041226;
+    }
+    .btn-primary:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+    .specs-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      width: 100%;
+      max-width: 1024px;
+      font-size: 13px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .spec-item strong {
+      color: #38bdf8;
+      display: block;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Google Play Store Feature Graphic Studio</h1>
+    <p>বাংলা অডিওবুক ও স্পোকেন কোর্স — 1024 x 500 px প্লে স্টোর ব্যানার</p>
+  </div>
+
+  <div class="container">
+    <div class="canvas-wrapper">
+      <canvas id="bannerCanvas" width="1024" height="500"></canvas>
+      <div id="safeZone" class="safe-zone-overlay">
+        <span class="safe-zone-label">Google Play Safe Zone (820x400)</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" onclick="downloadImage('png')">
+        📥 Download 1024x500 PNG (Play Store Ready)
+      </button>
+      <button class="btn btn-secondary" onclick="downloadImage('jpg')">
+        📥 Download JPEG
+      </button>
+      <button class="btn btn-secondary" onclick="toggleSafeZone()">
+        📐 Toggle Play Store Safe Zone
+      </button>
+    </div>
+
+    <div class="specs-card">
+      <div class="spec-item">
+        <strong>Dimensions & Aspect</strong>
+        1024 x 500 px (2.048 : 1)
+      </div>
+      <div class="spec-item">
+        <strong>Format & Color</strong>
+        24-bit RGB PNG / High-Q JPEG (No Alpha)
+      </div>
+      <div class="spec-item">
+        <strong>Compliance</strong>
+        Google Play Store 2026 Developer Guidelines
+      </div>
+      <div class="spec-item">
+        <strong>Files Saved in Project</strong>
+        <code>android/art/playstore_feature_graphic_branded_1024x500.png</code>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('bannerCanvas');
+    const ctx = canvas.getContext('2d');
+    const safeZone = document.getElementById('safeZone');
+
+    const baseImg = new Image();
+    baseImg.src = 'playstore_feature_graphic_branded_1024x500.png';
+    baseImg.onload = () => {
+      ctx.drawImage(baseImg, 0, 0, 1024, 500);
+    };
+
+    function toggleSafeZone() {
+      safeZone.style.display = (safeZone.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function downloadImage(format) {
+      const link = document.createElement('a');
+      if (format === 'png') {
+        link.download = 'playstore_feature_graphic_1024x500.png';
+        link.href = canvas.toDataURL('image/png');
+      } else {
+        link.download = 'playstore_feature_graphic_1024x500.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+      }
+      link.click();
+    }
+  </script>
+</body>
+</html>
