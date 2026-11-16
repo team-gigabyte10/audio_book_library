@@ -211,6 +211,7 @@ class AppPreferences(context: Context) {
         private const val KEY_CREATED_AT = "created_at"
         private const val KEY_LAST_LOGIN_AT = "last_login_at"
         private const val KEY_UNLOCKED_BUNDLES = "unlocked_bundles"
+        private const val KEY_IS_ADMIN = "is_admin"
     }
 
     // User session flows
@@ -267,6 +268,14 @@ class AppPreferences(context: Context) {
 
     private val _referralCode = MutableStateFlow(prefs.getString(KEY_REFERRAL_CODE, "") ?: "")
     val referralCode: StateFlow<String> = _referralCode.asStateFlow()
+
+    private val _isAdmin = MutableStateFlow(prefs.getBoolean(KEY_IS_ADMIN, false))
+    val isAdmin: StateFlow<Boolean> = _isAdmin.asStateFlow()
+
+    fun setIsAdmin(isAdmin: Boolean) {
+        prefs.edit().putBoolean(KEY_IS_ADMIN, isAdmin).apply()
+        _isAdmin.value = isAdmin
+    }
 
     fun saveUserSession(
         name: String,
@@ -356,6 +365,7 @@ class AppPreferences(context: Context) {
             .remove(KEY_REFERRAL_CODE)
             .remove(KEY_REFERRED_BY)
             .remove(KEY_UNLOCKED_BUNDLES)
+            .remove(KEY_IS_ADMIN)
             .apply()
 
         _isLoggedIn.value = false
@@ -365,6 +375,7 @@ class AppPreferences(context: Context) {
         _userBalance.value = 0.0
         _referralCode.value = ""
         _unlockedBundles.value = emptySet()
+        _isAdmin.value = false
     }
 
     fun getPdfLastReadPage(bookId: String): Int {

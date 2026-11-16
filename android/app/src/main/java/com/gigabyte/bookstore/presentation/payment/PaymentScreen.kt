@@ -244,11 +244,30 @@ fun PaymentScreen(
     var submissionError by remember { mutableStateOf<String?>(null) }
     var submitSuccess by remember { mutableStateOf(false) }
 
-    val paymentNumbers = mapOf(
-        "bKash" to "01700-000000",
-        "Nagad" to "01800-000000",
-        "Rocket" to "01900-000000"
-    )
+    var paymentNumbers by remember {
+        mutableStateOf(
+            mapOf(
+                "bKash" to "01700-000000",
+                "Nagad" to "01800-000000",
+                "Rocket" to "01900-000000"
+            )
+        )
+    }
+    var paymentTypes by remember {
+        mutableStateOf(
+            mapOf(
+                "bKash" to "Personal",
+                "Nagad" to "Personal",
+                "Rocket" to "Personal"
+            )
+        )
+    }
+
+    LaunchedEffect(Unit) {
+        val config = userRepository.getPaymentNumbers()
+        paymentNumbers = config.numbers
+        paymentTypes = config.types
+    }
 
     Scaffold(
         topBar = {
@@ -461,8 +480,9 @@ fun PaymentScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column {
+                        val currentType = paymentTypes[selectedMethod] ?: "Personal"
                         Text(
-                            text = "$selectedMethod Personal Number:",
+                            text = "$selectedMethod $currentType Number:",
                             fontSize = 11.sp,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )

@@ -64,6 +64,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val userBalance: StateFlow<Double> = app.appPreferences.userBalance
     val userInstitute: StateFlow<String> = app.appPreferences.userInstitute
     val unlockedBundles: StateFlow<Set<String>> = app.appPreferences.unlockedBundles
+    val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin
 
     fun isBundleUnlocked(bundleId: String): Boolean = app.appPreferences.isBundleUnlocked(bundleId)
 

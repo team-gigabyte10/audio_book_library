@@ -133,6 +133,7 @@ fun HomeScreen(
     val userBalance by viewModel.userBalance.collectAsStateWithLifecycle()
     val userInstitute by viewModel.userInstitute.collectAsStateWithLifecycle()
     val unlockedBundles by viewModel.unlockedBundles.collectAsStateWithLifecycle()
+    val isAdmin by viewModel.isAdmin.collectAsStateWithLifecycle()
 
     val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("audiobook_bundle")
@@ -208,6 +209,7 @@ fun HomeScreen(
                 userInstitute = userInstitute,
                 userStatus = userStatus,
                 userBalance = userBalance,
+                isAdmin = isAdmin,
                 onProfileClick = {
                     scope.launch { drawerState.close() }
                     showProfileDialog = true
@@ -335,7 +337,7 @@ fun HomeScreen(
                             )
                             Spacer(modifier = Modifier.height(14.dp))
                             Text(
-                                text = "ফায়ারবেস থেকে লাইভ কনটেন্ট লোড হচ্ছে...",
+                                text = "Loading......",
                                 style = MaterialTheme.typography.bodyMedium.copy(
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )

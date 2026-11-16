@@ -190,6 +190,9 @@ class UserRepository(
                 bundlesSet.add("audiobook_bundle")
             }
 
+            val isAdmin = isUserAdmin(snapshot, normalizedEmail)
+            appPreferences.setIsAdmin(isAdmin)
+
             val user = User(
                 name = name,
                 email = normalizedEmail,
@@ -203,6 +206,8 @@ class UserRepository(
                 referredBy = snapshot.getString("referredBy"),
                 referralRewardPaid = snapshot.getBoolean("referralRewardPaid") ?: false,
                 unlockedBundles = bundlesSet.toList(),
+                role = snapshot.getString("role") ?: if (isAdmin) "admin" else "customer",
+                isAdmin = isAdmin,
                 createdAt = snapshot.getString("createdAt") ?: "",
                 lastLoginAt = currentDate
             )
@@ -305,6 +310,9 @@ class UserRepository(
             appPreferences.updateUserStatus(status, balance, currentDate)
             appPreferences.updateReferralCode(referralCode)
 
+            val isAdmin = isUserAdmin(snapshot, storedEmail)
+            appPreferences.setIsAdmin(isAdmin)
+
             val verifiedUser = User(
                 name = name,
                 email = storedEmail,
@@ -318,6 +326,8 @@ class UserRepository(
                 referredBy = referredBy,
                 referralRewardPaid = referralRewardPaid,
                 unlockedBundles = bundlesSet.toList(),
+                role = snapshot.getString("role") ?: if (isAdmin) "admin" else "customer",
+                isAdmin = isAdmin,
                 createdAt = createdAt,
                 lastLoginAt = currentDate
             )
@@ -767,6 +777,80 @@ class UserRepository(
             e.printStackTrace()
             Result.failure(e)
         }
+    }
+
+    /**
+     * Checks if a user has admin privileges based on Firestore document data or known admin emails.
+     */
+    fun isUserAdmin(snapshot: com.google.firebase.firestore.DocumentSnapshot, email: String): Boolean {
+        val role = snapshot.getString("role") ?: ""
+        val isAdminFlag = snapshot.getBoolean("isAdmin") ?: false
+        val status = snapshot.getString("status") ?: ""
+        val cleanEmail = email.trim().lowercase()
+        return isAdminFlag ||
+                role.equals("admin", ignoreCase = true) ||
+                status.equals("admin", ignoreCase = true) ||
+                cleanEmail == "teamgigabyte10@gmail.com"
+    }
+
+    data class PaymentNumbersConfig(
+        val numbers: Map<String, String> = mapOf(
+            "bKash" to "01700-000000",
+            "Nagad" to "01800-000000",
+            "Rocket" to "01900-000000"
+        ),
+        val types: Map<String, String> = mapOf(
+            "bKash" to "Personal",
+            "Nagad" to "Personal",
+            "Rocket" to "Personal"
+        )
+    )
+
+    /**
+     * Dynamically fetches active payment numbers and account types from Firebase Firestore (settings/payment or payment_settings/numbers).
+     */
+    suspend fun getPaymentNumbers(): PaymentNumbersConfig = withContext(Dispatchers.IO) {
+        val defaultNumbers = mutableMapOf(
+            "bKash" to "01700-000000",
+            "Nagad" to "01800-000000",
+            "Rocket" to "01900-000000"
+        )
+        val defaultTypes = mutableMapOf(
+            "bKash" to "Personal",
+            "Nagad" to "Personal",
+            "Rocket" to "Personal"
+        )
+
+        try {
+            // Primary path: settings/payment
+            var doc = firestore.collection("settings").document("payment").get().await()
+            if (!doc.exists()) {
+                // Secondary fallback path: payment_settings/numbers
+                doc = firestore.collection("payment_settings").document("numbers").get().await()
+            }
+
+            if (doc.exists()) {
+                val bkash = doc.getString("bkash") ?: doc.getString("bKash")
+                val nagad = doc.getString("nagad") ?: doc.getString("Nagad")
+                val rocket = doc.getString("rocket") ?: doc.getString("Rocket")
+
+                if (!bkash.isNullOrBlank()) defaultNumbers["bKash"] = bkash.trim()
+                if (!nagad.isNullOrBlank()) defaultNumbers["Nagad"] = nagad.trim()
+                if (!rocket.isNullOrBlank()) defaultNumbers["Rocket"] = rocket.trim()
+
+                val bkashType = doc.getString("bkashType") ?: doc.getString("bKashType")
+                val nagadType = doc.getString("nagadType") ?: doc.getString("NagadType")
+                val rocketType = doc.getString("rocketType") ?: doc.getString("RocketType")
+
+                if (!bkashType.isNullOrBlank()) defaultTypes["bKash"] = bkashType.trim()
+                if (!nagadType.isNullOrBlank()) defaultTypes["Nagad"] = nagadType.trim()
+                if (!rocketType.isNullOrBlank()) defaultTypes["Rocket"] = rocketType.trim()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        PaymentNumbersConfig(numbers = defaultNumbers, types = defaultTypes)
     }
 }
 

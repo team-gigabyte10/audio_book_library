@@ -26,11 +26,14 @@ import androidx.compose.ui.graphics.Color
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.PaymentRequest
 import com.gigabyte.bookstore.data.repository.UserRepository
@@ -73,6 +76,59 @@ fun PaymentApprovalScreen(
     val userRepository = remember { UserRepository(context.applicationContext as Application, app.appPreferences) }
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
+    val isAdmin by app.appPreferences.isAdmin.collectAsStateWithLifecycle()
+
+    if (!isAdmin) {
+        Scaffold(
+            topBar = {
+                ThemedTopAppBar(
+                    title = { Text("অননুমোদিত অ্যাক্সেস") },
+                    navigationIcon = {
+                        IconButton(onClick = onNavigateBack) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "ফিরে যান"
+                            )
+                        }
+                    }
+                )
+            }
+        ) { innerPadding ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .padding(24.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        imageVector = Icons.Default.Lock,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.size(64.dp)
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        text = "অ্যাক্সেস সংরক্ষিত",
+                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+                    )
+                    Spacer(Modifier.height(8.dp))
+                    Text(
+                        text = "এই পেজটি শুধুমাত্র অ্যাডমিনদের জন্য নির্ধারিত।",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(Modifier.height(24.dp))
+                    Button(onClick = onNavigateBack) {
+                        Text("ফিরে যান")
+                    }
+                }
+            }
+        }
+        return
+    }
 
     var requests by remember { mutableStateOf<List<PaymentRequest>>(emptyList()) }
     var isLoading by remember { mutableStateOf(true) }
@@ -129,8 +185,10 @@ fun PaymentApprovalScreen(
         }
     }
 
-    LaunchedEffect(Unit) {
-        loadRequests()
+    LaunchedEffect(isAdmin) {
+        if (isAdmin) {
+            loadRequests()
+        }
     }
 
     // Filtered requests

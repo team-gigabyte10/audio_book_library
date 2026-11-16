@@ -67,6 +67,7 @@ class LibraryViewModel(application: Application) : AndroidViewModel(application)
     val userPhone: StateFlow<String> = app.appPreferences.userPhone
     val deviceId: StateFlow<String> = app.appPreferences.deviceId
     val userBalance: StateFlow<Double> = app.appPreferences.userBalance
+    val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin
 
     fun updateUserProfile(
         name: String,

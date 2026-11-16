@@ -37,6 +37,7 @@ fun AppDrawerContent(
     userInstitute: String,
     userStatus: String,
     userBalance: Double,
+    isAdmin: Boolean = false,
     onProfileClick: () -> Unit,
     onLastReadClick: () -> Unit,
     onBookmarksClick: () -> Unit,
@@ -323,11 +324,13 @@ fun AppDrawerContent(
                     onClick = onPaymentClick
                 )
 
-                DrawerMenuItem(
-                    icon = Icons.Default.CheckCircle,
-                    title = "পেমেন্ট অনুমোদন (Approve Payments)",
-                    onClick = onApprovePaymentsClick
-                )
+                if (isAdmin) {
+                    DrawerMenuItem(
+                        icon = Icons.Default.CheckCircle,
+                        title = "পেমেন্ট অনুমোদন (Approve Payments)",
+                        onClick = onApprovePaymentsClick
+                    )
+                }
 
                 DrawerMenuItem(
                     icon = Icons.Default.Info,

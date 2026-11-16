@@ -125,6 +125,7 @@ fun LibraryScreen(
     val userAddress: String by viewModel.userAddress.collectAsStateWithLifecycle()
     val userPhone: String by viewModel.userPhone.collectAsStateWithLifecycle()
     val userBalance: Double by viewModel.userBalance.collectAsStateWithLifecycle()
+    val isAdmin: Boolean by viewModel.isAdmin.collectAsStateWithLifecycle()
     val displayBooks = remember(books) {
         val map = linkedMapOf<String, Book>()
         for (b in books) {
@@ -187,6 +188,7 @@ fun LibraryScreen(
                 userInstitute = userInstitute,
                 userStatus = userStatus,
                 userBalance = userBalance,
+                isAdmin = isAdmin,
                 onProfileClick = {
                     scope.launch { drawerState.close() }
                     showProfileDialog = true

@@ -17,6 +17,8 @@ data class User(
     val referredBy: String? = null,
     val referralRewardPaid: Boolean = false,
     val unlockedBundles: List<String> = emptyList(),
+    val role: String = "customer", // "customer" or "admin"
+    val isAdmin: Boolean = false,
     val createdAt: String = getCurrentFormattedDate(),
     val lastLoginAt: String = getCurrentFormattedDate()
 ) {
