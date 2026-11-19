@@ -145,7 +145,7 @@ fun HomeTranslatorShowcaseCard(
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "✓ ১০০% ফ্রি",
+                            text = "✓ লাইভ স্পিচ",
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White,

@@ -450,7 +450,6 @@ fun LearnHomeScreen(
                                 partCount = 2,
                                 lessonCount = 53,
                                 sentenceCount = 53,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇵🇰 ৫৩ হরফ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenAlphabetChart("urdu") }
@@ -467,7 +466,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ গিনতি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("urdu") }
@@ -484,7 +482,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 38,
                                 sentenceCount = 38,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৫ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("urdu") }
@@ -616,7 +613,6 @@ fun LearnHomeScreen(
                                 partCount = 3,
                                 lessonCount = 57,
                                 sentenceCount = 57,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇮🇳 ৫৭ বর্ণ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenAlphabetChart("hindi") }
@@ -633,7 +629,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ গিনতি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("hindi") }
@@ -650,7 +645,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 39,
                                 sentenceCount = 39,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৬ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("hindi") }
@@ -767,7 +761,6 @@ fun LearnHomeScreen(
                                 partCount = 3,
                                 lessonCount = 38,
                                 sentenceCount = 38,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇩🇪 ৩৮ ধ্বনি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenAlphabetChart("german") }
@@ -784,7 +777,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("german") }
@@ -801,7 +793,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 38,
                                 sentenceCount = 38,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("german") }
@@ -918,7 +909,6 @@ fun LearnHomeScreen(
                                 partCount = 3,
                                 lessonCount = 42,
                                 sentenceCount = 42,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇨🇳 ৪২ ধ্বনি", "🎵 ৪টি সুর", "🔊 সব অডিও"),
                                 onClick = { onOpenAlphabetChart("chinese") }
@@ -935,7 +925,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("chinese") }
@@ -952,7 +941,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 38,
                                 sentenceCount = 38,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ সময়কাল"),
                                 onClick = { onOpenCalendarChart("chinese") }
@@ -1070,7 +1058,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 40,
                                 sentenceCount = 40,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇸🇦 মাখরাজ ও হরফ", "🔤 হরকত ও তানভীন", "🔊 সব অডিও"),
                                 onClick = { onOpenAlphabetChart("arabic") }
@@ -1087,7 +1074,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 আরবি সংখ্যা", "💵 রিয়াল-দিরহাম", "🔊 সব অডিও"),
                                 onClick = { onOpenNumbersChart("arabic") }
@@ -1104,7 +1090,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 41,
                                 sentenceCount = 41,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "🌙 ১২ হিজরি মাস", "📅 ১২ ইংরেজি মাস", "⏰ সময়কাল"),
                                 onClick = { onOpenCalendarChart("arabic") }
@@ -1222,7 +1207,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 47,
                                 sentenceCount = 47,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇰🇷 মৌলিক ও যুগ্ম", "🔤 ২১টি স্বরবর্ণ", "🔊 সব অডিও"),
                                 onClick = { onOpenAlphabetChart("korean") }
@@ -1239,7 +1223,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১–১০০ সংখ্যা", "💵 ওন ও সময়", "🔊 সব অডিও"),
                                 onClick = { onOpenNumbersChart("korean") }
@@ -1256,7 +1239,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 31,
                                 sentenceCount = 31,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ সময় ও ছুটি"),
                                 onClick = { onOpenCalendarChart("korean") }
@@ -1430,7 +1412,6 @@ fun LearnHomeScreen(
                                 partCount = 3,
                                 lessonCount = 34,
                                 sentenceCount = 34,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🇬🇧 ৩৪ ধ্বনি", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenAlphabetChart("english") }
@@ -1447,7 +1428,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 40,
                                 sentenceCount = 40,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৬ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("english") }
@@ -1605,7 +1585,6 @@ fun LearnHomeScreen(
                                 partCount = 3,
                                 lessonCount = 104,
                                 sentenceCount = 104,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🈁 ১০৪ বর্ণ", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = onOpenKanaChart
@@ -1622,7 +1601,6 @@ fun LearnHomeScreen(
                                 partCount = 5,
                                 lessonCount = 100,
                                 sentenceCount = 100,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "সংখ্যা দেখুন",
                                 customPills = listOf("🔢 ১-১০০ সংখ্যা", "🔊 সব অডিও", "⚡ ধীর ও স্বাভাবিক গতি"),
                                 onClick = { onOpenNumbersChart("japanese") }
@@ -1639,7 +1617,6 @@ fun LearnHomeScreen(
                                 partCount = 4,
                                 lessonCount = 38,
                                 sentenceCount = 38,
-                                badgeText = "১০০% ফ্রি",
                                 actionButtonText = "চার্ট দেখুন",
                                 customPills = listOf("🗓️ ৭ দিন", "📅 ১২ মাস", "🌸 ৪ ঋতু", "⏰ দিনকাল"),
                                 onClick = { onOpenCalendarChart("japanese") }
@@ -1909,7 +1886,7 @@ private fun MainCourseCard(
     partCount: Int,
     lessonCount: Int,
     sentenceCount: Int,
-    badgeText: String = "১০০% ফ্রি",
+    badgeText: String? = null,
     actionButtonText: String = "লেসনগুলো দেখুন",
     customPills: List<String>? = null,
     country: CourseCountry? = null,
@@ -1944,16 +1921,16 @@ private fun MainCourseCard(
                     country = derivedCountry,
                     modifier = Modifier.matchParentSize()
                 )
-                // Dark translucent scrim so text stays readable over the country flag
+                // Balanced ambient translucent scrim for vibrant flag visibility and high contrast
                 Box(
                     modifier = Modifier
                         .matchParentSize()
                         .background(
                             Brush.verticalGradient(
                                 colors = listOf(
-                                    Color(0xFF040A0D).copy(alpha = 0.72f),
-                                    Color(0xFF020608).copy(alpha = 0.88f),
-                                    Color(0xFF010405).copy(alpha = 0.95f)
+                                    Color(0xFF081014).copy(alpha = 0.48f),
+                                    Color(0xFF050B0E).copy(alpha = 0.72f),
+                                    Color(0xFF020608).copy(alpha = 0.85f)
                                 )
                             )
                         )
@@ -1991,12 +1968,14 @@ private fun MainCourseCard(
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                         )
                     }
-                    Text(
-                        text = badgeText,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = GoldenAccent
-                    )
+                    if (!badgeText.isNullOrBlank() && !badgeText.contains("ফ্রি")) {
+                        Text(
+                            text = badgeText,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = GoldenAccent
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(12.dp))
@@ -2006,7 +1985,7 @@ private fun MainCourseCard(
                     fontSize = 19.sp,
                     lineHeight = 26.sp,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = if (derivedCountry != null) Color.White else MaterialTheme.colorScheme.onSurface
                 )
 
                 Spacer(modifier = Modifier.height(6.dp))
@@ -2015,11 +1994,12 @@ private fun MainCourseCard(
                     text = description,
                     fontSize = 13.sp,
                     lineHeight = 18.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = if (derivedCountry != null) Color(0xFFE2E8F0) else MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(14.dp))
 
+                val hasBackdrop = derivedCountry != null
                 FlowRow(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -2027,12 +2007,12 @@ private fun MainCourseCard(
                 ) {
                     if (customPills != null) {
                         customPills.forEach { pillText ->
-                            InfoPill(text = pillText)
+                            InfoPill(text = pillText, isOverDarkBackdrop = hasBackdrop)
                         }
                     } else {
-                        InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ")
-                        InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন")
-                        InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য")
+                        InfoPill(text = "📚 ${partCount.toBanglaDigits()}টি অংশ", isOverDarkBackdrop = hasBackdrop)
+                        InfoPill(text = "🎧 ${lessonCount.toBanglaDigits()}টি লেসন", isOverDarkBackdrop = hasBackdrop)
+                        InfoPill(text = "💬 ${if (sentenceCount >= 100) "${(sentenceCount / 100 * 100).toBanglaDigits()}+" else sentenceCount.toBanglaDigits()} বাক্য", isOverDarkBackdrop = hasBackdrop)
                     }
                 }
 
@@ -2286,16 +2266,20 @@ private fun WelcomeBanner(
 }
 
 @Composable
-private fun InfoPill(text: String) {
+private fun InfoPill(
+    text: String,
+    isOverDarkBackdrop: Boolean = false
+) {
     Surface(
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
+        color = if (isOverDarkBackdrop) Color(0x38FFFFFF) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
+        border = if (isOverDarkBackdrop) BorderStroke(1.dp, Color(0x33FFFFFF)) else null,
         shape = RoundedCornerShape(12.dp)
     ) {
         Text(
             text = text,
             fontSize = 11.sp,
-            fontWeight = FontWeight.Medium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontWeight = FontWeight.SemiBold,
+            color = if (isOverDarkBackdrop) Color(0xFFF8FAFC) else MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
         )
     }

@@ -76,7 +76,14 @@ import com.gigabyte.bookstore.presentation.components.AppBackground
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Place
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import com.gigabyte.bookstore.presentation.components.CountryFlagBackdrop
+import com.gigabyte.bookstore.presentation.components.CourseCountry
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
+
+private fun Int.toBanglaDigits(): String {
+    val bnDigits = charArrayOf('০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯')
+    return this.toString().map { if (it in '0'..'9') bnDigits[it - '0'] else it }.joinToString("")
+}
 
 data class SyllabusPartTheme(
     val accentColor: Color,
@@ -429,6 +436,18 @@ fun CourseSyllabusScreen(
                         item(key = "quran_hero_banner") {
                             QuranSyllabusHeroCard()
                         }
+                    } else {
+                        val courseCountry = CourseCountry.fromLanguageKey(courseType)
+                        val topAccent = getSyllabusPartTheme(1).accentColor
+                        item(key = "course_hero_banner") {
+                            CourseHeroBannerCard(
+                                country = courseCountry,
+                                titleBn = courseTitleBn,
+                                subtitle = courseSubtitle,
+                                partCount = filteredSyllabus.size,
+                                accentColor = topAccent
+                            )
+                        }
                     }
 
                     // Section Title
@@ -471,6 +490,108 @@ fun CourseSyllabusScreen(
 
 
 @Composable
+private fun CourseHeroBannerCard(
+    country: CourseCountry,
+    titleBn: String,
+    subtitle: String,
+    partCount: Int,
+    accentColor: Color,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        border = BorderStroke(1.5.dp, accentColor.copy(alpha = 0.55f)),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(180.dp)
+            .clip(RoundedCornerShape(20.dp))
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            CountryFlagBackdrop(
+                country = country,
+                modifier = Modifier.matchParentSize()
+            )
+
+            // Balanced ambient translucent scrim for vivid flag visibility and clean contrast
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.verticalGradient(
+                            colors = listOf(
+                                Color(0xFF081014).copy(alpha = 0.45f),
+                                Color(0xFF050B0E).copy(alpha = 0.70f),
+                                Color(0xFF020608).copy(alpha = 0.84f)
+                            )
+                        )
+                    )
+            )
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Surface(
+                        color = accentColor,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = "${country.flagEmoji} ${country.titleBn} স্পোকেন",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+
+                    Surface(
+                        color = Color(0x38FFFFFF),
+                        border = BorderStroke(1.dp, Color(0x33FFFFFF)),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = "📚 ${partCount.toBanglaDigits()}টি পর্যায়",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                }
+
+                Column {
+                    Text(
+                        text = titleBn,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = subtitle,
+                        fontSize = 12.sp,
+                        color = Color(0xFFE2E8F0),
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun QuranSyllabusHeroCard(
     modifier: Modifier = Modifier
 ) {
@@ -492,16 +613,16 @@ private fun QuranSyllabusHeroCard(
                 modifier = Modifier.fillMaxSize()
             )
 
-            // Multi-stop cinematic dark overlay for crystal clear contrast
+            // Balanced cinematic dark overlay for crystal clear contrast and artwork visibility
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
-                                Color(0xFF040A0D).copy(alpha = 0.40f),
-                                Color(0xFF020608).copy(alpha = 0.76f),
-                                Color(0xFF010405).copy(alpha = 0.94f)
+                                Color(0xFF040A0D).copy(alpha = 0.35f),
+                                Color(0xFF020608).copy(alpha = 0.65f),
+                                Color(0xFF010405).copy(alpha = 0.82f)
                             )
                         )
                     )
@@ -741,7 +862,7 @@ private fun SyllabusPartHeaderCard(
                             text = part.titleTarget,
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Medium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.78f)
                         )
                     }
                 }
