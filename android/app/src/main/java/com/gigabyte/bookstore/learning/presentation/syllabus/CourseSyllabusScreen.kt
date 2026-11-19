@@ -196,6 +196,8 @@ fun CourseSyllabusScreen(
 
     val unlockedBundles by (appPrefs?.unlockedBundles ?: MutableStateFlow(emptySet())).collectAsStateWithLifecycle()
     val isAdmin by (appPrefs?.isAdmin ?: MutableStateFlow(false)).collectAsStateWithLifecycle()
+    val allowRewardAdUnlock by (appPrefs?.allowRewardAdUnlock ?: MutableStateFlow(true)).collectAsStateWithLifecycle()
+    val rewardUnlockHours by (appPrefs?.rewardUnlockHours ?: MutableStateFlow(24)).collectAsStateWithLifecycle()
 
     val courseBundleId = remember(courseType) { com.gigabyte.bookstore.data.preferences.AppPreferences.getCourseBundleId(courseType) }
     val isCourseOwned = remember(unlockedBundles, isAdmin, courseBundleId) {
@@ -505,6 +507,7 @@ fun CourseSyllabusScreen(
                                 theme = theme,
                                 isUnlocked = isUnlocked,
                                 isPermanent = isCourseOwned,
+                                allowRewardAd = allowRewardAdUnlock,
                                 remainingMillis = remainingMillis,
                                 onClick = {
                                     if (isUnlocked) {
@@ -532,6 +535,8 @@ fun CourseSyllabusScreen(
             partOrder = lockedPart.order,
             lessonCount = lockedPart.lessonCount,
             isLoadingAd = isLoadingRewardAd,
+            allowRewardAd = allowRewardAdUnlock,
+            rewardHours = rewardUnlockHours,
             onDismiss = {
                 if (!isLoadingRewardAd) {
                     selectedLockedPart = null
@@ -892,6 +897,7 @@ private fun SyllabusPartHeaderCard(
     theme: SyllabusPartTheme,
     isUnlocked: Boolean = true,
     isPermanent: Boolean = false,
+    allowRewardAd: Boolean = true,
     remainingMillis: Long = 0L,
     onClick: () -> Unit
 ) {
@@ -989,10 +995,11 @@ private fun SyllabusPartHeaderCard(
                             }
                         }
                         !isUnlocked -> {
+                            val badgeColor = if (allowRewardAd) Color(0xFFD97706) else MaterialTheme.colorScheme.primary
                             Surface(
                                 shape = RoundedCornerShape(10.dp),
-                                color = Color(0xFFD97706).copy(alpha = 0.18f),
-                                border = BorderStroke(1.dp, Color(0xFFD97706).copy(alpha = 0.45f))
+                                color = badgeColor.copy(alpha = 0.18f),
+                                border = BorderStroke(1.dp, badgeColor.copy(alpha = 0.45f))
                             ) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
@@ -1001,15 +1008,15 @@ private fun SyllabusPartHeaderCard(
                                     Icon(
                                         imageVector = Icons.Default.Lock,
                                         contentDescription = null,
-                                        tint = Color(0xFFD97706),
+                                        tint = badgeColor,
                                         modifier = Modifier.size(12.dp)
                                     )
                                     Spacer(modifier = Modifier.width(4.dp))
                                     Text(
-                                        text = "আনলক",
+                                        text = if (allowRewardAd) "আনলক" else "🔒 প্রিমিয়াম",
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color(0xFFD97706)
+                                        color = badgeColor
                                     )
                                 }
                             }

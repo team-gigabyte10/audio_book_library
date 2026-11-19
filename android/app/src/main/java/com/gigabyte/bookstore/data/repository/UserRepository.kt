@@ -3,6 +3,8 @@ package com.gigabyte.bookstore.data.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
+import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
+import com.google.firebase.firestore.ListenerRegistration
 import com.gigabyte.bookstore.data.models.PaymentRequest
 import com.gigabyte.bookstore.data.models.ReferralReward
 import com.gigabyte.bookstore.data.models.ReferralStats
@@ -919,5 +921,108 @@ class UserRepository(
 
         PaymentNumbersConfig(numbers = defaultNumbers, types = defaultTypes)
     }
-}
 
+    private var policyListenerRegistration: ListenerRegistration? = null
+
+    /**
+     * Starts listening to real-time changes of the Course Unlock Policy from Firebase Firestore (settings/course_config).
+     * Automatically keeps AppPreferences in sync.
+     */
+    fun listenCourseUnlockPolicy() {
+        if (policyListenerRegistration != null) return
+        try {
+            val docRef = firestore.collection("settings").document("course_config")
+            policyListenerRegistration = docRef.addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    android.util.Log.w("UserRepository", "Error listening to course_config", error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+                    val mode = snapshot.getString("unlockMode") ?: CourseUnlockPolicy.MODE_AD_AND_PAID
+                    val allowAds = snapshot.getBoolean("allowRewardedAdUnlock") ?: true
+                    val hours = snapshot.getLong("rewardUnlockHours")?.toInt() ?: 24
+                    val freeParts = snapshot.getLong("freePreviewPartCount")?.toInt() ?: 1
+                    val policy = CourseUnlockPolicy(
+                        unlockMode = mode,
+                        allowRewardedAdUnlock = allowAds,
+                        rewardUnlockHours = hours,
+                        freePreviewPartCount = freeParts,
+                        updatedAt = snapshot.getString("updatedAt") ?: "",
+                        updatedBy = snapshot.getString("updatedBy") ?: ""
+                    )
+                    appPreferences.saveCourseUnlockPolicy(policy)
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "Failed to attach course_config listener", e)
+        }
+    }
+
+    fun stopListeningCourseUnlockPolicy() {
+        policyListenerRegistration?.remove()
+        policyListenerRegistration = null
+    }
+
+    /**
+     * Fetches current Course Unlock Policy from Firebase Firestore (settings/course_config).
+     */
+    suspend fun fetchCourseUnlockPolicy(): CourseUnlockPolicy = withContext(Dispatchers.IO) {
+        try {
+            val doc = firestore.collection("settings").document("course_config").get().await()
+            if (doc.exists()) {
+                val mode = doc.getString("unlockMode") ?: CourseUnlockPolicy.MODE_AD_AND_PAID
+                val allowAds = doc.getBoolean("allowRewardedAdUnlock") ?: true
+                val hours = doc.getLong("rewardUnlockHours")?.toInt() ?: 24
+                val freeParts = doc.getLong("freePreviewPartCount")?.toInt() ?: 1
+                val policy = CourseUnlockPolicy(
+                    unlockMode = mode,
+                    allowRewardedAdUnlock = allowAds,
+                    rewardUnlockHours = hours,
+                    freePreviewPartCount = freeParts,
+                    updatedAt = doc.getString("updatedAt") ?: "",
+                    updatedBy = doc.getString("updatedBy") ?: ""
+                )
+                appPreferences.saveCourseUnlockPolicy(policy)
+                return@withContext policy
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "fetchCourseUnlockPolicy error", e)
+        }
+        return@withContext appPreferences.getCourseUnlockPolicy()
+    }
+
+    /**
+     * Updates the Course Unlock Policy in Firebase Firestore (settings/course_config).
+     * Admin only.
+     */
+    suspend fun updateCourseUnlockPolicy(
+        unlockMode: String,
+        allowRewardedAdUnlock: Boolean,
+        rewardUnlockHours: Int = 24,
+        adminEmail: String = ""
+    ): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val currentDate = User.getCurrentFormattedDate()
+            val data = mapOf(
+                "unlockMode" to unlockMode,
+                "allowRewardedAdUnlock" to allowRewardedAdUnlock,
+                "rewardUnlockHours" to rewardUnlockHours,
+                "updatedAt" to currentDate,
+                "updatedBy" to adminEmail.trim().lowercase()
+            )
+            firestore.collection("settings").document("course_config").set(data).await()
+
+            val policy = CourseUnlockPolicy(
+                unlockMode = unlockMode,
+                allowRewardedAdUnlock = allowRewardedAdUnlock,
+                rewardUnlockHours = rewardUnlockHours,
+                updatedAt = currentDate,
+                updatedBy = adminEmail
+            )
+            appPreferences.saveCourseUnlockPolicy(policy)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+}

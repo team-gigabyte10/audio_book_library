@@ -4,6 +4,7 @@ import android.app.Application
 import com.gigabyte.bookstore.data.local.AudiobookDatabase
 import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.data.repository.AudiobookRepository
+import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.data.repository.BookSyncManager
 import com.gigabyte.bookstore.domain.player.AudiobookPlayer
 import com.gigabyte.bookstore.domain.tts.BanglaTTSManager
@@ -43,6 +44,10 @@ class BanglaAudiobookApp : Application() {
     lateinit var syncManager: BookSyncManager
         private set
 
+    val userRepository: UserRepository by lazy {
+        UserRepository(this, preferences)
+    }
+
     // English learning module (created on first use)
     val learningDatabase: LearningDatabase by lazy { LearningDatabase.getInstance(this) }
     val learningRepository: LearningRepository by lazy { LearningRepository(learningDatabase.learningDao()) }
@@ -78,6 +83,13 @@ class BanglaAudiobookApp : Application() {
         // Ensure English learning content is imported/updated on launch
         learningContent.ensureLoaded()
 
+        // Listen to dynamic Course Unlock Policy from Firebase Firestore
+        try {
+            userRepository.listenCourseUnlockPolicy()
+        } catch (e: Exception) {
+            android.util.Log.e("BanglaAudiobookApp", "Failed to start listening to course policy", e)
+        }
+
         // Initialize Meta Audience Network (Facebook Ads)
         try {
             com.facebook.ads.AudienceNetworkAds.initialize(this)
@@ -92,6 +104,9 @@ class BanglaAudiobookApp : Application() {
 
     override fun onTerminate() {
         super.onTerminate()
+        try {
+            userRepository.stopListeningCourseUnlockPolicy()
+        } catch (e: Exception) {}
         ttsManager.shutdown()
         if (lessonAudioDelegate.isInitialized()) lessonAudio.shutdown()
     }

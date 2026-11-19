@@ -54,6 +54,8 @@ fun ModuleUnlockDialog(
     partOrder: Int,
     lessonCount: Int,
     isLoadingAd: Boolean = false,
+    allowRewardAd: Boolean = true,
+    rewardHours: Int = 24,
     onWatchAdClick: () -> Unit,
     onGoPremiumClick: () -> Unit,
     onDismiss: () -> Unit
@@ -155,7 +157,11 @@ fun ModuleUnlockDialog(
 
                 // Explain text
                 Text(
-                    text = "এই মডিউলটি প্রিমিয়াম কনটেন্ট। একটি ছোট ভিডিও বিজ্ঞাপন দেখে এটি পরবর্তী ২৪ ঘণ্টার জন্য সম্পূর্ণ বিনামূল্যে আনলক করুন অথবা প্রিমিয়াম মেম্বারশিপ নিন।",
+                    text = if (allowRewardAd) {
+                        "এই মডিউলটি প্রিমিয়াম কনটেন্ট। একটি ছোট ভিডিও বিজ্ঞাপন দেখে এটি পরবর্তী ${rewardHours} ঘণ্টার জন্য সম্পূর্ণ বিনামূল্যে আনলক করুন অথবা লাইফটাইম প্রিমিয়াম মেম্বারশিপ নিন।"
+                    } else {
+                        "এই মডিউলটি শুধুমাত্র পেইড মেম্বারদের জন্য উন্মুক্ত। বর্তমানে বিজ্ঞাপন দেখে আনলক করার সুবিধা বন্ধ আছে। সম্পূর্ণ কোর্স আজীবনের জন্য অ্যাক্সেস পেতে লাইফটাইম সাবস্ক্রিপশন নিন।"
+                    },
                     fontSize = 13.5.sp,
                     lineHeight = 20.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -174,77 +180,113 @@ fun ModuleUnlockDialog(
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(Icons.Default.Star, contentDescription = null, tint = GoldenAccent, modifier = Modifier.size(15.dp))
                             Spacer(Modifier.width(8.dp))
-                            Text("পুরো ২৪ ঘণ্টার জন্য আনলিমিটেড অ্যাক্সেস", fontSize = 12.sp, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurface)
+                            Text(
+                                text = if (allowRewardAd) "পুরো ${rewardHours} ঘণ্টার জন্য আনলিমিটেড অ্যাক্সেস" else "কোর্সের সব বাক্য, অডিও ও প্র্যাকটিস আজীবন আনলক",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
                         }
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(Icons.Default.Star, contentDescription = null, tint = GoldenAccent, modifier = Modifier.size(15.dp))
                             Spacer(Modifier.width(8.dp))
-                            Text("সব বাক্য, অডিও ও ভয়েস উচ্চারণ প্র্যাকটিস", fontSize = 12.sp, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurface)
+                            Text(
+                                text = if (allowRewardAd) "সব বাক্য, অডিও ও ভয়েস উচ্চারণ প্র্যাকটিস" else "কোনো বিজ্ঞাপন ছাড়া নিরবচ্ছিন্ন প্র্যাকটিস ও লেসন",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
                         }
                     }
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // Primary Action Button: Watch Ad
-                Button(
-                    onClick = onWatchAdClick,
-                    enabled = !isLoadingAd,
-                    shape = RoundedCornerShape(12.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00796B)),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp)
-                ) {
-                    if (isLoadingAd) {
-                        CircularProgressIndicator(
-                            color = Color.White,
-                            modifier = Modifier.size(22.dp),
-                            strokeWidth = 2.dp
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Text("বিজ্ঞাপন লোড হচ্ছে...", color = Color.White, fontSize = 14.sp)
-                    } else {
+                if (allowRewardAd) {
+                    // Primary Action: Watch Ad
+                    Button(
+                        onClick = onWatchAdClick,
+                        enabled = !isLoadingAd,
+                        shape = RoundedCornerShape(12.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00796B)),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp)
+                    ) {
+                        if (isLoadingAd) {
+                            CircularProgressIndicator(
+                                color = Color.White,
+                                modifier = Modifier.size(22.dp),
+                                strokeWidth = 2.dp
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Text("বিজ্ঞাপন লোড হচ্ছে...", color = Color.White, fontSize = 14.sp)
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.PlayCircle,
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "🎬 ভিডিও দেখে ${rewardHours} ঘণ্টা আনলক",
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    // Secondary Action: Upgrade to Premium
+                    OutlinedButton(
+                        onClick = onGoPremiumClick,
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(44.dp)
+                    ) {
                         Icon(
-                            imageVector = Icons.Default.PlayCircle,
+                            imageVector = Icons.Default.WorkspacePremium,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "💎 লাইফটাইম প্রিমিয়াম সাবস্ক্রিপশন",
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                } else {
+                    // Paid Only Mode: Primary Solid Button for Premium Subscription
+                    Button(
+                        onClick = onGoPremiumClick,
+                        shape = RoundedCornerShape(12.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.WorkspacePremium,
                             contentDescription = null,
                             tint = Color.White,
                             modifier = Modifier.size(20.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "🎬 ভিডিও দেখে ২৪ ঘণ্টা আনলক",
+                            text = "💎 লাইফটাইম প্রিমিয়াম সাবস্ক্রিপশন নিন",
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White
                         )
                     }
-                }
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                // Secondary Action: Upgrade to Premium
-                OutlinedButton(
-                    onClick = onGoPremiumClick,
-                    shape = RoundedCornerShape(12.dp),
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(44.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.WorkspacePremium,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "💎 লাইফটাইম প্রিমিয়াম সাবস্ক্রিপশন",
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.primary
-                    )
                 }
             }
         }

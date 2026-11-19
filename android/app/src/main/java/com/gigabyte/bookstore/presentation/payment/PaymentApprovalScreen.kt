@@ -35,6 +35,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 import com.gigabyte.bookstore.data.models.PaymentRequest
 import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.data.util.SmsVerificationHelper
@@ -77,6 +78,10 @@ fun PaymentApprovalScreen(
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
     val isAdmin by app.appPreferences.isAdmin.collectAsStateWithLifecycle()
+    val courseUnlockMode by app.appPreferences.courseUnlockMode.collectAsStateWithLifecycle()
+    val allowRewardAdUnlock by app.appPreferences.allowRewardAdUnlock.collectAsStateWithLifecycle()
+    val adminEmail by app.appPreferences.userEmail.collectAsStateWithLifecycle()
+    var isUpdatingPolicy by remember { mutableStateOf(false) }
 
     if (!isAdmin) {
         Scaffold(
@@ -299,6 +304,33 @@ fun PaymentApprovalScreen(
                     icon = Icons.Default.AccountBalanceWallet
                 )
             }
+
+            // Admin Course Unlock Policy Banner
+            AdminCoursePolicyCard(
+                unlockMode = courseUnlockMode,
+                allowRewardAd = allowRewardAdUnlock,
+                isUpdating = isUpdatingPolicy,
+                onTogglePolicy = { newMode, allowAds ->
+                    scope.launch {
+                        isUpdatingPolicy = true
+                        val res = userRepository.updateCourseUnlockPolicy(
+                            unlockMode = newMode,
+                            allowRewardedAdUnlock = allowAds,
+                            rewardUnlockHours = 24,
+                            adminEmail = adminEmail
+                        )
+                        isUpdatingPolicy = false
+                        res.onSuccess {
+                            snackbarHostState.showSnackbar(
+                                if (allowAds) "বিজ্ঞাপন ও পেইড উভয় মোড ফায়ারবেসে সফলভাবে সক্রিয় হয়েছে!"
+                                else "শুধুমাত্র পেইড ইউজার মোড ফায়ারবেসে সফলভাবে সক্রিয় হয়েছে!"
+                            )
+                        }.onFailure { ex ->
+                            snackbarHostState.showSnackbar("পলিসি আপডেটে ত্রুটি: ${ex.localizedMessage}")
+                        }
+                    }
+                }
+            )
 
             // 2. Search Box
             OutlinedTextField(
@@ -1199,6 +1231,125 @@ private fun PaymentRequestCard(
                         Spacer(modifier = Modifier.width(6.dp))
                         Text("বাতিল", fontSize = 13.sp, fontWeight = FontWeight.Bold)
                     }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AdminCoursePolicyCard(
+    unlockMode: String,
+    allowRewardAd: Boolean,
+    isUpdating: Boolean,
+    onTogglePolicy: (String, Boolean) -> Unit
+) {
+    val isPaidOnly = unlockMode == CourseUnlockPolicy.MODE_PAID_ONLY || !allowRewardAd
+
+    Card(
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isPaidOnly) Color(0xFFFEF3C7) else Color(0xFFECFDF5)
+        ),
+        border = BorderStroke(
+            1.5.dp,
+            if (isPaidOnly) Color(0xFFF59E0B) else Color(0xFF10B981)
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 6.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = if (isPaidOnly) Icons.Default.Lock else Icons.Default.PlayCircle,
+                        contentDescription = null,
+                        tint = if (isPaidOnly) Color(0xFFB45309) else Color(0xFF047857),
+                        modifier = Modifier.size(22.dp)
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = "কোর্স আনলক পলিসি (Firebase Remote)",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = if (isPaidOnly) Color(0xFF78350F) else Color(0xFF064E3B)
+                    )
+                }
+
+                if (isUpdating) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(18.dp),
+                        strokeWidth = 2.dp,
+                        color = if (isPaidOnly) Color(0xFFB45309) else Color(0xFF047857)
+                    )
+                }
+            }
+
+            Spacer(Modifier.height(6.dp))
+
+            Text(
+                text = if (isPaidOnly) {
+                    "🔒 বর্তমান মোড: শুধুমাত্র পেইড ইউজার (Paid Only)। ট্রায়াল ইউজাররা বিজ্ঞাপন দেখে মডিউল আনলক করতে পারবে না।"
+                } else {
+                    "🎬 বর্তমান মোড: বিজ্ঞাপন ও পেইড উভয়ই চালু। ট্রায়াল ইউজাররা ভিডিও অ্যাড দেখে ২৪ ঘণ্টা আনলক করতে পারবে।"
+                },
+                fontSize = 12.sp,
+                lineHeight = 17.sp,
+                color = if (isPaidOnly) Color(0xFF92400E) else Color(0xFF065F46)
+            )
+
+            Spacer(Modifier.height(10.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                // Button 1: Ad + Paid
+                Button(
+                    onClick = {
+                        if (!isUpdating && isPaidOnly) {
+                            onTogglePolicy(CourseUnlockPolicy.MODE_AD_AND_PAID, true)
+                        }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (!isPaidOnly) Color(0xFF047857) else Color(0xFFE5E7EB),
+                        contentColor = if (!isPaidOnly) Color.White else Color(0xFF374151)
+                    ),
+                    modifier = Modifier.weight(1f).height(38.dp)
+                ) {
+                    Text(
+                        text = if (!isPaidOnly) "✓ বিজ্ঞাপন চালু" else "বিজ্ঞাপন চালু করুন",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                // Button 2: Paid Only
+                Button(
+                    onClick = {
+                        if (!isUpdating && !isPaidOnly) {
+                            onTogglePolicy(CourseUnlockPolicy.MODE_PAID_ONLY, false)
+                        }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (isPaidOnly) Color(0xFFB45309) else Color(0xFFE5E7EB),
+                        contentColor = if (isPaidOnly) Color.White else Color(0xFF374151)
+                    ),
+                    modifier = Modifier.weight(1f).height(38.dp)
+                ) {
+                    Text(
+                        text = if (isPaidOnly) "✓ শুধু পেইড সক্রিয়" else "শুধু পেইড সেট করুন",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
         }

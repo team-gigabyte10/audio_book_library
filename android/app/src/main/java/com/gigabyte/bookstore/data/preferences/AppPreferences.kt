@@ -1,5 +1,7 @@
 package com.gigabyte.bookstore.data.preferences
 
+import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
+
 import android.content.Context
 import android.content.SharedPreferences
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -212,6 +214,9 @@ class AppPreferences(context: Context) {
         private const val KEY_LAST_LOGIN_AT = "last_login_at"
         private const val KEY_UNLOCKED_BUNDLES = "unlocked_bundles"
         private const val KEY_IS_ADMIN = "is_admin"
+        private const val KEY_COURSE_UNLOCK_MODE = "course_unlock_mode"
+        private const val KEY_ALLOW_REWARD_AD_UNLOCK = "allow_reward_ad_unlock"
+        private const val KEY_REWARD_UNLOCK_HOURS = "reward_unlock_hours"
         fun normalizeBundleId(bundleOrCode: String): String {
             val clean = bundleOrCode.trim().lowercase()
             return when {
@@ -281,6 +286,48 @@ class AppPreferences(context: Context) {
     }
 
     // -------------------------------------------------------------
+    // Course Unlock Policy (Controlled via Firebase Firestore)
+    // -------------------------------------------------------------
+    private val _courseUnlockMode = MutableStateFlow(
+        prefs.getString(KEY_COURSE_UNLOCK_MODE, CourseUnlockPolicy.MODE_AD_AND_PAID) ?: CourseUnlockPolicy.MODE_AD_AND_PAID
+    )
+    val courseUnlockMode: StateFlow<String> = _courseUnlockMode.asStateFlow()
+
+    private val _allowRewardAdUnlock = MutableStateFlow(
+        prefs.getBoolean(KEY_ALLOW_REWARD_AD_UNLOCK, true)
+    )
+    val allowRewardAdUnlock: StateFlow<Boolean> = _allowRewardAdUnlock.asStateFlow()
+
+    private val _rewardUnlockHours = MutableStateFlow(
+        prefs.getInt(KEY_REWARD_UNLOCK_HOURS, 24)
+    )
+    val rewardUnlockHours: StateFlow<Int> = _rewardUnlockHours.asStateFlow()
+
+    fun isRewardAdUnlockAllowed(): Boolean {
+        return _allowRewardAdUnlock.value && !_courseUnlockMode.value.equals(CourseUnlockPolicy.MODE_PAID_ONLY, ignoreCase = true)
+    }
+
+    fun getCourseUnlockPolicy(): CourseUnlockPolicy {
+        return CourseUnlockPolicy(
+            unlockMode = _courseUnlockMode.value,
+            allowRewardedAdUnlock = _allowRewardAdUnlock.value,
+            rewardUnlockHours = _rewardUnlockHours.value
+        )
+    }
+
+    fun saveCourseUnlockPolicy(policy: CourseUnlockPolicy) {
+        prefs.edit()
+            .putString(KEY_COURSE_UNLOCK_MODE, policy.unlockMode)
+            .putBoolean(KEY_ALLOW_REWARD_AD_UNLOCK, policy.allowRewardedAdUnlock)
+            .putInt(KEY_REWARD_UNLOCK_HOURS, policy.rewardUnlockHours)
+            .apply()
+        _courseUnlockMode.value = policy.unlockMode
+        _allowRewardAdUnlock.value = policy.allowRewardedAdUnlock
+        _rewardUnlockHours.value = policy.rewardUnlockHours
+        _unlockedModuleUpdates.value = System.currentTimeMillis()
+    }
+
+    // -------------------------------------------------------------
     // Course Module Unlocking (24-Hour Pass via Rewarded Video Ads)
     // -------------------------------------------------------------
     private val _unlockedModuleUpdates = MutableStateFlow(0L)
@@ -303,19 +350,27 @@ class AppPreferences(context: Context) {
             return true
         }
 
-        // 4. Temporary 24-hour pass check via rewarded video ad
+        // 4. If policy is paid-only or reward ads are disallowed, trial passes cannot be used
+        if (!isRewardAdUnlockAllowed()) {
+            return false
+        }
+
+        // 5. Temporary pass check via rewarded video ad
         val unlockedAt = prefs.getLong("unlocked_module_ts_$partId", 0L)
         if (unlockedAt <= 0L) return false
 
+        val durationMs = (_rewardUnlockHours.value.toLong().coerceAtLeast(1L)) * 60 * 60 * 1000L
         val elapsed = System.currentTimeMillis() - unlockedAt
-        val isStillValid = elapsed < com.gigabyte.bookstore.data.ads.AdConfig.MODULE_UNLOCK_DURATION_MS
+        val isStillValid = elapsed < durationMs
         return isStillValid
     }
 
     fun getCourseModuleRemainingMillis(partId: String): Long {
+        if (!isRewardAdUnlockAllowed()) return 0L
         val unlockedAt = prefs.getLong("unlocked_module_ts_$partId", 0L)
         if (unlockedAt <= 0L) return 0L
-        val remaining = com.gigabyte.bookstore.data.ads.AdConfig.MODULE_UNLOCK_DURATION_MS - (System.currentTimeMillis() - unlockedAt)
+        val durationMs = (_rewardUnlockHours.value.toLong().coerceAtLeast(1L)) * 60 * 60 * 1000L
+        val remaining = durationMs - (System.currentTimeMillis() - unlockedAt)
         return if (remaining > 0L) remaining else 0L
     }
 
