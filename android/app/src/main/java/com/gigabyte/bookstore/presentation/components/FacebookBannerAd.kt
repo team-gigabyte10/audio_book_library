@@ -87,7 +87,7 @@ fun FacebookBannerAd(
                             }
 
                             val adView = AdView(context, placementId, adSize)
-                            adView.setAdListener(object : AdListener {
+                            val listener = object : AdListener {
                                 override fun onError(ad: Ad?, error: AdError?) {
                                     Log.w(TAG, "Ad failed to load: ${error?.errorMessage} (code: ${error?.errorCode})")
                                     isAdFailed = true
@@ -107,10 +107,10 @@ fun FacebookBannerAd(
                                 override fun onLoggingImpression(ad: Ad?) {
                                     Log.d(TAG, "Ad impression logged")
                                 }
-                            })
+                            }
 
                             frameLayout.addView(adView)
-                            adView.loadAd()
+                            adView.loadAd(adView.buildLoadAdConfig().withAdListener(listener).build())
                             frameLayout
                         },
                         update = { _ ->
