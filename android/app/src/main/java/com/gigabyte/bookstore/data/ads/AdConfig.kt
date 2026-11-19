@@ -5,19 +5,17 @@ package com.gigabyte.bookstore.data.ads
  * When running in test mode, test placement IDs or test mode flags are enabled.
  */
 object AdConfig {
-    /**
-     * Official Meta Audience Network test placement ID format for Banners.
-     * Replace with your production Placement ID from Meta Monetization Manager when publishing.
-     * Format: "YOUR_PLACEMENT_ID" or "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID"
-     */
-    const val FB_BANNER_PLACEMENT_ID = "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID"
+    const val FB_APP_ID = "29550780014571719"
 
     /**
-     * Official Meta Audience Network test placement ID format for Rewarded Video Ads.
-     * Replace with your production Rewarded Placement ID from Meta Monetization Manager.
-     * Format: "YOUR_PLACEMENT_ID" or "VID_HD_16_9_15S_APP_INSTALL#YOUR_PLACEMENT_ID"
+     * Official Meta Audience Network placement ID for Banners.
      */
-    const val FB_REWARDED_PLACEMENT_ID = "VID_HD_16_9_15S_APP_INSTALL#YOUR_PLACEMENT_ID"
+    const val FB_BANNER_PLACEMENT_ID = "29550780014571719_29552070077776046"
+
+    /**
+     * Official Meta Audience Network placement ID for Rewarded Ads.
+     */
+    const val FB_REWARDED_PLACEMENT_ID = "29550780014571719_29552101711106216"
 
     /**
      * Duration in milliseconds for which a course module remains unlocked after watching a video ad.
