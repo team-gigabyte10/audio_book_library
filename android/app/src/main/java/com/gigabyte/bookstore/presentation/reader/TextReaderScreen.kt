@@ -80,6 +80,7 @@ fun TextReaderScreen(
 
     val savedItemIndex = remember(viewModel.bookId) { viewModel.preferences.getReaderLastReadIndex(viewModel.bookId) }
     val savedItemOffset = remember(viewModel.bookId) { viewModel.preferences.getReaderLastReadOffset(viewModel.bookId) }
+    val isAdAllowed = remember(book?.title, book?.id) { AdConfig.isAdAllowedForContent(book?.title, book?.id) }
     val listState = rememberLazyListState(
         initialFirstVisibleItemIndex = savedItemIndex,
         initialFirstVisibleItemScrollOffset = savedItemOffset
@@ -276,14 +277,16 @@ fun TextReaderScreen(
                     onNextClick = { viewModel.player.nextChapter() },
                     onCloseClick = { viewModel.closePlayer() }
                 )
-                FacebookBannerAd(
-                    placementId = AdConfig.FB_BANNER_PLACEMENT_ID,
-                    adSize = AdSize.BANNER_HEIGHT_50,
-                    showContainer = false,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 4.dp)
-                )
+                if (isAdAllowed) {
+                    FacebookBannerAd(
+                        placementId = AdConfig.FB_BANNER_PLACEMENT_ID,
+                        adSize = AdSize.BANNER_HEIGHT_50,
+                        showContainer = false,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp)
+                    )
+                }
             }
         }
     ) { innerPadding ->

@@ -33,4 +33,27 @@ object AdConfig {
      * Master switch to enable or disable ads across the app.
      */
     var isAdsEnabled: Boolean = true
+
+    /**
+     * Returns false for sacred and sensitive learning courses (Quran & Arabic).
+     * No ads (rewarded video, banner, or interstitial) will ever be loaded or shown for these courses.
+     */
+    fun isAdAllowedForCourse(courseType: String?): Boolean {
+        if (courseType == null) return true
+        val clean = courseType.trim().lowercase()
+        val isQuran = clean == "quran" || clean.startsWith("qr") || clean.contains("quran")
+        val isArabic = clean == "arabic" || clean.startsWith("ar") || clean.contains("arabic")
+        return !isQuran && !isArabic
+    }
+
+    /**
+     * Returns false for sacred or Islamic books/content (Quran, Hadith, Arabic).
+     * No banner or promotional ads will be shown on reader pages for such titles.
+     */
+    fun isAdAllowedForContent(title: String?, id: String?): Boolean {
+        val combined = "${title.orEmpty()} ${id.orEmpty()}".lowercase()
+        val isQuran = combined.contains("quran") || combined.contains("কুরআন") || combined.contains("কোরআন") || combined.contains("তাজবীদ")
+        val isArabic = combined.contains("arabic") || combined.contains("আরবি")
+        return !isQuran && !isArabic
+    }
 }

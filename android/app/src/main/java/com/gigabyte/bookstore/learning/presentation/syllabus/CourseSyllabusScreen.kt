@@ -37,6 +37,7 @@ import android.app.Activity
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Translate
 import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.ads.AdConfig
 import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
 import com.gigabyte.bookstore.presentation.components.ModuleUnlockDialog
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -190,13 +191,20 @@ fun CourseSyllabusScreen(
     val moduleUpdates by (appPrefs?.unlockedModuleUpdates ?: MutableStateFlow(0L)).collectAsStateWithLifecycle()
     val userStatus by (appPrefs?.userStatus ?: MutableStateFlow("trial")).collectAsStateWithLifecycle()
 
-    LaunchedEffect(Unit) {
-        FacebookRewardAdManager.getInstance(context).preloadAd()
+    val isAdAllowed = remember(courseType) { AdConfig.isAdAllowedForCourse(courseType) }
+
+    LaunchedEffect(isAdAllowed) {
+        if (isAdAllowed) {
+            FacebookRewardAdManager.getInstance(context).preloadAd()
+        }
     }
 
     val unlockedBundles by (appPrefs?.unlockedBundles ?: MutableStateFlow(emptySet())).collectAsStateWithLifecycle()
     val isAdmin by (appPrefs?.isAdmin ?: MutableStateFlow(false)).collectAsStateWithLifecycle()
     val allowRewardAdUnlock by (appPrefs?.allowRewardAdUnlock ?: MutableStateFlow(true)).collectAsStateWithLifecycle()
+    val effectiveAllowRewardAd = remember(isAdAllowed, allowRewardAdUnlock) {
+        if (isAdAllowed) allowRewardAdUnlock else false
+    }
     val rewardUnlockHours by (appPrefs?.rewardUnlockHours ?: MutableStateFlow(24)).collectAsStateWithLifecycle()
 
     val courseBundleId = remember(courseType) { com.gigabyte.bookstore.data.preferences.AppPreferences.getCourseBundleId(courseType) }
@@ -507,7 +515,7 @@ fun CourseSyllabusScreen(
                                 theme = theme,
                                 isUnlocked = isUnlocked,
                                 isPermanent = isCourseOwned,
-                                allowRewardAd = allowRewardAdUnlock,
+                                allowRewardAd = effectiveAllowRewardAd,
                                 remainingMillis = remainingMillis,
                                 onClick = {
                                     if (isUnlocked) {
@@ -535,7 +543,7 @@ fun CourseSyllabusScreen(
             partOrder = lockedPart.order,
             lessonCount = lockedPart.lessonCount,
             isLoadingAd = isLoadingRewardAd,
-            allowRewardAd = allowRewardAdUnlock,
+            allowRewardAd = effectiveAllowRewardAd,
             rewardHours = rewardUnlockHours,
             onDismiss = {
                 if (!isLoadingRewardAd) {
@@ -543,7 +551,7 @@ fun CourseSyllabusScreen(
                 }
             },
             onWatchAdClick = {
-                if (activity != null) {
+                if (activity != null && isAdAllowed) {
                     isLoadingRewardAd = true
                     FacebookRewardAdManager.getInstance(context).showAd(
                         activity = activity,
