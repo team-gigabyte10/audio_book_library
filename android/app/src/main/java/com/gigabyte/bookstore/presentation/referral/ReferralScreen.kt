@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -30,7 +31,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.models.ReferredUserItem
 import com.gigabyte.bookstore.data.models.ReferralReward
 import com.gigabyte.bookstore.data.models.WithdrawalRequest
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
@@ -39,9 +43,14 @@ import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 @Composable
 fun ReferralScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToPayment: (() -> Unit)? = null,
     viewModel: ReferralViewModel = viewModel()
 ) {
     val context = LocalContext.current
+    val app = context.applicationContext as BanglaAudiobookApp
+    val userStatus by app.appPreferences.userStatus.collectAsStateWithLifecycle()
+    val isPaidUser = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
+
     val uiState by viewModel.uiState.collectAsState()
     val isWithdrawing by viewModel.isWithdrawing.collectAsState()
     val actionMessage by viewModel.actionMessage.collectAsState()
@@ -113,6 +122,14 @@ fun ReferralScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp),
                         contentPadding = PaddingValues(top = 16.dp, bottom = 32.dp)
                     ) {
+                        // 0. Affiliate Partner Eligibility Banner
+                        item {
+                            AffiliatePartnerBanner(
+                                isPaidUser = isPaidUser,
+                                onNavigateToPayment = onNavigateToPayment
+                            )
+                        }
+
                         // 1. Referral Code Hero Card
                         item {
                             ReferralCodeCard(
@@ -153,12 +170,25 @@ fun ReferralScreen(
                             )
                         }
 
-                        // 3. How It Works (Learn & Earn Model)
+                        // 3. Purchase Courses with Wallet Balance Card
+                        item {
+                            WalletCoursePurchaseCard(
+                                currentBalance = stats.currentBalance,
+                                onNavigateToPayment = onNavigateToPayment
+                            )
+                        }
+
+                        // 4. Referred Users List with Bought/Trial Status
+                        item {
+                            ReferredUsersSection(users = stats.referredUsers)
+                        }
+
+                        // 5. How It Works (Learn & Earn Model)
                         item {
                             HowItWorksCard()
                         }
 
-                        // 4. Rewards History
+                        // 6. Rewards History
                         if (stats.rewards.isNotEmpty()) {
                             item {
                                 Text(
@@ -173,7 +203,7 @@ fun ReferralScreen(
                             }
                         }
 
-                        // 5. Withdrawal History
+                        // 7. Withdrawal History
                         if (state.withdrawals.isNotEmpty()) {
                             item {
                                 Text(
@@ -608,7 +638,10 @@ fun WithdrawDialog(
     var selectedMethod by remember { mutableStateOf("bKash") }
     var accountNumber by remember { mutableStateOf("") }
     var accountType by remember { mutableStateOf("personal") }
-    var amountText by remember { mutableStateOf(currentBalance.toInt().toString()) }
+    var amountText by remember { mutableStateOf(if (currentBalance >= 100.0) currentBalance.toInt().toString() else "100") }
+
+    val amount = amountText.toDoubleOrNull() ?: 0.0
+    val isAmountValid = amount >= 100.0 && amount <= currentBalance
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -623,6 +656,20 @@ fun WithdrawDialog(
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.SemiBold
                 )
+
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)),
+                    shape = RoundedCornerShape(8.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "⚠️ সর্বনিম্ন উত্তোলনের পরিমাণ ৳ ১০০.০০। অনুরোধ অনুমোদনের পর ২৪ ঘণ্টার মধ্যে মোবাইল ব্যাংকিং নম্বরে টাকা পাঠানো হবে।",
+                        fontSize = 11.5.sp,
+                        lineHeight = 16.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(10.dp)
+                    )
+                }
 
                 // Method selection chips
                 Text(text = "পেমেন্ট মেথড:", fontSize = 12.sp, fontWeight = FontWeight.Medium)
@@ -649,8 +696,18 @@ fun WithdrawDialog(
                 OutlinedTextField(
                     value = amountText,
                     onValueChange = { amountText = it },
-                    label = { Text("উত্তোলনের পরিমাণ (৳)") },
+                    label = { Text("উত্তোলনের পরিমাণ (সর্বনিম্ন ৳ ১০০)") },
                     singleLine = true,
+                    isError = amountText.isNotBlank() && (!isAmountValid),
+                    supportingText = {
+                        if (amountText.isNotBlank()) {
+                            if (amount < 100.0) {
+                                Text("সর্বনিম্ন ১০০ টাকা লিখতে হবে", color = MaterialTheme.colorScheme.error)
+                            } else if (amount > currentBalance) {
+                                Text("ব্যালেন্সের চেয়ে বেশি তোলা যাবে না", color = MaterialTheme.colorScheme.error)
+                            }
+                        }
+                    },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -659,10 +716,9 @@ fun WithdrawDialog(
         confirmButton = {
             Button(
                 onClick = {
-                    val amount = amountText.toDoubleOrNull() ?: 0.0
                     onSubmit(selectedMethod, accountNumber, accountType, amount)
                 },
-                enabled = !isSubmitting && accountNumber.length >= 11 && (amountText.toDoubleOrNull() ?: 0.0) >= 100.0
+                enabled = !isSubmitting && accountNumber.length >= 11 && isAmountValid
             ) {
                 if (isSubmitting) {
                     CircularProgressIndicator(modifier = Modifier.size(16.dp), color = MaterialTheme.colorScheme.onPrimary)
@@ -677,4 +733,372 @@ fun WithdrawDialog(
             }
         }
     )
+}
+
+/**
+ * Banner showing whether the current user is a verified Paid Affiliate Partner
+ * or a Trial user who needs to buy a course to participate.
+ */
+@Composable
+fun AffiliatePartnerBanner(
+    isPaidUser: Boolean,
+    onNavigateToPayment: (() -> Unit)?
+) {
+    if (isPaidUser) {
+        Card(
+            shape = RoundedCornerShape(14.dp),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFF10B981).copy(alpha = 0.12f)),
+            border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.4f)),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row(
+                modifier = Modifier.padding(14.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Surface(
+                    shape = CircleShape,
+                    color = Color(0xFF10B981),
+                    modifier = Modifier.size(38.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.Default.Verified,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(22.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(12.dp))
+                Column {
+                    Text(
+                        text = "👑 ভেরিফাইড অ্যাফিলিয়েট পার্টনার",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.5.sp,
+                        color = Color(0xFF065F46)
+                    )
+                    Text(
+                        text = "আপনি একজন পেইড মেম্বার। আপনার রেফার করা বন্ধুরা কোর্স কিনলে প্রতিটিতে ৳২০ সরাসরি ওয়ালেটে জমা হবে।",
+                        fontSize = 11.5.sp,
+                        lineHeight = 16.sp,
+                        color = Color(0xFF047857)
+                    )
+                }
+            }
+        }
+    } else {
+        Card(
+            shape = RoundedCornerShape(14.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.4f)
+            ),
+            border = BorderStroke(1.2.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Surface(
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                imageVector = Icons.Default.WorkspacePremium,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onPrimary,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Column {
+                        Text(
+                            text = "অ্যাফিলিয়েট পার্টনার প্রোগ্রাম",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 15.sp,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = "রেফারেল কমিশন শুধুমাত্র পেইড মেম্বারদের জন্য",
+                            fontSize = 11.5.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Text(
+                    text = "যেকোনো একটি কোর্স কিনে পেইড মেম্বার হয়ে যান এবং বন্ধুদের রেফার করে আনলিমিটেড বোনাস (প্রতিটি কোর্স ক্রয়ে ৳২০) আয় শুরু করুন!",
+                    fontSize = 12.sp,
+                    lineHeight = 17.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                if (onNavigateToPayment != null) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Button(
+                        onClick = onNavigateToPayment,
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.FlashOn, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text("💎 যেকোনো কোর্স কিনে পার্টনার হোন", fontWeight = FontWeight.Bold)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Card explaining and enabling course purchase using affiliate wallet balance.
+ */
+@Composable
+fun WalletCoursePurchaseCard(
+    currentBalance: Double,
+    onNavigateToPayment: (() -> Unit)?
+) {
+    Card(
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.35f)),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(14.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = "🎓 ব্যালেন্স দিয়ে নতুন কোর্স কিনুন",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.5.sp
+                )
+                Text(
+                    text = if (currentBalance >= 100.0) {
+                        "আপনার অর্জিত ৳${"%.0f".format(currentBalance)} দিয়ে সরাসরি যেকোনো নতুন কোর্স সম্পূর্ণ বিনামূল্যে আনলক করতে পারবেন।"
+                    } else {
+                        "রেফার করে ৳১০০ আয় করলেই সেই ব্যালেন্স দিয়ে অন্য যেকোনো ভাষা বা বইয়ের বান্ডেল কোর্স সরাসরি কিনতে পারবেন।"
+                    },
+                    fontSize = 11.5.sp,
+                    lineHeight = 16.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            if (onNavigateToPayment != null) {
+                Spacer(modifier = Modifier.width(10.dp))
+                FilledTonalButton(
+                    onClick = onNavigateToPayment,
+                    shape = RoundedCornerShape(8.dp)
+                ) {
+                    Text("কোর্সসমূহ", fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Section showing the user's referred friends and whether each friend has bought a course or is still in trial.
+ */
+@Composable
+fun ReferredUsersSection(
+    users: List<ReferredUserItem>
+) {
+    var selectedFilter by remember { mutableStateOf("all") }
+
+    val paidCount = remember(users) { users.count { it.isPaid } }
+    val trialCount = remember(users) { users.count { !it.isPaid } }
+
+    val filteredList = remember(users, selectedFilter) {
+        when (selectedFilter) {
+            "paid" -> users.filter { it.isPaid }
+            "trial" -> users.filter { !it.isPaid }
+            else -> users
+        }
+    }
+
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "রেফার করা বন্ধুদের তালিকা (${users.size})",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
+
+        // Filter chips: All, Paid, Trial
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            FilterChip(
+                selected = selectedFilter == "all",
+                onClick = { selectedFilter = "all" },
+                label = { Text("সকল (${users.size})", fontSize = 12.sp) }
+            )
+            FilterChip(
+                selected = selectedFilter == "paid",
+                onClick = { selectedFilter = "paid" },
+                label = { Text("🟢 কোর্স কেনা (${paidCount})", fontSize = 12.sp) }
+            )
+            FilterChip(
+                selected = selectedFilter == "trial",
+                onClick = { selectedFilter = "trial" },
+                label = { Text("⏳ এখনো কেনেনি (${trialCount})", fontSize = 12.sp) }
+            )
+        }
+
+        if (filteredList.isEmpty()) {
+            Card(
+                shape = RoundedCornerShape(10.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Box(modifier = Modifier.padding(18.dp), contentAlignment = Alignment.Center) {
+                    Text(
+                        text = if (users.isEmpty()) {
+                            "এখনো কোনো বন্ধু আপনার রেফার কোড দিয়ে যুক্ত হয়নি। উপরে দেওয়া রেফার কোডটি বন্ধুদের সাথে শেয়ার করুন!"
+                        } else {
+                            "এই ফিল্টারে কোনো বন্ধু পাওয়া যায়নি।"
+                        },
+                        fontSize = 12.sp,
+                        textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        } else {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                filteredList.forEach { friend ->
+                    ReferredUserCard(friend = friend)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ReferredUserCard(friend: ReferredUserItem) {
+    Card(
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(
+            1.dp,
+            if (friend.isPaid) Color(0xFF10B981).copy(alpha = 0.35f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
+        ),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                Surface(
+                    shape = CircleShape,
+                    color = if (friend.isPaid) Color(0xFF10B981).copy(alpha = 0.15f) else MaterialTheme.colorScheme.surfaceVariant,
+                    modifier = Modifier.size(40.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text(
+                            text = (friend.name.firstOrNull()?.toString() ?: "U").uppercase(),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp,
+                            color = if (friend.isPaid) Color(0xFF047857) else MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column {
+                    Text(
+                        text = friend.name.ifBlank { "ব্যবহারকারী" },
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.5.sp
+                    )
+                    Text(
+                        text = friend.email,
+                        fontSize = 11.5.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    if (friend.registeredAt.isNotBlank()) {
+                        Text(
+                            text = "যুক্ত হয়েছেন: ${friend.registeredAt.take(10)}",
+                            fontSize = 10.sp,
+                            color = MaterialTheme.colorScheme.outline
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            if (friend.isPaid) {
+                Surface(
+                    color = Color(0xFF10B981).copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(8.dp),
+                    border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.4f))
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.End,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp)
+                    ) {
+                        Text(
+                            text = "✓ কোর্স কেনা হয়েছে",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF065F46)
+                        )
+                        Text(
+                            text = "+৳${friend.earnedReward.toInt()} বোনাস প্রাপ্ত",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF047857)
+                        )
+                    }
+                }
+            } else {
+                Surface(
+                    color = Color(0xFFF59E0B).copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(8.dp),
+                    border = BorderStroke(1.dp, Color(0xFFF59E0B).copy(alpha = 0.4f))
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.End,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp)
+                    ) {
+                        Text(
+                            text = "⏳ এখনো কেনেনি",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color(0xFF92400E)
+                        )
+                        Text(
+                            text = "ট্রায়াল মেম্বার",
+                            fontSize = 10.sp,
+                            color = Color(0xFFB45309)
+                        )
+                    }
+                }
+            }
+        }
+    }
 }

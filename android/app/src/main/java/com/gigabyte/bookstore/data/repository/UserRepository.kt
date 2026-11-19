@@ -7,6 +7,7 @@ import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 import com.google.firebase.firestore.ListenerRegistration
 import com.gigabyte.bookstore.data.models.PaymentRequest
 import com.gigabyte.bookstore.data.models.ReferralReward
+import com.gigabyte.bookstore.data.models.ReferredUserItem
 import com.gigabyte.bookstore.data.models.ReferralStats
 import com.gigabyte.bookstore.data.models.User
 import com.gigabyte.bookstore.data.models.WithdrawalRequest
@@ -691,15 +692,36 @@ class UserRepository(
             val paidCount = rewards.size
             val totalEarned = rewards.sumOf { it.amount }
 
-            // 2. Count total registered friends (by referral code)
-            var totalFriends = 0
-            if (myReferralCode.isNotBlank()) {
+            // 2. Fetch list of friends who registered using this user's referral code
+            val referredUsers = if (myReferralCode.isNotBlank()) {
                 val byCodeSnap = firestore.collection("users")
                     .whereEqualTo("referredBy", myReferralCode)
                     .get()
                     .await()
-                totalFriends = byCodeSnap.size()
-            }
+                byCodeSnap.documents.map { d ->
+                    val email = d.getString("email") ?: d.id
+                    val maskedEmail = if (email.contains("@")) {
+                        val parts = email.split("@")
+                        val prefix = parts[0]
+                        val maskedPrefix = if (prefix.length > 3) prefix.take(3) + "***" else prefix.take(1) + "***"
+                        "$maskedPrefix@${parts[1]}"
+                    } else email
+                    val status = d.getString("status") ?: "trial"
+                    val bundles = (d.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+                    val isPaid = status.equals("paid", ignoreCase = true) || status.equals("active", ignoreCase = true) || bundles.isNotEmpty()
+                    val userReward = rewards.filter { it.refereeEmail.equals(email, ignoreCase = true) }.sumOf { it.amount }
+                    ReferredUserItem(
+                        email = maskedEmail,
+                        name = d.getString("name") ?: "ব্যবহারকারী",
+                        registeredAt = d.getString("createdAt") ?: "",
+                        isPaid = isPaid,
+                        unlockedBundles = bundles,
+                        earnedReward = if (userReward > 0.0) userReward else if (isPaid) 20.0 else 0.0
+                    )
+                }.sortedByDescending { it.registeredAt }
+            } else emptyList()
+
+            var totalFriends = referredUsers.size
             if (totalFriends < paidCount) {
                 totalFriends = paidCount
             }
@@ -711,7 +733,8 @@ class UserRepository(
                     paidMembersCount = paidCount,
                     totalEarned = totalEarned,
                     currentBalance = currentBalance,
-                    rewards = rewards
+                    rewards = rewards,
+                    referredUsers = referredUsers
                 )
             )
         } catch (e: Exception) {
@@ -728,15 +751,15 @@ class UserRepository(
     ): Result<Unit> = withContext(Dispatchers.IO) {
         try {
             val email = appPreferences.userEmail.value.trim().lowercase()
-            if (email.isBlank()) return@withContext Result.failure(Exception("Not logged in"))
-            if (amount < 100.0) return@withContext Result.failure(Exception("Minimum withdrawal is 100 TK"))
+            if (email.isBlank()) return@withContext Result.failure(Exception("অনুগ্রহ করে প্রথমে লগইন করুন"))
+            if (amount < 100.0) return@withContext Result.failure(Exception("সর্বনিম্ন উত্তোলনের পরিমাণ ৳ ১০০.০০"))
 
             val userRef = firestore.collection("users").document(email)
             val userSnap = userRef.get().await()
             val currentBal = userSnap.getDouble("balance") ?: 0.0
 
             if (currentBal < amount) {
-                return@withContext Result.failure(Exception("Insufficient balance (Current: ৳$currentBal)"))
+                return@withContext Result.failure(Exception("পর্যাপ্ত ব্যালেন্স নেই (বর্তমান ব্যালেন্স: ৳$currentBal)"))
             }
 
             val newBal = currentBal - amount
@@ -757,6 +780,123 @@ class UserRepository(
             )
 
             firestore.collection("withdrawal_requests").add(withdrawalData).await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Instantly purchases and unlocks a course using the user's earned affiliate wallet balance.
+     */
+    suspend fun purchaseCourseWithWalletBalance(
+        packageType: String,
+        amount: Double
+    ): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val email = appPreferences.userEmail.value.trim().lowercase()
+            if (email.isBlank()) return@withContext Result.failure(Exception("অনুগ্রহ করে প্রথমে লগইন করুন"))
+
+            val userRef = firestore.collection("users").document(email)
+            val userSnap = userRef.get().await()
+            val currentBal = userSnap.getDouble("balance") ?: appPreferences.userBalance.value
+
+            if (currentBal < amount) {
+                return@withContext Result.failure(Exception("পর্যাপ্ত ওয়ালেট ব্যালেন্স নেই (বর্তমান: ৳ $currentBal)"))
+            }
+
+            val newBal = currentBal - amount
+            val currentDate = User.getCurrentFormattedDate()
+            val normalizedPackage = packageType.trim().lowercase()
+
+            val existingBundles = (userSnap.get("unlockedBundles") as? List<*>)
+                ?.mapNotNull { it?.toString() }
+                ?.toMutableSet()
+                ?: appPreferences.unlockedBundles.value.toMutableSet()
+
+            if (normalizedPackage == "mega_bundle") {
+                existingBundles.addAll(listOf(
+                    "audiobook_bundle", "english_course", "japanese_course",
+                    "chinese_course", "german_course", "arabic_course",
+                    "korean_course", "urdu_course", "hindi_course",
+                    "quran_course", "regional_course", "mega_bundle"
+                ))
+            } else {
+                existingBundles.add(normalizedPackage)
+            }
+
+            userRef.update(
+                mapOf(
+                    "status" to "paid",
+                    "balance" to newBal,
+                    "unlockedBundles" to existingBundles.toList(),
+                    "lastLoginAt" to currentDate
+                )
+            ).await()
+
+            // Record as auto-approved wallet payment
+            val paymentData = hashMapOf(
+                "email" to email,
+                "name" to (userSnap.getString("name") ?: appPreferences.userName.value),
+                "phone" to (userSnap.getString("phone") ?: ""),
+                "paymentMethod" to "WalletBalance",
+                "trxId" to "WALLET-" + System.currentTimeMillis(),
+                "packageType" to packageType,
+                "amount" to amount,
+                "status" to "approved",
+                "submittedAt" to currentDate,
+                "reviewedAt" to currentDate,
+                "autoApproved" to true
+            )
+            firestore.collection("payment_requests").add(paymentData).await()
+
+            // Immediately update local preferences state
+            appPreferences.updateUserStatus("paid", newBal, currentDate)
+            appPreferences.setUnlockedBundles(existingBundles)
+
+            // Reward referrer if applicable
+            val referredBy = userSnap.getString("referredBy") ?: ""
+            val referralRewardPaid = userSnap.getBoolean("referralRewardPaid") ?: false
+
+            if (referredBy.isNotBlank() && !referralRewardPaid) {
+                try {
+                    var referrerDoc = firestore.collection("users").document(referredBy.lowercase()).get().await()
+                    if (!referrerDoc.exists()) {
+                        val q = firestore.collection("users").whereEqualTo("referralCode", referredBy.uppercase()).get().await()
+                        if (!q.isEmpty) {
+                            referrerDoc = q.documents.first()
+                        }
+                    }
+
+                    if (referrerDoc.exists()) {
+                        val refEmail = referrerDoc.getString("email") ?: referrerDoc.id
+                        val refCurrentBal = referrerDoc.getDouble("balance") ?: 0.0
+                        val updatedRefBal = refCurrentBal + 20.0
+
+                        referrerDoc.reference.update("balance", updatedRefBal).await()
+                        userRef.update("referralRewardPaid", true).await()
+
+                        val rewardMap = hashMapOf(
+                            "referrerEmail" to refEmail,
+                            "referrerCode" to (referrerDoc.getString("referralCode") ?: ""),
+                            "refereeEmail" to email,
+                            "refereeName" to (userSnap.getString("name") ?: appPreferences.userName.value),
+                            "amount" to 20.0,
+                            "paidAt" to currentDate,
+                            "status" to "rewarded"
+                        )
+                        firestore.collection("referral_rewards").add(rewardMap).await()
+
+                        if (appPreferences.userEmail.value.equals(refEmail, ignoreCase = true)) {
+                            appPreferences.updateUserStatus(appPreferences.userStatus.value, updatedRefBal, currentDate)
+                        }
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+
             Result.success(Unit)
         } catch (e: Exception) {
             e.printStackTrace()

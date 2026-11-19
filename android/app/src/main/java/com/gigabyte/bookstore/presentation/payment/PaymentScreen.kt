@@ -6,6 +6,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -243,6 +244,8 @@ fun PaymentScreen(
     var isSubmitting by remember { mutableStateOf(false) }
     var submissionError by remember { mutableStateOf<String?>(null) }
     var submitSuccess by remember { mutableStateOf(false) }
+    var showWalletConfirmDialog by remember { mutableStateOf(false) }
+    var isWalletPurchasing by remember { mutableStateOf(false) }
 
     var paymentNumbers by remember {
         mutableStateOf(
@@ -432,6 +435,169 @@ fun PaymentScreen(
                                 text = point,
                                 fontSize = 12.sp,
                                 lineHeight = 17.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+            }
+
+            val isPackageAlreadyUnlocked = app.appPreferences.isBundleUnlocked(selectedPackage.id)
+
+            if (isPackageAlreadyUnlocked) {
+                Card(
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFF10B981).copy(alpha = 0.15f)
+                    ),
+                    border = BorderStroke(1.dp, Color(0xFF10B981)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(14.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.CheckCircle,
+                            contentDescription = null,
+                            tint = Color(0xFF10B981),
+                            modifier = Modifier.size(24.dp)
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                text = "এই কোর্সটি ইতোমধ্যে আপনার আনলক করা আছে!",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.sp,
+                                color = Color(0xFF065F46)
+                            )
+                            Text(
+                                text = "আপনি সরাসরি হোম বা লাইব্রেরি থেকে পুরো কনটেন্ট উপভোগ করতে পারেন।",
+                                fontSize = 12.sp,
+                                color = Color(0xFF047857)
+                            )
+                        }
+                    }
+                }
+            } else {
+                // 3.1 Direct Wallet Purchase Option (if balance is sufficient)
+                if (userBalance >= selectedPackage.price) {
+                    Card(
+                        shape = RoundedCornerShape(14.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
+                        ),
+                        border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Surface(
+                                    shape = CircleShape,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(36.dp)
+                                ) {
+                                    Box(contentAlignment = Alignment.Center) {
+                                        Icon(
+                                            imageVector = Icons.Default.AccountBalanceWallet,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.onPrimary,
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                }
+                                Spacer(modifier = Modifier.width(10.dp))
+                                Column {
+                                    Text(
+                                        text = "💰 রেফারেল ব্যালেন্স দিয়ে কিনুন",
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 15.sp,
+                                        color = MaterialTheme.colorScheme.onSurface
+                                    )
+                                    Text(
+                                        text = "আপনার ব্যালেন্স: ৳ ${"%.2f".format(userBalance)} (পর্যাপ্ত)",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        color = Color(0xFF10B981)
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Text(
+                                text = "কোনো প্রকার বিকাশ/নগদ পেমেন্ট ছাড়াই সরাসরি আপনার অর্জিত রেফারেল বোনাস থেকে '${selectedPackage.title}' সাথে সাথে আনলক করুন।",
+                                fontSize = 12.sp,
+                                lineHeight = 17.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+
+                            Spacer(modifier = Modifier.height(12.dp))
+                            Button(
+                                onClick = { showWalletConfirmDialog = true },
+                                modifier = Modifier.fillMaxWidth(),
+                                enabled = !isWalletPurchasing && !isSubmitting,
+                                shape = RoundedCornerShape(10.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                            ) {
+                                if (isWalletPurchasing) {
+                                    CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                } else {
+                                    Icon(
+                                        imageVector = Icons.Default.FlashOn,
+                                        contentDescription = null,
+                                        tint = Color.White,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                }
+                                Text(
+                                    text = "ওয়ালেট থেকে সরাসরি আনলক করুন (${selectedPackage.priceDisplay})",
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        HorizontalDivider(modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+                        Text(
+                            text = " অথবা মোবাইল ব্যাংকিং দিয়ে কিনুন ",
+                            fontSize = 11.5.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontWeight = FontWeight.Medium
+                        )
+                        HorizontalDivider(modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+                    }
+                } else if (userBalance > 0.0) {
+                    Card(
+                        shape = RoundedCornerShape(10.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(12.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.AccountBalanceWallet,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "আপনার ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)}। বন্ধুদের রেফার করে আরো আয় করে যেকোনো কোর্স সম্পূর্ণ ফ্রি-তে ওয়ালেট দিয়ে কিনতে পারবেন!",
+                                fontSize = 11.5.sp,
+                                lineHeight = 16.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
@@ -671,6 +837,63 @@ fun PaymentScreen(
                     )
                 }
             }
+        }
+
+        if (showWalletConfirmDialog) {
+            AlertDialog(
+                onDismissRequest = { if (!isWalletPurchasing) showWalletConfirmDialog = false },
+                title = {
+                    Text("কোর্স ক্রয়ের নিশ্চিতকরণ", fontWeight = FontWeight.Bold)
+                },
+                text = {
+                    Text(
+                        text = "আপনি কি নিশ্চিত যে আপনার রেফারেল ওয়ালেট ব্যালেন্স থেকে ৳${selectedPackage.price.toInt()} দিয়ে '${selectedPackage.title}' সাথে সাথে আনলক করতে চান?\n\nবর্তমান ব্যালেন্স: ৳${"%.2f".format(userBalance)}\nক্রয়ের পর ব্যালেন্স: ৳${"%.2f".format(userBalance - selectedPackage.price)}",
+                        fontSize = 13.sp,
+                        lineHeight = 19.sp
+                    )
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            isWalletPurchasing = true
+                            scope.launch {
+                                val res = userRepository.purchaseCourseWithWalletBalance(
+                                    packageType = selectedPackage.id,
+                                    amount = selectedPackage.price
+                                )
+                                isWalletPurchasing = false
+                                showWalletConfirmDialog = false
+                                if (res.isSuccess) {
+                                    Toast.makeText(
+                                        context,
+                                        "🎉 অভিনন্দন! '${selectedPackage.title}' কোর্সটি সফলভাবে আনলক হয়েছে!",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                } else {
+                                    val err = res.exceptionOrNull()?.message ?: "কোর্স আনলক করতে সমস্যা হয়েছে"
+                                    Toast.makeText(context, err, Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        },
+                        enabled = !isWalletPurchasing,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                    ) {
+                        if (isWalletPurchasing) {
+                            CircularProgressIndicator(modifier = Modifier.size(16.dp), color = Color.White, strokeWidth = 2.dp)
+                            Spacer(modifier = Modifier.width(6.dp))
+                        }
+                        Text("হ্যাঁ, আনলক করুন", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = { showWalletConfirmDialog = false },
+                        enabled = !isWalletPurchasing
+                    ) {
+                        Text("বাতিল")
+                    }
+                }
+            )
         }
     }
 }

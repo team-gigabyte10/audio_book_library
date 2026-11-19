@@ -450,7 +450,8 @@ fun AppNavHost(
         // 9. Referral & Earn Screen
         composable(Screen.Referral.route) {
             ReferralScreen(
-                onNavigateBack = { navController.popBackStack() }
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
             )
         }
 
