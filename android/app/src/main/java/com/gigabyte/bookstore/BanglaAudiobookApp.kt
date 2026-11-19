@@ -77,6 +77,16 @@ class BanglaAudiobookApp : Application() {
 
         // Ensure English learning content is imported/updated on launch
         learningContent.ensureLoaded()
+
+        // Initialize Meta Audience Network (Facebook Ads)
+        try {
+            com.facebook.ads.AudienceNetworkAds.initialize(this)
+            if (com.gigabyte.bookstore.data.ads.AdConfig.isTestMode) {
+                com.facebook.ads.AdSettings.setTestMode(true)
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("BanglaAudiobookApp", "Failed to initialize Audience Network SDK", e)
+        }
     }
 
 

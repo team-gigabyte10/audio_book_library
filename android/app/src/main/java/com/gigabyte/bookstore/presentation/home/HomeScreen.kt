@@ -79,6 +79,8 @@ import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.AudioWaveAnimation
 import com.gigabyte.bookstore.presentation.components.BookCoverView
 import com.gigabyte.bookstore.presentation.components.CourseCountry
+import com.gigabyte.bookstore.presentation.components.FacebookBannerAd
+import com.gigabyte.bookstore.data.ads.AdConfig
 import com.gigabyte.bookstore.presentation.components.ExitConfirmationDialog
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
@@ -349,25 +351,33 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(bottom = 24.dp)
                     ) {
-                        // 1. Hero Banner Carousel from Firestore
-                        if (uiState.banners.isNotEmpty()) {
-                            item {
-                                Spacer(modifier = Modifier.height(12.dp))
-                                HeroBannerCarousel(
-                                    banners = uiState.banners,
-                                    onBannerClick = { banner ->
-                                        handleBannerClick(
-                                            banner = banner,
-                                            courses = uiState.englishCourses + uiState.japaneseCourses,
-                                            onSelectCourse = { selectedCourse = it },
-                                            onNavigateToLibrary = onNavigateToLibrary,
-                                            onNavigateToBook = onNavigateToBook,
-                                            onNavigateToLearnEnglish = onNavigateToLearnEnglish,
-                                            onNavigateToLearnJapanese = onNavigateToLearnJapanese
+                        // 1. Facebook Banner Ad (with fallback to Hero Banner Carousel if ad not filled)
+                        item {
+                            Spacer(modifier = Modifier.height(12.dp))
+                            FacebookBannerAd(
+                                placementId = AdConfig.FB_BANNER_PLACEMENT_ID,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp),
+                                fallback = {
+                                    if (uiState.banners.isNotEmpty()) {
+                                        HeroBannerCarousel(
+                                            banners = uiState.banners,
+                                            onBannerClick = { banner ->
+                                                handleBannerClick(
+                                                    banner = banner,
+                                                    courses = uiState.englishCourses + uiState.japaneseCourses,
+                                                    onSelectCourse = { selectedCourse = it },
+                                                    onNavigateToLibrary = onNavigateToLibrary,
+                                                    onNavigateToBook = onNavigateToBook,
+                                                    onNavigateToLearnEnglish = onNavigateToLearnEnglish,
+                                                    onNavigateToLearnJapanese = onNavigateToLearnJapanese
+                                                )
+                                            }
                                         )
                                     }
-                                )
-                            }
+                                }
+                            )
                         }
 
                         // 0. Live Bangla-to-Foreign Speech Translator Showcase Card
