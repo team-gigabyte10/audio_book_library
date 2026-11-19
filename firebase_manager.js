@@ -158,6 +158,24 @@ async function revokeCourses(email, coursesStr) {
   console.log(`Updated bundles for ${cleanEmail}: ${JSON.stringify(Array.from(currentBundles))}`);
 }
 
+async function setTrial(email) {
+  const cleanEmail = email.trim().toLowerCase();
+  const ref = doc(db, 'users', cleanEmail);
+  const snap = await getDoc(ref);
+  if (!snap.exists()) {
+    console.log(`❌ User not found: ${cleanEmail}`);
+    return;
+  }
+  await updateDoc(ref, {
+    status: 'trial',
+    role: 'customer',
+    isAdmin: false,
+    unlockedBundles: [],
+    lastLoginAt: getCurrentFormattedDate()
+  });
+  console.log(`🔒 User ${cleanEmail} has been set to TRIAL (status: "trial", role: "customer", isAdmin: false, unlockedBundles: [])`);
+}
+
 async function main() {
   const [,, cmd, arg1, arg2, arg3] = process.argv;
   try {
@@ -190,6 +208,10 @@ async function main() {
         if (!arg1 || !arg2) console.log('Usage: node firebase_manager.js revoke-courses <email> <courses>');
         else await revokeCourses(arg1, arg2);
         break;
+      case 'set-trial':
+        if (!arg1) console.log('Usage: node firebase_manager.js set-trial <email>');
+        else await setTrial(arg1);
+        break;
       default:
         console.log(`
 Firebase Management CLI
@@ -202,6 +224,7 @@ Commands:
   node firebase_manager.js make-admin <email>
   node firebase_manager.js grant-courses <email> <english,japanese|mega_bundle>
   node firebase_manager.js revoke-courses <email> <english,japanese>
+  node firebase_manager.js set-trial <email>
         `);
     }
   } catch (err) {
