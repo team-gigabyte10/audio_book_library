@@ -86,7 +86,7 @@ enum class TranslatorLanguage(
     REGIONAL_BANGLA(
         key = "regional",
         titleBn = "আঞ্চলিক বাংলা",
-        nativeName = "বাংলাদেশের ৯ অঞ্চল",
+        nativeName = "বাংলা ১০ অঞ্চল",
         flag = "🇧🇩",
         speechLang = SpeechLang.BD,
         sttLocaleTag = "bn-BD",
@@ -144,7 +144,8 @@ enum class RegionalDialectChoice(val key: String, val labelBn: String, val speak
     RAJ("raj", "রাজশাহী (বরেন্দ্রী)", "রাজশাহী"),
     RNG("rng", "রংপুর (রংপুরিয়া)", "রংপুর"),
     KHL("khl", "খুলনা-যশোর", "খুলনা"),
-    MYM("mym", "ময়মনসিংহ", "ময়মনসিংহ");
+    MYM("mym", "ময়মনসিংহ", "ময়মনসিংহ"),
+    KOL("kol", "কলকাতা (পশ্চিমবঙ্গ)", "কলকাতা");
 
     companion object {
         fun fromKey(raw: String?): RegionalDialectChoice =

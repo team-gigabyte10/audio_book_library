@@ -430,20 +430,20 @@ fun HomeScreen(
                             )
                         }
 
-                        // 3. 🇧🇩 BANGLADESHI REGIONAL DIVISION SPOKEN COURSE SHOWCASE CARD
+                        // 3. 🇧🇩 BANGLADESHI & KOLKATA REGIONAL SPOKEN COURSE SHOWCASE CARD
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             HomeShowcaseCard(
-                                title = "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্স",
-                                subtitle = "একই বাক্য ৯টি অঞ্চলে পাশাপাশি (চাটগাঁইয়া, নোয়াখালী, সিলেটি, ঢাকাইয়া, বরিশাইল্লা, বরেন্দ্রী, রংপুরিয়া, খুলনা ও ময়মনসিংহ)",
-                                badgeText = "🇧🇩 বিভাগীয় আঞ্চলিক ভাষা",
+                                title = "বাংলা আঞ্চলিক ভাষা তুলনামূলক স্পোকেন কোর্স",
+                                subtitle = "একই বাক্য ১০টি অঞ্চলে পাশাপাশি (চাটগাঁইয়া, নোয়াখালী, সিলেটি, ঢাকাইয়া, বরিশাইল্লা, বরেন্দ্রী, রংপুরিয়া, খুলনা, ময়মনসিংহ ও কলকাতা)",
+                                badgeText = "🎭 ১০টি আঞ্চলিক কথ্য রূপ",
                                 badgeColor = Color(0xFF006A4E),
                                 priceText = "১০০ টাকা",
                                 isPurchased = isRegionalBanglaUnlocked,
                                 imageUrl = null,
                                 country = CourseCountry.BANGLADESH,
                                 accentColor = Color(0xFF006A4E),
-                                statsText = "🎧 ৩২টি তুলনামূলক লেসন · ৫৭৬টি আঞ্চলিক বাক্য · ৯ অঞ্চল একসাথে",
+                                statsText = "🎧 ৩২টি তুলনামূলক লেসন · ৬৪০টি আঞ্চলিক বাক্য · ১০ অঞ্চল একসাথে",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnRegionalBangla,
                                 modifier = Modifier.padding(horizontal = 16.dp)

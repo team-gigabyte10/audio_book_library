@@ -100,7 +100,7 @@ class RegionalBanglaSupportTest {
 
     @Suppress("UNCHECKED_CAST")
     @Test
-    fun `bundled spoken_bangla_regional_divisions asset groups all 9 regions per sentence across 8 themes`() {
+    fun `bundled spoken_bangla_regional_divisions asset groups all 10 regions per sentence across 8 themes`() {
         val assetFile = File("src/main/assets/spoken_bangla_regional_divisions.json")
         assertTrue("Asset json must exist", assetFile.exists())
 
@@ -127,6 +127,6 @@ class RegionalBanglaSupportTest {
         }
 
         assertEquals("Must contain 64 shared concept sentences", 64, conceptCounts.size)
-        assertTrue("Every concept sentence must cover all 9 regions", conceptCounts.values.all { it == 9 })
+        assertTrue("Every concept sentence must cover all 10 regions", conceptCounts.values.all { it == 10 })
     }
 }

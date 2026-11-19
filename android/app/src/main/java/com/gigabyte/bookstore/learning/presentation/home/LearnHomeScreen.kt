@@ -108,7 +108,7 @@ fun LearnHomeScreen(
     val bdParts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("bd-") && it.part.isEnabled } }
     val bdPartCount = bdParts.size.coerceAtLeast(1)
     val bdLessonCount = bdParts.sumOf { it.lessons.size }.let { if (it > 0) it else 32 }
-    val bdSentenceCount = bdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 576 }
+    val bdSentenceCount = bdParts.sumOf { part -> part.lessons.sumOf { it.itemCount } }.let { if (it > 0) it else 640 }
 
     val enStandardA1Parts = remember(syllabus) { syllabus.filter { it.part.id.startsWith("en-a1-") && it.part.isEnabled } }
     val enStandardA1PartCount = enStandardA1Parts.size.coerceAtLeast(1)
@@ -364,7 +364,7 @@ fun LearnHomeScreen(
                         Text(
                             text = when {
                                 isQuran -> "নূরানী পদ্ধতিতে শূন্য থেকে সহীহ তিলাওয়াত ও তাজবীদ"
-                                isRegionalBangla -> "৮টি বিভাগের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা শিক্ষা"
+                                isRegionalBangla -> "১০টি অঞ্চলের খাঁটি আঞ্চলিক কথ্য ভাষা ও উপভাষা শিক্ষা"
                                 isUrdu -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে উর্দু বলা"
                                 isHindi -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে হিন্দি বলা"
                                 isGerman -> "বাংলা থেকে সহজ নিয়মে শূন্য থেকে জার্মান বলা"
@@ -1363,24 +1363,24 @@ fun LearnHomeScreen(
                     } else if (isRegionalBangla) {
                         item {
                             WelcomeBanner(
-                                text = "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি শব্দ ও বাক্য শুনুন এবং জোরে জোরে বলুন।",
+                                text = "আঞ্চলিক ভাষা তুলনামূলক স্পোকেন কোর্সে আপনাকে স্বাগতম! প্রতিটি শব্দ ও বাক্য শুনুন এবং জোরে জোরে বলুন।",
                                 isSpeaking = isSpeaking,
                                 onPlayTts = { viewModel.playWelcomeGreeting(language = "regional_bangla", force = true) },
                                 onStopTts = { viewModel.stopWelcomeGreeting() }
                             )
                         }
 
-                        // Complete 9 Regions Side-by-Side Comparative Course Card
+                        // Complete 10 Regions Side-by-Side Comparative Course Card
                         item {
                             MainCourseCard(
-                                tag = "🇧🇩 ৯ অঞ্চল পাশাপাশি · তুলনামূলক কোর্স",
-                                title = "একই বাক্য ৯টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",
-                                description = "চট্টগ্রাম, নোয়াখালী, সিলেট, পুরান ঢাকা, বরিশাল, রাজশাহী, রংপুর, খুলনা ও ময়মনসিংহের খাঁটি কথ্য রূপ একসাথে তুলনা করে শিখুন।",
+                                tag = "🎭 ১০ অঞ্চল পাশাপাশি · তুলনামূলক কোর্স",
+                                title = "একই বাক্য ১০টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",
+                                description = "চট্টগ্রাম, নোয়াখালী, সিলেট, পুরান ঢাকা, বরিশাল, রাজশাহী, রংপুর, খুলনা, ময়মনসিংহ ও কলকাতার খাঁটি কথ্য রূপ একসাথে তুলনা করে শিখুন।",
                                 accentColor = Color(0xFF006A4E),
                                 partCount = bdPartCount,
                                 lessonCount = bdLessonCount,
                                 sentenceCount = bdSentenceCount,
-                                customPills = listOf("🇧🇩 ৮টি অধ্যায়", "🎧 ৩২টি তুলনামূলক লেসন", "🗣️ ৫৭৬টি আঞ্চলিক বাক্য"),
+                                customPills = listOf("🎭 ৮টি অধ্যায়", "🎧 ৩২টি তুলনামূলক লেসন", "🗣️ ৬৪০টি আঞ্চলিক বাক্য"),
                                 onClick = { onOpenCourse("regional_bangla") }
                             )
                         }

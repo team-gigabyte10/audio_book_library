@@ -1,4 +1,4 @@
-"""Verifies schema, token integrity, script purity, and 9-region concept completeness of spoken_bangla_regional_divisions.json."""
+"""Verifies schema, token integrity, script purity, and 10-region concept completeness of spoken_bangla_regional_divisions.json."""
 import json
 import os
 import re
@@ -7,7 +7,7 @@ from collections import defaultdict
 
 IGNORED = re.compile(r"[\s\u200c\u200d।॥,?!.,:;'\-—…\"“”]")
 FOREIGN_LEAK = re.compile(r"[\u0900-\u0963\u0965-\u097F\u0A80-\u0AFF\u0600-\u06FF\u30A0-\u30FF\u3040-\u309F]")
-EXPECTED_REGIONS = ["ctg", "noa", "syl", "dhk", "bar", "raj", "rng", "khl", "mym"]
+EXPECTED_REGIONS = ["ctg", "noa", "syl", "dhk", "bar", "raj", "rng", "khl", "mym", "kol"]
 
 
 def verify():
@@ -46,7 +46,7 @@ def verify():
             assert lesson.get("id", "").startswith("bd-thm-")
             assert lesson.get("title") and lesson.get("title_bn")
             items = lesson.get("items", [])
-            assert len(items) == 18, f"Expected 18 comparative items in {lesson['id']}, got {len(items)}"
+            assert len(items) == 20, f"Expected 20 comparative items in {lesson['id']}, got {len(items)}"
 
             for item in items:
                 total_items += 1
@@ -81,11 +81,11 @@ def verify():
     print(f"  Asset File: {json_path}")
     print(f"  Total Parts (Thematic): {len(parts)}")
     print(f"  Total Lessons: {total_lessons}")
-    print(f"  Total Concept Sentences: {len(concept_regions)} (9 regions each)")
+    print(f"  Total Concept Sentences: {len(concept_regions)} (10 regions each)")
     print(f"  Total Items: {total_items}")
     print("  Token Integrity: 100% Passed")
     print("  Script Purity: 100% Passed")
-    print("  9-Region Parity per Sentence: 100% Passed")
+    print("  10-Region Parity per Sentence: 100% Passed")
 
 
 if __name__ == "__main__":

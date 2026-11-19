@@ -96,7 +96,7 @@ def build_course():
         "schema_version": 1,
         "course_id": "spoken_bangla_regional_divisions",
         "title": "বাংলাদেশের বিভাগীয় আঞ্চলিক ভাষা",
-        "title_bn": "একই বাক্য ৯টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",
+        "title_bn": "একই বাক্য ১০টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",
         "target_lang": "bd",
         "ladder_default": [
             {"play": "bd", "speed": 0.85},

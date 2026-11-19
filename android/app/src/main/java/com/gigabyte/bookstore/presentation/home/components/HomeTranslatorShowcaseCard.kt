@@ -47,7 +47,7 @@ private val SUPPORTED_FLAG_PILLS = listOf(
     "🇮🇳 হিন্দি",
     "🇩🇪 জার্মান",
     "🕌 আরবি",
-    "🇧🇩 ৯ অঞ্চল"
+    "🎭 ১০ অঞ্চল"
 )
 
 @Composable
