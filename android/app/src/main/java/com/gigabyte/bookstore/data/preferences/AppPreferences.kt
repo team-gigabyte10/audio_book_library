@@ -212,6 +212,42 @@ class AppPreferences(context: Context) {
         private const val KEY_LAST_LOGIN_AT = "last_login_at"
         private const val KEY_UNLOCKED_BUNDLES = "unlocked_bundles"
         private const val KEY_IS_ADMIN = "is_admin"
+        fun normalizeBundleId(bundleOrCode: String): String {
+            val clean = bundleOrCode.trim().lowercase()
+            return when {
+                clean == "mega_bundle" || clean == "mega" || clean == "all" -> "mega_bundle"
+                clean == "audiobook_bundle" || clean == "audiobook" || clean == "books" -> "audiobook_bundle"
+                clean.contains("quran") || clean == "qr" -> "quran_course"
+                clean.contains("regional") || clean == "bd" -> "regional_course"
+                clean.contains("japan") || clean == "jp" -> "japanese_course"
+                clean.contains("chinese") || clean == "zh" || clean == "china" || clean == "mandarin" -> "chinese_course"
+                clean.contains("german") || clean == "de" || clean == "deutsch" -> "german_course"
+                clean.contains("arabic") || clean == "ar" || clean == "arab" -> "arabic_course"
+                clean.contains("korean") || clean == "ko" || clean == "korea" -> "korean_course"
+                clean.contains("urdu") || clean == "ur" -> "urdu_course"
+                clean.contains("hindi") || clean == "hi" -> "hindi_course"
+                clean.contains("english") || clean == "en" -> "english_course"
+                else -> clean
+            }
+        }
+
+        fun getCourseBundleId(courseType: String = "", partId: String = ""): String {
+            val cleanCourse = courseType.trim().lowercase()
+            val cleanPart = partId.trim().lowercase()
+            return when {
+                cleanCourse.startsWith("qr") || cleanPart.startsWith("qr") || cleanPart.startsWith("quran") -> "quran_course"
+                cleanCourse.startsWith("bd") || cleanCourse.startsWith("regional") || cleanPart.startsWith("bd") || cleanPart.startsWith("regional") -> "regional_course"
+                cleanCourse.startsWith("jp") || cleanPart.startsWith("jp") -> "japanese_course"
+                cleanCourse.startsWith("zh") || cleanPart.startsWith("zh") -> "chinese_course"
+                cleanCourse.startsWith("de") || cleanPart.startsWith("de") -> "german_course"
+                cleanCourse.startsWith("ar") || cleanPart.startsWith("ar") -> "arabic_course"
+                cleanCourse.startsWith("ko") || cleanPart.startsWith("ko") -> "korean_course"
+                cleanCourse.startsWith("ur") || cleanPart.startsWith("ur") -> "urdu_course"
+                cleanCourse.startsWith("hi") || cleanPart.startsWith("hi") -> "hindi_course"
+                cleanCourse == "audiobook" || cleanCourse == "audiobook_bundle" || cleanPart.startsWith("audiobook") -> "audiobook_bundle"
+                else -> "english_course"
+            }
+        }
     }
 
     // User session flows
@@ -237,9 +273,11 @@ class AppPreferences(context: Context) {
     }
 
     fun isBundleUnlocked(bundleId: String): Boolean {
+        if (_isAdmin.value) return true
         if (_unlockedBundles.value.contains("mega_bundle")) return true
-        if (bundleId == "audiobook_bundle" && (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true))) return true
-        return _unlockedBundles.value.contains(bundleId)
+        val normalized = normalizeBundleId(bundleId)
+        if (normalized == "audiobook_bundle" && (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true))) return true
+        return _unlockedBundles.value.contains(normalized)
     }
 
     // -------------------------------------------------------------
@@ -248,18 +286,24 @@ class AppPreferences(context: Context) {
     private val _unlockedModuleUpdates = MutableStateFlow(0L)
     val unlockedModuleUpdates: StateFlow<Long> = _unlockedModuleUpdates.asStateFlow()
 
-    fun isCourseModuleUnlocked(partOrder: Int, partId: String): Boolean {
-        // 1. Paid/Active users have everything fully unlocked
-        if (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true)) {
-            return true
-        }
-
-        // 2. Part 1 of any course is free trial preview
+    fun isCourseModuleUnlocked(partOrder: Int, partId: String, courseType: String = ""): Boolean {
+        // 1. Part 1 of any course is free trial preview for all users
         if (partOrder <= 1) {
             return true
         }
 
-        // 3. 24-hour pass check
+        // 2. Admins or Mega Bundle owners have every course & module unlocked permanently
+        if (_isAdmin.value || _unlockedBundles.value.contains("mega_bundle")) {
+            return true
+        }
+
+        // 3. User must have this specific course unlocked in unlockedBundles
+        val bundleId = getCourseBundleId(courseType, partId)
+        if (_unlockedBundles.value.contains(bundleId)) {
+            return true
+        }
+
+        // 4. Temporary 24-hour pass check via rewarded video ad
         val unlockedAt = prefs.getLong("unlocked_module_ts_$partId", 0L)
         if (unlockedAt <= 0L) return false
 

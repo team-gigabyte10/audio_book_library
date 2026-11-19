@@ -185,7 +185,9 @@ class UserRepository(
             }
 
             val rawBundles = (snapshot.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
-            val bundlesSet = rawBundles.toMutableSet()
+            val rawCourses = (snapshot.get("assignedCourses") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val bundlesSet = rawBundles.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) }.toMutableSet()
+            bundlesSet.addAll(rawCourses.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) })
             if (status.equals("paid", ignoreCase = true) && bundlesSet.isEmpty()) {
                 bundlesSet.add("audiobook_bundle")
             }
@@ -300,7 +302,9 @@ class UserRepository(
             }
 
             val rawBundles = (snapshot.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
-            val bundlesSet = rawBundles.toMutableSet()
+            val rawCourses = (snapshot.get("assignedCourses") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val bundlesSet = rawBundles.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) }.toMutableSet()
+            bundlesSet.addAll(rawCourses.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) })
             if (status.equals("paid", ignoreCase = true) && bundlesSet.isEmpty()) {
                 bundlesSet.add("audiobook_bundle")
             }
@@ -535,11 +539,20 @@ class UserRepository(
             val userSnap = userRef.get().await()
 
             val rawBundles = (userSnap.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
-            val updatedBundles = rawBundles.toMutableSet()
-            if (packageType == "mega_bundle") {
-                updatedBundles.addAll(listOf("audiobook_bundle", "english_course", "japanese_course", "mega_bundle"))
+            val rawCourses = (userSnap.get("assignedCourses") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val updatedBundles = rawBundles.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) }.toMutableSet()
+            updatedBundles.addAll(rawCourses.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) })
+
+            val normalizedPackage = com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(packageType)
+            if (normalizedPackage == "mega_bundle") {
+                updatedBundles.addAll(listOf(
+                    "audiobook_bundle", "english_course", "japanese_course",
+                    "chinese_course", "german_course", "arabic_course",
+                    "korean_course", "urdu_course", "hindi_course",
+                    "quran_course", "regional_course", "mega_bundle"
+                ))
             } else {
-                updatedBundles.add(packageType)
+                updatedBundles.add(normalizedPackage)
             }
 
             var newBalance = amount
@@ -775,6 +788,60 @@ class UserRepository(
             Result.success(list)
         } catch (e: Exception) {
             e.printStackTrace()
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Allows an admin to update a user's role, status, and unlocked course bundles in Firebase Firestore.
+     */
+    suspend fun adminUpdateUserRoleAndCourses(
+        targetUserEmail: String,
+        role: String? = null,
+        status: String? = null,
+        bundlesToAdd: List<String> = emptyList(),
+        bundlesToRemove: List<String> = emptyList()
+    ): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val normalizedEmail = targetUserEmail.trim().lowercase()
+            val userRef = firestore.collection("users").document(normalizedEmail)
+            val userSnap = userRef.get().await()
+            if (!userSnap.exists()) {
+                return@withContext Result.failure(Exception("ইউজার পাওয়া যায়নি ($normalizedEmail)"))
+            }
+
+            val rawBundles = (userSnap.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val currentBundles = rawBundles.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) }.toMutableSet()
+
+            bundlesToAdd.forEach { currentBundles.add(com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it)) }
+            bundlesToRemove.forEach { currentBundles.remove(com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it)) }
+
+            val updates = mutableMapOf<String, Any>(
+                "unlockedBundles" to currentBundles.toList()
+            )
+            role?.let {
+                updates["role"] = it
+                if (it.equals("admin", ignoreCase = true)) {
+                    updates["isAdmin"] = true
+                }
+            }
+            status?.let { updates["status"] = it }
+
+            userRef.update(updates).await()
+
+            // If the updated user is the currently logged-in user, refresh locally
+            if (appPreferences.userEmail.value.equals(normalizedEmail, ignoreCase = true)) {
+                appPreferences.setUnlockedBundles(currentBundles)
+                status?.let {
+                    appPreferences.updateUserStatus(it, appPreferences.userBalance.value, User.getCurrentFormattedDate())
+                }
+                role?.let {
+                    appPreferences.setIsAdmin(it.equals("admin", ignoreCase = true))
+                }
+            }
+
+            Result.success(Unit)
+        } catch (e: Exception) {
             Result.failure(e)
         }
     }

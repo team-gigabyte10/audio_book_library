@@ -194,6 +194,14 @@ fun CourseSyllabusScreen(
         FacebookRewardAdManager.getInstance(context).preloadAd()
     }
 
+    val unlockedBundles by (appPrefs?.unlockedBundles ?: MutableStateFlow(emptySet())).collectAsStateWithLifecycle()
+    val isAdmin by (appPrefs?.isAdmin ?: MutableStateFlow(false)).collectAsStateWithLifecycle()
+
+    val courseBundleId = remember(courseType) { com.gigabyte.bookstore.data.preferences.AppPreferences.getCourseBundleId(courseType) }
+    val isCourseOwned = remember(unlockedBundles, isAdmin, courseBundleId) {
+        isAdmin || unlockedBundles.contains("mega_bundle") || unlockedBundles.contains(courseBundleId)
+    }
+
     var selectedLockedPart by remember { mutableStateOf<PartSummary?>(null) }
     var isLoadingRewardAd by remember { mutableStateOf(false) }
 
@@ -464,7 +472,8 @@ fun CourseSyllabusScreen(
                                 titleBn = courseTitleBn,
                                 subtitle = courseSubtitle,
                                 partCount = filteredSyllabus.size,
-                                accentColor = topAccent
+                                accentColor = topAccent,
+                                isCourseOwned = isCourseOwned
                             )
                         }
                     }
@@ -485,8 +494,8 @@ fun CourseSyllabusScreen(
                     filteredSyllabus.forEach { item ->
                         val part = item.part
                         val theme = getSyllabusPartTheme(part.order)
-                        val isUnlocked = appPrefs?.isCourseModuleUnlocked(part.order, part.id) ?: true
-                        val remainingMillis = if (isUnlocked && part.order > 1) {
+                        val isUnlocked = isCourseOwned || (appPrefs?.isCourseModuleUnlocked(part.order, part.id, courseType) ?: (part.order <= 1))
+                        val remainingMillis = if (!isCourseOwned && isUnlocked && part.order > 1) {
                             appPrefs?.getCourseModuleRemainingMillis(part.id) ?: 0L
                         } else 0L
 
@@ -495,6 +504,7 @@ fun CourseSyllabusScreen(
                                 part = part,
                                 theme = theme,
                                 isUnlocked = isUnlocked,
+                                isPermanent = isCourseOwned,
                                 remainingMillis = remainingMillis,
                                 onClick = {
                                     if (isUnlocked) {
@@ -571,6 +581,7 @@ private fun CourseHeroBannerCard(
     subtitle: String,
     partCount: Int,
     accentColor: Color,
+    isCourseOwned: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -629,15 +640,15 @@ private fun CourseHeroBannerCard(
                     }
 
                     Surface(
-                        color = Color(0x38FFFFFF),
-                        border = BorderStroke(1.dp, Color(0x33FFFFFF)),
+                        color = if (isCourseOwned) Color(0xFF10B981).copy(alpha = 0.25f) else Color(0x38FFFFFF),
+                        border = BorderStroke(1.dp, if (isCourseOwned) Color(0xFF10B981) else Color(0x33FFFFFF)),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "📚 ${partCount.toBanglaDigits()}টি পর্যায়",
+                            text = if (isCourseOwned) "👑 প্রিমিয়াম আনলকড" else "📚 ${partCount.toBanglaDigits()}টি পর্যায়",
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color.White,
+                            color = if (isCourseOwned) Color(0xFF6EE7B7) else Color.White,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                         )
                     }
@@ -880,11 +891,22 @@ private fun SyllabusPartHeaderCard(
     part: PartSummary,
     theme: SyllabusPartTheme,
     isUnlocked: Boolean = true,
+    isPermanent: Boolean = false,
     remainingMillis: Long = 0L,
     onClick: () -> Unit
 ) {
-    val cardAccent = if (!isUnlocked) Color(0xFFD97706) else theme.accentColor
-    val cardBorder = if (!isUnlocked) Color(0xFFD97706).copy(alpha = 0.65f) else theme.accentColor.copy(alpha = 0.5f)
+    val cardAccent = when {
+        !isUnlocked -> Color(0xFFD97706)
+        isPermanent -> theme.accentColor
+        remainingMillis > 0L -> Color(0xFF10B981)
+        else -> theme.accentColor
+    }
+    val cardBorder = when {
+        !isUnlocked -> Color(0xFFD97706).copy(alpha = 0.65f)
+        isPermanent -> theme.accentColor.copy(alpha = 0.55f)
+        remainingMillis > 0L -> Color(0xFF10B981).copy(alpha = 0.55f)
+        else -> theme.accentColor.copy(alpha = 0.5f)
+    }
 
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -952,6 +974,20 @@ private fun SyllabusPartHeaderCard(
                     verticalArrangement = Arrangement.Center
                 ) {
                     when {
+                        isPermanent -> {
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = theme.accentColor.copy(alpha = 0.15f)
+                            ) {
+                                Text(
+                                    text = "${part.lessonCount}টি লেসন",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = theme.accentColor,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                )
+                            }
+                        }
                         !isUnlocked -> {
                             Surface(
                                 shape = RoundedCornerShape(10.dp),
@@ -996,11 +1032,11 @@ private fun SyllabusPartHeaderCard(
                         }
                         else -> {
                             Surface(
-                                shape = RoundedCornerShape(12.dp),
+                                shape = RoundedCornerShape(10.dp),
                                 color = theme.accentColor.copy(alpha = 0.15f)
                             ) {
                                 Text(
-                                    text = "${part.lessonCount}টি লেসন",
+                                    text = "ফ্রি • ${part.lessonCount} লেসন",
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = theme.accentColor,
