@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -54,6 +55,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.facebook.ads.AdSize
+import com.gigabyte.bookstore.data.ads.AdConfig
+import com.gigabyte.bookstore.presentation.components.FacebookBannerAd
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.VoiceSelectionSheet
 
@@ -259,13 +263,28 @@ fun TextReaderScreen(
             )
         },
         bottomBar = {
-            MiniPlayerBar(
-                playbackState = playbackState,
-                onBarClick = onOpenPlayer,
-                onPlayPauseClick = { viewModel.player.togglePlayPause() },
-                onNextClick = { viewModel.player.nextChapter() },
-                onCloseClick = { viewModel.closePlayer() }
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.surface)
+                    .navigationBarsPadding()
+            ) {
+                MiniPlayerBar(
+                    playbackState = playbackState,
+                    onBarClick = onOpenPlayer,
+                    onPlayPauseClick = { viewModel.player.togglePlayPause() },
+                    onNextClick = { viewModel.player.nextChapter() },
+                    onCloseClick = { viewModel.closePlayer() }
+                )
+                FacebookBannerAd(
+                    placementId = AdConfig.FB_BANNER_PLACEMENT_ID,
+                    adSize = AdSize.BANNER_HEIGHT_50,
+                    showContainer = false,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp)
+                )
+            }
         }
     ) { innerPadding ->
         Column(
@@ -283,7 +302,7 @@ fun TextReaderScreen(
                     start = 16.dp,
                     end = 16.dp,
                     top = 16.dp,
-                    bottom = if (playbackState.bookId.isNotBlank()) 96.dp else 24.dp
+                    bottom = 24.dp
                 ),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
