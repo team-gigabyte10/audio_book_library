@@ -633,7 +633,8 @@ fun AppNavHost(
                 onOpenPart = { partId -> navController.navigate(Screen.LearnPart.createRoute(partId)) },
                 onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) },
-                onOpenTranslator = { langName -> navController.navigate(Screen.LiveTranslator.createRoute(langName)) }
+                onOpenTranslator = { langName -> navController.navigate(Screen.LiveTranslator.createRoute(langName)) },
+                onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
             )
         }
 

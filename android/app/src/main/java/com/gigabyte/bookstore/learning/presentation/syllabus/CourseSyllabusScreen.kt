@@ -33,7 +33,13 @@ import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.RecordVoiceOver
+import android.app.Activity
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Translate
+import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
+import com.gigabyte.bookstore.presentation.components.ModuleUnlockDialog
+import kotlinx.coroutines.flow.MutableStateFlow
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -46,6 +52,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -172,11 +179,23 @@ fun CourseSyllabusScreen(
     onOpenPart: (String) -> Unit,
     onOpenLesson: (String) -> Unit,
     onOpenIntro: (String) -> Unit,
-    onOpenTranslator: (String) -> Unit = {}
+    onOpenTranslator: (String) -> Unit = {},
+    onNavigateToPayment: (() -> Unit)? = null
 ) {
     val contentState by viewModel.contentState.collectAsStateWithLifecycle()
     val syllabus by viewModel.syllabus.collectAsStateWithLifecycle()
     val context = LocalContext.current
+    val application = context.applicationContext as? BanglaAudiobookApp
+    val appPrefs = application?.appPreferences
+    val moduleUpdates by (appPrefs?.unlockedModuleUpdates ?: MutableStateFlow(0L)).collectAsStateWithLifecycle()
+    val userStatus by (appPrefs?.userStatus ?: MutableStateFlow("trial")).collectAsStateWithLifecycle()
+
+    LaunchedEffect(Unit) {
+        FacebookRewardAdManager.getInstance(context).preloadAd()
+    }
+
+    var selectedLockedPart by remember { mutableStateOf<PartSummary?>(null) }
+    var isLoadingRewardAd by remember { mutableStateOf(false) }
 
     val isPast = courseType.equals("past", ignoreCase = true)
     val isFuture = courseType.equals("future", ignoreCase = true)
@@ -466,13 +485,23 @@ fun CourseSyllabusScreen(
                     filteredSyllabus.forEach { item ->
                         val part = item.part
                         val theme = getSyllabusPartTheme(part.order)
+                        val isUnlocked = appPrefs?.isCourseModuleUnlocked(part.order, part.id) ?: true
+                        val remainingMillis = if (isUnlocked && part.order > 1) {
+                            appPrefs?.getCourseModuleRemainingMillis(part.id) ?: 0L
+                        } else 0L
 
                         item(key = "part_${part.id}") {
                             SyllabusPartHeaderCard(
                                 part = part,
                                 theme = theme,
+                                isUnlocked = isUnlocked,
+                                remainingMillis = remainingMillis,
                                 onClick = {
-                                    onOpenPart(part.id)
+                                    if (isUnlocked) {
+                                        onOpenPart(part.id)
+                                    } else {
+                                        selectedLockedPart = part
+                                    }
                                 }
                             )
                         }
@@ -485,7 +514,53 @@ fun CourseSyllabusScreen(
             }
         }
     }
+
+    selectedLockedPart?.let { lockedPart ->
+        val activity = context as? Activity
+        ModuleUnlockDialog(
+            partTitleBn = lockedPart.titleBn ?: lockedPart.titleTarget ?: "মডিউল",
+            partOrder = lockedPart.order,
+            lessonCount = lockedPart.lessonCount,
+            isLoadingAd = isLoadingRewardAd,
+            onDismiss = {
+                if (!isLoadingRewardAd) {
+                    selectedLockedPart = null
+                }
+            },
+            onWatchAdClick = {
+                if (activity != null) {
+                    isLoadingRewardAd = true
+                    FacebookRewardAdManager.getInstance(context).showAd(
+                        activity = activity,
+                        onRewardEarned = {
+                            isLoadingRewardAd = false
+                            appPrefs?.unlockCourseModuleFor24Hours(lockedPart.id)
+                            selectedLockedPart = null
+                            Toast.makeText(context, "🎉 অভিনন্দন! মডিউলটি পরবর্তী ২৪ ঘণ্টার জন্য আনলক হয়েছে!", Toast.LENGTH_LONG).show()
+                            onOpenPart(lockedPart.id)
+                        },
+                        onClosed = {
+                            isLoadingRewardAd = false
+                        },
+                        onError = { _ ->
+                            isLoadingRewardAd = false
+                            Toast.makeText(context, "বিজ্ঞাপন লোড হতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।", Toast.LENGTH_SHORT).show()
+                        }
+                    )
+                } else {
+                    appPrefs?.unlockCourseModuleFor24Hours(lockedPart.id)
+                    selectedLockedPart = null
+                    onOpenPart(lockedPart.id)
+                }
+            },
+            onGoPremiumClick = {
+                selectedLockedPart = null
+                onNavigateToPayment?.invoke()
+            }
+        )
+    }
 }
+
 
 
 
@@ -804,12 +879,17 @@ private fun Pill(text: String) {
 private fun SyllabusPartHeaderCard(
     part: PartSummary,
     theme: SyllabusPartTheme,
+    isUnlocked: Boolean = true,
+    remainingMillis: Long = 0L,
     onClick: () -> Unit
 ) {
+    val cardAccent = if (!isUnlocked) Color(0xFFD97706) else theme.accentColor
+    val cardBorder = if (!isUnlocked) Color(0xFFD97706).copy(alpha = 0.65f) else theme.accentColor.copy(alpha = 0.5f)
+
     Card(
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(1.5.dp, theme.accentColor.copy(alpha = 0.5f)),
+        border = BorderStroke(1.5.dp, cardBorder),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         modifier = Modifier
             .fillMaxWidth()
@@ -821,24 +901,24 @@ private fun SyllabusPartHeaderCard(
                 .background(
                     Brush.horizontalGradient(
                         colors = listOf(
-                            theme.accentColor.copy(alpha = 0.16f),
-                            theme.accentColor.copy(alpha = 0.04f)
+                            cardAccent.copy(alpha = if (!isUnlocked) 0.10f else 0.16f),
+                            cardAccent.copy(alpha = if (!isUnlocked) 0.02f else 0.04f)
                         )
                     )
                 )
                 .padding(16.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                // Topic Icon
+                // Topic Icon or Lock Icon
                 Surface(
-                    color = theme.accentColor,
+                    color = cardAccent,
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.size(46.dp)
                 ) {
                     Box(contentAlignment = Alignment.Center) {
                         Icon(
-                            imageVector = theme.icon,
-                            contentDescription = null,
+                            imageVector = if (!isUnlocked) Icons.Default.Lock else theme.icon,
+                            contentDescription = if (!isUnlocked) "লক করা" else null,
                             tint = Color.White,
                             modifier = Modifier.size(24.dp)
                         )
@@ -871,23 +951,70 @@ private fun SyllabusPartHeaderCard(
                     horizontalAlignment = Alignment.End,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Surface(
-                        shape = RoundedCornerShape(12.dp),
-                        color = theme.accentColor.copy(alpha = 0.15f)
-                    ) {
-                        Text(
-                            text = "${part.lessonCount}টি লেসন",
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = theme.accentColor,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        )
+                    when {
+                        !isUnlocked -> {
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = Color(0xFFD97706).copy(alpha = 0.18f),
+                                border = BorderStroke(1.dp, Color(0xFFD97706).copy(alpha = 0.45f))
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Lock,
+                                        contentDescription = null,
+                                        tint = Color(0xFFD97706),
+                                        modifier = Modifier.size(12.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text(
+                                        text = "আনলক",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFFD97706)
+                                    )
+                                }
+                            }
+                        }
+                        remainingMillis > 0L -> {
+                            val hoursLeft = (remainingMillis / (1000 * 60 * 60)).coerceAtLeast(1)
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = Color(0xFF10B981).copy(alpha = 0.18f),
+                                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.4f))
+                            ) {
+                                Text(
+                                    text = "✓ ${hoursLeft}ঘণ্টা বাকি",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color(0xFF10B981),
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                )
+                            }
+                        }
+                        else -> {
+                            Surface(
+                                shape = RoundedCornerShape(12.dp),
+                                color = theme.accentColor.copy(alpha = 0.15f)
+                            ) {
+                                Text(
+                                    text = "${part.lessonCount}টি লেসন",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = theme.accentColor,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                )
+                            }
+                        }
                     }
+
                     Spacer(modifier = Modifier.height(6.dp))
                     Icon(
-                        imageVector = Icons.Default.ChevronRight,
-                        contentDescription = "লেসনসমূহ দেখুন",
-                        tint = theme.accentColor,
+                        imageVector = if (!isUnlocked) Icons.Default.Lock else Icons.Default.ChevronRight,
+                        contentDescription = if (!isUnlocked) "লক করা" else "লেসনসমূহ দেখুন",
+                        tint = cardAccent,
                         modifier = Modifier.size(24.dp)
                     )
                 }

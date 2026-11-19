@@ -242,6 +242,44 @@ class AppPreferences(context: Context) {
         return _unlockedBundles.value.contains(bundleId)
     }
 
+    // -------------------------------------------------------------
+    // Course Module Unlocking (24-Hour Pass via Rewarded Video Ads)
+    // -------------------------------------------------------------
+    private val _unlockedModuleUpdates = MutableStateFlow(0L)
+    val unlockedModuleUpdates: StateFlow<Long> = _unlockedModuleUpdates.asStateFlow()
+
+    fun isCourseModuleUnlocked(partOrder: Int, partId: String): Boolean {
+        // 1. Paid/Active users have everything fully unlocked
+        if (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true)) {
+            return true
+        }
+
+        // 2. Part 1 of any course is free trial preview
+        if (partOrder <= 1) {
+            return true
+        }
+
+        // 3. 24-hour pass check
+        val unlockedAt = prefs.getLong("unlocked_module_ts_$partId", 0L)
+        if (unlockedAt <= 0L) return false
+
+        val elapsed = System.currentTimeMillis() - unlockedAt
+        val isStillValid = elapsed < com.gigabyte.bookstore.data.ads.AdConfig.MODULE_UNLOCK_DURATION_MS
+        return isStillValid
+    }
+
+    fun getCourseModuleRemainingMillis(partId: String): Long {
+        val unlockedAt = prefs.getLong("unlocked_module_ts_$partId", 0L)
+        if (unlockedAt <= 0L) return 0L
+        val remaining = com.gigabyte.bookstore.data.ads.AdConfig.MODULE_UNLOCK_DURATION_MS - (System.currentTimeMillis() - unlockedAt)
+        return if (remaining > 0L) remaining else 0L
+    }
+
+    fun unlockCourseModuleFor24Hours(partId: String) {
+        prefs.edit().putLong("unlocked_module_ts_$partId", System.currentTimeMillis()).apply()
+        _unlockedModuleUpdates.value = System.currentTimeMillis()
+    }
+
     private val _userEmail = MutableStateFlow(prefs.getString(KEY_USER_EMAIL, "") ?: "")
     val userEmail: StateFlow<String> = _userEmail.asStateFlow()
 
