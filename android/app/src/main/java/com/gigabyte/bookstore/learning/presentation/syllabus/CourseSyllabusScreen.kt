@@ -84,7 +84,6 @@ import com.gigabyte.bookstore.presentation.components.AppBackground
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Place
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
-import com.gigabyte.bookstore.presentation.components.CountryFlagBackdrop
 import com.gigabyte.bookstore.presentation.components.CourseCountry
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
@@ -608,21 +607,15 @@ private fun CourseHeroBannerCard(
             .clip(RoundedCornerShape(20.dp))
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            CountryFlagBackdrop(
-                country = country,
-                modifier = Modifier.matchParentSize()
-            )
-
-            // Balanced ambient translucent scrim for vivid flag visibility and clean contrast
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
-                        Brush.verticalGradient(
+                        Brush.linearGradient(
                             colors = listOf(
-                                Color(0xFF081014).copy(alpha = 0.45f),
-                                Color(0xFF050B0E).copy(alpha = 0.70f),
-                                Color(0xFF020608).copy(alpha = 0.84f)
+                                accentColor.copy(alpha = 0.88f),
+                                accentColor.copy(alpha = 0.52f),
+                                Color(0xFF0F172A)
                             )
                         )
                     )

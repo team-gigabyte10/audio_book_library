@@ -41,7 +41,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.gigabyte.bookstore.data.models.Course
-import com.gigabyte.bookstore.presentation.components.CountryFlagBackdrop
 import com.gigabyte.bookstore.presentation.components.CourseCountry
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
@@ -51,9 +50,21 @@ fun CourseCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val isJapanese = course.language.equals("Japanese", ignoreCase = true)
-    val languageBadge = if (isJapanese) "🇯🇵 জাপানি ভাষা" else "🇬🇧 ইংরেজি স্পোকেন"
-    val badgeColor = if (isJapanese) Color(0xFFC62828) else Color(0xFF1565C0)
+    val country = CourseCountry.fromLanguageKey(course.language)
+    val languageBadge = "${country.flagEmoji} ${country.titleBn}"
+    val badgeColor = when (country) {
+        CourseCountry.UK -> Color(0xFF1565C0)
+        CourseCountry.JAPAN -> Color(0xFFC62828)
+        CourseCountry.GERMANY -> Color(0xFFD97706)
+        CourseCountry.CHINA -> Color(0xFFDC2626)
+        CourseCountry.SAUDI_ARABIA -> Color(0xFF047857)
+        CourseCountry.SOUTH_KOREA -> Color(0xFF4F46E5)
+        CourseCountry.PAKISTAN -> Color(0xFF0F766E)
+        CourseCountry.INDIA -> Color(0xFFEA580C)
+        CourseCountry.BANGLADESH -> Color(0xFF059669)
+        CourseCountry.QURAN -> Color(0xFFB45309)
+        else -> MaterialTheme.colorScheme.primary
+    }
 
     Card(
         shape = RoundedCornerShape(18.dp),
@@ -85,24 +96,30 @@ fun CourseCard(
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
                     )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                Brush.verticalGradient(
+                                    colors = listOf(Color(0x22000000), Color(0x99000000))
+                                )
+                            )
+                    )
                 } else {
-                    val country = CourseCountry.fromLanguageKey(course.language)
-                    CountryFlagBackdrop(
-                        country = country,
-                        modifier = Modifier.fillMaxSize()
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                Brush.linearGradient(
+                                    colors = listOf(
+                                        badgeColor.copy(alpha = 0.90f),
+                                        badgeColor.copy(alpha = 0.65f),
+                                        Color(0xFF0F172A)
+                                    )
+                                )
+                            )
                     )
                 }
-
-                // Gradient
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(
-                            Brush.verticalGradient(
-                                colors = listOf(Color(0x22000000), Color(0x99000000))
-                            )
-                        )
-                )
 
                 // Language & Level Badges
                 Row(

@@ -1906,6 +1906,8 @@ private fun MainCourseCard(
         else -> null
     }
 
+    val isQuran = derivedCountry == CourseCountry.QURAN
+
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -1916,12 +1918,12 @@ private fun MainCourseCard(
             .clickable(onClick = onClick)
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
-            if (derivedCountry != null) {
+            if (isQuran && derivedCountry != null) {
                 CountryFlagBackdrop(
                     country = derivedCountry,
                     modifier = Modifier.matchParentSize()
                 )
-                // Balanced ambient translucent scrim for vibrant flag visibility and high contrast
+                // Balanced ambient translucent scrim for vibrant Holy Quran backdrop visibility
                 Box(
                     modifier = Modifier
                         .matchParentSize()
@@ -1942,8 +1944,8 @@ private fun MainCourseCard(
                         .background(
                             Brush.verticalGradient(
                                 colors = listOf(
-                                    accentColor.copy(alpha = 0.18f),
-                                    accentColor.copy(alpha = 0.08f)
+                                    accentColor.copy(alpha = 0.12f),
+                                    accentColor.copy(alpha = 0.04f)
                                 )
                             )
                         )
@@ -1985,7 +1987,7 @@ private fun MainCourseCard(
                     fontSize = 19.sp,
                     lineHeight = 26.sp,
                     fontWeight = FontWeight.Bold,
-                    color = if (derivedCountry != null) Color.White else MaterialTheme.colorScheme.onSurface
+                    color = if (isQuran) Color.White else MaterialTheme.colorScheme.onSurface
                 )
 
                 Spacer(modifier = Modifier.height(6.dp))
@@ -1994,12 +1996,12 @@ private fun MainCourseCard(
                     text = description,
                     fontSize = 13.sp,
                     lineHeight = 18.sp,
-                    color = if (derivedCountry != null) Color(0xFFE2E8F0) else MaterialTheme.colorScheme.onSurfaceVariant
+                    color = if (isQuran) Color(0xFFE2E8F0) else MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(14.dp))
 
-                val hasBackdrop = derivedCountry != null
+                val hasBackdrop = isQuran
                 FlowRow(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(6.dp),

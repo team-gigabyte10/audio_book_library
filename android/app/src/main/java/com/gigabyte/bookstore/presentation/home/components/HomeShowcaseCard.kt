@@ -72,7 +72,7 @@ fun HomeShowcaseCard(
             .clickable { onClick() }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            // Background Image or Country Flag or Gradient Fallback
+            // Background Image or Quran Backdrop or Standard Gradient
             if (!imageUrl.isNullOrBlank()) {
                 AsyncImage(
                     model = imageUrl,
@@ -80,16 +80,25 @@ fun HomeShowcaseCard(
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
-            } else if (country != null) {
+            } else if (country == CourseCountry.QURAN) {
                 CountryFlagBackdrop(
                     country = country,
                     modifier = Modifier.fillMaxSize()
                 )
             } else {
+                val gradientColors = if (fallbackGradientColors.isNotEmpty()) {
+                    fallbackGradientColors
+                } else {
+                    listOf(
+                        accentColor.copy(alpha = 0.85f),
+                        accentColor.copy(alpha = 0.50f),
+                        Color(0xFF0F172A)
+                    )
+                }
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(Brush.linearGradient(fallbackGradientColors))
+                        .background(Brush.linearGradient(gradientColors))
                 )
             }
 
