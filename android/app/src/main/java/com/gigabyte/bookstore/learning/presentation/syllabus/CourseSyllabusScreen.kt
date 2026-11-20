@@ -762,7 +762,7 @@ private fun QuranSyllabusHeroCard(
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
-                        text = "৮টি পর্যায় • ৩১টি অডিও লেসন • নূরানী তাজবীদ ও ১০টি সূরা",
+                        text = "৮টি পর্যায় • ৩৫টি অডিও লেসন • শেষ ১০টি সূরা ও তাশাহহুদ",
                         fontSize = 12.sp,
                         color = Color(0xFFE2E8F0),
                         maxLines = 1,

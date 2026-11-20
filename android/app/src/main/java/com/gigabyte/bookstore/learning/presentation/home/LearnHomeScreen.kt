@@ -1357,7 +1357,7 @@ fun LearnHomeScreen(
                                 partCount = qrPartCount,
                                 lessonCount = qrLessonCount,
                                 sentenceCount = qrSentenceCount,
-                                customPills = listOf("📖 ৮টি পর্যায়", "🎧 ৩১টি অডিও লেসন", "🕌 ২৪৮টি মশ্‌ক ও আয়াত"),
+                                customPills = listOf("📖 ৮টি পর্যায়", "🎧 ৩৫টি অডিও লেসন", "🕌 ২৬৬টি মশ্‌ক ও আয়াত"),
                                 onClick = { onOpenCourse("quran") }
                             )
                         }

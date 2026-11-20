@@ -421,7 +421,7 @@ fun HomeScreen(
                                 imageUrl = null,
                                 country = CourseCountry.QURAN,
                                 accentColor = Color(0xFF1B5E20),
-                                statsText = "🎧 ৩১টি অডিও লেসন · ২৪৮টি আয়াত ও মশ্‌ক · ৮টি পর্যায়",
+                                statsText = "🎧 ৩৫টি অডিও লেসন · ২৬৬টি আয়াত ও মশ্‌ক · ৮টি পর্যায়",
                                 ctaText = "কোর্সটি শুরু করুন",
                                 onClick = onNavigateToLearnQuran,
                                 modifier = Modifier.padding(horizontal = 16.dp)
