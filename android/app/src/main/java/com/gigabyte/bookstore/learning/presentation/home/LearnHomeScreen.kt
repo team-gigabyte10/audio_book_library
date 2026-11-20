@@ -1352,6 +1352,7 @@ fun LearnHomeScreen(
                                 tag = "📖 নূরানী ও নাদিয়াতুল ক্বোরআন মেথডোলজি",
                                 title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স (৮টি পর্যায়)",
                                 description = "আরবি ২৯টি হরফ, ১৭টি মাখরাজ, হরকত, তানভীন, জযম, তাশদীদ, নূন সাকিন, মীম সাকিন, মাদ্দ ও ১০টি ছোট সূরা।",
+                                badgeText = "সম্পূর্ণ ফ্রি",
                                 accentColor = Color(0xFF1B5E20),
                                 partCount = qrPartCount,
                                 lessonCount = qrLessonCount,

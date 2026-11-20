@@ -190,20 +190,6 @@ fun PaymentScreen(
                 )
             ),
             AppCoursePackage(
-                id = "quran_course",
-                title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
-                subtitle = "নূরানী পদ্ধতিতে শূন্য থেকে সহীহ তিলাওয়াত ও তাজবীদ",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
-                icon = Icons.Default.MenuBook,
-                tag = "জনপ্রিয়",
-                highlights = listOf(
-                    "২৯টি আরবি হরফ ও ১৭টি মাখরাজের বিশুদ্ধ উচ্চারণ",
-                    "হরকত, তানভীন, জযম, তাশদীদ ও ওয়াজিব গুন্নাহ",
-                    "নূন সাকিন, মীম সাকিন, মাদ্দ ও ১০টি ছোট সূরা মশ্‌ক"
-                )
-            ),
-            AppCoursePackage(
                 id = "regional_course",
                 title = "বাংলা আঞ্চলিক ভাষা তুলনামূলক স্পোকেন কোর্স",
                 subtitle = "একই বাক্য ১০টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",

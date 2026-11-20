@@ -334,6 +334,13 @@ class AppPreferences(context: Context) {
     val unlockedModuleUpdates: StateFlow<Long> = _unlockedModuleUpdates.asStateFlow()
 
     fun isCourseModuleUnlocked(partOrder: Int, partId: String, courseType: String = ""): Boolean {
+        // 0. Quran Learning course is 100% free for everyone forever (Waqf)
+        val cleanCourse = courseType.trim().lowercase()
+        val cleanPart = partId.trim().lowercase()
+        if (cleanCourse == "quran" || cleanCourse.startsWith("qr") || cleanPart.startsWith("qr-") || cleanPart.startsWith("quran")) {
+            return true
+        }
+
         // 1. Part 1 of any course is free trial preview for all users
         if (partOrder <= 1) {
             return true

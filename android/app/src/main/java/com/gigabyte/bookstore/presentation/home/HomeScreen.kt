@@ -140,9 +140,7 @@ fun HomeScreen(
     val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("audiobook_bundle")
     }
-    val isQuranUnlocked = remember(userStatus, unlockedBundles) {
-        viewModel.isBundleUnlocked("quran_course")
-    }
+    val isQuranUnlocked = true // Quran Learning is 100% free and unlocked for all users
     val isRegionalBanglaUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("regional_course")
     }
@@ -416,10 +414,10 @@ fun HomeScreen(
                             HomeShowcaseCard(
                                 title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
                                 subtitle = "নূরানী ও নাদিয়াতুল ক্বোরআন মেথডে শূন্য থেকে সহীহ তিলাওয়াত, মাখরাজ, তাজবীদ, ওয়াক্ফ ও ১০টি ছোট সূরা",
-                                badgeText = "📖 নূরানী কুরআন শিক্ষা",
+                                badgeText = "📖 নূরানী কুরআন শিক্ষা (সম্পূর্ণ ফ্রি)",
                                 badgeColor = Color(0xFF1B5E20),
-                                priceText = "১০০ টাকা",
-                                isPurchased = isQuranUnlocked,
+                                priceText = "সম্পূর্ণ ফ্রি",
+                                isPurchased = true,
                                 imageUrl = null,
                                 country = CourseCountry.QURAN,
                                 accentColor = Color(0xFF1B5E20),

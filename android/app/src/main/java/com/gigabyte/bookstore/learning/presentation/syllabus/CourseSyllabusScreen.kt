@@ -206,9 +206,10 @@ fun CourseSyllabusScreen(
     }
     val rewardUnlockHours by (appPrefs?.rewardUnlockHours ?: MutableStateFlow(24)).collectAsStateWithLifecycle()
 
+    val isQuran = courseType.equals("quran", ignoreCase = true) || courseType.startsWith("qr")
     val courseBundleId = remember(courseType) { com.gigabyte.bookstore.data.preferences.AppPreferences.getCourseBundleId(courseType) }
-    val isCourseOwned = remember(unlockedBundles, isAdmin, courseBundleId) {
-        isAdmin || unlockedBundles.contains("mega_bundle") || unlockedBundles.contains(courseBundleId)
+    val isCourseOwned = remember(unlockedBundles, isAdmin, courseBundleId, isQuran) {
+        isQuran || isAdmin || unlockedBundles.contains("mega_bundle") || unlockedBundles.contains(courseBundleId)
     }
 
     var selectedLockedPart by remember { mutableStateOf<PartSummary?>(null) }
@@ -745,10 +746,10 @@ private fun QuranSyllabusHeroCard(
                     }
 
                     Text(
-                        text = "⭐ সহীহ তিলাওয়াত",
+                        text = "✓ সম্পূর্ণ ফ্রি কোর্স",
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
-                        color = GoldenAccent
+                        color = Color(0xFF6EE7B7)
                     )
                 }
 
