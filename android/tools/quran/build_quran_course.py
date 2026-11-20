@@ -13,6 +13,7 @@ import data_quran_p1_letters_harakat
 import data_quran_p2_sukun_tashdeed
 import data_quran_p3_tajweed_rules
 import data_quran_p4_surahs_duas
+import data_quran_p5_fazilat_duas
 
 IGNORED = re.compile(r"[\s\u200c\u200d\u0640।॥,?!.,:;'\-—…\"“”()\[\]]")
 ARABIC = re.compile(r"[\u0600-\u06FF]")
@@ -21,7 +22,8 @@ raw_units = (
     data_quran_p1_letters_harakat.UNITS_QURAN_P1 +
     data_quran_p2_sukun_tashdeed.UNITS_QURAN_P2 +
     data_quran_p3_tajweed_rules.UNITS_QURAN_P3 +
-    data_quran_p4_surahs_duas.UNITS_QURAN_P4
+    data_quran_p4_surahs_duas.UNITS_QURAN_P4 +
+    data_quran_p5_fazilat_duas.UNITS_QURAN_P5
 )
 
 def make_item(stem, lesson_no, index, item_data):

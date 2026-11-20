@@ -1350,14 +1350,14 @@ fun LearnHomeScreen(
                         item {
                             MainCourseCard(
                                 tag = "📖 নূরানী ও নাদিয়াতুল ক্বোরআন মেথডোলজি",
-                                title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স (৮টি পর্যায়)",
-                                description = "আরবি ২৯টি হরফ, ১৭টি মাখরাজ, হরকত, তানভীন, জযম, তাশদীদ, নূন সাকিন, মীম সাকিন, মাদ্দ ও ১০টি ছোট সূরা।",
+                                title = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স (১০টি পর্যায়)",
+                                description = "আরবি হরফ, মাখরাজ, তাজবীদ, শেষ ১০টি সূরা, আয়াতুল কুরসী, ইয়াসীন, আর-রাহমান ও মোনাজাত।",
                                 badgeText = "সম্পূর্ণ ফ্রি",
                                 accentColor = Color(0xFF1B5E20),
                                 partCount = qrPartCount,
                                 lessonCount = qrLessonCount,
                                 sentenceCount = qrSentenceCount,
-                                customPills = listOf("📖 ৮টি পর্যায়", "🎧 ৩৫টি অডিও লেসন", "🕌 ২৬৬টি মশ্‌ক ও আয়াত"),
+                                customPills = listOf("📖 ১০টি পর্যায়", "🎧 ৪০টি অডিও লেসন", "🕌 ৪৫১টি মশ্‌ক, আয়াত ও দুআ"),
                                 onClick = { onOpenCourse("quran") }
                             )
                         }
