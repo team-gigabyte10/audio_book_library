@@ -75,7 +75,7 @@ object LessonQueueBuilder {
 
         val speeds = targetSpeeds(item, ladder, settings.repeatCount, targetLang)
         for (speed in speeds) {
-            steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER)
+            steps += PlaybackStep.Speak(item.target, targetLang, speed, itemIndex, Phase.LADDER, itemId = item.id)
         }
 
         val fullPauseMs = settings.gapMs ?: ladder.filter { it.isPause }.sumOf { it.pauseMs }

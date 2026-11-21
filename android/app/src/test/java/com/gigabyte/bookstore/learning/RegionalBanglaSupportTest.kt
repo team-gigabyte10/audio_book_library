@@ -129,4 +129,19 @@ class RegionalBanglaSupportTest {
         assertEquals("Must contain 64 shared concept sentences", 64, conceptCounts.size)
         assertTrue("Every concept sentence must cover all 10 regions", conceptCounts.values.all { it == 10 })
     }
+
+    @Test
+    fun `RegionalAudioCatalog resolves audio references for regional items and ignores other courses`() {
+        val ref = com.gigabyte.bookstore.learning.domain.audio.RegionalAudioCatalog.audioRefForItem("bd-thm-01-l01-001")
+        assertEquals("bd_thm_01_l01_001", ref)
+        assertEquals("bd_thm_08_l04_020", com.gigabyte.bookstore.learning.domain.audio.RegionalAudioCatalog.audioRefForItem("bd-thm-08-l04-020"))
+        org.junit.Assert.assertNull(com.gigabyte.bookstore.learning.domain.audio.RegionalAudioCatalog.audioRefForItem("qr-p4-u07-l01-001"))
+        org.junit.Assert.assertNull(com.gigabyte.bookstore.learning.domain.audio.RegionalAudioCatalog.audioRefForItem("en-a1-u01-l01-001"))
+
+        val refs = com.gigabyte.bookstore.learning.domain.audio.RegionalAudioCatalog.audioRefsForLesson("bd-thm-01-l01")
+        assertEquals(20, refs.size)
+        assertEquals("bd_thm_01_l01_001", refs.first())
+        assertEquals("bd_thm_01_l01_020", refs.last())
+        assertTrue(com.gigabyte.bookstore.learning.domain.audio.RegionalAudioCatalog.buildAudioUrl("bd_thm_01_l01_001").endsWith("bd_thm_01_l01_001.mp3"))
+    }
 }

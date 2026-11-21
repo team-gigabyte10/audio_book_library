@@ -188,9 +188,7 @@ fun LessonScreen(
                             VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                         }
                     } else if (viewModel.isRegionalBangla) {
-                        if (banglaAvailable == false) {
-                            VoiceWarning("বাংলা ভয়েস নেই। ফোনের Text-to-speech সেটিংস থেকে বাংলা ভয়েস ইনস্টল করুন।")
-                        }
+                        // Regional dialects use authentic recorded voices directly ("like tilawat"), bypassing Android TTS.
                     } else if (viewModel.isQuran) {
                         val hasMappedQariAudio = remember(content.lesson.id) {
                             QuranAudioCatalog.audioRefsForLesson(content.lesson.id).isNotEmpty()
@@ -463,7 +461,7 @@ fun LessonScreen(
                                             activeItemIndex = index,
                                             onSelectRegion = { targetIdx, regionItem ->
                                                 viewModel.jumpTo(targetIdx)
-                                                viewModel.speakText(regionItem.target)
+                                                viewModel.speakText(regionItem.target, regionItem.id)
                                             }
                                         )
                                     }
@@ -718,6 +716,20 @@ private fun ItemCard(
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFF1B5E20),
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+            } else if (item.id.startsWith("bd-")) {
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color(0xFFE0F2F1),
+                    border = BorderStroke(1.dp, Color(0xFF80CBC4))
+                ) {
+                    Text(
+                        "🎙️ অঞ্চলের খাঁটি কথ্য কণ্ঠ (তিলাওয়াত স্টাইল অডিও)",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF006A4E),
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
                     )
                 }

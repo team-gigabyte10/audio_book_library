@@ -100,6 +100,8 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
 
             if (isQuran) {
                 launch { engine.prefetchQuranLesson(lessonId) }
+            } else if (isRegionalBangla) {
+                launch { engine.prefetchRegionalLesson(lessonId) }
             }
 
             if (isUrdu || isHindi) {
@@ -191,7 +193,7 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
     )
 
     fun speakText(text: String, itemId: String? = null) {
-        val targetItemId = itemId ?: if (isQuran) {
+        val targetItemId = itemId ?: if (isQuran || isRegionalBangla) {
             _uiState.value.content?.items?.firstOrNull { it.target == text }?.id
         } else null
         player.speakOnce(

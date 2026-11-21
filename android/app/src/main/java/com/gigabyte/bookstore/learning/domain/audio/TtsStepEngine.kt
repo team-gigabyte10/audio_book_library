@@ -37,6 +37,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
 
     private val appPreferences = AppPreferences(context)
     private val quranRecitationPlayer = QuranRecitationPlayer(context.applicationContext)
+    private val regionalAudioPlayer = RegionalAudioPlayer(context.applicationContext)
 
     private val _englishAvailable = MutableStateFlow<Boolean?>(null)
     override val englishAvailable: StateFlow<Boolean?> = _englishAvailable.asStateFlow()
@@ -93,6 +94,15 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
                 if (played) return
             }
         }
+        val isRegionalItem = step.itemId?.startsWith("bd-") == true || step.lang == SpeechLang.BD
+        if (isRegionalItem && step.itemId != null) {
+            val audioRef = RegionalAudioCatalog.audioRefForItem(step.itemId)
+            if (audioRef != null) {
+                engine.stop()
+                val played = regionalAudioPlayer.playItem(audioRef, step.rate)
+                if (played) return
+            }
+        }
         engine.speak(
             text = step.text,
             lang = step.lang,
@@ -109,8 +119,15 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
         quranRecitationPlayer.prefetch(refs, reciter)
     }
 
+    suspend fun prefetchRegionalLesson(lessonId: String) {
+        val refs = RegionalAudioCatalog.audioRefsForLesson(lessonId)
+        if (refs.isEmpty()) return
+        regionalAudioPlayer.prefetch(refs)
+    }
+
     override fun stop() {
         quranRecitationPlayer.stop()
+        regionalAudioPlayer.stop()
         engine.stop()
     }
 
@@ -120,6 +137,7 @@ class TtsStepEngine(private val context: Context) : StepAudioEngine {
      */
     fun refreshBangla() {
         quranRecitationPlayer.stop()
+        regionalAudioPlayer.stop()
         engine.shutdown()
         _englishAvailable.value = null
         _banglaAvailable.value = null
