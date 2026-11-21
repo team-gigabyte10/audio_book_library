@@ -418,6 +418,7 @@ fun CourseSyllabusScreen(
                     Column {
                         Text(
                             text = courseTitleBn,
+                            color = Color.White,
                             fontWeight = FontWeight.Bold,
                             fontSize = 17.sp,
                             maxLines = 1,
@@ -426,18 +427,23 @@ fun CourseSyllabusScreen(
                         Text(
                             text = courseSubtitle,
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = Color(0xFFE0F2F1),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     }
                 },
+                titleContentColor = Color.White,
+                navigationIconContentColor = Color.White,
+                actionIconContentColor = Color.White,
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 },
                 actions = {
                     IconButton(onClick = { onOpenTranslator(TranslatorLanguage.fromKey(courseType).key) }) {
-                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক")
+                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক", tint = Color.White)
                     }
                 }
             )
@@ -607,15 +613,24 @@ private fun CourseHeroBannerCard(
             .clip(RoundedCornerShape(20.dp))
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
+            // Background Image
+            Image(
+                painter = painterResource(id = R.drawable.language_course_backdrop),
+                contentDescription = titleBn,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+
+            // Cinematic gradient overlay: subtle accent glow on top, deep rich dark slate on bottom
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
-                        Brush.linearGradient(
+                        Brush.verticalGradient(
                             colors = listOf(
-                                accentColor.copy(alpha = 0.88f),
-                                accentColor.copy(alpha = 0.52f),
-                                Color(0xFF0F172A)
+                                accentColor.copy(alpha = 0.35f),
+                                Color(0xFF0F172A).copy(alpha = 0.65f),
+                                Color(0xFF020617).copy(alpha = 0.88f)
                             )
                         )
                     )
@@ -633,7 +648,8 @@ private fun CourseHeroBannerCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Surface(
-                        color = accentColor,
+                        color = accentColor.copy(alpha = 0.92f),
+                        border = BorderStroke(1.dp, Color.White.copy(alpha = 0.30f)),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
@@ -646,7 +662,7 @@ private fun CourseHeroBannerCard(
                     }
 
                     Surface(
-                        color = if (isCourseOwned) Color(0xFF10B981).copy(alpha = 0.25f) else Color(0x38FFFFFF),
+                        color = if (isCourseOwned) Color(0xFF10B981).copy(alpha = 0.35f) else Color(0x38FFFFFF),
                         border = BorderStroke(1.dp, if (isCourseOwned) Color(0xFF10B981) else Color(0x33FFFFFF)),
                         shape = RoundedCornerShape(8.dp)
                     ) {
@@ -733,6 +749,7 @@ private fun QuranSyllabusHeroCard(
                 ) {
                     Surface(
                         color = Color(0xFF1B5E20),
+                        border = BorderStroke(1.dp, Color(0xFFFFD54F).copy(alpha = 0.35f)),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
@@ -744,12 +761,19 @@ private fun QuranSyllabusHeroCard(
                         )
                     }
 
-                    Text(
-                        text = "✓ সম্পূর্ণ ফ্রি কোর্স",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF6EE7B7)
-                    )
+                    Surface(
+                        color = Color(0xFF10B981).copy(alpha = 0.25f),
+                        border = BorderStroke(1.dp, Color(0xFF10B981)),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text(
+                            text = "✓ সম্পূর্ণ ফ্রি কোর্স",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF6EE7B7),
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
                 }
 
                 Column {
