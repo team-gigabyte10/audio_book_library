@@ -150,8 +150,11 @@ fun PartLessonsScreen(
                             )
                         }
 
-                        // Bottom of Lesson 4: Self Presentation Monologue
-                        if (part?.order == 1) {
+                        // English Foundations Specific Monologues & WH Expandable List
+                        val isEnglishFoundations = part?.id?.startsWith("en-foundations-") == true
+
+                        // Bottom of Lesson 4: Self Presentation Monologue (English Foundations Part 1 only)
+                        if (isEnglishFoundations && part?.order == 1) {
                             item(key = "monologue_self_presentation") {
                                 SpeechMonologueCard(
                                     badgeText = "🎙️ অংশ ০১ সমাপনী স্পিচ",
@@ -165,8 +168,8 @@ fun PartLessonsScreen(
                             }
                         }
 
-                        // Bottom of Lesson 12: 100 Essential WH-Questions Mastery (Expandable List)
-                        if (part?.order == 3) {
+                        // Bottom of Lesson 12: 100 Essential WH-Questions Mastery (Expandable List - English Foundations Part 3 only)
+                        if (isEnglishFoundations && part?.order == 3 && whLessons.isNotEmpty()) {
                             item(key = "expandable_100_wh_questions") {
                                 Wh100ExpandableCard(
                                     lessons = whLessons,
@@ -175,8 +178,8 @@ fun PartLessonsScreen(
                             }
                         }
 
-                    // Bottom of Lesson 17: Daily Activities Monologue & Mini Presentations
-                    if (part?.order == 4) {
+                    // Bottom of Lesson 17: Daily Activities Monologue & Mini Presentations (English Foundations Part 4 only)
+                    if (isEnglishFoundations && part?.order == 4) {
                         item(key = "monologue_daily_activities") {
                             SpeechMonologueCard(
                                 badgeText = "🎙️ অংশ ০৪ সমাপনী স্পিচ",
