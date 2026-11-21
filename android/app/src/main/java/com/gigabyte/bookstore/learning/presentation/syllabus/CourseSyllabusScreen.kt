@@ -261,7 +261,6 @@ fun CourseSyllabusScreen(
     val isJpCasual = courseType.equals("jp_casual", ignoreCase = true)
     val isJpBusiness = courseType.equals("jp_business", ignoreCase = true)
     val isRegionalBangla = courseType.equals("regional_bangla", ignoreCase = true) || courseType.equals("regional", ignoreCase = true) || courseType.startsWith("bd")
-    val isQuran = courseType.equals("quran", ignoreCase = true) || courseType.startsWith("qr")
 
     val courseTitleBn = when {
         isQuran -> "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স"
