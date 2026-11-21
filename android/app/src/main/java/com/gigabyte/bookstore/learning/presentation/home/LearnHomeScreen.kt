@@ -382,11 +382,6 @@ fun LearnHomeScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
                     }
-                },
-                actions = {
-                    IconButton(onClick = { onOpenTranslator(language) }) {
-                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক")
-                    }
                 }
             )
         }

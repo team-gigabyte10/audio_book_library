@@ -291,20 +291,6 @@ fun HomeScreen(
                                 )
                             }
                         }
-                    },
-                    actions = {
-                        IconButton(onClick = onNavigateToTranslator) {
-                            Icon(
-                                imageVector = Icons.Default.Translate,
-                                contentDescription = "লাইভ অনুবাদক"
-                            )
-                        }
-                        IconButton(onClick = onNavigateToSearch) {
-                            Icon(
-                                imageVector = Icons.Default.Search,
-                                contentDescription = "অনুসন্ধান"
-                            )
-                        }
                     }
                 )
             },

@@ -440,11 +440,6 @@ fun CourseSyllabusScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
-                },
-                actions = {
-                    IconButton(onClick = { onOpenTranslator(TranslatorLanguage.fromKey(courseType).key) }) {
-                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক", tint = Color.White)
-                    }
                 }
             )
         }

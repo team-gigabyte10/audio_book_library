@@ -144,12 +144,6 @@ fun LessonScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = {
-                        viewModel.pause()
-                        onOpenTranslator()
-                    }) {
-                        Icon(Icons.Default.Translate, contentDescription = "লাইভ অনুবাদক")
-                    }
                     IconButton(onClick = { showSettings = true }) {
                         Icon(Icons.Default.Settings, contentDescription = "সেটিংস")
                     }
