@@ -242,10 +242,56 @@ fun LessonScreen(
 
                     val items = content.items
                     val index = playerState.itemIndex.coerceIn(0, items.lastIndex)
+                    var showFullSurahPage by remember(content.lesson.id) {
+                        mutableStateOf(viewModel.isQuran && (content.lesson.id.contains("u09") || items.size > 8))
+                    }
+
                     LinearProgressIndicator(
                         progress = { (index + 1).toFloat() / items.size },
                         modifier = Modifier.fillMaxWidth()
                     )
+
+                    if (viewModel.isQuran) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 6.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                if (showFullSurahPage) "এক পাতায় পূর্ণাঙ্গ সূরা পাঠ" else "আয়াতভিত্তিক কার্ড ভিউ",
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Surface(
+                                onClick = { showFullSurahPage = !showFullSurahPage },
+                                shape = androidx.compose.foundation.shape.RoundedCornerShape(20.dp),
+                                color = if (showFullSurahPage) Color(0xFFE8F5E9) else MaterialTheme.colorScheme.surfaceVariant,
+                                border = androidx.compose.foundation.BorderStroke(1.dp, if (showFullSurahPage) Color(0xFF81C784) else MaterialTheme.colorScheme.outlineVariant)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = if (showFullSurahPage) Icons.Default.Headphones else Icons.Default.Info,
+                                        contentDescription = null,
+                                        tint = if (showFullSurahPage) Color(0xFF1B5E20) else MaterialTheme.colorScheme.onSurfaceVariant,
+                                        modifier = Modifier.size(14.dp)
+                                    )
+                                    Text(
+                                        if (showFullSurahPage) "কার্ড ভিউ" else "এক পাতায় দেখুন",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = if (showFullSurahPage) Color(0xFF1B5E20) else MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            }
+                        }
+                    }
 
                     Column(
                         Modifier
@@ -321,81 +367,134 @@ fun LessonScreen(
                             }
                         }
 
-                        Text(
-                            "${index + 1} / ${items.size}",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Spacer(Modifier.height(8.dp))
-                        val currentItem = items[index]
-                        if (currentItem.speaker == "pair_practice") {
-                            PairPracticeVoiceCard(
-                                item = currentItem,
-                                onSpeakQuestion = { viewModel.speakText(currentItem.target) },
-                                onSpeakYes = { currentItem.exampleTarget?.let { viewModel.speakText(it) } },
-                                onSpeakNo = { currentItem.exampleBn?.let { viewModel.speakText(it) } },
-                                onSpeakText = { viewModel.speakText(it) },
-                                onNext = viewModel::next,
-                                hasNext = index < items.lastIndex,
-                                onPauseAudio = viewModel::pause
-                            )
-                        } else if (uiState.mode == LessonMode.LISTEN) {
-                            SpeakingPromptBanner(isPlaying = playerState.isPlaying)
-                            Spacer(Modifier.height(10.dp))
-                            ItemCard(
-                                item = currentItem,
-                                currentStep = playerState.currentStep,
-                                revealTarget = true,
-                                onSpeakToken = viewModel::speakToken,
-                                onSpeakTarget = { viewModel.speakText(currentItem.target) },
-                                onSpeakText = { viewModel.speakText(it) },
-                                onSpeakPronunciation = { viewModel.speakPronunciation(it) },
-                                onSpeakMeaning = { viewModel.speakMeaning(it) },
-                                isFemaleSpeaker = if (viewModel.isHindi) hiFemaleSpeaker else (urFemaleSpeaker ?: false)
-                            )
-                            if (viewModel.isRegionalBangla) {
-                                val comparisonGroup = remember(items, currentItem.conceptId) {
-                                    items.withIndex().filter { it.value.conceptId == currentItem.conceptId }
-                                }
-                                if (comparisonGroup.size > 1) {
-                                    Spacer(Modifier.height(10.dp))
-                                    RegionalComparisonCard(
-                                        standardBn = currentItem.bn ?: "",
-                                        group = comparisonGroup,
-                                        activeItemIndex = index,
-                                        onSelectRegion = { targetIdx, regionItem ->
-                                            viewModel.jumpTo(targetIdx)
-                                            viewModel.speakText(regionItem.target)
-                                        }
-                                    )
+                        if (viewModel.isQuran && showFullSurahPage) {
+                            Surface(
+                                shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+                                color = Color(0xFFE8F5E9).copy(alpha = 0.7f),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF81C784).copy(alpha = 0.6f)),
+                                modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(
+                                            text = content.lesson.titleBn ?: content.lesson.titleTarget ?: "",
+                                            style = MaterialTheme.typography.titleMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color(0xFF1B5E20)
+                                        )
+                                        Text(
+                                            text = "মোট ${items.size}টি আয়াত • পুরুষ ক্বারীর তিলাওয়াত",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = Color(0xFF2E7D32)
+                                        )
+                                    }
+                                    Surface(
+                                        shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
+                                        color = if (playerState.isPlaying) Color(0xFF1B5E20) else Color(0xFF455A64),
+                                        contentColor = Color.White
+                                    ) {
+                                        Text(
+                                            text = if (playerState.isPlaying) "▶ তিলাওয়াত চলছে" else "⏸ থেমে আছে",
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                        )
+                                    }
                                 }
                             }
+
+                            items.forEachIndexed { itemIdx, ayahItem ->
+                                FullSurahAyahItem(
+                                    item = ayahItem,
+                                    index = itemIdx,
+                                    isActive = playerState.isPlaying && index == itemIdx,
+                                    onPlay = {
+                                        viewModel.jumpTo(itemIdx)
+                                        viewModel.speakText(ayahItem.target, ayahItem.id)
+                                    }
+                                )
+                            }
                         } else {
-                            // "নিজে বলুন" tab: 10x Speed Drill Timer Challenge with English sentence & Bangla meaning
-                            SpeedDrillChallengeCard(
-                                item = currentItem,
-                                onSpeakTarget = { viewModel.speakText(currentItem.target) },
-                                onSpeakText = { viewModel.speakText(it) },
-                                onSpeakPronunciation = { viewModel.speakPronunciation(it) },
-                                onSpeakMeaning = { viewModel.speakMeaning(it) },
-                                onNextItem = viewModel::next,
-                                hasNextItem = index < items.lastIndex,
-                                onStartChallenge = viewModel::pause
+                            Text(
+                                "${index + 1} / ${items.size}",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
-                        }
-                        val checkLanguage = speechCheckLanguage(currentItem.id)
-                        if (checkLanguage != null) {
-                            Spacer(Modifier.height(10.dp))
-                            SpeechCheckCard(
-                                item = currentItem,
-                                languageTag = checkLanguage,
-                                onSpeakTarget = { viewModel.speakText(currentItem.target) },
-                                onPauseAudio = viewModel::pause
-                            )
+                            Spacer(Modifier.height(8.dp))
+                            val currentItem = items[index]
+                            if (currentItem.speaker == "pair_practice") {
+                                PairPracticeVoiceCard(
+                                    item = currentItem,
+                                    onSpeakQuestion = { viewModel.speakText(currentItem.target, currentItem.id) },
+                                    onSpeakYes = { currentItem.exampleTarget?.let { viewModel.speakText(it) } },
+                                    onSpeakNo = { currentItem.exampleBn?.let { viewModel.speakText(it) } },
+                                    onSpeakText = { viewModel.speakText(it) },
+                                    onNext = viewModel::next,
+                                    hasNext = index < items.lastIndex,
+                                    onPauseAudio = viewModel::pause
+                                )
+                            } else if (uiState.mode == LessonMode.LISTEN) {
+                                SpeakingPromptBanner(isPlaying = playerState.isPlaying)
+                                Spacer(Modifier.height(10.dp))
+                                ItemCard(
+                                    item = currentItem,
+                                    currentStep = playerState.currentStep,
+                                    revealTarget = true,
+                                    onSpeakToken = viewModel::speakToken,
+                                    onSpeakTarget = { viewModel.speakText(currentItem.target, currentItem.id) },
+                                    onSpeakText = { viewModel.speakText(it) },
+                                    onSpeakPronunciation = { viewModel.speakPronunciation(it) },
+                                    onSpeakMeaning = { viewModel.speakMeaning(it) },
+                                    isFemaleSpeaker = if (viewModel.isHindi) hiFemaleSpeaker else (urFemaleSpeaker ?: false)
+                                )
+                                if (viewModel.isRegionalBangla) {
+                                    val comparisonGroup = remember(items, currentItem.conceptId) {
+                                        items.withIndex().filter { it.value.conceptId == currentItem.conceptId }
+                                    }
+                                    if (comparisonGroup.size > 1) {
+                                        Spacer(Modifier.height(10.dp))
+                                        RegionalComparisonCard(
+                                            standardBn = currentItem.bn ?: "",
+                                            group = comparisonGroup,
+                                            activeItemIndex = index,
+                                            onSelectRegion = { targetIdx, regionItem ->
+                                                viewModel.jumpTo(targetIdx)
+                                                viewModel.speakText(regionItem.target)
+                                            }
+                                        )
+                                    }
+                                }
+                            } else {
+                                // "নিজে বলুন" tab: 10x Speed Drill Timer Challenge with English sentence & Bangla meaning
+                                SpeedDrillChallengeCard(
+                                    item = currentItem,
+                                    onSpeakTarget = { viewModel.speakText(currentItem.target, currentItem.id) },
+                                    onSpeakText = { viewModel.speakText(it) },
+                                    onSpeakPronunciation = { viewModel.speakPronunciation(it) },
+                                    onSpeakMeaning = { viewModel.speakMeaning(it) },
+                                    onNextItem = viewModel::next,
+                                    hasNextItem = index < items.lastIndex,
+                                    onStartChallenge = viewModel::pause
+                                )
+                            }
+                            val checkLanguage = speechCheckLanguage(currentItem.id)
+                            if (checkLanguage != null) {
+                                Spacer(Modifier.height(10.dp))
+                                SpeechCheckCard(
+                                    item = currentItem,
+                                    languageTag = checkLanguage,
+                                    onSpeakTarget = { viewModel.speakText(currentItem.target, currentItem.id) },
+                                    onPauseAudio = viewModel::pause
+                                )
+                            }
                         }
                     }
 
-                    if (playerState.isFinished || index == items.lastIndex) {
+                    if (playerState.isFinished || index == items.lastIndex || (viewModel.isQuran && showFullSurahPage)) {
                         Button(
                             onClick = {
                                 viewModel.onFinishedListening()
@@ -477,6 +576,115 @@ private fun IntroPanel(intro: String?, structure: List<String>, onStart: () -> U
             }
         }
         Button(onClick = onStart, modifier = Modifier.fillMaxWidth()) { Text("লেসন শুরু করুন") }
+    }
+}
+
+@Composable
+private fun FullSurahAyahItem(
+    item: LessonItem,
+    index: Int,
+    isActive: Boolean,
+    onPlay: () -> Unit
+) {
+    val isAyahTilawat = remember(item.id) { QuranAudioCatalog.audioRefForItem(item.id) != null }
+    val cardBg = if (isActive) Color(0xFFE8F5E9) else MaterialTheme.colorScheme.surface
+    val borderCol = if (isActive) Color(0xFF2E7D32) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)
+    val borderWidth = if (isActive) 2.dp else 1.dp
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp),
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = cardBg),
+        border = androidx.compose.foundation.BorderStroke(borderWidth, borderCol),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isActive) 4.dp else 1.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Surface(
+                        shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
+                        color = if (isActive) Color(0xFF1B5E20) else Color(0xFF00796B),
+                        contentColor = Color.White
+                    ) {
+                        Text(
+                            text = "আয়াত ${index + 1}",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                        )
+                    }
+                    if (isAyahTilawat) {
+                        Surface(
+                            shape = androidx.compose.foundation.shape.RoundedCornerShape(6.dp),
+                            color = Color(0xFFE8F5E9),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF81C784))
+                        ) {
+                            Text(
+                                "🎙️ ক্বারীর তিলাওয়াত",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF1B5E20),
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
+                }
+
+                IconButton(
+                    onClick = onPlay,
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                        contentDescription = "তিলাওয়াত শুনুন",
+                        tint = if (isActive) Color(0xFF1B5E20) else Color(0xFF00796B)
+                    )
+                }
+            }
+
+            Text(
+                text = item.target,
+                style = quranTextStyle(26.sp, bold = true),
+                textAlign = TextAlign.Right,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(onClick = onPlay)
+            )
+
+            if (!item.bnPron.isNullOrBlank()) {
+                val cleanPron = if (item.bnPron.contains(" · ")) item.bnPron.substringAfter(" · ").trim() else item.bnPron.trim()
+                if (cleanPron.isNotBlank()) {
+                    Text(
+                        text = "উচ্চারণ: $cleanPron",
+                        style = MaterialTheme.typography.bodyMedium.copy(color = Color(0xFF37474F)),
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            }
+
+            if (!item.bn.isNullOrBlank()) {
+                Text(
+                    text = "অনুবাদ: ${item.bn.trim()}",
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontWeight = FontWeight.Medium,
+                        color = MaterialTheme.colorScheme.onSurface
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        }
     }
 }
 

@@ -190,15 +190,15 @@ class LessonViewModel(application: Application, private val lessonId: String) : 
         preferMale = isQuran
     )
 
-    fun speakText(text: String) {
-        val matchedItemId = if (isQuran) {
+    fun speakText(text: String, itemId: String? = null) {
+        val targetItemId = itemId ?: if (isQuran) {
             _uiState.value.content?.items?.firstOrNull { it.target == text }?.id
         } else null
         player.speakOnce(
             text = text,
             lang = targetLang,
             rate = if (isQuran) 0.85f else 1.05f,
-            itemId = matchedItemId,
+            itemId = targetItemId,
             preferMale = isQuran
         )
     }

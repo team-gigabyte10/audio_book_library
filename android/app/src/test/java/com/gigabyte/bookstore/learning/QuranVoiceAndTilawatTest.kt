@@ -82,18 +82,31 @@ class QuranVoiceAndTilawatTest {
     @Test
     fun `QuranAudioCatalog maps full Ayahs cleanly and excludes Qaida and half verses`() {
         assertEquals("001001", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l01-001"))
-        assertEquals("112001", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l02-001"))
-        assertEquals("113005", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l03-005"))
-        assertEquals("114006", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l04-006"))
-        assertEquals("108001", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l01-001"))
-        assertEquals("109006", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l03-008"))
+        assertEquals("105001", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l02-001"))
+        assertEquals("106001", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l03-001"))
+        assertEquals("107001", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l04-001"))
+        assertEquals("108001", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l05-001"))
+        assertEquals("109006", QuranAudioCatalog.audioRefForItem("qr-p4-u07-l06-006"))
+        assertEquals("110001", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l01-001"))
+        assertEquals("111001", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l02-001"))
+        assertEquals("112001", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l03-001"))
+        assertEquals("113005", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l04-005"))
+        assertEquals("114006", QuranAudioCatalog.audioRefForItem("qr-p4-u08-l05-006"))
+        assertEquals("002255", QuranAudioCatalog.audioRefForItem("qr-p5-u09-l01-001"))
+        assertEquals("059024", QuranAudioCatalog.audioRefForItem("qr-p5-u09-l01-004"))
+        assertEquals("036001", QuranAudioCatalog.audioRefForItem("qr-p5-u09-l02-001"))
+        assertEquals("036083", QuranAudioCatalog.audioRefForItem("qr-p5-u09-l02-083"))
+        assertEquals("055001", QuranAudioCatalog.audioRefForItem("qr-p5-u09-l03-001"))
+        assertEquals("055078", QuranAudioCatalog.audioRefForItem("qr-p5-u09-l03-078"))
+        assertEquals("002201", QuranAudioCatalog.audioRefForItem("qr-p5-u10-l02-001"))
+        assertEquals("023118", QuranAudioCatalog.audioRefForItem("qr-p5-u10-l02-010"))
 
-        // Half-verse split items and Qaida items must stay on matching TTS rather than full-Ayah MP3
-        assertNull(QuranAudioCatalog.audioRefForItem("qr-p4-u07-l01-007"))
+        // Qaida drills and Tashahhud without specific Quran Ayah key stay on matching male TTS
         assertNull(QuranAudioCatalog.audioRefForItem("qr-p1-u01-l01-001"))
+        assertNull(QuranAudioCatalog.audioRefForItem("qr-p4-u08-l06-001"))
 
         assertEquals(
-            listOf("001001", "001002", "001003", "001004", "001005", "001006"),
+            listOf("001001", "001002", "001003", "001004", "001005", "001006", "001007"),
             QuranAudioCatalog.audioRefsForLesson("qr-p4-u07-l01")
         )
         assertEquals(
