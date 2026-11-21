@@ -250,6 +250,7 @@ fun LessonScreen(
                     )
 
                     if (viewModel.isQuran) {
+                        val isDuaLesson = content.lesson.id.contains("u10") || items.any { !it.speaker.isNullOrBlank() }
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -258,7 +259,11 @@ fun LessonScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                if (showFullSurahPage) "এক পাতায় পূর্ণাঙ্গ সূরা পাঠ" else "আয়াতভিত্তিক কার্ড ভিউ",
+                                if (isDuaLesson) {
+                                    if (showFullSurahPage) "এক পাতায় সকল দুআ পাঠ" else "কার্ড ভিউ"
+                                } else {
+                                    if (showFullSurahPage) "এক পাতায় পূর্ণাঙ্গ সূরা পাঠ" else "আয়াতভিত্তিক কার্ড ভিউ"
+                                },
                                 style = MaterialTheme.typography.labelMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -377,6 +382,7 @@ fun LessonScreen(
                                     verticalAlignment = Alignment.CenterVertically,
                                     horizontalArrangement = Arrangement.SpaceBetween
                                 ) {
+                                    val isDuaLesson = content.lesson.id.contains("u10") || items.any { !it.speaker.isNullOrBlank() }
                                     Column(modifier = Modifier.weight(1f)) {
                                         Text(
                                             text = content.lesson.titleBn ?: content.lesson.titleTarget ?: "",
@@ -385,7 +391,8 @@ fun LessonScreen(
                                             color = Color(0xFF1B5E20)
                                         )
                                         Text(
-                                            text = "মোট ${items.size}টি আয়াত • পুরুষ ক্বারীর তিলাওয়াত",
+                                            text = if (isDuaLesson) "মোট ${items.size}টি দুআ • সহীহ আরবি উচ্চারণ"
+                                                   else "মোট ${items.size}টি আয়াত • পুরুষ ক্বারীর তিলাওয়াত",
                                             style = MaterialTheme.typography.bodySmall,
                                             color = Color(0xFF2E7D32)
                                         )
@@ -607,6 +614,7 @@ private fun FullSurahAyahItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                val isDuaItem = !item.speaker.isNullOrBlank() || item.id.contains("u10")
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
@@ -617,13 +625,13 @@ private fun FullSurahAyahItem(
                         contentColor = Color.White
                     ) {
                         Text(
-                            text = "আয়াত ${index + 1}",
+                            text = if (!item.speaker.isNullOrBlank()) "🤲 ${item.speaker}" else if (item.id.contains("u10")) "🤲 দুআ ${index + 1}" else "আয়াত ${index + 1}",
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                         )
                     }
-                    if (isAyahTilawat) {
+                    if (isAyahTilawat && !isDuaItem) {
                         Surface(
                             shape = androidx.compose.foundation.shape.RoundedCornerShape(6.dp),
                             color = Color(0xFFE8F5E9),
@@ -631,6 +639,20 @@ private fun FullSurahAyahItem(
                         ) {
                             Text(
                                 "🎙️ ক্বারীর তিলাওয়াত",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF1B5E20),
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                            )
+                        }
+                    } else if (isDuaItem) {
+                        Surface(
+                            shape = androidx.compose.foundation.shape.RoundedCornerShape(6.dp),
+                            color = Color(0xFFE8F5E9),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF81C784))
+                        ) {
+                            Text(
+                                "🎙️ সহীহ মশ্‌ক",
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color(0xFF1B5E20),
@@ -705,19 +727,42 @@ private fun ItemCard(
     Card(modifier = Modifier.fillMaxWidth(), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
         Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             if (isQuranItem(item.id)) {
+                val isDuaItem = !item.speaker.isNullOrBlank() || item.id.contains("u10")
                 val isAyahTilawat = QuranAudioCatalog.audioRefForItem(item.id) != null
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = Color(0xFFE8F5E9),
-                    border = BorderStroke(1.dp, Color(0xFF81C784))
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        if (isAyahTilawat) "🎙️ পুরুষ কারী তিলাওয়াত (তারতীল)" else "🎙️ পুরুষ উস্তাদ মশ্‌ক (পুরুষ কণ্ঠ)",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF1B5E20),
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                    )
+                    if (!item.speaker.isNullOrBlank()) {
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = Color(0xFFE8F5E9),
+                            border = BorderStroke(1.dp, Color(0xFF2E7D32))
+                        ) {
+                            Text(
+                                "🤲 ${item.speaker}",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF1B5E20),
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = Color(0xFFE8F5E9),
+                        border = BorderStroke(1.dp, Color(0xFF81C784))
+                    ) {
+                        Text(
+                            if (isDuaItem) "🎙️ সহীহ মশ্‌ক ও উচ্চারণ"
+                            else if (isAyahTilawat) "🎙️ পুরুষ কারী তিলাওয়াত (তারতীল)"
+                            else "🎙️ পুরুষ উস্তাদ মশ্‌ক (পুরুষ কণ্ঠ)",
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1B5E20),
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                        )
+                    }
                 }
             } else if (item.id.startsWith("bd-")) {
                 Surface(
@@ -726,7 +771,7 @@ private fun ItemCard(
                     border = BorderStroke(1.dp, Color(0xFF80CBC4))
                 ) {
                     Text(
-                        "🎙️ অঞ্চলের খাঁটি কথ্য কণ্ঠ (তিলাওয়াত স্টাইল অডিও)",
+                        "🎙️ অঞ্চলের খাঁটি কথ্য কণ্ঠ (নেটিভ উচ্চারণ)",
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFF006A4E),

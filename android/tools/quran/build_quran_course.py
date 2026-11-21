@@ -27,7 +27,11 @@ raw_units = (
 )
 
 def make_item(stem, lesson_no, index, item_data):
-    target, bn, bn_pron, tokens = item_data
+    if len(item_data) > 4:
+        target, bn, bn_pron, tokens, speaker = item_data
+    else:
+        target, bn, bn_pron, tokens = item_data
+        speaker = None
     target = target.strip()
     joined = "".join(t["t"] for t in tokens)
     cleaned_joined = IGNORED.sub("", joined)
@@ -54,6 +58,8 @@ def make_item(stem, lesson_no, index, item_data):
         "status": "ready",
         "review_flags": []
     }
+    if speaker:
+        out["speaker"] = speaker
     return out
 
 def build_course():

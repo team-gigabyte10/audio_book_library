@@ -7707,14 +7707,11 @@
           "id": "qr-p5-u09-l01",
           "order": 1,
           "level": "A1",
-          "title": "آيَةُ الْكُرْسِيِّ وَخَوَاتِيمُ سُورَةِ الْحَشْرِ",
-          "title_bn": "আয়াতুল কুরসী ও সূরা হাশরের শেষ ৩ আয়াত",
-          "intro_bn": "কুরআনের শ্রেষ্ঠতম আয়াত 'আয়াতুল কুরসী' এবং সূরা হাশরের শেষ ৩ আয়াতের আসমাউল হুসনা।",
+          "title": "آيَةُ الْكُرْسِيِّ (سُورَةُ الْبَقَرَةِ 255)",
+          "title_bn": "আয়াতুল কুরসী (কুরআনের শ্রেষ্ঠতম আয়াত)",
+          "intro_bn": "কুরআনে কারীমের সর্বশ্রেষ্ঠ ও সর্বাধিক মর্যাদাপূর্ণ আয়াত 'আয়াতুল কুরসী' (সূরা আল-বাক্বারাহ: ২৫৫)।",
           "structure": [
-            "আয়াতুল কুরসী",
-            "সূরা হাশর ২২",
-            "সূরা হাশর ২৩",
-            "সূরা হাশর ২৪"
+            "আয়াতুল কুরসী"
           ],
           "items": [
             {
@@ -7966,11 +7963,26 @@
               },
               "status": "ready",
               "review_flags": []
-            },
+            }
+          ]
+        },
+        {
+          "id": "qr-p5-u09-l02",
+          "order": 2,
+          "level": "A1",
+          "title": "خَوَاتِيمُ سُورَةِ الْحَشْرِ (22-24)",
+          "title_bn": "সূরা হাশরের শেষ ৩ আয়াত (আসমাউল হুসনা)",
+          "intro_bn": "সূরা আল-হাশরের শেষ ৩টি আয়াতে মহান আল্লাহর অনুপম গুণবাচক নামসমূহ (আসমাউল হুসনা)।",
+          "structure": [
+            "সূরা হাশর ২২",
+            "সূরা হাশর ২৩",
+            "সূরা হাশর ২৪"
+          ],
+          "items": [
             {
-              "id": "qr-p5-u09-l01-002",
-              "concept_id": "c-qr-p5-u09-l01-002",
-              "order": 2,
+              "id": "qr-p5-u09-l02-001",
+              "concept_id": "c-qr-p5-u09-l02-001",
+              "order": 1,
               "type": "quran_verse",
               "level": "A1",
               "target": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ",
@@ -8046,9 +8058,9 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l01-003",
-              "concept_id": "c-qr-p5-u09-l01-003",
-              "order": 3,
+              "id": "qr-p5-u09-l02-002",
+              "concept_id": "c-qr-p5-u09-l02-002",
+              "order": 2,
               "type": "quran_verse",
               "level": "A1",
               "target": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ",
@@ -8144,9 +8156,9 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l01-004",
-              "concept_id": "c-qr-p5-u09-l01-004",
-              "order": 4,
+              "id": "qr-p5-u09-l02-003",
+              "concept_id": "c-qr-p5-u09-l02-003",
+              "order": 3,
               "type": "quran_verse",
               "level": "A1",
               "target": "هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ ۚ يُسَبِّحُ لَهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
@@ -8244,8 +8256,8 @@
           ]
         },
         {
-          "id": "qr-p5-u09-l02",
-          "order": 2,
+          "id": "qr-p5-u09-l03",
+          "order": 3,
           "level": "A1",
           "title": "سُورَةُ يس (كاملة • 83 آية)",
           "title_bn": "সূরা ইয়াসীন (কুরআনের হৃৎপিণ্ড • পূর্ণাঙ্গ ৮৩ আয়াত)",
@@ -8258,8 +8270,8 @@
           ],
           "items": [
             {
-              "id": "qr-p5-u09-l02-001",
-              "concept_id": "c-qr-p5-u09-l02-001",
+              "id": "qr-p5-u09-l03-001",
+              "concept_id": "c-qr-p5-u09-l03-001",
               "order": 1,
               "type": "quran_verse",
               "level": "A1",
@@ -8296,8 +8308,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-002",
-              "concept_id": "c-qr-p5-u09-l02-002",
+              "id": "qr-p5-u09-l03-002",
+              "concept_id": "c-qr-p5-u09-l03-002",
               "order": 2,
               "type": "quran_verse",
               "level": "A1",
@@ -8322,8 +8334,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-003",
-              "concept_id": "c-qr-p5-u09-l02-003",
+              "id": "qr-p5-u09-l03-003",
+              "concept_id": "c-qr-p5-u09-l03-003",
               "order": 3,
               "type": "quran_verse",
               "level": "A1",
@@ -8352,8 +8364,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-004",
-              "concept_id": "c-qr-p5-u09-l02-004",
+              "id": "qr-p5-u09-l03-004",
+              "concept_id": "c-qr-p5-u09-l03-004",
               "order": 4,
               "type": "quran_verse",
               "level": "A1",
@@ -8382,8 +8394,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-005",
-              "concept_id": "c-qr-p5-u09-l02-005",
+              "id": "qr-p5-u09-l03-005",
+              "concept_id": "c-qr-p5-u09-l03-005",
               "order": 5,
               "type": "quran_verse",
               "level": "A1",
@@ -8412,8 +8424,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-006",
-              "concept_id": "c-qr-p5-u09-l02-006",
+              "id": "qr-p5-u09-l03-006",
+              "concept_id": "c-qr-p5-u09-l03-006",
               "order": 6,
               "type": "quran_verse",
               "level": "A1",
@@ -8458,8 +8470,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-007",
-              "concept_id": "c-qr-p5-u09-l02-007",
+              "id": "qr-p5-u09-l03-007",
+              "concept_id": "c-qr-p5-u09-l03-007",
               "order": 7,
               "type": "quran_verse",
               "level": "A1",
@@ -8508,8 +8520,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-008",
-              "concept_id": "c-qr-p5-u09-l02-008",
+              "id": "qr-p5-u09-l03-008",
+              "concept_id": "c-qr-p5-u09-l03-008",
               "order": 8,
               "type": "quran_verse",
               "level": "A1",
@@ -8566,8 +8578,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-009",
-              "concept_id": "c-qr-p5-u09-l02-009",
+              "id": "qr-p5-u09-l03-009",
+              "concept_id": "c-qr-p5-u09-l03-009",
               "order": 9,
               "type": "quran_verse",
               "level": "A1",
@@ -8632,8 +8644,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-010",
-              "concept_id": "c-qr-p5-u09-l02-010",
+              "id": "qr-p5-u09-l03-010",
+              "concept_id": "c-qr-p5-u09-l03-010",
               "order": 10,
               "type": "quran_verse",
               "level": "A1",
@@ -8682,8 +8694,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-011",
-              "concept_id": "c-qr-p5-u09-l02-011",
+              "id": "qr-p5-u09-l03-011",
+              "concept_id": "c-qr-p5-u09-l03-011",
               "order": 11,
               "type": "quran_verse",
               "level": "A1",
@@ -8752,8 +8764,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-012",
-              "concept_id": "c-qr-p5-u09-l02-012",
+              "id": "qr-p5-u09-l03-012",
+              "concept_id": "c-qr-p5-u09-l03-012",
               "order": 12,
               "type": "quran_verse",
               "level": "A1",
@@ -8830,8 +8842,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-013",
-              "concept_id": "c-qr-p5-u09-l02-013",
+              "id": "qr-p5-u09-l03-013",
+              "concept_id": "c-qr-p5-u09-l03-013",
               "order": 13,
               "type": "quran_verse",
               "level": "A1",
@@ -8880,8 +8892,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-014",
-              "concept_id": "c-qr-p5-u09-l02-014",
+              "id": "qr-p5-u09-l03-014",
+              "concept_id": "c-qr-p5-u09-l03-014",
               "order": 14,
               "type": "quran_verse",
               "level": "A1",
@@ -8942,8 +8954,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-015",
-              "concept_id": "c-qr-p5-u09-l02-015",
+              "id": "qr-p5-u09-l03-015",
+              "concept_id": "c-qr-p5-u09-l03-015",
               "order": 15,
               "type": "quran_verse",
               "level": "A1",
@@ -9020,8 +9032,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-016",
-              "concept_id": "c-qr-p5-u09-l02-016",
+              "id": "qr-p5-u09-l03-016",
+              "concept_id": "c-qr-p5-u09-l03-016",
               "order": 16,
               "type": "quran_verse",
               "level": "A1",
@@ -9062,8 +9074,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-017",
-              "concept_id": "c-qr-p5-u09-l02-017",
+              "id": "qr-p5-u09-l03-017",
+              "concept_id": "c-qr-p5-u09-l03-017",
               "order": 17,
               "type": "quran_verse",
               "level": "A1",
@@ -9100,8 +9112,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-018",
-              "concept_id": "c-qr-p5-u09-l02-018",
+              "id": "qr-p5-u09-l03-018",
+              "concept_id": "c-qr-p5-u09-l03-018",
               "order": 18,
               "type": "quran_verse",
               "level": "A1",
@@ -9170,8 +9182,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-019",
-              "concept_id": "c-qr-p5-u09-l02-019",
+              "id": "qr-p5-u09-l03-019",
+              "concept_id": "c-qr-p5-u09-l03-019",
               "order": 19,
               "type": "quran_verse",
               "level": "A1",
@@ -9232,8 +9244,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-020",
-              "concept_id": "c-qr-p5-u09-l02-020",
+              "id": "qr-p5-u09-l03-020",
+              "concept_id": "c-qr-p5-u09-l03-020",
               "order": 20,
               "type": "quran_verse",
               "level": "A1",
@@ -9290,8 +9302,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-021",
-              "concept_id": "c-qr-p5-u09-l02-021",
+              "id": "qr-p5-u09-l03-021",
+              "concept_id": "c-qr-p5-u09-l03-021",
               "order": 21,
               "type": "quran_verse",
               "level": "A1",
@@ -9336,8 +9348,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-022",
-              "concept_id": "c-qr-p5-u09-l02-022",
+              "id": "qr-p5-u09-l03-022",
+              "concept_id": "c-qr-p5-u09-l03-022",
               "order": 22,
               "type": "quran_verse",
               "level": "A1",
@@ -9386,8 +9398,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-023",
-              "concept_id": "c-qr-p5-u09-l02-023",
+              "id": "qr-p5-u09-l03-023",
+              "concept_id": "c-qr-p5-u09-l03-023",
               "order": 23,
               "type": "quran_verse",
               "level": "A1",
@@ -9464,8 +9476,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-024",
-              "concept_id": "c-qr-p5-u09-l02-024",
+              "id": "qr-p5-u09-l03-024",
+              "concept_id": "c-qr-p5-u09-l03-024",
               "order": 24,
               "type": "quran_verse",
               "level": "A1",
@@ -9502,8 +9514,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-025",
-              "concept_id": "c-qr-p5-u09-l02-025",
+              "id": "qr-p5-u09-l03-025",
+              "concept_id": "c-qr-p5-u09-l03-025",
               "order": 25,
               "type": "quran_verse",
               "level": "A1",
@@ -9536,8 +9548,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-026",
-              "concept_id": "c-qr-p5-u09-l02-026",
+              "id": "qr-p5-u09-l03-026",
+              "concept_id": "c-qr-p5-u09-l03-026",
               "order": 26,
               "type": "quran_verse",
               "level": "A1",
@@ -9586,8 +9598,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-027",
-              "concept_id": "c-qr-p5-u09-l02-027",
+              "id": "qr-p5-u09-l03-027",
+              "concept_id": "c-qr-p5-u09-l03-027",
               "order": 27,
               "type": "quran_verse",
               "level": "A1",
@@ -9632,8 +9644,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-028",
-              "concept_id": "c-qr-p5-u09-l02-028",
+              "id": "qr-p5-u09-l03-028",
+              "concept_id": "c-qr-p5-u09-l03-028",
               "order": 28,
               "type": "quran_verse",
               "level": "A1",
@@ -9702,8 +9714,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-029",
-              "concept_id": "c-qr-p5-u09-l02-029",
+              "id": "qr-p5-u09-l03-029",
+              "concept_id": "c-qr-p5-u09-l03-029",
               "order": 29,
               "type": "quran_verse",
               "level": "A1",
@@ -9752,8 +9764,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-030",
-              "concept_id": "c-qr-p5-u09-l02-030",
+              "id": "qr-p5-u09-l03-030",
+              "concept_id": "c-qr-p5-u09-l03-030",
               "order": 30,
               "type": "quran_verse",
               "level": "A1",
@@ -9818,8 +9830,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-031",
-              "concept_id": "c-qr-p5-u09-l02-031",
+              "id": "qr-p5-u09-l03-031",
+              "concept_id": "c-qr-p5-u09-l03-031",
               "order": 31,
               "type": "quran_verse",
               "level": "A1",
@@ -9880,8 +9892,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-032",
-              "concept_id": "c-qr-p5-u09-l02-032",
+              "id": "qr-p5-u09-l03-032",
+              "concept_id": "c-qr-p5-u09-l03-032",
               "order": 32,
               "type": "quran_verse",
               "level": "A1",
@@ -9922,8 +9934,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-033",
-              "concept_id": "c-qr-p5-u09-l02-033",
+              "id": "qr-p5-u09-l03-033",
+              "concept_id": "c-qr-p5-u09-l03-033",
               "order": 33,
               "type": "quran_verse",
               "level": "A1",
@@ -9980,8 +9992,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-034",
-              "concept_id": "c-qr-p5-u09-l02-034",
+              "id": "qr-p5-u09-l03-034",
+              "concept_id": "c-qr-p5-u09-l03-034",
               "order": 34,
               "type": "quran_verse",
               "level": "A1",
@@ -10038,8 +10050,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-035",
-              "concept_id": "c-qr-p5-u09-l02-035",
+              "id": "qr-p5-u09-l03-035",
+              "concept_id": "c-qr-p5-u09-l03-035",
               "order": 35,
               "type": "quran_verse",
               "level": "A1",
@@ -10092,8 +10104,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-036",
-              "concept_id": "c-qr-p5-u09-l02-036",
+              "id": "qr-p5-u09-l03-036",
+              "concept_id": "c-qr-p5-u09-l03-036",
               "order": 36,
               "type": "quran_verse",
               "level": "A1",
@@ -10162,8 +10174,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-037",
-              "concept_id": "c-qr-p5-u09-l02-037",
+              "id": "qr-p5-u09-l03-037",
+              "concept_id": "c-qr-p5-u09-l03-037",
               "order": 37,
               "type": "quran_verse",
               "level": "A1",
@@ -10216,8 +10228,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-038",
-              "concept_id": "c-qr-p5-u09-l02-038",
+              "id": "qr-p5-u09-l03-038",
+              "concept_id": "c-qr-p5-u09-l03-038",
               "order": 38,
               "type": "quran_verse",
               "level": "A1",
@@ -10270,8 +10282,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-039",
-              "concept_id": "c-qr-p5-u09-l02-039",
+              "id": "qr-p5-u09-l03-039",
+              "concept_id": "c-qr-p5-u09-l03-039",
               "order": 39,
               "type": "quran_verse",
               "level": "A1",
@@ -10316,8 +10328,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-040",
-              "concept_id": "c-qr-p5-u09-l02-040",
+              "id": "qr-p5-u09-l03-040",
+              "concept_id": "c-qr-p5-u09-l03-040",
               "order": 40,
               "type": "quran_verse",
               "level": "A1",
@@ -10398,8 +10410,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-041",
-              "concept_id": "c-qr-p5-u09-l02-041",
+              "id": "qr-p5-u09-l03-041",
+              "concept_id": "c-qr-p5-u09-l03-041",
               "order": 41,
               "type": "quran_verse",
               "level": "A1",
@@ -10448,8 +10460,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-042",
-              "concept_id": "c-qr-p5-u09-l02-042",
+              "id": "qr-p5-u09-l03-042",
+              "concept_id": "c-qr-p5-u09-l03-042",
               "order": 42,
               "type": "quran_verse",
               "level": "A1",
@@ -10490,8 +10502,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-043",
-              "concept_id": "c-qr-p5-u09-l02-043",
+              "id": "qr-p5-u09-l03-043",
+              "concept_id": "c-qr-p5-u09-l03-043",
               "order": 43,
               "type": "quran_verse",
               "level": "A1",
@@ -10544,8 +10556,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-044",
-              "concept_id": "c-qr-p5-u09-l02-044",
+              "id": "qr-p5-u09-l03-044",
+              "concept_id": "c-qr-p5-u09-l03-044",
               "order": 44,
               "type": "quran_verse",
               "level": "A1",
@@ -10586,8 +10598,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-045",
-              "concept_id": "c-qr-p5-u09-l02-045",
+              "id": "qr-p5-u09-l03-045",
+              "concept_id": "c-qr-p5-u09-l03-045",
               "order": 45,
               "type": "quran_verse",
               "level": "A1",
@@ -10648,8 +10660,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-046",
-              "concept_id": "c-qr-p5-u09-l02-046",
+              "id": "qr-p5-u09-l03-046",
+              "concept_id": "c-qr-p5-u09-l03-046",
               "order": 46,
               "type": "quran_verse",
               "level": "A1",
@@ -10710,8 +10722,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-047",
-              "concept_id": "c-qr-p5-u09-l02-047",
+              "id": "qr-p5-u09-l03-047",
+              "concept_id": "c-qr-p5-u09-l03-047",
               "order": 47,
               "type": "quran_verse",
               "level": "A1",
@@ -10824,8 +10836,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-048",
-              "concept_id": "c-qr-p5-u09-l02-048",
+              "id": "qr-p5-u09-l03-048",
+              "concept_id": "c-qr-p5-u09-l03-048",
               "order": 48,
               "type": "quran_verse",
               "level": "A1",
@@ -10870,8 +10882,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-049",
-              "concept_id": "c-qr-p5-u09-l02-049",
+              "id": "qr-p5-u09-l03-049",
+              "concept_id": "c-qr-p5-u09-l03-049",
               "order": 49,
               "type": "quran_verse",
               "level": "A1",
@@ -10920,8 +10932,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-050",
-              "concept_id": "c-qr-p5-u09-l02-050",
+              "id": "qr-p5-u09-l03-050",
+              "concept_id": "c-qr-p5-u09-l03-050",
               "order": 50,
               "type": "quran_verse",
               "level": "A1",
@@ -10966,8 +10978,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-051",
-              "concept_id": "c-qr-p5-u09-l02-051",
+              "id": "qr-p5-u09-l03-051",
+              "concept_id": "c-qr-p5-u09-l03-051",
               "order": 51,
               "type": "quran_verse",
               "level": "A1",
@@ -11024,8 +11036,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-052",
-              "concept_id": "c-qr-p5-u09-l02-052",
+              "id": "qr-p5-u09-l03-052",
+              "concept_id": "c-qr-p5-u09-l03-052",
               "order": 52,
               "type": "quran_verse",
               "level": "A1",
@@ -11098,8 +11110,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-053",
-              "concept_id": "c-qr-p5-u09-l02-053",
+              "id": "qr-p5-u09-l03-053",
+              "concept_id": "c-qr-p5-u09-l03-053",
               "order": 53,
               "type": "quran_verse",
               "level": "A1",
@@ -11156,8 +11168,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-054",
-              "concept_id": "c-qr-p5-u09-l02-054",
+              "id": "qr-p5-u09-l03-054",
+              "concept_id": "c-qr-p5-u09-l03-054",
               "order": 54,
               "type": "quran_verse",
               "level": "A1",
@@ -11218,8 +11230,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-055",
-              "concept_id": "c-qr-p5-u09-l02-055",
+              "id": "qr-p5-u09-l03-055",
+              "concept_id": "c-qr-p5-u09-l03-055",
               "order": 55,
               "type": "quran_verse",
               "level": "A1",
@@ -11264,8 +11276,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-056",
-              "concept_id": "c-qr-p5-u09-l02-056",
+              "id": "qr-p5-u09-l03-056",
+              "concept_id": "c-qr-p5-u09-l03-056",
               "order": 56,
               "type": "quran_verse",
               "level": "A1",
@@ -11310,8 +11322,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-057",
-              "concept_id": "c-qr-p5-u09-l02-057",
+              "id": "qr-p5-u09-l03-057",
+              "concept_id": "c-qr-p5-u09-l03-057",
               "order": 57,
               "type": "quran_verse",
               "level": "A1",
@@ -11352,8 +11364,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-058",
-              "concept_id": "c-qr-p5-u09-l02-058",
+              "id": "qr-p5-u09-l03-058",
+              "concept_id": "c-qr-p5-u09-l03-058",
               "order": 58,
               "type": "quran_verse",
               "level": "A1",
@@ -11390,8 +11402,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-059",
-              "concept_id": "c-qr-p5-u09-l02-059",
+              "id": "qr-p5-u09-l03-059",
+              "concept_id": "c-qr-p5-u09-l03-059",
               "order": 59,
               "type": "quran_verse",
               "level": "A1",
@@ -11424,8 +11436,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-060",
-              "concept_id": "c-qr-p5-u09-l02-060",
+              "id": "qr-p5-u09-l03-060",
+              "concept_id": "c-qr-p5-u09-l03-060",
               "order": 60,
               "type": "quran_verse",
               "level": "A1",
@@ -11498,8 +11510,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-061",
-              "concept_id": "c-qr-p5-u09-l02-061",
+              "id": "qr-p5-u09-l03-061",
+              "concept_id": "c-qr-p5-u09-l03-061",
               "order": 61,
               "type": "quran_verse",
               "level": "A1",
@@ -11540,8 +11552,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-062",
-              "concept_id": "c-qr-p5-u09-l02-062",
+              "id": "qr-p5-u09-l03-062",
+              "concept_id": "c-qr-p5-u09-l03-062",
               "order": 62,
               "type": "quran_verse",
               "level": "A1",
@@ -11594,8 +11606,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-063",
-              "concept_id": "c-qr-p5-u09-l02-063",
+              "id": "qr-p5-u09-l03-063",
+              "concept_id": "c-qr-p5-u09-l03-063",
               "order": 63,
               "type": "quran_verse",
               "level": "A1",
@@ -11632,8 +11644,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-064",
-              "concept_id": "c-qr-p5-u09-l02-064",
+              "id": "qr-p5-u09-l03-064",
+              "concept_id": "c-qr-p5-u09-l03-064",
               "order": 64,
               "type": "quran_verse",
               "level": "A1",
@@ -11670,8 +11682,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-065",
-              "concept_id": "c-qr-p5-u09-l02-065",
+              "id": "qr-p5-u09-l03-065",
+              "concept_id": "c-qr-p5-u09-l03-065",
               "order": 65,
               "type": "quran_verse",
               "level": "A1",
@@ -11732,8 +11744,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-066",
-              "concept_id": "c-qr-p5-u09-l02-066",
+              "id": "qr-p5-u09-l03-066",
+              "concept_id": "c-qr-p5-u09-l03-066",
               "order": 66,
               "type": "quran_verse",
               "level": "A1",
@@ -11786,8 +11798,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-067",
-              "concept_id": "c-qr-p5-u09-l02-067",
+              "id": "qr-p5-u09-l03-067",
+              "concept_id": "c-qr-p5-u09-l03-067",
               "order": 67,
               "type": "quran_verse",
               "level": "A1",
@@ -11844,8 +11856,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-068",
-              "concept_id": "c-qr-p5-u09-l02-068",
+              "id": "qr-p5-u09-l03-068",
+              "concept_id": "c-qr-p5-u09-l03-068",
               "order": 68,
               "type": "quran_verse",
               "level": "A1",
@@ -11894,8 +11906,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-069",
-              "concept_id": "c-qr-p5-u09-l02-069",
+              "id": "qr-p5-u09-l03-069",
+              "concept_id": "c-qr-p5-u09-l03-069",
               "order": 69,
               "type": "quran_verse",
               "level": "A1",
@@ -11964,8 +11976,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-070",
-              "concept_id": "c-qr-p5-u09-l02-070",
+              "id": "qr-p5-u09-l03-070",
+              "concept_id": "c-qr-p5-u09-l03-070",
               "order": 70,
               "type": "quran_verse",
               "level": "A1",
@@ -12014,8 +12026,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-071",
-              "concept_id": "c-qr-p5-u09-l02-071",
+              "id": "qr-p5-u09-l03-071",
+              "concept_id": "c-qr-p5-u09-l03-071",
               "order": 71,
               "type": "quran_verse",
               "level": "A1",
@@ -12080,8 +12092,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-072",
-              "concept_id": "c-qr-p5-u09-l02-072",
+              "id": "qr-p5-u09-l03-072",
+              "concept_id": "c-qr-p5-u09-l03-072",
               "order": 72,
               "type": "quran_verse",
               "level": "A1",
@@ -12122,8 +12134,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-073",
-              "concept_id": "c-qr-p5-u09-l02-073",
+              "id": "qr-p5-u09-l03-073",
+              "concept_id": "c-qr-p5-u09-l03-073",
               "order": 73,
               "type": "quran_verse",
               "level": "A1",
@@ -12168,8 +12180,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-074",
-              "concept_id": "c-qr-p5-u09-l02-074",
+              "id": "qr-p5-u09-l03-074",
+              "concept_id": "c-qr-p5-u09-l03-074",
               "order": 74,
               "type": "quran_verse",
               "level": "A1",
@@ -12214,8 +12226,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-075",
-              "concept_id": "c-qr-p5-u09-l02-075",
+              "id": "qr-p5-u09-l03-075",
+              "concept_id": "c-qr-p5-u09-l03-075",
               "order": 75,
               "type": "quran_verse",
               "level": "A1",
@@ -12260,8 +12272,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-076",
-              "concept_id": "c-qr-p5-u09-l02-076",
+              "id": "qr-p5-u09-l03-076",
+              "concept_id": "c-qr-p5-u09-l03-076",
               "order": 76,
               "type": "quran_verse",
               "level": "A1",
@@ -12318,8 +12330,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-077",
-              "concept_id": "c-qr-p5-u09-l02-077",
+              "id": "qr-p5-u09-l03-077",
+              "concept_id": "c-qr-p5-u09-l03-077",
               "order": 77,
               "type": "quran_verse",
               "level": "A1",
@@ -12380,8 +12392,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-078",
-              "concept_id": "c-qr-p5-u09-l02-078",
+              "id": "qr-p5-u09-l03-078",
+              "concept_id": "c-qr-p5-u09-l03-078",
               "order": 78,
               "type": "quran_verse",
               "level": "A1",
@@ -12446,8 +12458,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-079",
-              "concept_id": "c-qr-p5-u09-l02-079",
+              "id": "qr-p5-u09-l03-079",
+              "concept_id": "c-qr-p5-u09-l03-079",
               "order": 79,
               "type": "quran_verse",
               "level": "A1",
@@ -12508,8 +12520,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-080",
-              "concept_id": "c-qr-p5-u09-l02-080",
+              "id": "qr-p5-u09-l03-080",
+              "concept_id": "c-qr-p5-u09-l03-080",
               "order": 80,
               "type": "quran_verse",
               "level": "A1",
@@ -12570,8 +12582,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-081",
-              "concept_id": "c-qr-p5-u09-l02-081",
+              "id": "qr-p5-u09-l03-081",
+              "concept_id": "c-qr-p5-u09-l03-081",
               "order": 81,
               "type": "quran_verse",
               "level": "A1",
@@ -12648,8 +12660,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-082",
-              "concept_id": "c-qr-p5-u09-l02-082",
+              "id": "qr-p5-u09-l03-082",
+              "concept_id": "c-qr-p5-u09-l03-082",
               "order": 82,
               "type": "quran_verse",
               "level": "A1",
@@ -12706,8 +12718,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l02-083",
-              "concept_id": "c-qr-p5-u09-l02-083",
+              "id": "qr-p5-u09-l03-083",
+              "concept_id": "c-qr-p5-u09-l03-083",
               "order": 83,
               "type": "quran_verse",
               "level": "A1",
@@ -12758,8 +12770,8 @@
           ]
         },
         {
-          "id": "qr-p5-u09-l03",
-          "order": 3,
+          "id": "qr-p5-u09-l04",
+          "order": 4,
           "level": "A1",
           "title": "سُورَةُ الرَّحْمَٰنِ (كاملة • 78 آية)",
           "title_bn": "সূরা আর-রাহমান (কুরআনের সৌন্দর্য • পূর্ণাঙ্গ ৭৮ আয়াত)",
@@ -12772,8 +12784,8 @@
           ],
           "items": [
             {
-              "id": "qr-p5-u09-l03-001",
-              "concept_id": "c-qr-p5-u09-l03-001",
+              "id": "qr-p5-u09-l04-001",
+              "concept_id": "c-qr-p5-u09-l04-001",
               "order": 1,
               "type": "quran_verse",
               "level": "A1",
@@ -12810,8 +12822,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-002",
-              "concept_id": "c-qr-p5-u09-l03-002",
+              "id": "qr-p5-u09-l04-002",
+              "concept_id": "c-qr-p5-u09-l04-002",
               "order": 2,
               "type": "quran_verse",
               "level": "A1",
@@ -12836,8 +12848,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-003",
-              "concept_id": "c-qr-p5-u09-l03-003",
+              "id": "qr-p5-u09-l04-003",
+              "concept_id": "c-qr-p5-u09-l04-003",
               "order": 3,
               "type": "quran_verse",
               "level": "A1",
@@ -12862,8 +12874,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-004",
-              "concept_id": "c-qr-p5-u09-l03-004",
+              "id": "qr-p5-u09-l04-004",
+              "concept_id": "c-qr-p5-u09-l04-004",
               "order": 4,
               "type": "quran_verse",
               "level": "A1",
@@ -12888,8 +12900,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-005",
-              "concept_id": "c-qr-p5-u09-l03-005",
+              "id": "qr-p5-u09-l04-005",
+              "concept_id": "c-qr-p5-u09-l04-005",
               "order": 5,
               "type": "quran_verse",
               "level": "A1",
@@ -12918,8 +12930,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-006",
-              "concept_id": "c-qr-p5-u09-l03-006",
+              "id": "qr-p5-u09-l04-006",
+              "concept_id": "c-qr-p5-u09-l04-006",
               "order": 6,
               "type": "quran_verse",
               "level": "A1",
@@ -12948,8 +12960,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-007",
-              "concept_id": "c-qr-p5-u09-l03-007",
+              "id": "qr-p5-u09-l04-007",
+              "concept_id": "c-qr-p5-u09-l04-007",
               "order": 7,
               "type": "quran_verse",
               "level": "A1",
@@ -12982,8 +12994,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-008",
-              "concept_id": "c-qr-p5-u09-l03-008",
+              "id": "qr-p5-u09-l04-008",
+              "concept_id": "c-qr-p5-u09-l04-008",
               "order": 8,
               "type": "quran_verse",
               "level": "A1",
@@ -13016,8 +13028,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-009",
-              "concept_id": "c-qr-p5-u09-l03-009",
+              "id": "qr-p5-u09-l04-009",
+              "concept_id": "c-qr-p5-u09-l04-009",
               "order": 9,
               "type": "quran_verse",
               "level": "A1",
@@ -13058,8 +13070,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-010",
-              "concept_id": "c-qr-p5-u09-l03-010",
+              "id": "qr-p5-u09-l04-010",
+              "concept_id": "c-qr-p5-u09-l04-010",
               "order": 10,
               "type": "quran_verse",
               "level": "A1",
@@ -13088,8 +13100,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-011",
-              "concept_id": "c-qr-p5-u09-l03-011",
+              "id": "qr-p5-u09-l04-011",
+              "concept_id": "c-qr-p5-u09-l04-011",
               "order": 11,
               "type": "quran_verse",
               "level": "A1",
@@ -13126,8 +13138,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-012",
-              "concept_id": "c-qr-p5-u09-l03-012",
+              "id": "qr-p5-u09-l04-012",
+              "concept_id": "c-qr-p5-u09-l04-012",
               "order": 12,
               "type": "quran_verse",
               "level": "A1",
@@ -13160,8 +13172,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-013",
-              "concept_id": "c-qr-p5-u09-l03-013",
+              "id": "qr-p5-u09-l04-013",
+              "concept_id": "c-qr-p5-u09-l04-013",
               "order": 13,
               "type": "quran_verse",
               "level": "A1",
@@ -13194,8 +13206,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-014",
-              "concept_id": "c-qr-p5-u09-l03-014",
+              "id": "qr-p5-u09-l04-014",
+              "concept_id": "c-qr-p5-u09-l04-014",
               "order": 14,
               "type": "quran_verse",
               "level": "A1",
@@ -13232,8 +13244,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-015",
-              "concept_id": "c-qr-p5-u09-l03-015",
+              "id": "qr-p5-u09-l04-015",
+              "concept_id": "c-qr-p5-u09-l04-015",
               "order": 15,
               "type": "quran_verse",
               "level": "A1",
@@ -13274,8 +13286,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-016",
-              "concept_id": "c-qr-p5-u09-l03-016",
+              "id": "qr-p5-u09-l04-016",
+              "concept_id": "c-qr-p5-u09-l04-016",
               "order": 16,
               "type": "quran_verse",
               "level": "A1",
@@ -13308,8 +13320,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-017",
-              "concept_id": "c-qr-p5-u09-l03-017",
+              "id": "qr-p5-u09-l04-017",
+              "concept_id": "c-qr-p5-u09-l04-017",
               "order": 17,
               "type": "quran_verse",
               "level": "A1",
@@ -13342,8 +13354,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-018",
-              "concept_id": "c-qr-p5-u09-l03-018",
+              "id": "qr-p5-u09-l04-018",
+              "concept_id": "c-qr-p5-u09-l04-018",
               "order": 18,
               "type": "quran_verse",
               "level": "A1",
@@ -13376,8 +13388,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-019",
-              "concept_id": "c-qr-p5-u09-l03-019",
+              "id": "qr-p5-u09-l04-019",
+              "concept_id": "c-qr-p5-u09-l04-019",
               "order": 19,
               "type": "quran_verse",
               "level": "A1",
@@ -13406,8 +13418,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-020",
-              "concept_id": "c-qr-p5-u09-l03-020",
+              "id": "qr-p5-u09-l04-020",
+              "concept_id": "c-qr-p5-u09-l04-020",
               "order": 20,
               "type": "quran_verse",
               "level": "A1",
@@ -13440,8 +13452,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-021",
-              "concept_id": "c-qr-p5-u09-l03-021",
+              "id": "qr-p5-u09-l04-021",
+              "concept_id": "c-qr-p5-u09-l04-021",
               "order": 21,
               "type": "quran_verse",
               "level": "A1",
@@ -13474,8 +13486,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-022",
-              "concept_id": "c-qr-p5-u09-l03-022",
+              "id": "qr-p5-u09-l04-022",
+              "concept_id": "c-qr-p5-u09-l04-022",
               "order": 22,
               "type": "quran_verse",
               "level": "A1",
@@ -13508,8 +13520,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-023",
-              "concept_id": "c-qr-p5-u09-l03-023",
+              "id": "qr-p5-u09-l04-023",
+              "concept_id": "c-qr-p5-u09-l04-023",
               "order": 23,
               "type": "quran_verse",
               "level": "A1",
@@ -13542,8 +13554,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-024",
-              "concept_id": "c-qr-p5-u09-l03-024",
+              "id": "qr-p5-u09-l04-024",
+              "concept_id": "c-qr-p5-u09-l04-024",
               "order": 24,
               "type": "quran_verse",
               "level": "A1",
@@ -13584,8 +13596,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-025",
-              "concept_id": "c-qr-p5-u09-l03-025",
+              "id": "qr-p5-u09-l04-025",
+              "concept_id": "c-qr-p5-u09-l04-025",
               "order": 25,
               "type": "quran_verse",
               "level": "A1",
@@ -13618,8 +13630,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-026",
-              "concept_id": "c-qr-p5-u09-l03-026",
+              "id": "qr-p5-u09-l04-026",
+              "concept_id": "c-qr-p5-u09-l04-026",
               "order": 26,
               "type": "quran_verse",
               "level": "A1",
@@ -13652,8 +13664,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-027",
-              "concept_id": "c-qr-p5-u09-l03-027",
+              "id": "qr-p5-u09-l04-027",
+              "concept_id": "c-qr-p5-u09-l04-027",
               "order": 27,
               "type": "quran_verse",
               "level": "A1",
@@ -13694,8 +13706,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-028",
-              "concept_id": "c-qr-p5-u09-l03-028",
+              "id": "qr-p5-u09-l04-028",
+              "concept_id": "c-qr-p5-u09-l04-028",
               "order": 28,
               "type": "quran_verse",
               "level": "A1",
@@ -13728,8 +13740,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-029",
-              "concept_id": "c-qr-p5-u09-l03-029",
+              "id": "qr-p5-u09-l04-029",
+              "concept_id": "c-qr-p5-u09-l04-029",
               "order": 29,
               "type": "quran_verse",
               "level": "A1",
@@ -13790,8 +13802,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-030",
-              "concept_id": "c-qr-p5-u09-l03-030",
+              "id": "qr-p5-u09-l04-030",
+              "concept_id": "c-qr-p5-u09-l04-030",
               "order": 30,
               "type": "quran_verse",
               "level": "A1",
@@ -13824,8 +13836,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-031",
-              "concept_id": "c-qr-p5-u09-l03-031",
+              "id": "qr-p5-u09-l04-031",
+              "concept_id": "c-qr-p5-u09-l04-031",
               "order": 31,
               "type": "quran_verse",
               "level": "A1",
@@ -13858,8 +13870,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-032",
-              "concept_id": "c-qr-p5-u09-l03-032",
+              "id": "qr-p5-u09-l04-032",
+              "concept_id": "c-qr-p5-u09-l04-032",
               "order": 32,
               "type": "quran_verse",
               "level": "A1",
@@ -13892,8 +13904,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-033",
-              "concept_id": "c-qr-p5-u09-l03-033",
+              "id": "qr-p5-u09-l04-033",
+              "concept_id": "c-qr-p5-u09-l04-033",
               "order": 33,
               "type": "quran_verse",
               "level": "A1",
@@ -13978,8 +13990,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-034",
-              "concept_id": "c-qr-p5-u09-l03-034",
+              "id": "qr-p5-u09-l04-034",
+              "concept_id": "c-qr-p5-u09-l04-034",
               "order": 34,
               "type": "quran_verse",
               "level": "A1",
@@ -14012,8 +14024,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-035",
-              "concept_id": "c-qr-p5-u09-l03-035",
+              "id": "qr-p5-u09-l04-035",
+              "concept_id": "c-qr-p5-u09-l04-035",
               "order": 35,
               "type": "quran_verse",
               "level": "A1",
@@ -14062,8 +14074,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-036",
-              "concept_id": "c-qr-p5-u09-l03-036",
+              "id": "qr-p5-u09-l04-036",
+              "concept_id": "c-qr-p5-u09-l04-036",
               "order": 36,
               "type": "quran_verse",
               "level": "A1",
@@ -14096,8 +14108,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-037",
-              "concept_id": "c-qr-p5-u09-l03-037",
+              "id": "qr-p5-u09-l04-037",
+              "concept_id": "c-qr-p5-u09-l04-037",
               "order": 37,
               "type": "quran_verse",
               "level": "A1",
@@ -14138,8 +14150,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-038",
-              "concept_id": "c-qr-p5-u09-l03-038",
+              "id": "qr-p5-u09-l04-038",
+              "concept_id": "c-qr-p5-u09-l04-038",
               "order": 38,
               "type": "quran_verse",
               "level": "A1",
@@ -14172,8 +14184,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-039",
-              "concept_id": "c-qr-p5-u09-l03-039",
+              "id": "qr-p5-u09-l04-039",
+              "concept_id": "c-qr-p5-u09-l04-039",
               "order": 39,
               "type": "quran_verse",
               "level": "A1",
@@ -14222,8 +14234,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-040",
-              "concept_id": "c-qr-p5-u09-l03-040",
+              "id": "qr-p5-u09-l04-040",
+              "concept_id": "c-qr-p5-u09-l04-040",
               "order": 40,
               "type": "quran_verse",
               "level": "A1",
@@ -14256,8 +14268,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-041",
-              "concept_id": "c-qr-p5-u09-l03-041",
+              "id": "qr-p5-u09-l04-041",
+              "concept_id": "c-qr-p5-u09-l04-041",
               "order": 41,
               "type": "quran_verse",
               "level": "A1",
@@ -14298,8 +14310,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-042",
-              "concept_id": "c-qr-p5-u09-l03-042",
+              "id": "qr-p5-u09-l04-042",
+              "concept_id": "c-qr-p5-u09-l04-042",
               "order": 42,
               "type": "quran_verse",
               "level": "A1",
@@ -14332,8 +14344,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-043",
-              "concept_id": "c-qr-p5-u09-l03-043",
+              "id": "qr-p5-u09-l04-043",
+              "concept_id": "c-qr-p5-u09-l04-043",
               "order": 43,
               "type": "quran_verse",
               "level": "A1",
@@ -14374,8 +14386,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-044",
-              "concept_id": "c-qr-p5-u09-l03-044",
+              "id": "qr-p5-u09-l04-044",
+              "concept_id": "c-qr-p5-u09-l04-044",
               "order": 44,
               "type": "quran_verse",
               "level": "A1",
@@ -14412,8 +14424,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-045",
-              "concept_id": "c-qr-p5-u09-l03-045",
+              "id": "qr-p5-u09-l04-045",
+              "concept_id": "c-qr-p5-u09-l04-045",
               "order": 45,
               "type": "quran_verse",
               "level": "A1",
@@ -14446,8 +14458,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-046",
-              "concept_id": "c-qr-p5-u09-l03-046",
+              "id": "qr-p5-u09-l04-046",
+              "concept_id": "c-qr-p5-u09-l04-046",
               "order": 46,
               "type": "quran_verse",
               "level": "A1",
@@ -14484,8 +14496,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-047",
-              "concept_id": "c-qr-p5-u09-l03-047",
+              "id": "qr-p5-u09-l04-047",
+              "concept_id": "c-qr-p5-u09-l04-047",
               "order": 47,
               "type": "quran_verse",
               "level": "A1",
@@ -14518,8 +14530,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-048",
-              "concept_id": "c-qr-p5-u09-l03-048",
+              "id": "qr-p5-u09-l04-048",
+              "concept_id": "c-qr-p5-u09-l04-048",
               "order": 48,
               "type": "quran_verse",
               "level": "A1",
@@ -14544,8 +14556,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-049",
-              "concept_id": "c-qr-p5-u09-l03-049",
+              "id": "qr-p5-u09-l04-049",
+              "concept_id": "c-qr-p5-u09-l04-049",
               "order": 49,
               "type": "quran_verse",
               "level": "A1",
@@ -14578,8 +14590,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-050",
-              "concept_id": "c-qr-p5-u09-l03-050",
+              "id": "qr-p5-u09-l04-050",
+              "concept_id": "c-qr-p5-u09-l04-050",
               "order": 50,
               "type": "quran_verse",
               "level": "A1",
@@ -14608,8 +14620,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-051",
-              "concept_id": "c-qr-p5-u09-l03-051",
+              "id": "qr-p5-u09-l04-051",
+              "concept_id": "c-qr-p5-u09-l04-051",
               "order": 51,
               "type": "quran_verse",
               "level": "A1",
@@ -14642,8 +14654,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-052",
-              "concept_id": "c-qr-p5-u09-l03-052",
+              "id": "qr-p5-u09-l04-052",
+              "concept_id": "c-qr-p5-u09-l04-052",
               "order": 52,
               "type": "quran_verse",
               "level": "A1",
@@ -14680,8 +14692,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-053",
-              "concept_id": "c-qr-p5-u09-l03-053",
+              "id": "qr-p5-u09-l04-053",
+              "concept_id": "c-qr-p5-u09-l04-053",
               "order": 53,
               "type": "quran_verse",
               "level": "A1",
@@ -14714,8 +14726,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-054",
-              "concept_id": "c-qr-p5-u09-l03-054",
+              "id": "qr-p5-u09-l04-054",
+              "concept_id": "c-qr-p5-u09-l04-054",
               "order": 54,
               "type": "quran_verse",
               "level": "A1",
@@ -14772,8 +14784,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-055",
-              "concept_id": "c-qr-p5-u09-l03-055",
+              "id": "qr-p5-u09-l04-055",
+              "concept_id": "c-qr-p5-u09-l04-055",
               "order": 55,
               "type": "quran_verse",
               "level": "A1",
@@ -14806,8 +14818,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-056",
-              "concept_id": "c-qr-p5-u09-l03-056",
+              "id": "qr-p5-u09-l04-056",
+              "concept_id": "c-qr-p5-u09-l04-056",
               "order": 56,
               "type": "quran_verse",
               "level": "A1",
@@ -14860,8 +14872,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-057",
-              "concept_id": "c-qr-p5-u09-l03-057",
+              "id": "qr-p5-u09-l04-057",
+              "concept_id": "c-qr-p5-u09-l04-057",
               "order": 57,
               "type": "quran_verse",
               "level": "A1",
@@ -14894,8 +14906,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-058",
-              "concept_id": "c-qr-p5-u09-l03-058",
+              "id": "qr-p5-u09-l04-058",
+              "concept_id": "c-qr-p5-u09-l04-058",
               "order": 58,
               "type": "quran_verse",
               "level": "A1",
@@ -14924,8 +14936,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-059",
-              "concept_id": "c-qr-p5-u09-l03-059",
+              "id": "qr-p5-u09-l04-059",
+              "concept_id": "c-qr-p5-u09-l04-059",
               "order": 59,
               "type": "quran_verse",
               "level": "A1",
@@ -14958,8 +14970,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-060",
-              "concept_id": "c-qr-p5-u09-l03-060",
+              "id": "qr-p5-u09-l04-060",
+              "concept_id": "c-qr-p5-u09-l04-060",
               "order": 60,
               "type": "quran_verse",
               "level": "A1",
@@ -14996,8 +15008,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-061",
-              "concept_id": "c-qr-p5-u09-l03-061",
+              "id": "qr-p5-u09-l04-061",
+              "concept_id": "c-qr-p5-u09-l04-061",
               "order": 61,
               "type": "quran_verse",
               "level": "A1",
@@ -15030,8 +15042,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-062",
-              "concept_id": "c-qr-p5-u09-l03-062",
+              "id": "qr-p5-u09-l04-062",
+              "concept_id": "c-qr-p5-u09-l04-062",
               "order": 62,
               "type": "quran_verse",
               "level": "A1",
@@ -15060,8 +15072,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-063",
-              "concept_id": "c-qr-p5-u09-l03-063",
+              "id": "qr-p5-u09-l04-063",
+              "concept_id": "c-qr-p5-u09-l04-063",
               "order": 63,
               "type": "quran_verse",
               "level": "A1",
@@ -15094,8 +15106,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-064",
-              "concept_id": "c-qr-p5-u09-l03-064",
+              "id": "qr-p5-u09-l04-064",
+              "concept_id": "c-qr-p5-u09-l04-064",
               "order": 64,
               "type": "quran_verse",
               "level": "A1",
@@ -15116,8 +15128,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-065",
-              "concept_id": "c-qr-p5-u09-l03-065",
+              "id": "qr-p5-u09-l04-065",
+              "concept_id": "c-qr-p5-u09-l04-065",
               "order": 65,
               "type": "quran_verse",
               "level": "A1",
@@ -15150,8 +15162,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-066",
-              "concept_id": "c-qr-p5-u09-l03-066",
+              "id": "qr-p5-u09-l04-066",
+              "concept_id": "c-qr-p5-u09-l04-066",
               "order": 66,
               "type": "quran_verse",
               "level": "A1",
@@ -15180,8 +15192,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-067",
-              "concept_id": "c-qr-p5-u09-l03-067",
+              "id": "qr-p5-u09-l04-067",
+              "concept_id": "c-qr-p5-u09-l04-067",
               "order": 67,
               "type": "quran_verse",
               "level": "A1",
@@ -15214,8 +15226,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-068",
-              "concept_id": "c-qr-p5-u09-l03-068",
+              "id": "qr-p5-u09-l04-068",
+              "concept_id": "c-qr-p5-u09-l04-068",
               "order": 68,
               "type": "quran_verse",
               "level": "A1",
@@ -15248,8 +15260,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-069",
-              "concept_id": "c-qr-p5-u09-l03-069",
+              "id": "qr-p5-u09-l04-069",
+              "concept_id": "c-qr-p5-u09-l04-069",
               "order": 69,
               "type": "quran_verse",
               "level": "A1",
@@ -15282,8 +15294,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-070",
-              "concept_id": "c-qr-p5-u09-l03-070",
+              "id": "qr-p5-u09-l04-070",
+              "concept_id": "c-qr-p5-u09-l04-070",
               "order": 70,
               "type": "quran_verse",
               "level": "A1",
@@ -15312,8 +15324,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-071",
-              "concept_id": "c-qr-p5-u09-l03-071",
+              "id": "qr-p5-u09-l04-071",
+              "concept_id": "c-qr-p5-u09-l04-071",
               "order": 71,
               "type": "quran_verse",
               "level": "A1",
@@ -15346,8 +15358,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-072",
-              "concept_id": "c-qr-p5-u09-l03-072",
+              "id": "qr-p5-u09-l04-072",
+              "concept_id": "c-qr-p5-u09-l04-072",
               "order": 72,
               "type": "quran_verse",
               "level": "A1",
@@ -15380,8 +15392,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-073",
-              "concept_id": "c-qr-p5-u09-l03-073",
+              "id": "qr-p5-u09-l04-073",
+              "concept_id": "c-qr-p5-u09-l04-073",
               "order": 73,
               "type": "quran_verse",
               "level": "A1",
@@ -15414,8 +15426,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-074",
-              "concept_id": "c-qr-p5-u09-l03-074",
+              "id": "qr-p5-u09-l04-074",
+              "concept_id": "c-qr-p5-u09-l04-074",
               "order": 74,
               "type": "quran_verse",
               "level": "A1",
@@ -15456,8 +15468,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-075",
-              "concept_id": "c-qr-p5-u09-l03-075",
+              "id": "qr-p5-u09-l04-075",
+              "concept_id": "c-qr-p5-u09-l04-075",
               "order": 75,
               "type": "quran_verse",
               "level": "A1",
@@ -15490,8 +15502,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-076",
-              "concept_id": "c-qr-p5-u09-l03-076",
+              "id": "qr-p5-u09-l04-076",
+              "concept_id": "c-qr-p5-u09-l04-076",
               "order": 76,
               "type": "quran_verse",
               "level": "A1",
@@ -15532,8 +15544,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-077",
-              "concept_id": "c-qr-p5-u09-l03-077",
+              "id": "qr-p5-u09-l04-077",
+              "concept_id": "c-qr-p5-u09-l04-077",
               "order": 77,
               "type": "quran_verse",
               "level": "A1",
@@ -15566,8 +15578,8 @@
               "review_flags": []
             },
             {
-              "id": "qr-p5-u09-l03-078",
-              "concept_id": "c-qr-p5-u09-l03-078",
+              "id": "qr-p5-u09-l04-078",
+              "concept_id": "c-qr-p5-u09-l04-078",
               "order": 78,
               "type": "quran_verse",
               "level": "A1",
@@ -15665,7 +15677,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "ঘুমানোর দুআ"
             },
             {
               "id": "qr-p5-u10-l01-002",
@@ -15719,7 +15732,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "ঘুম থেকে ওঠার দুআ"
             },
             {
               "id": "qr-p5-u10-l01-003",
@@ -15757,7 +15771,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "খাবার শুরুর দুআ"
             },
             {
               "id": "qr-p5-u10-l01-004",
@@ -15803,7 +15818,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "খাবার শেষের দুআ"
             },
             {
               "id": "qr-p5-u10-l01-005",
@@ -15865,7 +15881,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "ঘর থেকে বের হওয়ার দুআ"
             },
             {
               "id": "qr-p5-u10-l01-006",
@@ -15903,7 +15920,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "মসজিদে প্রবেশের দুআ"
             },
             {
               "id": "qr-p5-u10-l01-007",
@@ -15941,7 +15959,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "মসজিদ থেকে বের হওয়ার দুআ"
             },
             {
               "id": "qr-p5-u10-l01-008",
@@ -16011,7 +16030,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "বাহনে চড়ার দুআ"
             },
             {
               "id": "qr-p5-u10-l01-009",
@@ -16065,7 +16085,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "দোয়া ইউনুস (বিপদ মুক্তির দুআ)"
             },
             {
               "id": "qr-p5-u10-l01-010",
@@ -16231,7 +16252,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "সাইয়্যিদুল ইস্তিগফার (তওবার শ্রেষ্ঠ দুআ)"
             }
           ]
         },
@@ -16309,7 +16331,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "দুনিয়া ও আখেরাতের কল্যাণ (২:২০১)"
             },
             {
               "id": "qr-p5-u10-l02-002",
@@ -16347,7 +16370,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "পিতা-মাতার জন্য দুআ (১৭:২৪)"
             },
             {
               "id": "qr-p5-u10-l02-003",
@@ -16409,7 +16433,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "নেককার পরিবার ও সন্তান (২৫:৭৪)"
             },
             {
               "id": "qr-p5-u10-l02-004",
@@ -16487,7 +16512,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "হেদায়েতের ওপর অবিচলতা (৩:৮)"
             },
             {
               "id": "qr-p5-u10-l02-005",
@@ -16549,7 +16575,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "গুনাহ মাফ ও রহমতের প্রার্থনা (৭:২৩)"
             },
             {
               "id": "qr-p5-u10-l02-006",
@@ -16595,7 +16622,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "ঈমানের সাথে ক্ষমা ও মাগফিরাত (২:২৮৬)"
             },
             {
               "id": "qr-p5-u10-l02-007",
@@ -16665,7 +16693,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "জ্ঞান ও বক্ষ প্রশস্ততার দুআ (২০:২৫-২৮)"
             },
             {
               "id": "qr-p5-u10-l02-008",
@@ -16711,7 +16740,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "আমল কবুলিয়াতের প্রার্থনা (২:১২৭)"
             },
             {
               "id": "qr-p5-u10-l02-009",
@@ -16769,7 +16799,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "ধৈর্য ও দৃঢ়তার প্রার্থনা (২:২৫০)"
             },
             {
               "id": "qr-p5-u10-l02-010",
@@ -16811,7 +16842,8 @@
                 "unit": "qr-p5-u10"
               },
               "status": "ready",
-              "review_flags": []
+              "review_flags": [],
+              "speaker": "ক্ষমা ও দয়ার প্রার্থনা (২৩:১১৮)"
             }
           ]
         }
