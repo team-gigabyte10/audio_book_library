@@ -403,7 +403,7 @@ fun PaymentScreen(
                         Spacer(modifier = Modifier.width(10.dp))
                         Column {
                             Text(
-                                text = "🎁 রেফার করুন ও আয় করুন (Learn & Earn)",
+                                text = "🎁 রেফার করুন ও আয় করুন (Reffer and Earn)",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 14.5.sp,
                                 color = Color(0xFF065F46)
@@ -593,7 +593,7 @@ fun PaymentScreen(
                             Spacer(modifier = Modifier.width(10.dp))
                             Column {
                                 Text(
-                                    text = "💰 রেফারেল ব্যালেন্স দিয়ে ক্রয় ও উপহার",
+                                    text = "💰 রেফারেল ব্যালেন্স দিয়ে ক্রয় ও রেফার",
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 15.sp,
                                     color = MaterialTheme.colorScheme.onSurface
@@ -624,7 +624,7 @@ fun PaymentScreen(
                                 FilterChip(
                                     selected = isGiftMode,
                                     onClick = { isGiftMode = true },
-                                    label = { Text("🎁 অন্যকে উপহার দিন", fontWeight = if (isGiftMode) FontWeight.Bold else FontWeight.Normal) },
+                                    label = { Text("👥 বন্ধুকে রেফার করুন", fontWeight = if (isGiftMode) FontWeight.Bold else FontWeight.Normal) },
                                     modifier = Modifier.weight(1f)
                                 )
                             }
@@ -746,7 +746,7 @@ fun PaymentScreen(
                                                 color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFF991B1B) else Color(0xFF065F46)
                                             )
                                             Text(
-                                                text = if (recipientValidation!!.isAlreadyUnlocked) "⚠️ প্রাপকের ইতোমধ্যে এই কোর্সটি আনলক করা আছে!" else "✅ প্রাপক প্রস্তুত। ব্যালেন্স দিয়ে উপহার দিন।",
+                                                text = if (recipientValidation!!.isAlreadyUnlocked) "⚠️ প্রাপকের ইতোমধ্যে এই কোর্সটি আনলক করা আছে!" else "✅ প্রাপক প্রস্তুত। ব্যালেন্স দিয়ে রেফার করুন।",
                                                 fontSize = 11.5.sp,
                                                 color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFB91C1C) else Color(0xFF047857)
                                             )
@@ -789,10 +789,10 @@ fun PaymentScreen(
                                 shape = RoundedCornerShape(10.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
                             ) {
-                                Icon(imageVector = Icons.Default.CardGiftcard, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+                                Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = if (recipientValidation != null) "🎁 ৳${selectedPackage.price.toInt()} দিয়ে '${recipientValidation!!.name}' কে উপহার দিন" else "উপহার দিন (${selectedPackage.priceDisplay})",
+                                    text = if (recipientValidation != null) "👥 ৳${selectedPackage.price.toInt()} দিয়ে '${recipientValidation!!.name}' কে রেফার করুন" else "রেফার করুন (${selectedPackage.priceDisplay})",
                                     fontWeight = FontWeight.Bold,
                                     color = Color.White
                                 )
@@ -1283,9 +1283,9 @@ fun PaymentScreen(
                 onDismissRequest = { if (!isGiftPurchasing) showEnterPinDialog = false },
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(imageVector = Icons.Default.CardGiftcard, contentDescription = null, tint = Color(0xFF10B981))
+                        Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color(0xFF10B981))
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("উপহার নিশ্চিতকরণ ও ওয়ালেট পিন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                        Text("রেফার নিশ্চিতকরণ ও ওয়ালেট পিন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     }
                 },
                 text = {
@@ -1360,7 +1360,7 @@ fun PaymentScreen(
                             CircularProgressIndicator(modifier = Modifier.size(16.dp), color = Color.White, strokeWidth = 2.dp)
                             Spacer(modifier = Modifier.width(6.dp))
                         }
-                        Text("নিশ্চিত করুন ও উপহার দিন", color = Color.White, fontWeight = FontWeight.Bold)
+                        Text("নিশ্চিত করুন ও রেফার করুন", color = Color.White, fontWeight = FontWeight.Bold)
                     }
                 },
                 dismissButton = {
@@ -1382,7 +1382,7 @@ fun PaymentScreen(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(imageVector = Icons.Default.CheckCircle, contentDescription = null, tint = Color(0xFF10B981))
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("উপহার পাঠানো সফল হয়েছে!", fontWeight = FontWeight.Bold)
+                        Text("রেফার পাঠানো সফল হয়েছে!", fontWeight = FontWeight.Bold)
                     }
                 },
                 text = {

@@ -304,8 +304,8 @@ fun AppDrawerContent(
 
                 DrawerMenuItem(
                     icon = Icons.Default.CardGiftcard,
-                    title = "রেফার ও আয় (Learn & Earn)",
-                    badge = "৳৪০",
+                    title = "রেফার ও আয় (Reffer and Earn)",
+                    badge = "৳২০",
                     badgeColor = Color(0xFF10B981),
                     onClick = onReferralClick
                 )

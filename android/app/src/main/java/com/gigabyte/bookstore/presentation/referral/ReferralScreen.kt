@@ -68,7 +68,7 @@ fun ReferralScreen(
     Scaffold(
         topBar = {
             ThemedTopAppBar(
-                title = { Text("রেফার ও আয় (Learn & Earn)") },
+                title = { Text("রেফার ও আয় (Reffer and Earn)") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
@@ -382,7 +382,7 @@ fun StatsGrid(
         ) {
             StatCard(
                 modifier = Modifier.weight(1f),
-                title = "মোট আয় (Learn & Earn)",
+                title = "মোট আয় (Reffer and Earn)",
                 value = "৳ ${"%.0f".format(totalEarned)}",
                 icon = Icons.Default.MonetizationOn,
                 color = Color(0xFFF59E0B)
@@ -493,7 +493,7 @@ fun HowItWorksCard(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "কীভাবে আয় করবেন? (Learn & Earn Rules)",
+                    text = "কীভাবে আয় করবেন? (Reffer and Earn Rules)",
                     fontWeight = FontWeight.Bold,
                     fontSize = 14.sp
                 )
@@ -897,7 +897,7 @@ fun WalletCoursePurchaseCard(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "🎓 ব্যালেন্স দিয়ে কোর্স ক্রয় ও উপহার",
+                    text = "🎓 ব্যালেন্স দিয়ে কোর্স ক্রয় ও রেফার",
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.5.sp
                 )
@@ -905,7 +905,7 @@ fun WalletCoursePurchaseCard(
                     text = if (currentBalance >= 100.0) {
                         "আপনার অর্জিত ৳${"%.0f".format(currentBalance)} দিয়ে নিজের জন্য অথবা অন্য যেকোনো বন্ধুর ইমেইল দিয়ে তার জন্য সম্পূর্ণ বিনামূল্যে কোর্স আনলক করতে পারবেন!"
                     } else {
-                        "রেফার করে ৳১০০ আয় করলেই সেই ব্যালেন্স দিয়ে নিজের জন্য বা বন্ধুর জন্য যেকোনো কোর্স বা বান্ডেল সরাসরি উপহার দিতে পারবেন।"
+                        "রেফার করে ৳১০০ আয় করলেই সেই ব্যালেন্স দিয়ে নিজের জন্য বা বন্ধুর জন্য যেকোনো কোর্স বা বান্ডেল সরাসরি রেফার/আনলক করে দিতে পারবেন।"
                     },
                     fontSize = 11.5.sp,
                     lineHeight = 16.sp,
