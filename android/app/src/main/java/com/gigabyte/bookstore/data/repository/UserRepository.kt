@@ -7,6 +7,7 @@ import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 import com.google.firebase.firestore.ListenerRegistration
 import com.gigabyte.bookstore.data.models.PaymentRequest
+import com.gigabyte.bookstore.data.models.RecipientValidationResult
 import com.gigabyte.bookstore.data.models.ReferralReward
 import com.gigabyte.bookstore.data.models.ReferredUserItem
 import com.gigabyte.bookstore.data.models.ReferralStats
@@ -198,6 +199,7 @@ class UserRepository(
 
             val isAdmin = isUserAdmin(snapshot, normalizedEmail)
             appPreferences.setIsAdmin(isAdmin)
+            val walletPin = snapshot.getString("walletPin") ?: ""
 
             val user = User(
                 name = name,
@@ -214,6 +216,7 @@ class UserRepository(
                 unlockedBundles = bundlesSet.toList(),
                 role = snapshot.getString("role") ?: if (isAdmin) "admin" else "customer",
                 isAdmin = isAdmin,
+                walletPin = walletPin,
                 createdAt = snapshot.getString("createdAt") ?: "",
                 lastLoginAt = currentDate
             )
@@ -229,6 +232,7 @@ class UserRepository(
                 balance = user.balance,
                 referralCode = user.referralCode,
                 referredBy = user.referredBy,
+                walletPin = user.walletPin,
                 createdAt = user.createdAt,
                 lastLoginAt = user.lastLoginAt
             )
@@ -317,6 +321,10 @@ class UserRepository(
             // Refresh local session with latest status, balance, and referral code
             appPreferences.updateUserStatus(status, balance, currentDate)
             appPreferences.updateReferralCode(referralCode)
+            val walletPin = snapshot.getString("walletPin") ?: ""
+            if (walletPin.isNotBlank()) {
+                appPreferences.saveWalletPin(walletPin)
+            }
 
             val isAdmin = isUserAdmin(snapshot, storedEmail)
             appPreferences.setIsAdmin(isAdmin)
@@ -885,6 +893,234 @@ class UserRepository(
                             "referrerCode" to (referrerDoc.getString("referralCode") ?: ""),
                             "refereeEmail" to email,
                             "refereeName" to (userSnap.getString("name") ?: appPreferences.userName.value),
+                            "amount" to rewardAmount,
+                            "paidAt" to currentDate,
+                            "status" to "rewarded"
+                        )
+                        firestore.collection("referral_rewards").add(rewardMap).await()
+
+                        if (appPreferences.userEmail.value.equals(refEmail, ignoreCase = true)) {
+                            appPreferences.updateUserStatus(appPreferences.userStatus.value, updatedRefBal, currentDate)
+                        }
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+
+            Result.success(Unit)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Sets or updates user's 4-digit Wallet Transaction PIN (stored as normal text).
+     */
+    suspend fun setWalletPin(pin: String): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val email = appPreferences.userEmail.value.trim().lowercase()
+            if (email.isBlank()) return@withContext Result.failure(Exception("অনুগ্রহ করে প্রথমে লগইন করুন"))
+            val cleanPin = pin.trim()
+            if (cleanPin.length != 4 || !cleanPin.all { it.isDigit() }) {
+                return@withContext Result.failure(Exception("ওয়ালেট পিন অবশ্যই ৪ ডিজিটের সংখ্যা হতে হবে"))
+            }
+
+            firestore.collection("users").document(email)
+                .update("walletPin", cleanPin)
+                .await()
+
+            appPreferences.saveWalletPin(cleanPin)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Verifies if a recipient email exists in Firestore and whether they already own the target course/bundle.
+     */
+    suspend fun verifyRecipientUser(recipientEmail: String, packageId: String): Result<RecipientValidationResult> = withContext(Dispatchers.IO) {
+        try {
+            val myEmail = appPreferences.userEmail.value.trim().lowercase()
+            val target = recipientEmail.trim().lowercase()
+            if (target.isBlank() || !android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()) {
+                return@withContext Result.failure(Exception("অনুগ্রহ করে সঠিক ইমেইল অ্যাড্রেস লিখুন"))
+            }
+            if (target == myEmail) {
+                return@withContext Result.failure(Exception("নিজের জন্য কোর্স কিনতে 'নিজের জন্য কিনুন' অপশন ব্যবহার করুন"))
+            }
+
+            val doc = firestore.collection("users").document(target).get().await()
+            if (!doc.exists()) {
+                return@withContext Result.failure(Exception("এই ইমেইলে ($target) কোনো অ্যাকাউন্ট পাওয়া যায়নি। প্রাপককে প্রথমে অ্যাপে ফ্রি অ্যাকাউন্ট খুলতে বলুন।"))
+            }
+
+            val recipientName = doc.getString("name") ?: target
+            val rawBundles = (doc.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val rawCourses = (doc.get("assignedCourses") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+            val bundlesSet = rawBundles.map { AppPreferences.normalizeBundleId(it) }.toMutableSet()
+            bundlesSet.addAll(rawCourses.map { AppPreferences.normalizeBundleId(it) })
+
+            val normalizedPackage = AppPreferences.normalizeBundleId(packageId)
+            val alreadyUnlocked = bundlesSet.contains("mega_bundle") || bundlesSet.contains(normalizedPackage)
+
+            val result = RecipientValidationResult(
+                email = target,
+                name = recipientName,
+                isAlreadyUnlocked = alreadyUnlocked,
+                unlockedBundles = bundlesSet.toList(),
+                message = if (alreadyUnlocked) "প্রাপকের অ্যাকাউন্টে এই কোর্সটি ইতোমধ্যে আনলক করা আছে!" else "প্রাপক যাচাই সম্পন্ন হয়েছে।"
+            )
+            Result.success(result)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Purchases a course or mega bundle for another user using the buyer's referral wallet balance.
+     * Protected by 4-digit plaintext Wallet PIN and executed via an atomic Firestore transaction.
+     */
+    suspend fun purchaseCourseForOtherUser(
+        recipientEmail: String,
+        packageType: String,
+        amount: Double,
+        enteredPin: String
+    ): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val buyerEmail = appPreferences.userEmail.value.trim().lowercase()
+            val targetEmail = recipientEmail.trim().lowercase()
+            val cleanPin = enteredPin.trim()
+
+            if (buyerEmail.isBlank()) return@withContext Result.failure(Exception("অনুগ্রহ করে প্রথমে লগইন করুন"))
+            if (targetEmail.isBlank()) return@withContext Result.failure(Exception("প্রাপকের ইমেইল উল্লেখ করুন"))
+            if (targetEmail == buyerEmail) return@withContext Result.failure(Exception("নিজের জন্য কিনতে 'নিজের জন্য কিনুন' অপশন ব্যবহার করুন"))
+
+            val storedPin = appPreferences.getWalletPin().trim()
+            if (storedPin.isBlank()) {
+                return@withContext Result.failure(Exception("প্রথমে আপনার ৪-ডিজিটের ওয়ালেট পিন সেট করুন"))
+            }
+            if (cleanPin != storedPin) {
+                return@withContext Result.failure(Exception("ভুল ওয়ালেট পিন! আপনার ব্যালেন্স সুরক্ষায় লেনদেন বাতিল করা হয়েছে।"))
+            }
+
+            val buyerRef = firestore.collection("users").document(buyerEmail)
+            val recipientRef = firestore.collection("users").document(targetEmail)
+            val currentDate = User.getCurrentFormattedDate()
+            val normalizedPackage = AppPreferences.normalizeBundleId(packageType)
+
+            var updatedBuyerBal = 0.0
+            var recipientName = targetEmail
+            var recipientReferredBy = ""
+            var recipientReferralRewardPaid = false
+
+            firestore.runTransaction { transaction ->
+                val buyerSnap = transaction.get(buyerRef)
+                val recipientSnap = transaction.get(recipientRef)
+
+                if (!buyerSnap.exists()) {
+                    throw Exception("ক্রেতার অ্যাকাউন্ট পাওয়া যায়নি")
+                }
+                if (!recipientSnap.exists()) {
+                    throw Exception("প্রাপকের অ্যাকাউন্ট পাওয়া যায়নি")
+                }
+
+                val firestorePin = buyerSnap.getString("walletPin") ?: storedPin
+                if (cleanPin != firestorePin) {
+                    throw Exception("ভুল ওয়ালেট পিন! লেনদেন বাতিল করা হয়েছে।")
+                }
+
+                val currentBuyerBal = buyerSnap.getDouble("balance") ?: 0.0
+                if (currentBuyerBal < amount) {
+                    throw Exception("পর্যাপ্ত ওয়ালেট ব্যালেন্স নেই (বর্তমান: ৳ ${"%.2f".format(currentBuyerBal)})")
+                }
+
+                recipientName = recipientSnap.getString("name") ?: targetEmail
+                recipientReferredBy = recipientSnap.getString("referredBy") ?: ""
+                recipientReferralRewardPaid = recipientSnap.getBoolean("referralRewardPaid") ?: false
+
+                val rawBundles = (recipientSnap.get("unlockedBundles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+                val rawCourses = (recipientSnap.get("assignedCourses") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+                val targetBundles = rawBundles.map { AppPreferences.normalizeBundleId(it) }.toMutableSet()
+                targetBundles.addAll(rawCourses.map { AppPreferences.normalizeBundleId(it) })
+
+                if (targetBundles.contains("mega_bundle") || targetBundles.contains(normalizedPackage)) {
+                    throw Exception("প্রাপকের অ্যাকাউন্টে এই কোর্সটি ইতোমধ্যে আনলক করা আছে!")
+                }
+
+                if (normalizedPackage == "mega_bundle") {
+                    targetBundles.addAll(listOf(
+                        "audiobook_bundle", "english_course", "japanese_course",
+                        "chinese_course", "german_course", "arabic_course",
+                        "korean_course", "urdu_course", "hindi_course",
+                        "quran_course", "regional_course", "mega_bundle"
+                    ))
+                } else {
+                    targetBundles.add(normalizedPackage)
+                }
+
+                updatedBuyerBal = currentBuyerBal - amount
+                transaction.update(buyerRef, mapOf(
+                    "balance" to updatedBuyerBal,
+                    "lastLoginAt" to currentDate
+                ))
+
+                transaction.update(recipientRef, mapOf(
+                    "status" to "paid",
+                    "unlockedBundles" to targetBundles.toList(),
+                    "lastLoginAt" to currentDate
+                ))
+            }.await()
+
+            // Record transaction in payment_requests
+            val paymentData = hashMapOf(
+                "email" to buyerEmail,
+                "name" to appPreferences.userName.value,
+                "phone" to (appPreferences.userPhone.value),
+                "recipientEmail" to targetEmail,
+                "recipientName" to recipientName,
+                "paymentMethod" to "WalletGift",
+                "trxId" to "GIFT-" + System.currentTimeMillis(),
+                "packageType" to packageType,
+                "amount" to amount,
+                "status" to "approved",
+                "submittedAt" to currentDate,
+                "reviewedAt" to currentDate,
+                "autoApproved" to true,
+                "isGift" to true
+            )
+            firestore.collection("payment_requests").add(paymentData).await()
+
+            // Update buyer's local balance immediately
+            appPreferences.updateUserStatus(appPreferences.userStatus.value, updatedBuyerBal, currentDate)
+
+            // Reward recipient's referrer if eligible
+            if (recipientReferredBy.isNotBlank() && !recipientReferralRewardPaid) {
+                try {
+                    var referrerDoc = firestore.collection("users").document(recipientReferredBy.lowercase()).get().await()
+                    if (!referrerDoc.exists()) {
+                        val q = firestore.collection("users").whereEqualTo("referralCode", recipientReferredBy.uppercase()).get().await()
+                        if (!q.isEmpty) {
+                            referrerDoc = q.documents.first()
+                        }
+                    }
+
+                    if (referrerDoc.exists()) {
+                        val refEmail = referrerDoc.getString("email") ?: referrerDoc.id
+                        val refCurrentBal = referrerDoc.getDouble("balance") ?: 0.0
+                        val rewardAmount = appPreferences.getPricingConfig().getReferralBonus(packageType, amount)
+                        val updatedRefBal = refCurrentBal + rewardAmount
+
+                        referrerDoc.reference.update("balance", updatedRefBal).await()
+                        recipientRef.update("referralRewardPaid", true).await()
+
+                        val rewardMap = hashMapOf(
+                            "referrerEmail" to refEmail,
+                            "referrerCode" to (referrerDoc.getString("referralCode") ?: ""),
+                            "refereeEmail" to targetEmail,
+                            "refereeName" to recipientName,
                             "amount" to rewardAmount,
                             "paidAt" to currentDate,
                             "status" to "rewarded"

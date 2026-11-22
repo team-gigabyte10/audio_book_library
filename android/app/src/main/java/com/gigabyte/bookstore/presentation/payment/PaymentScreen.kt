@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -26,10 +27,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.models.RecipientValidationResult
 import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import kotlinx.coroutines.launch
@@ -62,6 +66,7 @@ fun PaymentScreen(
     val userBalance by app.appPreferences.userBalance.collectAsStateWithLifecycle()
     val unlockedBundles by app.appPreferences.unlockedBundles.collectAsStateWithLifecycle()
     val pricingConfig by app.appPreferences.pricingConfig.collectAsStateWithLifecycle()
+    val walletPin by app.appPreferences.walletPin.collectAsStateWithLifecycle()
 
     val packages = remember(pricingConfig) {
         listOf(
@@ -237,6 +242,19 @@ fun PaymentScreen(
     var submitSuccess by remember { mutableStateOf(false) }
     var showWalletConfirmDialog by remember { mutableStateOf(false) }
     var isWalletPurchasing by remember { mutableStateOf(false) }
+
+    var isGiftMode by remember { mutableStateOf(false) }
+    var recipientEmail by remember { mutableStateOf("") }
+    var isVerifyingRecipient by remember { mutableStateOf(false) }
+    var recipientValidation by remember { mutableStateOf<RecipientValidationResult?>(null) }
+    var recipientError by remember { mutableStateOf<String?>(null) }
+    var showSetPinDialog by remember { mutableStateOf(false) }
+    var showEnterPinDialog by remember { mutableStateOf(false) }
+    var enteredPinText by remember { mutableStateOf("") }
+    var confirmPinText by remember { mutableStateOf("") }
+    var pinDialogError by remember { mutableStateOf<String?>(null) }
+    var isGiftPurchasing by remember { mutableStateOf(false) }
+    var giftSuccessDialogData by remember { mutableStateOf<Pair<String, String>?>(null) }
 
     var paymentNumbers by remember {
         mutableStateOf(
@@ -548,51 +566,77 @@ fun PaymentScreen(
                         }
                     }
                 }
-            } else {
-                // 3.1 Direct Wallet Purchase Option (if balance is sufficient)
-                if (userBalance >= selectedPackage.price) {
-                    Card(
-                        shape = RoundedCornerShape(14.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
-                        ),
-                        border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Column(modifier = Modifier.padding(16.dp)) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Surface(
-                                    shape = CircleShape,
-                                    color = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.size(36.dp)
-                                ) {
-                                    Box(contentAlignment = Alignment.Center) {
-                                        Icon(
-                                            imageVector = Icons.Default.AccountBalanceWallet,
-                                            contentDescription = null,
-                                            tint = MaterialTheme.colorScheme.onPrimary,
-                                            modifier = Modifier.size(20.dp)
-                                        )
-                                    }
-                                }
-                                Spacer(modifier = Modifier.width(10.dp))
-                                Column {
-                                    Text(
-                                        text = "💰 রেফারেল ব্যালেন্স দিয়ে কিনুন",
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 15.sp,
-                                        color = MaterialTheme.colorScheme.onSurface
-                                    )
-                                    Text(
-                                        text = "আপনার ব্যালেন্স: ৳ ${"%.2f".format(userBalance)} (পর্যাপ্ত)",
-                                        fontSize = 12.sp,
-                                        fontWeight = FontWeight.Medium,
-                                        color = Color(0xFF10B981)
+            }
+
+            // 3.1 Direct Wallet Purchase & Gift Section
+            if (userBalance >= selectedPackage.price) {
+                Card(
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
+                    ),
+                    border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Surface(
+                                shape = CircleShape,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(36.dp)
+                            ) {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Icon(
+                                        imageVector = Icons.Default.AccountBalanceWallet,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.onPrimary,
+                                        modifier = Modifier.size(20.dp)
                                     )
                                 }
                             }
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Column {
+                                Text(
+                                    text = "💰 রেফারেল ব্যালেন্স দিয়ে ক্রয় ও উপহার",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 15.sp,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Text(
+                                    text = "আপনার ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)} (পর্যাপ্ত)",
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    color = Color(0xFF10B981)
+                                )
+                            }
+                        }
 
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // If course is not already unlocked by user, let them choose between Self vs Gift
+                        if (!isPackageAlreadyUnlocked) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                FilterChip(
+                                    selected = !isGiftMode,
+                                    onClick = { isGiftMode = false },
+                                    label = { Text("👤 নিজের জন্য", fontWeight = if (!isGiftMode) FontWeight.Bold else FontWeight.Normal) },
+                                    modifier = Modifier.weight(1f)
+                                )
+                                FilterChip(
+                                    selected = isGiftMode,
+                                    onClick = { isGiftMode = true },
+                                    label = { Text("🎁 অন্যকে উপহার দিন", fontWeight = if (isGiftMode) FontWeight.Bold else FontWeight.Normal) },
+                                    modifier = Modifier.weight(1f)
+                                )
+                            }
                             Spacer(modifier = Modifier.height(10.dp))
+                        }
+
+                        if (!isPackageAlreadyUnlocked && !isGiftMode) {
+                            // Self-Purchase Mode
                             Text(
                                 text = "কোনো প্রকার বিকাশ/নগদ পেমেন্ট ছাড়াই সরাসরি আপনার অর্জিত রেফারেল বোনাস থেকে '${selectedPackage.title}' সাথে সাথে আনলক করুন।",
                                 fontSize = 12.sp,
@@ -621,16 +665,148 @@ fun PaymentScreen(
                                     Spacer(modifier = Modifier.width(8.dp))
                                 }
                                 Text(
-                                    text = "ওয়ালেট থেকে সরাসরি আনলক করুন (${selectedPackage.priceDisplay})",
+                                    text = "নিজের অ্যাকাউন্টে আনলক করুন (${selectedPackage.priceDisplay})",
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                            }
+                        } else {
+                            // Gift to Others Mode
+                            Text(
+                                text = "অন্যের জন্য কোর্স কিনতে প্রাপকের রেজিস্টার্ড ইমেইল লিখে যাচাই করুন। আপনার ওয়ালেট ব্যালেন্স থেকে ৳${selectedPackage.price.toInt()} কেটে প্রাপকের অ্যাকাউন্টে কোর্সটি সাথে সাথে পৌঁছে যাবে।",
+                                fontSize = 12.sp,
+                                lineHeight = 17.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+
+                            Spacer(modifier = Modifier.height(10.dp))
+
+                            OutlinedTextField(
+                                value = recipientEmail,
+                                onValueChange = {
+                                    recipientEmail = it
+                                    recipientValidation = null
+                                    recipientError = null
+                                },
+                                label = { Text("প্রাপকের রেজিস্টার্ড ইমেইল") },
+                                placeholder = { Text("friend@gmail.com") },
+                                singleLine = true,
+                                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                                modifier = Modifier.fillMaxWidth(),
+                                trailingIcon = {
+                                    Button(
+                                        onClick = {
+                                            if (recipientEmail.isBlank()) return@Button
+                                            isVerifyingRecipient = true
+                                            recipientError = null
+                                            recipientValidation = null
+                                            scope.launch {
+                                                val res = userRepository.verifyRecipientUser(recipientEmail, selectedPackage.id)
+                                                isVerifyingRecipient = false
+                                                if (res.isSuccess) {
+                                                    recipientValidation = res.getOrNull()
+                                                } else {
+                                                    recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
+                                                }
+                                            }
+                                        },
+                                        enabled = recipientEmail.isNotBlank() && !isVerifyingRecipient,
+                                        shape = RoundedCornerShape(8.dp),
+                                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
+                                        modifier = Modifier.padding(end = 4.dp)
+                                    ) {
+                                        if (isVerifyingRecipient) {
+                                            CircularProgressIndicator(modifier = Modifier.size(14.dp), color = Color.White, strokeWidth = 2.dp)
+                                        } else {
+                                            Text("যাচাই করুন", fontSize = 11.5.sp)
+                                        }
+                                    }
+                                }
+                            )
+
+                            if (recipientValidation != null) {
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Card(
+                                    shape = RoundedCornerShape(8.dp),
+                                    colors = CardDefaults.cardColors(
+                                        containerColor = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444).copy(alpha = 0.12f) else Color(0xFF10B981).copy(alpha = 0.12f)
+                                    ),
+                                    border = BorderStroke(1.dp, if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444) else Color(0xFF10B981)),
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
+                                        Icon(
+                                            imageVector = if (recipientValidation!!.isAlreadyUnlocked) Icons.Default.Warning else Icons.Default.CheckCircle,
+                                            contentDescription = null,
+                                            tint = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444) else Color(0xFF10B981),
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Column {
+                                            Text(
+                                                text = "প্রাপক: ${recipientValidation!!.name}",
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 13.sp,
+                                                color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFF991B1B) else Color(0xFF065F46)
+                                            )
+                                            Text(
+                                                text = if (recipientValidation!!.isAlreadyUnlocked) "⚠️ প্রাপকের ইতোমধ্যে এই কোর্সটি আনলক করা আছে!" else "✅ প্রাপক প্রস্তুত। ব্যালেন্স দিয়ে উপহার দিন।",
+                                                fontSize = 11.5.sp,
+                                                color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFB91C1C) else Color(0xFF047857)
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (recipientError != null) {
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Card(
+                                    shape = RoundedCornerShape(8.dp),
+                                    colors = CardDefaults.cardColors(containerColor = Color(0xFFEF4444).copy(alpha = 0.1f)),
+                                    border = BorderStroke(1.dp, Color(0xFFEF4444).copy(alpha = 0.5f)),
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
+                                        Icon(imageVector = Icons.Default.ErrorOutline, contentDescription = null, tint = Color(0xFFEF4444), modifier = Modifier.size(18.dp))
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Text(text = recipientError!!, fontSize = 11.5.sp, color = Color(0xFF991B1B))
+                                    }
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(12.dp))
+
+                            Button(
+                                onClick = {
+                                    enteredPinText = ""
+                                    confirmPinText = ""
+                                    pinDialogError = null
+                                    if (walletPin.isBlank()) {
+                                        showSetPinDialog = true
+                                    } else {
+                                        showEnterPinDialog = true
+                                    }
+                                },
+                                enabled = recipientValidation != null && !recipientValidation!!.isAlreadyUnlocked && !isGiftPurchasing,
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = RoundedCornerShape(10.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                            ) {
+                                Icon(imageVector = Icons.Default.CardGiftcard, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = if (recipientValidation != null) "🎁 ৳${selectedPackage.price.toInt()} দিয়ে '${recipientValidation!!.name}' কে উপহার দিন" else "উপহার দিন (${selectedPackage.priceDisplay})",
                                     fontWeight = FontWeight.Bold,
                                     color = Color.White
                                 )
                             }
                         }
                     }
+                }
 
+                if (!isPackageAlreadyUnlocked) {
                     Spacer(modifier = Modifier.height(4.dp))
-
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
@@ -644,7 +820,8 @@ fun PaymentScreen(
                         )
                         HorizontalDivider(modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
                     }
-                } else if (userBalance > 0.0) {
+                }
+            } else if (userBalance > 0.0 && !isPackageAlreadyUnlocked) {
                     Card(
                         shape = RoundedCornerShape(10.dp),
                         colors = CardDefaults.cardColors(
@@ -960,6 +1137,207 @@ fun PaymentScreen(
                         enabled = !isWalletPurchasing
                     ) {
                         Text("বাতিল")
+                    }
+                }
+            )
+        }
+
+        // Set Wallet PIN Dialog
+        if (showSetPinDialog) {
+            AlertDialog(
+                onDismissRequest = { showSetPinDialog = false },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(imageVector = Icons.Default.Lock, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("৪-ডিজিটের ওয়ালেট পিন সেট করুন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    }
+                },
+                text = {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Text(
+                            text = "আপনার অর্জিত ব্যালেন্সের শতভাগ সুরক্ষায় একটি ৪-সংখ্যার গোপন পিন সেট করুন। অন্য কেউ ফোন হাতে পেলেও এই পিন ছাড়া কোনো ব্যালেন্স খরচ করতে পারবে না।",
+                            fontSize = 12.sp,
+                            lineHeight = 17.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        OutlinedTextField(
+                            value = enteredPinText,
+                            onValueChange = { if (it.length <= 4 && it.all { ch -> ch.isDigit() }) enteredPinText = it },
+                            label = { Text("৪-ডিজিট নতুন পিন") },
+                            placeholder = { Text("যেমন: 1234") },
+                            visualTransformation = PasswordVisualTransformation(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        OutlinedTextField(
+                            value = confirmPinText,
+                            onValueChange = { if (it.length <= 4 && it.all { ch -> ch.isDigit() }) confirmPinText = it },
+                            label = { Text("পিন পুনরায় নিশ্চিত করুন") },
+                            placeholder = { Text("একই পিন আবার লিখুন") },
+                            visualTransformation = PasswordVisualTransformation(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        if (pinDialogError != null) {
+                            Text(text = pinDialogError!!, color = MaterialTheme.colorScheme.error, fontSize = 12.sp)
+                        }
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            if (enteredPinText.length != 4) {
+                                pinDialogError = "পিন অবশ্যই ৪ ডিজিটের হতে হবে"
+                                return@Button
+                            }
+                            if (enteredPinText != confirmPinText) {
+                                pinDialogError = "উভয় পিন মেলেনি! পুনরায় চেক করুন"
+                                return@Button
+                            }
+                            scope.launch {
+                                val res = userRepository.setWalletPin(enteredPinText)
+                                if (res.isSuccess) {
+                                    showSetPinDialog = false
+                                    pinDialogError = null
+                                    showEnterPinDialog = true
+                                } else {
+                                    pinDialogError = res.exceptionOrNull()?.message ?: "পিন সেভ করতে সমস্যা হয়েছে"
+                                }
+                            }
+                        }
+                    ) {
+                        Text("পিন সংরক্ষণ করুন")
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showSetPinDialog = false }) {
+                        Text("বাতিল")
+                    }
+                }
+            )
+        }
+
+        // Enter Wallet PIN & Confirm Gift Dialog
+        if (showEnterPinDialog) {
+            AlertDialog(
+                onDismissRequest = { if (!isGiftPurchasing) showEnterPinDialog = false },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(imageVector = Icons.Default.CardGiftcard, contentDescription = null, tint = Color(0xFF10B981))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("উপহার নিশ্চিতকরণ ও ওয়ালেট পিন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    }
+                },
+                text = {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Text(
+                            text = "প্যাকেজ: ${selectedPackage.title}\nমূল্য: ৳${selectedPackage.price.toInt()}\nপ্রাপক: ${recipientValidation?.name ?: recipientEmail}\nইমেইল: ${recipientValidation?.email ?: recipientEmail}",
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Medium,
+                            lineHeight = 18.sp
+                        )
+                        HorizontalDivider()
+                        Text(
+                            text = "বর্তমান ব্যালেন্স: ৳${"%.2f".format(userBalance)}\nক্রয়ের পর ব্যালেন্স: ৳${"%.2f".format(userBalance - selectedPackage.price)}",
+                            fontSize = 12.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        OutlinedTextField(
+                            value = enteredPinText,
+                            onValueChange = {
+                                if (it.length <= 4 && it.all { ch -> ch.isDigit() }) {
+                                    enteredPinText = it
+                                    pinDialogError = null
+                                }
+                            },
+                            label = { Text("৪-ডিজিটের ওয়ালেট পিন দিন") },
+                            placeholder = { Text("••••") },
+                            visualTransformation = PasswordVisualTransformation(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        if (pinDialogError != null) {
+                            Text(text = pinDialogError!!, color = MaterialTheme.colorScheme.error, fontSize = 12.sp)
+                        }
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            if (enteredPinText.length != 4) {
+                                pinDialogError = "৪ ডিজিটের ওয়ালেট পিন দিন"
+                                return@Button
+                            }
+                            isGiftPurchasing = true
+                            pinDialogError = null
+                            scope.launch {
+                                val res = userRepository.purchaseCourseForOtherUser(
+                                    recipientEmail = recipientValidation?.email ?: recipientEmail,
+                                    packageType = selectedPackage.id,
+                                    amount = selectedPackage.price,
+                                    enteredPin = enteredPinText
+                                )
+                                isGiftPurchasing = false
+                                if (res.isSuccess) {
+                                    val giftedName = recipientValidation?.name ?: recipientEmail
+                                    val giftedTitle = selectedPackage.title
+                                    showEnterPinDialog = false
+                                    enteredPinText = ""
+                                    recipientEmail = ""
+                                    recipientValidation = null
+                                    giftSuccessDialogData = giftedName to giftedTitle
+                                } else {
+                                    pinDialogError = res.exceptionOrNull()?.message ?: "লেনদেন ব্যর্থ হয়েছে"
+                                }
+                            }
+                        },
+                        enabled = !isGiftPurchasing,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                    ) {
+                        if (isGiftPurchasing) {
+                            CircularProgressIndicator(modifier = Modifier.size(16.dp), color = Color.White, strokeWidth = 2.dp)
+                            Spacer(modifier = Modifier.width(6.dp))
+                        }
+                        Text("নিশ্চিত করুন ও উপহার দিন", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = { showEnterPinDialog = false },
+                        enabled = !isGiftPurchasing
+                    ) {
+                        Text("বাতিল")
+                    }
+                }
+            )
+        }
+
+        // Gift Success Dialog
+        giftSuccessDialogData?.let { (name, course) ->
+            AlertDialog(
+                onDismissRequest = { giftSuccessDialogData = null },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(imageVector = Icons.Default.CheckCircle, contentDescription = null, tint = Color(0xFF10B981))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("উপহার পাঠানো সফল হয়েছে!", fontWeight = FontWeight.Bold)
+                    }
+                },
+                text = {
+                    Text(
+                        text = "🎉 অভিনন্দন! '$name' এর অ্যাকাউন্টে সফলভাবে '$course' আনলক করা হয়েছে। প্রাপক অ্যাপে লগইন করলেই পুরো কোর্সটি সাথে সাথে উপভোগ করতে পারবেন।",
+                        fontSize = 13.5.sp,
+                        lineHeight = 19.sp
+                    )
+                },
+                confirmButton = {
+                    Button(onClick = { giftSuccessDialogData = null }) {
+                        Text("ঠিক আছে")
                     }
                 }
             )

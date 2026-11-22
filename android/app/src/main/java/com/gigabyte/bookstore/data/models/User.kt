@@ -19,6 +19,7 @@ data class User(
     val unlockedBundles: List<String> = emptyList(),
     val role: String = "customer", // "customer" or "admin"
     val isAdmin: Boolean = false,
+    val walletPin: String = "",
     val createdAt: String = getCurrentFormattedDate(),
     val lastLoginAt: String = getCurrentFormattedDate()
 ) {
@@ -41,3 +42,11 @@ data class User(
         }
     }
 }
+
+data class RecipientValidationResult(
+    val email: String,
+    val name: String,
+    val isAlreadyUnlocked: Boolean,
+    val unlockedBundles: List<String> = emptyList(),
+    val message: String = ""
+)

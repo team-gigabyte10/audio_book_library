@@ -223,6 +223,7 @@ class AppPreferences(context: Context) {
         private const val KEY_BONUS_BUNDLE_REFERRAL = "bonus_bundle_referral"
         private const val KEY_BONUS_SINGLE_REFERRAL = "bonus_single_referral"
         private const val KEY_MIN_WITHDRAWAL_AMOUNT = "min_withdrawal_amount"
+        private const val KEY_WALLET_PIN = "wallet_pin"
         fun normalizeBundleId(bundleOrCode: String): String {
             val clean = bundleOrCode.trim().lowercase()
             return when {
@@ -449,6 +450,16 @@ class AppPreferences(context: Context) {
     private val _isAdmin = MutableStateFlow(prefs.getBoolean(KEY_IS_ADMIN, false))
     val isAdmin: StateFlow<Boolean> = _isAdmin.asStateFlow()
 
+    private val _walletPin = MutableStateFlow(prefs.getString(KEY_WALLET_PIN, "") ?: "")
+    val walletPin: StateFlow<String> = _walletPin.asStateFlow()
+
+    fun getWalletPin(): String = _walletPin.value
+
+    fun saveWalletPin(pin: String) {
+        prefs.edit().putString(KEY_WALLET_PIN, pin).apply()
+        _walletPin.value = pin
+    }
+
     fun setIsAdmin(isAdmin: Boolean) {
         prefs.edit().putBoolean(KEY_IS_ADMIN, isAdmin).apply()
         _isAdmin.value = isAdmin
@@ -465,6 +476,7 @@ class AppPreferences(context: Context) {
         balance: Double = 0.0,
         referralCode: String = "",
         referredBy: String? = null,
+        walletPin: String = "",
         createdAt: String = "",
         lastLoginAt: String = ""
     ) {
@@ -480,6 +492,7 @@ class AppPreferences(context: Context) {
             .putFloat(KEY_USER_BALANCE, balance.toFloat())
             .putString(KEY_REFERRAL_CODE, referralCode)
             .putString(KEY_REFERRED_BY, referredBy ?: "")
+            .putString(KEY_WALLET_PIN, walletPin)
             .putString(KEY_CREATED_AT, createdAt)
             .putString(KEY_LAST_LOGIN_AT, lastLoginAt)
             .apply()
@@ -494,6 +507,7 @@ class AppPreferences(context: Context) {
         _userStatus.value = status
         _userBalance.value = balance
         _referralCode.value = referralCode
+        _walletPin.value = walletPin
     }
 
     fun updateReferralCode(code: String) {
@@ -543,6 +557,7 @@ class AppPreferences(context: Context) {
             .remove(KEY_REFERRED_BY)
             .remove(KEY_UNLOCKED_BUNDLES)
             .remove(KEY_IS_ADMIN)
+            .remove(KEY_WALLET_PIN)
             .apply()
 
         _isLoggedIn.value = false
@@ -553,6 +568,7 @@ class AppPreferences(context: Context) {
         _referralCode.value = ""
         _unlockedBundles.value = emptySet()
         _isAdmin.value = false
+        _walletPin.value = ""
     }
 
     fun getPdfLastReadPage(bookId: String): Int {
