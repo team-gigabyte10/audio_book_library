@@ -65,6 +65,7 @@ class LibraryViewModel(application: Application) : AndroidViewModel(application)
     val userInstitute: StateFlow<String> = app.appPreferences.userInstitute
     val userAddress: StateFlow<String> = app.appPreferences.userAddress
     val userPhone: StateFlow<String> = app.appPreferences.userPhone
+    val referralCode: StateFlow<String> = app.appPreferences.referralCode
     val deviceId: StateFlow<String> = app.appPreferences.deviceId
     val userBalance: StateFlow<Double> = app.appPreferences.userBalance
     val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin

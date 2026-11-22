@@ -134,6 +134,9 @@ fun HomeScreen(
     val userStatus by viewModel.userStatus.collectAsStateWithLifecycle()
     val userBalance by viewModel.userBalance.collectAsStateWithLifecycle()
     val userInstitute by viewModel.userInstitute.collectAsStateWithLifecycle()
+    val userAddress by viewModel.userAddress.collectAsStateWithLifecycle()
+    val userPhone by viewModel.userPhone.collectAsStateWithLifecycle()
+    val referralCode by viewModel.referralCode.collectAsStateWithLifecycle()
     val unlockedBundles by viewModel.unlockedBundles.collectAsStateWithLifecycle()
     val isAdmin by viewModel.isAdmin.collectAsStateWithLifecycle()
 
@@ -660,12 +663,19 @@ fun HomeScreen(
         ProfileUpdateDialog(
             initialName = userName,
             initialInstitute = userInstitute,
-            initialAddress = "",
-            initialPhone = "",
+            initialAddress = userAddress,
+            initialPhone = userPhone,
             email = userEmail,
+            referralCode = referralCode,
+            userStatus = userStatus,
             onDismiss = { showProfileDialog = false },
-            onSave = { _, _, _, _ ->
-                showProfileDialog = false
+            onSave = { name, institute, address, phone, onComplete ->
+                viewModel.updateUserProfile(name, institute, address, phone) { success ->
+                    onComplete(success)
+                    if (success) {
+                        showProfileDialog = false
+                    }
+                }
             }
         )
     }

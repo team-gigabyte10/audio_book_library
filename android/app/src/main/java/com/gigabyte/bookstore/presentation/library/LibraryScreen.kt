@@ -124,6 +124,7 @@ fun LibraryScreen(
     val userInstitute: String by viewModel.userInstitute.collectAsStateWithLifecycle()
     val userAddress: String by viewModel.userAddress.collectAsStateWithLifecycle()
     val userPhone: String by viewModel.userPhone.collectAsStateWithLifecycle()
+    val referralCode: String by viewModel.referralCode.collectAsStateWithLifecycle()
     val userBalance: Double by viewModel.userBalance.collectAsStateWithLifecycle()
     val isAdmin: Boolean by viewModel.isAdmin.collectAsStateWithLifecycle()
     val displayBooks = remember(books) {
@@ -544,10 +545,15 @@ fun LibraryScreen(
                 initialAddress = userAddress,
                 initialPhone = userPhone,
                 email = userEmail,
+                referralCode = referralCode,
+                userStatus = userStatus,
                 onDismiss = { showProfileDialog = false },
-                onSave = { name, institute, address, phone ->
-                    viewModel.updateUserProfile(name, institute, address, phone) {
-                        showProfileDialog = false
+                onSave = { name, institute, address, phone, onComplete ->
+                    viewModel.updateUserProfile(name, institute, address, phone) { success ->
+                        onComplete(success)
+                        if (success) {
+                            showProfileDialog = false
+                        }
                     }
                 }
             )

@@ -63,8 +63,26 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val userStatus: StateFlow<String> = app.appPreferences.userStatus
     val userBalance: StateFlow<Double> = app.appPreferences.userBalance
     val userInstitute: StateFlow<String> = app.appPreferences.userInstitute
+    val userAddress: StateFlow<String> = app.appPreferences.userAddress
+    val userPhone: StateFlow<String> = app.appPreferences.userPhone
+    val referralCode: StateFlow<String> = app.appPreferences.referralCode
     val unlockedBundles: StateFlow<Set<String>> = app.appPreferences.unlockedBundles
     val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin
+
+    val userRepository = com.gigabyte.bookstore.data.repository.UserRepository(application, app.appPreferences)
+
+    fun updateUserProfile(
+        name: String,
+        institute: String,
+        address: String,
+        phone: String?,
+        onComplete: (Boolean) -> Unit
+    ) {
+        viewModelScope.launch {
+            val res = userRepository.updateUserProfile(name, institute, address, phone)
+            onComplete(res.isSuccess)
+        }
+    }
 
     fun isBundleUnlocked(bundleId: String): Boolean = app.appPreferences.isBundleUnlocked(bundleId)
 
