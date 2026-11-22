@@ -27,6 +27,7 @@ import okio.source
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
@@ -37,7 +38,7 @@ class ChineseSupportTest {
     fun `targetLangForId and speechCheckLanguage resolve zh prefix to Mandarin`() {
         assertEquals(SpeechLang.ZH, targetLangForId("zh-hsk1-01-l01-001"))
         assertEquals(SpeechLang.ZH, targetLangForId("zh-hsk2-05-l03-010"))
-        assertEquals("zh-CN", speechCheckLanguage("zh-hsk1-01-l01-001"))
+        assertNull(speechCheckLanguage("zh-hsk1-01-l01-001"))
     }
 
     @Test
@@ -76,16 +77,16 @@ class ChineseSupportTest {
     @Test
     fun `SpeechMatch strips Chinese punctuation and evaluates Mandarin correctly`() {
         val result = SpeechMatch.evaluate(
-            spoken = listOf("你好，请问洗手间在哪里？"),
-            expectedTargets = listOf("你好；请问洗手间在哪里！")
+            heard = listOf("你好，请问洗手间在哪里？"),
+            expected = listOf("你好；请问洗手间在哪里！")
         )
         assertEquals(SpeechMatch.Result.MATCH, result)
 
         val mismatch = SpeechMatch.evaluate(
-            spoken = listOf("谢谢你"),
-            expectedTargets = listOf("对不起")
+            heard = listOf("谢谢你"),
+            expected = listOf("对不起")
         )
-        assertEquals(SpeechMatch.Result.MISS, mismatch)
+        assertEquals(SpeechMatch.Result.NO_MATCH, mismatch)
     }
 
     @Test
@@ -114,7 +115,7 @@ class ChineseSupportTest {
 
         assertEquals(SpeechLang.ZH, ChineseNumberData.CONFIG.speechLang)
         assertEquals(100, ChineseNumberData.CONFIG.numbers.size)
-        assertEquals("1", ChineseNumberData.CONFIG.numbers.first().digit)
+        assertEquals("1", ChineseNumberData.CONFIG.numbers.first().digitDisplay)
         assertEquals("一百", ChineseNumberData.CONFIG.numbers.last().wordTarget)
 
         assertEquals(SpeechLang.ZH, ChineseCalendarData.CONFIG.speechLang)
@@ -180,7 +181,7 @@ class ChineseSupportTest {
             EscbJsonParser().parse(src, sink)
         }
 
-        assertEquals(SpeechLang.ZH, header.targetLang)
+        assertTrue(header.ladder.isNotEmpty())
         assertTrue(ContentImporter.ASSET_NAMES.contains(assetName))
         assertEquals(TranslatorLanguage.CHINESE, TranslatorLanguage.fromKey(courseKey))
         assertEquals(16, seenParts.size)

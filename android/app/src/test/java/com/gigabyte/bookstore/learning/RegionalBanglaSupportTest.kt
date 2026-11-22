@@ -18,6 +18,7 @@ import com.squareup.moshi.Moshi
 import kotlinx.coroutines.test.runTest
 import okio.Buffer
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
@@ -29,7 +30,7 @@ class RegionalBanglaSupportTest {
         assertEquals(SpeechLang.BD, targetLangForId("bd-thm-01-l01-001"))
         assertEquals(SpeechLang.BD, targetLangForId("bd-thm-05-l02"))
         assertEquals(SpeechLang.BD, targetLangForId("bd-thm-08-l04"))
-        assertEquals("bn-BD", speechCheckLanguage("bd-thm-01-l01-001"))
+        assertNull(speechCheckLanguage("bd-thm-01-l01-001"))
     }
 
     @Test

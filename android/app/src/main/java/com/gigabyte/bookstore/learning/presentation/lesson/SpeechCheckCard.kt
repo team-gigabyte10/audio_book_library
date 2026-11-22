@@ -56,16 +56,10 @@ internal const val HI_STANDARD_PREFIX = "hi-std-"
 /** ID prefix of the German standard course (tools/german/build_german_course.py). */
 internal const val DE_STANDARD_PREFIX = "de-std-"
 
-/** Recognizer language for the speech check, or null when the item's course has no check. */
+/** Recognizer language for the speech check, or null when the item's course has no check.
+ * Speech check ('জোরে বলুন, তারপর যাচাই করুন') is enabled only for English courses.
+ */
 internal fun speechCheckLanguage(itemId: String): String? = when {
-    itemId.startsWith("jp-") -> "ja-JP"
-    itemId.startsWith("ur-") -> "ur-PK"
-    itemId.startsWith("hi-") -> "hi-IN"
-    itemId.startsWith("de-") -> "de-DE"
-    itemId.startsWith("bd-") -> "bn-BD"
-    itemId.startsWith("qr-") || itemId.startsWith("ar-") -> "ar-SA"
-    itemId.startsWith("zh-") -> "zh-CN"
-    itemId.startsWith("ko-") -> "ko-KR"
     itemId.startsWith("en-") -> "en-US"
     else -> null
 }

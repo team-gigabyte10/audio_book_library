@@ -13,6 +13,7 @@ import com.gigabyte.bookstore.learning.presentation.lesson.speechCheckLanguage
 import kotlinx.coroutines.test.runTest
 import okio.Buffer
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -22,7 +23,7 @@ class GermanSupportTest {
     fun `target language resolves to DE for de prefix`() {
         assertEquals(SpeechLang.DE, targetLangForId("de-std-a1-07-l01"))
         assertEquals(SpeechLang.DE, targetLangForId("de-std-s0-01-l01-001"))
-        assertEquals("de-DE", speechCheckLanguage("de-std-a1-01-l01-001"))
+        assertNull(speechCheckLanguage("de-std-a1-01-l01-001"))
     }
 
     @Test

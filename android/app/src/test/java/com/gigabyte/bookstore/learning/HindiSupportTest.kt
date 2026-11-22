@@ -16,6 +16,7 @@ import com.gigabyte.bookstore.learning.presentation.lesson.speechCheckLanguage
 import kotlinx.coroutines.test.runTest
 import okio.Buffer
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertSame
 import org.junit.Test
 
@@ -25,7 +26,7 @@ class HindiSupportTest {
     fun `target language resolves to HI for hi prefix`() {
         assertEquals(SpeechLang.HI, targetLangForId("hi-std-a1-07-l01"))
         assertEquals(SpeechLang.HI, targetLangForId("hi-std-s0-01-l01-001"))
-        assertEquals("hi-IN", speechCheckLanguage("hi-std-a1-01-l01-001"))
+        assertNull(speechCheckLanguage("hi-std-a1-01-l01-001"))
     }
 
     @Test

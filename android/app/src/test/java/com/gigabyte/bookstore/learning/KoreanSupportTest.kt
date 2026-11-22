@@ -1,6 +1,10 @@
 package com.gigabyte.bookstore.learning
 
+import com.gigabyte.bookstore.learning.data.content.EscbContentSink
 import com.gigabyte.bookstore.learning.data.content.EscbJsonParser
+import com.gigabyte.bookstore.learning.data.db.ItemEntity
+import com.gigabyte.bookstore.learning.data.db.LessonEntity
+import com.gigabyte.bookstore.learning.data.db.PartEntity
 import com.gigabyte.bookstore.learning.domain.model.LadderStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import com.gigabyte.bookstore.learning.domain.model.targetLangForId
@@ -13,9 +17,12 @@ import com.gigabyte.bookstore.learning.presentation.numbers.KoreanNumberData
 import com.gigabyte.bookstore.learning.presentation.vocab.KoreanVocabData
 import com.gigabyte.bookstore.learning.presentation.vocab.VocabCategory
 import com.gigabyte.bookstore.learning.presentation.vocab.VocabRepository
+import kotlinx.coroutines.test.runTest
+import okio.Buffer
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -28,7 +35,7 @@ class KoreanSupportTest {
         assertEquals(SpeechLang.KO, targetLangForId("ko-b1-10-l01-008"))
         assertEquals(SpeechLang.KO, targetLangForId("ko-b2-12-l03-002"))
         assertEquals(SpeechLang.KO, targetLangForId("ko-sp-16-l04-008"))
-        assertEquals("ko-KR", speechCheckLanguage("ko-std-01-l01-001"))
+        assertNull(speechCheckLanguage("ko-std-01-l01-001"))
     }
 
     @Test
@@ -88,7 +95,7 @@ class KoreanSupportTest {
     }
 
     @Test
-    fun `escb json parser parses ko target_lang`() {
+    fun `escb json parser parses ko target_lang`() = runTest {
         val json = """
             {
               "schema_version": 1,
@@ -107,9 +114,12 @@ class KoreanSupportTest {
               "parts": []
             }
         """.trimIndent()
-        val header = EscbJsonParser().parseHeader(json)
-        assertEquals("ko-standard-a1", header.courseId)
-        assertEquals(SpeechLang.KO, header.targetLang)
+        val sink = object : EscbContentSink {
+            override suspend fun onPart(part: PartEntity) = Unit
+            override suspend fun onLesson(lesson: LessonEntity, items: List<ItemEntity>) = Unit
+        }
+        val header = EscbJsonParser().parse(Buffer().writeUtf8(json), sink)
+        assertEquals("কোরিয়ান স্পোকেন: লেভেল A1", header.titleBn)
         assertEquals(listOf(SpeechLang.KO, SpeechLang.BN, SpeechLang.KO), header.ladder.map { it.play })
     }
 }

@@ -14,6 +14,7 @@ import com.squareup.moshi.Moshi
 import kotlinx.coroutines.test.runTest
 import okio.Buffer
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
@@ -25,7 +26,7 @@ class QuranSupportTest {
         assertEquals(SpeechLang.AR, targetLangForId("qr-p1-u01-l01-001"))
         assertEquals(SpeechLang.AR, targetLangForId("qr-p2-u03-l02"))
         assertEquals(SpeechLang.AR, targetLangForId("qr-p4-u08-l04"))
-        assertEquals("ar-SA", speechCheckLanguage("qr-p1-u01-l01-001"))
+        assertNull(speechCheckLanguage("qr-p1-u01-l01-001"))
         assertTrue(isQuranItem("qr-p1-u01-l01-001"))
     }
 
@@ -67,7 +68,7 @@ class QuranSupportTest {
         assertTrue("Root must not be null", data != null)
 
         val parts = data!!["parts"] as? List<Map<String, Any>> ?: emptyList()
-        assertEquals("Must contain 8 parts", 8, parts.size)
+        assertEquals("Must contain 10 parts", 10, parts.size)
 
         val partIds = parts.map { it["id"] as String }
         assertTrue("Part 1 must exist", partIds.contains("qr-p1-u01"))

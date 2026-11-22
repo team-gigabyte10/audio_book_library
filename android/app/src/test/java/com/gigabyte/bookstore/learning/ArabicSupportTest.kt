@@ -15,6 +15,7 @@ import com.gigabyte.bookstore.learning.presentation.vocab.VocabCategory
 import com.gigabyte.bookstore.learning.presentation.vocab.VocabRepository
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -28,8 +29,9 @@ class ArabicSupportTest {
         assertEquals(SpeechLang.AR, targetLangForId("ar-b2-12-l03-002"))
         assertEquals(SpeechLang.AR, targetLangForId("ar-sp-03-l04-008"))
 
-        assertEquals("ar-SA", speechCheckLanguage("ar-std-01-l01-001"))
-        assertEquals("ar-SA", speechCheckLanguage("qr-p1-u01-l01-001"))
+        assertNull(speechCheckLanguage("ar-std-01-l01-001"))
+        assertNull(speechCheckLanguage("qr-p1-u01-l01-001"))
+        assertEquals("en-US", speechCheckLanguage("en-std-01-l01-001"))
         assertEquals(TranslatorLanguage.ARABIC, TranslatorLanguage.fromKey("ar_standard"))
         assertEquals(TranslatorLanguage.ARABIC, TranslatorLanguage.fromKey("ar_specialist"))
     }
@@ -37,7 +39,7 @@ class ArabicSupportTest {
     @Test
     fun `ladder step encodes and decodes ar cleanly`() {
         val step = LadderStep(play = SpeechLang.AR, speed = 0.85f)
-        val decoded = LadderStep.decode(listOf(step.encode()))
+        val decoded = LadderStep.decode(LadderStep.encode(listOf(step)))
         assertEquals(1, decoded.size)
         assertEquals(SpeechLang.AR, decoded.first().play)
         assertEquals(0.85f, decoded.first().speed, 0.001f)
