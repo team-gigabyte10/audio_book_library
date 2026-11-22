@@ -111,7 +111,7 @@ class RegionalBanglaSupportTest {
         assertTrue("Root must not be null", data != null)
 
         val parts = data!!["parts"] as? List<Map<String, Any>> ?: emptyList()
-        assertEquals("Must contain 8 thematic parts", 8, parts.size)
+        assertEquals("Must contain 18 thematic parts", 18, parts.size)
 
         val conceptCounts = mutableMapOf<String, Int>()
         for (part in parts) {
@@ -127,7 +127,7 @@ class RegionalBanglaSupportTest {
             }
         }
 
-        assertEquals("Must contain 64 shared concept sentences", 64, conceptCounts.size)
+        assertEquals("Must contain 164 shared concept sentences", 164, conceptCounts.size)
         assertTrue("Every concept sentence must cover all 10 regions", conceptCounts.values.all { it == 10 })
     }
 
