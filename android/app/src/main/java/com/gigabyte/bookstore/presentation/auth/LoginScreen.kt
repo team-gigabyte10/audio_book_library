@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
 
 @Composable
@@ -71,92 +72,72 @@ fun LoginScreen(
             )
         }
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 20.dp, vertical = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // 1. BRANDED HERO WELCOME CARD
-            Box(
+        AppBackground(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .background(
-                        brush = Brush.linearGradient(
-                            colors = listOf(
-                                MaterialTheme.colorScheme.primary,
-                                MaterialTheme.colorScheme.secondary.copy(alpha = 0.9f),
-                                Color(0xFF004D40)
-                            )
-                        ),
-                        shape = RoundedCornerShape(20.dp)
-                    )
-                    .border(
-                        width = 1.dp,
-                        color = GoldenAccent.copy(alpha = 0.35f),
-                        shape = RoundedCornerShape(20.dp)
-                    )
-                    .padding(20.dp)
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = 20.dp, vertical = 20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(46.dp)
-                                .clip(CircleShape)
-                                .background(Color.White.copy(alpha = 0.2f)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.AutoStories,
-                                contentDescription = null,
-                                tint = GoldenAccent,
-                                modifier = Modifier.size(26.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column {
-                            Text(
-                                text = "বই ও ভাষা একাডেমি",
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.ExtraBold,
-                                color = Color.White
-                            )
-                            Text(
-                                text = "Book & Language Academy",
-                                fontSize = 12.sp,
-                                color = GoldenAccent.copy(alpha = 0.95f),
-                                fontWeight = FontWeight.Medium
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Text(
-                        text = "আপনার রেজিস্টার করা ইমেইল দিয়ে সহজে লগইন করুন। বইয়ের অডিও সারাংশ ও সকল ভাষা শিক্ষা চালু রাখুন!",
-                        fontSize = 13.sp,
-                        lineHeight = 19.sp,
-                        color = Color.White.copy(alpha = 0.92f)
+                // 1. CLEAN STANDARD BRAND HERO HEADER
+                Box(
+                    modifier = Modifier
+                        .size(60.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.primaryContainer),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.AutoStories,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(32.dp)
                     )
-
-                    Spacer(modifier = Modifier.height(14.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        LoginBadgePill(text = "🎧 অডিও সারাংশ")
-                        LoginBadgePill(text = "🌍 ১০টি ভাষা")
-                        LoginBadgePill(text = "⚡ অফলাইন")
-                    }
                 }
-            }
 
-            Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(14.dp))
+
+                Text(
+                    text = "বই ও ভাষা একাডেমি",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Text(
+                    text = "Book & Language Academy",
+                    fontSize = 13.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.SemiBold
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = "আপনার রেজিস্টার করা ইমেইল দিয়ে সহজে লগইন করুন। বইয়ের অডিও সারাংশ ও সকল ভাষা শিক্ষা চালু রাখুন!",
+                    fontSize = 13.sp,
+                    lineHeight = 19.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 12.dp)
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    LoginBadgePill(text = "🎧 অডিও সারাংশ")
+                    LoginBadgePill(text = "🌍 ১০টি ভাষা")
+                    LoginBadgePill(text = "⚡ অফলাইন")
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
 
             // 2. CREDENTIALS INPUT CARD
             Card(
@@ -467,21 +448,23 @@ fun LoginScreen(
         }
     }
 }
+}
 
 @Composable
 private fun RowScope.LoginBadgePill(text: String) {
     Surface(
-        shape = RoundedCornerShape(8.dp),
-        color = Color.White.copy(alpha = 0.15f),
+        shape = RoundedCornerShape(10.dp),
+        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.55f),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.45f)),
         modifier = Modifier.weight(1f)
     ) {
         Text(
             text = text,
-            color = Color.White,
-            fontSize = 11.sp,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 11.5.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier
-                .padding(vertical = 5.dp)
+                .padding(vertical = 6.dp)
                 .wrapContentWidth(Alignment.CenterHorizontally)
         )
     }
