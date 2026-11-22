@@ -28,18 +28,18 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     fun register(
         name: String,
         email: String,
-        institute: String,
-        address: String,
-        phone: String?,
+        institute: String? = null,
+        address: String? = null,
+        phone: String? = null,
         referralCodeInput: String? = null
     ) {
-        if (name.isBlank() || email.isBlank() || institute.isBlank() || address.isBlank()) {
-            _uiState.value = RegisterUiState.Error("Please fill in Name, Email, Institute, and Address.")
+        if (name.isBlank() || email.isBlank()) {
+            _uiState.value = RegisterUiState.Error("অনুগ্রহ করে আপনার নাম ও ইমেইল ঠিকানা দিন। (Please enter your Name and Email.)")
             return
         }
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches()) {
-            _uiState.value = RegisterUiState.Error("Please enter a valid email address.")
+            _uiState.value = RegisterUiState.Error("অনুগ্রহ করে সঠিক ইমেইল ঠিকানা লিখুন। (Please enter a valid email address.)")
             return
         }
 
@@ -47,12 +47,12 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
 
         viewModelScope.launch {
             val result = userRepository.registerUser(
-                name = name,
-                email = email,
-                institute = institute,
-                address = address,
-                phone = phone,
-                referralCodeInput = referralCodeInput
+                name = name.trim(),
+                email = email.trim(),
+                institute = institute?.trim().orEmpty(),
+                address = address?.trim().orEmpty(),
+                phone = phone?.trim().takeIf { !it.isNullOrBlank() },
+                referralCodeInput = referralCodeInput?.trim().takeIf { !it.isNullOrBlank() }
             )
 
             result.fold(

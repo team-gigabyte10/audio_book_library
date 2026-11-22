@@ -49,9 +49,9 @@ class UserRepository(
     suspend fun registerUser(
         name: String,
         email: String,
-        institute: String,
-        address: String,
-        phone: String?,
+        institute: String = "",
+        address: String = "",
+        phone: String? = null,
         referralCodeInput: String? = null
     ): Result<User> = withContext(Dispatchers.IO) {
         try {
