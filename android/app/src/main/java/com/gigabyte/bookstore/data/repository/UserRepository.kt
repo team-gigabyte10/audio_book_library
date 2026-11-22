@@ -3,6 +3,7 @@ package com.gigabyte.bookstore.data.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
+import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 import com.google.firebase.firestore.ListenerRegistration
 import com.gigabyte.bookstore.data.models.PaymentRequest
@@ -606,9 +607,10 @@ class UserRepository(
                     if (referrerDoc.exists()) {
                         val refEmail = referrerDoc.getString("email") ?: referrerDoc.id
                         val refCurrentBal = referrerDoc.getDouble("balance") ?: 0.0
-                        val updatedRefBal = refCurrentBal + 20.0
+                        val rewardAmount = appPreferences.getPricingConfig().getReferralBonus(packageType, amount)
+                        val updatedRefBal = refCurrentBal + rewardAmount
 
-                        // Credit ৳20 to referrer's balance
+                        // Credit referral bonus to referrer's balance
                         referrerDoc.reference.update("balance", updatedRefBal).await()
 
                         // Mark this referred user as rewarded so they don't trigger multiple bonuses
@@ -620,7 +622,7 @@ class UserRepository(
                             "referrerCode" to (referrerDoc.getString("referralCode") ?: ""),
                             "refereeEmail" to normalizedEmail,
                             "refereeName" to (userSnap.getString("name") ?: ""),
-                            "amount" to 20.0,
+                            "amount" to rewardAmount,
                             "paidAt" to currentDate,
                             "status" to "rewarded"
                         )
@@ -872,7 +874,8 @@ class UserRepository(
                     if (referrerDoc.exists()) {
                         val refEmail = referrerDoc.getString("email") ?: referrerDoc.id
                         val refCurrentBal = referrerDoc.getDouble("balance") ?: 0.0
-                        val updatedRefBal = refCurrentBal + 20.0
+                        val rewardAmount = appPreferences.getPricingConfig().getReferralBonus(packageType, amount)
+                        val updatedRefBal = refCurrentBal + rewardAmount
 
                         referrerDoc.reference.update("balance", updatedRefBal).await()
                         userRef.update("referralRewardPaid", true).await()
@@ -882,7 +885,7 @@ class UserRepository(
                             "referrerCode" to (referrerDoc.getString("referralCode") ?: ""),
                             "refereeEmail" to email,
                             "refereeName" to (userSnap.getString("name") ?: appPreferences.userName.value),
-                            "amount" to 20.0,
+                            "amount" to rewardAmount,
                             "paidAt" to currentDate,
                             "status" to "rewarded"
                         )
@@ -1063,6 +1066,122 @@ class UserRepository(
     }
 
     private var policyListenerRegistration: ListenerRegistration? = null
+    private var pricingListenerRegistration: ListenerRegistration? = null
+
+    /**
+     * Real-time listener for Backend-controlled Pricing & Referral Bonus Config from Firestore (settings/pricing).
+     */
+    fun listenAppPricingConfig() {
+        if (pricingListenerRegistration != null) return
+        try {
+            val docRef = firestore.collection("settings").document("pricing")
+            pricingListenerRegistration = docRef.addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    android.util.Log.w("UserRepository", "Error listening to settings/pricing", error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+                    val megaBundlePrice = snapshot.getDouble("megaBundlePrice") ?: 300.0
+                    val singleCoursePrice = snapshot.getDouble("singleCoursePrice") ?: 100.0
+                    val bundleReferralBonus = snapshot.getDouble("bundleReferralBonus") ?: 40.0
+                    val singleReferralBonus = snapshot.getDouble("singleReferralBonus") ?: 20.0
+                    val minWithdrawalAmount = snapshot.getDouble("minWithdrawalAmount") ?: 100.0
+                    val packagePricesRaw = snapshot.get("packagePrices") as? Map<*, *>
+                    val packagePrices = packagePricesRaw?.mapNotNull { (k, v) ->
+                        val key = k?.toString() ?: return@mapNotNull null
+                        val value = (v as? Number)?.toDouble() ?: return@mapNotNull null
+                        key to value
+                    }?.toMap() ?: emptyMap()
+
+                    val config = AppPricingConfig(
+                        megaBundlePrice = megaBundlePrice,
+                        singleCoursePrice = singleCoursePrice,
+                        bundleReferralBonus = bundleReferralBonus,
+                        singleReferralBonus = singleReferralBonus,
+                        minWithdrawalAmount = minWithdrawalAmount,
+                        packagePrices = packagePrices,
+                        updatedAt = snapshot.getString("updatedAt") ?: "",
+                        updatedBy = snapshot.getString("updatedBy") ?: ""
+                    )
+                    appPreferences.savePricingConfig(config)
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "Failed to attach settings/pricing listener", e)
+        }
+    }
+
+    fun stopListeningAppPricingConfig() {
+        pricingListenerRegistration?.remove()
+        pricingListenerRegistration = null
+    }
+
+    /**
+     * Fetches current Pricing Config from Firebase Firestore (settings/pricing).
+     */
+    suspend fun fetchAppPricingConfig(): AppPricingConfig = withContext(Dispatchers.IO) {
+        try {
+            val doc = firestore.collection("settings").document("pricing").get().await()
+            if (doc.exists()) {
+                val megaBundlePrice = doc.getDouble("megaBundlePrice") ?: 300.0
+                val singleCoursePrice = doc.getDouble("singleCoursePrice") ?: 100.0
+                val bundleReferralBonus = doc.getDouble("bundleReferralBonus") ?: 40.0
+                val singleReferralBonus = doc.getDouble("singleReferralBonus") ?: 20.0
+                val minWithdrawalAmount = doc.getDouble("minWithdrawalAmount") ?: 100.0
+                val packagePricesRaw = doc.get("packagePrices") as? Map<*, *>
+                val packagePrices = packagePricesRaw?.mapNotNull { (k, v) ->
+                    val key = k?.toString() ?: return@mapNotNull null
+                    val value = (v as? Number)?.toDouble() ?: return@mapNotNull null
+                    key to value
+                }?.toMap() ?: emptyMap()
+
+                val config = AppPricingConfig(
+                    megaBundlePrice = megaBundlePrice,
+                    singleCoursePrice = singleCoursePrice,
+                    bundleReferralBonus = bundleReferralBonus,
+                    singleReferralBonus = singleReferralBonus,
+                    minWithdrawalAmount = minWithdrawalAmount,
+                    packagePrices = packagePrices,
+                    updatedAt = doc.getString("updatedAt") ?: "",
+                    updatedBy = doc.getString("updatedBy") ?: ""
+                )
+                appPreferences.savePricingConfig(config)
+                return@withContext config
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "fetchAppPricingConfig error", e)
+        }
+        return@withContext appPreferences.getPricingConfig()
+    }
+
+    /**
+     * Updates Pricing Config in Firebase Firestore (settings/pricing).
+     * Admin only.
+     */
+    suspend fun updateAppPricingConfig(
+        config: AppPricingConfig,
+        adminEmail: String = ""
+    ): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val currentDate = User.getCurrentFormattedDate()
+            val data = mapOf(
+                "megaBundlePrice" to config.megaBundlePrice,
+                "singleCoursePrice" to config.singleCoursePrice,
+                "bundleReferralBonus" to config.bundleReferralBonus,
+                "singleReferralBonus" to config.singleReferralBonus,
+                "minWithdrawalAmount" to config.minWithdrawalAmount,
+                "packagePrices" to config.packagePrices,
+                "updatedAt" to currentDate,
+                "updatedBy" to adminEmail.trim().lowercase()
+            )
+            firestore.collection("settings").document("pricing").set(data).await()
+            val updated = config.copy(updatedAt = currentDate, updatedBy = adminEmail)
+            appPreferences.savePricingConfig(updated)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 
     /**
      * Starts listening to real-time changes of the Course Unlock Policy from Firebase Firestore (settings/course_config).

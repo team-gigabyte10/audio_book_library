@@ -424,7 +424,10 @@ fun AppNavHost(
         // 6. Payment & Membership Screen
         composable(Screen.Payment.route) {
             PaymentScreen(
-                onNavigateBack = { navController.popBackStack() }
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToReferral = {
+                    navController.navigate(Screen.Referral.route) { launchSingleTop = true }
+                }
             )
         }
 

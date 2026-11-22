@@ -50,6 +50,7 @@ fun ReferralScreen(
     val app = context.applicationContext as BanglaAudiobookApp
     val userStatus by app.appPreferences.userStatus.collectAsStateWithLifecycle()
     val isPaidUser = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
+    val pricingConfig by app.appPreferences.pricingConfig.collectAsStateWithLifecycle()
 
     val uiState by viewModel.uiState.collectAsState()
     val isWithdrawing by viewModel.isWithdrawing.collectAsState()
@@ -134,6 +135,8 @@ fun ReferralScreen(
                         item {
                             ReferralCodeCard(
                                 referralCode = stats.referralCode,
+                                bundleBonus = pricingConfig.bundleReferralBonus,
+                                singleBonus = pricingConfig.singleReferralBonus,
                                 onCopy = {
                                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                                     val clip = ClipData.newPlainText("Referral Code", stats.referralCode)
@@ -166,6 +169,7 @@ fun ReferralScreen(
                                 paidMembers = stats.paidMembersCount,
                                 totalEarned = stats.totalEarned,
                                 currentBalance = stats.currentBalance,
+                                minWithdrawal = pricingConfig.minWithdrawalAmount,
                                 onWithdrawClick = { showWithdrawDialog = true }
                             )
                         }
@@ -185,7 +189,13 @@ fun ReferralScreen(
 
                         // 5. How It Works (Learn & Earn Model)
                         item {
-                            HowItWorksCard()
+                            HowItWorksCard(
+                                megaBundlePrice = pricingConfig.megaBundlePrice,
+                                singleCoursePrice = pricingConfig.singleCoursePrice,
+                                bundleBonus = pricingConfig.bundleReferralBonus,
+                                singleBonus = pricingConfig.singleReferralBonus,
+                                minWithdrawal = pricingConfig.minWithdrawalAmount
+                            )
                         }
 
                         // 6. Rewards History
@@ -223,6 +233,7 @@ fun ReferralScreen(
                     if (showWithdrawDialog) {
                         WithdrawDialog(
                             currentBalance = stats.currentBalance,
+                            minWithdrawal = pricingConfig.minWithdrawalAmount,
                             isSubmitting = isWithdrawing,
                             onDismiss = { showWithdrawDialog = false },
                             onSubmit = { method, account, type, amount ->
@@ -240,6 +251,8 @@ fun ReferralScreen(
 @Composable
 fun ReferralCodeCard(
     referralCode: String,
+    bundleBonus: Double = 40.0,
+    singleBonus: Double = 20.0,
     onCopy: () -> Unit,
     onShare: () -> Unit
 ) {
@@ -293,7 +306,7 @@ fun ReferralCodeCard(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "বন্ধু পেইড সাবস্ক্রিপশনে আপগ্রেড করলে আপনি পাবেন নগদ ২০ টাকা!",
+                    text = "বন্ধু পেইড সাবস্ক্রিপশনে বান্ডেল নিলে নগদ ৳${bundleBonus.toInt()} ও কোর্স নিলে ৳${singleBonus.toInt()} বোনাস!",
                     fontSize = 12.5.sp,
                     color = Color.White.copy(alpha = 0.9f),
                     textAlign = TextAlign.Center
@@ -338,6 +351,7 @@ fun StatsGrid(
     paidMembers: Int,
     totalEarned: Double,
     currentBalance: Double,
+    minWithdrawal: Double = 100.0,
     onWithdrawClick: () -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -368,7 +382,7 @@ fun StatsGrid(
         ) {
             StatCard(
                 modifier = Modifier.weight(1f),
-                title = "মোট আয় (@২০৳)",
+                title = "মোট আয় (Learn & Earn)",
                 value = "৳ ${"%.0f".format(totalEarned)}",
                 icon = Icons.Default.MonetizationOn,
                 color = Color(0xFFF59E0B)
@@ -386,7 +400,7 @@ fun StatsGrid(
         // Withdraw Action Button
         Button(
             onClick = onWithdrawClick,
-            enabled = currentBalance >= 100.0,
+            enabled = currentBalance >= minWithdrawal,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp),
@@ -399,7 +413,7 @@ fun StatsGrid(
             Icon(imageVector = Icons.Default.Payments, contentDescription = null)
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = if (currentBalance >= 100.0) "টাকা উত্তোলন করুন (উইথড্র)" else "উইথড্র করতে সর্বনিম্ন ১০০ টাকা ব্যালেন্স প্রয়োজন",
+                text = if (currentBalance >= minWithdrawal) "টাকা উত্তোলন করুন (উইথড্র)" else "উইথড্র করতে সর্বনিম্ন ${minWithdrawal.toInt()} টাকা ব্যালেন্স প্রয়োজন",
                 fontWeight = FontWeight.Bold,
                 fontSize = 13.5.sp
             )
@@ -454,7 +468,13 @@ fun StatCard(
 }
 
 @Composable
-fun HowItWorksCard() {
+fun HowItWorksCard(
+    megaBundlePrice: Double = 300.0,
+    singleCoursePrice: Double = 100.0,
+    bundleBonus: Double = 40.0,
+    singleBonus: Double = 20.0,
+    minWithdrawal: Double = 100.0
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(14.dp),
@@ -481,8 +501,8 @@ fun HowItWorksCard() {
 
             StepItem(number = "১", text = "আপনার রেফার কোড বন্ধুদের কাছে শেয়ার করুন।")
             StepItem(number = "২", text = "বন্ধু অ্যাপ ইনস্টল করে আপনার কোড দিয়ে ট্রায়াল মোডে সারসংক্ষেপ শুনবে।")
-            StepItem(number = "৩", text = "বন্ধু যখন সম্পূর্ণ বই ও পিডিএফ পড়ার জন্য পেইড মেম্বার হবে, আপনি পেয়ে যাবেন ২০ টাকা বোনাস!")
-            StepItem(number = "৪", text = "ব্যালেন্স ১০০ টাকা হলেই বিকাশ, নগদ বা রকেটে সরাসরি ক্যাশ-আউট করুন।")
+            StepItem(number = "৩", text = "বন্ধু যখন মেগা বান্ডেল (৳${megaBundlePrice.toInt()}) নেবে আপনি পাবেন নগদ ৳${bundleBonus.toInt()} এবং সাধারণ কোর্স (৳${singleCoursePrice.toInt()}) নিলে পাবেন ৳${singleBonus.toInt()} বোনাস!")
+            StepItem(number = "৪", text = "ব্যালেন্স ${minWithdrawal.toInt()} টাকা হলেই বিকাশ, নগদ বা রকেটে উইথড্র করুন অথবা বিনামূল্যে যেকোনো কোর্স ক্রয় করুন।")
         }
     }
 }
@@ -631,6 +651,7 @@ fun WithdrawalItemCard(withdrawal: WithdrawalRequest) {
 @Composable
 fun WithdrawDialog(
     currentBalance: Double,
+    minWithdrawal: Double = 100.0,
     isSubmitting: Boolean,
     onDismiss: () -> Unit,
     onSubmit: (method: String, account: String, type: String, amount: Double) -> Unit
@@ -638,10 +659,10 @@ fun WithdrawDialog(
     var selectedMethod by remember { mutableStateOf("bKash") }
     var accountNumber by remember { mutableStateOf("") }
     var accountType by remember { mutableStateOf("personal") }
-    var amountText by remember { mutableStateOf(if (currentBalance >= 100.0) currentBalance.toInt().toString() else "100") }
+    var amountText by remember { mutableStateOf(if (currentBalance >= minWithdrawal) currentBalance.toInt().toString() else minWithdrawal.toInt().toString()) }
 
     val amount = amountText.toDoubleOrNull() ?: 0.0
-    val isAmountValid = amount >= 100.0 && amount <= currentBalance
+    val isAmountValid = amount >= minWithdrawal && amount <= currentBalance
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -663,7 +684,7 @@ fun WithdrawDialog(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = "⚠️ সর্বনিম্ন উত্তোলনের পরিমাণ ৳ ১০০.০০। অনুরোধ অনুমোদনের পর ২৪ ঘণ্টার মধ্যে মোবাইল ব্যাংকিং নম্বরে টাকা পাঠানো হবে।",
+                        text = "⚠️ সর্বনিম্ন উত্তোলনের পরিমাণ ৳ ${minWithdrawal.toInt()}.০০। অনুরোধ অনুমোদনের পর ২৪ ঘণ্টার মধ্যে মোবাইল ব্যাংকিং নম্বরে টাকা পাঠানো হবে।",
                         fontSize = 11.5.sp,
                         lineHeight = 16.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,

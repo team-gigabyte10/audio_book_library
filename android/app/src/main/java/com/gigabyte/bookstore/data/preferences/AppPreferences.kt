@@ -1,5 +1,6 @@
 package com.gigabyte.bookstore.data.preferences
 
+import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 
 import android.content.Context
@@ -217,6 +218,11 @@ class AppPreferences(context: Context) {
         private const val KEY_COURSE_UNLOCK_MODE = "course_unlock_mode"
         private const val KEY_ALLOW_REWARD_AD_UNLOCK = "allow_reward_ad_unlock"
         private const val KEY_REWARD_UNLOCK_HOURS = "reward_unlock_hours"
+        private const val KEY_PRICE_MEGA_BUNDLE = "price_mega_bundle"
+        private const val KEY_PRICE_SINGLE_COURSE = "price_single_course"
+        private const val KEY_BONUS_BUNDLE_REFERRAL = "bonus_bundle_referral"
+        private const val KEY_BONUS_SINGLE_REFERRAL = "bonus_single_referral"
+        private const val KEY_MIN_WITHDRAWAL_AMOUNT = "min_withdrawal_amount"
         fun normalizeBundleId(bundleOrCode: String): String {
             val clean = bundleOrCode.trim().lowercase()
             return when {
@@ -325,6 +331,33 @@ class AppPreferences(context: Context) {
         _allowRewardAdUnlock.value = policy.allowRewardedAdUnlock
         _rewardUnlockHours.value = policy.rewardUnlockHours
         _unlockedModuleUpdates.value = System.currentTimeMillis()
+    }
+
+    // -------------------------------------------------------------
+    // App Pricing & Referral Bonuses (Controlled via Firebase Firestore)
+    // -------------------------------------------------------------
+    private val _pricingConfig = MutableStateFlow(
+        AppPricingConfig(
+            megaBundlePrice = prefs.getFloat(KEY_PRICE_MEGA_BUNDLE, 300f).toDouble(),
+            singleCoursePrice = prefs.getFloat(KEY_PRICE_SINGLE_COURSE, 100f).toDouble(),
+            bundleReferralBonus = prefs.getFloat(KEY_BONUS_BUNDLE_REFERRAL, 40f).toDouble(),
+            singleReferralBonus = prefs.getFloat(KEY_BONUS_SINGLE_REFERRAL, 20f).toDouble(),
+            minWithdrawalAmount = prefs.getFloat(KEY_MIN_WITHDRAWAL_AMOUNT, 100f).toDouble()
+        )
+    )
+    val pricingConfig: StateFlow<AppPricingConfig> = _pricingConfig.asStateFlow()
+
+    fun getPricingConfig(): AppPricingConfig = _pricingConfig.value
+
+    fun savePricingConfig(config: AppPricingConfig) {
+        prefs.edit()
+            .putFloat(KEY_PRICE_MEGA_BUNDLE, config.megaBundlePrice.toFloat())
+            .putFloat(KEY_PRICE_SINGLE_COURSE, config.singleCoursePrice.toFloat())
+            .putFloat(KEY_BONUS_BUNDLE_REFERRAL, config.bundleReferralBonus.toFloat())
+            .putFloat(KEY_BONUS_SINGLE_REFERRAL, config.singleReferralBonus.toFloat())
+            .putFloat(KEY_MIN_WITHDRAWAL_AMOUNT, config.minWithdrawalAmount.toFloat())
+            .apply()
+        _pricingConfig.value = config
     }
 
     // -------------------------------------------------------------

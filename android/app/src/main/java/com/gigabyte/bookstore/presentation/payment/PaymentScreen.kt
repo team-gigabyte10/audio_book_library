@@ -48,7 +48,8 @@ data class AppCoursePackage(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PaymentScreen(
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onNavigateToReferral: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     val app = context.applicationContext as BanglaAudiobookApp
@@ -60,15 +61,16 @@ fun PaymentScreen(
     val userStatus by app.appPreferences.userStatus.collectAsStateWithLifecycle()
     val userBalance by app.appPreferences.userBalance.collectAsStateWithLifecycle()
     val unlockedBundles by app.appPreferences.unlockedBundles.collectAsStateWithLifecycle()
+    val pricingConfig by app.appPreferences.pricingConfig.collectAsStateWithLifecycle()
 
-    val packages = remember {
+    val packages = remember(pricingConfig) {
         listOf(
             AppCoursePackage(
                 id = "audiobook_bundle",
                 title = "অডিওবুক বান্ডেল",
                 subtitle = "লাইব্রেরির সব পূর্ণ বই ও মূল PDF",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("audiobook_bundle"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("audiobook_bundle").toInt()}",
                 icon = Icons.Default.MenuBook,
                 tag = "জনপ্রিয়",
                 highlights = listOf(
@@ -81,8 +83,8 @@ fun PaymentScreen(
                 id = "english_course",
                 title = "স্পোকেন ইংলিশ কোর্স",
                 subtitle = "সহজে অনর্গল ইংরেজি বলা শিখুন",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("english_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("english_course").toInt()}",
                 icon = Icons.Default.RecordVoiceOver,
                 tag = null,
                 highlights = listOf(
@@ -95,8 +97,8 @@ fun PaymentScreen(
                 id = "japanese_course",
                 title = "জাপানিজ স্পোকেন কোর্স",
                 subtitle = "JLPT N5 বেসিক টু স্পিকিং",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("japanese_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("japanese_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = null,
                 highlights = listOf(
@@ -109,8 +111,8 @@ fun PaymentScreen(
                 id = "urdu_course",
                 title = "উর্দু স্পোকেন কোর্স",
                 subtitle = "শূন্য থেকে A1: হরফ, উচ্চারণ ও কথা বলা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("urdu_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("urdu_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = null,
                 highlights = listOf(
@@ -123,8 +125,8 @@ fun PaymentScreen(
                 id = "hindi_course",
                 title = "হিন্দি স্পোকেন কোর্স",
                 subtitle = "শূন্য থেকে A1: দেবনগরী, উচ্চারণ ও কথা বলা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("hindi_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("hindi_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = null,
                 highlights = listOf(
@@ -137,8 +139,8 @@ fun PaymentScreen(
                 id = "german_course",
                 title = "জার্মান স্পোকেন কোর্স",
                 subtitle = "শূন্য থেকে A1: উচ্চারণ, ব্যাকরণ ও কথা বলা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("german_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("german_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = null,
                 highlights = listOf(
@@ -151,8 +153,8 @@ fun PaymentScreen(
                 id = "chinese_course",
                 title = "চাইনিজ (ম্যান্ডারিন) স্পোকেন কোর্স",
                 subtitle = "শূন্য থেকে HSK 1: পিনইন, ৪টি সুর ও কথা বলা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("chinese_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("chinese_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = "নতুন",
                 highlights = listOf(
@@ -165,8 +167,8 @@ fun PaymentScreen(
                 id = "arabic_course",
                 title = "আরবি স্পোকেন কোর্স",
                 subtitle = "শূন্য থেকে A1 ও গাল্ফ প্রবাস: মাখরাজ, হরকত ও কথা বলা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("arabic_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("arabic_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = "নতুন",
                 highlights = listOf(
@@ -179,8 +181,8 @@ fun PaymentScreen(
                 id = "korean_course",
                 title = "কোরিয়ান স্পোকেন কোর্স",
                 subtitle = "শূন্য থেকে A1 ও EPS-TOPIK: হাঙ্গুল, বাচ্ছিম ও কথা বলা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("korean_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("korean_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = "নতুন",
                 highlights = listOf(
@@ -193,8 +195,8 @@ fun PaymentScreen(
                 id = "regional_course",
                 title = "বাংলা আঞ্চলিক ভাষা তুলনামূলক স্পোকেন কোর্স",
                 subtitle = "একই বাক্য ১০টি অঞ্চলের কথ্য ভাষায় পাশাপাশি শিক্ষা",
-                price = 100.0,
-                priceDisplay = "৳ ১০০",
+                price = pricingConfig.getPackagePrice("regional_course"),
+                priceDisplay = "৳ ${pricingConfig.getPackagePrice("regional_course").toInt()}",
                 icon = Icons.Default.Translate,
                 tag = "নতুন",
                 highlights = listOf(
@@ -206,16 +208,15 @@ fun PaymentScreen(
             AppCoursePackage(
                 id = "mega_bundle",
                 title = "অল-ইন-ওয়ান মেগা বান্ডেল",
-                subtitle = "৩টি কোর্স একসাথে (৫০ টাকা ছাড়!)",
-                price = 250.0,
-                priceDisplay = "৳ ২৫০",
+                subtitle = "সবগুলো কোর্স ও অডিওবুক একসাথে",
+                price = pricingConfig.megaBundlePrice,
+                priceDisplay = "৳ ${pricingConfig.megaBundlePrice.toInt()}",
                 icon = Icons.Default.Stars,
                 tag = "সেরা অফার",
                 highlights = listOf(
                     "সম্পূর্ণ অডিওবুক বান্ডেল (সব বই ও PDF)",
-                    "সম্পূর্ণ স্পোকেন ইংলিশ কোর্স (সব লেসন ও নোট)",
-                    "সম্পূর্ণ জাপানিজ স্পোকেন কোর্স (JLPT N5 সিলেবাস)",
-                    "এককালীন পেমেন্টে আজীবন ৩টি কোর্সের অ্যাক্সেস"
+                    "সব স্পোকেন ল্যাঙ্গুয়েজ কোর্স (ইংরেজি, জাপানিজ, জার্মান, চাইনিজ, আরবি, কোরিয়ান, উর্দু, হিন্দি)",
+                    "এককালীন পেমেন্টে আজীবন সব কোর্সের আনলিমিটেড অ্যাক্সেস"
                 )
             )
         )
@@ -227,6 +228,10 @@ fun PaymentScreen(
     var selectedMethod by remember { mutableStateOf("bKash") }
     var transactionId by remember { mutableStateOf("") }
     var amountText by remember { mutableStateOf(selectedPackage.price.toInt().toString()) }
+
+    LaunchedEffect(selectedPackage.price) {
+        amountText = selectedPackage.price.toInt().toString()
+    }
     var isSubmitting by remember { mutableStateOf(false) }
     var submissionError by remember { mutableStateOf<String?>(null) }
     var submitSuccess by remember { mutableStateOf(false) }
@@ -351,6 +356,84 @@ fun PaymentScreen(
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.primary
                         )
+                    }
+                }
+            }
+
+            // 1.1 Learn & Earn Referral Promo Card
+            Card(
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF10B981).copy(alpha = 0.12f)
+                ),
+                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(14.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Surface(
+                            shape = CircleShape,
+                            color = Color(0xFF10B981),
+                            modifier = Modifier.size(36.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.Default.CardGiftcard,
+                                    contentDescription = null,
+                                    tint = Color.White,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                text = "🎁 রেফার করুন ও আয় করুন (Learn & Earn)",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.5.sp,
+                                color = Color(0xFF065F46)
+                            )
+                            Text(
+                                text = "প্রতি বান্ডেলে ৳${pricingConfig.bundleReferralBonus.toInt()} এবং কোর্সে ৳${pricingConfig.singleReferralBonus.toInt()} বোনাস!",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = Color(0xFF047857)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "আপনার বন্ধুদের রেফার করে প্রতি মেগা বান্ডেল (৳${pricingConfig.megaBundlePrice.toInt()}) ক্রয়ে সরাসরি ৳${pricingConfig.bundleReferralBonus.toInt()} এবং সাধারণ কোর্স (৳${pricingConfig.singleCoursePrice.toInt()}) ক্রয়ে ৳${pricingConfig.singleReferralBonus.toInt()} ক্যাশব্যাক বোনাস পান। জমানো ওয়ালেট ব্যালেন্স দিয়ে যেকোনো কোর্স বা বান্ডেল সম্পূর্ণ বিনামূল্যে ক্রয় করতে পারবেন!",
+                        fontSize = 12.sp,
+                        lineHeight = 17.sp,
+                        color = Color(0xFF064E3B)
+                    )
+
+                    if (onNavigateToReferral != null) {
+                        Spacer(modifier = Modifier.height(10.dp))
+                        OutlinedButton(
+                            onClick = onNavigateToReferral,
+                            colors = ButtonDefaults.outlinedButtonColors(
+                                contentColor = Color(0xFF047857)
+                            ),
+                            border = BorderStroke(1.dp, Color(0xFF10B981)),
+                            shape = RoundedCornerShape(8.dp),
+                            modifier = Modifier.fillMaxWidth(),
+                            contentPadding = PaddingValues(vertical = 6.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Share,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = "🚀 রেফারেল ড্যাশবোর্ড ও কোড শেয়ার করুন",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp
+                            )
+                        }
                     }
                 }
             }

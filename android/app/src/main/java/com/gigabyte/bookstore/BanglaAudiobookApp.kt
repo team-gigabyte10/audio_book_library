@@ -90,6 +90,13 @@ class BanglaAudiobookApp : Application() {
             android.util.Log.e("BanglaAudiobookApp", "Failed to start listening to course policy", e)
         }
 
+        // Listen to dynamic pricing & referral bonuses from Firebase Firestore
+        try {
+            userRepository.listenAppPricingConfig()
+        } catch (e: Exception) {
+            android.util.Log.e("BanglaAudiobookApp", "Failed to start listening to pricing config", e)
+        }
+
         // Initialize Meta Audience Network (Facebook Ads)
         try {
             com.facebook.ads.AudienceNetworkAds.initialize(this)
@@ -106,6 +113,7 @@ class BanglaAudiobookApp : Application() {
         super.onTerminate()
         try {
             userRepository.stopListeningCourseUnlockPolicy()
+            userRepository.stopListeningAppPricingConfig()
         } catch (e: Exception) {}
         ttsManager.shutdown()
         if (lessonAudioDelegate.isInitialized()) lessonAudio.shutdown()

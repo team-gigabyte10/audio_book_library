@@ -278,14 +278,6 @@ fun AppDrawerContent(
                     onClick = onLastReadClick
                 )
 
-                if (onLibraryClick != null) {
-                    DrawerMenuItem(
-                        icon = Icons.Default.MenuBook,
-                        title = "বইয়ের লাইব্রেরি (Library)",
-                        onClick = onLibraryClick
-                    )
-                }
-
                 DrawerMenuItem(
                     icon = Icons.Default.AccountCircle,
                     title = "প্রোফাইল আপডেট (Profile Update)",
@@ -313,7 +305,7 @@ fun AppDrawerContent(
                 DrawerMenuItem(
                     icon = Icons.Default.CardGiftcard,
                     title = "রেফার ও আয় (Learn & Earn)",
-                    badge = "৳২০",
+                    badge = "৳৪০",
                     badgeColor = Color(0xFF10B981),
                     onClick = onReferralClick
                 )
