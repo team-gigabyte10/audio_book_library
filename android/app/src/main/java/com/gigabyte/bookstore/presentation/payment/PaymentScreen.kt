@@ -1343,7 +1343,6 @@ fun PaymentScreen(
             )
         }
     }
-}
 
 @Composable
 private fun CourseBundleCard(
