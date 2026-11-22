@@ -229,17 +229,14 @@ fun PaymentScreen(
 
     var selectedPackageId by remember { mutableStateOf("audiobook_bundle") }
     val selectedPackage = packages.firstOrNull { it.id == selectedPackageId } ?: packages.first()
+    val isPackageAlreadyUnlocked = app.appPreferences.isBundleUnlocked(selectedPackage.id)
 
     var selectedMethod by remember { mutableStateOf("bKash") }
     var transactionId by remember { mutableStateOf("") }
-    var amountText by remember { mutableStateOf(selectedPackage.price.toInt().toString()) }
-
-    LaunchedEffect(selectedPackage.price) {
-        amountText = selectedPackage.price.toInt().toString()
-    }
     var isSubmitting by remember { mutableStateOf(false) }
     var submissionError by remember { mutableStateOf<String?>(null) }
-    var submitSuccess by remember { mutableStateOf(false) }
+    var showPaymentCheckoutDialog by remember { mutableStateOf(false) }
+    var paymentSuccessPackageTitle by remember { mutableStateOf<String?>(null) }
     var showWalletConfirmDialog by remember { mutableStateOf(false) }
     var isWalletPurchasing by remember { mutableStateOf(false) }
 
@@ -474,7 +471,6 @@ fun PaymentScreen(
                         isUnlocked = isAlreadyUnlocked,
                         onClick = {
                             selectedPackageId = pkg.id
-                            amountText = pkg.price.toInt().toString()
                         }
                     )
                 }
@@ -851,236 +847,76 @@ fun PaymentScreen(
                 }
             }
 
-            // 4. Payment Method Selection
-            Column {
-                Text(
-                    text = "পেমেন্ট মাধ্যম বেছে নিন (Send Money):",
-                    fontSize = 13.5.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+            // 4. Mobile Banking Purchase Action
+            if (!isPackageAlreadyUnlocked) {
+                Card(
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surface
+                    ),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    listOf("bKash", "Nagad", "Rocket").forEach { method ->
-                        FilterChip(
-                            selected = selectedMethod == method,
-                            onClick = { selectedMethod = method },
-                            label = { Text(method, fontWeight = FontWeight.Medium) },
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
-                }
-            }
-
-            // 5. Payment Number & Copy Box
-            val currentNumber = paymentNumbers[selectedMethod] ?: ""
-            Card(
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f)
-                ),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(14.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        val currentType = paymentTypes[selectedMethod] ?: "Personal"
-                        Text(
-                            text = "$selectedMethod $currentType Number:",
-                            fontSize = 11.sp,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Text(
-                            text = currentNumber,
-                            fontSize = 17.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-
-                    FilledTonalButton(
-                        onClick = {
-                            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                            clipboard.setPrimaryClip(ClipData.newPlainText("Payment Number", currentNumber))
-                            Toast.makeText(context, "নম্বর কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
-                        },
-                        shape = RoundedCornerShape(8.dp)
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.ContentCopy,
-                            contentDescription = "Copy",
-                            modifier = Modifier.size(16.dp)
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text("কপি")
-                    }
-                }
-            }
-
-            // 6. Payment Instructions
-            Card(
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.25f)
-                ),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(modifier = Modifier.padding(14.dp)) {
-                    Text(
-                        text = "পেমেন্ট নির্দেশিকা:",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp
-                    )
-                    Spacer(modifier = Modifier.height(6.dp))
-                    Text(
-                        text = "১. আপনার $selectedMethod অ্যাপে গিয়ে 'Send Money' সিলেক্ট করুন।\n২. উপরের নম্বরে ${selectedPackage.priceDisplay} সেন্ড মানি করুন।\n৩. সফল ট্রানজেকশনের পর SMS বা অ্যাপ থেকে TrxID কপি করে নিচে লিখুন।\n৪. অ্যাডমিন ভেরিফাই করলেই আপনার কোর্সটি অবিলম্বে আনলক হয়ে যাবে।",
-                        fontSize = 12.sp,
-                        lineHeight = 18.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-
-            // 7. Transaction Confirmation Form
-            Column {
-                Text(
-                    text = "পেমেন্ট নিশ্চিতকরণ তথ্য:",
-                    fontSize = 13.5.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-
-                OutlinedTextField(
-                    value = transactionId,
-                    onValueChange = { transactionId = it },
-                    label = { Text("Transaction ID (TrxID)") },
-                    placeholder = { Text("যেমন: 9J3K5L92P") },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(10.dp)
-                )
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                OutlinedTextField(
-                    value = amountText,
-                    onValueChange = { amountText = it },
-                    label = { Text("টাকার পরিমাণ (৳)") },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(10.dp)
-                )
-
-                if (submissionError != null) {
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFFEE2E2)
-                        ),
-                        shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(12.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Warning,
-                                contentDescription = null,
-                                tint = Color(0xFFDC2626),
-                                modifier = Modifier.size(24.dp)
-                            )
-                            Spacer(modifier = Modifier.width(10.dp))
-                            Text(
-                                text = submissionError ?: "",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = Color(0xFFB91C1C)
-                            )
-                        }
-                    }
-                }
-
-                if (submitSuccess) {
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFF10B981).copy(alpha = 0.15f)
-                        ),
-                        shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(12.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.CheckCircle,
-                                contentDescription = null,
-                                tint = Color(0xFF10B981),
-                                modifier = Modifier.size(24.dp)
-                            )
-                            Spacer(modifier = Modifier.width(10.dp))
-                            Text(
-                                text = "'${selectedPackage.title}' এর জন্য ৳$amountText পেমেন্ট অনুরোধ সফলভাবে জমা দেওয়া হয়েছে! অ্যাডমিন যাচাই করার পর আপনার কোর্সটি সক্রিয় হবে।",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = Color(0xFF065F46)
-                            )
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Button(
-                    onClick = {
-                        if (transactionId.isNotBlank()) {
-                            isSubmitting = true
-                            submissionError = null
-                            val amount = amountText.toDoubleOrNull() ?: selectedPackage.price
-                            scope.launch {
-                                val res = userRepository.submitPaymentRequest(
-                                    method = selectedMethod,
-                                    transactionId = transactionId.trim(),
-                                    amount = amount,
-                                    packageType = selectedPackageId
-                                )
-                                isSubmitting = false
-                                if (res.isSuccess) {
-                                    submitSuccess = true
-                                    submissionError = null
-                                    Toast.makeText(context, "অনুরোধ সফলভাবে পাঠানো হয়েছে!", Toast.LENGTH_SHORT).show()
-                                } else {
-                                    val err = res.exceptionOrNull()?.message ?: "পেমেন্ট অনুরোধ পাঠাতে ব্যর্থ হয়েছে। অনুগ্রহ করে ইন্টারনেট চেক করুন।"
-                                    submissionError = err
-                                    Toast.makeText(context, err, Toast.LENGTH_LONG).show()
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Surface(
+                                shape = CircleShape,
+                                color = MaterialTheme.colorScheme.primaryContainer,
+                                modifier = Modifier.size(36.dp)
+                            ) {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Icon(
+                                        imageVector = Icons.Default.Payment,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.size(20.dp)
+                                    )
                                 }
                             }
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Column {
+                                Text(
+                                    text = "মোবাইল ব্যাংকিং পেমেন্ট (bKash / Nagad / Rocket)",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 14.5.sp,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Text(
+                                    text = "সেন্ড মানি করে TrxID সাবমিট করলেই কোর্স সক্রিয় হবে",
+                                    fontSize = 12.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
-                    },
-                    enabled = !isSubmitting && transactionId.isNotBlank() && !submitSuccess,
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp)
-                ) {
-                    if (isSubmitting) {
-                        CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
-                        Spacer(modifier = Modifier.width(8.dp))
+
+                        Button(
+                            onClick = {
+                                transactionId = ""
+                                submissionError = null
+                                showPaymentCheckoutDialog = true
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(50.dp),
+                            shape = RoundedCornerShape(10.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.LockOpen,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "পেমেন্ট করুন ও আনলক করুন (${selectedPackage.priceDisplay})",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.5.sp
+                            )
+                        }
                     }
-                    Text(
-                        text = if (submitSuccess) "অনুরোধ পাঠানো সম্পন্ন" else "পেমেন্ট জমা দিন (${selectedPackage.priceDisplay})",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 15.sp
-                    )
                 }
             }
         }
@@ -1137,6 +973,227 @@ fun PaymentScreen(
                         enabled = !isWalletPurchasing
                     ) {
                         Text("বাতিল")
+                    }
+                }
+            )
+        }
+
+        // Payment Checkout Dialog (Standard Popup Flow)
+        if (showPaymentCheckoutDialog) {
+            val currentNumber = paymentNumbers[selectedMethod] ?: ""
+            val currentType = paymentTypes[selectedMethod] ?: "Personal"
+            AlertDialog(
+                onDismissRequest = { if (!isSubmitting) showPaymentCheckoutDialog = false },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Surface(
+                            shape = CircleShape,
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            modifier = Modifier.size(36.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.Default.Payment,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column {
+                            Text(text = "পেমেন্ট সম্পন্ন করুন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                            Text(
+                                text = "${selectedPackage.title} • ${selectedPackage.priceDisplay}",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                    }
+                },
+                text = {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .verticalScroll(rememberScrollState()),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Text(
+                            text = "পেমেন্ট মাধ্যম বেছে নিন:",
+                            fontSize = 12.5.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            listOf("bKash", "Nagad", "Rocket").forEach { method ->
+                                FilterChip(
+                                    selected = selectedMethod == method,
+                                    onClick = { selectedMethod = method },
+                                    label = { Text(method, fontSize = 12.sp, fontWeight = FontWeight.Medium) },
+                                    modifier = Modifier.weight(1f)
+                                )
+                            }
+                        }
+
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 12.dp, vertical = 10.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Column {
+                                    Text(
+                                        text = "$selectedMethod $currentType Number:",
+                                        fontSize = 10.5.sp,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                    Text(
+                                        text = currentNumber,
+                                        fontSize = 16.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                                FilledTonalButton(
+                                    onClick = {
+                                        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                        clipboard.setPrimaryClip(ClipData.newPlainText("Payment Number", currentNumber))
+                                        Toast.makeText(context, "নম্বর কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
+                                    },
+                                    shape = RoundedCornerShape(6.dp),
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.ContentCopy,
+                                        contentDescription = "Copy",
+                                        modifier = Modifier.size(14.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text("কপি", fontSize = 12.sp)
+                                }
+                            }
+                        }
+
+                        Text(
+                            text = "💡 উপরের নম্বরে ${selectedPackage.priceDisplay} Send Money করুন। সফল লেনদেনের পর TrxID নিচে লিখে জমা দিন।",
+                            fontSize = 11.5.sp,
+                            lineHeight = 16.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+
+                        OutlinedTextField(
+                            value = transactionId,
+                            onValueChange = {
+                                transactionId = it
+                                submissionError = null
+                            },
+                            label = { Text("Transaction ID (TrxID) *") },
+                            placeholder = { Text("যেমন: 9J3K5L92P") },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(10.dp),
+                            trailingIcon = {
+                                if (transactionId.trim().isNotBlank()) {
+                                    Icon(
+                                        imageVector = Icons.Default.CheckCircle,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                }
+                            }
+                        )
+
+                        if (submissionError != null) {
+                            Text(
+                                text = submissionError!!,
+                                color = MaterialTheme.colorScheme.error,
+                                fontSize = 11.5.sp,
+                                lineHeight = 16.sp
+                            )
+                        }
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            if (transactionId.isNotBlank()) {
+                                isSubmitting = true
+                                submissionError = null
+                                scope.launch {
+                                    val res = userRepository.submitPaymentRequest(
+                                        method = selectedMethod,
+                                        transactionId = transactionId.trim(),
+                                        amount = selectedPackage.price,
+                                        packageType = selectedPackageId
+                                    )
+                                    isSubmitting = false
+                                    if (res.isSuccess) {
+                                        showPaymentCheckoutDialog = false
+                                        paymentSuccessPackageTitle = selectedPackage.title
+                                        Toast.makeText(context, "অনুরোধ সফলভাবে পাঠানো হয়েছে!", Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        val err = res.exceptionOrNull()?.message ?: "পেমেন্ট অনুরোধ পাঠাতে ব্যর্থ হয়েছে। অনুগ্রহ করে ইন্টারনেট চেক করুন।"
+                                        submissionError = err
+                                        Toast.makeText(context, err, Toast.LENGTH_LONG).show()
+                                    }
+                                }
+                            }
+                        },
+                        enabled = transactionId.trim().isNotBlank() && !isSubmitting,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        if (isSubmitting) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(16.dp),
+                                color = MaterialTheme.colorScheme.onPrimary,
+                                strokeWidth = 2.dp
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                        }
+                        Text("পেমেন্ট জমা দিন", fontWeight = FontWeight.Bold)
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = { showPaymentCheckoutDialog = false },
+                        enabled = !isSubmitting
+                    ) {
+                        Text("বাতিল")
+                    }
+                }
+            )
+        }
+
+        // Payment Submission Success Dialog
+        paymentSuccessPackageTitle?.let { title ->
+            AlertDialog(
+                onDismissRequest = { paymentSuccessPackageTitle = null },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(imageVector = Icons.Default.CheckCircle, contentDescription = null, tint = Color(0xFF10B981))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("পেমেন্ট অনুরোধ গৃহীত হয়েছে!", fontWeight = FontWeight.Bold)
+                    }
+                },
+                text = {
+                    Text(
+                        text = "🎉 ধন্যবাদ! '$title' এর পেমেন্ট অনুরোধ অ্যাডমিনের কাছে সফলভাবে জমা হয়েছে। অ্যাডমিন TrxID ভেরিফাই করার সাথে সাথেই কোর্সটি স্বয়ংক্রিয়ভাবে সক্রিয় হবে।",
+                        fontSize = 13.5.sp,
+                        lineHeight = 19.sp
+                    )
+                },
+                confirmButton = {
+                    Button(onClick = { paymentSuccessPackageTitle = null }) {
+                        Text("ঠিক আছে")
                     }
                 }
             )

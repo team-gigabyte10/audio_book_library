@@ -78,82 +78,72 @@ fun AboutUsDialog(
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // 1. BRANDED HERO HEADER
-                Box(
+                // 1. CLEAN BRAND HERO HEADER (NO HEAVY BOX)
+                Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(
-                            brush = Brush.linearGradient(
-                                colors = listOf(
-                                    MaterialTheme.colorScheme.primary,
-                                    MaterialTheme.colorScheme.secondary.copy(alpha = 0.9f),
-                                    Color(0xFF004D40)
-                                )
-                            )
-                        )
-                        .padding(20.dp)
+                        .padding(top = 24.dp, start = 20.dp, end = 20.dp, bottom = 8.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Box(
-                            modifier = Modifier
-                                .size(60.dp)
-                                .clip(CircleShape)
-                                .border(2.dp, GoldenAccent, CircleShape)
-                                .background(Color.White.copy(alpha = 0.2f)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.AutoStories,
-                                contentDescription = null,
-                                tint = GoldenAccent,
-                                modifier = Modifier.size(32.dp)
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        Text(
-                            text = "বই ও ভাষা একাডেমি",
-                            fontSize = 21.sp,
-                            fontWeight = FontWeight.ExtraBold,
-                            color = Color.White
+                    Box(
+                        modifier = Modifier
+                            .size(60.dp)
+                            .clip(CircleShape)
+                            .background(MaterialTheme.colorScheme.primaryContainer),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.AutoStories,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(32.dp)
                         )
+                    }
 
-                        Text(
-                            text = "Book & Language Academy",
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Medium,
-                            color = GoldenAccent.copy(alpha = 0.95f)
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Text(
+                        text = "বই ও ভাষা একাডেমি",
+                        fontSize = 21.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    Spacer(modifier = Modifier.height(3.dp))
+
+                    Text(
+                        text = "Book & Language Academy",
+                        fontSize = 12.5.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    Text(
+                        text = "জ্ঞান, সাহিত্য ও বহুভাষিক দক্ষতার ডিজিটাল প্ল্যাটফর্ম",
+                        fontSize = 12.sp,
+                        textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.55f),
+                        border = androidx.compose.foundation.BorderStroke(
+                            1.dp,
+                            MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.45f)
                         )
-
-                        Spacer(modifier = Modifier.height(6.dp))
-
+                    ) {
                         Text(
-                            text = "জ্ঞান, সাহিত্য ও বহুভাষিক দক্ষতার ডিজিটাল প্ল্যাটফর্ম",
-                            fontSize = 12.sp,
-                            textAlign = TextAlign.Center,
-                            color = Color.White.copy(alpha = 0.9f)
+                            text = "Version 1.2.0 • Release $currentYear",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
                         )
-
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        Surface(
-                            shape = RoundedCornerShape(8.dp),
-                            color = Color.White.copy(alpha = 0.16f),
-                            modifier = Modifier.border(
-                                width = 1.dp,
-                                color = GoldenAccent.copy(alpha = 0.35f),
-                                shape = RoundedCornerShape(8.dp)
-                            )
-                        ) {
-                            Text(
-                                text = "Version 1.2.0 • Release $currentYear",
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = Color.White,
-                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                            )
-                        }
                     }
                 }
 
