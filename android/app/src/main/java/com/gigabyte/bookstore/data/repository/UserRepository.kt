@@ -982,13 +982,14 @@ class UserRepository(
     /**
      * Purchases a course or mega bundle for another user using the buyer's referral wallet balance.
      * Protected by 4-digit plaintext Wallet PIN and executed via an atomic Firestore transaction.
+     * Awards the buyer the 20 Taka referral bonus on every successful referral.
      */
     suspend fun purchaseCourseForOtherUser(
         recipientEmail: String,
         packageType: String,
         amount: Double,
         enteredPin: String
-    ): Result<Unit> = withContext(Dispatchers.IO) {
+    ): Result<Double> = withContext(Dispatchers.IO) {
         try {
             val buyerEmail = appPreferences.userEmail.value.trim().lowercase()
             val targetEmail = recipientEmail.trim().lowercase()
@@ -1010,11 +1011,13 @@ class UserRepository(
             val recipientRef = firestore.collection("users").document(targetEmail)
             val currentDate = User.getCurrentFormattedDate()
             val normalizedPackage = AppPreferences.normalizeBundleId(packageType)
+            val rewardAmount = appPreferences.getPricingConfig().getReferralBonus(packageType, amount)
 
             var updatedBuyerBal = 0.0
             var recipientName = targetEmail
             var recipientReferredBy = ""
             var recipientReferralRewardPaid = false
+            var buyerRefCode = appPreferences.referralCode.value
 
             firestore.runTransaction { transaction ->
                 val buyerSnap = transaction.get(buyerRef)
@@ -1037,6 +1040,7 @@ class UserRepository(
                     throw Exception("পর্যাপ্ত ওয়ালেট ব্যালেন্স নেই (বর্তমান: ৳ ${"%.2f".format(currentBuyerBal)})")
                 }
 
+                buyerRefCode = buyerSnap.getString("referralCode") ?: appPreferences.referralCode.value
                 recipientName = recipientSnap.getString("name") ?: targetEmail
                 recipientReferredBy = recipientSnap.getString("referredBy") ?: ""
                 recipientReferralRewardPaid = recipientSnap.getBoolean("referralRewardPaid") ?: false
@@ -1061,17 +1065,23 @@ class UserRepository(
                     targetBundles.add(normalizedPackage)
                 }
 
-                updatedBuyerBal = currentBuyerBal - amount
+                // Deduct package price and add the 20 Taka referral bonus to buyer's balance
+                updatedBuyerBal = currentBuyerBal - amount + rewardAmount
                 transaction.update(buyerRef, mapOf(
                     "balance" to updatedBuyerBal,
                     "lastLoginAt" to currentDate
                 ))
 
-                transaction.update(recipientRef, mapOf(
+                val recipientUpdates = mutableMapOf<String, Any>(
                     "status" to "paid",
                     "unlockedBundles" to targetBundles.toList(),
+                    "referralRewardPaid" to true,
                     "lastLoginAt" to currentDate
-                ))
+                )
+                if (recipientReferredBy.isBlank()) {
+                    recipientUpdates["referredBy"] = buyerRefCode.ifBlank { buyerEmail }
+                }
+                transaction.update(recipientRef, recipientUpdates)
             }.await()
 
             // Record transaction in payment_requests
@@ -1093,50 +1103,22 @@ class UserRepository(
             )
             firestore.collection("payment_requests").add(paymentData).await()
 
-            // Update buyer's local balance immediately
+            // Record the 20 Taka reward in referral_rewards collection
+            val rewardMap = hashMapOf(
+                "referrerEmail" to buyerEmail,
+                "referrerCode" to buyerRefCode,
+                "refereeEmail" to targetEmail,
+                "refereeName" to recipientName,
+                "amount" to rewardAmount,
+                "paidAt" to currentDate,
+                "status" to "rewarded"
+            )
+            firestore.collection("referral_rewards").add(rewardMap).await()
+
+            // Update buyer's local balance immediately with the referral bonus included
             appPreferences.updateUserStatus(appPreferences.userStatus.value, updatedBuyerBal, currentDate)
 
-            // Reward recipient's referrer if eligible
-            if (recipientReferredBy.isNotBlank() && !recipientReferralRewardPaid) {
-                try {
-                    var referrerDoc = firestore.collection("users").document(recipientReferredBy.lowercase()).get().await()
-                    if (!referrerDoc.exists()) {
-                        val q = firestore.collection("users").whereEqualTo("referralCode", recipientReferredBy.uppercase()).get().await()
-                        if (!q.isEmpty) {
-                            referrerDoc = q.documents.first()
-                        }
-                    }
-
-                    if (referrerDoc.exists()) {
-                        val refEmail = referrerDoc.getString("email") ?: referrerDoc.id
-                        val refCurrentBal = referrerDoc.getDouble("balance") ?: 0.0
-                        val rewardAmount = appPreferences.getPricingConfig().getReferralBonus(packageType, amount)
-                        val updatedRefBal = refCurrentBal + rewardAmount
-
-                        referrerDoc.reference.update("balance", updatedRefBal).await()
-                        recipientRef.update("referralRewardPaid", true).await()
-
-                        val rewardMap = hashMapOf(
-                            "referrerEmail" to refEmail,
-                            "referrerCode" to (referrerDoc.getString("referralCode") ?: ""),
-                            "refereeEmail" to targetEmail,
-                            "refereeName" to recipientName,
-                            "amount" to rewardAmount,
-                            "paidAt" to currentDate,
-                            "status" to "rewarded"
-                        )
-                        firestore.collection("referral_rewards").add(rewardMap).await()
-
-                        if (appPreferences.userEmail.value.equals(refEmail, ignoreCase = true)) {
-                            appPreferences.updateUserStatus(appPreferences.userStatus.value, updatedRefBal, currentDate)
-                        }
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-
-            Result.success(Unit)
+            Result.success(rewardAmount)
         } catch (e: Exception) {
             e.printStackTrace()
             Result.failure(e)

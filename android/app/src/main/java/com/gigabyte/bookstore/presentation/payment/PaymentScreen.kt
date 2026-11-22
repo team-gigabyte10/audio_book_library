@@ -251,7 +251,7 @@ fun PaymentScreen(
     var confirmPinText by remember { mutableStateOf("") }
     var pinDialogError by remember { mutableStateOf<String?>(null) }
     var isGiftPurchasing by remember { mutableStateOf(false) }
-    var giftSuccessDialogData by remember { mutableStateOf<Pair<String, String>?>(null) }
+    var giftSuccessDialogData by remember { mutableStateOf<Triple<String, String, Double>?>(null) }
 
     var paymentNumbers by remember {
         mutableStateOf(
@@ -1341,13 +1341,14 @@ fun PaymentScreen(
                                 )
                                 isGiftPurchasing = false
                                 if (res.isSuccess) {
+                                    val bonusEarned = res.getOrDefault(20.0)
                                     val giftedName = recipientValidation?.name ?: recipientEmail
                                     val giftedTitle = selectedPackage.title
                                     showEnterPinDialog = false
                                     enteredPinText = ""
                                     recipientEmail = ""
                                     recipientValidation = null
-                                    giftSuccessDialogData = giftedName to giftedTitle
+                                    giftSuccessDialogData = Triple(giftedName, giftedTitle, bonusEarned)
                                 } else {
                                     pinDialogError = res.exceptionOrNull()?.message ?: "লেনদেন ব্যর্থ হয়েছে"
                                 }
@@ -1375,7 +1376,7 @@ fun PaymentScreen(
         }
 
         // Gift Success Dialog
-        giftSuccessDialogData?.let { (name, course) ->
+        giftSuccessDialogData?.let { (name, course, bonus) ->
             AlertDialog(
                 onDismissRequest = { giftSuccessDialogData = null },
                 title = {
@@ -1387,7 +1388,7 @@ fun PaymentScreen(
                 },
                 text = {
                     Text(
-                        text = "🎉 অভিনন্দন! '$name' এর অ্যাকাউন্টে সফলভাবে '$course' আনলক করা হয়েছে। প্রাপক অ্যাপে লগইন করলেই পুরো কোর্সটি সাথে সাথে উপভোগ করতে পারবেন।",
+                        text = "🎉 অভিনন্দন! '$name' এর অ্যাকাউন্টে সফলভাবে '$course' আনলক করা হয়েছে। প্রাপক অ্যাপে লগইন করলেই পুরো কোর্সটি সাথে সাথে উপভোগ করতে পারবেন এবং সফল রেফারের জন্য আপনার ওয়ালেটে সাথে সাথে আরও ৳${bonus.toInt()} বোনাস যুক্ত হয়েছে!",
                         fontSize = 13.5.sp,
                         lineHeight = 19.sp
                     )
