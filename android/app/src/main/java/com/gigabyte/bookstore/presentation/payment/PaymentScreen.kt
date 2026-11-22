@@ -669,7 +669,7 @@ fun PaymentScreen(
                         } else {
                             // Gift to Others Mode
                             Text(
-                                text = "অন্যের জন্য কোর্স কিনতে প্রাপকের রেজিস্টার্ড ইমেইল লিখে যাচাই করুন। আপনার ওয়ালেট ব্যালেন্স থেকে ৳${selectedPackage.price.toInt()} কেটে প্রাপকের অ্যাকাউন্টে কোর্সটি সাথে সাথে পৌঁছে যাবে।",
+                                text = "বন্ধুর জন্য কোর্স কিনতে প্রাপকের রেজিস্টার্ড ইমেইল লিখে যাচাই করুন। আপনার ওয়ালেট ব্যালেন্স থেকে ৳${selectedPackage.price.toInt()} কেটে প্রাপকের অ্যাকাউন্টে কোর্সটি সাথে সাথে পৌঁছে যাবে এবং প্রতিটি সফল রেফারে আপনি পাবেন আরও ২০ টাকা বোনাস!",
                                 fontSize = 12.sp,
                                 lineHeight = 17.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
