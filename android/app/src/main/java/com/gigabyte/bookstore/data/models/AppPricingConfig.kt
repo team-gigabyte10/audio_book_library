@@ -22,7 +22,7 @@ data class AppPricingConfig(
         const val DEFAULT_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.gigabyte.bookstore"
 
         val DEFAULT_REFERRAL_MESSAGE_TEMPLATE = """
-            আসসালামু আলাইকুম / নমস্কার! 🌿
+            আসসালামু আলাইকুম! 🌿
 
             বই পড়ার আনন্দ এবং নতুন ভাষা শেখার সহজ সুযোগ নিয়ে এলো—
             📖 বাংলা অডিওবুক ও স্পোকেন কোর্স অ্যাপ
@@ -55,6 +55,10 @@ data class AppPricingConfig(
         val url = if (playStoreAppUrl.isNotBlank()) playStoreAppUrl else DEFAULT_PLAY_STORE_URL
 
         return template
+            .replace(" / নমস্কার", "")
+            .replace("/ নমস্কার", "")
+            .replace("/নমস্কার", "")
+            .replace("নমস্কার", "")
             .replace("{code}", referralCode)
             .replace("{referralCode}", referralCode)
             .replace("{appLink}", url)

@@ -106,7 +106,7 @@ fun HomeScreen(
     onNavigateToPlayer: () -> Unit,
     onPlayBook: (String, Int) -> Unit,
     onNavigateToSearch: () -> Unit,
-    onNavigateToPayment: () -> Unit,
+    onNavigateToPayment: (String?) -> Unit,
     onNavigateToReferral: () -> Unit,
     onNavigateToReferAndEarn: (() -> Unit)? = null,
     onNavigateToApproval: () -> Unit,
@@ -228,7 +228,7 @@ fun HomeScreen(
                 },
                 onPaymentClick = {
                     scope.launch { drawerState.close() }
-                    onNavigateToPayment()
+                    onNavigateToPayment(null)
                 },
                 onApprovePaymentsClick = {
                     scope.launch { drawerState.close() }
@@ -654,7 +654,8 @@ fun HomeScreen(
                         viewModel.playCourseLesson(course, firstLesson)
                     }
                 } else {
-                    onNavigateToPayment()
+                    val targetPkgId = if (course.language.equals("Japanese", ignoreCase = true)) "japanese_course" else "english_course"
+                    onNavigateToPayment(targetPkgId)
                 }
             },
             onPlayLesson = { clickedCourse, lesson ->

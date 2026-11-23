@@ -54,6 +54,7 @@ data class AppCoursePackage(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PaymentScreen(
+    initialPackageId: String? = null,
     onNavigateBack: () -> Unit,
     onNavigateToReferral: (() -> Unit)? = null
 ) {
@@ -232,7 +233,9 @@ fun PaymentScreen(
     val availablePackages = remember(packages, unlockedBundles) {
         packages.filter { !app.appPreferences.isBundleUnlocked(it.id) }
     }
-    var selectedPackageId by remember { mutableStateOf("audiobook_bundle") }
+    var selectedPackageId by remember(initialPackageId) {
+        mutableStateOf(initialPackageId ?: "audiobook_bundle")
+    }
     val selectedPackage = availablePackages.firstOrNull { it.id == selectedPackageId }
         ?: availablePackages.firstOrNull()
         ?: packages.first()
@@ -310,7 +313,7 @@ fun PaymentScreen(
         },
         bottomBar = {
             AnimatedVisibility(
-                visible = availablePackages.isNotEmpty() && !isPackageAlreadyUnlocked,
+                visible = availablePackages.isNotEmpty() && !isPackageAlreadyUnlocked && !isGiftMode,
                 enter = androidx.compose.animation.slideInVertically(initialOffsetY = { it }) + androidx.compose.animation.fadeIn(),
                 exit = androidx.compose.animation.slideOutVertically(targetOffsetY = { it }) + androidx.compose.animation.fadeOut()
             ) {
@@ -446,83 +449,413 @@ fun PaymentScreen(
                 }
             }
 
-            // 1.1 Learn & Earn Referral Promo Card
-            Card(
-                shape = RoundedCornerShape(14.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF10B981).copy(alpha = 0.12f)
-                ),
-                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(modifier = Modifier.padding(14.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Surface(
-                            shape = CircleShape,
-                            color = Color(0xFF10B981),
-                            modifier = Modifier.size(36.dp)
-                        ) {
-                            Box(contentAlignment = Alignment.Center) {
-                                Icon(
-                                    imageVector = Icons.Default.CardGiftcard,
-                                    contentDescription = null,
-                                    tint = Color.White,
-                                    modifier = Modifier.size(20.dp)
-                                )
+            // 2. Direct Wallet Purchase & Course Sell / Resell Section (Only shown when wallet balance >= 100.0)
+            if (availablePackages.isNotEmpty() && userBalance >= 100.0 && userBalance >= selectedPackage.price) {
+                Card(
+                        shape = RoundedCornerShape(16.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f)
+                        ),
+                        border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Surface(
+                                    shape = CircleShape,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(36.dp)
+                                ) {
+                                    Box(contentAlignment = Alignment.Center) {
+                                        Icon(
+                                            imageVector = Icons.Default.AccountBalanceWallet,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.onPrimary,
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                }
+                                Spacer(modifier = Modifier.width(10.dp))
+                                Column {
+                                    Text(
+                                        text = "💰 রেফারেল ব্যালেন্স দিয়ে ক্রয় ও রেফার",
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 15.sp,
+                                        color = MaterialTheme.colorScheme.onSurface
+                                    )
+                                    Text(
+                                        text = "আপনার ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)} (পর্যাপ্ত)",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        color = Color(0xFF10B981)
+                                    )
+                                }
                             }
-                        }
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Column {
-                            Text(
-                                text = "🎁 রেফার করুন ও আয় করুন (Reffer and Earn)",
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 14.5.sp,
-                                color = Color(0xFF065F46)
-                            )
-                            Text(
-                                text = "প্রতি বান্ডেলে ৳${pricingConfig.bundleReferralBonus.toInt()} এবং কোর্সে ৳${pricingConfig.singleReferralBonus.toInt()} বোনাস!",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                color = Color(0xFF047857)
-                            )
-                        }
-                    }
 
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "আপনার বন্ধুদের রেফার করে প্রতি মেগা বান্ডেল (৳${pricingConfig.megaBundlePrice.toInt()}) ক্রয়ে সরাসরি ৳${pricingConfig.bundleReferralBonus.toInt()} এবং সাধারণ কোর্স (৳${pricingConfig.singleCoursePrice.toInt()}) ক্রয়ে ৳${pricingConfig.singleReferralBonus.toInt()} ক্যাশব্যাক বোনাস পান। জমানো ওয়ালেট ব্যালেন্স দিয়ে যেকোনো কোর্স বা বান্ডেল সম্পূর্ণ বিনামূল্যে ক্রয় করতে পারবেন!",
-                        fontSize = 12.sp,
-                        lineHeight = 17.sp,
-                        color = Color(0xFF064E3B)
-                    )
+                            Spacer(modifier = Modifier.height(14.dp))
 
-                    if (onNavigateToReferral != null) {
-                        Spacer(modifier = Modifier.height(10.dp))
-                        OutlinedButton(
-                            onClick = onNavigateToReferral,
-                            colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = Color(0xFF047857)
-                            ),
-                            border = BorderStroke(1.dp, Color(0xFF10B981)),
-                            shape = RoundedCornerShape(8.dp),
-                            modifier = Modifier.fillMaxWidth(),
-                            contentPadding = PaddingValues(vertical = 6.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Share,
-                                contentDescription = null,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text(
-                                text = "🚀 রেফারেল ড্যাশবোর্ড ও কোড শেয়ার করুন",
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 13.sp
-                            )
+                            // Redesigned Segmented Action Cards for Self vs Course Sell
+                            if (!isPackageAlreadyUnlocked) {
+                                val resellBonus = pricingConfig.getReferralBonus(selectedPackage.id, selectedPackage.price).toInt()
+
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                ) {
+                                    // Option 1: Self-Purchase
+                                    Surface(
+                                        onClick = { isGiftMode = false },
+                                        shape = RoundedCornerShape(12.dp),
+                                        color = if (!isGiftMode) Color(0xFF10B981).copy(alpha = 0.18f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f),
+                                        border = BorderStroke(
+                                            if (!isGiftMode) 2.dp else 1.dp,
+                                            if (!isGiftMode) Color(0xFF10B981) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
+                                        ),
+                                        modifier = Modifier.weight(1f)
+                                    ) {
+                                        Column(
+                                            modifier = Modifier.padding(12.dp),
+                                            horizontalAlignment = Alignment.CenterHorizontally
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.Person,
+                                                contentDescription = null,
+                                                tint = if (!isGiftMode) Color(0xFF047857) else MaterialTheme.colorScheme.onSurfaceVariant,
+                                                modifier = Modifier.size(22.dp)
+                                            )
+                                            Spacer(modifier = Modifier.height(4.dp))
+                                            Text(
+                                                text = "👤 নিজের জন্য",
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 13.5.sp,
+                                                color = if (!isGiftMode) Color(0xFF047857) else MaterialTheme.colorScheme.onSurface
+                                            )
+                                            Text(
+                                                text = "১-ক্লিকে আনলক",
+                                                fontSize = 11.sp,
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                            )
+                                        }
+                                    }
+
+                                    // Option 2: Course Resell / Gift
+                                    Surface(
+                                        onClick = { isGiftMode = true },
+                                        shape = RoundedCornerShape(12.dp),
+                                        color = if (isGiftMode) Color(0xFF10B981).copy(alpha = 0.18f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f),
+                                        border = BorderStroke(
+                                            if (isGiftMode) 2.dp else 1.dp,
+                                            if (isGiftMode) Color(0xFF10B981) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
+                                        ),
+                                        modifier = Modifier.weight(1f)
+                                    ) {
+                                        Column(
+                                            modifier = Modifier.padding(12.dp),
+                                            horizontalAlignment = Alignment.CenterHorizontally
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.MonetizationOn,
+                                                contentDescription = null,
+                                                tint = if (isGiftMode) Color(0xFF047857) else MaterialTheme.colorScheme.onSurfaceVariant,
+                                                modifier = Modifier.size(22.dp)
+                                            )
+                                            Spacer(modifier = Modifier.height(4.dp))
+                                            Text(
+                                                text = "💼 কোর্স বিক্রি",
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 13.5.sp,
+                                                color = if (isGiftMode) Color(0xFF047857) else MaterialTheme.colorScheme.onSurface
+                                            )
+                                            Surface(
+                                                color = Color(0xFF10B981),
+                                                shape = RoundedCornerShape(4.dp)
+                                            ) {
+                                                Text(
+                                                    text = "+৳$resellBonus নগদ লাভ",
+                                                    fontSize = 10.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                    color = Color.White,
+                                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(12.dp))
+                            }
+
+                            if (!isPackageAlreadyUnlocked && !isGiftMode) {
+                                // Self-Purchase Mode
+                                Text(
+                                    text = "কোনো প্রকার বিকাশ/নগদ পেমেন্ট ছাড়াই সরাসরি আপনার অর্জিত রেফারেল বোনাস থেকে '${selectedPackage.title}' সাথে সাথে আনলক করুন।",
+                                    fontSize = 12.sp,
+                                    lineHeight = 17.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+
+                                Spacer(modifier = Modifier.height(12.dp))
+                                Button(
+                                    onClick = { showWalletConfirmDialog = true },
+                                    modifier = Modifier.fillMaxWidth(),
+                                    enabled = !isWalletPurchasing && !isSubmitting,
+                                    shape = RoundedCornerShape(10.dp),
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                                ) {
+                                    if (isWalletPurchasing) {
+                                        CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                    } else {
+                                        Icon(
+                                            imageVector = Icons.Default.FlashOn,
+                                            contentDescription = null,
+                                            tint = Color.White,
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                    }
+                                    Text(
+                                        text = "নিজের অ্যাকাউন্টে আনলক করুন (${selectedPackage.priceDisplay})",
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White
+                                    )
+                                }
+                            } else {
+                                // Course Resell / Gift to Others Mode (Cash without withdraw + 20 Taka bonus)
+                                val bonusEarned = pricingConfig.getReferralBonus(selectedPackage.id, selectedPackage.price).toInt()
+                                val packagePrice = selectedPackage.price.toInt()
+
+                                Card(
+                                    shape = RoundedCornerShape(12.dp),
+                                    colors = CardDefaults.cardColors(containerColor = Color(0xFF10B981).copy(alpha = 0.1f)),
+                                    border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Column(modifier = Modifier.padding(12.dp)) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Icon(
+                                                imageVector = Icons.Default.MonetizationOn,
+                                                contentDescription = null,
+                                                tint = Color(0xFF047857),
+                                                modifier = Modifier.size(18.dp)
+                                            )
+                                            Spacer(modifier = Modifier.width(6.dp))
+                                            Text(
+                                                text = "উইথড্র ছাড়াই সরাসরি নগদ ক্যাশ আয়:",
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 12.5.sp,
+                                                color = Color(0xFF047857)
+                                            )
+                                        }
+                                        Spacer(modifier = Modifier.height(6.dp))
+                                        Text(
+                                            text = "• ক্রেতার কাছ থেকে নগদ নেবেন: ৳$packagePrice (হাতে ক্যাশ টাকা)\n• আপনার ব্যালেন্স থেকে ছাড় হবে: ৳$packagePrice\n• সাথে সাথে ওয়ালেটে বোনাস ব্যাক: +৳$bonusEarned\n• আপনার ইনস্ট্যান্ট লাভ: নগদ ৳$bonusEarned (উইথড্র রিকোয়েস্ট বা অপেক্ষা ছাড়াই)!",
+                                            fontSize = 11.5.sp,
+                                            lineHeight = 16.5.sp,
+                                            color = MaterialTheme.colorScheme.onSurface
+                                        )
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(10.dp))
+
+                                OutlinedTextField(
+                                    value = recipientEmail,
+                                    onValueChange = {
+                                        recipientEmail = it
+                                        recipientValidation = null
+                                        recipientError = null
+                                    },
+                                    label = { Text("প্রাপকের রেজিস্টার্ড ইমেইল") },
+                                    placeholder = { Text("friend@gmail.com") },
+                                    singleLine = true,
+                                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                                    modifier = Modifier.fillMaxWidth(),
+                                    trailingIcon = {
+                                        Row(
+                                            verticalAlignment = Alignment.CenterVertically,
+                                            modifier = Modifier.padding(end = 4.dp)
+                                        ) {
+                                            IconButton(
+                                                onClick = {
+                                                    startQrCodeScanner(
+                                                        context = context,
+                                                        onScanned = { scannedEmail ->
+                                                            recipientEmail = scannedEmail
+                                                            recipientError = null
+                                                            recipientValidation = null
+                                                            isVerifyingRecipient = true
+                                                            scope.launch {
+                                                                val res = userRepository.verifyRecipientUser(scannedEmail, selectedPackage.id)
+                                                                isVerifyingRecipient = false
+                                                                if (res.isSuccess) {
+                                                                    recipientValidation = res.getOrNull()
+                                                                } else {
+                                                                    recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
+                                                                }
+                                                            }
+                                                        },
+                                                        onError = { err ->
+                                                            Toast.makeText(context, err, Toast.LENGTH_SHORT).show()
+                                                        }
+                                                    )
+                                                },
+                                                modifier = Modifier.size(34.dp)
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.QrCodeScanner,
+                                                    contentDescription = "Scan QR Code",
+                                                    tint = Color(0xFF10B981),
+                                                    modifier = Modifier.size(20.dp)
+                                                )
+                                            }
+
+                                            Spacer(modifier = Modifier.width(4.dp))
+
+                                            Button(
+                                                onClick = {
+                                                    if (recipientEmail.isBlank()) return@Button
+                                                    isVerifyingRecipient = true
+                                                    recipientError = null
+                                                    recipientValidation = null
+                                                    scope.launch {
+                                                        val res = userRepository.verifyRecipientUser(recipientEmail, selectedPackage.id)
+                                                        isVerifyingRecipient = false
+                                                        if (res.isSuccess) {
+                                                            recipientValidation = res.getOrNull()
+                                                        } else {
+                                                            recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
+                                                        }
+                                                    }
+                                                },
+                                                enabled = recipientEmail.isNotBlank() && !isVerifyingRecipient,
+                                                shape = RoundedCornerShape(8.dp),
+                                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
+                                            ) {
+                                                if (isVerifyingRecipient) {
+                                                    CircularProgressIndicator(modifier = Modifier.size(14.dp), color = Color.White, strokeWidth = 2.dp)
+                                                } else {
+                                                    Text("যাচাই", fontSize = 11.5.sp)
+                                                }
+                                            }
+                                        }
+                                    }
+                                )
+
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(top = 4.dp, bottom = 4.dp),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text(
+                                        text = "📷 স্ক্যান করতে QR আইকনে চাপুন",
+                                        fontSize = 11.sp,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                    TextButton(
+                                        onClick = { showMyQrDialog = true },
+                                        contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
+                                        modifier = Modifier.height(28.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.QrCode,
+                                            contentDescription = null,
+                                            tint = Color(0xFF10B981),
+                                            modifier = Modifier.size(14.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text(
+                                            text = "আমার QR কোড",
+                                            fontSize = 11.5.sp,
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = Color(0xFF047857)
+                                        )
+                                    }
+                                }
+
+                                if (recipientValidation != null) {
+                                    Spacer(modifier = Modifier.height(6.dp))
+                                    Card(
+                                        shape = RoundedCornerShape(8.dp),
+                                        colors = CardDefaults.cardColors(
+                                            containerColor = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444).copy(alpha = 0.12f) else Color(0xFF10B981).copy(alpha = 0.12f)
+                                        ),
+                                        border = BorderStroke(1.dp, if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444) else Color(0xFF10B981)),
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
+                                        Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
+                                            Icon(
+                                                imageVector = if (recipientValidation!!.isAlreadyUnlocked) Icons.Default.Warning else Icons.Default.CheckCircle,
+                                                contentDescription = null,
+                                                tint = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444) else Color(0xFF10B981),
+                                                modifier = Modifier.size(20.dp)
+                                            )
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Column {
+                                                Text(
+                                                    text = "প্রাপক: ${recipientValidation!!.name}",
+                                                    fontWeight = FontWeight.Bold,
+                                                    fontSize = 13.sp,
+                                                    color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFF991B1B) else Color(0xFF065F46)
+                                                )
+                                                Text(
+                                                    text = if (recipientValidation!!.isAlreadyUnlocked) "⚠️ প্রাপকের ইতোমধ্যে এই কোর্সটি আনলক করা আছে!" else "✅ প্রাপক প্রস্তুত। ব্যালেন্স দিয়ে রেফার করুন।",
+                                                    fontSize = 11.5.sp,
+                                                    color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFB91C1C) else Color(0xFF047857)
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (recipientError != null) {
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Card(
+                                        shape = RoundedCornerShape(8.dp),
+                                        colors = CardDefaults.cardColors(containerColor = Color(0xFFEF4444).copy(alpha = 0.1f)),
+                                        border = BorderStroke(1.dp, Color(0xFFEF4444).copy(alpha = 0.5f)),
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
+                                        Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
+                                            Icon(imageVector = Icons.Default.ErrorOutline, contentDescription = null, tint = Color(0xFFEF4444), modifier = Modifier.size(18.dp))
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Text(text = recipientError!!, fontSize = 11.5.sp, color = Color(0xFF991B1B))
+                                        }
+                                    }
+                                }
+
+                                Spacer(modifier = Modifier.height(12.dp))
+
+                                Button(
+                                    onClick = {
+                                        enteredPinText = ""
+                                        confirmPinText = ""
+                                        pinDialogError = null
+                                        if (walletPin.isBlank()) {
+                                            showSetPinDialog = true
+                                        } else {
+                                            showEnterPinDialog = true
+                                        }
+                                    },
+                                    enabled = recipientValidation != null && !recipientValidation!!.isAlreadyUnlocked && !isGiftPurchasing,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    shape = RoundedCornerShape(10.dp),
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
+                                ) {
+                                    Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Text(
+                                        text = if (recipientValidation != null) "💼 কোর্স বিক্রি সম্পন্ন করুন (পাবেন ৳$bonusEarned বোনাস)" else "কোর্স বিক্রি / রেফার (${selectedPackage.priceDisplay})",
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White
+                                    )
+                                }
+                            }
                         }
                     }
                 }
-            }
 
             // 2. Selectable Course Packages
             if (availablePackages.isEmpty()) {
@@ -679,413 +1012,6 @@ fun PaymentScreen(
                 }
             }
 
-            // 3.1 Direct Wallet Purchase & Gift Section
-            if (userBalance >= selectedPackage.price) {
-                Card(
-                    shape = RoundedCornerShape(14.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
-                    ),
-                    border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Surface(
-                                shape = CircleShape,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(36.dp)
-                            ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Icon(
-                                        imageVector = Icons.Default.AccountBalanceWallet,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.onPrimary,
-                                        modifier = Modifier.size(20.dp)
-                                    )
-                                }
-                            }
-                            Spacer(modifier = Modifier.width(10.dp))
-                            Column {
-                                Text(
-                                    text = "💰 রেফারেল ব্যালেন্স দিয়ে ক্রয় ও রেফার",
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 15.sp,
-                                    color = MaterialTheme.colorScheme.onSurface
-                                )
-                                Text(
-                                    text = "আপনার ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)} (পর্যাপ্ত)",
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Medium,
-                                    color = Color(0xFF10B981)
-                                )
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        // If course is not already unlocked by user, let them choose between Self vs Gift
-                        if (!isPackageAlreadyUnlocked) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                FilterChip(
-                                    selected = !isGiftMode,
-                                    onClick = { isGiftMode = false },
-                                    label = { Text("👤 নিজের জন্য", fontWeight = if (!isGiftMode) FontWeight.Bold else FontWeight.Normal) },
-                                    modifier = Modifier.weight(1f)
-                                )
-                                FilterChip(
-                                    selected = isGiftMode,
-                                    onClick = { isGiftMode = true },
-                                    label = { Text("💼 কোর্স বিক্রি / রেফার (+৳২০)", fontWeight = if (isGiftMode) FontWeight.Bold else FontWeight.Normal) },
-                                    modifier = Modifier.weight(1f)
-                                )
-                            }
-                            Spacer(modifier = Modifier.height(10.dp))
-                        }
-
-                        if (!isPackageAlreadyUnlocked && !isGiftMode) {
-                            // Self-Purchase Mode
-                            Text(
-                                text = "কোনো প্রকার বিকাশ/নগদ পেমেন্ট ছাড়াই সরাসরি আপনার অর্জিত রেফারেল বোনাস থেকে '${selectedPackage.title}' সাথে সাথে আনলক করুন।",
-                                fontSize = 12.sp,
-                                lineHeight = 17.sp,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-
-                            Spacer(modifier = Modifier.height(12.dp))
-                            Button(
-                                onClick = { showWalletConfirmDialog = true },
-                                modifier = Modifier.fillMaxWidth(),
-                                enabled = !isWalletPurchasing && !isSubmitting,
-                                shape = RoundedCornerShape(10.dp),
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
-                            ) {
-                                if (isWalletPurchasing) {
-                                    CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                } else {
-                                    Icon(
-                                        imageVector = Icons.Default.FlashOn,
-                                        contentDescription = null,
-                                        tint = Color.White,
-                                        modifier = Modifier.size(18.dp)
-                                    )
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                }
-                                Text(
-                                    text = "নিজের অ্যাকাউন্টে আনলক করুন (${selectedPackage.priceDisplay})",
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.White
-                                )
-                            }
-                        } else {
-                            // Course Resell / Gift to Others Mode (Cash without withdraw + 20 Taka bonus)
-                            val bonusEarned = pricingConfig.getReferralBonus(selectedPackage.id, selectedPackage.price).toInt()
-                            val packagePrice = selectedPackage.price.toInt()
-
-                            Card(
-                                shape = RoundedCornerShape(12.dp),
-                                colors = CardDefaults.cardColors(containerColor = Color(0xFF10B981).copy(alpha = 0.1f)),
-                                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Column(modifier = Modifier.padding(12.dp)) {
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
-                                        Icon(
-                                            imageVector = Icons.Default.MonetizationOn,
-                                            contentDescription = null,
-                                            tint = Color(0xFF047857),
-                                            modifier = Modifier.size(18.dp)
-                                        )
-                                        Spacer(modifier = Modifier.width(6.dp))
-                                        Text(
-                                            text = "উইথড্র ছাড়াই সরাসরি নগদ ক্যাশ আয়:",
-                                            fontWeight = FontWeight.Bold,
-                                            fontSize = 12.5.sp,
-                                            color = Color(0xFF047857)
-                                        )
-                                    }
-                                    Spacer(modifier = Modifier.height(6.dp))
-                                    Text(
-                                        text = "• ক্রেতার কাছ থেকে নগদ নেবেন: ৳$packagePrice (হাতে ক্যাশ টাকা)\n• আপনার ব্যালেন্স থেকে ছাড় হবে: ৳$packagePrice\n• সাথে সাথে ওয়ালেটে বোনাস ব্যাক: +৳$bonusEarned\n• আপনার ইনস্ট্যান্ট লাভ: নগদ ৳$bonusEarned (উইথড্র রিকোয়েস্ট বা অপেক্ষা ছাড়াই)!",
-                                        fontSize = 11.5.sp,
-                                        lineHeight = 16.5.sp,
-                                        color = MaterialTheme.colorScheme.onSurface
-                                    )
-                                }
-                            }
-
-                            Spacer(modifier = Modifier.height(10.dp))
-
-                            OutlinedTextField(
-                                value = recipientEmail,
-                                onValueChange = {
-                                    recipientEmail = it
-                                    recipientValidation = null
-                                    recipientError = null
-                                },
-                                label = { Text("প্রাপকের রেজিস্টার্ড ইমেইল") },
-                                placeholder = { Text("friend@gmail.com") },
-                                singleLine = true,
-                                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                                modifier = Modifier.fillMaxWidth(),
-                                trailingIcon = {
-                                    Row(
-                                        verticalAlignment = Alignment.CenterVertically,
-                                        modifier = Modifier.padding(end = 4.dp)
-                                    ) {
-                                        IconButton(
-                                            onClick = {
-                                                startQrCodeScanner(
-                                                    context = context,
-                                                    onScanned = { scannedEmail ->
-                                                        recipientEmail = scannedEmail
-                                                        recipientError = null
-                                                        recipientValidation = null
-                                                        isVerifyingRecipient = true
-                                                        scope.launch {
-                                                            val res = userRepository.verifyRecipientUser(scannedEmail, selectedPackage.id)
-                                                            isVerifyingRecipient = false
-                                                            if (res.isSuccess) {
-                                                                recipientValidation = res.getOrNull()
-                                                            } else {
-                                                                recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
-                                                            }
-                                                        }
-                                                    },
-                                                    onError = { err ->
-                                                        Toast.makeText(context, err, Toast.LENGTH_SHORT).show()
-                                                    }
-                                                )
-                                            },
-                                            modifier = Modifier.size(34.dp)
-                                        ) {
-                                            Icon(
-                                                imageVector = Icons.Default.QrCodeScanner,
-                                                contentDescription = "Scan QR Code",
-                                                tint = Color(0xFF10B981),
-                                                modifier = Modifier.size(20.dp)
-                                            )
-                                        }
-
-                                        Spacer(modifier = Modifier.width(4.dp))
-
-                                        Button(
-                                            onClick = {
-                                                if (recipientEmail.isBlank()) return@Button
-                                                isVerifyingRecipient = true
-                                                recipientError = null
-                                                recipientValidation = null
-                                                scope.launch {
-                                                    val res = userRepository.verifyRecipientUser(recipientEmail, selectedPackage.id)
-                                                    isVerifyingRecipient = false
-                                                    if (res.isSuccess) {
-                                                        recipientValidation = res.getOrNull()
-                                                    } else {
-                                                        recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
-                                                    }
-                                                }
-                                            },
-                                            enabled = recipientEmail.isNotBlank() && !isVerifyingRecipient,
-                                            shape = RoundedCornerShape(8.dp),
-                                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
-                                        ) {
-                                            if (isVerifyingRecipient) {
-                                                CircularProgressIndicator(modifier = Modifier.size(14.dp), color = Color.White, strokeWidth = 2.dp)
-                                            } else {
-                                                Text("যাচাই", fontSize = 11.5.sp)
-                                            }
-                                        }
-                                    }
-                                }
-                            )
-
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 4.dp, bottom = 4.dp),
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(
-                                    text = "📷 স্ক্যান করতে QR আইকনে চাপুন",
-                                    fontSize = 11.sp,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                                TextButton(
-                                    onClick = { showMyQrDialog = true },
-                                    contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
-                                    modifier = Modifier.height(28.dp)
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.QrCode,
-                                        contentDescription = null,
-                                        tint = Color(0xFF10B981),
-                                        modifier = Modifier.size(14.dp)
-                                    )
-                                    Spacer(modifier = Modifier.width(4.dp))
-                                    Text(
-                                        text = "আমার QR কোড",
-                                        fontSize = 11.5.sp,
-                                        fontWeight = FontWeight.SemiBold,
-                                        color = Color(0xFF047857)
-                                    )
-                                }
-                            }
-
-                            if (recipientValidation != null) {
-                                Spacer(modifier = Modifier.height(6.dp))
-                                Card(
-                                    shape = RoundedCornerShape(8.dp),
-                                    colors = CardDefaults.cardColors(
-                                        containerColor = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444).copy(alpha = 0.12f) else Color(0xFF10B981).copy(alpha = 0.12f)
-                                    ),
-                                    border = BorderStroke(1.dp, if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444) else Color(0xFF10B981)),
-                                    modifier = Modifier.fillMaxWidth()
-                                ) {
-                                    Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                                        Icon(
-                                            imageVector = if (recipientValidation!!.isAlreadyUnlocked) Icons.Default.Warning else Icons.Default.CheckCircle,
-                                            contentDescription = null,
-                                            tint = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFEF4444) else Color(0xFF10B981),
-                                            modifier = Modifier.size(20.dp)
-                                        )
-                                        Spacer(modifier = Modifier.width(8.dp))
-                                        Column {
-                                            Text(
-                                                text = "প্রাপক: ${recipientValidation!!.name}",
-                                                fontWeight = FontWeight.Bold,
-                                                fontSize = 13.sp,
-                                                color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFF991B1B) else Color(0xFF065F46)
-                                            )
-                                            Text(
-                                                text = if (recipientValidation!!.isAlreadyUnlocked) "⚠️ প্রাপকের ইতোমধ্যে এই কোর্সটি আনলক করা আছে!" else "✅ প্রাপক প্রস্তুত। ব্যালেন্স দিয়ে রেফার করুন।",
-                                                fontSize = 11.5.sp,
-                                                color = if (recipientValidation!!.isAlreadyUnlocked) Color(0xFFB91C1C) else Color(0xFF047857)
-                                            )
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (recipientError != null) {
-                                Spacer(modifier = Modifier.height(8.dp))
-                                Card(
-                                    shape = RoundedCornerShape(8.dp),
-                                    colors = CardDefaults.cardColors(containerColor = Color(0xFFEF4444).copy(alpha = 0.1f)),
-                                    border = BorderStroke(1.dp, Color(0xFFEF4444).copy(alpha = 0.5f)),
-                                    modifier = Modifier.fillMaxWidth()
-                                ) {
-                                    Row(modifier = Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                                        Icon(imageVector = Icons.Default.ErrorOutline, contentDescription = null, tint = Color(0xFFEF4444), modifier = Modifier.size(18.dp))
-                                        Spacer(modifier = Modifier.width(8.dp))
-                                        Text(text = recipientError!!, fontSize = 11.5.sp, color = Color(0xFF991B1B))
-                                    }
-                                }
-                            }
-
-                            Spacer(modifier = Modifier.height(12.dp))
-
-                            Button(
-                                onClick = {
-                                    enteredPinText = ""
-                                    confirmPinText = ""
-                                    pinDialogError = null
-                                    if (walletPin.isBlank()) {
-                                        showSetPinDialog = true
-                                    } else {
-                                        showEnterPinDialog = true
-                                    }
-                                },
-                                enabled = recipientValidation != null && !recipientValidation!!.isAlreadyUnlocked && !isGiftPurchasing,
-                                modifier = Modifier.fillMaxWidth(),
-                                shape = RoundedCornerShape(10.dp),
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981))
-                            ) {
-                                Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Text(
-                                    text = if (recipientValidation != null) "💼 কোর্স বিক্রি সম্পন্ন করুন (পাবেন ৳$bonusEarned বোনাস)" else "কোর্স বিক্রি / রেফার (${selectedPackage.priceDisplay})",
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.White
-                                )
-                            }
-                        }
-                    }
-                }
-
-                if (!isPackageAlreadyUnlocked) {
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        HorizontalDivider(modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
-                        Text(
-                            text = " অথবা মোবাইল ব্যাংকিং দিয়ে কিনুন ",
-                            fontSize = 11.5.sp,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            fontWeight = FontWeight.Medium
-                        )
-                        HorizontalDivider(modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
-                    }
-                }
-            } else if (!isPackageAlreadyUnlocked) {
-                Card(
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.25f)
-                    ),
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Row(
-                        modifier = Modifier.padding(14.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Surface(
-                            shape = CircleShape,
-                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
-                            modifier = Modifier.size(36.dp)
-                        ) {
-                            Box(contentAlignment = Alignment.Center) {
-                                Icon(
-                                    imageVector = Icons.Default.AccountBalanceWallet,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.size(20.dp)
-                                )
-                            }
-                        }
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = "ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)}",
-                                fontSize = 12.5.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onSurface
-                            )
-                            Spacer(modifier = Modifier.height(2.dp))
-                            Text(
-                                text = "বন্ধুদের রেফার করে প্রতি রেফারে ৳২০ আয় করুন এবং ওয়ালেট দিয়ে যেকোনো কোর্স সম্পূর্ণ বিনামূল্যে কিনুন!",
-                                fontSize = 11.5.sp,
-                                lineHeight = 16.sp,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                        if (onNavigateToReferral != null) {
-                            TextButton(onClick = onNavigateToReferral) {
-                                Text("রেফার করুন", fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                            }
-                        }
-                    }
-                }
-            }
-            }
-
             // 4. Mobile Banking Purchase Action
             if (availablePackages.isNotEmpty() && !isPackageAlreadyUnlocked) {
                 Card(
@@ -1131,29 +1057,29 @@ fun PaymentScreen(
                             }
                         }
 
-                        Button(
-                            onClick = {
-                                transactionId = ""
-                                submissionError = null
-                                showPaymentCheckoutDialog = true
-                            },
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(50.dp),
-                            shape = RoundedCornerShape(10.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.LockOpen,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = "পেমেন্ট করুন ও আনলক করুন (${selectedPackage.priceDisplay})",
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 14.5.sp
-                            )
+                            Row(
+                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Info,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = "নিচের স্টিকি বারের 'পেমেন্ট করুন' বাটনে চাপ দিয়ে বিকাশ, নগদ বা রকেটে পেমেন্ট সম্পন্ন করুন।",
+                                    fontSize = 12.sp,
+                                    lineHeight = 16.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
                     }
                 }
@@ -1648,6 +1574,7 @@ fun PaymentScreen(
             )
         }
     }
+}
 
 @Composable
 private fun CourseBundleCard(

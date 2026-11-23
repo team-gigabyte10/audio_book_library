@@ -181,8 +181,8 @@ fun AppNavHost(
                 onNavigateToSearch = {
                     navController.navigate(Screen.Search.createRoute())
                 },
-                onNavigateToPayment = {
-                    navController.navigate(Screen.Payment.route)
+                onNavigateToPayment = { pkgId ->
+                    navController.navigate(Screen.Payment.createRoute(pkgId))
                 },
                 onNavigateToReferAndEarn = {
                     navController.navigate(Screen.ReferAndEarn.route)
@@ -267,7 +267,7 @@ fun AppNavHost(
                     navController.navigate(Screen.Settings.route)
                 },
                 onOpenPayment = {
-                    navController.navigate(Screen.Payment.route)
+                    navController.navigate(Screen.Payment.createRoute("audiobook_bundle"))
                 },
                 onOpenPaymentApproval = {
                     navController.navigate(Screen.PaymentApproval.route)
@@ -321,7 +321,7 @@ fun AppNavHost(
                     navController.navigate(Screen.Search.createRoute(bId))
                 },
                 onOpenPayment = {
-                    navController.navigate(Screen.Payment.route)
+                    navController.navigate(Screen.Payment.createRoute("audiobook_bundle"))
                 }
             )
 
@@ -426,8 +426,19 @@ fun AppNavHost(
         }
 
         // 6. Payment & Membership Screen
-        composable(Screen.Payment.route) {
+        composable(
+            route = Screen.Payment.route,
+            arguments = listOf(
+                navArgument("packageId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) { backStackEntry ->
+            val packageId = backStackEntry.arguments?.getString("packageId")
             PaymentScreen(
+                initialPackageId = packageId,
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToReferral = {
                     navController.navigate(Screen.ReferAndEarn.route) { launchSingleTop = true }
@@ -458,7 +469,7 @@ fun AppNavHost(
         composable(Screen.Referral.route) {
             ReferAndEarnScreen(
                 onNavigateBack = { navController.popBackStack() },
-                onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
+                onNavigateToPayment = { navController.navigate(Screen.Payment.createRoute()) }
             )
         }
 
@@ -466,7 +477,7 @@ fun AppNavHost(
         composable(Screen.ReferAndEarn.route) {
             ReferAndEarnScreen(
                 onNavigateBack = { navController.popBackStack() },
-                onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
+                onNavigateToPayment = { navController.navigate(Screen.Payment.createRoute()) }
             )
         }
 
@@ -493,7 +504,7 @@ fun AppNavHost(
                     navController.navigate(Screen.BookDetails.createRoute(bookId))
                 },
                 onNavigateToPayment = {
-                    navController.navigate(Screen.Payment.route)
+                    navController.navigate(Screen.Payment.createRoute("audiobook_bundle"))
                 },
                 onNavigateToPlayer = {
                     val currentBookId = catViewModel.playbackState.value.bookId
@@ -642,6 +653,18 @@ fun AppNavHost(
             val learnViewModel: LearnHomeViewModel = viewModel(factory = SimpleViewModelFactory {
                 LearnHomeViewModel(application)
             })
+            val coursePackageId = when (course.lowercase()) {
+                "english" -> "english_course"
+                "japanese" -> "japanese_course"
+                "chinese", "zh" -> "chinese_course"
+                "arabic", "ar" -> "arabic_course"
+                "urdu" -> "urdu_course"
+                "hindi" -> "hindi_course"
+                "german", "de" -> "german_course"
+                "korean", "ko" -> "korean_course"
+                "regional_bangla", "regional" -> "regional_course"
+                else -> null
+            }
             CourseSyllabusScreen(
                 viewModel = learnViewModel,
                 courseType = course,
@@ -650,7 +673,7 @@ fun AppNavHost(
                 onOpenLesson = { lessonId -> navController.navigate(Screen.LearnLesson.createRoute(lessonId)) },
                 onOpenIntro = { asset -> navController.navigate(Screen.LearnIntro.createRoute(asset)) },
                 onOpenTranslator = { langName -> navController.navigate(Screen.LiveTranslator.createRoute(langName)) },
-                onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
+                onNavigateToPayment = { navController.navigate(Screen.Payment.createRoute(coursePackageId)) }
             )
         }
 

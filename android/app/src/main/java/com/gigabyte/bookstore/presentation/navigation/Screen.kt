@@ -16,7 +16,9 @@ sealed class Screen(val route: String) {
         fun createRoute(bookId: String, chapterIndex: Int = 0) = "text_reader/$bookId/$chapterIndex"
     }
     object Settings : Screen("settings")
-    object Payment : Screen("payment")
+    object Payment : Screen("payment?packageId={packageId}") {
+        fun createRoute(packageId: String? = null) = if (packageId != null) "payment?packageId=$packageId" else "payment"
+    }
     object PaymentApproval : Screen("payment_approval")
     object Search : Screen("search?bookId={bookId}") {
         fun createRoute(bookId: String? = null) = if (bookId != null) "search?bookId=$bookId" else "search"
