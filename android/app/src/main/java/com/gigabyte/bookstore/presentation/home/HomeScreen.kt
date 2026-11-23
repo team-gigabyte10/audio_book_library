@@ -108,6 +108,7 @@ fun HomeScreen(
     onNavigateToSearch: () -> Unit,
     onNavigateToPayment: () -> Unit,
     onNavigateToReferral: () -> Unit,
+    onNavigateToReferAndEarn: (() -> Unit)? = null,
     onNavigateToApproval: () -> Unit,
     onNavigateToBookCategories: ((String?) -> Unit)? = null,
     onNavigateToLearnQuran: () -> Unit = {},
@@ -232,6 +233,10 @@ fun HomeScreen(
                 onApprovePaymentsClick = {
                     scope.launch { drawerState.close() }
                     onNavigateToApproval()
+                },
+                onReferAndEarnClick = {
+                    scope.launch { drawerState.close() }
+                    onNavigateToReferAndEarn?.invoke()
                 },
                 onReferralClick = {
                     scope.launch { drawerState.close() }

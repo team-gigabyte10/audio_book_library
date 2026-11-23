@@ -41,6 +41,7 @@ import com.gigabyte.bookstore.presentation.payment.PaymentScreen
 import com.gigabyte.bookstore.presentation.payment.PaymentApprovalScreen
 import com.gigabyte.bookstore.presentation.pdf.PdfViewerScreen
 import com.gigabyte.bookstore.presentation.referral.ReferralScreen
+import com.gigabyte.bookstore.presentation.referral.ReferAndEarnScreen
 import com.gigabyte.bookstore.learning.presentation.home.LearnHomeScreen
 import com.gigabyte.bookstore.learning.presentation.home.LearnHomeViewModel
 import com.gigabyte.bookstore.learning.presentation.lesson.LessonScreen
@@ -182,6 +183,9 @@ fun AppNavHost(
                 },
                 onNavigateToPayment = {
                     navController.navigate(Screen.Payment.route)
+                },
+                onNavigateToReferAndEarn = {
+                    navController.navigate(Screen.ReferAndEarn.route)
                 },
                 onNavigateToReferral = {
                     navController.navigate(Screen.Referral.route)
@@ -426,7 +430,7 @@ fun AppNavHost(
             PaymentScreen(
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToReferral = {
-                    navController.navigate(Screen.Referral.route) { launchSingleTop = true }
+                    navController.navigate(Screen.ReferAndEarn.route) { launchSingleTop = true }
                 }
             )
         }
@@ -455,6 +459,19 @@ fun AppNavHost(
             ReferralScreen(
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
+            )
+        }
+
+        // 9.1 Refer & Earn Invitation Screen (Backend-controlled Bonus & Sharing)
+        composable(Screen.ReferAndEarn.route) {
+            ReferAndEarnScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToWallet = {
+                    navController.navigate(Screen.Referral.route) { launchSingleTop = true }
+                },
+                onNavigateToPayment = {
+                    navController.navigate(Screen.Payment.route)
+                }
             )
         }
 

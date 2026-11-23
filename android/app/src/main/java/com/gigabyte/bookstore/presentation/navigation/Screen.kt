@@ -25,6 +25,7 @@ sealed class Screen(val route: String) {
         fun createRoute(bookId: String) = "pdf_viewer/$bookId"
     }
     object Referral : Screen("referral")
+    object ReferAndEarn : Screen("refer_and_earn")
     object BookCategories : Screen("book_categories?bundleId={bundleId}") {
         fun createRoute(bundleId: String? = null) = if (bundleId != null) "book_categories?bundleId=$bundleId" else "book_categories"
     }

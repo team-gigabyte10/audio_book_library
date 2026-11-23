@@ -23,10 +23,14 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.ui.theme.DarkStatusBarColor
 import com.gigabyte.bookstore.ui.theme.LightStatusBarColor
 
@@ -44,6 +48,7 @@ fun AppDrawerContent(
     onPaymentClick: () -> Unit,
     onApprovePaymentsClick: () -> Unit,
     onReferralClick: () -> Unit,
+    onReferAndEarnClick: (() -> Unit)? = null,
     onAboutUsClick: () -> Unit,
     onHomeClick: (() -> Unit)? = null,
     onLibraryClick: (() -> Unit)? = null,
@@ -70,6 +75,10 @@ fun AppDrawerContent(
 
     val isDark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
     val actualStatusBarColor = if (isDark) DarkStatusBarColor else LightStatusBarColor
+
+    val context = LocalContext.current
+    val app = context.applicationContext as? BanglaAudiobookApp
+    val pricingConfig = app?.appPreferences?.pricingConfig?.collectAsStateWithLifecycle()?.value ?: AppPricingConfig()
 
     // Cohesive executive teal gradient matching App Bar
     val headerBrush = if (isDark) {
@@ -305,8 +314,16 @@ fun AppDrawerContent(
                 DrawerMenuItem(
                     icon = Icons.Default.CardGiftcard,
                     title = "রেফার ও আয় (Reffer and Earn)",
-                    badge = "৳২০",
+                    badge = "৳${pricingConfig.singleReferralBonus.toInt()}",
                     badgeColor = Color(0xFF10B981),
+                    onClick = onReferAndEarnClick ?: onReferralClick
+                )
+
+                DrawerMenuItem(
+                    icon = Icons.Default.AccountBalanceWallet,
+                    title = "আমার ওয়ালেট ও উইথড্র (My Wallet)",
+                    badge = "৳${"%.0f".format(userBalance)}",
+                    badgeColor = Color(0xFF8B5CF6),
                     onClick = onReferralClick
                 )
 
