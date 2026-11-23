@@ -145,7 +145,7 @@ fun ReferralScreen(
                                 },
                                 onCopyLink = {
                                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                    val clip = ClipData.newPlainText("Play Store App Link", PLAY_STORE_APP_URL)
+                                    val clip = ClipData.newPlainText("Play Store App Link", pricingConfig.playStoreAppUrl)
                                     clipboard.setPrimaryClip(clip)
                                     Toast.makeText(context, "অ্যাপের প্লে স্টোর লিঙ্ক কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
                                 },

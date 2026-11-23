@@ -138,9 +138,11 @@ fun ReferAndEarnScreen(
                         // 2.1 Google Play Store App Link Card
                         item {
                             PlayStoreAppLinkCard(
+                                appTitle = pricingConfig.playStoreAppTitle,
+                                appUrl = pricingConfig.playStoreAppUrl,
                                 onCopyLink = {
                                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                    val clip = ClipData.newPlainText("Play Store App Link", PLAY_STORE_APP_URL)
+                                    val clip = ClipData.newPlainText("Play Store App Link", pricingConfig.playStoreAppUrl)
                                     clipboard.setPrimaryClip(clip)
                                     Toast.makeText(context, "অ্যাপের প্লে স্টোর লিঙ্ক কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
                                 },
@@ -151,7 +153,7 @@ fun ReferAndEarnScreen(
                                         }
                                         context.startActivity(intent)
                                     } catch (e: Exception) {
-                                        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PLAY_STORE_APP_URL))
+                                        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(pricingConfig.playStoreAppUrl))
                                         context.startActivity(webIntent)
                                     }
                                 }
@@ -363,6 +365,8 @@ private fun ReferralCodeShareCard(
 
 @Composable
 private fun PlayStoreAppLinkCard(
+    appTitle: String = AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
+    appUrl: String = AppPricingConfig.DEFAULT_PLAY_STORE_URL,
     onCopyLink: () -> Unit,
     onOpenPlayStore: () -> Unit
 ) {
@@ -403,7 +407,7 @@ private fun PlayStoreAppLinkCard(
                         color = Color(0xFF047857)
                     )
                     Text(
-                        text = PLAY_STORE_APP_TITLE,
+                        text = appTitle,
                         fontSize = 13.5.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface,
@@ -422,7 +426,7 @@ private fun PlayStoreAppLinkCard(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = PLAY_STORE_APP_URL,
+                    text = appUrl,
                     fontSize = 11.5.sp,
                     color = MaterialTheme.colorScheme.primary,
                     maxLines = 1,
@@ -856,30 +860,11 @@ private fun ReferredFriendItemCard(user: ReferredUserItem) {
     }
 }
 
-const val PLAY_STORE_APP_TITLE = "বাংলা অডিওবুক ও স্পোকেন কোর্স - Apps on Google Play"
-const val PLAY_STORE_APP_URL = "https://play.google.com/store/apps/details?id=com.gigabyte.bookstore"
+const val PLAY_STORE_APP_TITLE = AppPricingConfig.DEFAULT_PLAY_STORE_TITLE
+const val PLAY_STORE_APP_URL = AppPricingConfig.DEFAULT_PLAY_STORE_URL
 
 fun createShareMessage(referralCode: String, pricingConfig: AppPricingConfig): String {
-    return """
-        আসসালামু আলাইকুম / নমস্কার! 🌿
-
-        বই পড়ার আনন্দ এবং নতুন ভাষা শেখার সহজ সুযোগ নিয়ে এলো—
-        📖 বাংলা অডিওবুক ও স্পোকেন কোর্স অ্যাপ
-
-        ✨ অ্যাপটির বিশেষ সুবিধাসমূহ:
-        • জনপ্রিয় শত শত দেশি-বিদেশি বইয়ের স্পষ্ট বাংলা অডিওবুক ও সম্পূর্ণ পাঠ
-        • ইংরেজি, আরবি, জাপানিজ, কোরিয়ান, জার্মানসহ বিভিন্ন ভাষার স্পোকেন কোর্স
-        • নির্ভুল উচ্চারণ শেখার আধুনিক সুবিধা ও এআই ট্রান্সলেটর
-
-        🎁 রেজিস্ট্রেশনের সময় আমার রেফার কোডটি ব্যবহার করতে পারেন:
-        👉 রেফারেল কোড: $referralCode
-
-        📲 গুগল প্লে স্টোর থেকে অ্যাপটি ডাউনলোড করার লিঙ্ক:
-        $PLAY_STORE_APP_TITLE
-        $PLAY_STORE_APP_URL
-
-        আজই যুক্ত হয়ে সহজে নিজের জ্ঞান ও ভাষাগত দক্ষতা বৃদ্ধি করুন। ধন্যবাদ! 🤝
-    """.trimIndent()
+    return pricingConfig.formatReferralMessage(referralCode)
 }
 
 private fun shareReferralIntent(context: Context, referralCode: String, pricingConfig: AppPricingConfig) {

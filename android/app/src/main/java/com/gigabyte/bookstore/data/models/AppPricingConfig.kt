@@ -1,7 +1,7 @@
 package com.gigabyte.bookstore.data.models
 
 /**
- * Backend-controlled pricing and referral bonus configuration.
+ * Backend-controlled pricing and referral configuration.
  * Synced in real-time from Firebase Firestore (`settings/pricing`).
  */
 data class AppPricingConfig(
@@ -11,9 +11,61 @@ data class AppPricingConfig(
     val singleReferralBonus: Double = 20.0,
     val minWithdrawalAmount: Double = 100.0,
     val packagePrices: Map<String, Double> = emptyMap(),
+    val referralMessageTemplate: String = "",
+    val playStoreAppTitle: String = DEFAULT_PLAY_STORE_TITLE,
+    val playStoreAppUrl: String = DEFAULT_PLAY_STORE_URL,
     val updatedAt: String = "",
     val updatedBy: String = ""
 ) {
+    companion object {
+        const val DEFAULT_PLAY_STORE_TITLE = "বাংলা অডিওবুক ও স্পোকেন কোর্স - Apps on Google Play"
+        const val DEFAULT_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.gigabyte.bookstore"
+
+        val DEFAULT_REFERRAL_MESSAGE_TEMPLATE = """
+            আসসালামু আলাইকুম / নমস্কার! 🌿
+
+            বই পড়ার আনন্দ এবং নতুন ভাষা শেখার সহজ সুযোগ নিয়ে এলো—
+            📖 বাংলা অডিওবুক ও স্পোকেন কোর্স অ্যাপ
+
+            ✨ অ্যাপটির বিশেষ সুবিধাসমূহ:
+            • জনপ্রিয় শত শত দেশি-বিদেশি বইয়ের স্পষ্ট বাংলা অডিওবুক ও সম্পূর্ণ পাঠ
+            • ইংরেজি, আরবি, জাপানিজ, কোরিয়ান, জার্মানসহ বিভিন্ন ভাষার স্পোকেন কোর্স
+            • নির্ভুল উচ্চারণ শেখার আধুনিক সুবিধা ও এআই ট্রান্সলেটর
+
+            🎁 রেজিস্ট্রেশনের সময় আমার রেফার কোডটি ব্যবহার করতে পারেন:
+            👉 রেফারেল কোড: {code}
+
+            📲 গুগল প্লে স্টোর থেকে অ্যাপটি ডাউনলোড করার লিঙ্ক:
+            {appTitle}
+            {appLink}
+
+            আজই যুক্ত হয়ে সহজে নিজের জ্ঞান ও ভাষাগত দক্ষতা বৃদ্ধি করুন। ধন্যবাদ! 🤝
+        """.trimIndent()
+    }
+
+    /**
+     * Resolves the referral invitation message, replacing placeholders with real values.
+     * If referralMessageTemplate is blank in backend, falls back to the default polite message template.
+     * Placeholders supported: {code}, {referralCode}, {appLink}, {playStoreUrl}, {appTitle},
+     * {singleBonus}, {bundleBonus}, {singlePrice}, {bundlePrice}.
+     */
+    fun formatReferralMessage(referralCode: String): String {
+        val template = if (referralMessageTemplate.isNotBlank()) referralMessageTemplate else DEFAULT_REFERRAL_MESSAGE_TEMPLATE
+        val title = if (playStoreAppTitle.isNotBlank()) playStoreAppTitle else DEFAULT_PLAY_STORE_TITLE
+        val url = if (playStoreAppUrl.isNotBlank()) playStoreAppUrl else DEFAULT_PLAY_STORE_URL
+
+        return template
+            .replace("{code}", referralCode)
+            .replace("{referralCode}", referralCode)
+            .replace("{appLink}", url)
+            .replace("{playStoreUrl}", url)
+            .replace("{appTitle}", title)
+            .replace("{singleBonus}", singleReferralBonus.toInt().toString())
+            .replace("{bundleBonus}", bundleReferralBonus.toInt().toString())
+            .replace("{singlePrice}", singleCoursePrice.toInt().toString())
+            .replace("{bundlePrice}", megaBundlePrice.toInt().toString())
+    }
+
     /**
      * Resolves the price for a specific package ID or falls back to singleCoursePrice / megaBundlePrice.
      */

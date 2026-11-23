@@ -223,6 +223,9 @@ class AppPreferences(context: Context) {
         private const val KEY_BONUS_BUNDLE_REFERRAL = "bonus_bundle_referral"
         private const val KEY_BONUS_SINGLE_REFERRAL = "bonus_single_referral"
         private const val KEY_MIN_WITHDRAWAL_AMOUNT = "min_withdrawal_amount"
+        private const val KEY_REFERRAL_MESSAGE_TEMPLATE = "referral_message_template"
+        private const val KEY_PLAY_STORE_APP_TITLE = "play_store_app_title"
+        private const val KEY_PLAY_STORE_APP_URL = "play_store_app_url"
         private const val KEY_WALLET_PIN = "wallet_pin"
         fun normalizeBundleId(bundleOrCode: String): String {
             val clean = bundleOrCode.trim().lowercase()
@@ -343,7 +346,10 @@ class AppPreferences(context: Context) {
             singleCoursePrice = prefs.getFloat(KEY_PRICE_SINGLE_COURSE, 100f).toDouble(),
             bundleReferralBonus = prefs.getFloat(KEY_BONUS_BUNDLE_REFERRAL, 40f).toDouble(),
             singleReferralBonus = prefs.getFloat(KEY_BONUS_SINGLE_REFERRAL, 20f).toDouble(),
-            minWithdrawalAmount = prefs.getFloat(KEY_MIN_WITHDRAWAL_AMOUNT, 100f).toDouble()
+            minWithdrawalAmount = prefs.getFloat(KEY_MIN_WITHDRAWAL_AMOUNT, 100f).toDouble(),
+            referralMessageTemplate = prefs.getString(KEY_REFERRAL_MESSAGE_TEMPLATE, "") ?: "",
+            playStoreAppTitle = prefs.getString(KEY_PLAY_STORE_APP_TITLE, AppPricingConfig.DEFAULT_PLAY_STORE_TITLE) ?: AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
+            playStoreAppUrl = prefs.getString(KEY_PLAY_STORE_APP_URL, AppPricingConfig.DEFAULT_PLAY_STORE_URL) ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL
         )
     )
     val pricingConfig: StateFlow<AppPricingConfig> = _pricingConfig.asStateFlow()
@@ -357,6 +363,9 @@ class AppPreferences(context: Context) {
             .putFloat(KEY_BONUS_BUNDLE_REFERRAL, config.bundleReferralBonus.toFloat())
             .putFloat(KEY_BONUS_SINGLE_REFERRAL, config.singleReferralBonus.toFloat())
             .putFloat(KEY_MIN_WITHDRAWAL_AMOUNT, config.minWithdrawalAmount.toFloat())
+            .putString(KEY_REFERRAL_MESSAGE_TEMPLATE, config.referralMessageTemplate)
+            .putString(KEY_PLAY_STORE_APP_TITLE, config.playStoreAppTitle)
+            .putString(KEY_PLAY_STORE_APP_URL, config.playStoreAppUrl)
             .apply()
         _pricingConfig.value = config
     }

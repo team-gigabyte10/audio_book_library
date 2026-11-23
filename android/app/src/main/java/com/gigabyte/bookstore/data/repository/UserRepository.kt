@@ -1318,6 +1318,9 @@ class UserRepository(
                         singleReferralBonus = singleReferralBonus,
                         minWithdrawalAmount = minWithdrawalAmount,
                         packagePrices = packagePrices,
+                        referralMessageTemplate = snapshot.getString("referralMessageTemplate") ?: "",
+                        playStoreAppTitle = snapshot.getString("playStoreAppTitle") ?: AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
+                        playStoreAppUrl = snapshot.getString("playStoreAppUrl") ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL,
                         updatedAt = snapshot.getString("updatedAt") ?: "",
                         updatedBy = snapshot.getString("updatedBy") ?: ""
                     )
@@ -1360,6 +1363,9 @@ class UserRepository(
                     singleReferralBonus = singleReferralBonus,
                     minWithdrawalAmount = minWithdrawalAmount,
                     packagePrices = packagePrices,
+                    referralMessageTemplate = doc.getString("referralMessageTemplate") ?: "",
+                    playStoreAppTitle = doc.getString("playStoreAppTitle") ?: AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
+                    playStoreAppUrl = doc.getString("playStoreAppUrl") ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL,
                     updatedAt = doc.getString("updatedAt") ?: "",
                     updatedBy = doc.getString("updatedBy") ?: ""
                 )
@@ -1389,6 +1395,9 @@ class UserRepository(
                 "singleReferralBonus" to config.singleReferralBonus,
                 "minWithdrawalAmount" to config.minWithdrawalAmount,
                 "packagePrices" to config.packagePrices,
+                "referralMessageTemplate" to config.referralMessageTemplate,
+                "playStoreAppTitle" to config.playStoreAppTitle,
+                "playStoreAppUrl" to config.playStoreAppUrl,
                 "updatedAt" to currentDate,
                 "updatedBy" to adminEmail.trim().lowercase()
             )
