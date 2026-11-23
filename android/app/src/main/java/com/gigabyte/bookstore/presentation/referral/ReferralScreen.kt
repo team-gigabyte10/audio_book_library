@@ -143,16 +143,14 @@ fun ReferralScreen(
                                     clipboard.setPrimaryClip(clip)
                                     Toast.makeText(context, "রেফার কোড কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
                                 },
+                                onCopyLink = {
+                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                    val clip = ClipData.newPlainText("Play Store App Link", PLAY_STORE_APP_URL)
+                                    clipboard.setPrimaryClip(clip)
+                                    Toast.makeText(context, "অ্যাপের প্লে স্টোর লিঙ্ক কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
+                                },
                                 onShare = {
-                                    val shareText = """
-                                        📚 বাংলা অডিওবুক লাইব্রেরিতে যুক্ত হও!
-                                        জনপ্রিয় সব বইয়ের চমৎকার বাংলা অডিওবুক ও সামারি শুনো খুব সহজে।
-                                        
-                                        রেজিস্টার করার সময় আমার রেফার কোড ব্যবহার করো:
-                                        👉 ${stats.referralCode}
-                                        
-                                        অ্যাপটি ডাউনলোড করে এখনই শুরু করো!
-                                    """.trimIndent()
+                                    val shareText = createShareMessage(stats.referralCode, pricingConfig)
                                     val intent = Intent(Intent.ACTION_SEND).apply {
                                         type = "text/plain"
                                         putExtra(Intent.EXTRA_TEXT, shareText)
@@ -254,6 +252,7 @@ fun ReferralCodeCard(
     bundleBonus: Double = 40.0,
     singleBonus: Double = 20.0,
     onCopy: () -> Unit,
+    onCopyLink: (() -> Unit)? = null,
     onShare: () -> Unit
 ) {
     Card(
@@ -316,28 +315,44 @@ fun ReferralCodeCard(
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
                         onClick = onCopy,
                         colors = ButtonDefaults.buttonColors(containerColor = Color.White.copy(alpha = 0.2f)),
                         shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        contentPadding = PaddingValues(vertical = 8.dp, horizontal = 4.dp)
                     ) {
-                        Icon(imageVector = Icons.Default.ContentCopy, contentDescription = null, tint = Color.White)
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(text = "কপি করুন", color = Color.White, fontWeight = FontWeight.Bold)
+                        Icon(imageVector = Icons.Default.ContentCopy, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(text = "কোড কপি", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                    }
+
+                    if (onCopyLink != null) {
+                        Button(
+                            onClick = onCopyLink,
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.White.copy(alpha = 0.25f)),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.weight(1f),
+                            contentPadding = PaddingValues(vertical = 8.dp, horizontal = 4.dp)
+                        ) {
+                            Icon(imageVector = Icons.Default.Link, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(text = "লিঙ্ক কপি", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                        }
                     }
 
                     Button(
                         onClick = onShare,
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981)),
                         shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
+                        contentPadding = PaddingValues(vertical = 8.dp, horizontal = 4.dp)
                     ) {
-                        Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White)
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(text = "শেয়ার করুন", color = Color.White, fontWeight = FontWeight.Bold)
+                        Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(text = "শেয়ার", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.sp)
                     }
                 }
             }

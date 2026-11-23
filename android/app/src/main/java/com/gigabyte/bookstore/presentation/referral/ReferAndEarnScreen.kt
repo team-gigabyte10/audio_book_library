@@ -135,6 +135,29 @@ fun ReferAndEarnScreen(
                             )
                         }
 
+                        // 2.1 Google Play Store App Link Card
+                        item {
+                            PlayStoreAppLinkCard(
+                                onCopyLink = {
+                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                    val clip = ClipData.newPlainText("Play Store App Link", PLAY_STORE_APP_URL)
+                                    clipboard.setPrimaryClip(clip)
+                                    Toast.makeText(context, "অ্যাপের প্লে স্টোর লিঙ্ক কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
+                                },
+                                onOpenPlayStore = {
+                                    try {
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.gigabyte.bookstore")).apply {
+                                            setPackage("com.android.vending")
+                                        }
+                                        context.startActivity(intent)
+                                    } catch (e: Exception) {
+                                        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PLAY_STORE_APP_URL))
+                                        context.startActivity(webIntent)
+                                    }
+                                }
+                            )
+                        }
+
                         // 3. Social Media 1-Tap Share Channels
                         item {
                             SocialShareChannelsCard(
@@ -332,6 +355,109 @@ private fun ReferralCodeShareCard(
                     Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(text = "শেয়ার করুন", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PlayStoreAppLinkCard(
+    onCopyLink: () -> Unit,
+    onOpenPlayStore: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f)
+        ),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = Color(0xFF10B981).copy(alpha = 0.15f),
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.Default.PhoneAndroid,
+                            contentDescription = null,
+                            tint = Color(0xFF047857),
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = "📲 গুগল প্লে স্টোর অ্যাপ লিঙ্ক",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFF047857)
+                    )
+                    Text(
+                        text = PLAY_STORE_APP_TITLE,
+                        fontSize = 13.5.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        maxLines = 1,
+                        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Surface(
+                color = MaterialTheme.colorScheme.surface,
+                shape = RoundedCornerShape(10.dp),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.25f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = PLAY_STORE_APP_URL,
+                    fontSize = 11.5.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    maxLines = 1,
+                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                OutlinedButton(
+                    onClick = onCopyLink,
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.weight(1f),
+                    contentPadding = PaddingValues(vertical = 8.dp, horizontal = 12.dp)
+                ) {
+                    Icon(imageVector = Icons.Default.ContentCopy, contentDescription = null, modifier = Modifier.size(15.dp))
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(text = "লিঙ্ক কপি", fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
+                }
+
+                Button(
+                    onClick = onOpenPlayStore,
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0284C7)),
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.weight(1f),
+                    contentPadding = PaddingValues(vertical = 8.dp, horizontal = 12.dp)
+                ) {
+                    Icon(imageVector = Icons.Default.OpenInNew, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(text = "প্লে স্টোরে দেখুন", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
                 }
             }
         }
@@ -730,17 +856,29 @@ private fun ReferredFriendItemCard(user: ReferredUserItem) {
     }
 }
 
-private fun createShareMessage(referralCode: String, pricingConfig: AppPricingConfig): String {
+const val PLAY_STORE_APP_TITLE = "বাংলা অডিওবুক ও স্পোকেন কোর্স - Apps on Google Play"
+const val PLAY_STORE_APP_URL = "https://play.google.com/store/apps/details?id=com.gigabyte.bookstore"
+
+fun createShareMessage(referralCode: String, pricingConfig: AppPricingConfig): String {
     return """
-        📚 বাংলা অডিওবুক লাইব্রেরি ও স্পোকেন ল্যাঙ্গুয়েজ লার্নিং অ্যাপে যুক্ত হও!
-        জনপ্রিয় সব বইয়ের চমৎকার বাংলা অডিওবুক, ফুল টেক্সট এবং স্পোকেন কোর্স শেখার সেরা প্ল্যাটফর্ম।
+        আসসালামু আলাইকুম / নমস্কার! 🌿
 
-        রেজিস্টার করার সময় আমার রেফার কোড ব্যবহার করো:
-        👉 $referralCode
+        বই পড়ার আনন্দ এবং নতুন ভাষা শেখার সহজ সুযোগ নিয়ে এলো—
+        📖 বাংলা অডিওবুক ও স্পোকেন কোর্স অ্যাপ
 
-        বন্ধু যেকোনো কোর্স নিলে তুমি পাবে বিশেষ ছাড় এবং বোনাস!
-        অ্যাপটি ডাউনলোড করে এখনই শুরু করো:
-        https://play.google.com/store/apps/details?id=com.gigabyte.bookstore
+        ✨ অ্যাপটির বিশেষ সুবিধাসমূহ:
+        • জনপ্রিয় শত শত দেশি-বিদেশি বইয়ের স্পষ্ট বাংলা অডিওবুক ও সম্পূর্ণ পাঠ
+        • ইংরেজি, আরবি, জাপানিজ, কোরিয়ান, জার্মানসহ বিভিন্ন ভাষার স্পোকেন কোর্স
+        • নির্ভুল উচ্চারণ শেখার আধুনিক সুবিধা ও এআই ট্রান্সলেটর
+
+        🎁 রেজিস্ট্রেশনের সময় আমার রেফার কোডটি ব্যবহার করতে পারেন:
+        👉 রেফারেল কোড: $referralCode
+
+        📲 গুগল প্লে স্টোর থেকে অ্যাপটি ডাউনলোড করার লিঙ্ক:
+        $PLAY_STORE_APP_TITLE
+        $PLAY_STORE_APP_URL
+
+        আজই যুক্ত হয়ে সহজে নিজের জ্ঞান ও ভাষাগত দক্ষতা বৃদ্ধি করুন। ধন্যবাদ! 🤝
     """.trimIndent()
 }
 
