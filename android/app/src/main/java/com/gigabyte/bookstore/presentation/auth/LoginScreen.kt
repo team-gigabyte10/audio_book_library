@@ -80,19 +80,31 @@ fun LoginScreen(
                     .padding(horizontal = 20.dp, vertical = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // 1. CLEAN STANDARD BRAND HERO HEADER
+                // 1. VIBRANT GRADIENT HERO HEADER
                 Box(
                     modifier = Modifier
-                        .size(60.dp)
+                        .size(72.dp)
                         .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primaryContainer),
+                        .background(
+                            Brush.linearGradient(
+                                listOf(
+                                    Color(0xFF00897B),
+                                    Color(0xFF004D40)
+                                )
+                            )
+                        )
+                        .border(
+                            width = 2.dp,
+                            color = Color(0xFFFFD54F).copy(alpha = 0.6f),
+                            shape = CircleShape
+                        ),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.AutoStories,
                         contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(32.dp)
+                        tint = Color(0xFFFFE082),
+                        modifier = Modifier.size(36.dp)
                     )
                 }
 
@@ -100,7 +112,7 @@ fun LoginScreen(
 
                 Text(
                     text = "বই ও ভাষা একাডেমি",
-                    fontSize = 22.sp,
+                    fontSize = 23.sp,
                     fontWeight = FontWeight.ExtraBold,
                     color = MaterialTheme.colorScheme.onSurface,
                     textAlign = androidx.compose.ui.text.style.TextAlign.Center
@@ -108,14 +120,21 @@ fun LoginScreen(
 
                 Spacer(modifier = Modifier.height(4.dp))
 
-                Text(
-                    text = "Book & Language Academy",
-                    fontSize = 13.sp,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold
-                )
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.10f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.25f))
+                ) {
+                    Text(
+                        text = "📚 Book & Language Academy",
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp)
+                    )
+                }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 Text(
                     text = "আপনার রেজিস্টার করা ইমেইল দিয়ে সহজে লগইন করুন। বইয়ের অডিও সারাংশ ও সকল ভাষা শিক্ষা চালু রাখুন!",
@@ -132,38 +151,68 @@ fun LoginScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    LoginBadgePill(text = "🎧 অডিও সারাংশ")
-                    LoginBadgePill(text = "🌍 ১০টি ভাষা")
-                    LoginBadgePill(text = "⚡ অফলাইন")
+                    LoginBadgePill(
+                        text = "🎧 অডিও সারাংশ",
+                        bgColor = Color(0xFFEDE7F6),
+                        textColor = Color(0xFF5E35B1),
+                        borderColor = Color(0xFFD1C4E9)
+                    )
+                    LoginBadgePill(
+                        text = "🌍 ১০টি ভাষা",
+                        bgColor = Color(0xFFE0F7FA),
+                        textColor = Color(0xFF00796B),
+                        borderColor = Color(0xFFB2DFDB)
+                    )
+                    LoginBadgePill(
+                        text = "⚡ অফলাইন",
+                        bgColor = Color(0xFFFFF8E1),
+                        textColor = Color(0xFFD97706),
+                        borderColor = Color(0xFFFFE082)
+                    )
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
 
             // 2. CREDENTIALS INPUT CARD
             Card(
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surface
                 ),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .border(
                         width = 1.dp,
-                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f),
-                        shape = RoundedCornerShape(18.dp)
+                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.2f),
+                        shape = RoundedCornerShape(20.dp)
                     )
             ) {
-                Column(modifier = Modifier.padding(18.dp)) {
+                Column(modifier = Modifier.padding(20.dp)) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.fillMaxWidth()
                     ) {
+                        Box(
+                            modifier = Modifier
+                                .size(32.dp)
+                                .clip(CircleShape)
+                                .background(Color(0xFFE0F2F1)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Lock,
+                                contentDescription = null,
+                                tint = Color(0xFF00695C),
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
                         Text(
                             text = "লগইন তথ্য (Account Credentials)",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                     }
 
@@ -333,37 +382,66 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // 4. SUBMIT / LOGIN BUTTON
+            // 4. SUBMIT / LOGIN BUTTON (VIBRANT GRADIENT)
             Button(
                 onClick = { submit() },
                 enabled = isEmailValid && uiState !is LoginUiState.Loading,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(54.dp),
-                shape = RoundedCornerShape(14.dp),
+                shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary
+                    containerColor = Color.Transparent,
+                    disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
                 ),
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = 3.dp)
+                contentPadding = PaddingValues(),
+                elevation = ButtonDefaults.buttonElevation(defaultElevation = if (isEmailValid) 4.dp else 0.dp)
             ) {
-                if (uiState is LoginUiState.Loading) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp),
-                        color = MaterialTheme.colorScheme.onPrimary,
-                        strokeWidth = 2.dp
+                val buttonBrush = if (isEmailValid && uiState !is LoginUiState.Loading) {
+                    Brush.horizontalGradient(
+                        listOf(
+                            Color(0xFF00897B),
+                            Color(0xFF004D40)
+                        )
                     )
                 } else {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.Login,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp)
+                    Brush.horizontalGradient(
+                        listOf(
+                            Color(0xFFB0BEC5),
+                            Color(0xFF90A4AE)
+                        )
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "লগইন করুন (Login)",
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold
-                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(buttonBrush)
+                        .padding(horizontal = 16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (uiState is LoginUiState.Loading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.Login,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                                tint = Color.White
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "লগইন করুন (Login)",
+                                fontSize = 15.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+                    }
                 }
             }
 
@@ -378,40 +456,51 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // 5. REGISTRATION INVITATION CARD
+            // 5. REGISTRATION INVITATION CARD (COLORFUL PROMO)
             Card(
-                shape = RoundedCornerShape(16.dp),
+                shape = RoundedCornerShape(18.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                    containerColor = Color(0xFFE0F2F1).copy(alpha = 0.45f)
                 ),
                 elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .border(
-                        width = 1.dp,
-                        color = if (error?.suggestRegister == true) {
-                            MaterialTheme.colorScheme.primary
-                        } else {
-                            MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)
-                        },
-                        shape = RoundedCornerShape(16.dp)
+                        width = 1.2.dp,
+                        color = Color(0xFF00796B).copy(alpha = 0.35f),
+                        shape = RoundedCornerShape(18.dp)
                     )
             ) {
                 Column(
                     modifier = Modifier.padding(18.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Color(0xFF00695C)
+                    ) {
+                        Text(
+                            text = "🎁 নতুন ব্যবহারকারী অফার",
+                            fontSize = 11.5.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "নতুন ব্যবহারকারী? (Don't have an account?)",
+                        text = "নতুন অ্যাকাউন্ট তৈরি করে ৭ দিনের ফ্রি ট্রায়াল নিন!",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = MaterialTheme.colorScheme.onSurface,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "নিবন্ধন করলেই পাবেন ৭ দিনের সম্পূর্ণ ফ্রি ট্রায়াল সুবিধা!",
+                        text = "বইয়ের অডিও সারাংশ ও ১০টি ভাষা শিক্ষা উপভোগ করুন সম্পূর্ণ ফ্রিতে।",
                         fontSize = 12.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     )
 
                     Spacer(modifier = Modifier.height(14.dp))
@@ -421,24 +510,27 @@ fun LoginScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(48.dp),
-                        shape = RoundedCornerShape(12.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = MaterialTheme.colorScheme.surface
+                        ),
                         border = androidx.compose.foundation.BorderStroke(
                             width = 1.5.dp,
-                            color = MaterialTheme.colorScheme.primary
+                            color = Color(0xFF00695C)
                         )
                     ) {
                         Icon(
                             imageVector = Icons.Default.PersonAdd,
                             contentDescription = null,
                             modifier = Modifier.size(18.dp),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = Color(0xFF00695C)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
                             text = "নতুন অ্যাকাউন্ট তৈরি করুন (Register)",
                             fontWeight = FontWeight.Bold,
                             fontSize = 13.5.sp,
-                            color = MaterialTheme.colorScheme.primary
+                            color = Color(0xFF00695C)
                         )
                     }
                 }
@@ -451,20 +543,25 @@ fun LoginScreen(
 }
 
 @Composable
-private fun RowScope.LoginBadgePill(text: String) {
+private fun RowScope.LoginBadgePill(
+    text: String,
+    bgColor: Color,
+    textColor: Color,
+    borderColor: Color
+) {
     Surface(
         shape = RoundedCornerShape(10.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.55f),
-        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.45f)),
+        color = bgColor,
+        border = androidx.compose.foundation.BorderStroke(1.dp, borderColor),
         modifier = Modifier.weight(1f)
     ) {
         Text(
             text = text,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = textColor,
             fontSize = 11.5.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier
-                .padding(vertical = 6.dp)
+                .padding(vertical = 7.dp)
                 .wrapContentWidth(Alignment.CenterHorizontally)
         )
     }

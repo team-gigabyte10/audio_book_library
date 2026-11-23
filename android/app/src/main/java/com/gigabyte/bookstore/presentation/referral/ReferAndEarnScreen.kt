@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -27,6 +28,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,6 +37,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.ReferredUserItem
+import com.gigabyte.bookstore.data.models.WithdrawalRequest
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.presentation.components.UserQrCodeDialog
 
@@ -42,7 +45,7 @@ import com.gigabyte.bookstore.presentation.components.UserQrCodeDialog
 @Composable
 fun ReferAndEarnScreen(
     onNavigateBack: () -> Unit,
-    onNavigateToWallet: () -> Unit,
+    onNavigateToWallet: (() -> Unit)? = null,
     onNavigateToPayment: (() -> Unit)? = null,
     viewModel: ReferralViewModel = viewModel()
 ) {
@@ -55,12 +58,22 @@ fun ReferAndEarnScreen(
     val userEmail by app.appPreferences.userEmail.collectAsStateWithLifecycle()
 
     val uiState by viewModel.uiState.collectAsState()
+    val isWithdrawing by viewModel.isWithdrawing.collectAsState()
+    val actionMessage by viewModel.actionMessage.collectAsState()
+    var showWithdrawDialog by remember { mutableStateOf(false) }
     var showMyQrDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(actionMessage) {
+        actionMessage?.let {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            viewModel.clearActionMessage()
+        }
+    }
 
     Scaffold(
         topBar = {
             ThemedTopAppBar(
-                title = { Text("রেফার ও আয় (Refer & Earn)") },
+                title = { Text("রেফার ও ওয়ালেট (Refer & Wallet)") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
@@ -112,6 +125,13 @@ fun ReferAndEarnScreen(
                 is ReferralUiState.Success -> {
                     val stats = state.stats
                     val refCode = stats.referralCode.ifBlank { localReferralCode }
+                    val currentBal = stats.currentBalance.coerceAtLeast(localBalance)
+
+                    LaunchedEffect(stats.currentBalance) {
+                        if (stats.currentBalance > 0.0 || stats.currentBalance != localBalance) {
+                            app.appPreferences.updateUserBalance(stats.currentBalance)
+                        }
+                    }
 
                     LazyColumn(
                         modifier = Modifier
@@ -142,31 +162,6 @@ fun ReferAndEarnScreen(
                             )
                         }
 
-                        // 2.1 Google Play Store App Link Card
-                        item {
-                            PlayStoreAppLinkCard(
-                                appTitle = pricingConfig.playStoreAppTitle,
-                                appUrl = pricingConfig.playStoreAppUrl,
-                                onCopyLink = {
-                                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                    val clip = ClipData.newPlainText("Play Store App Link", pricingConfig.playStoreAppUrl)
-                                    clipboard.setPrimaryClip(clip)
-                                    Toast.makeText(context, "অ্যাপের প্লে স্টোর লিঙ্ক কপি করা হয়েছে!", Toast.LENGTH_SHORT).show()
-                                },
-                                onOpenPlayStore = {
-                                    try {
-                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.gigabyte.bookstore")).apply {
-                                            setPackage("com.android.vending")
-                                        }
-                                        context.startActivity(intent)
-                                    } catch (e: Exception) {
-                                        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(pricingConfig.playStoreAppUrl))
-                                        context.startActivity(webIntent)
-                                    }
-                                }
-                            )
-                        }
-
                         // 3. Social Media 1-Tap Share Channels
                         item {
                             SocialShareChannelsCard(
@@ -188,15 +183,16 @@ fun ReferAndEarnScreen(
                             )
                         }
 
-                        // 5. Referral Performance & Wallet CTA Card
+                        // 5. Referral Performance & Direct Wallet Action Card
                         item {
                             ReferralEarningsSummaryCard(
                                 totalFriends = stats.totalFriendsJoined,
                                 paidMembers = stats.paidMembersCount,
                                 totalEarned = stats.totalEarned,
-                                currentBalance = stats.currentBalance.coerceAtLeast(localBalance),
+                                currentBalance = currentBal,
                                 pricingConfig = pricingConfig,
-                                onNavigateToWallet = onNavigateToWallet
+                                onWithdrawClick = { showWithdrawDialog = true },
+                                onNavigateToPayment = onNavigateToPayment
                             )
                         }
 
@@ -211,12 +207,42 @@ fun ReferAndEarnScreen(
                                     modifier = Modifier.padding(top = 6.dp)
                                 )
                             }
-                            items(stats.referredUsers.take(10)) { userItem ->
+                            items(stats.referredUsers.take(15)) { userItem ->
                                 ReferredFriendItemCard(user = userItem)
+                            }
+                        }
+
+                        // 7. Withdrawal History List
+                        if (state.withdrawals.isNotEmpty()) {
+                            item {
+                                Text(
+                                    text = "টাকা উত্তোলন হিস্ট্রি (${state.withdrawals.size}টি)",
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    modifier = Modifier.padding(top = 8.dp)
+                                )
+                            }
+                            items(state.withdrawals) { withdrawal ->
+                                ReferralWithdrawalItemCard(withdrawal = withdrawal)
                             }
                         }
                     }
                 }
+            }
+
+            if (showWithdrawDialog) {
+                val currentBal = (uiState as? ReferralUiState.Success)?.stats?.currentBalance?.coerceAtLeast(localBalance) ?: localBalance
+                ReferralWithdrawDialog(
+                    currentBalance = currentBal,
+                    minWithdrawal = pricingConfig.minWithdrawalAmount,
+                    isSubmitting = isWithdrawing,
+                    onDismiss = { showWithdrawDialog = false },
+                    onSubmit = { method: String, account: String, type: String, amount: Double ->
+                        viewModel.requestWithdrawal(method, account, type, amount)
+                        showWithdrawDialog = false
+                    }
+                )
             }
 
             if (showMyQrDialog) {
@@ -380,111 +406,6 @@ private fun ReferralCodeShareCard(
                     Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(text = "শেয়ার করুন", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp)
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun PlayStoreAppLinkCard(
-    appTitle: String = AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
-    appUrl: String = AppPricingConfig.DEFAULT_PLAY_STORE_URL,
-    onCopyLink: () -> Unit,
-    onOpenPlayStore: () -> Unit
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f)
-        ),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp)
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Surface(
-                    shape = RoundedCornerShape(8.dp),
-                    color = Color(0xFF10B981).copy(alpha = 0.15f),
-                    modifier = Modifier.size(36.dp)
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = Icons.Default.PhoneAndroid,
-                            contentDescription = null,
-                            tint = Color(0xFF047857),
-                            modifier = Modifier.size(20.dp)
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.width(10.dp))
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = "📲 গুগল প্লে স্টোর অ্যাপ লিঙ্ক",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color(0xFF047857)
-                    )
-                    Text(
-                        text = appTitle,
-                        fontSize = 13.5.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        maxLines = 1,
-                        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Surface(
-                color = MaterialTheme.colorScheme.surface,
-                shape = RoundedCornerShape(10.dp),
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.25f)),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = appUrl,
-                    fontSize = 11.5.sp,
-                    color = MaterialTheme.colorScheme.primary,
-                    maxLines = 1,
-                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
-            ) {
-                OutlinedButton(
-                    onClick = onCopyLink,
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.weight(1f),
-                    contentPadding = PaddingValues(vertical = 8.dp, horizontal = 12.dp)
-                ) {
-                    Icon(imageVector = Icons.Default.ContentCopy, contentDescription = null, modifier = Modifier.size(15.dp))
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(text = "লিঙ্ক কপি", fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
-                }
-
-                Button(
-                    onClick = onOpenPlayStore,
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0284C7)),
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.weight(1f),
-                    contentPadding = PaddingValues(vertical = 8.dp, horizontal = 12.dp)
-                ) {
-                    Icon(imageVector = Icons.Default.OpenInNew, contentDescription = null, tint = Color.White, modifier = Modifier.size(15.dp))
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(text = "প্লে স্টোরে দেখুন", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
                 }
             }
         }
@@ -786,21 +707,24 @@ private fun ReferralEarningsSummaryCard(
     totalEarned: Double,
     currentBalance: Double,
     pricingConfig: AppPricingConfig,
-    onNavigateToWallet: () -> Unit
+    onWithdrawClick: () -> Unit,
+    onNavigateToPayment: (() -> Unit)? = null
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(14.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         ),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f))
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "📊 আপনার রেফারেল পারফরম্যান্স",
+                text = "📊 আপনার রেফারেল পারফরম্যান্স ও ওয়ালেট",
                 fontWeight = FontWeight.Bold,
-                fontSize = 14.5.sp
+                fontSize = 15.sp,
+                color = MaterialTheme.colorScheme.onSurface
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -847,22 +771,51 @@ private fun ReferralEarningsSummaryCard(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "৳ ${"%.0f".format(currentBalance)}",
-                        fontSize = 20.sp,
+                        text = "৳ ${"%.2f".format(currentBalance)}",
+                        fontSize = 22.sp,
                         fontWeight = FontWeight.ExtraBold,
                         color = Color(0xFF047857)
                     )
                 }
 
-                Button(
-                    onClick = onNavigateToWallet,
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF047857)),
-                    shape = RoundedCornerShape(10.dp)
-                ) {
-                    Icon(imageVector = Icons.Default.AccountBalanceWallet, contentDescription = null, modifier = Modifier.size(16.dp))
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(text = "ওয়ালেট ও ক্যাশআউট", fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Button(
+                        onClick = onWithdrawClick,
+                        enabled = currentBalance >= pricingConfig.minWithdrawalAmount,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF10B981),
+                            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant
+                        ),
+                        shape = RoundedCornerShape(10.dp),
+                        contentPadding = PaddingValues(horizontal = 14.dp, vertical = 8.dp)
+                    ) {
+                        Icon(imageVector = Icons.Default.Payments, contentDescription = null, modifier = Modifier.size(16.dp))
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(text = "উইথড্র", fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
+                    }
+
+                    if (onNavigateToPayment != null) {
+                        OutlinedButton(
+                            onClick = onNavigateToPayment,
+                            shape = RoundedCornerShape(10.dp),
+                            border = BorderStroke(1.2.dp, Color(0xFF047857)),
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
+                        ) {
+                            Icon(imageVector = Icons.Default.ShoppingBag, contentDescription = null, tint = Color(0xFF047857), modifier = Modifier.size(16.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(text = "কোর্স কিনুন", color = Color(0xFF047857), fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
+                        }
+                    }
                 }
+            }
+
+            if (currentBalance < pricingConfig.minWithdrawalAmount) {
+                Spacer(modifier = Modifier.height(6.dp))
+                Text(
+                    text = "* সর্বনিম্ন উত্তোলনের পরিমাণ ৳ ${pricingConfig.minWithdrawalAmount.toInt()}",
+                    fontSize = 11.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f)
+                )
             }
         }
     }
@@ -941,7 +894,7 @@ private fun ReferredFriendItemCard(user: ReferredUserItem) {
                 shape = RoundedCornerShape(6.dp)
             ) {
                 Text(
-                    text = if (user.isPaid) "পেইড মেম্বার" else "ফ্রি ট্রায়াল",
+                    text = if (user.isPaid) "🟢 পেইড মেম্বার (+৳২০)" else "🟡 ফ্রি ট্রায়াল (কিনলে ৳২০)",
                     color = if (user.isPaid) Color(0xFF047857) else Color(0xFFB45309),
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Bold,
@@ -952,8 +905,163 @@ private fun ReferredFriendItemCard(user: ReferredUserItem) {
     }
 }
 
-const val PLAY_STORE_APP_TITLE = AppPricingConfig.DEFAULT_PLAY_STORE_TITLE
-const val PLAY_STORE_APP_URL = AppPricingConfig.DEFAULT_PLAY_STORE_URL
+@Composable
+private fun ReferralWithdrawalItemCard(withdrawal: WithdrawalRequest) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Text(
+                    text = "${withdrawal.method} (${withdrawal.accountNumber})",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.5.sp
+                )
+                Text(
+                    text = withdrawal.submittedAt.take(16),
+                    fontSize = 11.5.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            Column(horizontalAlignment = Alignment.End) {
+                Text(
+                    text = "-৳${"%.0f".format(withdrawal.amount)}",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+                val (statusText, statusColor) = when (withdrawal.status.lowercase()) {
+                    "approved" -> "সম্পন্ন" to Color(0xFF10B981)
+                    "rejected" -> "বাতিল" to Color(0xFFEF4444)
+                    else -> "পেন্ডিং" to Color(0xFFF59E0B)
+                }
+                Text(
+                    text = statusText,
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = statusColor
+                )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReferralWithdrawDialog(
+    currentBalance: Double,
+    minWithdrawal: Double = 100.0,
+    isSubmitting: Boolean,
+    onDismiss: () -> Unit,
+    onSubmit: (method: String, account: String, type: String, amount: Double) -> Unit
+) {
+    var selectedMethod by remember { mutableStateOf("bKash") }
+    var accountNumber by remember { mutableStateOf("") }
+    var accountType by remember { mutableStateOf("personal") }
+    var amountText by remember { mutableStateOf(if (currentBalance >= minWithdrawal) currentBalance.toInt().toString() else minWithdrawal.toInt().toString()) }
+
+    val amount = amountText.toDoubleOrNull() ?: 0.0
+    val isAmountValid = amount >= minWithdrawal && amount <= currentBalance
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(text = "টাকা উত্তোলন করুন (Withdraw)", fontWeight = FontWeight.Bold)
+        },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text(
+                    text = "বর্তমান ব্যালেন্স: ৳${"%.0f".format(currentBalance)}",
+                    fontSize = 13.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.SemiBold
+                )
+
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)),
+                    shape = RoundedCornerShape(8.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "⚠️ সর্বনিম্ন উত্তোলনের পরিমাণ ৳ ${minWithdrawal.toInt()}.০০। অনুরোধ অনুমোদনের পর ২৪ ঘণ্টার মধ্যে মোবাইল ব্যাংকিং নম্বরে টাকা পাঠানো হবে।",
+                        fontSize = 11.5.sp,
+                        lineHeight = 16.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(10.dp)
+                    )
+                }
+
+                // Method selection chips
+                Text(text = "পেমেন্ট মেথড:", fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    listOf("bKash", "Nagad", "Rocket").forEach { method ->
+                        FilterChip(
+                            selected = selectedMethod == method,
+                            onClick = { selectedMethod = method },
+                            label = { Text(method) }
+                        )
+                    }
+                }
+
+                OutlinedTextField(
+                    value = accountNumber,
+                    onValueChange = { accountNumber = it },
+                    label = { Text("মোবাইল ব্যাংকিং নম্বর") },
+                    placeholder = { Text("01XXXXXXXXX") },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                OutlinedTextField(
+                    value = amountText,
+                    onValueChange = { amountText = it },
+                    label = { Text("উত্তোলনের পরিমাণ (সর্বনিম্ন ৳ ১০০)") },
+                    singleLine = true,
+                    isError = amountText.isNotBlank() && (!isAmountValid),
+                    supportingText = {
+                        if (amountText.isNotBlank()) {
+                            if (amount < minWithdrawal) {
+                                Text("সর্বনিম্ন ১০০ টাকা লিখতে হবে", color = MaterialTheme.colorScheme.error)
+                            } else if (amount > currentBalance) {
+                                Text("ব্যালেন্সের চেয়ে বেশি তোলা যাবে না", color = MaterialTheme.colorScheme.error)
+                            }
+                        }
+                    },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = {
+                    onSubmit(selectedMethod, accountNumber, accountType, amount)
+                },
+                enabled = !isSubmitting && accountNumber.length >= 11 && isAmountValid
+            ) {
+                if (isSubmitting) {
+                    CircularProgressIndicator(modifier = Modifier.size(16.dp), color = MaterialTheme.colorScheme.onPrimary)
+                } else {
+                    Text("অনুরোধ পাঠান")
+                }
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("বাতিল")
+            }
+        }
+    )
+}
 
 fun createShareMessage(referralCode: String, pricingConfig: AppPricingConfig): String {
     return pricingConfig.formatReferralMessage(referralCode)

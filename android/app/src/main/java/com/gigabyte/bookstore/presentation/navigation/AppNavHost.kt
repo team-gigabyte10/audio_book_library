@@ -454,24 +454,19 @@ fun AppNavHost(
             )
         }
 
-        // 9. Referral & Earn Screen
+        // 9. Unified Referral & Wallet Screen
         composable(Screen.Referral.route) {
-            ReferralScreen(
+            ReferAndEarnScreen(
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
             )
         }
 
-        // 9.1 Refer & Earn Invitation Screen (Backend-controlled Bonus & Sharing)
+        // 9.1 Refer & Earn Screen (Consolidated with Wallet)
         composable(Screen.ReferAndEarn.route) {
             ReferAndEarnScreen(
                 onNavigateBack = { navController.popBackStack() },
-                onNavigateToWallet = {
-                    navController.navigate(Screen.Referral.route) { launchSingleTop = true }
-                },
-                onNavigateToPayment = {
-                    navController.navigate(Screen.Payment.route)
-                }
+                onNavigateToPayment = { navController.navigate(Screen.Payment.route) }
             )
         }
 

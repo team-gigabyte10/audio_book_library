@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Login
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -102,19 +103,31 @@ fun RegisterScreen(
                     .padding(horizontal = 20.dp, vertical = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // 1. CLEAN STANDARD BRAND HERO HEADER
+                // 1. VIBRANT GRADIENT HERO HEADER
                 Box(
                     modifier = Modifier
-                        .size(60.dp)
+                        .size(72.dp)
                         .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primaryContainer),
+                        .background(
+                            Brush.linearGradient(
+                                listOf(
+                                    Color(0xFF00897B),
+                                    Color(0xFF004D40)
+                                )
+                            )
+                        )
+                        .border(
+                            width = 2.dp,
+                            color = Color(0xFFFFD54F).copy(alpha = 0.6f),
+                            shape = CircleShape
+                        ),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.AutoStories,
                         contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(32.dp)
+                        tint = Color(0xFFFFE082),
+                        modifier = Modifier.size(36.dp)
                     )
                 }
 
@@ -122,7 +135,7 @@ fun RegisterScreen(
 
                 Text(
                     text = "বই ও ভাষা একাডেমি",
-                    fontSize = 22.sp,
+                    fontSize = 23.sp,
                     fontWeight = FontWeight.ExtraBold,
                     color = MaterialTheme.colorScheme.onSurface,
                     textAlign = androidx.compose.ui.text.style.TextAlign.Center
@@ -130,23 +143,79 @@ fun RegisterScreen(
 
                 Spacer(modifier = Modifier.height(4.dp))
 
-                Text(
-                    text = "Book & Language Academy",
-                    fontSize = 13.sp,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold
-                )
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.10f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.25f))
+                ) {
+                    Text(
+                        text = "📚 Book & Language Academy",
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp)
+                    )
+                }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
-                Text(
-                    text = "অ্যাকাউন্ট তৈরি করে ৭ দিনের ফ্রি ট্রায়াল অ্যাক্টিভ করুন। বইয়ের সারাংশ ও সকল ভাষা শিক্ষা থাকবে সম্পূর্ণ উন্মুক্ত!",
-                    fontSize = 13.sp,
-                    lineHeight = 19.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                    modifier = Modifier.padding(horizontal = 12.dp)
-                )
+                // 7-DAY FREE TRIAL HERO BANNER
+                Card(
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                Brush.linearGradient(
+                                    listOf(
+                                        Color(0xFF00695C),
+                                        Color(0xFF004D40)
+                                    )
+                                )
+                            )
+                            .padding(16.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(46.dp)
+                                    .clip(CircleShape)
+                                    .background(Color(0xFFFFD54F)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.CardGiftcard,
+                                    contentDescription = null,
+                                    tint = Color(0xFF004D40),
+                                    modifier = Modifier.size(26.dp)
+                                )
+                            }
+                            Spacer(modifier = Modifier.width(14.dp))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "🎁 ৭ দিনের ফ্রি ট্রায়াল চালু হবে!",
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color(0xFFFFD54F)
+                                )
+                                Spacer(modifier = Modifier.height(2.dp))
+                                Text(
+                                    text = "রেজিস্টার করলেই সব বইয়ের অডিও সারাংশ ও ১০টি ভাষা শিক্ষা উন্মুক্ত পাবেন সম্পূর্ণ ফ্রিতে।",
+                                    fontSize = 12.sp,
+                                    lineHeight = 17.sp,
+                                    color = Color.White.copy(alpha = 0.95f)
+                                )
+                            }
+                        }
+                    }
+                }
 
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -154,49 +223,80 @@ fun RegisterScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    TrialBadgePill(text = "🎧 অডিও সারাংশ")
-                    TrialBadgePill(text = "🌍 ১০টি ভাষা")
-                    TrialBadgePill(text = "⚡ অফলাইন")
+                    TrialBadgePill(
+                        text = "🎧 অডিও সারাংশ",
+                        bgColor = Color(0xFFEDE7F6),
+                        textColor = Color(0xFF5E35B1),
+                        borderColor = Color(0xFFD1C4E9)
+                    )
+                    TrialBadgePill(
+                        text = "🌍 ১০টি ভাষা",
+                        bgColor = Color(0xFFE0F7FA),
+                        textColor = Color(0xFF00796B),
+                        borderColor = Color(0xFFB2DFDB)
+                    )
+                    TrialBadgePill(
+                        text = "⚡ অফলাইন",
+                        bgColor = Color(0xFFFFF8E1),
+                        textColor = Color(0xFFD97706),
+                        borderColor = Color(0xFFFFE082)
+                    )
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
 
             // 2. MANDATORY DETAILS CARD (NAME & EMAIL)
             Card(
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surface
                 ),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .border(
                         width = 1.dp,
-                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f),
-                        shape = RoundedCornerShape(18.dp)
+                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.2f),
+                        shape = RoundedCornerShape(20.dp)
                     )
             ) {
-                Column(modifier = Modifier.padding(18.dp)) {
+                Column(modifier = Modifier.padding(20.dp)) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.fillMaxWidth()
                     ) {
+                        Box(
+                            modifier = Modifier
+                                .size(32.dp)
+                                .clip(CircleShape)
+                                .background(Color(0xFFE0F2F1)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Person,
+                                contentDescription = null,
+                                tint = Color(0xFF00695C),
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
                         Text(
                             text = "আবশ্যক তথ্য (Required)",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                         Spacer(modifier = Modifier.weight(1f))
                         Surface(
                             shape = RoundedCornerShape(8.dp),
-                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
+                            color = Color(0xFFE8F5E9),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFA5D6A7))
                         ) {
                             Text(
                                 text = "* আবশ্যক",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary,
+                                color = Color(0xFF1B5E20),
                                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                             )
                         }
@@ -423,37 +523,55 @@ fun RegisterScreen(
 
                             Spacer(modifier = Modifier.height(12.dp))
 
-                            // Referral Code (Optional)
-                            OutlinedTextField(
-                                value = referralCode,
-                                onValueChange = { referralCode = it.uppercase() },
-                                label = { Text("রেফার কোড (Referral Code - ঐচ্ছিক)") },
-                                placeholder = { Text("যেমন: SUMON1234") },
-                                leadingIcon = {
-                                    Icon(
-                                        Icons.Default.CardGiftcard,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.primary
+                            // Referral Code Highlighted Card (Optional)
+                            Surface(
+                                shape = RoundedCornerShape(14.dp),
+                                color = Color(0xFFFFFBEB),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFFDE68A)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Column(modifier = Modifier.padding(12.dp)) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Icon(
+                                            Icons.Default.CardGiftcard,
+                                            contentDescription = null,
+                                            tint = Color(0xFFD97706),
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(6.dp))
+                                        Text(
+                                            text = "রেফার কোড বোনাস (ঐচ্ছিক)",
+                                            fontSize = 12.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color(0xFFB45309)
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    OutlinedTextField(
+                                        value = referralCode,
+                                        onValueChange = { referralCode = it.uppercase() },
+                                        placeholder = { Text("যেমন: SUMON1234") },
+                                        singleLine = true,
+                                        modifier = Modifier.fillMaxWidth(),
+                                        colors = OutlinedTextFieldDefaults.colors(
+                                            focusedContainerColor = Color.White,
+                                            unfocusedContainerColor = Color.White
+                                        ),
+                                        keyboardOptions = KeyboardOptions(
+                                            keyboardType = KeyboardType.Text,
+                                            imeAction = ImeAction.Done
+                                        ),
+                                        keyboardActions = KeyboardActions(onDone = { submit() }),
+                                        shape = RoundedCornerShape(10.dp)
                                     )
-                                },
-                                supportingText = {
+                                    Spacer(modifier = Modifier.height(4.dp))
                                     Text(
                                         text = "বন্ধুর রেফার কোড থাকলে যুক্ত করুন এবং বোনাস উপভোগ করুন!",
                                         fontSize = 11.sp,
-                                        color = MaterialTheme.colorScheme.primary
+                                        color = Color(0xFFB45309)
                                     )
-                                },
-                                singleLine = true,
-                                modifier = Modifier.fillMaxWidth(),
-                                keyboardOptions = KeyboardOptions(
-                                    keyboardType = KeyboardType.Text,
-                                    imeAction = ImeAction.Done
-                                ),
-                                keyboardActions = KeyboardActions(
-                                    onDone = { submit() }
-                                ),
-                                shape = RoundedCornerShape(12.dp)
-                            )
+                                }
+                            }
                         }
                     }
                 }
@@ -464,9 +582,9 @@ fun RegisterScreen(
             if (error != null) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Card(
-                    shape = RoundedCornerShape(12.dp),
+                    shape = RoundedCornerShape(14.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.8f)
+                        containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.85f)
                     ),
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -493,37 +611,66 @@ fun RegisterScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // 4. SUBMIT / REGISTER BUTTON
+            // 4. SUBMIT / REGISTER BUTTON (VIBRANT GRADIENT)
             Button(
                 onClick = { submit() },
                 enabled = isFormValid && uiState !is RegisterUiState.Loading,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(54.dp),
-                shape = RoundedCornerShape(14.dp),
+                shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary
+                    containerColor = Color.Transparent,
+                    disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
                 ),
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = 3.dp)
+                contentPadding = PaddingValues(),
+                elevation = ButtonDefaults.buttonElevation(defaultElevation = if (isFormValid) 4.dp else 0.dp)
             ) {
-                if (uiState is RegisterUiState.Loading) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp),
-                        color = MaterialTheme.colorScheme.onPrimary,
-                        strokeWidth = 2.dp
+                val buttonBrush = if (isFormValid && uiState !is RegisterUiState.Loading) {
+                    Brush.horizontalGradient(
+                        listOf(
+                            Color(0xFF00897B),
+                            Color(0xFF004D40)
+                        )
                     )
                 } else {
-                    Icon(
-                        imageVector = Icons.Default.CheckCircle,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp)
+                    Brush.horizontalGradient(
+                        listOf(
+                            Color(0xFFB0BEC5),
+                            Color(0xFF90A4AE)
+                        )
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "অ্যাকাউন্ট তৈরি ও ট্রায়াল শুরু করুন (Register)",
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Bold
-                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(buttonBrush)
+                        .padding(horizontal = 16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (uiState is RegisterUiState.Loading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Default.CheckCircle,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                                tint = Color.White
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "অ্যাকাউন্ট তৈরি ও ট্রায়াল শুরু করুন (Register)",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+                    }
                 }
             }
 
@@ -543,11 +690,21 @@ fun RegisterScreen(
                     onClick = onNavigateToLogin,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(
-                        text = "আগে থেকেই অ্যাকাউন্ট আছে? লগইন করুন (Log in)",
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 14.sp
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.Login,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "আগে থেকেই অ্যাকাউন্ট আছে? লগইন করুন (Log in)",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.sp,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
                 }
             }
 
@@ -558,20 +715,25 @@ fun RegisterScreen(
 }
 
 @Composable
-private fun RowScope.TrialBadgePill(text: String) {
+private fun RowScope.TrialBadgePill(
+    text: String,
+    bgColor: Color,
+    textColor: Color,
+    borderColor: Color
+) {
     Surface(
         shape = RoundedCornerShape(10.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.55f),
-        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.45f)),
+        color = bgColor,
+        border = androidx.compose.foundation.BorderStroke(1.dp, borderColor),
         modifier = Modifier.weight(1f)
     ) {
         Text(
             text = text,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = textColor,
             fontSize = 11.5.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier
-                .padding(vertical = 6.dp)
+                .padding(vertical = 7.dp)
                 .wrapContentWidth(Alignment.CenterHorizontally)
         )
     }

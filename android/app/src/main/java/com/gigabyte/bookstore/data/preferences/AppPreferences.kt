@@ -553,6 +553,11 @@ class AppPreferences(context: Context) {
         _userBalance.value = balance
     }
 
+    fun updateUserBalance(balance: Double) {
+        prefs.edit().putFloat(KEY_USER_BALANCE, balance.toFloat()).apply()
+        _userBalance.value = balance
+    }
+
     fun getStoredDeviceId(): String = prefs.getString(KEY_DEVICE_ID, "") ?: ""
 
     fun clearUserSession() {

@@ -241,7 +241,7 @@ fun ReferralScreen(
                             minWithdrawal = pricingConfig.minWithdrawalAmount,
                             isSubmitting = isWithdrawing,
                             onDismiss = { showWithdrawDialog = false },
-                            onSubmit = { method, account, type, amount ->
+                            onSubmit = { method: String, account: String, type: String, amount: Double ->
                                 viewModel.requestWithdrawal(method, account, type, amount)
                                 showWithdrawDialog = false
                             }

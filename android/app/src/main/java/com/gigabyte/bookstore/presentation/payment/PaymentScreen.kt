@@ -1033,34 +1033,57 @@ fun PaymentScreen(
                         HorizontalDivider(modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
                     }
                 }
-            } else if (userBalance > 0.0 && !isPackageAlreadyUnlocked) {
-                    Card(
-                        shape = RoundedCornerShape(10.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)
-                        ),
-                        modifier = Modifier.fillMaxWidth()
+            } else if (!isPackageAlreadyUnlocked) {
+                Card(
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.25f)
+                    ),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(14.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(
-                            modifier = Modifier.padding(12.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                        Surface(
+                            shape = CircleShape,
+                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
+                            modifier = Modifier.size(36.dp)
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.AccountBalanceWallet,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(20.dp)
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.Default.AccountBalanceWallet,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = "আপনার ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)}। বন্ধুদের রেফার করে আরো আয় করে যেকোনো কোর্স সম্পূর্ণ ফ্রি-তে ওয়ালেট দিয়ে কিনতে পারবেন!",
+                                text = "ওয়ালেট ব্যালেন্স: ৳ ${"%.2f".format(userBalance)}",
+                                fontSize = 12.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = "বন্ধুদের রেফার করে প্রতি রেফারে ৳২০ আয় করুন এবং ওয়ালেট দিয়ে যেকোনো কোর্স সম্পূর্ণ বিনামূল্যে কিনুন!",
                                 fontSize = 11.5.sp,
                                 lineHeight = 16.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
+                        if (onNavigateToReferral != null) {
+                            TextButton(onClick = onNavigateToReferral) {
+                                Text("রেফার করুন", fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                            }
+                        }
                     }
                 }
+            }
             }
 
             // 4. Mobile Banking Purchase Action

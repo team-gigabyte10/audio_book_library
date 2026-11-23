@@ -330,18 +330,10 @@ fun AppDrawerContent(
 
                 DrawerMenuItem(
                     icon = Icons.Default.CardGiftcard,
-                    title = "রেফার ও আয় (Reffer and Earn)",
-                    badge = "৳${pricingConfig.singleReferralBonus.toInt()}",
+                    title = "রেফার, ওয়ালেট ও আয় (Refer & Wallet)",
+                    badge = "৳${"%.0f".format(userBalance)}",
                     badgeColor = Color(0xFF10B981),
                     onClick = onReferAndEarnClick ?: onReferralClick
-                )
-
-                DrawerMenuItem(
-                    icon = Icons.Default.AccountBalanceWallet,
-                    title = "আমার ওয়ালেট ও উইথড্র (My Wallet)",
-                    badge = "৳${"%.0f".format(userBalance)}",
-                    badgeColor = Color(0xFF8B5CF6),
-                    onClick = onReferralClick
                 )
 
                 DrawerMenuItem(
