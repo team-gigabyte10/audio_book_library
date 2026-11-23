@@ -1,5 +1,6 @@
 package com.gigabyte.bookstore.presentation.drawer
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -25,9 +26,11 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.AppPricingConfig
@@ -58,18 +61,13 @@ fun AppDrawerContent(
 ) {
     var showLogoutConfirm by remember { mutableStateOf(false) }
     if (showLogoutConfirm && onLogoutClick != null) {
-        AlertDialog(
-            onDismissRequest = { showLogoutConfirm = false },
-            title = { Text("লগআউট করবেন?") },
-            text = { Text("আবার ব্যবহার করতে আপনার ইমেইল দিয়ে লগইন করতে হবে। আপনার অ্যাকাউন্ট ও কেনা বান্ডেল ঠিক থাকবে।") },
-            confirmButton = {
-                TextButton(onClick = {
-                    showLogoutConfirm = false
-                    onLogoutClick()
-                }) { Text("লগআউট") }
-            },
-            dismissButton = {
-                TextButton(onClick = { showLogoutConfirm = false }) { Text("বাতিল") }
+        LogoutConfirmDialog(
+            userName = userName,
+            userEmail = userEmail,
+            onDismiss = { showLogoutConfirm = false },
+            onConfirm = {
+                showLogoutConfirm = false
+                onLogoutClick()
             }
         )
     }
@@ -491,4 +489,184 @@ private fun DrawerMenuItem(
             .padding(horizontal = 12.dp, vertical = 2.dp),
         shape = RoundedCornerShape(12.dp)
     )
+}
+
+/**
+ * Modern, beautifully styled Logout Confirmation Dialog with account context and data security reassurance.
+ */
+@Composable
+fun LogoutConfirmDialog(
+    userName: String,
+    userEmail: String,
+    onDismiss: () -> Unit,
+    onConfirm: () -> Unit
+) {
+    Dialog(onDismissRequest = onDismiss) {
+        Surface(
+            shape = RoundedCornerShape(22.dp),
+            color = MaterialTheme.colorScheme.surface,
+            tonalElevation = 6.dp,
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp)
+        ) {
+            Column(
+                modifier = Modifier.padding(22.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Warning / Logout Icon Badge
+                Surface(
+                    shape = CircleShape,
+                    color = Color(0xFFEF4444).copy(alpha = 0.12f),
+                    modifier = Modifier.size(56.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.Logout,
+                            contentDescription = "Logout",
+                            tint = Color(0xFFDC2626),
+                            modifier = Modifier.size(28.dp)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                Text(
+                    text = "লগআউট নিশ্চিতকরণ",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Current Account Card
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Surface(
+                            shape = CircleShape,
+                            color = Color(0xFF00695C),
+                            modifier = Modifier.size(38.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = userName.take(1).uppercase().ifBlank { "U" },
+                                    fontSize = 17.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = userName.ifBlank { "ব্যবহারকারী" },
+                                fontSize = 13.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                            Text(
+                                text = userEmail.ifBlank { "রেজিস্টার্ড ইমেইল" },
+                                fontSize = 11.5.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                // Reassurance points
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = Color(0xFF10B981).copy(alpha = 0.08f),
+                    border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.25f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Row(verticalAlignment = Alignment.Top) {
+                            Text(text = "🛡️", fontSize = 12.sp)
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = "আপনার কেনা সকল কোর্স, অডিওবুক ও ওয়ালেট ব্যালেন্স ১০০% নিরাপদ থাকবে।",
+                                fontSize = 11.5.sp,
+                                lineHeight = 16.sp,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Row(verticalAlignment = Alignment.Top) {
+                            Text(text = "🔑", fontSize = 12.sp)
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = "যেকোনো সময় এই ইমেইল দিয়ে আবার লগইন করতে পারবেন।",
+                                fontSize = 11.5.sp,
+                                lineHeight = 16.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(18.dp))
+
+                // Action Buttons Row
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    OutlinedButton(
+                        onClick = onDismiss,
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.weight(1f),
+                        contentPadding = PaddingValues(vertical = 10.dp)
+                    ) {
+                        Text(
+                            text = "বাতিল",
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 13.5.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    Button(
+                        onClick = onConfirm,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFDC2626)),
+                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier.weight(1f),
+                        contentPadding = PaddingValues(vertical = 10.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.Logout,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "লগআউট",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.5.sp,
+                            color = Color.White
+                        )
+                    }
+                }
+            }
+        }
+    }
 }
