@@ -471,7 +471,9 @@ fun CourseSyllabusScreen(
                 ) {
                     if (isQuran) {
                         item(key = "quran_hero_banner") {
-                            QuranSyllabusHeroCard()
+                            QuranSyllabusHeroCard(
+                                onOpenDefinitions = { onOpenIntro("Quran_Tajweed_Definitions.md") }
+                            )
                         }
                     } else {
                         val courseCountry = CourseCountry.fromLanguageKey(courseType)
@@ -696,6 +698,7 @@ private fun CourseHeroBannerCard(
 
 @Composable
 private fun QuranSyllabusHeroCard(
+    onOpenDefinitions: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -705,7 +708,7 @@ private fun QuranSyllabusHeroCard(
         border = BorderStroke(1.5.dp, Color(0xFFFFD54F).copy(alpha = 0.55f)),
         modifier = modifier
             .fillMaxWidth()
-            .height(180.dp)
+            .height(215.dp)
             .clip(RoundedCornerShape(20.dp))
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -725,7 +728,7 @@ private fun QuranSyllabusHeroCard(
                             colors = listOf(
                                 Color(0xFF040A0D).copy(alpha = 0.35f),
                                 Color(0xFF020608).copy(alpha = 0.65f),
-                                Color(0xFF010405).copy(alpha = 0.82f)
+                                Color(0xFF010405).copy(alpha = 0.85f)
                             )
                         )
                     )
@@ -786,6 +789,44 @@ private fun QuranSyllabusHeroCard(
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
+                }
+
+                // Quick access action for Tajweed & Noorani definitions
+                Surface(
+                    color = Color(0xFF064E3B).copy(alpha = 0.85f),
+                    shape = RoundedCornerShape(10.dp),
+                    border = BorderStroke(1.dp, Color(0xFF34D399).copy(alpha = 0.75f)),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable(onClick = onOpenDefinitions)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Default.AutoStories,
+                                contentDescription = null,
+                                tint = GoldenAccent,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "হরফ, হরকত, তানভীন, সাকিন ও তাজবীদ সংজ্ঞা",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                            contentDescription = null,
+                            tint = Color(0xFFA7F3D0),
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
                 }
             }
         }

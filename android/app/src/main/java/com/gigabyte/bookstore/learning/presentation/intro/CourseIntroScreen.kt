@@ -88,8 +88,14 @@ fun CourseIntroScreen(
     val isEnglishOnly = assetFileName.contains("self_presentation", ignoreCase = true) ||
             assetFileName.contains("daily_activit", ignoreCase = true) ||
             assetFileName.contains("presentation", ignoreCase = true)
+    val isQuranDefinitions = assetFileName.contains("quran", ignoreCase = true) ||
+            assetFileName.contains("tajweed", ignoreCase = true)
     val targetLang = if (isEnglishOnly) SpeechLang.EN else SpeechLang.BN
-    val baseRate = if (isEnglishOnly) 1.05f else 1.15f
+    val baseRate = when {
+        isEnglishOnly -> 1.05f
+        isQuranDefinitions -> 0.92f
+        else -> 1.15f
+    }
 
     // Load and parse paragraphs
     val paragraphs = remember(assetFileName) {
@@ -181,12 +187,14 @@ fun CourseIntroScreen(
         assetFileName.contains("daily_activit", ignoreCase = true) -> "দৈনন্দিন রুটিন (English Monologue)"
         assetFileName.contains("self_presentation", ignoreCase = true) -> "সেলফ প্রেজেন্টেশন (English Only)"
         assetFileName.contains("presentation", ignoreCase = true) -> "মিনি প্রেজেন্টেশন (English Monologue)"
+        isQuranDefinitions -> "📖 নূরানী কায়েদা ও তাজবীদের সংজ্ঞাসমূহ"
         else -> "📖 কোর্স পরিচিতি ও গাইডলাইন"
     }
     val pageSubtitle = when {
         assetFileName.contains("daily_activit", ignoreCase = true) -> "Daily Activities Spoken Monologue"
         assetFileName.contains("self_presentation", ignoreCase = true) -> "Complete English Self Presentation"
         assetFileName.contains("presentation", ignoreCase = true) -> "Cell Phone, Laptop & Facebook ID"
+        isQuranDefinitions -> "হরফ, হরকত, তানভীন, সাকিন ও ক্বলক্বলাহ্ গাইড"
         else -> "ভয়েস রিডিংসহ পূর্ণাঙ্গ অডিও গাইড"
     }
 
