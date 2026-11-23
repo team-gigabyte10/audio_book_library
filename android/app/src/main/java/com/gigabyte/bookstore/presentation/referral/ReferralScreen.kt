@@ -38,6 +38,7 @@ import com.gigabyte.bookstore.data.models.ReferredUserItem
 import com.gigabyte.bookstore.data.models.ReferralReward
 import com.gigabyte.bookstore.data.models.WithdrawalRequest
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import com.gigabyte.bookstore.presentation.components.UserQrCodeDialog
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,12 +52,15 @@ fun ReferralScreen(
     val userStatus by app.appPreferences.userStatus.collectAsStateWithLifecycle()
     val isPaidUser = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
     val pricingConfig by app.appPreferences.pricingConfig.collectAsStateWithLifecycle()
+    val userName by app.appPreferences.userName.collectAsStateWithLifecycle()
+    val userEmail by app.appPreferences.userEmail.collectAsStateWithLifecycle()
 
     val uiState by viewModel.uiState.collectAsState()
     val isWithdrawing by viewModel.isWithdrawing.collectAsState()
     val actionMessage by viewModel.actionMessage.collectAsState()
 
     var showWithdrawDialog by remember { mutableStateOf(false) }
+    var showMyQrDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(actionMessage) {
         actionMessage?.let {
@@ -75,6 +79,9 @@ fun ReferralScreen(
                     }
                 },
                 actions = {
+                    IconButton(onClick = { showMyQrDialog = true }) {
+                        Icon(imageVector = Icons.Default.QrCode, contentDescription = "My QR Code", tint = Color(0xFF10B981))
+                    }
                     IconButton(onClick = { viewModel.loadData() }) {
                         Icon(imageVector = Icons.Default.Refresh, contentDescription = "Refresh")
                     }
@@ -238,6 +245,15 @@ fun ReferralScreen(
                                 viewModel.requestWithdrawal(method, account, type, amount)
                                 showWithdrawDialog = false
                             }
+                        )
+                    }
+
+                    // User QR Code Dialog
+                    if (showMyQrDialog) {
+                        UserQrCodeDialog(
+                            userName = userName,
+                            userEmail = userEmail,
+                            onDismiss = { showMyQrDialog = false }
                         )
                     }
                 }
@@ -898,43 +914,55 @@ fun WalletCoursePurchaseCard(
     onNavigateToPayment: (() -> Unit)?
 ) {
     Card(
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.35f)),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f)),
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF10B981).copy(alpha = 0.12f)),
+        border = BorderStroke(1.2.dp, Color(0xFF10B981).copy(alpha = 0.4f)),
         modifier = Modifier.fillMaxWidth()
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(14.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = "🎓 ব্যালেন্স দিয়ে কোর্স ক্রয় ও রেফার",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 13.5.sp
-                )
-                Text(
-                    text = if (currentBalance >= 100.0) {
-                        "আপনার অর্জিত ৳${"%.0f".format(currentBalance)} দিয়ে নিজের জন্য অথবা অন্য যেকোনো বন্ধুর ইমেইল দিয়ে তার জন্য সম্পূর্ণ বিনামূল্যে কোর্স আনলক করতে পারবেন। এছাড়া প্রতিটি সফল রেফারে আপনি পাবেন আরও ২০ টাকা বোনাস!"
-                    } else {
-                        "রেফার করে ৳১০০ আয় করলেই সেই ব্যালেন্স দিয়ে নিজের জন্য বা বন্ধুর জন্য যেকোনো কোর্স বা বান্ডেল সরাসরি রেফার/আনলক করে দিতে পারবেন এবং প্রতিটি সফল রেফারে আপনি পাবেন আরও ২০ টাকা বোনাস!"
-                    },
-                    fontSize = 11.5.sp,
-                    lineHeight = 16.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.MonetizationOn,
+                        contentDescription = null,
+                        tint = Color(0xFF047857),
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "⚡ কোর্স বিক্রি করে ক্যাশ উইথড্র ও ২০ টাকা বোনাস",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.5.sp,
+                        color = Color(0xFF047857)
+                    )
+                }
             }
 
+            Spacer(modifier = Modifier.height(6.dp))
+
+            Text(
+                text = "উইথড্র রিকোয়েস্ট বা অনুমোদনের অপেক্ষা না করে পরিচিতদের কাছে সরাসরি কোর্স বিক্রি করে ক্যাশ টাকা হাতে নিন! ক্রেতা আপনাকে সরাসরি নগদ টাকা দেবে, আপনি আপনার ওয়ালেট ব্যালেন্স দিয়ে তার অ্যাকাউন্টে কোর্স চালু করে দেবেন। সাথে প্রতি বিক্রিতে পাবেন আরও ৳২০ অতিরিক্ত বোনাস!",
+                fontSize = 11.5.sp,
+                lineHeight = 16.5.sp,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
             if (onNavigateToPayment != null) {
-                Spacer(modifier = Modifier.width(10.dp))
-                FilledTonalButton(
+                Spacer(modifier = Modifier.height(10.dp))
+                Button(
                     onClick = onNavigateToPayment,
-                    shape = RoundedCornerShape(8.dp)
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981)),
+                    shape = RoundedCornerShape(8.dp),
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = PaddingValues(vertical = 8.dp)
                 ) {
-                    Text("কোর্সসমূহ", fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Icon(imageVector = Icons.Default.ShoppingBag, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text("কোর্স বিক্রি করে ক্যাশ নিন (পান ৳২০ বোনাস)", fontSize = 12.5.sp, fontWeight = FontWeight.Bold, color = Color.White)
                 }
             }
         }

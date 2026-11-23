@@ -137,6 +137,9 @@ dependencies {
   implementation(libs.retrofit)
   // Meta Audience Network (Facebook Ads)
   implementation(libs.facebook.audience.network)
+  // QR Code Generation (ZXing) & Modern Google Play Services Code Scanner
+  implementation("com.google.zxing:core:3.5.3")
+  implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
   testImplementation(libs.androidx.compose.ui.test.junit4)
   testImplementation(libs.androidx.core)
   testImplementation(libs.androidx.junit)

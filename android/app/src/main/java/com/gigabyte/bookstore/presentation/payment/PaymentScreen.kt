@@ -36,6 +36,8 @@ import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.RecipientValidationResult
 import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import com.gigabyte.bookstore.presentation.components.UserQrCodeDialog
+import com.gigabyte.bookstore.presentation.components.startQrCodeScanner
 import kotlinx.coroutines.launch
 
 data class AppCoursePackage(
@@ -246,6 +248,7 @@ fun PaymentScreen(
     var isWalletPurchasing by remember { mutableStateOf(false) }
 
     var isGiftMode by remember { mutableStateOf(false) }
+    var showMyQrDialog by remember { mutableStateOf(false) }
     var recipientEmail by remember { mutableStateOf("") }
     var isVerifyingRecipient by remember { mutableStateOf(false) }
     var recipientValidation by remember { mutableStateOf<RecipientValidationResult?>(null) }
@@ -736,7 +739,7 @@ fun PaymentScreen(
                                 FilterChip(
                                     selected = isGiftMode,
                                     onClick = { isGiftMode = true },
-                                    label = { Text("👥 বন্ধুকে রেফার করুন", fontWeight = if (isGiftMode) FontWeight.Bold else FontWeight.Normal) },
+                                    label = { Text("💼 কোর্স বিক্রি / রেফার (+৳২০)", fontWeight = if (isGiftMode) FontWeight.Bold else FontWeight.Normal) },
                                     modifier = Modifier.weight(1f)
                                 )
                             }
@@ -779,13 +782,41 @@ fun PaymentScreen(
                                 )
                             }
                         } else {
-                            // Gift to Others Mode
-                            Text(
-                                text = "বন্ধুর জন্য কোর্স কিনতে প্রাপকের রেজিস্টার্ড ইমেইল লিখে যাচাই করুন। আপনার ওয়ালেট ব্যালেন্স থেকে ৳${selectedPackage.price.toInt()} কেটে প্রাপকের অ্যাকাউন্টে কোর্সটি সাথে সাথে পৌঁছে যাবে এবং প্রতিটি সফল রেফারে আপনি পাবেন আরও ২০ টাকা বোনাস!",
-                                fontSize = 12.sp,
-                                lineHeight = 17.sp,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
+                            // Course Resell / Gift to Others Mode (Cash without withdraw + 20 Taka bonus)
+                            val bonusEarned = pricingConfig.getReferralBonus(selectedPackage.id, selectedPackage.price).toInt()
+                            val packagePrice = selectedPackage.price.toInt()
+
+                            Card(
+                                shape = RoundedCornerShape(12.dp),
+                                colors = CardDefaults.cardColors(containerColor = Color(0xFF10B981).copy(alpha = 0.1f)),
+                                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Column(modifier = Modifier.padding(12.dp)) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Icon(
+                                            imageVector = Icons.Default.MonetizationOn,
+                                            contentDescription = null,
+                                            tint = Color(0xFF047857),
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(6.dp))
+                                        Text(
+                                            text = "উইথড্র ছাড়াই সরাসরি নগদ ক্যাশ আয়:",
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 12.5.sp,
+                                            color = Color(0xFF047857)
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(6.dp))
+                                    Text(
+                                        text = "• ক্রেতার কাছ থেকে নগদ নেবেন: ৳$packagePrice (হাতে ক্যাশ টাকা)\n• আপনার ব্যালেন্স থেকে ছাড় হবে: ৳$packagePrice\n• সাথে সাথে ওয়ালেটে বোনাস ব্যাক: +৳$bonusEarned\n• আপনার ইনস্ট্যান্ট লাভ: নগদ ৳$bonusEarned (উইথড্র রিকোয়েস্ট বা অপেক্ষা ছাড়াই)!",
+                                        fontSize = 11.5.sp,
+                                        lineHeight = 16.5.sp,
+                                        color = MaterialTheme.colorScheme.onSurface
+                                    )
+                                }
+                            }
 
                             Spacer(modifier = Modifier.height(10.dp))
 
@@ -802,38 +833,111 @@ fun PaymentScreen(
                                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                                 modifier = Modifier.fillMaxWidth(),
                                 trailingIcon = {
-                                    Button(
-                                        onClick = {
-                                            if (recipientEmail.isBlank()) return@Button
-                                            isVerifyingRecipient = true
-                                            recipientError = null
-                                            recipientValidation = null
-                                            scope.launch {
-                                                val res = userRepository.verifyRecipientUser(recipientEmail, selectedPackage.id)
-                                                isVerifyingRecipient = false
-                                                if (res.isSuccess) {
-                                                    recipientValidation = res.getOrNull()
-                                                } else {
-                                                    recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
-                                                }
-                                            }
-                                        },
-                                        enabled = recipientEmail.isNotBlank() && !isVerifyingRecipient,
-                                        shape = RoundedCornerShape(8.dp),
-                                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
                                         modifier = Modifier.padding(end = 4.dp)
                                     ) {
-                                        if (isVerifyingRecipient) {
-                                            CircularProgressIndicator(modifier = Modifier.size(14.dp), color = Color.White, strokeWidth = 2.dp)
-                                        } else {
-                                            Text("যাচাই করুন", fontSize = 11.5.sp)
+                                        IconButton(
+                                            onClick = {
+                                                startQrCodeScanner(
+                                                    context = context,
+                                                    onScanned = { scannedEmail ->
+                                                        recipientEmail = scannedEmail
+                                                        recipientError = null
+                                                        recipientValidation = null
+                                                        isVerifyingRecipient = true
+                                                        scope.launch {
+                                                            val res = userRepository.verifyRecipientUser(scannedEmail, selectedPackage.id)
+                                                            isVerifyingRecipient = false
+                                                            if (res.isSuccess) {
+                                                                recipientValidation = res.getOrNull()
+                                                            } else {
+                                                                recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
+                                                            }
+                                                        }
+                                                    },
+                                                    onError = { err ->
+                                                        Toast.makeText(context, err, Toast.LENGTH_SHORT).show()
+                                                    }
+                                                )
+                                            },
+                                            modifier = Modifier.size(34.dp)
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.QrCodeScanner,
+                                                contentDescription = "Scan QR Code",
+                                                tint = Color(0xFF10B981),
+                                                modifier = Modifier.size(20.dp)
+                                            )
+                                        }
+
+                                        Spacer(modifier = Modifier.width(4.dp))
+
+                                        Button(
+                                            onClick = {
+                                                if (recipientEmail.isBlank()) return@Button
+                                                isVerifyingRecipient = true
+                                                recipientError = null
+                                                recipientValidation = null
+                                                scope.launch {
+                                                    val res = userRepository.verifyRecipientUser(recipientEmail, selectedPackage.id)
+                                                    isVerifyingRecipient = false
+                                                    if (res.isSuccess) {
+                                                        recipientValidation = res.getOrNull()
+                                                    } else {
+                                                        recipientError = res.exceptionOrNull()?.message ?: "যাচাই ব্যর্থ হয়েছে"
+                                                    }
+                                                }
+                                            },
+                                            enabled = recipientEmail.isNotBlank() && !isVerifyingRecipient,
+                                            shape = RoundedCornerShape(8.dp),
+                                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
+                                        ) {
+                                            if (isVerifyingRecipient) {
+                                                CircularProgressIndicator(modifier = Modifier.size(14.dp), color = Color.White, strokeWidth = 2.dp)
+                                            } else {
+                                                Text("যাচাই", fontSize = 11.5.sp)
+                                            }
                                         }
                                     }
                                 }
                             )
 
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 4.dp, bottom = 4.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = "📷 স্ক্যান করতে QR আইকনে চাপুন",
+                                    fontSize = 11.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                TextButton(
+                                    onClick = { showMyQrDialog = true },
+                                    contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
+                                    modifier = Modifier.height(28.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.QrCode,
+                                        contentDescription = null,
+                                        tint = Color(0xFF10B981),
+                                        modifier = Modifier.size(14.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text(
+                                        text = "আমার QR কোড",
+                                        fontSize = 11.5.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = Color(0xFF047857)
+                                    )
+                                }
+                            }
+
                             if (recipientValidation != null) {
-                                Spacer(modifier = Modifier.height(8.dp))
+                                Spacer(modifier = Modifier.height(6.dp))
                                 Card(
                                     shape = RoundedCornerShape(8.dp),
                                     colors = CardDefaults.cardColors(
@@ -904,7 +1008,7 @@ fun PaymentScreen(
                                 Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = if (recipientValidation != null) "👥 ৳${selectedPackage.price.toInt()} দিয়ে '${recipientValidation!!.name}' কে রেফার করুন" else "রেফার করুন (${selectedPackage.priceDisplay})",
+                                    text = if (recipientValidation != null) "💼 কোর্স বিক্রি সম্পন্ন করুন (পাবেন ৳$bonusEarned বোনাস)" else "কোর্স বিক্রি / রেফার (${selectedPackage.priceDisplay})",
                                     fontWeight = FontWeight.Bold,
                                     color = Color.White
                                 )
@@ -1495,12 +1599,12 @@ fun PaymentScreen(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(imageVector = Icons.Default.CheckCircle, contentDescription = null, tint = Color(0xFF10B981))
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("রেফার পাঠানো সফল হয়েছে!", fontWeight = FontWeight.Bold)
+                        Text("কোর্স বিক্রি সফল হয়েছে!", fontWeight = FontWeight.Bold)
                     }
                 },
                 text = {
                     Text(
-                        text = "🎉 অভিনন্দন! '$name' এর অ্যাকাউন্টে সফলভাবে '$course' আনলক করা হয়েছে। প্রাপক অ্যাপে লগইন করলেই পুরো কোর্সটি সাথে সাথে উপভোগ করতে পারবেন এবং সফল রেফারের জন্য আপনার ওয়ালেটে সাথে সাথে আরও ৳${bonus.toInt()} বোনাস যুক্ত হয়েছে!",
+                        text = "🎉 অভিনন্দন! '$name' এর অ্যাকাউন্টে সফলভাবে '$course' অ্যাক্টিভ করা হয়েছে। আপনি ক্রেতার কাছ থেকে সরাসরি নগদ ক্যাশ টাকা পেয়ে গেলেন এবং আপনার ওয়ালেটেও সাথে সাথে আরও ৳${bonus.toInt()} সেলস বোনাস জমা হয়েছে!",
                         fontSize = 13.5.sp,
                         lineHeight = 19.sp
                     )
@@ -1510,6 +1614,14 @@ fun PaymentScreen(
                         Text("ঠিক আছে")
                     }
                 }
+            )
+        }
+
+        if (showMyQrDialog) {
+            UserQrCodeDialog(
+                userName = userName,
+                userEmail = userEmail,
+                onDismiss = { showMyQrDialog = false }
             )
         }
     }

@@ -36,6 +36,7 @@ import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.ReferredUserItem
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import com.gigabyte.bookstore.presentation.components.UserQrCodeDialog
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,8 +51,11 @@ fun ReferAndEarnScreen(
     val pricingConfig by app.appPreferences.pricingConfig.collectAsStateWithLifecycle()
     val localReferralCode by app.appPreferences.referralCode.collectAsStateWithLifecycle()
     val localBalance by app.appPreferences.userBalance.collectAsStateWithLifecycle()
+    val userName by app.appPreferences.userName.collectAsStateWithLifecycle()
+    val userEmail by app.appPreferences.userEmail.collectAsStateWithLifecycle()
 
     val uiState by viewModel.uiState.collectAsState()
+    var showMyQrDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -63,6 +67,9 @@ fun ReferAndEarnScreen(
                     }
                 },
                 actions = {
+                    IconButton(onClick = { showMyQrDialog = true }) {
+                        Icon(imageVector = Icons.Default.QrCode, contentDescription = "My QR Code", tint = Color(0xFF10B981))
+                    }
                     IconButton(onClick = { viewModel.loadData() }) {
                         Icon(imageVector = Icons.Default.Refresh, contentDescription = "Refresh")
                     }
@@ -173,6 +180,14 @@ fun ReferAndEarnScreen(
                             HowReferralWorksCard(pricingConfig = pricingConfig)
                         }
 
+                        // 4.1 Resell Course / Instant Cash Out without Withdrawal Card
+                        item {
+                            InstantCashResellBanner(
+                                pricingConfig = pricingConfig,
+                                onNavigateToPayment = onNavigateToPayment
+                            )
+                        }
+
                         // 5. Referral Performance & Wallet CTA Card
                         item {
                             ReferralEarningsSummaryCard(
@@ -202,6 +217,14 @@ fun ReferAndEarnScreen(
                         }
                     }
                 }
+            }
+
+            if (showMyQrDialog) {
+                UserQrCodeDialog(
+                    userName = userName,
+                    userEmail = userEmail,
+                    onDismiss = { showMyQrDialog = false }
+                )
             }
         }
     }
@@ -683,6 +706,75 @@ private fun ReferStepItem(number: String, title: String, description: String) {
                 lineHeight = 16.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+        }
+    }
+}
+
+@Composable
+private fun InstantCashResellBanner(
+    pricingConfig: AppPricingConfig,
+    onNavigateToPayment: (() -> Unit)?
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF10B981).copy(alpha = 0.12f)),
+        border = BorderStroke(1.2.dp, Color(0xFF10B981).copy(alpha = 0.45f))
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = Color(0xFF10B981).copy(alpha = 0.2f),
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.Default.MonetizationOn,
+                            contentDescription = null,
+                            tint = Color(0xFF047857),
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Column {
+                    Text(
+                        text = "💼 উইথড্র ছাড়াই সাথে সাথে ক্যাশ টাকা হাতে নিন!",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.5.sp,
+                        color = Color(0xFF047857)
+                    )
+                    Text(
+                        text = "কোর্স রিসেলার এজেন্ট মডেল",
+                        fontSize = 11.5.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(
+                text = "১. পরিচিত বন্ধু বা শিক্ষার্থীর কাছে সরাসরি কোর্স বিক্রি করে তার থেকে নগদ ৳${pricingConfig.singleCoursePrice.toInt()} (বা বান্ডেলে ৳${pricingConfig.megaBundlePrice.toInt()}) ক্যাশ টাকা বুঝে নিন।\n২. অ্যাপে তার ইমেইল (বা QR কোড স্ক্যান করে) নিজের ওয়ালেট ব্যালেন্স দিয়ে কোর্সটি চালু করে দিন।\n৩. উইথড্র রিকোয়েস্ট বা অপেক্ষা ছাড়াই আপনার নগদ টাকা হাতে চলে এলো এবং সফল বিক্রিতে পাবেন আরও ৳${pricingConfig.singleReferralBonus.toInt()} (বান্ডেলে ৳${pricingConfig.bundleReferralBonus.toInt()}) অতিরিক্ত বোনাস লাভ!",
+                fontSize = 12.sp,
+                lineHeight = 17.sp,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
+            if (onNavigateToPayment != null) {
+                Spacer(modifier = Modifier.height(12.dp))
+                Button(
+                    onClick = onNavigateToPayment,
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF10B981)),
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(imageVector = Icons.Default.ShoppingBag, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text("কোর্স বিক্রি শুরু করুন (নগদ ক্যাশ + বোনাস)", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.5.sp)
+                }
+            }
         }
     }
 }

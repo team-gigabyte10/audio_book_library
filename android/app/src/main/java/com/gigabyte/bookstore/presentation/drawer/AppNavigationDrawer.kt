@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.models.AppPricingConfig
+import com.gigabyte.bookstore.presentation.components.UserQrCodeDialog
 import com.gigabyte.bookstore.ui.theme.DarkStatusBarColor
 import com.gigabyte.bookstore.ui.theme.LightStatusBarColor
 
@@ -79,6 +80,7 @@ fun AppDrawerContent(
     val context = LocalContext.current
     val app = context.applicationContext as? BanglaAudiobookApp
     val pricingConfig = app?.appPreferences?.pricingConfig?.collectAsStateWithLifecycle()?.value ?: AppPricingConfig()
+    var showQrCodeDialog by remember { mutableStateOf(false) }
 
     // Cohesive executive teal gradient matching App Bar
     val headerBrush = if (isDark) {
@@ -200,6 +202,23 @@ fun AppDrawerContent(
                                         )
                                     }
                                 }
+                            }
+
+                            Spacer(modifier = Modifier.width(8.dp))
+
+                            IconButton(
+                                onClick = { showQrCodeDialog = true },
+                                modifier = Modifier
+                                    .size(38.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.White.copy(alpha = 0.2f))
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.QrCode,
+                                    contentDescription = "My QR Code",
+                                    tint = Color(0xFFFFD54F),
+                                    modifier = Modifier.size(22.dp)
+                                )
                             }
                         }
 
@@ -392,6 +411,14 @@ fun AppDrawerContent(
                     )
                 }
             }
+        }
+
+        if (showQrCodeDialog) {
+            UserQrCodeDialog(
+                userName = userName,
+                userEmail = userEmail,
+                onDismiss = { showQrCodeDialog = false }
+            )
         }
     }
 }
