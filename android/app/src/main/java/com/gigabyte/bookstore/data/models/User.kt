@@ -49,4 +49,10 @@ data class RecipientValidationResult(
     val isAlreadyUnlocked: Boolean,
     val unlockedBundles: List<String> = emptyList(),
     val message: String = ""
-)
+) {
+    fun isPackageUnlocked(pkgId: String): Boolean {
+        val normalized = com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(pkgId)
+        val normalizedBundles = unlockedBundles.map { com.gigabyte.bookstore.data.preferences.AppPreferences.normalizeBundleId(it) }
+        return normalizedBundles.contains("mega_bundle") || normalizedBundles.contains(normalized)
+    }
+}
