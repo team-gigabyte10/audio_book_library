@@ -30,6 +30,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AllInclusive
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -40,10 +41,12 @@ import androidx.compose.material.icons.filled.Quiz
 import androidx.compose.material.icons.filled.RecordVoiceOver
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Repeat
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material.icons.filled.Translate
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -53,8 +56,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
@@ -545,7 +552,8 @@ fun LessonScreen(
                 onUrFemaleSpeaker = viewModel::setUrFemaleSpeaker,
                 isQuran = viewModel.isQuran,
                 quranReciterId = quranReciter,
-                onQuranReciterSelected = viewModel::setQuranReciter
+                onQuranReciterSelected = viewModel::setQuranReciter,
+                onDismiss = { showSettings = false }
             )
         }
     }
@@ -1292,95 +1300,409 @@ private fun SettingsSheet(
     onUrFemaleSpeaker: (Boolean) -> Unit = {},
     isQuran: Boolean = false,
     quranReciterId: String = QuranReciter.HUSARY_MUALLIM.id,
-    onQuranReciterSelected: (String) -> Unit = {}
+    onQuranReciterSelected: (String) -> Unit = {},
+    onDismiss: () -> Unit = {}
 ) {
-    Column(Modifier.padding(horizontal = 20.dp, vertical = 8.dp)) {
-        Text("প্লেব্যাক সেটিংস", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-        Spacer(Modifier.height(8.dp))
-        // Each repeat = English once + Bangla once, so both are heard the same number of times.
-        Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f)) {
-                Text("বার বার শুনুন")
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 20.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        // 1. Header Bar
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Surface(
+                shape = CircleShape,
+                color = MaterialTheme.colorScheme.primaryContainer,
+                modifier = Modifier.size(42.dp)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(
+                        imageVector = Icons.Default.Tune,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    "প্রতিবার মূল ভাষা ১ বার + বাংলা অর্থ ১ বার",
-                    style = MaterialTheme.typography.labelSmall,
+                    text = "প্লেব্যাক ও শোনার সেটিংস",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = "আপনার প্রয়োজন অনুযায়ী অডিও ও মশ্‌কের নিয়ম নির্ধারণ করুন",
+                    style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            IconButton(
-                onClick = { onRepeatCount(settings.repeatCount - 1) },
-                enabled = settings.repeatCount > LearnSettings.MIN_REPEAT_COUNT
-            ) { Icon(Icons.Default.Remove, contentDescription = "কমান") }
-            Text("${settings.repeatCount}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            IconButton(
-                onClick = { onRepeatCount(settings.repeatCount + 1) },
-                enabled = settings.repeatCount < LearnSettings.MAX_REPEAT_COUNT
-            ) { Icon(Icons.Default.Add, contentDescription = "বাড়ান") }
         }
-        SettingRow("বাংলা অনুবাদ শুনুন (অডিওতে অর্থ শোনা যাবে)", settings.bnAudio, onBnAudio)
-        SettingRow("শব্দে শব্দে শুনুন (বাক্য)", settings.wordByWord, onWordByWord)
-        SettingRow("স্বয়ংক্রিয়ভাবে পরের আইটেমে যান", settings.autoAdvance, onAutoAdvance)
-        SettingRow("লেসন বারবার চালান", settings.loopLesson, onLoop)
-        if (isQuran) {
-            Spacer(Modifier.height(8.dp))
-            Text(
-                "কারী নির্বাচন (তিলাওয়াতকারী — পুরুষ কণ্ঠ)",
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF1B5E20)
-            )
-            QuranReciter.entries.forEach { reciter ->
+
+        // 2. Repeat Count Card (বারবার শোনার সাইকেল)
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f)
+            ),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onQuranReciterSelected(reciter.id) }
-                        .padding(vertical = 6.dp),
+                    modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    RadioButton(
-                        selected = quranReciterId.equals(reciter.id, ignoreCase = true),
-                        onClick = { onQuranReciterSelected(reciter.id) }
+                    Icon(
+                        imageVector = Icons.Default.Repeat,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(20.dp)
                     )
-                    Column(Modifier.weight(1f)) {
-                        Text(reciter.titleBn, fontWeight = FontWeight.SemiBold)
+                    Spacer(Modifier.width(8.dp))
+                    Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            reciter.subtitleBn,
-                            style = MaterialTheme.typography.labelSmall,
+                            text = "বাক্য পুনরাবৃত্তি (Repeat Cycle)",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.5.sp,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = "প্রতিবারে মূল ভাষা ১ বার + বাংলা অর্থ ১ বার বাজবে",
+                            fontSize = 11.5.sp,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    // Stepper: - count +
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        FilledIconButton(
+                            onClick = { onRepeatCount(settings.repeatCount - 1) },
+                            enabled = settings.repeatCount > LearnSettings.MIN_REPEAT_COUNT,
+                            modifier = Modifier.size(34.dp),
+                            shape = CircleShape,
+                            colors = IconButtonDefaults.filledIconButtonColors(
+                                containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        ) {
+                            Icon(Icons.Default.Remove, contentDescription = "কমান", modifier = Modifier.size(16.dp))
+                        }
+
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.padding(horizontal = 4.dp)
+                        ) {
+                            Text(
+                                text = "${settings.repeatCount} বার",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.5.sp,
+                                color = Color.White,
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
+                            )
+                        }
+
+                        FilledIconButton(
+                            onClick = { onRepeatCount(settings.repeatCount + 1) },
+                            enabled = settings.repeatCount < LearnSettings.MAX_REPEAT_COUNT,
+                            modifier = Modifier.size(34.dp),
+                            shape = CircleShape,
+                            colors = IconButtonDefaults.filledIconButtonColors(
+                                containerColor = MaterialTheme.colorScheme.primary,
+                                contentColor = Color.White
+                            )
+                        ) {
+                            Icon(Icons.Default.Add, contentDescription = "বাড়ান", modifier = Modifier.size(16.dp))
+                        }
+                    }
+                }
+
+                // Quick preset chips
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    listOf(1, 2, 3, 5).forEach { count ->
+                        val isSelected = settings.repeatCount == count
+                        FilterChip(
+                            selected = isSelected,
+                            onClick = { onRepeatCount(count) },
+                            label = { Text("${count} বার", fontSize = 12.sp, fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                                selectedLabelColor = MaterialTheme.colorScheme.primary
+                            )
                         )
                     }
                 }
             }
         }
+
+        // 3. Core Playback Switches Card
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            ),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column {
+                ModernSettingRow(
+                    icon = Icons.Default.RecordVoiceOver,
+                    title = "বাংলা অনুবাদ শুনুন",
+                    subtitle = "প্রতিটি মূল বাক্যের পর বাংলা অর্থ স্বয়ংক্রিয়ভাবে অডিওতে শোনা যাবে",
+                    checked = settings.bnAudio,
+                    onCheckedChange = onBnAudio
+                )
+
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f))
+
+                ModernSettingRow(
+                    icon = Icons.Default.Translate,
+                    title = "শব্দে শব্দে শুনুন (বাক্য ভেঙে)",
+                    subtitle = "বড় বাক্যগুলোকে আলাদা শব্দে ভেঙে নিখুঁত উচ্চারণ ও অর্থ শুনুন",
+                    checked = settings.wordByWord,
+                    onCheckedChange = onWordByWord
+                )
+
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f))
+
+                ModernSettingRow(
+                    icon = Icons.Default.SkipNext,
+                    title = "স্বয়ংক্রিয়ভাবে পরের আইটেমে যান",
+                    subtitle = "বর্তমান বাক্য বা আইটেম শেষ হলে নিজে থেকেই পরেরটি শুরু হবে",
+                    checked = settings.autoAdvance,
+                    onCheckedChange = onAutoAdvance
+                )
+
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f))
+
+                ModernSettingRow(
+                    icon = Icons.Default.Repeat,
+                    title = "লেসন বারবার চালান (Loop)",
+                    subtitle = "লেসনের সবগুলো আইটেম শেষ হলে আবার প্রথম থেকে পুনরায় শুরু হবে",
+                    checked = settings.loopLesson,
+                    onCheckedChange = onLoop
+                )
+            }
+        }
+
+        // 4. Quran Reciter Selection (if Quran course)
+        if (isQuran) {
+            Card(
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF1B5E20).copy(alpha = 0.05f)
+                ),
+                border = BorderStroke(1.dp, Color(0xFF1B5E20).copy(alpha = 0.25f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Surface(
+                            shape = CircleShape,
+                            color = Color(0xFF1B5E20),
+                            modifier = Modifier.size(32.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.Default.Headphones,
+                                    contentDescription = null,
+                                    tint = Color.White,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                            }
+                        }
+                        Spacer(Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                "কারী নির্বাচন (তিলাওয়াতকারী — পুরুষ কণ্ঠ)",
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF1B5E20)
+                            )
+                            Text(
+                                "কুরআন পাঠ শেখার জন্য পছন্দের ক্বারীর তিলাওয়াত বেছে নিন",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    QuranReciter.entries.forEach { reciter ->
+                        val isSelected = quranReciterId.equals(reciter.id, ignoreCase = true)
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = if (isSelected) Color(0xFF1B5E20).copy(alpha = 0.12f) else MaterialTheme.colorScheme.surface,
+                            border = BorderStroke(
+                                width = if (isSelected) 1.5.dp else 1.dp,
+                                color = if (isSelected) Color(0xFF1B5E20) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
+                            ),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { onQuranReciterSelected(reciter.id) }
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                RadioButton(
+                                    selected = isSelected,
+                                    onClick = { onQuranReciterSelected(reciter.id) }
+                                )
+                                Spacer(Modifier.width(8.dp))
+                                Column(Modifier.weight(1f)) {
+                                    Text(
+                                        reciter.titleBn,
+                                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.SemiBold,
+                                        fontSize = 14.sp,
+                                        color = if (isSelected) Color(0xFF1B5E20) else MaterialTheme.colorScheme.onSurface
+                                    )
+                                    Text(
+                                        reciter.subtitleBn,
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 5. Urdu / Hindi Female Speaker (if applicable)
         if (urFemaleSpeaker != null) {
-            // Urdu plan decision 11.5: verbs and adjectives change with gender (جاتا / جاتی).
-            // The female version covers a female speaker ("I") and a female listener ("you").
-            SettingRow("নারী রূপ শুনুন ও দেখুন (জাতী / করতী)", urFemaleSpeaker, onUrFemaleSpeaker)
-            Text(
-                "নিজে নারী হলে, বা কোনো নারীর সাথে কথা বললে চালু করুন।",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Card(
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)
+                ),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(14.dp)) {
+                    ModernSettingRow(
+                        icon = Icons.Default.RecordVoiceOver,
+                        title = "নারী রূপ শুনুন ও দেখুন (জাতী / করতী)",
+                        subtitle = "নিজে নারী হলে, বা কোনো নারীর সাথে কথা বললে চালু করুন। ব্যাকরণ অনুযায়ী ক্রিয়া ও বিশেষণের নারী রূপ চর্চা হবে।",
+                        checked = urFemaleSpeaker,
+                        onCheckedChange = onUrFemaleSpeaker
+                    )
+                }
+            }
         }
+
+        // 6. Continuous Mode Alert Banner
         if (settings.repeatItem) {
-            Text(
-                "অবিরাম চালু থাকলে উপরের দুটি সেটিং কাজ করে না।",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier.padding(14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.AllInclusive,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(22.dp)
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    Text(
+                        "অবিরাম প্লেব্যাক সক্রিয় রয়েছে — বর্তমান আইটেমটি বন্ধ না করা পর্যন্ত বারবার চলবে।",
+                        fontSize = 12.sp,
+                        lineHeight = 17.sp,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                }
+            }
         }
-        Spacer(Modifier.height(24.dp))
+
+        // 7. Done Button
+        Button(
+            onClick = onDismiss,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp),
+            shape = RoundedCornerShape(12.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
+        ) {
+            Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text("সম্পন্ন করুন", fontWeight = FontWeight.Bold, fontSize = 15.sp)
+        }
+
+        Spacer(Modifier.height(16.dp))
     }
 }
 
 @Composable
-private fun SettingRow(label: String, checked: Boolean, onChange: (Boolean) -> Unit) {
+private fun ModernSettingRow(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    title: String,
+    subtitle: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
     Row(
-        Modifier.fillMaxWidth().padding(vertical = 6.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onCheckedChange(!checked) }
+            .padding(horizontal = 14.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(label, modifier = Modifier.weight(1f))
-        Switch(checked = checked, onCheckedChange = onChange)
+        Surface(
+            shape = RoundedCornerShape(10.dp),
+            color = if (checked) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant,
+            modifier = Modifier.size(38.dp)
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    tint = if (checked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+        }
+        Spacer(Modifier.width(12.dp))
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = title,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                text = subtitle,
+                fontSize = 11.5.sp,
+                lineHeight = 16.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+        Spacer(Modifier.width(10.dp))
+        Switch(
+            checked = checked,
+            onCheckedChange = onCheckedChange
+        )
     }
 }
 

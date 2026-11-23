@@ -32,11 +32,6 @@ object BanglaPronunciationEngine {
         val clean = targetText.trim()
         if (clean.isEmpty()) return null
 
-        // Regional / already Bengali text
-        if (language == TranslatorLanguage.REGIONAL_BANGLA) {
-            return clean
-        }
-
         // Exact phrase hit in bundled 1000-word VocabVault
         if (useVocabLookup) {
             lookupVocab(language.key, clean)?.let { return it }
@@ -45,7 +40,6 @@ object BanglaPronunciationEngine {
         val hint = romanizationHint?.trim()?.takeIf { it.isNotEmpty() }
 
         val generated = when (language) {
-            TranslatorLanguage.REGIONAL_BANGLA -> clean
             TranslatorLanguage.HINDI -> {
                 if (DEVANAGARI_CHAR.containsMatchIn(clean)) {
                     transliterateDevanagariSentence(clean, useVocabLookup)

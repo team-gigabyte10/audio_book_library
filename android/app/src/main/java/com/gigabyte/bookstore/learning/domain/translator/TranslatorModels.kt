@@ -83,17 +83,6 @@ enum class TranslatorLanguage(
         isRtl = true,
         accentHex = 0xFF1B5E20
     ),
-    REGIONAL_BANGLA(
-        key = "regional",
-        titleBn = "আঞ্চলিক বাংলা",
-        nativeName = "বাংলা ১০ অঞ্চল",
-        flag = "🇧🇩",
-        speechLang = SpeechLang.BD,
-        sttLocaleTag = "bn-BD",
-        isoCode = "bn",
-        itemIdPrefix = "bd-",
-        accentHex = 0xFF006A4E
-    ),
     CHINESE(
         key = "chinese",
         titleBn = "চাইনিজ",
@@ -128,7 +117,6 @@ enum class TranslatorLanguage(
                 v.startsWith("qr") || v.startsWith("ar") || v == "quran" || v == "arabic" -> ARABIC
                 v.startsWith("zh") || v.startsWith("cn") || v.contains("chinese") || v.contains("mandarin") -> CHINESE
                 v.startsWith("ko") || v.contains("korean") || v.contains("hangul") -> KOREAN
-                v.startsWith("bd") || v.contains("regional") -> REGIONAL_BANGLA
                 else -> ENGLISH
             }
         }

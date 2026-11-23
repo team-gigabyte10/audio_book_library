@@ -33,8 +33,8 @@ class LiveTranslatorTest {
         assertEquals(TranslatorLanguage.GERMAN, TranslatorLanguage.fromKey("de-b1-02"))
         assertEquals(TranslatorLanguage.ARABIC, TranslatorLanguage.fromKey("qr-p4-u07-l01"))
         assertEquals(TranslatorLanguage.ARABIC, TranslatorLanguage.fromKey("quran"))
-        assertEquals(TranslatorLanguage.REGIONAL_BANGLA, TranslatorLanguage.fromKey("bd-thm-01-l01"))
-        assertEquals(TranslatorLanguage.REGIONAL_BANGLA, TranslatorLanguage.fromKey("regional_bangla"))
+        assertEquals(TranslatorLanguage.ENGLISH, TranslatorLanguage.fromKey("bd-thm-01-l01"))
+        assertEquals(TranslatorLanguage.ENGLISH, TranslatorLanguage.fromKey("regional_bangla"))
 
         assertEquals(RegionalDialectChoice.SYL, RegionalDialectChoice.fromKey("syl"))
         assertEquals(RegionalDialectChoice.CTG, RegionalDialectChoice.fromKey(null))
@@ -171,9 +171,6 @@ class LiveTranslatorTest {
             romanizationHint = "Aap kaise hain"
         )!!
         assertTrue("Expected Bengali script for Urdu, got: $urPron", urPron.any { it in '\u0980'..'\u09FF' })
-
-        val bdPron = BanglaPronunciationEngine.generate("কেমন আছ?", TranslatorLanguage.REGIONAL_BANGLA)!!
-        assertEquals("কেমন আছ?", bdPron)
     }
 
     @Test

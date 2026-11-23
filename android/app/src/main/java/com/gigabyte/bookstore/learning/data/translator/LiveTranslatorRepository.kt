@@ -52,12 +52,10 @@ class LiveTranslatorRepository(
             return@withContext Result.success(ensureBanglaPronunciation(aiResult, language))
         }
 
-        // Tier 3: Resilient HTTP fallback when online (non-regional standard languages).
-        if (language != TranslatorLanguage.REGIONAL_BANGLA) {
-            val webResult = translateViaHttpFallback(cleanInput, language, direction)
-            if (webResult != null) {
-                return@withContext Result.success(ensureBanglaPronunciation(webResult, language))
-            }
+        // Tier 3: Resilient HTTP fallback when online.
+        val webResult = translateViaHttpFallback(cleanInput, language, direction)
+        if (webResult != null) {
+            return@withContext Result.success(ensureBanglaPronunciation(webResult, language))
         }
 
         // Soft fallback: best partial match offline if available.
@@ -78,7 +76,7 @@ class LiveTranslatorRepository(
     ): TranslationResult? {
         val normQuery = normalizeForMatch(query)
         val reverse = direction == TranslatorDirection.TARGET_TO_BN
-        val speakerQuery = if (!reverse && language == TranslatorLanguage.REGIONAL_BANGLA) dialect.speakerQuery else null
+        val speakerQuery: String? = null
 
         val dbHits = learningRepository.searchOfflineTranslations(
             idPrefix = language.itemIdPrefix,
@@ -153,7 +151,7 @@ class LiveTranslatorRepository(
         dialect: RegionalDialectChoice
     ): TranslationResult? {
         val reverse = direction == TranslatorDirection.TARGET_TO_BN
-        val speakerQuery = if (!reverse && language == TranslatorLanguage.REGIONAL_BANGLA) dialect.speakerQuery else null
+        val speakerQuery: String? = null
         val dbHits = learningRepository.searchOfflineTranslations(
             idPrefix = language.itemIdPrefix,
             query = query,
@@ -226,7 +224,7 @@ class LiveTranslatorRepository(
             },
             grammarTipBn = if (reverse) "মূল বাক্য: ${item.target}" else "কোর্স কারিকুলাম থেকে নেওয়া সঠিক অনুবাদ।",
             languageKey = language.key,
-            dialectKey = if (language == TranslatorLanguage.REGIONAL_BANGLA) dialect.key else null,
+            dialectKey = null,
             direction = direction,
             sourceTier = TranslationSourceTier.OFFLINE_CURRICULUM
         )
@@ -342,13 +340,9 @@ class LiveTranslatorRepository(
             query: String,
             language: TranslatorLanguage,
             direction: TranslatorDirection,
-            dialect: RegionalDialectChoice
+            dialect: RegionalDialectChoice = RegionalDialectChoice.CTG
         ): String {
-            val targetLabel = if (language == TranslatorLanguage.REGIONAL_BANGLA) {
-                "Bangladeshi Regional Dialect: ${dialect.labelBn} (written clearly in Bengali script using authentic local dialect words and tone)"
-            } else {
-                "${language.nativeName} (${language.titleBn})"
-            }
+            val targetLabel = "${language.nativeName} (${language.titleBn})"
 
             return if (direction == TranslatorDirection.BN_TO_TARGET) {
                 """
@@ -428,7 +422,7 @@ class LiveTranslatorRepository(
                 wordBreakdown = tokensList,
                 grammarTipBn = tip,
                 languageKey = language.key,
-                dialectKey = if (language == TranslatorLanguage.REGIONAL_BANGLA) dialect.key else null,
+                dialectKey = null,
                 direction = direction,
                 sourceTier = TranslationSourceTier.AI_TUTOR
             )

@@ -87,7 +87,6 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.learning.domain.translator.BanglaPronunciationEngine
-import com.gigabyte.bookstore.learning.domain.translator.RegionalDialectChoice
 import com.gigabyte.bookstore.learning.domain.translator.SpeechCaptureState
 import com.gigabyte.bookstore.learning.domain.translator.TranslationResult
 import com.gigabyte.bookstore.learning.domain.translator.TranslatorDirection
@@ -181,34 +180,6 @@ fun LiveTranslatorScreen(
                                     selectedLabelColor = Color.White
                                 )
                             )
-                        }
-                    }
-                }
-
-                // 1b. Optional 9-Dialect Picker when Regional Bangla is selected
-                if (uiState.selectedLanguage == TranslatorLanguage.REGIONAL_BANGLA) {
-                    item {
-                        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                            Text(
-                                "অঞ্চল নির্বাচন করুন:",
-                                style = MaterialTheme.typography.labelLarge,
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFF006A4E)
-                            )
-                            LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                                items(RegionalDialectChoice.entries) { dialect ->
-                                    val selected = dialect == uiState.selectedDialect
-                                    FilterChip(
-                                        selected = selected,
-                                        onClick = { viewModel.selectDialect(dialect) },
-                                        label = { Text(dialect.labelBn, fontSize = 12.sp) },
-                                        colors = FilterChipDefaults.filterChipColors(
-                                            selectedContainerColor = Color(0xFF006A4E),
-                                            selectedLabelColor = Color.White
-                                        )
-                                    )
-                                }
-                            }
                         }
                     }
                 }

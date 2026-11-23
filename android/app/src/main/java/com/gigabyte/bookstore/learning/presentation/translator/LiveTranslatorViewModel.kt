@@ -11,7 +11,6 @@ import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import com.gigabyte.bookstore.learning.domain.model.Token
 import com.gigabyte.bookstore.learning.domain.translator.BanglaPronunciationEngine
-import com.gigabyte.bookstore.learning.domain.translator.RegionalDialectChoice
 import com.gigabyte.bookstore.learning.domain.translator.SpeechCaptureState
 import com.gigabyte.bookstore.learning.domain.translator.StreamingSpeechRecognizer
 import com.gigabyte.bookstore.learning.domain.translator.TranslationResult
@@ -29,7 +28,6 @@ import org.json.JSONObject
 
 data class LiveTranslatorUiState(
     val selectedLanguage: TranslatorLanguage = TranslatorLanguage.ENGLISH,
-    val selectedDialect: RegionalDialectChoice = RegionalDialectChoice.CTG,
     val direction: TranslatorDirection = TranslatorDirection.BN_TO_TARGET,
     val inputText: String = "",
     val isTranslating: Boolean = false,
@@ -75,14 +73,6 @@ class LiveTranslatorViewModel(
         }
         val currentText = _uiState.value.inputText
         if (currentText.isNotBlank()) {
-            translateNow()
-        }
-    }
-
-    fun selectDialect(dialect: RegionalDialectChoice) {
-        _uiState.update { it.copy(selectedDialect = dialect, errorMessage = null) }
-        val currentText = _uiState.value.inputText
-        if (currentText.isNotBlank() && _uiState.value.selectedLanguage == TranslatorLanguage.REGIONAL_BANGLA) {
             translateNow()
         }
     }
@@ -147,8 +137,7 @@ class LiveTranslatorViewModel(
             val outcome = translatorRepository.translate(
                 inputText = query,
                 language = snap.selectedLanguage,
-                direction = snap.direction,
-                dialect = snap.selectedDialect
+                direction = snap.direction
             )
             outcome.onSuccess { res ->
                 val updatedHistory = (listOf(res) + _uiState.value.history.filterNot {
@@ -232,7 +221,6 @@ class LiveTranslatorViewModel(
         _uiState.update {
             it.copy(
                 selectedLanguage = TranslatorLanguage.fromKey(enriched.languageKey),
-                selectedDialect = RegionalDialectChoice.fromKey(enriched.dialectKey),
                 direction = enriched.direction,
                 inputText = enriched.sourceText,
                 result = enriched,
