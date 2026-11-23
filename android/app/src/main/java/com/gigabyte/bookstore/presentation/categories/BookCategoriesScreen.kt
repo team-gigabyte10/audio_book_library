@@ -18,6 +18,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -531,10 +534,14 @@ private fun CategoryFilterRow(
     selectedCategory: String,
     onSelectCategory: (String) -> Unit
 ) {
-    LazyRow(
+    LazyHorizontalGrid(
+        rows = GridCells.Fixed(2),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(86.dp),
         contentPadding = PaddingValues(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = Modifier.fillMaxWidth()
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         item {
             val isSelected = selectedCategory == "all"

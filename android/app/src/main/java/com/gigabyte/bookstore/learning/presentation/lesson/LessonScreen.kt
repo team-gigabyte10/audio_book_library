@@ -226,17 +226,19 @@ fun LessonScreen(
                         VoiceWarning("বাংলা ভয়েস নেই, তাই বাংলা অর্থ শুধু লেখা হিসেবে দেখানো হবে।")
                     }
 
-                    TabRow(selectedTabIndex = uiState.mode.ordinal) {
-                        Tab(
-                            selected = uiState.mode == LessonMode.LISTEN,
-                            onClick = { viewModel.setMode(LessonMode.LISTEN) },
-                            text = { Text("শুনুন ও বলুন") }
-                        )
-                        Tab(
-                            selected = uiState.mode == LessonMode.SPEAK,
-                            onClick = { viewModel.setMode(LessonMode.SPEAK) },
-                            text = { Text("নিজে বলুন") }
-                        )
+                    if (!viewModel.isRegionalBangla) {
+                        TabRow(selectedTabIndex = uiState.mode.ordinal) {
+                            Tab(
+                                selected = uiState.mode == LessonMode.LISTEN,
+                                onClick = { viewModel.setMode(LessonMode.LISTEN) },
+                                text = { Text("শুনুন ও বলুন") }
+                            )
+                            Tab(
+                                selected = uiState.mode == LessonMode.SPEAK,
+                                onClick = { viewModel.setMode(LessonMode.SPEAK) },
+                                text = { Text("নিজে বলুন") }
+                            )
+                        }
                     }
 
                     val items = content.items
@@ -304,7 +306,9 @@ fun LessonScreen(
                             .padding(16.dp)
                     ) {
                         var showGrammarRule by remember { mutableStateOf(false) }
-                        if (!content.lesson.introBn.isNullOrBlank() || content.structure.isNotEmpty()) {
+                        val shouldShowGrammar = !viewModel.isQuran && !viewModel.isRegionalBangla &&
+                            (!content.lesson.introBn.isNullOrBlank() || content.structure.isNotEmpty())
+                        if (shouldShowGrammar) {
                             Surface(
                                 onClick = { showGrammarRule = !showGrammarRule },
                                 shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
@@ -724,6 +728,7 @@ private fun ItemCard(
     isFemaleSpeaker: Boolean = false
 ) {
     val speakingBn = (currentStep as? PlaybackStep.Speak)?.lang == SpeechLang.BN
+    val speakingTarget = (currentStep as? PlaybackStep.Speak)?.let { it.lang != SpeechLang.BN } ?: false
     val speakingRate = (currentStep as? PlaybackStep.Speak)?.takeIf { it.lang == SpeechLang.EN || it.lang == SpeechLang.JA || it.lang == SpeechLang.AR }?.rate
 
     Card(modifier = Modifier.fillMaxWidth(), elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)) {
@@ -766,78 +771,157 @@ private fun ItemCard(
                         )
                     }
                 }
-            } else if (item.id.startsWith("bd-")) {
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = Color(0xFFE0F2F1),
-                    border = BorderStroke(1.dp, Color(0xFF80CBC4))
-                ) {
-                    Text(
-                        "🎙️ অঞ্চলের খাঁটি কথ্য কণ্ঠ (নেটিভ উচ্চারণ)",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF006A4E),
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                    )
-                }
-            } else if (revealTarget && !item.exampleTarget.isNullOrBlank() && (isUrduItem(item.id) || item.id.startsWith("hi-"))) {
-                val isMainFemale = isFemaleSpeaker
-                val mainBadgeBg = if (isMainFemale) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
-                val mainBorderColor = if (isMainFemale) Color(0xFFF48FB1) else Color(0xFF90CAF9)
-                val mainTextColor = if (isMainFemale) Color(0xFFC2185B) else Color(0xFF1565C0)
-                val mainBadgeText = if (isMainFemale) "👩 নারী রূপ (Feminine)" else "👨 পুরুষ রূপ (Masculine)"
+            }
 
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = mainBadgeBg,
-                    border = BorderStroke(1.dp, mainBorderColor)
-                ) {
-                    Text(
-                        mainBadgeText,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = mainTextColor,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                    )
+            val isRegional = item.id.startsWith("bd-")
+            if (isRegional) {
+                // 1. Initially show normal accent (প্রমিত উচ্চারণ / Normal Accent)
+                item.bn?.let { bn ->
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = if (speakingBn) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f) else Color(0xFF00796B).copy(alpha = 0.08f),
+                        border = BorderStroke(
+                            width = if (speakingBn) 1.5.dp else 1.dp,
+                            color = if (speakingBn) MaterialTheme.colorScheme.primary else Color(0xFF00796B).copy(alpha = 0.35f)
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(14.dp),
+                            verticalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Surface(
+                                    shape = RoundedCornerShape(6.dp),
+                                    color = Color(0xFF00796B)
+                                ) {
+                                    Row(
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                            contentDescription = null,
+                                            tint = Color.White,
+                                            modifier = Modifier.size(13.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text(
+                                            text = "🗣️ প্রমিত উচ্চারণ (Normal Accent)",
+                                            fontSize = 11.5.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color.White
+                                        )
+                                    }
+                                }
+                                IconButton(
+                                    onClick = { onSpeakMeaning(bn) },
+                                    modifier = Modifier.size(32.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "প্রমিত উচ্চারণ শুনুন",
+                                        tint = Color(0xFF00796B),
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+                            }
+                            Text(
+                                text = bn,
+                                fontSize = 21.sp,
+                                lineHeight = 28.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                modifier = Modifier.clickable { onSpeakMeaning(bn) }
+                            )
+                        }
+                    }
                 }
-            } else if (item.id.startsWith("jp-") && (item.target == "俺" || item.target == "僕" || item.target == "あたし")) {
-                val isAtashi = item.target == "あたし"
-                val bg = if (isAtashi) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
-                val border = if (isAtashi) Color(0xFFF48FB1) else Color(0xFF90CAF9)
-                val col = if (isAtashi) Color(0xFFC2185B) else Color(0xFF1565C0)
-                val label = if (isAtashi) "👩 স্ত্রীবাচক কথ্য রূপ" else "👨 পুরুষবাচক কথ্য রূপ"
+
+                Spacer(Modifier.height(10.dp))
+
+                // 2. After that, regional sound & dialect sentence
                 Surface(
                     shape = RoundedCornerShape(12.dp),
-                    color = bg,
-                    border = BorderStroke(1.dp, border)
+                    color = if (speakingTarget) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.35f) else Color(0xFFE0F2F1).copy(alpha = 0.45f),
+                    border = BorderStroke(
+                        width = if (speakingTarget) 1.5.dp else 1.dp,
+                        color = if (speakingTarget) MaterialTheme.colorScheme.primary else Color(0xFF006A4E).copy(alpha = 0.4f)
+                    ),
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(
-                        label,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = col,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                    )
-                }
-            } else if (item.id.startsWith("bd-") && !item.speaker.isNullOrBlank()) {
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = Color(0xFFE0F2F1),
-                    border = BorderStroke(1.dp, Color(0xFF4DB6AC))
-                ) {
-                    Text(
-                        item.speaker,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF006A4E),
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
-                    )
+                    Column(
+                        modifier = Modifier.padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Surface(
+                                shape = RoundedCornerShape(6.dp),
+                                color = Color(0xFF006A4E)
+                            ) {
+                                Text(
+                                    text = "🎭 ${item.speaker ?: "আঞ্চলিক কথ্য রূপ"}",
+                                    fontSize = 11.5.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                                )
+                            }
+                            IconButton(
+                                onClick = onSpeakTarget,
+                                modifier = Modifier.size(34.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                                    contentDescription = "আঞ্চলিক সাউন্ড শুনুন",
+                                    tint = Color(0xFF006A4E),
+                                    modifier = Modifier.size(22.dp)
+                                )
+                            }
+                        }
+                        Text(
+                            text = item.target,
+                            fontSize = 24.sp,
+                            lineHeight = 32.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF004D40),
+                            modifier = Modifier.clickable(onClick = onSpeakTarget)
+                        )
+                    }
                 }
             } else {
-                item.speaker?.let {
-                    Text(it, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary)
+                if (item.id.startsWith("jp-") && (item.target == "俺" || item.target == "僕" || item.target == "あたし")) {
+                    val isAtashi = item.target == "あたし"
+                    val bg = if (isAtashi) Color(0xFFFCE4EC) else Color(0xFFE3F2FD)
+                    val border = if (isAtashi) Color(0xFFF48FB1) else Color(0xFF90CAF9)
+                    val col = if (isAtashi) Color(0xFFC2185B) else Color(0xFF1565C0)
+                    val label = if (isAtashi) "👩 স্ত্রীবাচক কথ্য রূপ" else "👨 পুরুষবাচক কথ্য রূপ"
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = bg,
+                        border = BorderStroke(1.dp, border)
+                    ) {
+                        Text(
+                            label,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = col,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                        )
+                    }
+                } else {
+                    item.speaker?.let {
+                        Text(it, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary)
+                    }
                 }
-            }
             if (revealTarget) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (isUrduItem(item.id)) {
@@ -1141,6 +1225,7 @@ private fun ItemCard(
             }
         }
     }
+}
 }
 
 @Composable

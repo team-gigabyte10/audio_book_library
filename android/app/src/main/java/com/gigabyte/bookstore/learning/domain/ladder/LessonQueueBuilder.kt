@@ -56,8 +56,8 @@ object LessonQueueBuilder {
         val targetLang = SpeechLang.BD
         val bn = item.bn?.takeIf { settings.bnAudio && it.isNotBlank() }
 
-        // Speak Standard Bangla master sentence once at the start of the 9-region group.
-        if (isGroupStart && bn != null) {
+        // 1. Initially play Standard Bangla Normal Accent
+        if (bn != null) {
             steps += PlaybackStep.Speak(formatBnForSpeech(bn), SpeechLang.BN, 1.0f, itemIndex, Phase.LADDER)
             steps += PlaybackStep.Pause(350L, itemIndex)
         }
