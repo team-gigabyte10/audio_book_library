@@ -1,5 +1,6 @@
 package com.gigabyte.bookstore.presentation.categories
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -57,6 +58,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -64,6 +67,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.RemoteBook
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.BookCoverView
@@ -87,6 +92,10 @@ fun BookCategoriesScreen(
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
     var isSearchExpanded by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
+
+    val context = LocalContext.current
+    val app = context.applicationContext as? BanglaAudiobookApp
+    val pricingConfig = app?.appPreferences?.pricingConfig?.collectAsStateWithLifecycle()?.value ?: AppPricingConfig()
 
     LaunchedEffect(initialBundleId) {
         if (!initialBundleId.isNullOrBlank()) {
@@ -210,10 +219,16 @@ fun BookCategoriesScreen(
                     // 1. Hero Overview Banner
                     item {
                         Spacer(modifier = Modifier.height(12.dp))
+                        val currentBookCount = if (uiState.selectedBundleId != null) {
+                            uiState.categoryGroups.sumOf { it.books.size }
+                        } else {
+                            uiState.allBooks.size
+                        }
                         HeroOverviewBanner(
-                            totalBooks = uiState.allBooks.size,
+                            totalBooks = currentBookCount,
                             categoryCount = uiState.categoryGroups.size,
                             isUnlocked = uiState.isAudiobookUnlocked,
+                            bundlePrice = pricingConfig.getPackagePrice("audiobook_bundle"),
                             onUnlockClick = onNavigateToPayment,
                             modifier = Modifier.padding(horizontal = 16.dp)
                         )
@@ -345,34 +360,38 @@ private fun HeroOverviewBanner(
     totalBooks: Int,
     categoryCount: Int,
     isUnlocked: Boolean,
+    bundlePrice: Double = 100.0,
     onUnlockClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val isDark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+    val bannerGradient = if (isDark) {
+        Brush.verticalGradient(
+            colors = listOf(
+                Color(0xFF064E3B), // Deep emerald
+                Color(0xFF0F766E)  // Dark teal
+            )
+        )
+    } else {
+        Brush.verticalGradient(
+            colors = listOf(
+                Color(0xFF00695C), // Rich Executive Teal
+                Color(0xFF004D40)  // Deep Forest Teal
+            )
+        )
+    }
+
     Card(
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
-        modifier = modifier
-            .fillMaxWidth()
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.25f),
-                shape = RoundedCornerShape(16.dp)
-            )
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        border = BorderStroke(1.dp, Color(0xFF34D399).copy(alpha = 0.4f)),
+        modifier = modifier.fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color(0xFF0D9488).copy(alpha = 0.25f),
-                            Color(0xFF0F172A).copy(alpha = 0.85f)
-                        )
-                    )
-                )
+                .background(bannerGradient)
                 .padding(16.dp)
         ) {
             Column {
@@ -381,73 +400,83 @@ private fun HeroOverviewBanner(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                    Row(
+                        modifier = Modifier.weight(1f),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
                         Surface(
                             shape = CircleShape,
-                            color = Color(0xFF0D9488),
-                            modifier = Modifier.size(34.dp)
+                            color = Color(0xFF10B981).copy(alpha = 0.25f),
+                            border = BorderStroke(1.dp, Color(0xFF34D399).copy(alpha = 0.5f)),
+                            modifier = Modifier.size(36.dp)
                         ) {
                             Box(contentAlignment = Alignment.Center) {
                                 Icon(
                                     imageVector = Icons.Default.AutoStories,
                                     contentDescription = null,
                                     tint = Color.White,
-                                    modifier = Modifier.size(18.dp)
+                                    modifier = Modifier.size(20.dp)
                                 )
                             }
                         }
                         Spacer(modifier = Modifier.width(10.dp))
-                        Column {
+                        Column(modifier = Modifier.weight(1f)) {
                             Text(
                                 text = "বাংলা বই সংকলন লাইব্রেরি",
                                 style = MaterialTheme.typography.titleMedium.copy(
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 16.sp
+                                    fontSize = 16.sp,
+                                    color = Color.White
                                 )
                             )
                             Text(
-                                text = "বিশ্বমানের আত্মউন্নয়ন ও অনুপ্রেরণামূলক অডিওবই",
+                                text = if (totalBooks > 0) "$totalBooks টি বিশ্বমানের অডিওবই ও টেক্সট সংকলন" else "বিশ্বমানের অডিওবই ও টেক্সট সংকলন",
                                 style = MaterialTheme.typography.bodySmall.copy(
-                                    fontSize = 11.sp,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+                                    fontSize = 11.5.sp,
+                                    color = Color(0xFFA7F3D0)
+                                ),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                         }
                     }
 
+                    Spacer(modifier = Modifier.width(8.dp))
+
                     Surface(
-                        color = if (isUnlocked) Color(0xFF10B981) else GoldenAccent,
-                        shape = RoundedCornerShape(8.dp)
+                        color = if (isUnlocked) Color(0xFF10B981) else Color(0xFFF59E0B),
+                        shape = RoundedCornerShape(8.dp),
+                        border = BorderStroke(1.dp, if (isUnlocked) Color(0xFF34D399) else Color(0xFFFDE68A))
                     ) {
                         Text(
-                            text = if (isUnlocked) "✓ সক্রিয়" else "১০০ টাকা",
+                            text = if (isUnlocked) "✓ সক্রিয়" else "৳${bundlePrice.toInt()}",
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = if (isUnlocked) Color.White else Color(0xFF1E293B)
                             ),
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            modifier = Modifier.padding(horizontal = 9.dp, vertical = 4.dp)
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
 
-                // Stats row
+                // Stats row (Completely dynamic counts)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    OverviewStatItem(label = "মোট বই", value = "$totalBooks টি")
-                    OverviewStatItem(label = "ক্যাটাগরি", value = "$categoryCount টি")
+                    OverviewStatItem(label = "মোট বই", value = if (totalBooks > 0) "$totalBooks টি" else "০ টি")
+                    OverviewStatItem(label = "ক্যাটাগরি", value = if (categoryCount > 0) "$categoryCount টি" else "০ টি")
                     OverviewStatItem(label = "ফরম্যাট", value = "অডিও + টেক্সট")
                 }
 
                 if (!isUnlocked) {
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(14.dp))
                     Button(
                         onClick = onUnlockClick,
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary
+                            containerColor = Color(0xFF10B981)
                         ),
                         shape = RoundedCornerShape(10.dp),
                         modifier = Modifier.fillMaxWidth(),
@@ -461,7 +490,7 @@ private fun HeroOverviewBanner(
                         )
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
-                            text = "সকল ক্যাটাগরির বই আনলক করুন",
+                            text = "সকল বই সংকলন আনলক করুন (৳${bundlePrice.toInt()})",
                             style = MaterialTheme.typography.labelMedium.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White
@@ -485,11 +514,12 @@ private fun OverviewStatItem(label: String, value: String) {
                 color = GoldenAccent
             )
         )
+        Spacer(modifier = Modifier.height(2.dp))
         Text(
             text = label,
             style = MaterialTheme.typography.bodySmall.copy(
-                fontSize = 11.sp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                fontSize = 11.5.sp,
+                color = Color(0xFFA7F3D0)
             )
         )
     }
