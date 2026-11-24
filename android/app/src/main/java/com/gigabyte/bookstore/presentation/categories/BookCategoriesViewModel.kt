@@ -113,10 +113,10 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
                 _allBooks,
                 _selectedBundleId,
                 _selectedCategory,
-                _searchQuery,
-                app.appPreferences.unlockedBundles,
-                app.appPreferences.userStatus
-            ) { bundles, allBooks, bundleId, category, query, unlocked, status ->
+                _searchQuery
+            ) { bundles, allBooks, bundleId, category, query ->
+                val unlocked = app.appPreferences.unlockedBundles.value
+                val status = app.appPreferences.userStatus.value
                 val isUnlocked = unlocked.contains("audiobook_bundle") || status.equals("ACTIVE", ignoreCase = true)
                 val groups = computeCategoryGroups(allBooks, bundles, bundleId, query)
 

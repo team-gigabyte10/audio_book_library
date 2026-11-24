@@ -492,6 +492,7 @@ fun ProfileUpdateDialog(
         }
     }
 }
+}
 
 /**
  * Backward compatibility overload for legacy 4-param onSave signature.
