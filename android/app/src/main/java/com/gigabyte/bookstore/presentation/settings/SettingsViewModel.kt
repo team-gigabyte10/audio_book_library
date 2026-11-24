@@ -2,12 +2,14 @@ package com.gigabyte.bookstore.presentation.settings
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.domain.tts.BanglaTTSManager
 import com.gigabyte.bookstore.domain.tts.BanglaVoiceProfile
 import com.gigabyte.bookstore.domain.tts.TTSVoiceStatus
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 class SettingsViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -25,6 +27,15 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val keepScreenAwake: StateFlow<Boolean> = preferences.keepScreenAwake
     val fullAudiobookMode: StateFlow<Boolean> = preferences.fullAudiobookMode
     val themeMode: StateFlow<String> = preferences.themeMode
+    val userEmail: StateFlow<String> = preferences.userEmail
+    private val userRepository = app.userRepository
+
+    fun deleteAccount(onComplete: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            val result = userRepository.deleteUserAccount()
+            onComplete(result.isSuccess)
+        }
+    }
 
     fun setThemeMode(mode: String) {
         preferences.setThemeMode(mode)

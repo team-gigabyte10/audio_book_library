@@ -35,6 +35,12 @@ When your account deletion is processed:
 
 ---
 
+### Web Deletion Request URL:
+You can also request deletion directly on our public web portal:
+- **Live URL:** [https://team-gigabyte10.github.io/audio_book_library/delete-account.html](https://team-gigabyte10.github.io/audio_book_library/delete-account.html)
+
+---
+
 ### Contact Us
 If you have any questions or require assistance regarding account or data deletion, contact us at:
 - **Email:** teamgigabyte10@gmail.com

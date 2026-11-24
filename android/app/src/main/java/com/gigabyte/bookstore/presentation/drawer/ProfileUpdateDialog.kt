@@ -1,5 +1,7 @@
 package com.gigabyte.bookstore.presentation.drawer
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -24,6 +26,7 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -61,6 +64,7 @@ fun ProfileUpdateDialog(
 
     val focusManager = LocalFocusManager.current
     val clipboardManager = LocalClipboardManager.current
+    val context = LocalContext.current
     val isPaid = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
     val isNameValid = name.trim().isNotBlank()
 
@@ -410,22 +414,40 @@ fun ProfileUpdateDialog(
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    // 3. ACTIONS: CANCEL & SAVE BUTTONS
+                    // 3. ACTIONS: DELETE LINK, CANCEL & SAVE BUTTONS
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End,
+                        horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         TextButton(
-                            onClick = onDismiss,
-                            enabled = !isSaving
+                            onClick = {
+                                try {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://team-gigabyte10.github.io/audio_book_library/delete-account.html"))
+                                    context.startActivity(intent)
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
                         ) {
-                            Text("বাতিল (Cancel)")
+                            Text(
+                                text = "অ্যাকাউন্ট ডিলিট করতে চান?",
+                                color = MaterialTheme.colorScheme.error.copy(alpha = 0.85f),
+                                fontSize = 11.5.sp
+                            )
                         }
 
-                        Spacer(modifier = Modifier.width(10.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            TextButton(
+                                onClick = onDismiss,
+                                enabled = !isSaving
+                            ) {
+                                Text("বাতিল")
+                            }
 
-                        Button(
+                            Spacer(modifier = Modifier.width(6.dp))
+
+                            Button(
                             onClick = {
                                 if (isNameValid && !isSaving) {
                                     isSaving = true

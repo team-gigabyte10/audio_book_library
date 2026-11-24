@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account & Data Deletion | বাংলা অডিওবুক ও স্পোকেন কোর্স</title>
+    <meta name="description" content="বাংলা অডিওবুক ও স্পোকেন কোর্স (com.gigabyte.bookstore) অ্যাপের অ্যাকাউন্ট ও ব্যবহারকারীর ডেটা মুছে ফেলার নির্দেশিকা ও রিকোয়েস্ট পেজ।">
+    <style>
+        :root {
+            --bg-primary: #070d17;
+            --bg-card: #0f1c2e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #fbbf24;
+            --accent-cyan: #38bdf8;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --border: #1e293b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hind Siliguri", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 16px;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .header {
+            background: linear-gradient(135deg, #0b1a2d 0%, #081322 100%);
+            border: 1px solid #1e3a5f;
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        .meta-info {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        p, li {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 14px;
+        }
+        .highlight-box {
+            background: rgba(251, 191, 36, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin: 14px 0;
+            font-size: 13px;
+            color: #fde68a;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+            text-align: left;
+        }
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        input, textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            color: #ffffff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+        .btn-home {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+        .btn-home:hover {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="badge">Google Play User Data Compliance</span>
+            <h1>অ্যাকাউন্ট ও ডেটা ডিলিট নির্দেশিকা</h1>
+            <h2 style="font-size: 16px; color: var(--accent-gold); justify-content: center;">Account & Personal Data Deletion Request</h2>
+            <p class="meta-info">
+                অ্যাপ: <strong>বাংলা অডিওবুক ও স্পোকেন কোর্স</strong> | প্যাকেজ: <code>com.gigabyte.bookstore</code><br>
+                ডেভেলপার: <strong>Team Gigabyte</strong> | সর্বশেষ আপডেট: নভেম্বর ২৫, ২০২৬
+            </p>
+            <a href="index.html" class="btn-home">← হোমপেজে ফিরে যান (Back to Home)</a>
+        </header>
+
+        <section class="card">
+            <h2>📱 ১. অ্যাপের ভেতর থেকে অ্যাকাউন্ট ডিলিট করার নিয়ম (In-App Deletion)</h2>
+            <p>আপনার মোবাইল ফোনে অ্যাপটি ইনস্টল থাকা অবস্থায় সরাসরি অ্যাপ থেকেই অ্যাকাউন্ট ও ডেটা সম্পূর্ণভাবে মুছে ফেলতে পারেন:</p>
+            <ul>
+                <li>অ্যাপটি ওপেন করে বাম পাশের মেনু (Drawer) থেকে <strong>প্রোফাইল (Profile)</strong> বা <strong>সেটিংস (Settings)</strong> পেজে যান।</li>
+                <li>নিচে স্ক্রোল করে <strong>"অ্যাকাউন্ট ডিলিট করুন (Delete Account)"</strong> বাটনে চাপ দিন।</li>
+                <li>কনফার্মেশন ডায়লগে সম্মতি দিলে তাৎক্ষণিকভাবে আপনার অ্যাকাউন্ট, লগইন তথ্য এবং সমস্ত লোকাল ও ক্লাউড ডেটা স্থায়ীভাবে মুছে যাবে।</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>🌐 ২. ওয়েবসাইট বা অ্যাপ ছাড়া অ্যাকাউন্ট ডিলিটের আবেদন (Web Deletion Request)</h2>
+            <p>আপনি যদি অ্যাপ আনইনস্টল করে থাকেন বা অ্যাপ ছাড়াই আপনার অ্যাকাউন্ট ও ব্যক্তিগত ডেটা স্থায়ীভাবে মুছে ফেলতে চান, নিচের ফর্মটি পূরণ করুন অথবা সরাসরি আমাদের সাপোর্ট ইমেইলে আবেদন পাঠান:</p>
+            
+            <form onsubmit="handleDeletionSubmit(event)" style="margin-top: 16px;">
+                <div class="form-group">
+                    <label for="regEmail">আপনার নিবন্ধিত ইমেইল অ্যাড্রেস (Registered Email) *</label>
+                    <input type="email" id="regEmail" placeholder="yourname@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">নিবন্ধিত মোবাইল নম্বর (যদি প্রোফাইলে যুক্ত থাকে)</label>
+                    <input type="tel" id="regPhone" placeholder="01XXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="delReason">অ্যাকাউন্ট ডিলিটের কারণ (ঐচ্ছিক)</label>
+                    <textarea id="delReason" rows="3" placeholder="কেন অ্যাকাউন্ট ডিলিট করতে চান..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">অ্যাকাউন্ট ডিলিটের রিকোয়েস্ট পাঠান (Submit Request)</button>
+            </form>
+
+            <div class="highlight-box" style="margin-top: 18px;">
+                <strong>সাপোর্ট ইমেইল:</strong> <a href="mailto:teamgigabyte10@gmail.com" style="color: var(--accent-gold); font-weight: bold;">teamgigabyte10@gmail.com</a><br>
+                ইমেইলের বিষয় (Subject): <code>Account Deletion Request - [আপনার নিবন্ধিত ইমেইল]</code><br>
+                <em>আবেদন প্রাপ্তির ২৪ থেকে ৭২ ঘণ্টার মধ্যে আপনার অ্যাকাউন্ট ও ডেটা স্থায়ীভাবে ডিলিট করা হবে।</em>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🗑️ ৩. কোন কোন ডেটা স্থায়ীভাবে মুছে ফেলা হবে (Data Purged Permanently)</h2>
+            <p>অ্যাকাউন্ট ডিলিট প্রক্রিয়াকরণের সাথে সাথে নিম্নোক্ত সমস্ত ডেটা গুগল ক্লাউড ফায়ারস্টোর ও আমাদের সার্ভার থেকে অপরিবর্তনীয়ভাবে মুছে ফেলা হয়:</p>
+            <ul>
+                <li><strong>ব্যবহারকারী প্রোফাইল ও লগইন ক্রেডেনশিয়াল:</strong> নাম, ইমেইল অ্যাড্রেস, শিক্ষা প্রতিষ্ঠান ও ঠিকানা।</li>
+                <li><strong>ডিভাইস আইডেন্টিফায়ার (Device Identifier):</strong> লাইসেন্স ও সিঙ্গেল-ডিভাইস ভেরিফিকেশনের জন্য সংরক্ষিত Android ID।</li>
+                <li><strong>শেখার অগ্রগতি ও লাইব্রেরি রেকর্ড:</strong> বুকমার্ক, পড়ার অগ্রগতি (Reading Progress), প্লেব্যাক ইতিহাস এবং পরীক্ষার স্কোর।</li>
+                <li><strong>রেফারেল ও ওয়ালেট ডেটা:</strong> প্রোফাইলের সাথে সংযুক্ত রেফারেল কোড ও পয়েন্ট রেকর্ড।</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>⚖️ ৪. কোন ডেটা আইনি কারণে সংরক্ষিত থাকতে পারে (Data Retention Policy)</h2>
+            <ul>
+                <li><strong>আর্থিক লেনদেন রেকর্ড (Financial Audit Logs):</strong> আপনি যদি মোবাইল ব্যাংকিংয়ের (bKash / Nagad / Rocket) মাধ্যমে কোর্স বা বান্ডেল ক্রয় করে থাকেন, তাহলে আইনি ও ট্যাক্স অডিটের প্রয়োজনে শুধু ট্রানজেকশন আইডি (TrxID) ও পরিশোধিত টাকার হিসাব একটি নামহীন (anonymized) অডিট লগে সংরক্ষিত রাখা হতে পারে।</li>
+                <li>এই সংরক্ষিত তথ্যের সাথে আপনার নাম, ইমেইল বা ডিভাইসের কোনো ব্যক্তিগত সংযোগ আর থাকবে না।</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>📞 ৫. যোগাযোগ ও সহায়তা (Developer Contact)</h2>
+            <p>অ্যাকাউন্ট ডিলিট বা ডেটা সুরক্ষা সংক্রান্ত যেকোনো প্রশ্ন বা সহায়তার জন্য যোগাযোগ করুন:</p>
+            <ul>
+                <li>ইমেইল: <a href="mailto:teamgigabyte10@gmail.com" style="color: var(--accent-cyan);">teamgigabyte10@gmail.com</a></li>
+                <li>ডেভেলপার: Team Gigabyte</li>
+                <li>অ্যাপ্লিকেশন: বাংলা অডিওবুক ও স্পোকেন কোর্স (com.gigabyte.bookstore)</li>
+                <li>ওয়েবসাইট: <a href="https://team-gigabyte10.github.io/audio_book_library/" style="color: var(--accent-cyan);">team-gigabyte10.github.io/audio_book_library</a></li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>App ID: <code>com.gigabyte.bookstore</code></p>
+            <p>&copy; 2026 Team Gigabyte. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function handleDeletionSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('regEmail').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+            const reason = document.getElementById('delReason').value.trim();
+
+            if (!email) {
+                alert('অনুগ্রহ করে আপনার নিবন্ধিত ইমেইল লিখুন।');
+                return;
+            }
+
+            const subject = encodeURIComponent("Account Deletion Request - " + email);
+            const body = encodeURIComponent(
+                "Hello Team Gigabyte Support,\n\n" +
+                "I am requesting the permanent deletion of my account and all associated personal data from 'Bangla Audiobook & Spoken Course' (com.gigabyte.bookstore).\n\n" +
+                "Account Details:\n" +
+                "- Registered Email: " + email + "\n" +
+                "- Phone Number: " + (phone || "Not provided") + "\n" +
+                "- Reason for Deletion: " + (reason || "User request") + "\n\n" +
+                "Please confirm once the account and data have been removed.\n\n" +
+                "Thank you."
+            );
+
+            window.location.href = "mailto:teamgigabyte10@gmail.com?subject=" + subject + "&body=" + body;
+            alert("আপনার ইমেইল ক্লায়েন্ট ওপেন করা হচ্ছে। অনুগ্রহ করে ইমেইলটি পাঠিয়ে দিন। ২৪-৭২ ঘণ্টার মধ্যে আপনার অ্যাকাউন্ট মুছে দেওয়া হবে।");
+        }
+    </script>
+</body>
+</html>

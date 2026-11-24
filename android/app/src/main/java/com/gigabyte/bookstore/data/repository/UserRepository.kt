@@ -400,6 +400,21 @@ class UserRepository(
         }
     }
 
+    suspend fun deleteUserAccount(): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val email = appPreferences.userEmail.value.trim().lowercase()
+            if (email.isNotBlank()) {
+                firestore.collection("users").document(email).delete().await()
+            }
+            appPreferences.clearUserSession()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            appPreferences.clearUserSession()
+            Result.success(Unit)
+        }
+    }
+
     suspend fun submitPaymentRequest(
         method: String,
         transactionId: String,
