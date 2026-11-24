@@ -47,6 +47,7 @@ data class AppCoursePackage(
     val price: Double,
     val priceDisplay: String,
     val icon: ImageVector,
+    val flagEmoji: String,
     val tag: String? = null,
     val highlights: List<String>
 )
@@ -80,6 +81,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("audiobook_bundle"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("audiobook_bundle").toInt()}",
                 icon = Icons.Default.MenuBook,
+                flagEmoji = "📚",
                 tag = "জনপ্রিয়",
                 highlights = listOf(
                     "সব বইয়ের সম্পূর্ণ অধ্যায় অডিও ও টেক্সট",
@@ -94,6 +96,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("english_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("english_course").toInt()}",
                 icon = Icons.Default.RecordVoiceOver,
+                flagEmoji = "🇬🇧",
                 tag = null,
                 highlights = listOf(
                     "দৈনন্দিন কথোপকথনের অডিও লেসন (১–২০)",
@@ -108,6 +111,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("japanese_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("japanese_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇯🇵",
                 tag = null,
                 highlights = listOf(
                     "বেসিক হিরাগানা, কাতাকানা ও প্রয়োজনীয় শব্দভাণ্ডার",
@@ -122,6 +126,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("urdu_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("urdu_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇵🇰",
                 tag = null,
                 highlights = listOf(
                     "উর্দু হরফ, নতুন ধ্বনি ও বাংলা-উর্দু মিল শব্দ",
@@ -136,6 +141,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("hindi_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("hindi_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇮🇳",
                 tag = null,
                 highlights = listOf(
                     "দেবনগরী বর্ণমালা, মাত্রা ও বাংলা-হিন্দি মিল শব্দ",
@@ -150,6 +156,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("german_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("german_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇩🇪",
                 tag = null,
                 highlights = listOf(
                     "জার্মান বর্ণমালা, উমলাউট (ä, ö, ü, ß) ও উচ্চারণ",
@@ -164,6 +171,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("chinese_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("chinese_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇨🇳",
                 tag = "নতুন",
                 highlights = listOf(
                     "পিনইন, ৪টি সুর ও টোন সন্ধি (Tone Sandhi) মাস্টারি",
@@ -178,6 +186,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("arabic_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("arabic_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇸🇦",
                 tag = "নতুন",
                 highlights = listOf(
                     "২৮টি হরফের মাখরাজ, হরকত-তানভীন ও আরবি-বাংলা কগনেট",
@@ -192,6 +201,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("korean_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("korean_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇰🇷",
                 tag = "নতুন",
                 highlights = listOf(
                     "হাঙ্গুল (한글) বর্ণমালা, বাচ্ছিম নিয়ম ও দ্বৈত সংখ্যা গণনা",
@@ -206,6 +216,7 @@ fun PaymentScreen(
                 price = pricingConfig.getPackagePrice("regional_course"),
                 priceDisplay = "৳ ${pricingConfig.getPackagePrice("regional_course").toInt()}",
                 icon = Icons.Default.Translate,
+                flagEmoji = "🇧🇩",
                 tag = "নতুন",
                 highlights = listOf(
                     "প্রতিটি বাক্য চট্টগ্রাম, নোয়াখালী, সিলেট, ঢাকাসহ ১০ অঞ্চলে পাশাপাশি",
@@ -220,6 +231,7 @@ fun PaymentScreen(
                 price = pricingConfig.megaBundlePrice,
                 priceDisplay = "৳ ${pricingConfig.megaBundlePrice.toInt()}",
                 icon = Icons.Default.Stars,
+                flagEmoji = "👑",
                 tag = "সেরা অফার",
                 highlights = listOf(
                     "সম্পূর্ণ অডিওবুক বান্ডেল (সব বই ও PDF)",
@@ -322,7 +334,7 @@ fun PaymentScreen(
         },
         bottomBar = {
             AnimatedVisibility(
-                visible = displayedPackages.isNotEmpty() && !isPackageAlreadyUnlocked && !isGiftMode && !hasSufficientBalance,
+                visible = displayedPackages.isNotEmpty() && !isPackageAlreadyUnlocked && !isGiftMode && userBalance < 100.0,
                 enter = androidx.compose.animation.slideInVertically(initialOffsetY = { it }) + androidx.compose.animation.fadeIn(),
                 exit = androidx.compose.animation.slideOutVertically(targetOffsetY = { it }) + androidx.compose.animation.fadeOut()
             ) {
@@ -347,7 +359,7 @@ fun PaymentScreen(
                                 .padding(end = 12.dp)
                         ) {
                             Text(
-                                text = selectedPackage.title,
+                                text = "${selectedPackage.flagEmoji} ${selectedPackage.title}",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 14.sp,
                                 maxLines = 1,
@@ -1107,11 +1119,9 @@ fun PaymentScreen(
                 ) {
                     Column(modifier = Modifier.padding(14.dp)) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                imageVector = selectedPackage.icon,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(20.dp)
+                            Text(
+                                text = selectedPackage.flagEmoji,
+                                fontSize = 20.sp
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
@@ -1186,8 +1196,8 @@ fun PaymentScreen(
                 }
             }
 
-            // 4. Mobile Banking Purchase Action
-            if (displayedPackages.isNotEmpty() && !isPackageAlreadyUnlocked && !hasSufficientBalance && !isGiftMode) {
+            // 4. Mobile Banking Purchase Action (Shown only when wallet balance < 100.0)
+            if (displayedPackages.isNotEmpty() && !isPackageAlreadyUnlocked && !isGiftMode && userBalance < 100.0) {
                 Card(
                     shape = RoundedCornerShape(14.dp),
                     colors = CardDefaults.cardColors(
@@ -1343,7 +1353,7 @@ fun PaymentScreen(
                         Column {
                             Text(text = "পেমেন্ট সম্পন্ন করুন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                             Text(
-                                text = "${selectedPackage.title} • ${selectedPackage.priceDisplay}",
+                                text = "${selectedPackage.flagEmoji} ${selectedPackage.title} • ${selectedPackage.priceDisplay}",
                                 fontSize = 12.sp,
                                 color = MaterialTheme.colorScheme.primary,
                                 fontWeight = FontWeight.SemiBold
@@ -1792,15 +1802,13 @@ private fun CourseBundleCard(
                         .size(42.dp)
                         .clip(CircleShape)
                         .background(
-                            if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
+                            if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.22f) else MaterialTheme.colorScheme.primary.copy(alpha = 0.10f)
                         ),
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(
-                        imageVector = pkg.icon,
-                        contentDescription = null,
-                        tint = if (isSelected) Color.White else MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(22.dp)
+                    Text(
+                        text = pkg.flagEmoji,
+                        fontSize = 22.sp
                     )
                 }
 
