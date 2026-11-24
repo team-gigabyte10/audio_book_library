@@ -211,6 +211,51 @@ class LearningRepository(private val dao: LearningDao) {
         )
     }
 
+    fun observeLessonDone(lessonId: String): Flow<Boolean> =
+        dao.observeLessonProgress(lessonId).map { it?.state == LessonProgressEntity.STATE_DONE }
+
+    suspend fun toggleLessonDone(lessonId: String): Boolean {
+        val existing = dao.getProgress(lessonId)
+        val currentlyDone = existing?.state == LessonProgressEntity.STATE_DONE
+        val newDone = !currentlyDone
+        dao.upsertProgress(
+            LessonProgressEntity(
+                lessonId = lessonId,
+                state = if (newDone) LessonProgressEntity.STATE_DONE else LessonProgressEntity.STATE_IN_PROGRESS,
+                bestScore = existing?.bestScore ?: 0,
+                lastItemIndex = existing?.lastItemIndex ?: 0,
+                updatedAt = now()
+            )
+        )
+        return newDone
+    }
+
+    suspend fun markDone(lessonId: String) {
+        val existing = dao.getProgress(lessonId)
+        dao.upsertProgress(
+            LessonProgressEntity(
+                lessonId = lessonId,
+                state = LessonProgressEntity.STATE_DONE,
+                bestScore = existing?.bestScore ?: 0,
+                lastItemIndex = existing?.lastItemIndex ?: 0,
+                updatedAt = now()
+            )
+        )
+    }
+
+    suspend fun markIncomplete(lessonId: String) {
+        val existing = dao.getProgress(lessonId)
+        dao.upsertProgress(
+            LessonProgressEntity(
+                lessonId = lessonId,
+                state = LessonProgressEntity.STATE_IN_PROGRESS,
+                bestScore = existing?.bestScore ?: 0,
+                lastItemIndex = existing?.lastItemIndex ?: 0,
+                updatedAt = now()
+            )
+        )
+    }
+
     /** Most recently touched lesson, for "Continue lesson" on the learning home. */
     fun observeContinueLesson(): Flow<ContinueLesson?> = dao.observeLastProgress().map { progress ->
         val lesson = progress?.let { dao.getLesson(it.lessonId) } ?: return@map null

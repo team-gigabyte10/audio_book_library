@@ -144,6 +144,12 @@ interface LearningDao {
     @Query("SELECT * FROM lesson_progress WHERE lessonId = :lessonId")
     suspend fun getProgress(lessonId: String): LessonProgressEntity?
 
+    @Query("SELECT * FROM lesson_progress WHERE lessonId = :lessonId")
+    fun observeLessonProgress(lessonId: String): Flow<LessonProgressEntity?>
+
+    @Query("DELETE FROM lesson_progress WHERE lessonId = :lessonId")
+    suspend fun deleteProgress(lessonId: String)
+
     @Query("SELECT * FROM lesson_progress ORDER BY updatedAt DESC LIMIT 1")
     fun observeLastProgress(): Flow<LessonProgressEntity?>
 
