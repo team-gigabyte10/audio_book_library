@@ -214,6 +214,7 @@ class AppPreferences(context: Context) {
         private const val KEY_CREATED_AT = "created_at"
         private const val KEY_LAST_LOGIN_AT = "last_login_at"
         private const val KEY_UNLOCKED_BUNDLES = "unlocked_bundles"
+        private const val KEY_BOOKMARKED_BOOKS = "bookmarked_book_ids"
         private const val KEY_IS_ADMIN = "is_admin"
         private const val KEY_COURSE_UNLOCK_MODE = "course_unlock_mode"
         private const val KEY_ALLOW_REWARD_AD_UNLOCK = "allow_reward_ad_unlock"
@@ -293,6 +294,38 @@ class AppPreferences(context: Context) {
         val normalized = normalizeBundleId(bundleId)
         if (normalized == "audiobook_bundle" && (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true))) return true
         return _unlockedBundles.value.contains(normalized)
+    }
+
+    // -------------------------------------------------------------
+    // Bookmarks (Saved Books)
+    // -------------------------------------------------------------
+    private val _bookmarkedBookIds = MutableStateFlow<Set<String>>(
+        prefs.getStringSet(KEY_BOOKMARKED_BOOKS, emptySet()) ?: emptySet()
+    )
+    val bookmarkedBookIds: StateFlow<Set<String>> = _bookmarkedBookIds.asStateFlow()
+
+    fun isBookmarked(bookId: String): Boolean = _bookmarkedBookIds.value.contains(bookId)
+
+    fun addBookmark(bookId: String) {
+        val updated = _bookmarkedBookIds.value.toMutableSet().apply { add(bookId) }
+        prefs.edit().putStringSet(KEY_BOOKMARKED_BOOKS, updated).apply()
+        _bookmarkedBookIds.value = updated
+    }
+
+    fun removeBookmark(bookId: String) {
+        val updated = _bookmarkedBookIds.value.toMutableSet().apply { remove(bookId) }
+        prefs.edit().putStringSet(KEY_BOOKMARKED_BOOKS, updated).apply()
+        _bookmarkedBookIds.value = updated
+    }
+
+    fun toggleBookmark(bookId: String): Boolean {
+        return if (isBookmarked(bookId)) {
+            removeBookmark(bookId)
+            false
+        } else {
+            addBookmark(bookId)
+            true
+        }
     }
 
     // -------------------------------------------------------------

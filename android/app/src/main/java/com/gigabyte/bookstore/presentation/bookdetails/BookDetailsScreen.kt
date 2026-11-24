@@ -22,6 +22,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AutoStories
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
+import android.widget.Toast
 import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
@@ -135,6 +138,29 @@ fun BookDetailsScreen(
                     }
                 },
                 actions = {
+                    val bookmarkedBookIds by viewModel.bookmarkedBookIds.collectAsStateWithLifecycle()
+                    val isBookmarked = bookmarkedBookIds.contains(book?.id ?: "")
+
+                    IconButton(
+                        onClick = {
+                            book?.let {
+                                val added = viewModel.toggleBookmark()
+                                Toast.makeText(
+                                    context,
+                                    if (added) "বুকমার্কে যোগ করা হয়েছে" else "বুকমার্ক থেকে সরানো হয়েছে",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        },
+                        modifier = Modifier.testTag("book_details_bookmark_button")
+                    ) {
+                        Icon(
+                            imageVector = if (isBookmarked) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                            contentDescription = "বুকমার্ক",
+                            tint = if (isBookmarked) Color(0xFFFFD54F) else MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+
                     IconButton(
                         onClick = { book?.let { onSearchInBook(it.id) } },
                         modifier = Modifier.testTag("book_details_search_button")

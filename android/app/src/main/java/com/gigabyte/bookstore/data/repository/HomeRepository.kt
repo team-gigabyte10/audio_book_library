@@ -9,6 +9,9 @@ import com.gigabyte.bookstore.data.models.HeroBanner
 import com.gigabyte.bookstore.data.models.RemoteBook
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
@@ -212,6 +215,89 @@ class HomeRepository(
             Log.e(TAG, "Error fetching all books from Firestore: ${e.message}", e)
             emptyList()
         }
+    }
+
+    fun listenToAudioBundles(): Flow<List<AudioBundle>> = callbackFlow {
+        val listenerRegistration = firestore.collection("bundles")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    Log.e(TAG, "Error listening to bundles: ${error.message}", error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val list = snapshot.documents.mapNotNull { doc ->
+                        val rawBookIds = (doc.get("bookIds") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+                        val rawBookTitles = (doc.get("bookTitles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
+
+                        AudioBundle(
+                            id = doc.id,
+                            title = doc.getString("title") ?: "",
+                            subtitle = doc.getString("subtitle"),
+                            description = doc.getString("description"),
+                            coverUrl = doc.getString("coverUrl"),
+                            bookIds = rawBookIds,
+                            bookTitles = rawBookTitles,
+                            bookCount = doc.getLong("bookCount")?.toInt() ?: rawBookTitles.size,
+                            originalPrice = doc.getDouble("originalPrice") ?: (doc.getLong("originalPrice")?.toDouble() ?: 0.0),
+                            discountedPrice = doc.getDouble("discountedPrice") ?: (doc.getLong("discountedPrice")?.toDouble() ?: 0.0),
+                            savingsPercentage = doc.getLong("savingsPercentage")?.toInt() ?: 0,
+                            totalDurationHours = doc.getDouble("totalDurationHours") ?: (doc.getLong("totalDurationHours")?.toDouble() ?: 0.0),
+                            badge = doc.getString("badge") ?: "বান্ডেল অফার",
+                            rating = doc.getDouble("rating") ?: 5.0,
+                            reviewCount = doc.getLong("reviewCount")?.toInt() ?: 0,
+                            isFeatured = doc.getBoolean("isFeatured") ?: false
+                        )
+                    }
+                    trySend(list)
+                }
+            }
+        awaitClose { listenerRegistration.remove() }
+    }
+
+    fun listenToAllBooks(): Flow<List<RemoteBook>> = callbackFlow {
+        val listenerRegistration = firestore.collection("books")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    Log.e(TAG, "Error listening to all books: ${error.message}", error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val list = snapshot.documents.mapNotNull { doc ->
+                        RemoteBook(
+                            id = doc.id,
+                            title = doc.getString("title") ?: "Untitled",
+                            subtitle = doc.getString("subtitle"),
+                            author = doc.getString("author"),
+                            translator = doc.getString("translator"),
+                            tagline = doc.getString("tagline"),
+                            category = doc.getString("category") ?: "আত্মউন্নয়ন",
+                            language = doc.getString("language") ?: "Bangla",
+                            audioUrl = doc.getString("audioUrl"),
+                            summaryMdUrl = doc.getString("summaryMdUrl"),
+                            summaryMdPath = doc.getString("summaryMdPath"),
+                            summaryFilename = doc.getString("summaryFilename"),
+                            fullBookMdUrl = doc.getString("fullBookMdUrl"),
+                            fullBookMdPath = doc.getString("fullBookMdPath"),
+                            fullBookFilename = doc.getString("fullBookFilename"),
+                            pdfUrl = doc.getString("pdfUrl"),
+                            pdfPath = doc.getString("pdfPath"),
+                            pdfFilename = doc.getString("pdfFilename"),
+                            coverUrl = doc.getString("coverUrl"),
+                            coverPath = doc.getString("coverPath"),
+                            summarySnippet = doc.getString("summarySnippet"),
+                            totalWords = doc.getLong("totalWords")?.toInt() ?: 0,
+                            estimatedMinutes = doc.getLong("estimatedMinutes")?.toInt() ?: 1,
+                            hasSummary = doc.getBoolean("hasSummary") ?: false,
+                            hasFullBook = doc.getBoolean("hasFullBook") ?: false,
+                            hasPdf = doc.getBoolean("hasPdf") ?: false,
+                            slug = doc.getString("slug"),
+                            publishedAtIso = doc.getString("publishedAtIso")
+                        )
+                    }
+                    trySend(list)
+                }
+            }
+        awaitClose { listenerRegistration.remove() }
     }
 }
 

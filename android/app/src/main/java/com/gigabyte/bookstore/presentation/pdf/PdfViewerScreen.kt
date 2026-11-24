@@ -85,6 +85,7 @@ fun PdfViewerScreen(
     val cleanBookId = bookId.removeSuffix("_full")
     var bookTitle by remember { mutableStateOf("পিডিএফ বই") }
 
+    val pageCache = remember { PdfPageMemoryCache() }
     val savedPageIndex = remember(cleanBookId) { preferences.getPdfLastReadPage(cleanBookId) }
     val listState = rememberLazyListState(initialFirstVisibleItemIndex = savedPageIndex)
 
@@ -152,6 +153,7 @@ fun PdfViewerScreen(
                 if (pageCount > 0 && currentIdx in 0 until pageCount) {
                     preferences.setPdfLastReadPage(cleanBookId, currentIdx)
                 }
+                pageCache.clear()
                 pdfRenderer?.close()
                 fileDescriptor?.close()
             } catch (e: Exception) {
@@ -307,7 +309,8 @@ fun PdfViewerScreen(
                             items(pageCount, key = { it }) { pageIndex ->
                                 PdfPageItem(
                                     renderer = renderer,
-                                    pageIndex = pageIndex
+                                    pageIndex = pageIndex,
+                                    pageCache = pageCache
                                 )
                             }
                         }
@@ -346,34 +349,53 @@ fun PdfViewerScreen(
 @Composable
 private fun PdfPageItem(
     renderer: PdfRenderer,
-    pageIndex: Int
+    pageIndex: Int,
+    pageCache: PdfPageMemoryCache
 ) {
     val context = LocalContext.current
-    var bitmap by remember(pageIndex) { mutableStateOf<Bitmap?>(null) }
-    var pageAspectRatio by remember(pageIndex) { mutableFloatStateOf(1f / 1.414f) } // Default A4 ratio
+    var bitmap by remember(pageIndex) { mutableStateOf(pageCache.get(pageIndex)) }
+    var pageAspectRatio by remember(pageIndex) {
+        mutableFloatStateOf(pageCache.getAspectRatio(pageIndex) ?: (1f / 1.414f)) // Default A4 ratio
+    }
+    var isRendering by remember(pageIndex) { mutableStateOf(bitmap == null) }
 
     LaunchedEffect(pageIndex, renderer) {
+        val cached = pageCache.get(pageIndex)
+        if (cached != null && !cached.isRecycled) {
+            bitmap = cached
+            isRendering = false
+            pageCache.getAspectRatio(pageIndex)?.let { pageAspectRatio = it }
+            return@LaunchedEffect
+        }
+
+        isRendering = true
         withContext(Dispatchers.IO) {
             try {
                 synchronized(renderer) {
                     val page = renderer.openPage(pageIndex)
-                    pageAspectRatio = page.width.toFloat() / page.height.toFloat()
+                    val ratio = (page.width.toFloat() / page.height.toFloat()).coerceIn(0.2f, 5.0f)
+                    pageAspectRatio = ratio
+                    pageCache.setAspectRatio(pageIndex, ratio)
 
-                    // Render at high clarity matching device screen resolution
+                    // Render matching screen resolution with RGB_565 for 50% lower memory usage
                     val displayMetrics = context.resources.displayMetrics
-                    val renderWidth = (displayMetrics.widthPixels * 1.3f).toInt().coerceAtLeast(page.width)
-                    val renderHeight = (renderWidth / pageAspectRatio).toInt()
+                    val renderWidth = (displayMetrics.widthPixels * 1.2f).toInt().coerceAtLeast(page.width)
+                    val renderHeight = (renderWidth / ratio).toInt()
 
-                    val bmp = Bitmap.createBitmap(renderWidth, renderHeight, Bitmap.Config.ARGB_8888)
+                    val bmp = Bitmap.createBitmap(renderWidth, renderHeight, Bitmap.Config.RGB_565)
                     val canvas = Canvas(bmp)
                     canvas.drawColor(AndroidColor.WHITE)
 
                     page.render(bmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
                     page.close()
+
+                    pageCache.put(pageIndex, bmp)
                     bitmap = bmp
+                    isRendering = false
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+                isRendering = false
             }
         }
     }
@@ -388,7 +410,7 @@ private fun PdfPageItem(
         contentAlignment = Alignment.Center
     ) {
         val currentBitmap = bitmap
-        if (currentBitmap != null) {
+        if (currentBitmap != null && !currentBitmap.isRecycled) {
             Image(
                 bitmap = currentBitmap.asImageBitmap(),
                 contentDescription = "পৃষ্ঠা ${pageIndex + 1}",
@@ -399,12 +421,21 @@ private fun PdfPageItem(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFFF8FAFC))
+                    .padding(16.dp)
             ) {
                 CircularProgressIndicator(
                     strokeWidth = 2.dp,
                     modifier = Modifier.size(24.dp),
                     color = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "পৃষ্ঠা ${pageIndex + 1} প্রস্তুত হচ্ছে...",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color(0xFF64748B)
                 )
             }
         }

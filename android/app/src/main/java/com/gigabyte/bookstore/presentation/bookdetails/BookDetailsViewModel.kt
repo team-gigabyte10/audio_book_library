@@ -48,6 +48,12 @@ class BookDetailsViewModel(
 
     val playbackState: StateFlow<PlaybackState> = player.playbackState
 
+    val bookmarkedBookIds: StateFlow<Set<String>> = appPreferences.bookmarkedBookIds
+
+    fun toggleBookmark(): Boolean {
+        return appPreferences.toggleBookmark(bookId)
+    }
+
     private val booksDir: File by lazy {
         File(application.filesDir, "book-store").apply { if (!exists()) mkdirs() }
     }

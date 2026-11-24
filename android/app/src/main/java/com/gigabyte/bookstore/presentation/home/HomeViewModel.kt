@@ -69,6 +69,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val unlockedBundles: StateFlow<Set<String>> = app.appPreferences.unlockedBundles
     val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin
 
+    val allBooks: StateFlow<List<com.gigabyte.bookstore.data.models.Book>> = bookRepository.allBooks
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    val bookmarkedBookIds: StateFlow<Set<String>> = app.appPreferences.bookmarkedBookIds
+
+    fun removeBookmark(bookId: String) {
+        app.appPreferences.removeBookmark(bookId)
+    }
+
     val userRepository = com.gigabyte.bookstore.data.repository.UserRepository(application, app.appPreferences)
 
     fun updateUserProfile(

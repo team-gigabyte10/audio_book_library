@@ -24,6 +24,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bedtime
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
+import androidx.compose.ui.platform.LocalContext
+import android.widget.Toast
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Forward10
 import androidx.compose.material.icons.filled.MenuBook
@@ -148,6 +152,31 @@ fun PlayerScreen(
                     }
                 },
                 actions = {
+                    val bookmarkedBookIds by viewModel.bookmarkedBookIds.collectAsStateWithLifecycle()
+                    val currentBookId = playbackState.bookId.ifBlank { viewModel.book.value?.id.orEmpty() }
+                    val isBookmarked = bookmarkedBookIds.contains(currentBookId)
+                    val context = LocalContext.current
+
+                    IconButton(
+                        onClick = {
+                            if (currentBookId.isNotBlank()) {
+                                val added = viewModel.toggleBookmark()
+                                Toast.makeText(
+                                    context,
+                                    if (added) "বুকমার্কে যোগ করা হয়েছে" else "বুকমার্ক থেকে সরানো হয়েছে",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        },
+                        modifier = Modifier.testTag("player_bookmark_button")
+                    ) {
+                        Icon(
+                            imageVector = if (isBookmarked) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                            contentDescription = "বুকমার্ক",
+                            tint = if (isBookmarked) Color(0xFFFFD54F) else MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+
                     // Open Reader Screen
                     IconButton(
                         onClick = {

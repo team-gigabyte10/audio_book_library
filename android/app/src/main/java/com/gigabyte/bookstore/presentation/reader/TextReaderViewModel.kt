@@ -86,15 +86,15 @@ class TextReaderViewModel(
             val idx = initialChapterIndex.coerceIn(0, (chapList.size - 1).coerceAtLeast(0))
             _currentChapterIndex.value = idx
 
-            // Pre-process chunks for all chapters so sliding between pages is instantaneous
-            val chunksMap = mutableMapOf<Int, List<ChunkInfo>>()
-            chapList.forEachIndexed { index, chap ->
+            // Lazy loading: Only process initial active chapter upfront, other chapters are loaded lazily on demand
+            val initialChunks = if (chapList.isNotEmpty() && idx in chapList.indices) {
+                val chap = chapList[idx]
                 val fullCleanText = "${chap.title}。\n\n" + MarkdownCleaner.cleanForTTS(chap.content)
-                val chunks = SentenceChunker.splitIntoChunks(fullCleanText)
-                chunksMap[index] = chunks
-            }
-            _chapterChunksMap.value = chunksMap
-            _chapterChunks.value = chunksMap[idx] ?: emptyList()
+                SentenceChunker.splitIntoChunks(fullCleanText)
+            } else emptyList()
+
+            _chapterChunksMap.value = mapOf(idx to initialChunks)
+            _chapterChunks.value = initialChunks
         }
     }
 

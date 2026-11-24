@@ -48,87 +48,139 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
     val userStatus: StateFlow<String> = app.appPreferences.userStatus
     val unlockedBundles: StateFlow<Set<String>> = app.appPreferences.unlockedBundles
 
-    private val _uiState = MutableStateFlow(BookCategoriesUiState())
+    private val _bundles = MutableStateFlow<List<AudioBundle>>(emptyList())
+    private val _allBooks = MutableStateFlow<List<RemoteBook>>(emptyList())
+    private val _selectedBundleId = MutableStateFlow<String?>(null)
+    private val _selectedCategory = MutableStateFlow<String>("all")
+    private val _searchQuery = MutableStateFlow<String>("")
+    private val _errorMessage = MutableStateFlow<String?>(null)
+
+    private val _uiState = MutableStateFlow(BookCategoriesUiState(isLoading = true))
     val uiState: StateFlow<BookCategoriesUiState> = _uiState.asStateFlow()
 
     init {
-        loadData()
+        startRealtimeSync()
     }
 
-    fun initBundleSelection(bundleId: String?) {
-        if (!bundleId.isNullOrBlank()) {
-            _uiState.value = _uiState.value.copy(selectedBundleId = bundleId)
-            recomputeGroups()
-        }
-    }
-
-    fun selectCategory(category: String) {
-        _uiState.value = _uiState.value.copy(selectedCategory = category)
-        recomputeGroups()
-    }
-
-    fun selectBundle(bundleId: String?) {
-        _uiState.value = _uiState.value.copy(
-            selectedBundleId = if (_uiState.value.selectedBundleId == bundleId) null else bundleId
-        )
-        recomputeGroups()
-    }
-
-    fun updateSearchQuery(query: String) {
-        _uiState.value = _uiState.value.copy(searchQuery = query)
-        recomputeGroups()
-    }
-
-    fun loadData() {
+    private fun startRealtimeSync() {
+        // 1. Initial immediate offline/cache load so UI renders instantly without waiting for network
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(isLoading = true, errorMessage = null)
             try {
-                val bundles = homeRepository.getAudioBundles()
-                var books = homeRepository.getAllBooks()
-
-                if (books.isEmpty()) {
-                    books = app.syncManager.cachedBooks.value
-                }
-
-                // If remote books are still empty, map from local room repository
-                if (books.isEmpty()) {
-                    val localEntities = app.database.bookDao().getAllBooks().first()
-                    books = localEntities.map { entity ->
-                        RemoteBook(
-                            id = entity.id,
-                            title = entity.title,
-                            author = entity.author,
-                            coverPath = entity.coverPath,
-                            category = "আত্মউন্নয়ন ও ক্লাসিক"
-                        )
+                val cached = app.syncManager.cachedBooks.value
+                if (cached.isNotEmpty()) {
+                    _allBooks.value = cached
+                } else {
+                    val local = app.database.bookDao().getAllBooks().first()
+                    if (local.isNotEmpty()) {
+                        _allBooks.value = local.map { entity ->
+                            RemoteBook(
+                                id = entity.id,
+                                title = entity.title,
+                                author = entity.author,
+                                coverPath = entity.coverPath,
+                                category = "আত্মউন্নয়ন ও ক্লাসিক"
+                            )
+                        }
                     }
                 }
-
-                val isUnlocked = app.appPreferences.isBundleUnlocked("audiobook_bundle")
-
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    bundles = bundles,
-                    allBooks = books,
-                    isAudiobookUnlocked = isUnlocked
-                )
-                recomputeGroups()
             } catch (e: Exception) {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = e.message ?: "বই লোড করতে সমস্যা হয়েছে"
+                e.printStackTrace()
+            }
+        }
+
+        // 2. Real-time Firestore Bundle listener
+        viewModelScope.launch {
+            homeRepository.listenToAudioBundles().collect { bundles ->
+                if (bundles.isNotEmpty()) {
+                    _bundles.value = bundles
+                }
+            }
+        }
+
+        // 3. Real-time Firestore Books listener
+        viewModelScope.launch {
+            homeRepository.listenToAllBooks().collect { books ->
+                if (books.isNotEmpty()) {
+                    _allBooks.value = books
+                }
+            }
+        }
+
+        // 4. Reactive State Combination: recomputes categories, filter chips and counts whenever any stream changes
+        viewModelScope.launch {
+            combine(
+                _bundles,
+                _allBooks,
+                _selectedBundleId,
+                _selectedCategory,
+                _searchQuery,
+                app.appPreferences.unlockedBundles,
+                app.appPreferences.userStatus
+            ) { bundles, allBooks, bundleId, category, query, unlocked, status ->
+                val isUnlocked = unlocked.contains("audiobook_bundle") || status.equals("ACTIVE", ignoreCase = true)
+                val groups = computeCategoryGroups(allBooks, bundles, bundleId, query)
+
+                BookCategoriesUiState(
+                    isLoading = allBooks.isEmpty() && bundles.isEmpty(),
+                    bundles = bundles,
+                    allBooks = allBooks,
+                    selectedBundleId = bundleId,
+                    selectedCategory = category,
+                    searchQuery = query,
+                    categoryGroups = groups,
+                    isAudiobookUnlocked = isUnlocked,
+                    errorMessage = _errorMessage.value
                 )
+            }.collect { newState ->
+                _uiState.value = newState
             }
         }
     }
 
-    private fun recomputeGroups() {
-        val currentState = _uiState.value
-        var filteredBooks = currentState.allBooks
+    fun initBundleSelection(bundleId: String?) {
+        if (!bundleId.isNullOrBlank()) {
+            _selectedBundleId.value = bundleId
+        }
+    }
+
+    fun selectCategory(category: String) {
+        _selectedCategory.value = category
+    }
+
+    fun selectBundle(bundleId: String?) {
+        val newId = if (_selectedBundleId.value == bundleId) null else bundleId
+        _selectedBundleId.value = newId
+        _selectedCategory.value = "all"
+    }
+
+    fun updateSearchQuery(query: String) {
+        _searchQuery.value = query
+    }
+
+    fun refresh() {
+        viewModelScope.launch {
+            try {
+                val freshBundles = homeRepository.getAudioBundles()
+                if (freshBundles.isNotEmpty()) _bundles.value = freshBundles
+                val freshBooks = homeRepository.getAllBooks()
+                if (freshBooks.isNotEmpty()) _allBooks.value = freshBooks
+            } catch (e: Exception) {
+                _errorMessage.value = e.message
+            }
+        }
+    }
+
+    private fun computeCategoryGroups(
+        allBooks: List<RemoteBook>,
+        bundles: List<AudioBundle>,
+        selectedBundleId: String?,
+        searchQuery: String
+    ): List<BookCategoryGroup> {
+        var filteredBooks = allBooks
 
         // 1. Filter by bundle if selected
-        if (!currentState.selectedBundleId.isNullOrBlank()) {
-            val bundle = currentState.bundles.find { it.id == currentState.selectedBundleId }
+        if (!selectedBundleId.isNullOrBlank()) {
+            val bundle = bundles.find { it.id == selectedBundleId }
             if (bundle != null && (bundle.bookIds.isNotEmpty() || bundle.bookTitles.isNotEmpty())) {
                 val allowedIds = bundle.bookIds.toSet()
                 val allowedTitles = bundle.bookTitles.map { it.trim().lowercase() }.filter { it.isNotBlank() }
@@ -146,8 +198,8 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
         }
 
         // 2. Filter by search query
-        if (currentState.searchQuery.isNotBlank()) {
-            val q = currentState.searchQuery.trim().lowercase()
+        if (searchQuery.isNotBlank()) {
+            val q = searchQuery.trim().lowercase()
             filteredBooks = filteredBooks.filter {
                 it.title.lowercase().contains(q) ||
                 (it.author?.lowercase()?.contains(q) == true) ||
@@ -155,7 +207,7 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
             }
         }
 
-        // 3. Group by category
+        // 3. Group by category dynamically
         val groupedMap = filteredBooks.groupBy { book ->
             val cat = book.category?.trim()
             if (cat.isNullOrBlank() || cat.equals("General", ignoreCase = true)) {
@@ -165,7 +217,7 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
             }
         }
 
-        val groups = groupedMap.map { (catName, booksInCat) ->
+        return groupedMap.map { (catName, booksInCat) ->
             val meta = getCategoryMeta(catName)
             BookCategoryGroup(
                 name = catName,
@@ -175,8 +227,6 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
                 books = booksInCat
             )
         }.sortedByDescending { it.books.size }
-
-        _uiState.value = currentState.copy(categoryGroups = groups)
     }
 
     private data class CategoryMeta(val banglaName: String, val emoji: String, val description: String)
@@ -185,7 +235,7 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
         return when {
             cat.contains("জীবনী", ignoreCase = true) || cat.contains("সাহিত্য", ignoreCase = true) || cat.contains("Classic", ignoreCase = true) ->
                 CategoryMeta("অনুপ্রেরণামূলক জীবনী ও ক্লাসিক", "🌟", "বিশ্বসেরা ব্যক্তিত্বদের জীবনসংগ্রাম ও কালজয়ী সাহিত্যের অনুপ্রেরণা")
-            cat.contains("ব্যবসা", ignoreCase = true) || cat.contains("ক্যারিয়ার", ignoreCase = true) || cat.contains("Business", ignoreCase = true) ->
+            cat.contains("ব্যবসা", ignoreCase = true) || cat.contains("ক্যারিয়ার", ignoreCase = true) || cat.contains("Business", ignoreCase = true) || cat.contains("নেতৃত্ব", ignoreCase = true) ->
                 CategoryMeta("ক্যারিয়ার, ব্যবসা ও নেতৃত্ব", "💼", "বিজনেস স্ট্র্যাটেজি, উদ্যোগ ও লিডারশিপ গাইড")
             cat.contains("উন্নয়ন", ignoreCase = true) || cat.contains("আত্মউন্নয়ন", ignoreCase = true) || cat.contains("Self", ignoreCase = true) ->
                 CategoryMeta("মনস্তত্ত্ব ও আত্মউন্নয়ন", "🧠", "চিন্তার বিকাশ, মানসিক শক্তি ও ইতিবাচক জীবনধারা")
@@ -193,6 +243,10 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
                 CategoryMeta("সময় ব্যবস্থাপনা ও সাফল্য", "⏳", "ফোকাস, শৃঙ্ক্ষলা ও সর্বোচ্চ উৎপাদনশীলতার উপায়")
             cat.contains("শান্তি", ignoreCase = true) || cat.contains("স্বাস্থ্য", ignoreCase = true) || cat.contains("Health", ignoreCase = true) ->
                 CategoryMeta("স্বাস্থ্য ও মানসিক শান্তি", "🌱", "সুস্থ শরীর, প্রশান্ত মন ও সুখী জীবন")
+            cat.contains("ইসলাম", ignoreCase = true) || cat.contains("ধর্মীয়", ignoreCase = true) || cat.contains("Islamic", ignoreCase = true) ->
+                CategoryMeta("ইসলামিক মোটিভেশন ও জ্ঞান", "🕌", "কুরআন-সুন্নাহর আলোকে চরিত্র ও জীবনের দিকনির্দেশনা")
+            cat.contains("অর্থ", ignoreCase = true) || cat.contains("সম্পদ", ignoreCase = true) || cat.contains("টাকা", ignoreCase = true) || cat.contains("Money", ignoreCase = true) || cat.contains("Finance", ignoreCase = true) ->
+                CategoryMeta("অর্থনীতি ও সম্পদ ব্যবস্থাপনা", "💰", "আর্থিক স্বাধীনতা, সঞ্চয় ও অর্থ ব্যবস্থাপনার নিয়ম")
             else ->
                 CategoryMeta(cat, "📚", "সমৃদ্ধ জ্ঞানের অডিওবই সংকলন")
         }

@@ -70,6 +70,12 @@ class LibraryViewModel(application: Application) : AndroidViewModel(application)
     val userBalance: StateFlow<Double> = app.appPreferences.userBalance
     val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin
 
+    val bookmarkedBookIds: StateFlow<Set<String>> = app.appPreferences.bookmarkedBookIds
+
+    fun removeBookmark(bookId: String) {
+        app.appPreferences.removeBookmark(bookId)
+    }
+
     fun updateUserProfile(
         name: String,
         institute: String,

@@ -34,6 +34,13 @@ class PlayerViewModel(
     private val _book = MutableStateFlow<Book?>(null)
     val book: StateFlow<Book?> = _book.asStateFlow()
 
+    val bookmarkedBookIds: StateFlow<Set<String>> = preferences.bookmarkedBookIds
+
+    fun toggleBookmark(): Boolean {
+        val targetId = playbackState.value.bookId.ifBlank { bookId }
+        return preferences.toggleBookmark(targetId)
+    }
+
     init {
         loadBook()
     }

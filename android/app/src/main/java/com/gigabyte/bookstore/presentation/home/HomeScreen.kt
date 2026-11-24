@@ -86,6 +86,7 @@ import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
 import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
+import com.gigabyte.bookstore.presentation.drawer.BookmarksDialog
 import com.gigabyte.bookstore.presentation.drawer.ProfileUpdateDialog
 import com.gigabyte.bookstore.presentation.home.components.BundleCard
 import com.gigabyte.bookstore.presentation.home.components.CourseCard
@@ -178,6 +179,7 @@ fun HomeScreen(
     val context = LocalContext.current
 
     var showProfileDialog by remember { mutableStateOf(false) }
+    var showBookmarksDialog by remember { mutableStateOf(false) }
     var showAboutUsDialog by remember { mutableStateOf(false) }
     var showExitDialog by remember { mutableStateOf(false) }
     var backPressedTime by remember { mutableStateOf(0L) }
@@ -224,7 +226,7 @@ fun HomeScreen(
                 },
                 onBookmarksClick = {
                     scope.launch { drawerState.close() }
-                    onNavigateToLibrary()
+                    showBookmarksDialog = true
                 },
                 onPaymentClick = {
                     scope.launch { drawerState.close() }
@@ -689,6 +691,26 @@ fun HomeScreen(
     // About Us Dialog
     if (showAboutUsDialog) {
         AboutUsDialog(onDismiss = { showAboutUsDialog = false })
+    }
+
+    // Bookmarks Dialog
+    if (showBookmarksDialog) {
+        val bookmarkedIds by viewModel.bookmarkedBookIds.collectAsStateWithLifecycle()
+        val allBooks by viewModel.allBooks.collectAsStateWithLifecycle()
+        val bookmarkedBooks = remember(allBooks, bookmarkedIds) {
+            allBooks.filter { bookmarkedIds.contains(it.id) }
+        }
+        BookmarksDialog(
+            books = bookmarkedBooks,
+            onSelectBook = { bookId ->
+                showBookmarksDialog = false
+                onNavigateToBook(bookId)
+            },
+            onRemoveBookmark = { bookId ->
+                viewModel.removeBookmark(bookId)
+            },
+            onDismiss = { showBookmarksDialog = false }
+        )
     }
 
     // Exit Confirmation Dialog

@@ -560,10 +560,20 @@ fun LibraryScreen(
         }
 
         if (showBookmarksDialog) {
+            val bookmarkedIds by viewModel.bookmarkedBookIds.collectAsStateWithLifecycle()
+            val bookmarkedBooks = remember(books, bookmarkedIds) {
+                books.filter { bookmarkedIds.contains(it.id) }
+            }
 
             BookmarksDialog(
-                books = books,
-                onSelectBook = onBookClick,
+                books = bookmarkedBooks,
+                onSelectBook = { bookId ->
+                    showBookmarksDialog = false
+                    onBookClick(bookId)
+                },
+                onRemoveBookmark = { bookId ->
+                    viewModel.removeBookmark(bookId)
+                },
                 onDismiss = { showBookmarksDialog = false }
             )
         }
