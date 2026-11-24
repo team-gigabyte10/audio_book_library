@@ -20,11 +20,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.School
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -60,9 +58,9 @@ fun LastReadScreen(
     onBackClick: () -> Unit,
     onOpenPlayer: (String, Int) -> Unit,
     onOpenBookDetails: (String) -> Unit,
-    onOpenLibrary: () -> Unit,
+    onOpenLibrary: () -> Unit = {},
     onOpenLesson: (String) -> Unit,
-    onOpenCourseSyllabus: () -> Unit,
+    onOpenCourseSyllabus: () -> Unit = {},
     onOpenIntro: (String) -> Unit = {}
 ) {
     val playbackHistoryList by viewModel.playbackHistoryList.collectAsStateWithLifecycle()
@@ -80,19 +78,26 @@ fun LastReadScreen(
                     Column {
                         Text(
                             text = "সর্বশেষ পড়া ও শোনা",
+                            color = Color.White,
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp
                         )
                         Text(
                             text = if (hasAnyRead) "আপনার সাম্প্রতিক পড়া ও শোনার অগ্রগতি" else "সাম্প্রতিক অগ্রগতি",
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = Color(0xFFE0F2F1)
                         )
                     }
                 },
+                titleContentColor = Color.White,
+                navigationIconContentColor = Color.White,
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "ফিরে যান",
+                            tint = Color.White
+                        )
                     }
                 }
             )
@@ -148,40 +153,12 @@ fun LastReadScreen(
                             Spacer(Modifier.height(8.dp))
 
                             Text(
-                                text = "আপনি এখনো কোনো বই বা কোর্স লেসন পড়া শুরু করেননি। লাইব্রেরি থেকে বই শুনুন অথবা স্পোকেন ইংলিশ কোর্স শুরু করুন।",
+                                text = "আপনি এখনো কোনো বই বা কোর্স লেসন পড়া শুরু করেননি। আপনার পঠিত বই ও চলমান লেসনের অগ্রগতি এখানে স্বয়ংক্রিয়ভাবে সংরক্ষিত থাকবে।",
                                 fontSize = 13.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center,
                                 lineHeight = 19.sp
                             )
-
-                            Spacer(Modifier.height(22.dp))
-
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(10.dp)
-                            ) {
-                                Button(
-                                    onClick = onOpenLibrary,
-                                    shape = RoundedCornerShape(12.dp),
-                                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
-                                    modifier = Modifier.weight(1f)
-                                ) {
-                                    Icon(Icons.AutoMirrored.Filled.MenuBook, contentDescription = null, modifier = Modifier.size(18.dp))
-                                    Spacer(Modifier.width(6.dp))
-                                    Text("লাইব্রেরি", fontWeight = FontWeight.Bold, fontSize = 13.sp)
-                                }
-
-                                OutlinedButton(
-                                    onClick = onOpenCourseSyllabus,
-                                    shape = RoundedCornerShape(12.dp),
-                                    modifier = Modifier.weight(1f)
-                                ) {
-                                    Icon(Icons.Default.School, contentDescription = null, modifier = Modifier.size(18.dp))
-                                    Spacer(Modifier.width(6.dp))
-                                    Text("কোর্স সিলেবাস", fontWeight = FontWeight.Bold, fontSize = 13.sp)
-                                }
-                            }
                         }
                     }
                 }
