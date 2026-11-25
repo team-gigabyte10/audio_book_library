@@ -51,6 +51,32 @@ async function getPolicy() {
   }
 }
 
+async function getPricing() {
+  const ref = doc(db, 'settings', 'pricing');
+  const snap = await getDoc(ref);
+  if (!snap.exists()) {
+    console.log('❌ settings/pricing does not exist yet.');
+  } else {
+    console.log('✅ settings/pricing:\n', JSON.stringify(snap.data(), null, 2));
+  }
+}
+
+async function setForceUpdate(minCode = 6, latestCode = 6, versionName = "1.5", force = true) {
+  const data = {
+    minRequiredVersionCode: parseInt(minCode, 10),
+    latestVersionCode: parseInt(latestCode, 10),
+    latestVersionName: String(versionName),
+    isForceUpdateRequired: force === true || force === 'true',
+    forceUpdate: force === true || force === 'true',
+    updatedAt: getCurrentFormattedDate()
+  };
+
+  const ref = doc(db, 'settings', 'pricing');
+  await setDoc(ref, data, { merge: true });
+  console.log(`🚀 Force Update Config successfully written to settings/pricing:`);
+  console.log(JSON.stringify(data, null, 2));
+}
+
 async function setPolicy(mode = 'ad_and_paid', hours = 24, adminEmail = 'admin@audiobook.com') {
   const isPaidOnly = mode.toLowerCase() === 'paid_only';
   const data = {
@@ -188,6 +214,12 @@ async function main() {
         break;
       case 'get-policy':
         await getPolicy();
+        break;
+      case 'get-pricing':
+        await getPricing();
+        break;
+      case 'set-force-update':
+        await setForceUpdate(arg1 || 6, arg2 || 6, arg3 || "1.5", true);
         break;
       case 'list-users':
         await listUsers();
