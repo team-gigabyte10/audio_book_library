@@ -53,4 +53,14 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    /**
+     * Recovers account email using the user's registered phone number.
+     */
+    fun findEmailByPhone(phone: String, onResult: (Result<String>) -> Unit) {
+        viewModelScope.launch {
+            val result = userRepository.findEmailByPhone(phone)
+            onResult(result)
+        }
+    }
 }

@@ -82,7 +82,16 @@ class AudiobookPlayer(
             _playbackState.value = _playbackState.value.copy(isLoading = true)
             currentBook = book
             lastBook = book
-            chaptersList = repository.getChaptersForBookSync(book.id)
+            var chaps = withContext(Dispatchers.IO) { repository.getChaptersForBookSync(book.id) }
+            if (chaps.isEmpty()) {
+                val isFull = book.id.endsWith("_full")
+                val baseBookId = if (isFull) book.id.removeSuffix("_full") else book.id
+                val downloaded = (context.applicationContext as? BanglaAudiobookApp)?.syncManager?.ensureBookDownloadedOnDemand(baseBookId, isFull)
+                if (downloaded != null) {
+                    chaps = withContext(Dispatchers.IO) { repository.getChaptersForBookSync(book.id) }
+                }
+            }
+            chaptersList = chaps
             currentChapterIndex = startChapterIndex.coerceIn(0, (chaptersList.size - 1).coerceAtLeast(0))
 
             loadChapterChunks(currentChapterIndex)

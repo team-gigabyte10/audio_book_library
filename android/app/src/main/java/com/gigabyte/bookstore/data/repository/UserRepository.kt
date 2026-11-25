@@ -1540,4 +1540,67 @@ class UserRepository(
             Result.failure(e)
         }
     }
+
+    /**
+     * Looks up an account's registered email using their phone number.
+     * Sanitizes phone input (removing spaces, dashes, +88) and matches against Firestore users.
+     */
+    suspend fun findEmailByPhone(phone: String): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            val cleanEntered = phone.trim().replace("+88", "").replace(" ", "").replace("-", "")
+            if (cleanEntered.length < 10) {
+                return@withContext Result.failure(Exception("অনুগ্রহ করে সঠিক ফোন নম্বর দিন (ন্যূনতম ১০ বা ১১ ডিজিট)"))
+            }
+
+            val querySnapshot = firestore.collection("users").get().await()
+            for (doc in querySnapshot.documents) {
+                val registeredPhone = doc.getString("phone")?.trim() ?: ""
+                val cleanRegistered = registeredPhone.replace("+88", "").replace(" ", "").replace("-", "")
+                if (cleanRegistered.isNotBlank() && (cleanRegistered == cleanEntered || cleanRegistered.endsWith(cleanEntered) || cleanEntered.endsWith(cleanRegistered))) {
+                    val email = doc.getString("email") ?: doc.id
+                    return@withContext Result.success(email)
+                }
+            }
+            Result.failure(Exception("এই ফোন নম্বরে কোনো রেজিস্টার্ড অ্যাকাউন্ট পাওয়া যায়নি"))
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Resets the 4-digit Wallet PIN after verifying the registered phone number of the current user.
+     */
+    suspend fun resetWalletPin(phone: String, newPin: String): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val email = appPreferences.userEmail.value.trim().lowercase()
+            if (email.isBlank()) return@withContext Result.failure(Exception("অনুগ্রহ করে প্রথমে লগইন করুন"))
+
+            val cleanPin = newPin.trim()
+            if (cleanPin.length != 4 || !cleanPin.all { it.isDigit() }) {
+                return@withContext Result.failure(Exception("নতুন ওয়ালেট পিন অবশ্যই ৪ ডিজিটের সংখ্যা হতে হবে"))
+            }
+
+            val userDoc = firestore.collection("users").document(email).get().await()
+            if (!userDoc.exists()) {
+                return@withContext Result.failure(Exception("ব্যবহারকারীর প্রোফাইল পাওয়া যায়নি"))
+            }
+
+            val registeredPhone = userDoc.getString("phone")?.trim() ?: ""
+            val cleanEntered = phone.trim().replace("+88", "").replace(" ", "").replace("-", "")
+            val cleanRegistered = registeredPhone.replace("+88", "").replace(" ", "").replace("-", "")
+
+            if (cleanRegistered.isBlank() || (cleanRegistered != cleanEntered && !cleanRegistered.endsWith(cleanEntered) && !cleanEntered.endsWith(cleanRegistered))) {
+                return@withContext Result.failure(Exception("প্রদত্ত ফোন নম্বরটি আপনার অ্যাকাউন্টের সাথে মিলছে না"))
+            }
+
+            firestore.collection("users").document(email)
+                .update("walletPin", cleanPin)
+                .await()
+
+            appPreferences.saveWalletPin(cleanPin)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }

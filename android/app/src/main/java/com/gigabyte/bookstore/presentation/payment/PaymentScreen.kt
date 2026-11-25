@@ -256,6 +256,12 @@ fun PaymentScreen(
     var isGiftPurchasing by remember { mutableStateOf(false) }
     var giftSuccessDialogData by remember { mutableStateOf<Triple<String, String, Double>?>(null) }
 
+    var showResetPinDialog by remember { mutableStateOf(false) }
+    var resetPhoneInput by remember { mutableStateOf("") }
+    var resetNewPinInput by remember { mutableStateOf("") }
+    var isResettingPin by remember { mutableStateOf(false) }
+    var resetPinError by remember { mutableStateOf<String?>(null) }
+
     val displayedPackages = remember(packages, unlockedBundles, isGiftMode) {
         if (isGiftMode) {
             packages
@@ -1670,6 +1676,28 @@ fun PaymentScreen(
                         if (pinDialogError != null) {
                             Text(text = pinDialogError!!, color = MaterialTheme.colorScheme.error, fontSize = 12.sp)
                         }
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            TextButton(
+                                onClick = {
+                                    showEnterPinDialog = false
+                                    showResetPinDialog = true
+                                    resetPhoneInput = ""
+                                    resetNewPinInput = ""
+                                    resetPinError = null
+                                },
+                                contentPadding = PaddingValues(0.dp)
+                            ) {
+                                Text(
+                                    text = "পিন ভুলে গেছেন? রিসেট করুন",
+                                    fontSize = 12.sp,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                        }
                     }
                 },
                 confirmButton = {
@@ -1717,6 +1745,104 @@ fun PaymentScreen(
                     TextButton(
                         onClick = { showEnterPinDialog = false },
                         enabled = !isGiftPurchasing
+                    ) {
+                        Text("বাতিল")
+                    }
+                }
+            )
+        }
+
+        if (showResetPinDialog) {
+            AlertDialog(
+                onDismissRequest = { if (!isResettingPin) showResetPinDialog = false },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(imageVector = Icons.Default.Lock, contentDescription = null, tint = Color(0xFFEF4444))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("ওয়ালেট পিন রিসেট করুন", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    }
+                },
+                text = {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Text(
+                            text = "আপনার অ্যাকাউন্টে রেজিস্টার করা ফোন নম্বর দিয়ে পিন রিসেট করুন।",
+                            fontSize = 13.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        OutlinedTextField(
+                            value = resetPhoneInput,
+                            onValueChange = {
+                                resetPhoneInput = it
+                                resetPinError = null
+                            },
+                            label = { Text("রেজিস্টার্ড ফোন নম্বর") },
+                            placeholder = { Text("01XXXXXXXXX") },
+                            leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        OutlinedTextField(
+                            value = resetNewPinInput,
+                            onValueChange = {
+                                if (it.length <= 4 && it.all { ch -> ch.isDigit() }) {
+                                    resetNewPinInput = it
+                                    resetPinError = null
+                                }
+                            },
+                            label = { Text("নতুন ৪-ডিজিটের পিন") },
+                            placeholder = { Text("••••") },
+                            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
+                            visualTransformation = PasswordVisualTransformation(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        if (resetPinError != null) {
+                            Text(text = resetPinError!!, color = MaterialTheme.colorScheme.error, fontSize = 12.sp)
+                        }
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            if (resetPhoneInput.trim().length < 10) {
+                                resetPinError = "সঠিক ফোন নম্বর দিন"
+                                return@Button
+                            }
+                            if (resetNewPinInput.trim().length != 4) {
+                                resetPinError = "নতুন পিন অবশ্যই ৪ ডিজিট হতে হবে"
+                                return@Button
+                            }
+                            isResettingPin = true
+                            resetPinError = null
+                            scope.launch {
+                                val res = userRepository.resetWalletPin(resetPhoneInput, resetNewPinInput)
+                                isResettingPin = false
+                                if (res.isSuccess) {
+                                    showResetPinDialog = false
+                                    enteredPinText = resetNewPinInput
+                                    showEnterPinDialog = true
+                                    Toast.makeText(context, "ওয়ালেট পিন সফলভাবে রিসেট হয়েছে! 🎉", Toast.LENGTH_LONG).show()
+                                } else {
+                                    resetPinError = res.exceptionOrNull()?.message ?: "রিসেট করতে সমস্যা হয়েছে"
+                                }
+                            }
+                        },
+                        enabled = !isResettingPin,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEF4444))
+                    ) {
+                        if (isResettingPin) {
+                            CircularProgressIndicator(modifier = Modifier.size(16.dp), color = Color.White, strokeWidth = 2.dp)
+                            Spacer(modifier = Modifier.width(6.dp))
+                        }
+                        Text("পিন রিসেট করুন", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = { showResetPinDialog = false },
+                        enabled = !isResettingPin
                     ) {
                         Text("বাতিল")
                     }

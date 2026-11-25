@@ -45,6 +45,12 @@ fun LoginScreen(
     val uiState by viewModel.uiState.collectAsState()
     val focusManager = LocalFocusManager.current
 
+    var showForgotEmailDialog by remember { mutableStateOf(false) }
+    var forgotPhoneInput by remember { mutableStateOf("") }
+    var isSearchingEmail by remember { mutableStateOf(false) }
+    var forgotEmailResult by remember { mutableStateOf<String?>(null) }
+    var forgotPhoneError by remember { mutableStateOf<String?>(null) }
+
     val trimmedEmail = email.trim()
     val isEmailValid = trimmedEmail.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(trimmedEmail).matches()
     val isEmailFormatError = trimmedEmail.isNotEmpty() && !isEmailValid
@@ -307,6 +313,36 @@ fun LoginScreen(
                         keyboardActions = KeyboardActions(onDone = { submit() }),
                         shape = RoundedCornerShape(12.dp)
                     )
+
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        TextButton(
+                            onClick = {
+                                showForgotEmailDialog = true
+                                forgotPhoneInput = ""
+                                forgotEmailResult = null
+                                forgotPhoneError = null
+                            },
+                            contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = null,
+                                modifier = Modifier.size(15.dp),
+                                tint = MaterialTheme.colorScheme.primary
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "ইমেইল ভুলে গেছেন? ফোন নম্বর দিয়ে খুঁজুন",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                    }
                 }
             }
 
@@ -538,6 +574,134 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
         }
+    }
+
+    if (showForgotEmailDialog) {
+        AlertDialog(
+            onDismissRequest = { if (!isSearchingEmail) showForgotEmailDialog = false },
+            title = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.ContactPhone,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "ইমেইল অ্যাকাউন্ট খুঁজুন",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 17.sp
+                    )
+                }
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Text(
+                        text = "আপনার রেজিস্টার করা ফোন নম্বরটি লিখুন। আমরা অ্যাকাউন্টের সাথে যুক্ত ইমেইলটি খুঁজে দেব।",
+                        fontSize = 13.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    OutlinedTextField(
+                        value = forgotPhoneInput,
+                        onValueChange = {
+                            forgotPhoneInput = it
+                            forgotPhoneError = null
+                            forgotEmailResult = null
+                        },
+                        label = { Text("মোবাইল নম্বর (Phone Number)") },
+                        placeholder = { Text("01XXXXXXXXX") },
+                        leadingIcon = {
+                            Icon(Icons.Default.Phone, contentDescription = null)
+                        },
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    if (forgotPhoneError != null) {
+                        Text(
+                            text = forgotPhoneError!!,
+                            color = MaterialTheme.colorScheme.error,
+                            fontSize = 12.sp
+                        )
+                    }
+
+                    if (forgotEmailResult != null) {
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = Color(0xFFE8F5E9),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF81C784)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(10.dp)) {
+                                Text(
+                                    text = "✅ আপনার অ্যাকাউন্টের ইমেইল পাওয়া গেছে:",
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color(0xFF2E7D32)
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = forgotEmailResult!!,
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    color = Color(0xFF1B5E20)
+                                )
+                            }
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                if (forgotEmailResult != null) {
+                    Button(
+                        onClick = {
+                            email = forgotEmailResult!!
+                            showForgotEmailDialog = false
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00897B))
+                    ) {
+                        Text("এই ইমেইল দিয়ে লগইন করুন", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                } else {
+                    Button(
+                        onClick = {
+                            if (forgotPhoneInput.trim().length < 10) {
+                                forgotPhoneError = "সঠিক ১১ ডিজিটের ফোন নম্বর দিন"
+                                return@Button
+                            }
+                            isSearchingEmail = true
+                            forgotPhoneError = null
+                            viewModel.findEmailByPhone(forgotPhoneInput) { result ->
+                                isSearchingEmail = false
+                                if (result.isSuccess) {
+                                    forgotEmailResult = result.getOrNull()
+                                } else {
+                                    forgotPhoneError = result.exceptionOrNull()?.message ?: "ইমেইল খুঁজে পাওয়া যায়নি"
+                                }
+                            }
+                        },
+                        enabled = !isSearchingEmail && forgotPhoneInput.trim().isNotBlank(),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
+                    ) {
+                        if (isSearchingEmail) {
+                            CircularProgressIndicator(modifier = Modifier.size(16.dp), color = Color.White, strokeWidth = 2.dp)
+                            Spacer(modifier = Modifier.width(6.dp))
+                        }
+                        Text("ইমেইল খুঁজুন")
+                    }
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = { showForgotEmailDialog = false },
+                    enabled = !isSearchingEmail
+                ) {
+                    Text("বাতিল")
+                }
+            }
+        )
     }
 }
 }

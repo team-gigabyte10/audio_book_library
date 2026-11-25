@@ -56,31 +56,23 @@ class TextReaderViewModel(
 
     private fun loadData() {
         viewModelScope.launch {
-            var currentBook = repository.getBookById(bookId)
-            if (currentBook == null) {
-                val booksDir = File(app.filesDir, "book-store")
-                val isFull = bookId.endsWith("_full")
-                val baseBookId = if (isFull) bookId.removeSuffix("_full") else bookId
-                val targetFile = if (isFull) {
-                    File(booksDir, "${baseBookId}_full.md")
-                } else {
-                    File(booksDir, "${baseBookId}_summary.md")
-                }
+            val isFull = bookId.endsWith("_full")
+            val baseBookId = if (isFull) bookId.removeSuffix("_full") else bookId
 
-                if (targetFile.exists() && targetFile.length() > 0) {
-                    val baseBook = repository.getBookById(baseBookId)
-                    currentBook = repository.importDownloadedBook(
-                        file = targetFile,
-                        bookId = bookId,
-                        title = if (isFull) "${baseBook?.title ?: "বই"} (সম্পূর্ণ)" else (baseBook?.title ?: "বই"),
-                        author = baseBook?.author,
-                        coverPath = baseBook?.coverPath
-                    )
+            var currentBook = repository.getBookById(bookId)
+            var chapList = repository.getChaptersForBookSync(bookId)
+
+            // On-demand lazy fetch: If book is a placeholder or chapters not yet indexed,
+            // download and index markdown file dynamically in ~200ms without blocking user
+            if (currentBook == null || chapList.isEmpty() || currentBook.filePath.isBlank()) {
+                val downloadedFile = app.syncManager.ensureBookDownloadedOnDemand(baseBookId, isFull)
+                if (downloadedFile != null && downloadedFile.exists()) {
+                    currentBook = repository.getBookById(bookId)
+                    chapList = repository.getChaptersForBookSync(bookId)
                 }
             }
 
             _book.value = currentBook
-            val chapList = repository.getChaptersForBookSync(bookId)
             _chapters.value = chapList
 
             val idx = initialChapterIndex.coerceIn(0, (chapList.size - 1).coerceAtLeast(0))
