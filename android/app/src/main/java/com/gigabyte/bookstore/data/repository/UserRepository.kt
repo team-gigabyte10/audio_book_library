@@ -1336,6 +1336,13 @@ class UserRepository(
                         referralMessageTemplate = snapshot.getString("referralMessageTemplate") ?: "",
                         playStoreAppTitle = snapshot.getString("playStoreAppTitle") ?: AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
                         playStoreAppUrl = snapshot.getString("playStoreAppUrl") ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL,
+                        minRequiredVersionCode = snapshot.getLong("minRequiredVersionCode")?.toInt() ?: 1,
+                        latestVersionCode = snapshot.getLong("latestVersionCode")?.toInt() ?: 1,
+                        latestVersionName = snapshot.getString("latestVersionName") ?: "1.5",
+                        isForceUpdateRequired = snapshot.getBoolean("isForceUpdateRequired") ?: snapshot.getBoolean("forceUpdate") ?: false,
+                        updateTitle = snapshot.getString("updateTitle") ?: AppPricingConfig.DEFAULT_UPDATE_TITLE,
+                        updateMessage = snapshot.getString("updateMessage") ?: AppPricingConfig.DEFAULT_UPDATE_MESSAGE,
+                        updateFeatures = (snapshot.get("updateFeatures") as? List<*>)?.mapNotNull { it?.toString() } ?: AppPricingConfig.DEFAULT_UPDATE_FEATURES,
                         updatedAt = snapshot.getString("updatedAt") ?: "",
                         updatedBy = snapshot.getString("updatedBy") ?: ""
                     )
@@ -1381,6 +1388,13 @@ class UserRepository(
                     referralMessageTemplate = doc.getString("referralMessageTemplate") ?: "",
                     playStoreAppTitle = doc.getString("playStoreAppTitle") ?: AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
                     playStoreAppUrl = doc.getString("playStoreAppUrl") ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL,
+                    minRequiredVersionCode = doc.getLong("minRequiredVersionCode")?.toInt() ?: 1,
+                    latestVersionCode = doc.getLong("latestVersionCode")?.toInt() ?: 1,
+                    latestVersionName = doc.getString("latestVersionName") ?: "1.5",
+                    isForceUpdateRequired = doc.getBoolean("isForceUpdateRequired") ?: doc.getBoolean("forceUpdate") ?: false,
+                    updateTitle = doc.getString("updateTitle") ?: AppPricingConfig.DEFAULT_UPDATE_TITLE,
+                    updateMessage = doc.getString("updateMessage") ?: AppPricingConfig.DEFAULT_UPDATE_MESSAGE,
+                    updateFeatures = (doc.get("updateFeatures") as? List<*>)?.mapNotNull { it?.toString() } ?: AppPricingConfig.DEFAULT_UPDATE_FEATURES,
                     updatedAt = doc.getString("updatedAt") ?: "",
                     updatedBy = doc.getString("updatedBy") ?: ""
                 )

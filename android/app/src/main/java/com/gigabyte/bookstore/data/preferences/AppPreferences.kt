@@ -227,6 +227,12 @@ class AppPreferences(context: Context) {
         private const val KEY_REFERRAL_MESSAGE_TEMPLATE = "referral_message_template"
         private const val KEY_PLAY_STORE_APP_TITLE = "play_store_app_title"
         private const val KEY_PLAY_STORE_APP_URL = "play_store_app_url"
+        private const val KEY_MIN_REQUIRED_VERSION_CODE = "min_required_version_code"
+        private const val KEY_LATEST_VERSION_CODE = "latest_version_code"
+        private const val KEY_LATEST_VERSION_NAME = "latest_version_name"
+        private const val KEY_FORCE_UPDATE_REQUIRED = "force_update_required"
+        private const val KEY_UPDATE_TITLE = "update_title"
+        private const val KEY_UPDATE_MESSAGE = "update_message"
         private const val KEY_WALLET_PIN = "wallet_pin"
         fun normalizeBundleId(bundleOrCode: String): String {
             val clean = bundleOrCode.trim().lowercase()
@@ -382,7 +388,13 @@ class AppPreferences(context: Context) {
             minWithdrawalAmount = prefs.getFloat(KEY_MIN_WITHDRAWAL_AMOUNT, 100f).toDouble(),
             referralMessageTemplate = prefs.getString(KEY_REFERRAL_MESSAGE_TEMPLATE, "") ?: "",
             playStoreAppTitle = prefs.getString(KEY_PLAY_STORE_APP_TITLE, AppPricingConfig.DEFAULT_PLAY_STORE_TITLE) ?: AppPricingConfig.DEFAULT_PLAY_STORE_TITLE,
-            playStoreAppUrl = prefs.getString(KEY_PLAY_STORE_APP_URL, AppPricingConfig.DEFAULT_PLAY_STORE_URL) ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL
+            playStoreAppUrl = prefs.getString(KEY_PLAY_STORE_APP_URL, AppPricingConfig.DEFAULT_PLAY_STORE_URL) ?: AppPricingConfig.DEFAULT_PLAY_STORE_URL,
+            minRequiredVersionCode = prefs.getInt(KEY_MIN_REQUIRED_VERSION_CODE, 1),
+            latestVersionCode = prefs.getInt(KEY_LATEST_VERSION_CODE, 1),
+            latestVersionName = prefs.getString(KEY_LATEST_VERSION_NAME, "1.5") ?: "1.5",
+            isForceUpdateRequired = prefs.getBoolean(KEY_FORCE_UPDATE_REQUIRED, false),
+            updateTitle = prefs.getString(KEY_UPDATE_TITLE, AppPricingConfig.DEFAULT_UPDATE_TITLE) ?: AppPricingConfig.DEFAULT_UPDATE_TITLE,
+            updateMessage = prefs.getString(KEY_UPDATE_MESSAGE, AppPricingConfig.DEFAULT_UPDATE_MESSAGE) ?: AppPricingConfig.DEFAULT_UPDATE_MESSAGE
         )
     )
     val pricingConfig: StateFlow<AppPricingConfig> = _pricingConfig.asStateFlow()
@@ -399,6 +411,12 @@ class AppPreferences(context: Context) {
             .putString(KEY_REFERRAL_MESSAGE_TEMPLATE, config.referralMessageTemplate)
             .putString(KEY_PLAY_STORE_APP_TITLE, config.playStoreAppTitle)
             .putString(KEY_PLAY_STORE_APP_URL, config.playStoreAppUrl)
+            .putInt(KEY_MIN_REQUIRED_VERSION_CODE, config.minRequiredVersionCode)
+            .putInt(KEY_LATEST_VERSION_CODE, config.latestVersionCode)
+            .putString(KEY_LATEST_VERSION_NAME, config.latestVersionName)
+            .putBoolean(KEY_FORCE_UPDATE_REQUIRED, config.isForceUpdateRequired)
+            .putString(KEY_UPDATE_TITLE, config.updateTitle)
+            .putString(KEY_UPDATE_MESSAGE, config.updateMessage)
             .apply()
         _pricingConfig.value = config
     }

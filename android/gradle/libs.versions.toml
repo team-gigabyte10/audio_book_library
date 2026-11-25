@@ -41,7 +41,7 @@ secretsGradlePlugin = "2.0.1"
 googleServices = "4.5.0"
 credentials = "1.5.0"
 googleid = "1.1.1"
-facebookAudienceNetwork = "6.18.0"
+facebookAudienceNetwork = "6.22.0"
 fragmentKtx = "1.8.6"
 
 

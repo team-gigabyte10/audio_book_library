@@ -14,12 +14,27 @@ data class AppPricingConfig(
     val referralMessageTemplate: String = "",
     val playStoreAppTitle: String = DEFAULT_PLAY_STORE_TITLE,
     val playStoreAppUrl: String = DEFAULT_PLAY_STORE_URL,
+    val minRequiredVersionCode: Int = 1,
+    val latestVersionCode: Int = 1,
+    val latestVersionName: String = "1.5",
+    val isForceUpdateRequired: Boolean = false,
+    val updateTitle: String = DEFAULT_UPDATE_TITLE,
+    val updateMessage: String = DEFAULT_UPDATE_MESSAGE,
+    val updateFeatures: List<String> = DEFAULT_UPDATE_FEATURES,
     val updatedAt: String = "",
     val updatedBy: String = ""
 ) {
     companion object {
         const val DEFAULT_PLAY_STORE_TITLE = "বাংলা অডিওবুক ও স্পোকেন কোর্স - Apps on Google Play"
         const val DEFAULT_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.gigabyte.bookstore"
+        const val DEFAULT_UPDATE_TITLE = "নতুন আপডেট চলে এসেছে! 🚀"
+        const val DEFAULT_UPDATE_MESSAGE = "আপনার অ্যাপের অভিজ্ঞতা আরও দ্রুত ও আকর্ষণীয় করতে গুরুত্বপূর্ণ ফিচার এবং পারফরম্যান্স অপটিমাইজেশন যুক্ত করা হয়েছে। চালিয়ে যেতে অনুগ্রহ করে আপডেট করে নিন।"
+        val DEFAULT_UPDATE_FEATURES = listOf(
+            "নতুন আকর্ষণীয় রঙিন ডিজাইন ও দ্রুততর অ্যাপ লোডিং",
+            "ইন্টারঅ্যাক্টিভ স্পোকেন ও লেসন কমপ্লিশন ট্র্যাকিং",
+            "অডিও প্লেয়ার পারফরম্যান্স ও মেমরি অপটিমাইজেশন",
+            "নিরাপত্তা বৃদ্ধি ও নিয়মিত বাগ ফিক্স"
+        )
 
         val DEFAULT_REFERRAL_MESSAGE_TEMPLATE = """
             আসসালামু আলাইকুম! 🌿
