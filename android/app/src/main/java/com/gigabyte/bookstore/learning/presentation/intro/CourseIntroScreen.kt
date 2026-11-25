@@ -203,8 +203,8 @@ fun CourseIntroScreen(
             ThemedTopAppBar(
                 title = {
                     Column {
-                        Text(pageTitle, fontWeight = FontWeight.Bold, fontSize = 17.sp)
-                        Text(pageSubtitle, style = MaterialTheme.typography.bodySmall)
+                        Text(pageTitle, fontWeight = FontWeight.Bold, fontSize = 17.sp, color = Color.White)
+                        Text(pageSubtitle, style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.88f))
                     }
                 },
                 navigationIcon = {
@@ -212,7 +212,7 @@ fun CourseIntroScreen(
                         stopAudio()
                         onBackClick()
                     }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 }
             )

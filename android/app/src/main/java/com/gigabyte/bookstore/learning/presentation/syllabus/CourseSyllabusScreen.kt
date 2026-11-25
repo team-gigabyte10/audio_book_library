@@ -53,6 +53,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -214,6 +215,12 @@ fun CourseSyllabusScreen(
 
     var selectedLockedPart by remember { mutableStateOf<PartSummary?>(null) }
     var isLoadingRewardAd by remember { mutableStateOf(false) }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            FacebookRewardAdManager.getInstance(context).clearCallbacks()
+        }
+    }
 
     val isPast = courseType.equals("past", ignoreCase = true)
     val isFuture = courseType.equals("future", ignoreCase = true)
@@ -553,33 +560,34 @@ fun CourseSyllabusScreen(
                 }
             },
             onWatchAdClick = {
+                val partId = lockedPart.id
                 if (activity != null && isAdAllowed) {
                     isLoadingRewardAd = true
                     FacebookRewardAdManager.getInstance(context).showAd(
                         activity = activity,
                         onRewardEarned = {
                             isLoadingRewardAd = false
-                            appPrefs?.unlockCourseModuleFor24Hours(lockedPart.id)
                             selectedLockedPart = null
+                            appPrefs?.unlockCourseModuleFor24Hours(partId)
                             Toast.makeText(context, "🎉 অভিনন্দন! মডিউলটি পরবর্তী ২৪ ঘণ্টার জন্য আনলক হয়েছে!", Toast.LENGTH_LONG).show()
-                            onOpenPart(lockedPart.id)
+                            onOpenPart(partId)
                         },
                         onClosed = {
                             isLoadingRewardAd = false
                         },
                         onError = { errorMsg ->
                             isLoadingRewardAd = false
-                            // Graceful Fallback: Never block the learner if ad network fails to fill or has errors!
-                            appPrefs?.unlockCourseModuleFor24Hours(lockedPart.id)
                             selectedLockedPart = null
+                            // Graceful Fallback: Never block the learner if ad network fails to fill or has errors!
+                            appPrefs?.unlockCourseModuleFor24Hours(partId)
                             Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য মডিউলটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
-                            onOpenPart(lockedPart.id)
+                            onOpenPart(partId)
                         }
                     )
                 } else {
-                    appPrefs?.unlockCourseModuleFor24Hours(lockedPart.id)
                     selectedLockedPart = null
-                    onOpenPart(lockedPart.id)
+                    appPrefs?.unlockCourseModuleFor24Hours(partId)
+                    onOpenPart(partId)
                 }
             },
             onGoPremiumClick = {

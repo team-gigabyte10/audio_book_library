@@ -142,17 +142,19 @@ fun LessonScreen(
                 title = {
                     Text(
                         content?.lesson?.let { it.titleBn ?: it.titleTarget } ?: "লেসন",
-                        maxLines = 1
+                        maxLines = 1,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 },
                 actions = {
                     IconButton(onClick = { showSettings = true }) {
-                        Icon(Icons.Default.Settings, contentDescription = "সেটিংস")
+                        Icon(Icons.Default.Settings, contentDescription = "সেটিংস", tint = Color.White)
                     }
                 }
             )

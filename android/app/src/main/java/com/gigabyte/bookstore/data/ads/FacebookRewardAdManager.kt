@@ -29,7 +29,35 @@ class FacebookRewardAdManager(private val context: Context) {
     }
 
     /**
+     * Clears all active callbacks to prevent callback leaks across screen transitions.
+     */
+    fun clearCallbacks() {
+        activeOnRewardEarned = null
+        activeOnClosed = null
+        activeOnError = null
+    }
+
+    private fun dispatchRewardEarned() {
+        val callback = activeOnRewardEarned
+        activeOnRewardEarned = null
+        callback?.invoke()
+    }
+
+    private fun dispatchClosed() {
+        val callback = activeOnClosed
+        clearCallbacks()
+        callback?.invoke()
+    }
+
+    private fun dispatchError(errorMsg: String) {
+        val callback = activeOnError
+        clearCallbacks()
+        callback?.invoke(errorMsg)
+    }
+
+    /**
      * Preloads a rewarded video ad in background so it displays instantly when requested.
+     * Preload runs completely silently; background errors are never dispatched to user-facing callbacks.
      */
     fun preloadAd(placementId: String = AdConfig.FB_REWARDED_PLACEMENT_ID) {
         if (!AdConfig.isAdsEnabled || isAdLoaded || isAdLoading) return
@@ -38,10 +66,9 @@ class FacebookRewardAdManager(private val context: Context) {
         val ad = RewardedVideoAd(context, placementId)
         val listener = object : RewardedVideoAdListener {
             override fun onError(ad: Ad?, error: AdError?) {
-                Log.w(TAG, "Preload failed: ${error?.errorMessage} (code: ${error?.errorCode})")
+                Log.w(TAG, "Silent preload failed: ${error?.errorMessage} (code: ${error?.errorCode})")
                 isAdLoaded = false
                 isAdLoading = false
-                activeOnError?.invoke(error?.errorMessage ?: "বিজ্ঞাপন প্লে করা যায়নি")
             }
 
             override fun onAdLoaded(ad: Ad?) {
@@ -54,12 +81,12 @@ class FacebookRewardAdManager(private val context: Context) {
             override fun onLoggingImpression(ad: Ad?) {}
             override fun onRewardedVideoCompleted() {
                 Log.d(TAG, "User completed video. Reward earned!")
-                activeOnRewardEarned?.invoke()
+                dispatchRewardEarned()
             }
             override fun onRewardedVideoClosed() {
                 Log.d(TAG, "Rewarded video dismissed.")
                 isAdLoaded = false
-                activeOnClosed?.invoke()
+                dispatchClosed()
                 preloadAd(placementId)
             }
         }
@@ -102,7 +129,7 @@ class FacebookRewardAdManager(private val context: Context) {
                 ad.show(ad.buildShowAdConfig().build())
             } catch (e: Exception) {
                 Log.e(TAG, "Exception while showing rewarded ad", e)
-                onError?.invoke(e.localizedMessage ?: "Unknown error")
+                dispatchError(e.localizedMessage ?: "Unknown error")
                 preloadAd(placementId)
             }
         } else {
@@ -118,17 +145,17 @@ class FacebookRewardAdManager(private val context: Context) {
                     try {
                         freshAd.show(freshAd.buildShowAdConfig().build())
                     } catch (e: Exception) {
-                        onError?.invoke("বিজ্ঞাপন দেখানো সম্ভব হয়নি")
+                        dispatchError("বিজ্ঞাপন দেখানো সম্ভব হয়নি")
                     }
                 }
 
                 override fun onRewardedVideoCompleted() {
-                    activeOnRewardEarned?.invoke()
+                    dispatchRewardEarned()
                 }
 
                 override fun onRewardedVideoClosed() {
                     isAdLoaded = false
-                    activeOnClosed?.invoke()
+                    dispatchClosed()
                     preloadAd(placementId)
                 }
 
@@ -136,7 +163,7 @@ class FacebookRewardAdManager(private val context: Context) {
                     isAdLoading = false
                     isAdLoaded = false
                     Log.w(TAG, "Fresh ad load failed: ${error?.errorMessage}")
-                    activeOnError?.invoke(error?.errorMessage ?: "বিজ্ঞাপন লোড করা যায়নি")
+                    dispatchError(error?.errorMessage ?: "বিজ্ঞাপন লোড করা যায়নি")
                 }
 
                 override fun onAdClicked(ad: Ad?) {}
@@ -148,7 +175,7 @@ class FacebookRewardAdManager(private val context: Context) {
                 rewardedVideoAd = freshAd
             } catch (e: Exception) {
                 isAdLoading = false
-                onError?.invoke("বিজ্ঞাপন সার্ভিস প্রস্তুত নয়")
+                dispatchError("বিজ্ঞাপন সার্ভিস প্রস্তুত নয়")
             }
         }
     }

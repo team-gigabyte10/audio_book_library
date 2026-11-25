@@ -173,23 +173,25 @@ fun LiveTranslatorScreen(
             ThemedTopAppBar(
                 title = {
                     Column {
-                        Text("লাইভ ভয়েস অনুবাদক", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                        Text("লাইভ ভয়েস অনুবাদক", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Color.White)
                         Text(
                             "বাংলা স্পিচ-টু-টেক্সট থেকে বহুভাষিক অনুবাদ",
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.White.copy(alpha = 0.88f)
                         )
                     }
                 },
                 navigationIcon = {
                     IconButton(onClick = handleBackWithVideoAd) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 },
                 actions = {
                     IconButton(onClick = viewModel::toggleAutoSpeak) {
                         Icon(
                             imageVector = if (uiState.autoSpeak) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeOff,
-                            contentDescription = if (uiState.autoSpeak) "অটো অডিও চালু" else "অটো অডিও বন্ধ"
+                            contentDescription = if (uiState.autoSpeak) "অটো অডিও চালু" else "অটো অডিও বন্ধ",
+                            tint = Color.White
                         )
                     }
                 }

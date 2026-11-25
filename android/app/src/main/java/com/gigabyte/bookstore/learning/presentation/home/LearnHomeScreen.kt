@@ -360,7 +360,8 @@ fun LearnHomeScreen(
                                 else -> "স্পোকেন ইংলিশ মাস্টারক্লাস"
                             },
                             fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp
+                            fontSize = 18.sp,
+                            color = Color.White
                         )
                         Text(
                             text = when {
@@ -375,13 +376,14 @@ fun LearnHomeScreen(
                                 isJapanese -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট জাপানিজ (JLPT N5-N2)"
                                 else -> "বাংলা থেকে সহজ নিয়মে ফ্লুয়েন্ট ইংরেজি"
                             },
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.White.copy(alpha = 0.88f)
                         )
                     }
                 },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 }
             )

@@ -9,13 +9,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.text.font.FontWeight
 import com.gigabyte.bookstore.ui.theme.DarkAppBarColor
 import com.gigabyte.bookstore.ui.theme.DarkAppBarTitleColor
 import com.gigabyte.bookstore.ui.theme.DarkStatusBarColor
@@ -60,9 +64,23 @@ fun ThemedTopAppBar(
         )
         // TopAppBar with zero window insets so it doesn't duplicate the status bar inset
         TopAppBar(
-            title = title,
-            navigationIcon = navigationIcon,
-            actions = actions,
+            title = {
+                CompositionLocalProvider(LocalContentColor provides resolvedTitleColor) {
+                    ProvideTextStyle(value = MaterialTheme.typography.titleMedium.copy(color = resolvedTitleColor, fontWeight = FontWeight.Bold)) {
+                        title()
+                    }
+                }
+            },
+            navigationIcon = {
+                CompositionLocalProvider(LocalContentColor provides resolvedNavColor) {
+                    navigationIcon()
+                }
+            },
+            actions = {
+                CompositionLocalProvider(LocalContentColor provides resolvedActionColor) {
+                    actions()
+                }
+            },
             windowInsets = WindowInsets(0, 0, 0, 0),
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = resolvedAppBarColor,

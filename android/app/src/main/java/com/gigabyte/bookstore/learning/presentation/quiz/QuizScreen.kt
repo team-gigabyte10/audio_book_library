@@ -60,10 +60,10 @@ fun QuizScreen(
     Scaffold(
         topBar = {
             ThemedTopAppBar(
-                title = { Text("কুইজ") },
+                title = { Text("কুইজ", color = Color.White, fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 }
             )

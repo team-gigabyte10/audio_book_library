@@ -82,6 +82,7 @@ fun PartLessonsScreen(
                             text = title.ifBlank { "লেসনসমূহ" },
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
+                            color = Color.White,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
@@ -89,7 +90,7 @@ fun PartLessonsScreen(
                             Text(
                                 text = part?.titleTarget.orEmpty(),
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                color = Color.White.copy(alpha = 0.88f),
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
                             )
@@ -98,7 +99,7 @@ fun PartLessonsScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "ফিরে যান", tint = Color.White)
                     }
                 }
             )
