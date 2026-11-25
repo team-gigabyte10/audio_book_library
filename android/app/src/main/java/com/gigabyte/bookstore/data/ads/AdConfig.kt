@@ -24,10 +24,11 @@ object AdConfig {
     const val MODULE_UNLOCK_DURATION_MS = 24 * 60 * 60 * 1000L
 
     /**
-     * When true, requests Meta test ads so developers can test on any device or emulator
-     * without risking account suspension.
+     * When true, requests Meta test ads.
+     * Automatically true on debug builds, and false on release production builds
+     * so real ad impressions and bid requests are recorded in Meta Monetisation Manager.
      */
-    var isTestMode: Boolean = true
+    var isTestMode: Boolean = com.gigabyte.bookstore.BuildConfig.DEBUG
 
     /**
      * Master switch to enable or disable ads across the app.

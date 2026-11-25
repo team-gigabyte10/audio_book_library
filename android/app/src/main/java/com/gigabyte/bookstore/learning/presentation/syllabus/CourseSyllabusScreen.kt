@@ -567,9 +567,13 @@ fun CourseSyllabusScreen(
                         onClosed = {
                             isLoadingRewardAd = false
                         },
-                        onError = { _ ->
+                        onError = { errorMsg ->
                             isLoadingRewardAd = false
-                            Toast.makeText(context, "বিজ্ঞাপন লোড হতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।", Toast.LENGTH_SHORT).show()
+                            // Graceful Fallback: Never block the learner if ad network fails to fill or has errors!
+                            appPrefs?.unlockCourseModuleFor24Hours(lockedPart.id)
+                            selectedLockedPart = null
+                            Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য মডিউলটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
+                            onOpenPart(lockedPart.id)
                         }
                     )
                 } else {

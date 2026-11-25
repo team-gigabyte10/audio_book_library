@@ -100,8 +100,10 @@ class BanglaAudiobookApp : Application() {
         // Initialize Meta Audience Network (Facebook Ads)
         try {
             com.facebook.ads.AudienceNetworkAds.initialize(this)
-            if (com.gigabyte.bookstore.data.ads.AdConfig.isTestMode) {
+            if (BuildConfig.DEBUG && com.gigabyte.bookstore.data.ads.AdConfig.isTestMode) {
                 com.facebook.ads.AdSettings.setTestMode(true)
+            } else {
+                com.facebook.ads.AdSettings.setTestMode(false)
             }
         } catch (e: Exception) {
             android.util.Log.e("BanglaAudiobookApp", "Failed to initialize Audience Network SDK", e)
