@@ -62,7 +62,7 @@
               "level": "A0",
               "target": "妈",
               "bn": "মা (১ম সুর)",
-              "bn_pron": "ma1 · মা—",
+              "bn_pron": "mā · মা—",
               "tokens": [
                 {
                   "t": "妈",
@@ -83,7 +83,7 @@
               "level": "A0",
               "target": "一",
               "bn": "এক (১ম সুর)",
-              "bn_pron": "yi1 · ই—",
+              "bn_pron": "yī · ই—",
               "tokens": [
                 {
                   "t": "一",
@@ -104,7 +104,7 @@
               "level": "A0",
               "target": "书",
               "bn": "বই (১ম সুর)",
-              "bn_pron": "shu1 · শু—",
+              "bn_pron": "shū · শু—",
               "tokens": [
                 {
                   "t": "书",
@@ -125,7 +125,7 @@
               "level": "A0",
               "target": "家",
               "bn": "বাড়ি / পরিবার (১ম সুর)",
-              "bn_pron": "jia1 · জিয়া—",
+              "bn_pron": "jiā · জিয়া—",
               "tokens": [
                 {
                   "t": "家",
@@ -146,7 +146,7 @@
               "level": "A0",
               "target": "茶",
               "bn": "চা (২য় সুর)",
-              "bn_pron": "cha2 · ছা?",
+              "bn_pron": "chá · ছা?",
               "tokens": [
                 {
                   "t": "茶",
@@ -167,7 +167,7 @@
               "level": "A0",
               "target": "人",
               "bn": "মানুষ (২য় সুর)",
-              "bn_pron": "ren2 · রেন?",
+              "bn_pron": "rén · রেন?",
               "tokens": [
                 {
                   "t": "人",
@@ -188,7 +188,7 @@
               "level": "A0",
               "target": "来",
               "bn": "আসা (২য় সুর)",
-              "bn_pron": "lai2 · লাই?",
+              "bn_pron": "lái · লাই?",
               "tokens": [
                 {
                   "t": "来",
@@ -209,7 +209,7 @@
               "level": "A0",
               "target": "学",
               "bn": "শেখা (২য় সুর)",
-              "bn_pron": "xue2 · সুয়ে?",
+              "bn_pron": "xué · সুয়ে?",
               "tokens": [
                 {
                   "t": "学",
@@ -244,7 +244,7 @@
               "level": "A0",
               "target": "你",
               "bn": "তুমি (৩য় সুর)",
-              "bn_pron": "ni3 · নিই",
+              "bn_pron": "nǐ · নিই",
               "tokens": [
                 {
                   "t": "你",
@@ -265,7 +265,7 @@
               "level": "A0",
               "target": "好",
               "bn": "ভালো (৩য় সুর)",
-              "bn_pron": "hao3 · হাও",
+              "bn_pron": "hǎo · হাও",
               "tokens": [
                 {
                   "t": "好",
@@ -286,7 +286,7 @@
               "level": "A0",
               "target": "马",
               "bn": "ঘোড়া (৩য় সুর)",
-              "bn_pron": "ma3 · মাআ",
+              "bn_pron": "mǎ · মাআ",
               "tokens": [
                 {
                   "t": "马",
@@ -307,7 +307,7 @@
               "level": "A0",
               "target": "我",
               "bn": "আমি (৩য় সুর)",
-              "bn_pron": "wo3 · ওও",
+              "bn_pron": "wǒ · ওও",
               "tokens": [
                 {
                   "t": "我",
@@ -328,7 +328,7 @@
               "level": "A0",
               "target": "是",
               "bn": "হয় / হওয়া (৪র্থ সুর)",
-              "bn_pron": "shi4 · শি!",
+              "bn_pron": "shì · শি!",
               "tokens": [
                 {
                   "t": "是",
@@ -349,7 +349,7 @@
               "level": "A0",
               "target": "去",
               "bn": "যাওয়া (৪র্থ সুর)",
-              "bn_pron": "qu4 · ছু!",
+              "bn_pron": "qù · ছু!",
               "tokens": [
                 {
                   "t": "去",
@@ -370,7 +370,7 @@
               "level": "A0",
               "target": "爸爸",
               "bn": "বাবা (৪র্থ + হালকা)",
-              "bn_pron": "ba4 ba · বাবা",
+              "bn_pron": "bà ba · বাবা",
               "tokens": [
                 {
                   "t": "爸爸",
@@ -391,7 +391,7 @@
               "level": "A0",
               "target": "好吗？",
               "bn": "ভালো কি? (৩য় + হালকা)",
-              "bn_pron": "hao3 ma · হাও মা?",
+              "bn_pron": "hǎo ma · হাও মা?",
               "tokens": [
                 {
                   "t": "好",
@@ -430,7 +430,7 @@
               "level": "A0",
               "target": "你好",
               "bn": "হ্যালো / সালাম",
-              "bn_pron": "ni2 hao3 · নি হাও",
+              "bn_pron": "ní hǎo · নি হাও",
               "tokens": [
                 {
                   "t": "你",
@@ -455,7 +455,7 @@
               "level": "A0",
               "target": "很好",
               "bn": "খুব ভালো",
-              "bn_pron": "hen2 hao3 · হেন হাও",
+              "bn_pron": "hén hǎo · হেন হাও",
               "tokens": [
                 {
                   "t": "很",
@@ -480,7 +480,7 @@
               "level": "A0",
               "target": "可以",
               "bn": "পারা / অনুমতি আছে",
-              "bn_pron": "ke2 yi3 · খে-ই",
+              "bn_pron": "ké yǐ · খে-ই",
               "tokens": [
                 {
                   "t": "可以",
@@ -501,7 +501,7 @@
               "level": "A0",
               "target": "不去",
               "bn": "যাব না (bu2 qu4)",
-              "bn_pron": "bu2 qu4 · বু ছু",
+              "bn_pron": "bú qù · বু ছু",
               "tokens": [
                 {
                   "t": "不",
@@ -526,7 +526,7 @@
               "level": "A0",
               "target": "不是",
               "bn": "না / নয় (bu2 shi4)",
-              "bn_pron": "bu2 shi4 · বু শি",
+              "bn_pron": "bú shì · বু শি",
               "tokens": [
                 {
                   "t": "不",
@@ -551,7 +551,7 @@
               "level": "A0",
               "target": "一个",
               "bn": "একটি (yi2 ge4)",
-              "bn_pron": "yi2 ge4 · ই গে",
+              "bn_pron": "yí gè · ই গে",
               "tokens": [
                 {
                   "t": "一",
@@ -576,7 +576,7 @@
               "level": "A0",
               "target": "一杯",
               "bn": "এক কাপ (yi4 bei1)",
-              "bn_pron": "yi4 bei1 · ই বেই",
+              "bn_pron": "yì bēi · ই বেই",
               "tokens": [
                 {
                   "t": "一",
@@ -601,7 +601,7 @@
               "level": "A0",
               "target": "一起",
               "bn": "একসাথে (yi4 qi3)",
-              "bn_pron": "yi4 qi3 · ই ছি",
+              "bn_pron": "yì qǐ · ই ছি",
               "tokens": [
                 {
                   "t": "一起",
@@ -636,7 +636,7 @@
               "level": "A0",
               "target": "中国",
               "bn": "চীন",
-              "bn_pron": "zhong1 guo2 · চোংকুও",
+              "bn_pron": "zhōng guó · চোংকুও",
               "tokens": [
                 {
                   "t": "中国",
@@ -657,7 +657,7 @@
               "level": "A0",
               "target": "吃饭",
               "bn": "ভাত/খাবার খাওয়া",
-              "bn_pron": "chi1 fan4 · ছি ফান",
+              "bn_pron": "chī fàn · ছি ফান",
               "tokens": [
                 {
                   "t": "吃",
@@ -682,7 +682,7 @@
               "level": "A0",
               "target": "老师",
               "bn": "শিক্ষক",
-              "bn_pron": "lao3 shi1 · লাওশি",
+              "bn_pron": "lǎo shī · লাওশি",
               "tokens": [
                 {
                   "t": "老师",
@@ -703,7 +703,7 @@
               "level": "A0",
               "target": "热",
               "bn": "গরম (r ধ্বনি)",
-              "bn_pron": "re4 · রে",
+              "bn_pron": "rè · রে",
               "tokens": [
                 {
                   "t": "热",
@@ -724,7 +724,7 @@
               "level": "A0",
               "target": "今天",
               "bn": "আজকে (j ধ্বনি)",
-              "bn_pron": "jin1 tian1 · চিন থিয়ান",
+              "bn_pron": "jīn tiān · চিন থিয়ান",
               "tokens": [
                 {
                   "t": "今天",
@@ -745,7 +745,7 @@
               "level": "A0",
               "target": "请问",
               "bn": "দয়া করে বলুন (q ধ্বনি)",
-              "bn_pron": "qing3 wen4 · ছিং ওয়েন",
+              "bn_pron": "qǐng wèn · ছিং ওয়েন",
               "tokens": [
                 {
                   "t": "请问",
@@ -766,7 +766,7 @@
               "level": "A0",
               "target": "谢谢",
               "bn": "ধন্যবাদ (x ধ্বনি)",
-              "bn_pron": "xie4 xie · সিয়েসিয়ে",
+              "bn_pron": "xiè xie · সিয়েসিয়ে",
               "tokens": [
                 {
                   "t": "谢谢",
@@ -787,7 +787,7 @@
               "level": "A0",
               "target": "再见",
               "bn": "বিদায় (z ধ্বনি)",
-              "bn_pron": "zai4 jian4 · দ্জাই চিয়ান",
+              "bn_pron": "zài jiàn · দ্জাই চিয়ান",
               "tokens": [
                 {
                   "t": "再见",
@@ -831,7 +831,7 @@
               "level": "A0",
               "target": "女",
               "bn": "নারী / মেয়ে",
-              "bn_pron": "nv3 · ন্যু",
+              "bn_pron": "nǚ · ন্যু",
               "tokens": [
                 {
                   "t": "女",
@@ -852,7 +852,7 @@
               "level": "A0",
               "target": "鱼",
               "bn": "মাছ",
-              "bn_pron": "yu2 · ইউ",
+              "bn_pron": "yú · ইউ",
               "tokens": [
                 {
                   "t": "鱼",
@@ -873,7 +873,7 @@
               "level": "A0",
               "target": "绿",
               "bn": "সবুজ",
-              "bn_pron": "lv4 · লু",
+              "bn_pron": "lǜ · লু",
               "tokens": [
                 {
                   "t": "绿",
@@ -894,7 +894,7 @@
               "level": "A0",
               "target": "路",
               "bn": "রাস্তা (সাধারণ u)",
-              "bn_pron": "lu4 · লু",
+              "bn_pron": "lù · লু",
               "tokens": [
                 {
                   "t": "路",
@@ -915,7 +915,7 @@
               "level": "A0",
               "target": "月",
               "bn": "চাঁদ / মাস",
-              "bn_pron": "yue4 · ইয়ুয়ে",
+              "bn_pron": "yuè · ইয়ুয়ে",
               "tokens": [
                 {
                   "t": "月",
@@ -936,7 +936,7 @@
               "level": "A0",
               "target": "雪",
               "bn": "তুষার / বরফ",
-              "bn_pron": "xue3 · সুয়ে",
+              "bn_pron": "xuě · সুয়ে",
               "tokens": [
                 {
                   "t": "雪",
@@ -957,7 +957,7 @@
               "level": "A0",
               "target": "水",
               "bn": "পানি (ui = শুয়েই)",
-              "bn_pron": "shui3 · শুয়েই",
+              "bn_pron": "shuǐ · শুয়েই",
               "tokens": [
                 {
                   "t": "水",
@@ -978,7 +978,7 @@
               "level": "A0",
               "target": "买",
               "bn": "কেনা (ai = আই)",
-              "bn_pron": "mai3 · মাই",
+              "bn_pron": "mǎi · মাই",
               "tokens": [
                 {
                   "t": "买",
@@ -1012,7 +1012,7 @@
               "level": "A0",
               "target": "您",
               "bn": "আপনি (সম্মানসূচক)",
-              "bn_pron": "nin2 · নিন",
+              "bn_pron": "nín · নিন",
               "tokens": [
                 {
                   "t": "您",
@@ -1033,7 +1033,7 @@
               "level": "A0",
               "target": "他",
               "bn": "সে (পুরুষ)",
-              "bn_pron": "ta1 · থা",
+              "bn_pron": "tā · থা",
               "tokens": [
                 {
                   "t": "他",
@@ -1054,7 +1054,7 @@
               "level": "A0",
               "target": "她",
               "bn": "সে (নারী)",
-              "bn_pron": "ta1 · থা",
+              "bn_pron": "tā · থা",
               "tokens": [
                 {
                   "t": "她",
@@ -1075,7 +1075,7 @@
               "level": "A0",
               "target": "我们",
               "bn": "আমরা",
-              "bn_pron": "wo3 men · ওওমেন",
+              "bn_pron": "wǒ men · ওওমেন",
               "tokens": [
                 {
                   "t": "我们",
@@ -1096,7 +1096,7 @@
               "level": "A0",
               "target": "你们",
               "bn": "তোমরা / আপনারা",
-              "bn_pron": "ni3 men · নিমেন",
+              "bn_pron": "nǐ men · নিমেন",
               "tokens": [
                 {
                   "t": "你们",
@@ -1117,7 +1117,7 @@
               "level": "A0",
               "target": "他们",
               "bn": "তারা",
-              "bn_pron": "ta1 men · থামেন",
+              "bn_pron": "tā men · থামেন",
               "tokens": [
                 {
                   "t": "他们",
@@ -1138,7 +1138,7 @@
               "level": "A0",
               "target": "我是。",
               "bn": "আমি হই।",
-              "bn_pron": "wo3 shi4 · ওও শি",
+              "bn_pron": "wǒ shì · ওও শি",
               "tokens": [
                 {
                   "t": "我",
@@ -1163,7 +1163,7 @@
               "level": "A0",
               "target": "我们去。",
               "bn": "আমরা যাই।",
-              "bn_pron": "wo3 men qu4 · ওওমেন ছু",
+              "bn_pron": "wǒ men qù · ওওমেন ছু",
               "tokens": [
                 {
                   "t": "我们",
@@ -1202,7 +1202,7 @@
               "level": "A0",
               "target": "有",
               "bn": "আছে",
-              "bn_pron": "you3 · ইয়ৌ",
+              "bn_pron": "yǒu · ইয়ৌ",
               "tokens": [
                 {
                   "t": "有",
@@ -1223,7 +1223,7 @@
               "level": "A0",
               "target": "没有",
               "bn": "নেই",
-              "bn_pron": "mei2 you3 · মেই-ইয়ৌ",
+              "bn_pron": "méi yǒu · মেই-ইয়ৌ",
               "tokens": [
                 {
                   "t": "没有",
@@ -1244,7 +1244,7 @@
               "level": "A0",
               "target": "要",
               "bn": "চাই / দরকার",
-              "bn_pron": "yao4 · ইয়াও",
+              "bn_pron": "yào · ইয়াও",
               "tokens": [
                 {
                   "t": "要",
@@ -1265,7 +1265,7 @@
               "level": "A0",
               "target": "不要",
               "bn": "চাই না / লাগবে না",
-              "bn_pron": "bu2 yao4 · বু ইয়াও",
+              "bn_pron": "bú yào · বু ইয়াও",
               "tokens": [
                 {
                   "t": "不",
@@ -1290,7 +1290,7 @@
               "level": "A0",
               "target": "会",
               "bn": "পারা (শেখা দক্ষতা)",
-              "bn_pron": "hui4 · হুয়েই",
+              "bn_pron": "huì · হুয়েই",
               "tokens": [
                 {
                   "t": "会",
@@ -1311,7 +1311,7 @@
               "level": "A0",
               "target": "不会",
               "bn": "পারি না",
-              "bn_pron": "bu2 hui4 · বু হুয়েই",
+              "bn_pron": "bú huì · বু হুয়েই",
               "tokens": [
                 {
                   "t": "不",
@@ -1336,7 +1336,7 @@
               "level": "A0",
               "target": "我有水。",
               "bn": "আমার কাছে পানি আছে।",
-              "bn_pron": "wo3 you3 shui3 · ওও ইয়ৌ শুয়েই",
+              "bn_pron": "wǒ yǒu shuǐ · ওও ইয়ৌ শুয়েই",
               "tokens": [
                 {
                   "t": "我",
@@ -1365,7 +1365,7 @@
               "level": "A0",
               "target": "我没有钱。",
               "bn": "আমার কাছে টাকা নেই।",
-              "bn_pron": "wo3 mei2 you3 qian2 · ওও মেই-ইয়ৌ ছিয়েন",
+              "bn_pron": "wǒ méi yǒu qián · ওও মেই-ইয়ৌ ছিয়েন",
               "tokens": [
                 {
                   "t": "我",
@@ -1407,7 +1407,7 @@
               "level": "A0",
               "target": "对不起",
               "bn": "দুঃখিত / মাফ করবেন",
-              "bn_pron": "dui4 bu qi3 · তুইবুছি",
+              "bn_pron": "duì bu qǐ · তুইবুছি",
               "tokens": [
                 {
                   "t": "对不起",
@@ -1428,7 +1428,7 @@
               "level": "A0",
               "target": "没关系",
               "bn": "সমস্যা নেই / ঠিক আছে",
-              "bn_pron": "mei2 guan1 xi · মেই কুয়ানসি",
+              "bn_pron": "méi guān xi · মেই কুয়ানসি",
               "tokens": [
                 {
                   "t": "没关系",
@@ -1449,7 +1449,7 @@
               "level": "A0",
               "target": "请进！",
               "bn": "দয়া করে ভেতরে আসুন!",
-              "bn_pron": "qing3 jin4 · ছিং জিন",
+              "bn_pron": "qǐng jìn · ছিং জিন",
               "tokens": [
                 {
                   "t": "请",
@@ -1474,7 +1474,7 @@
               "level": "A0",
               "target": "请坐！",
               "bn": "দয়া করে বসুন!",
-              "bn_pron": "qing3 zuo4 · ছিং যুও",
+              "bn_pron": "qǐng zuò · ছিং যুও",
               "tokens": [
                 {
                   "t": "请",
@@ -1499,7 +1499,7 @@
               "level": "A0",
               "target": "请喝茶。",
               "bn": "দয়া করে চা পান করুন।",
-              "bn_pron": "qing3 he1 cha2 · ছিং হ্য ছা",
+              "bn_pron": "qǐng hē chá · ছিং হ্য ছা",
               "tokens": [
                 {
                   "t": "请",
@@ -1528,7 +1528,7 @@
               "level": "A0",
               "target": "好的。",
               "bn": "জি আচ্ছা / ঠিক আছে।",
-              "bn_pron": "hao3 de · হাও দ্য",
+              "bn_pron": "hǎo de · হাও দ্য",
               "tokens": [
                 {
                   "t": "好",
@@ -1553,7 +1553,7 @@
               "level": "A0",
               "target": "我不明白。",
               "bn": "আমি বুঝতে পারছি না।",
-              "bn_pron": "wo3 bu4 ming2 bai · ওও বু মিংবাই",
+              "bn_pron": "wǒ bù míng bai · ওও বু মিংবাই",
               "tokens": [
                 {
                   "t": "我",
@@ -1582,7 +1582,7 @@
               "level": "A0",
               "target": "请再说一遍。",
               "bn": "দয়া করে আরেকবার বলুন।",
-              "bn_pron": "qing3 zai4 shuo1 yi2 bian4 · ছিং দ্জাই শুও ই বিয়েন",
+              "bn_pron": "qǐng zài shuō yí biàn · ছিং দ্জাই শুও ই বিয়েন",
               "tokens": [
                 {
                   "t": "请",
@@ -1637,7 +1637,7 @@
               "level": "A1",
               "target": "您好！",
               "bn": "আসসালামু আলাইকুম / নমস্কার (সম্মানিত)",
-              "bn_pron": "nin2 hao3 · নিন হাও",
+              "bn_pron": "nín hǎo · নিন হাও",
               "tokens": [
                 {
                   "t": "您",
@@ -1662,7 +1662,7 @@
               "level": "A1",
               "target": "早上好！",
               "bn": "সুপ্রভাত / শুভ সকাল!",
-              "bn_pron": "zao3 shang hao3 · যাওশাং হাও",
+              "bn_pron": "zǎo shang hǎo · যাওশাং হাও",
               "tokens": [
                 {
                   "t": "早上",
@@ -1687,7 +1687,7 @@
               "level": "A1",
               "target": "上午好！",
               "bn": "সকাল সাড়ে ৯টা থেকে দুপুরের শুভেচ্ছা!",
-              "bn_pron": "shang4 wu3 hao3 · শাংউ হাও",
+              "bn_pron": "shàng wǔ hǎo · শাংউ হাও",
               "tokens": [
                 {
                   "t": "上午",
@@ -1712,7 +1712,7 @@
               "level": "A1",
               "target": "下午好！",
               "bn": "শুভ অপরাহ্ন / বিকেলের শুভেচ্ছা!",
-              "bn_pron": "xia4 wu3 hao3 · সিয়াউ হাও",
+              "bn_pron": "xià wǔ hǎo · সিয়াউ হাও",
               "tokens": [
                 {
                   "t": "下午",
@@ -1737,7 +1737,7 @@
               "level": "A1",
               "target": "晚上好！",
               "bn": "শুভ সন্ধ্যা!",
-              "bn_pron": "wan3 shang hao3 · ওয়ানশাং হাও",
+              "bn_pron": "wǎn shang hǎo · ওয়ানশাং হাও",
               "tokens": [
                 {
                   "t": "晚上",
@@ -1762,7 +1762,7 @@
               "level": "A1",
               "target": "晚安！",
               "bn": "শুভ রাত্রি!",
-              "bn_pron": "wan3 an1 · ওয়ান আন",
+              "bn_pron": "wǎn ān · ওয়ান আন",
               "tokens": [
                 {
                   "t": "晚安",
@@ -1783,7 +1783,7 @@
               "level": "A1",
               "target": "老师，早上好！",
               "bn": "স্যার, শুভ সকাল!",
-              "bn_pron": "lao3 shi1 zao3 shang hao3 · লাওশি যাওশাং হাও",
+              "bn_pron": "lǎo shī zǎo shang hǎo · লাওশি যাওশাং হাও",
               "tokens": [
                 {
                   "t": "老师",
@@ -1808,7 +1808,7 @@
               "level": "A1",
               "target": "大家好！",
               "bn": "সবাইকে শুভেচ্ছা / হ্যালো এভরিওয়ান!",
-              "bn_pron": "da4 jia1 hao3 · দাজিয়া হাও",
+              "bn_pron": "dà jiā hǎo · দাজিয়া হাও",
               "tokens": [
                 {
                   "t": "大家",
@@ -1846,7 +1846,7 @@
               "level": "A1",
               "target": "你好吗？",
               "bn": "আপনি কেমন আছেন?",
-              "bn_pron": "ni2 hao3 ma · নি হাও মা?",
+              "bn_pron": "ní hǎo ma · নি হাও মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -1876,7 +1876,7 @@
               "level": "A1",
               "target": "我很好，谢谢。你呢？",
               "bn": "আমি খুব ভালো আছি, ধন্যবাদ। আর আপনি?",
-              "bn_pron": "wo3 hen2 hao3 xie4 xie ni3 ne · ওও হেন হাও সিয়েসিয়ে নি ন্য?",
+              "bn_pron": "wǒ hén hǎo xiè xie nǐ ne · ওও হেন হাও সিয়েসিয়ে নি ন্য?",
               "tokens": [
                 {
                   "t": "我",
@@ -1918,7 +1918,7 @@
               "level": "A1",
               "target": "我也很好。",
               "bn": "আমিও খুব ভালো আছি।",
-              "bn_pron": "wo3 ye3 hen2 hao3 · ওও ইয়ে হেন হাও",
+              "bn_pron": "wǒ yě hén hǎo · ওও ইয়ে হেন হাও",
               "tokens": [
                 {
                   "t": "我",
@@ -1952,7 +1952,7 @@
               "level": "A1",
               "target": "你最近忙吗？",
               "bn": "আপনি কি আজকাল ব্যস্ত?",
-              "bn_pron": "ni3 zui4 jin4 mang2 ma · নি জুইজিন মাং মা?",
+              "bn_pron": "nǐ zuì jìn máng ma · নি জুইজিন মাং মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -1985,7 +1985,7 @@
               "level": "A1",
               "target": "不太忙。",
               "bn": "খুব একটা ব্যস্ত নই।",
-              "bn_pron": "bu2 tai4 mang2 · বু থাই মাং",
+              "bn_pron": "bú tài máng · বু থাই মাং",
               "tokens": [
                 {
                   "t": "不",
@@ -2014,7 +2014,7 @@
               "level": "A1",
               "target": "你累吗？",
               "bn": "আপনি কি ক্লান্ত?",
-              "bn_pron": "ni3 lei4 ma · নি লেই মা?",
+              "bn_pron": "nǐ lèi ma · নি লেই মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -2043,7 +2043,7 @@
               "level": "A1",
               "target": "有一点儿累。",
               "bn": "একটু ক্লান্ত আছি।",
-              "bn_pron": "you3 yi4 dian3 er lei4 · ইয়ৌ ই দিয়ার লেই",
+              "bn_pron": "yǒu yì diǎn er lèi · ইয়ৌ ই দিয়ার লেই",
               "tokens": [
                 {
                   "t": "有",
@@ -2072,7 +2072,7 @@
               "level": "A1",
               "target": "你吃了吗？",
               "bn": "খাবার খেয়েছেন কি? (চীনা ঐতিহ্যগত কুশল)",
-              "bn_pron": "ni3 chi1 le ma · নি ছি ল্য মা?",
+              "bn_pron": "nǐ chī le ma · নি ছি ল্য মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -2118,7 +2118,7 @@
               "level": "A1",
               "target": "非常感谢您的帮助！",
               "bn": "আপনার সাহায্যের জন্য অনেক ধন্যবাদ!",
-              "bn_pron": "fei1 chang2 gan3 xie4 nin2 de bang1 zhu4 · ফেইছাং গানসিয়ে নিনদ্য বাংঝু",
+              "bn_pron": "fēi cháng gǎn xiè nín de bāng zhù · ফেইছাং গানসিয়ে নিনদ্য বাংঝু",
               "tokens": [
                 {
                   "t": "非常",
@@ -2156,7 +2156,7 @@
               "level": "A1",
               "target": "不客气，这是应该的。",
               "bn": "স্বাগতম, এটা তো আমার কর্তব্য।",
-              "bn_pron": "bu2 ke4 qi zhe4 shi4 ying1 gai1 de · বু খ্যোছি ঝে শি ইংগাই দ্য",
+              "bn_pron": "bú kè qi zhè shì yīng gāi de · বু খ্যোছি ঝে শি ইংগাই দ্য",
               "tokens": [
                 {
                   "t": "不客气",
@@ -2194,7 +2194,7 @@
               "level": "A1",
               "target": "不用谢。",
               "bn": "ধন্যবাদ বলার দরকার নেই।",
-              "bn_pron": "bu2 yong4 xie4 · বু ইয়োং সিয়ে",
+              "bn_pron": "bú yòng xiè · বু ইয়োং সিয়ে",
               "tokens": [
                 {
                   "t": "不用",
@@ -2219,7 +2219,7 @@
               "level": "A1",
               "target": "麻烦您了。",
               "bn": "আপনাকে একটু কষ্ট দিলাম।",
-              "bn_pron": "ma2 fan nin2 le · মাফান নিন ল্য",
+              "bn_pron": "má fan nín le · মাফান নিন ল্য",
               "tokens": [
                 {
                   "t": "麻烦",
@@ -2248,7 +2248,7 @@
               "level": "A1",
               "target": "真不好意思。",
               "bn": "সত্যিই খুব লজ্জিত / সরি।",
-              "bn_pron": "zhen1 bu4 hao3 yi4 si · ঝেন বু হাও ইস্য",
+              "bn_pron": "zhēn bù hǎo yì si · ঝেন বু হাও ইস্য",
               "tokens": [
                 {
                   "t": "真",
@@ -2273,7 +2273,7 @@
               "level": "A1",
               "target": "对不起，我来晚了。",
               "bn": "দুঃখিত, আমি আসতে দেরি করে ফেলেছি।",
-              "bn_pron": "dui4 bu qi3 wo3 lai2 wan3 le · তুইবুছি ওও লাই ওয়ান ল্য",
+              "bn_pron": "duì bu qǐ wǒ lái wǎn le · তুইবুছি ওও লাই ওয়ান ল্য",
               "tokens": [
                 {
                   "t": "对不起",
@@ -2311,7 +2311,7 @@
               "level": "A1",
               "target": "没关系，我也刚到。",
               "bn": "সমস্যা নেই, আমিও মাত্র পৌঁছেছি।",
-              "bn_pron": "mei2 guan1 xi wo3 ye3 gang1 dao4 · মেই কুয়ানসি ওও ইয়ে গাং দাও",
+              "bn_pron": "méi guān xi wǒ yě gāng dào · মেই কুয়ানসি ওও ইয়ে গাং দাও",
               "tokens": [
                 {
                   "t": "没关系",
@@ -2349,7 +2349,7 @@
               "level": "A1",
               "target": "请多关照。",
               "bn": "দয়া করে খেয়াল রাখবেন / সহযোগিতা করবেন।",
-              "bn_pron": "qing3 duo1 guan1 zhao4 · ছিং দুও গুয়ানঝাও",
+              "bn_pron": "qǐng duō guān zhào · ছিং দুও গুয়ানঝাও",
               "tokens": [
                 {
                   "t": "请",
@@ -2391,7 +2391,7 @@
               "level": "A1",
               "target": "明天见！",
               "bn": "আগামীকাল দেখা হবে!",
-              "bn_pron": "ming2 tian1 jian4 · মিংথিয়েন জিয়েন",
+              "bn_pron": "míng tiān jiàn · মিংথিয়েন জিয়েন",
               "tokens": [
                 {
                   "t": "明天",
@@ -2416,7 +2416,7 @@
               "level": "A1",
               "target": "一会儿见！",
               "bn": "কিছুক্ষণ পর দেখা হবে!",
-              "bn_pron": "yi2 hui4 er jian4 · ইহুয়ের জিয়েন",
+              "bn_pron": "yí huì er jiàn · ইহুয়ের জিয়েন",
               "tokens": [
                 {
                   "t": "一会儿",
@@ -2441,7 +2441,7 @@
               "level": "A1",
               "target": "下周见！",
               "bn": "আগামী সপ্তাহে দেখা হবে!",
-              "bn_pron": "xia4 zhou1 jian4 · সিয়াঝৌ জিয়েন",
+              "bn_pron": "xià zhōu jiàn · সিয়াঝৌ জিয়েন",
               "tokens": [
                 {
                   "t": "下周",
@@ -2466,7 +2466,7 @@
               "level": "A1",
               "target": "回见！",
               "bn": "পরে আবার দেখা হবে!",
-              "bn_pron": "hui2 jian4 · হুয়েই জিয়েন",
+              "bn_pron": "huí jiàn · হুয়েই জিয়েন",
               "tokens": [
                 {
                   "t": "回见",
@@ -2487,7 +2487,7 @@
               "level": "A1",
               "target": "请慢走。",
               "bn": "সাবধানে ধীরে যাবেন (বিদায় জানানোর ভদ্রতা)।",
-              "bn_pron": "qing3 man4 zou3 · ছিং মান যৌ",
+              "bn_pron": "qǐng màn zǒu · ছিং মান যৌ",
               "tokens": [
                 {
                   "t": "请",
@@ -2516,7 +2516,7 @@
               "level": "A1",
               "target": "一路平安！",
               "bn": "আপনার যাত্রা নিরাপদ ও শুভ হোক!",
-              "bn_pron": "yi2 lu4 ping2 an1 · ইলু ফিং-আন",
+              "bn_pron": "yí lù píng ān · ইলু ফিং-আন",
               "tokens": [
                 {
                   "t": "一路平安",
@@ -2537,7 +2537,7 @@
               "level": "A1",
               "target": "祝你好运！",
               "bn": "আপনার জন্য শুভকামনা!",
-              "bn_pron": "zhu4 ni3 hao3 yun4 · ঝু নি হাও-ইয়ুন",
+              "bn_pron": "zhù nǐ hǎo yùn · ঝু নি হাও-ইয়ুন",
               "tokens": [
                 {
                   "t": "祝",
@@ -2566,7 +2566,7 @@
               "level": "A1",
               "target": "我先走了，再见！",
               "bn": "আমি এখন যাই, বিদায়!",
-              "bn_pron": "wo3 xian1 zou3 le zai4 jian4 · ওও সিয়েন যৌ ল্য দ্জাই চিয়ান",
+              "bn_pron": "wǒ xiān zǒu le zài jiàn · ওও সিয়েন যৌ ল্য দ্জাই চিয়ান",
               "tokens": [
                 {
                   "t": "我",
@@ -2625,7 +2625,7 @@
               "level": "A1",
               "target": "你叫什么名字？",
               "bn": "তোমার নাম কী?",
-              "bn_pron": "ni3 jiao4 shen2 me ming2 zi · নি জিয়াও শেন্ম্য মিংয্য?",
+              "bn_pron": "nǐ jiào shén me míng zi · নি জিয়াও শেন্ম্য মিংয্য?",
               "tokens": [
                 {
                   "t": "你",
@@ -2659,7 +2659,7 @@
               "level": "A1",
               "target": "我叫阿里，你呢？",
               "bn": "আমার নাম আলী, আর তোমার?",
-              "bn_pron": "wo3 jiao4 A1 li3 ni3 ne · ওও জিয়াও আলি নি ন্য?",
+              "bn_pron": "wǒ jiào Ā lǐ nǐ ne · ওও জিয়াও আলি নি ন্য?",
               "tokens": [
                 {
                   "t": "我",
@@ -2697,7 +2697,7 @@
               "level": "A1",
               "target": "我叫王明。",
               "bn": "আমার নাম ওয়াং মিং।",
-              "bn_pron": "wo3 jiao4 Wang2 Ming2 · ওও জিয়াও ওয়াং মিং",
+              "bn_pron": "wǒ jiào Wáng Míng · ওও জিয়াও ওয়াং মিং",
               "tokens": [
                 {
                   "t": "我",
@@ -2727,7 +2727,7 @@
               "level": "A1",
               "target": "请问您贵姓？",
               "bn": "দয়া করে বলুন আপনার পদবি/বংশনাম কী?",
-              "bn_pron": "qing3 wen4 nin2 gui4 xing4 · ছিং ওয়েন নিন গুয়েইসিং?",
+              "bn_pron": "qǐng wèn nín guì xìng · ছিং ওয়েন নিন গুয়েইসিং?",
               "tokens": [
                 {
                   "t": "请问",
@@ -2756,7 +2756,7 @@
               "level": "A1",
               "target": "我姓李。",
               "bn": "আমার পদবি লি।",
-              "bn_pron": "wo3 xing4 Li3 · ওও সিং লি",
+              "bn_pron": "wǒ xìng Lǐ · ওও সিং লি",
               "tokens": [
                 {
                   "t": "我",
@@ -2785,7 +2785,7 @@
               "level": "A1",
               "target": "他叫大卫。",
               "bn": "তার নাম ডেভিড।",
-              "bn_pron": "ta1 jiao4 Da4 wei4 · থা জিয়াও দাওয়েই",
+              "bn_pron": "tā jiào Dà wèi · থা জিয়াও দাওয়েই",
               "tokens": [
                 {
                   "t": "他",
@@ -2814,7 +2814,7 @@
               "level": "A1",
               "target": "她是我的朋友。",
               "bn": "তিনি আমার বন্ধু।",
-              "bn_pron": "ta1 shi4 wo3 de peng2 you · থা শি ওওদ্য ফেংইয়ৌ",
+              "bn_pron": "tā shì wǒ de péng you · থা শি ওওদ্য ফেংইয়ৌ",
               "tokens": [
                 {
                   "t": "她",
@@ -2851,7 +2851,7 @@
               "level": "A1",
               "target": "很高兴认识你！",
               "bn": "আপনার সাথে পরিচিত হয়ে খুব ভালো লাগল!",
-              "bn_pron": "hen3 gao1 xing4 ren4 shi ni3 · হেন গাওসিং রেনশি নি",
+              "bn_pron": "hěn gāo xìng rèn shi nǐ · হেন গাওসিং রেনশি নি",
               "tokens": [
                 {
                   "t": "很",
@@ -2897,7 +2897,7 @@
               "level": "A1",
               "target": "你是哪国人？",
               "bn": "আপনি কোন দেশের নাগরিক?",
-              "bn_pron": "ni3 shi4 na3 guo2 ren2 · নি শি না গুওরেন?",
+              "bn_pron": "nǐ shì nǎ guó rén · নি শি না গুওরেন?",
               "tokens": [
                 {
                   "t": "你",
@@ -2935,7 +2935,7 @@
               "level": "A1",
               "target": "我是孟加拉国人。",
               "bn": "আমি বাংলাদেশি।",
-              "bn_pron": "wo3 shi4 Meng4 jia1 la1 guo2 ren2 · ওও শি মেংজিয়ালাগুওরেন",
+              "bn_pron": "wǒ shì Mèng jiā lā guó rén · ওও শি মেংজিয়ালাগুওরেন",
               "tokens": [
                 {
                   "t": "我",
@@ -2969,7 +2969,7 @@
               "level": "A1",
               "target": "他不是中国人，他是美国人。",
               "bn": "সে চীনা নয়, সে আমেরিকান।",
-              "bn_pron": "ta1 bu2 shi4 Zhong1 guo2 ren2 ta1 shi4 Mei3 guo2 ren2 · থা বু শি চোংকুওরেন থা শি মেইগুওরেন",
+              "bn_pron": "tā bú shì Zhōng guó rén tā shì Měi guó rén · থা বু শি চোংকুওরেন থা শি মেইগুওরেন",
               "tokens": [
                 {
                   "t": "他",
@@ -3010,7 +3010,7 @@
               "level": "A1",
               "target": "我来自达卡。",
               "bn": "আমি ঢাকা থেকে এসেছি।",
-              "bn_pron": "wo3 lai2 zi4 Da2 ka3 · ওও লাইয্য দাখা",
+              "bn_pron": "wǒ lái zì Dá kǎ · ওও লাইয্য দাখা",
               "tokens": [
                 {
                   "t": "我",
@@ -3039,7 +3039,7 @@
               "level": "A1",
               "target": "你在北京住吗？",
               "bn": "আপনি কি বেইজিংয়ে থাকেন?",
-              "bn_pron": "ni3 zai4 Bei3 jing1 zhu4 ma · নি দ্জাই বেইজিং ঝু মা?",
+              "bn_pron": "nǐ zài Běi jīng zhù ma · নি দ্জাই বেইজিং ঝু মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -3076,7 +3076,7 @@
               "level": "A1",
               "target": "我住在上海。",
               "bn": "আমি সাংহাইয়ে থাকি।",
-              "bn_pron": "wo3 zhu4 zai4 Shang4 hai3 · ওও ঝু দ্জাই শাংহাই",
+              "bn_pron": "wǒ zhù zài Shàng hǎi · ওও ঝু দ্জাই শাংহাই",
               "tokens": [
                 {
                   "t": "我",
@@ -3109,7 +3109,7 @@
               "level": "A1",
               "target": "外国人",
               "bn": "বিদেশি নাগরিক",
-              "bn_pron": "wai4 guo2 ren2 · ওয়াইগুওরেন",
+              "bn_pron": "wài guó rén · ওয়াইগুওরেন",
               "tokens": [
                 {
                   "t": "外国",
@@ -3134,7 +3134,7 @@
               "level": "A1",
               "target": "欢迎来中国！",
               "bn": "চীনে স্বাগতম!",
-              "bn_pron": "huan1 ying2 lai2 Zhong1 guo2 · হুয়ান-ইং লাই চোংকুও",
+              "bn_pron": "huān yíng lái Zhōng guó · হুয়ান-ইং লাই চোংকুও",
               "tokens": [
                 {
                   "t": "欢迎",
@@ -3176,7 +3176,7 @@
               "level": "A1",
               "target": "你会说汉语吗？",
               "bn": "আপনি কি চীনা ভাষা বলতে পারেন?",
-              "bn_pron": "ni3 hui4 shuo1 Han4 yu3 ma · নি হুয়েই শুও হান-ইউ মা?",
+              "bn_pron": "nǐ huì shuō Hàn yǔ ma · নি হুয়েই শুও হান-ইউ মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -3214,7 +3214,7 @@
               "level": "A1",
               "target": "我会说一点儿汉语。",
               "bn": "আমি একটু একটু চীনা বলতে পারি।",
-              "bn_pron": "wo3 hui4 shuo1 yi4 dian3 er Han4 yu3 · ওও হুয়েই শুও ইদিয়ার হান-ইউ",
+              "bn_pron": "wǒ huì shuō yì diǎn er Hàn yǔ · ওও হুয়েই শুও ইদিয়ার হান-ইউ",
               "tokens": [
                 {
                   "t": "我",
@@ -3252,7 +3252,7 @@
               "level": "A1",
               "target": "我的母语是孟加拉语。",
               "bn": "আমার মাতৃভাষা বাংলা।",
-              "bn_pron": "wo3 de mu3 yu3 shi4 Meng4 jia1 la1 yu3 · ওওদ্য মুইউ শি মেংজিয়ালাইউ",
+              "bn_pron": "wǒ de mǔ yǔ shì Mèng jiā lā yǔ · ওওদ্য মুইউ শি মেংজিয়ালাইউ",
               "tokens": [
                 {
                   "t": "我",
@@ -3289,7 +3289,7 @@
               "level": "A1",
               "target": "我也会说英语。",
               "bn": "আমি ইংরেজিও বলতে পারি।",
-              "bn_pron": "wo3 ye3 hui4 shuo1 Ying1 yu3 · ওও ইয়ে হুয়েই শুও ইং-ইউ",
+              "bn_pron": "wǒ yě huì shuō Yīng yǔ · ওও ইয়ে হুয়েই শুও ইং-ইউ",
               "tokens": [
                 {
                   "t": "我",
@@ -3326,7 +3326,7 @@
               "level": "A1",
               "target": "你的汉语很好！",
               "bn": "আপনার চীনা ভাষা তো দারুণ!",
-              "bn_pron": "ni3 de Han4 yu3 hen2 hao3 · নিদ্য হান-ইউ হেন হাও",
+              "bn_pron": "nǐ de Hàn yǔ hén hǎo · নিদ্য হান-ইউ হেন হাও",
               "tokens": [
                 {
                   "t": "你的",
@@ -3359,7 +3359,7 @@
               "level": "A1",
               "target": "哪里哪里，我还正在学。",
               "bn": "আরে না না, আমি এখনো শিখছি।",
-              "bn_pron": "na3 li na3 li wo3 hai2 zheng4 zai4 xue2 · নালি নালি ওও হাই ঝেংযাই সুয়ে",
+              "bn_pron": "nǎ li nǎ li wǒ hái zhèng zài xué · নালি নালি ওও হাই ঝেংযাই সুয়ে",
               "tokens": [
                 {
                   "t": "哪里哪里",
@@ -3396,7 +3396,7 @@
               "level": "A1",
               "target": "这个汉字怎么读？",
               "bn": "এই চীনা অক্ষরটি কীভাবে পড়তে হয়?",
-              "bn_pron": "zhe4 ge Han4 zi4 zen3 me du2 · ঝেগে হানয্য জেন্ম্য দু?",
+              "bn_pron": "zhè ge Hàn zì zěn me dú · ঝেগে হানয্য জেন্ম্য দু?",
               "tokens": [
                 {
                   "t": "这个",
@@ -3429,7 +3429,7 @@
               "level": "A1",
               "target": "用中文怎么说？",
               "bn": "চীনা ভাষায় এটা কীভাবে বলে?",
-              "bn_pron": "yong4 Zhong1 wen2 zen3 me shuo1 · ইয়োং ঝোংওয়েন জেন্ম্য শুও?",
+              "bn_pron": "yòng Zhōng wén zěn me shuō · ইয়োং ঝোংওয়েন জেন্ম্য শুও?",
               "tokens": [
                 {
                   "t": "用",
@@ -3475,7 +3475,7 @@
               "level": "A1",
               "target": "你好，我是新来的学生。",
               "bn": "হ্যালো, আমি নতুন আসা শিক্ষার্থী।",
-              "bn_pron": "ni2 hao3 wo3 shi4 xin1 lai2 de xue2 sheng · নি হাও ওও শি সিন লাই দ্য সুয়েশেং",
+              "bn_pron": "ní hǎo wǒ shì xīn lái de xué sheng · নি হাও ওও শি সিন লাই দ্য সুয়েশেং",
               "tokens": [
                 {
                   "t": "你好",
@@ -3517,7 +3517,7 @@
               "level": "A1",
               "target": "欢迎！你叫什么名字？",
               "bn": "স্বাগতম! আপনার নাম কী?",
-              "bn_pron": "huan1 ying2 ni3 jiao4 shen2 me ming2 zi · হুয়ান-ইং নি জিয়াও শেন্ম্য মিংয্য?",
+              "bn_pron": "huān yíng nǐ jiào shén me míng zi · হুয়ান-ইং নি জিয়াও শেন্ম্য মিংয্য?",
               "tokens": [
                 {
                   "t": "欢迎",
@@ -3555,7 +3555,7 @@
               "level": "A1",
               "target": "我叫拉赫曼，来自孟加拉国。",
               "bn": "আমার নাম রহমান, বাংলাদেশ থেকে এসেছি।",
-              "bn_pron": "wo3 jiao4 La1 he4 man4 lai2 zi4 Meng4 jia1 la1 guo2 · ওও জিয়াও লাহ্যমান লাইয্য মেংজিয়ালাগুও",
+              "bn_pron": "wǒ jiào Lā hè màn lái zì Mèng jiā lā guó · ওও জিয়াও লাহ্যমান লাইয্য মেংজিয়ালাগুও",
               "tokens": [
                 {
                   "t": "我",
@@ -3593,7 +3593,7 @@
               "level": "A1",
               "target": "太好了！你学什么专业？",
               "bn": "দারুণ! আপনি কোন বিষয়ে পড়ছেন?",
-              "bn_pron": "tai4 hao3 le ni3 xue2 shen2 me zhuan1 ye4 · থাই হাও ল্য নি সুয়ে শেন্ম্য ঝুয়ান-ইয়ে?",
+              "bn_pron": "tài hǎo le nǐ xué shén me zhuān yè · থাই হাও ল্য নি সুয়ে শেন্ম্য ঝুয়ান-ইয়ে?",
               "tokens": [
                 {
                   "t": "太好了",
@@ -3631,7 +3631,7 @@
               "level": "A1",
               "target": "我学汉语和国际贸易。",
               "bn": "আমি চীনা ভাষা ও আন্তর্জাতিক বাণিজ্য পড়ছি।",
-              "bn_pron": "wo3 xue2 Han4 yu3 he2 guo2 ji4 mao4 yi4 · ওও সুয়ে হান-ইউ হ্য গুওজি মাও-ই",
+              "bn_pron": "wǒ xué Hàn yǔ hé guó jì mào yì · ওও সুয়ে হান-ইউ হ্য গুওজি মাও-ই",
               "tokens": [
                 {
                   "t": "我",
@@ -3669,7 +3669,7 @@
               "level": "A1",
               "target": "我是医生，在医院工作。",
               "bn": "আমি একজন ডাক্তার, হাসপাতালে কাজ করি।",
-              "bn_pron": "wo3 shi4 yi1 sheng1 zai4 yi1 yuan4 gong1 zuo4 · ওও শি ইশেং দ্জাই ই-ইয়ুয়েন গোংযুও",
+              "bn_pron": "wǒ shì yī shēng zài yī yuàn gōng zuò · ওও শি ইশেং দ্জাই ই-ইয়ুয়েন গোংযুও",
               "tokens": [
                 {
                   "t": "我",
@@ -3710,7 +3710,7 @@
               "level": "A1",
               "target": "我是做生意的商人。",
               "bn": "আমি ব্যবসা করি / একজন ব্যবসায়ী।",
-              "bn_pron": "wo3 shi4 zuo4 sheng1 yi de shang1 ren2 · ওও শি যুও শেং-ই দ্য শাংরেন",
+              "bn_pron": "wǒ shì zuò shēng yi de shāng rén · ওও শি যুও শেং-ই দ্য শাংরেন",
               "tokens": [
                 {
                   "t": "我",
@@ -3747,7 +3747,7 @@
               "level": "A1",
               "target": "很高兴成为你的朋友。",
               "bn": "তোমার বন্ধু হতে পেরে খুব খুশি।",
-              "bn_pron": "hen3 gao1 xing4 cheng2 wei2 ni3 de peng2 you · হেন গাওসিং ছেংওয়েই নিদ্য ফেংইয়ৌ",
+              "bn_pron": "hěn gāo xìng chéng wéi nǐ de péng you · হেন গাওসিং ছেংওয়েই নিদ্য ফেংইয়ৌ",
               "tokens": [
                 {
                   "t": "很",
@@ -3806,7 +3806,7 @@
               "level": "A1",
               "target": "零",
               "bn": "শূন্য (০)",
-              "bn_pron": "ling2 · লিং",
+              "bn_pron": "líng · লিং",
               "tokens": [
                 {
                   "t": "零",
@@ -3827,7 +3827,7 @@
               "level": "A1",
               "target": "一二三",
               "bn": "এক, দুই, তিন",
-              "bn_pron": "yi1 er4 san1 · ই আর সান",
+              "bn_pron": "yī èr sān · ই আর সান",
               "tokens": [
                 {
                   "t": "一",
@@ -3856,7 +3856,7 @@
               "level": "A1",
               "target": "四五六",
               "bn": "চার, পাঁচ, ছয়",
-              "bn_pron": "si4 wu3 liu4 · স্যু উ লিউ",
+              "bn_pron": "sì wǔ liù · স্যু উ লিউ",
               "tokens": [
                 {
                   "t": "四",
@@ -3885,7 +3885,7 @@
               "level": "A1",
               "target": "七八九",
               "bn": "সাত, আট, নয়",
-              "bn_pron": "qi1 ba1 jiu3 · ছি বা জিউ",
+              "bn_pron": "qī bā jiǔ · ছি বা জিউ",
               "tokens": [
                 {
                   "t": "七",
@@ -3914,7 +3914,7 @@
               "level": "A1",
               "target": "十",
               "bn": "দশ (১০)",
-              "bn_pron": "shi2 · শি",
+              "bn_pron": "shí · শি",
               "tokens": [
                 {
                   "t": "十",
@@ -3935,7 +3935,7 @@
               "level": "A1",
               "target": "百",
               "bn": "একশ (১০০)",
-              "bn_pron": "bai3 · বাই",
+              "bn_pron": "bǎi · বাই",
               "tokens": [
                 {
                   "t": "百",
@@ -3956,7 +3956,7 @@
               "level": "A1",
               "target": "千",
               "bn": "এক হাজার (১,০০০)",
-              "bn_pron": "qian1 · ছিয়েন",
+              "bn_pron": "qiān · ছিয়েন",
               "tokens": [
                 {
                   "t": "千",
@@ -3977,7 +3977,7 @@
               "level": "A1",
               "target": "万",
               "bn": "দশ হাজার (১০,০০০)",
-              "bn_pron": "wan4 · ওয়ান",
+              "bn_pron": "wàn · ওয়ান",
               "tokens": [
                 {
                   "t": "万",
@@ -4012,7 +4012,7 @@
               "level": "A1",
               "target": "十一",
               "bn": "এগারো (১১)",
-              "bn_pron": "shi2 yi1 · শি-ই",
+              "bn_pron": "shí yī · শি-ই",
               "tokens": [
                 {
                   "t": "十",
@@ -4037,7 +4037,7 @@
               "level": "A1",
               "target": "十五",
               "bn": "পনেরো (১৫)",
-              "bn_pron": "shi2 wu3 · শি-উ",
+              "bn_pron": "shí wǔ · শি-উ",
               "tokens": [
                 {
                   "t": "十",
@@ -4062,7 +4062,7 @@
               "level": "A1",
               "target": "二十",
               "bn": "বিশ (২০)",
-              "bn_pron": "er4 shi2 · আরশি",
+              "bn_pron": "èr shí · আরশি",
               "tokens": [
                 {
                   "t": "二",
@@ -4087,7 +4087,7 @@
               "level": "A1",
               "target": "三十八",
               "bn": "আটত্রিশ (৩৮)",
-              "bn_pron": "san1 shi2 ba1 · সানশিবা",
+              "bn_pron": "sān shí bā · সানশিবা",
               "tokens": [
                 {
                   "t": "三",
@@ -4116,7 +4116,7 @@
               "level": "A1",
               "target": "一百",
               "bn": "একশ (১০০)",
-              "bn_pron": "yi4 bai3 · ইবাই",
+              "bn_pron": "yì bǎi · ইবাই",
               "tokens": [
                 {
                   "t": "一",
@@ -4141,7 +4141,7 @@
               "level": "A1",
               "target": "一千",
               "bn": "এক হাজার (১,০০০)",
-              "bn_pron": "yi4 qian1 · ইছিয়েন",
+              "bn_pron": "yì qiān · ইছিয়েন",
               "tokens": [
                 {
                   "t": "一",
@@ -4166,7 +4166,7 @@
               "level": "A1",
               "target": "两个人",
               "bn": "দুইজন মানুষ (二 নয়, 两 বসে)",
-              "bn_pron": "liang3 ge4 ren2 · লিয়াং গে রেন",
+              "bn_pron": "liǎng gè rén · লিয়াং গে রেন",
               "tokens": [
                 {
                   "t": "两",
@@ -4195,7 +4195,7 @@
               "level": "A1",
               "target": "两百块",
               "bn": "দুইশ ইউয়ান / টাকা",
-              "bn_pron": "liang3 bai3 kuai4 · লিয়াং বাই খুয়াই",
+              "bn_pron": "liǎng bǎi kuài · লিয়াং বাই খুয়াই",
               "tokens": [
                 {
                   "t": "两",
@@ -4237,7 +4237,7 @@
               "level": "A1",
               "target": "三个人",
               "bn": "তিনজন মানুষ",
-              "bn_pron": "san1 ge4 ren2 · সান গে রেন",
+              "bn_pron": "sān gè rén · সান গে রেন",
               "tokens": [
                 {
                   "t": "三",
@@ -4266,7 +4266,7 @@
               "level": "A1",
               "target": "一位老师",
               "bn": "একজন সম্মানিত শিক্ষক",
-              "bn_pron": "yi2 wei4 lao3 shi1 · ই ওয়েই লাওশি",
+              "bn_pron": "yí wèi lǎo shī · ই ওয়েই লাওশি",
               "tokens": [
                 {
                   "t": "一",
@@ -4295,7 +4295,7 @@
               "level": "A1",
               "target": "两本书",
               "bn": "দুইটি বই",
-              "bn_pron": "liang3 ben3 shu1 · লিয়াং বেন শু",
+              "bn_pron": "liǎng běn shū · লিয়াং বেন শু",
               "tokens": [
                 {
                   "t": "两",
@@ -4324,7 +4324,7 @@
               "level": "A1",
               "target": "一杯咖啡",
               "bn": "এক কাপ কফি",
-              "bn_pron": "yi4 bei1 ka1 fei1 · ই বেই খাফেই",
+              "bn_pron": "yì bēi kā fēi · ই বেই খাফেই",
               "tokens": [
                 {
                   "t": "一",
@@ -4353,7 +4353,7 @@
               "level": "A1",
               "target": "一张票",
               "bn": "একটি টিকিট",
-              "bn_pron": "yi4 zhang1 piao4 · ই ঝাং ফিয়াও",
+              "bn_pron": "yì zhāng piào · ই ঝাং ফিয়াও",
               "tokens": [
                 {
                   "t": "一",
@@ -4382,7 +4382,7 @@
               "level": "A1",
               "target": "一只猫",
               "bn": "একটি বিড়াল",
-              "bn_pron": "yi4 zhi1 mao1 · ই ঝি মাও",
+              "bn_pron": "yì zhī māo · ই ঝি মাও",
               "tokens": [
                 {
                   "t": "一",
@@ -4411,7 +4411,7 @@
               "level": "A1",
               "target": "一件衣服",
               "bn": "একটি জামা/পোশাক",
-              "bn_pron": "yi2 jian4 yi1 fu · ই জিয়েন ইফু",
+              "bn_pron": "yí jiàn yī fu · ই জিয়েন ইফু",
               "tokens": [
                 {
                   "t": "一",
@@ -4440,7 +4440,7 @@
               "level": "A1",
               "target": "我要两杯茶。",
               "bn": "আমি দুই কাপ চা চাই।",
-              "bn_pron": "wo3 yao4 liang3 bei1 cha2 · ওও ইয়াও লিয়াং বেই ছা",
+              "bn_pron": "wǒ yào liǎng bēi chá · ওও ইয়াও লিয়াং বেই ছা",
               "tokens": [
                 {
                   "t": "我",
@@ -4490,7 +4490,7 @@
               "level": "A1",
               "target": "你的电话号码是多少？",
               "bn": "আপনার ফোন নম্বর কত?",
-              "bn_pron": "ni3 de dian4 hua4 hao4 ma3 shi4 duo1 shao · নিদ্য দিয়েনহুয়া হাওমা শি দুওশাও?",
+              "bn_pron": "nǐ de diàn huà hào mǎ shì duō shao · নিদ্য দিয়েনহুয়া হাওমা শি দুওশাও?",
               "tokens": [
                 {
                   "t": "你的",
@@ -4524,7 +4524,7 @@
               "level": "A1",
               "target": "我的号码是一三八零零一二。",
               "bn": "আমার নম্বর এক-তিন-আট-শূন্য-শূন্য-এক-দুই।",
-              "bn_pron": "wo3 de hao4 ma3 shi4 yao1 san1 ba1 ling2 ling2 yao1 er4 · ওওদ্য হাওমা শি ইয়াও সান বা লিং লিং ইয়াও আর",
+              "bn_pron": "wǒ de hào mǎ shì yāo sān bā líng líng yāo èr · ওওদ্য হাওমা শি ইয়াও সান বা লিং লিং ইয়াও আর",
               "tokens": [
                 {
                   "t": "我的",
@@ -4558,7 +4558,7 @@
               "level": "A1",
               "target": "你住几号房间？",
               "bn": "আপনি কত নম্বর রুমে থাকেন?",
-              "bn_pron": "ni3 zhu4 ji3 hao4 fang2 jian1 · নি ঝু জি হাও ফাংজিয়েন?",
+              "bn_pron": "nǐ zhù jǐ hào fáng jiān · নি ঝু জি হাও ফাংজিয়েন?",
               "tokens": [
                 {
                   "t": "你",
@@ -4595,7 +4595,7 @@
               "level": "A1",
               "target": "三零五号房间。",
               "bn": "৩০৫ নম্বর রুম।",
-              "bn_pron": "san1 ling2 wu3 hao4 fang2 jian1 · সান লিং উ হাও ফাংজিয়েন",
+              "bn_pron": "sān líng wǔ hào fáng jiān · সান লিং উ হাও ফাংজিয়েন",
               "tokens": [
                 {
                   "t": "三零五",
@@ -4624,7 +4624,7 @@
               "level": "A1",
               "target": "你们班有多少学生？",
               "bn": "তোমাদের ক্লাসে কতজন ছাত্র-ছাত্রী আছে?",
-              "bn_pron": "ni3 men ban1 you3 duo1 shao xue2 sheng · নিমেন বান ইয়ৌ দুওশাও সুয়েশেং?",
+              "bn_pron": "nǐ men bān yǒu duō shao xué sheng · নিমেন বান ইয়ৌ দুওশাও সুয়েশেং?",
               "tokens": [
                 {
                   "t": "你们",
@@ -4661,7 +4661,7 @@
               "level": "A1",
               "target": "我有二十个学生。",
               "bn": "আমার ২০ জন শিক্ষার্থী আছে।",
-              "bn_pron": "wo3 you3 er4 shi2 ge4 xue2 sheng · ওও ইয়ৌ আরশি গে সুয়েশেং",
+              "bn_pron": "wǒ yǒu èr shí gè xué sheng · ওও ইয়ৌ আরশি গে সুয়েশেং",
               "tokens": [
                 {
                   "t": "我",
@@ -4698,7 +4698,7 @@
               "level": "A1",
               "target": "你有几本书？",
               "bn": "তোমার কাছে কয়টি বই আছে?",
-              "bn_pron": "ni3 you3 ji3 ben3 shu1 · নি ইয়ৌ জি বেন শু?",
+              "bn_pron": "nǐ yǒu jǐ běn shū · নি ইয়ৌ জি বেন শু?",
               "tokens": [
                 {
                   "t": "你",
@@ -4735,7 +4735,7 @@
               "level": "A1",
               "target": "我有三本中文书。",
               "bn": "আমার কাছে ৩টি চীনা ভাষার বই আছে।",
-              "bn_pron": "wo3 you3 san1 ben3 Zhong1 wen2 shu1 · ওও ইয়ৌ সান বেন ঝোংওয়েন শু",
+              "bn_pron": "wǒ yǒu sān běn Zhōng wén shū · ওও ইয়ৌ সান বেন ঝোংওয়েন শু",
               "tokens": [
                 {
                   "t": "我",
@@ -4798,7 +4798,7 @@
               "level": "A1",
               "target": "星期一",
               "bn": "সোমবার",
-              "bn_pron": "xing1 qi1 yi1 · সিংছি-ই",
+              "bn_pron": "xīng qī yī · সিংছি-ই",
               "tokens": [
                 {
                   "t": "星期",
@@ -4823,7 +4823,7 @@
               "level": "A1",
               "target": "星期二",
               "bn": "মঙ্গলবার",
-              "bn_pron": "xing1 qi1 er4 · সিংছি-আর",
+              "bn_pron": "xīng qī èr · সিংছি-আর",
               "tokens": [
                 {
                   "t": "星期",
@@ -4848,7 +4848,7 @@
               "level": "A1",
               "target": "星期三",
               "bn": "বুধবার",
-              "bn_pron": "xing1 qi1 san1 · সিংছি-সান",
+              "bn_pron": "xīng qī sān · সিংছি-সান",
               "tokens": [
                 {
                   "t": "星期",
@@ -4873,7 +4873,7 @@
               "level": "A1",
               "target": "星期四",
               "bn": "বৃহস্পতিবার",
-              "bn_pron": "xing1 qi1 si4 · সিংছি-স্যু",
+              "bn_pron": "xīng qī sì · সিংছি-স্যু",
               "tokens": [
                 {
                   "t": "星期",
@@ -4898,7 +4898,7 @@
               "level": "A1",
               "target": "星期五",
               "bn": "শুক্রবার",
-              "bn_pron": "xing1 qi1 wu3 · সিংছি-উ",
+              "bn_pron": "xīng qī wǔ · সিংছি-উ",
               "tokens": [
                 {
                   "t": "星期",
@@ -4923,7 +4923,7 @@
               "level": "A1",
               "target": "星期六",
               "bn": "শনিবার",
-              "bn_pron": "xing1 qi1 liu4 · সিংছি-লিউ",
+              "bn_pron": "xīng qī liù · সিংছি-লিউ",
               "tokens": [
                 {
                   "t": "星期",
@@ -4948,7 +4948,7 @@
               "level": "A1",
               "target": "星期天",
               "bn": "রবিবার",
-              "bn_pron": "xing1 qi1 tian1 · সিংছি-থিয়েন",
+              "bn_pron": "xīng qī tiān · সিংছি-থিয়েন",
               "tokens": [
                 {
                   "t": "星期",
@@ -4973,7 +4973,7 @@
               "level": "A1",
               "target": "今天星期几？",
               "bn": "আজকে কী বার?",
-              "bn_pron": "jin1 tian1 xing1 qi1 ji3 · চিনথিয়েন সিংছি জি?",
+              "bn_pron": "jīn tiān xīng qī jǐ · চিনথিয়েন সিংছি জি?",
               "tokens": [
                 {
                   "t": "今天",
@@ -5015,7 +5015,7 @@
               "level": "A1",
               "target": "一月",
               "bn": "জানুয়ারি (১ম মাস)",
-              "bn_pron": "yi1 yue4 · ই-ইয়ুয়ে",
+              "bn_pron": "yī yuè · ই-ইয়ুয়ে",
               "tokens": [
                 {
                   "t": "一",
@@ -5040,7 +5040,7 @@
               "level": "A1",
               "target": "五月",
               "bn": "মে (৫ম মাস)",
-              "bn_pron": "wu3 yue4 · উ-ইয়ুয়ে",
+              "bn_pron": "wǔ yuè · উ-ইয়ুয়ে",
               "tokens": [
                 {
                   "t": "五",
@@ -5065,7 +5065,7 @@
               "level": "A1",
               "target": "十月",
               "bn": "অক্টোবর (১০ম মাস)",
-              "bn_pron": "shi2 yue4 · শি-ইয়ুয়ে",
+              "bn_pron": "shí yuè · শি-ইয়ুয়ে",
               "tokens": [
                 {
                   "t": "十",
@@ -5090,7 +5090,7 @@
               "level": "A1",
               "target": "今天几月几号？",
               "bn": "আজকে কত মাস কত তারিখ?",
-              "bn_pron": "jin1 tian1 ji3 yue4 ji3 hao4 · চিনথিয়েন জি ইয়ুয়ে জি হাও?",
+              "bn_pron": "jīn tiān jǐ yuè jǐ hào · চিনথিয়েন জি ইয়ুয়ে জি হাও?",
               "tokens": [
                 {
                   "t": "今天",
@@ -5127,7 +5127,7 @@
               "level": "A1",
               "target": "今天五月十号。",
               "bn": "আজকে ১০ই মে।",
-              "bn_pron": "jin1 tian1 wu3 yue4 shi2 hao4 · চিনথিয়েন উ ইয়ুয়ে শি হাও",
+              "bn_pron": "jīn tiān wǔ yuè shí hào · চিনথিয়েন উ ইয়ুয়ে শি হাও",
               "tokens": [
                 {
                   "t": "今天",
@@ -5156,7 +5156,7 @@
               "level": "A1",
               "target": "你的生日是哪天？",
               "bn": "তোমার জন্মদিন কবে?",
-              "bn_pron": "ni3 de sheng1 ri4 shi4 na3 tian1 · নিদ্য শেংরি শি না থিয়েন?",
+              "bn_pron": "nǐ de shēng rì shì nǎ tiān · নিদ্য শেংরি শি না থিয়েন?",
               "tokens": [
                 {
                   "t": "你的",
@@ -5189,7 +5189,7 @@
               "level": "A1",
               "target": "我的生日是九月五号。",
               "bn": "আমার জন্মদিন ৫ই সেপ্টেম্বর।",
-              "bn_pron": "wo3 de sheng1 ri4 shi4 jiu3 yue4 wu3 hao4 · ওওদ্য শেংরি শি জিউ ইয়ুয়ে উ হাও",
+              "bn_pron": "wǒ de shēng rì shì jiǔ yuè wǔ hào · ওওদ্য শেংরি শি জিউ ইয়ুয়ে উ হাও",
               "tokens": [
                 {
                   "t": "我的",
@@ -5226,7 +5226,7 @@
               "level": "A1",
               "target": "明天和昨天",
               "bn": "আগামীকাল ও গতকাল",
-              "bn_pron": "ming2 tian1 he2 zuo2 tian1 · মিংথিয়েন হ্য জুওথিয়েন",
+              "bn_pron": "míng tiān hé zuó tiān · মিংথিয়েন হ্য জুওথিয়েন",
               "tokens": [
                 {
                   "t": "明天",
@@ -5268,7 +5268,7 @@
               "level": "A1",
               "target": "现在几点了？",
               "bn": "এখন কয়টা বাজে?",
-              "bn_pron": "xian4 zai4 ji3 dian3 le · সিয়েনদ্জাই জি দিয়েন ল্য?",
+              "bn_pron": "xiàn zài jǐ diǎn le · সিয়েনদ্জাই জি দিয়েন ল্য?",
               "tokens": [
                 {
                   "t": "现在",
@@ -5302,7 +5302,7 @@
               "level": "A1",
               "target": "现在八点。",
               "bn": "এখন আটটা বাজে।",
-              "bn_pron": "xian4 zai4 ba1 dian3 · সিয়েনদ্জাই বা দিয়েন",
+              "bn_pron": "xiàn zài bā diǎn · সিয়েনদ্জাই বা দিয়েন",
               "tokens": [
                 {
                   "t": "现在",
@@ -5332,7 +5332,7 @@
               "level": "A1",
               "target": "两点半",
               "bn": "আড়াইটা (২:৩০)",
-              "bn_pron": "liang3 dian3 ban4 · লিয়াং দিয়েন বান",
+              "bn_pron": "liǎng diǎn bàn · লিয়াং দিয়েন বান",
               "tokens": [
                 {
                   "t": "两",
@@ -5361,7 +5361,7 @@
               "level": "A1",
               "target": "十点一刻",
               "bn": "সায়া দশটা (১০:১৫)",
-              "bn_pron": "shi2 dian3 yi2 ke4 · শি দিয়েন ই খ্য",
+              "bn_pron": "shí diǎn yí kè · শি দিয়েন ই খ্য",
               "tokens": [
                 {
                   "t": "十",
@@ -5390,7 +5390,7 @@
               "level": "A1",
               "target": "七点二十分",
               "bn": "সাতটা বিশ মিনিট (৭:২০)",
-              "bn_pron": "qi1 dian3 er4 shi2 fen1 · ছি দিয়েন আরশি ফেন",
+              "bn_pron": "qī diǎn èr shí fēn · ছি দিয়েন আরশি ফেন",
               "tokens": [
                 {
                   "t": "七",
@@ -5423,7 +5423,7 @@
               "level": "A1",
               "target": "差五分九点",
               "bn": "নয়টা বাজতে পাঁচ মিনিট বাকি",
-              "bn_pron": "cha4 wu3 fen1 jiu3 dian3 · ছা উ ফেন জিউ দিয়েন",
+              "bn_pron": "chà wǔ fēn jiǔ diǎn · ছা উ ফেন জিউ দিয়েন",
               "tokens": [
                 {
                   "t": "差",
@@ -5452,7 +5452,7 @@
               "level": "A1",
               "target": "你几点起床？",
               "bn": "তুমি কয়টায় ঘুম থেকে ওঠো?",
-              "bn_pron": "ni3 ji3 dian3 qi3 chuang2 · নি জি দিয়েন ছিছুয়াং?",
+              "bn_pron": "nǐ jǐ diǎn qǐ chuáng · নি জি দিয়েন ছিছুয়াং?",
               "tokens": [
                 {
                   "t": "你",
@@ -5481,7 +5481,7 @@
               "level": "A1",
               "target": "我早上六点半起床。",
               "bn": "আমি সকাল সাড়ে ছয়টায় ঘুম থেকে উঠি।",
-              "bn_pron": "wo3 zao3 shang liu4 dian3 ban4 qi3 chuang2 · ওও যাওশাং লিউ দিয়েন বান ছিছুয়াং",
+              "bn_pron": "wǒ zǎo shang liù diǎn bàn qǐ chuáng · ওও যাওশাং লিউ দিয়েন বান ছিছুয়াং",
               "tokens": [
                 {
                   "t": "我",
@@ -5527,7 +5527,7 @@
               "level": "A1",
               "target": "你什么时候去中国？",
               "bn": "আপনি কবে চীনে যাচ্ছেন?",
-              "bn_pron": "ni3 shen2 me shi2 hou4 qu4 Zhong1 guo2 · নি শেন্ম্য শিহৌ ছু চোংকুও?",
+              "bn_pron": "nǐ shén me shí hòu qù Zhōng guó · নি শেন্ম্য শিহৌ ছু চোংকুও?",
               "tokens": [
                 {
                   "t": "你",
@@ -5561,7 +5561,7 @@
               "level": "A1",
               "target": "我下个月去北京。",
               "bn": "আমি আগামী মাসে বেইজিং যাব।",
-              "bn_pron": "wo3 xia4 ge4 yue4 qu4 Bei3 jing1 · ওও সিয়াগে ইয়ুয়ে ছু বেইজিং",
+              "bn_pron": "wǒ xià gè yuè qù Běi jīng · ওও সিয়াগে ইয়ুয়ে ছু বেইজিং",
               "tokens": [
                 {
                   "t": "我",
@@ -5595,7 +5595,7 @@
               "level": "A1",
               "target": "我们明天上午九点见面。",
               "bn": "আমরা আগামীকাল সকাল ৯টায় দেখা করব।",
-              "bn_pron": "wo3 men ming2 tian1 shang4 wu3 jiu3 dian3 jian4 mian4 · ওওমেন মিংথিয়েন শাংউ জিউ দিয়েন জিয়েনমিয়েন",
+              "bn_pron": "wǒ men míng tiān shàng wǔ jiǔ diǎn jiàn miàn · ওওমেন মিংথিয়েন শাংউ জিউ দিয়েন জিয়েনমিয়েন",
               "tokens": [
                 {
                   "t": "我们",
@@ -5632,7 +5632,7 @@
               "level": "A1",
               "target": "星期五中午我有时间。",
               "bn": "শুক্রবার দুপুরে আমার সময় আছে।",
-              "bn_pron": "xing1 qi1 wu3 zhong1 wu3 wo3 you3 shi2 jian1 · সিংছি-উ ঝোংউ ওও ইয়ৌ শিজিয়েন",
+              "bn_pron": "xīng qī wǔ zhōng wǔ wǒ yǒu shí jiān · সিংছি-উ ঝোংউ ওও ইয়ৌ শিজিয়েন",
               "tokens": [
                 {
                   "t": "星期五",
@@ -5669,7 +5669,7 @@
               "level": "A1",
               "target": "你每天工作几个小时？",
               "bn": "আপনি প্রতিদিন কত ঘণ্টা কাজ করেন?",
-              "bn_pron": "ni3 mei3 tian1 gong1 zuo4 ji3 ge4 xiao3 shi2 · নি মেইথিয়েন গোংযুও জি গে সিয়াওশি?",
+              "bn_pron": "nǐ měi tiān gōng zuò jǐ gè xiǎo shí · নি মেইথিয়েন গোংযুও জি গে সিয়াওশি?",
               "tokens": [
                 {
                   "t": "你",
@@ -5706,7 +5706,7 @@
               "level": "A1",
               "target": "我工作八个小时。",
               "bn": "আমি আট ঘণ্টা কাজ করি।",
-              "bn_pron": "wo3 gong1 zuo4 ba1 ge4 xiao3 shi2 · ওও গোংযুও বা গে সিয়াওশি",
+              "bn_pron": "wǒ gōng zuò bā gè xiǎo shí · ওও গোংযুও বা গে সিয়াওশি",
               "tokens": [
                 {
                   "t": "我",
@@ -5743,7 +5743,7 @@
               "level": "A1",
               "target": "周末快乐！",
               "bn": "সপ্তাহান্ত শুভ হোক (হ্যাপি উইকএন্ড)!",
-              "bn_pron": "zhou1 mo4 kuai4 le4 · ঝৌমো খুয়াইলে",
+              "bn_pron": "zhōu mò kuài lè · ঝৌমো খুয়াইলে",
               "tokens": [
                 {
                   "t": "周末",
@@ -5768,7 +5768,7 @@
               "level": "A1",
               "target": "今年是二〇二六年。",
               "bn": "এ বছর ২০২৬ সাল।",
-              "bn_pron": "jin1 nian2 shi4 er4 ling2 er4 liu4 nian2 · চিন-নিয়েন শি আর লিং আর লিউ নিয়েন",
+              "bn_pron": "jīn nián shì èr líng èr liù nián · চিন-নিয়েন শি আর লিং আর লিউ নিয়েন",
               "tokens": [
                 {
                   "t": "今年",
@@ -5819,7 +5819,7 @@
               "level": "A1",
               "target": "你家有几口人？",
               "bn": "তোমার পরিবারে কতজন সদস্য?",
-              "bn_pron": "ni3 jia1 you3 ji3 kou3 ren2 · নি জিয়া ইয়ৌ জি খৌ রেন?",
+              "bn_pron": "nǐ jiā yǒu jǐ kǒu rén · নি জিয়া ইয়ৌ জি খৌ রেন?",
               "tokens": [
                 {
                   "t": "你家",
@@ -5856,7 +5856,7 @@
               "level": "A1",
               "target": "我家有五口人。",
               "bn": "আমাদের পরিবারে ৫ জন সদস্য।",
-              "bn_pron": "wo3 jia1 you3 wu3 kou3 ren2 · ওও জিয়া ইয়ৌ উ খৌ রেন",
+              "bn_pron": "wǒ jiā yǒu wǔ kǒu rén · ওও জিয়া ইয়ৌ উ খৌ রেন",
               "tokens": [
                 {
                   "t": "我家",
@@ -5893,7 +5893,7 @@
               "level": "A1",
               "target": "这是我爸爸和妈妈。",
               "bn": "ইনি আমার বাবা এবং ইনি আমার মা।",
-              "bn_pron": "zhe4 shi4 wo3 ba4 ba he2 ma1 ma · ঝে শি ওও বাবা হ্য মামা",
+              "bn_pron": "zhè shì wǒ bà ba hé mā ma · ঝে শি ওও বাবা হ্য মামা",
               "tokens": [
                 {
                   "t": "这",
@@ -5934,7 +5934,7 @@
               "level": "A1",
               "target": "我有一个哥哥和一个妹妹。",
               "bn": "আমার একজন বড় ভাই আর একজন ছোট বোন আছে।",
-              "bn_pron": "wo3 you3 yi2 ge4 ge1 ge he2 yi2 ge4 mei4 mei · ওও ইয়ৌ ই গে গেগে হ্য ই গে মেইমেই",
+              "bn_pron": "wǒ yǒu yí gè gē ge hé yí gè mèi mei · ওও ইয়ৌ ই গে গেগে হ্য ই গে মেইমেই",
               "tokens": [
                 {
                   "t": "我",
@@ -5979,7 +5979,7 @@
               "level": "A1",
               "target": "我儿子十岁了。",
               "bn": "আমার ছেলের বয়স দশ বছর।",
-              "bn_pron": "wo3 er2 zi shi2 sui4 le · ওও আরয্য শি সুয়েই ল্য",
+              "bn_pron": "wǒ ér zi shí suì le · ওও আরয্য শি সুয়েই ল্য",
               "tokens": [
                 {
                   "t": "我",
@@ -6016,7 +6016,7 @@
               "level": "A1",
               "target": "我女儿非常聪明。",
               "bn": "আমার মেয়ে খুবই বুদ্ধিমতী।",
-              "bn_pron": "wo3 nv3 er2 fei1 chang2 cong1 ming · ওও নুআর ফেইছাং ছোংমিং",
+              "bn_pron": "wǒ nǚ ér fēi cháng cōng ming · ওও নুআর ফেইছাং ছোংমিং",
               "tokens": [
                 {
                   "t": "我",
@@ -6049,7 +6049,7 @@
               "level": "A1",
               "target": "我爱我的家人。",
               "bn": "আমি আমার পরিবারকে ভালোবাসি।",
-              "bn_pron": "wo3 ai4 wo3 de jia1 ren2 · ওও আই ওওদ্য জিয়ারেন",
+              "bn_pron": "wǒ ài wǒ de jiā rén · ওও আই ওওদ্য জিয়ারেন",
               "tokens": [
                 {
                   "t": "我",
@@ -6082,7 +6082,7 @@
               "level": "A1",
               "target": "爷爷和奶奶住在一起。",
               "bn": "দাদা ও দাদি একসাথে থাকেন।",
-              "bn_pron": "ye2 ye he2 nai3 nai zhu4 zai4 yi4 qi3 · ইয়েইয়ে হ্য নাইনাই ঝু দ্জাই ইছি",
+              "bn_pron": "yé ye hé nǎi nai zhù zài yì qǐ · ইয়েইয়ে হ্য নাইনাই ঝু দ্জাই ইছি",
               "tokens": [
                 {
                   "t": "爷爷",
@@ -6133,7 +6133,7 @@
               "level": "A1",
               "target": "小朋友，你几岁了？",
               "bn": "বাবু, তোমার বয়স কত বছর?",
-              "bn_pron": "xiao3 peng2 you ni3 ji3 sui4 le · সিয়াও ফেংইয়ৌ নি জি সুয়েই ল্য?",
+              "bn_pron": "xiǎo péng you nǐ jǐ suì le · সিয়াও ফেংইয়ৌ নি জি সুয়েই ল্য?",
               "tokens": [
                 {
                   "t": "小朋友",
@@ -6171,7 +6171,7 @@
               "level": "A1",
               "target": "我今年六岁了。",
               "bn": "আমার বয়স এখন ছয় বছর।",
-              "bn_pron": "wo3 jin1 nian2 liu4 sui4 le · ওও চিন-নিয়েন লিউ সুয়েই ল্য",
+              "bn_pron": "wǒ jīn nián liù suì le · ওও চিন-নিয়েন লিউ সুয়েই ল্য",
               "tokens": [
                 {
                   "t": "我",
@@ -6209,7 +6209,7 @@
               "level": "A1",
               "target": "你今年多大了？",
               "bn": "তোমার বয়স কত হলো?",
-              "bn_pron": "ni3 jin1 nian2 duo1 da4 le · নি চিন-নিয়েন দুও দা ল্য?",
+              "bn_pron": "nǐ jīn nián duō dà le · নি চিন-নিয়েন দুও দা ল্য?",
               "tokens": [
                 {
                   "t": "你",
@@ -6243,7 +6243,7 @@
               "level": "A1",
               "target": "我二十五岁。",
               "bn": "আমার বয়স পঁচিশ বছর।",
-              "bn_pron": "wo3 er4 shi2 wu3 sui4 · ওও আরশি উ সুয়েই",
+              "bn_pron": "wǒ èr shí wǔ suì · ওও আরশি উ সুয়েই",
               "tokens": [
                 {
                   "t": "我",
@@ -6273,7 +6273,7 @@
               "level": "A1",
               "target": "李老师今年多大了？",
               "bn": "শিক্ষক লি-এর বয়স কত?",
-              "bn_pron": "Li3 lao3 shi1 jin1 nian2 duo1 da4 le · লি লাওশি চিন-নিয়েন দুও দা ল্য?",
+              "bn_pron": "Lǐ lǎo shī jīn nián duō dà le · লি লাওশি চিন-নিয়েন দুও দা ল্য?",
               "tokens": [
                 {
                   "t": "李老师",
@@ -6306,7 +6306,7 @@
               "level": "A1",
               "target": "他四十岁左右。",
               "bn": "তাঁর বয়স চল্লিশের কাছাকাছি।",
-              "bn_pron": "ta1 si4 shi2 sui4 zuo3 you4 · থা স্যুশি সুয়েই যুও-ইয়ৌ",
+              "bn_pron": "tā sì shí suì zuǒ yòu · থা স্যুশি সুয়েই যুও-ইয়ৌ",
               "tokens": [
                 {
                   "t": "他",
@@ -6339,7 +6339,7 @@
               "level": "A1",
               "target": "我哥哥比我大三岁。",
               "bn": "আমার বড় ভাই আমার চেয়ে তিন বছরের বড়।",
-              "bn_pron": "wo3 ge1 ge bi3 wo3 da4 san1 sui4 · ওও গেগে বি ওও দা সান সুয়েই",
+              "bn_pron": "wǒ gē ge bǐ wǒ dà sān suì · ওও গেগে বি ওও দা সান সুয়েই",
               "tokens": [
                 {
                   "t": "我",
@@ -6380,7 +6380,7 @@
               "level": "A1",
               "target": "您看起来很年轻！",
               "bn": "আপনাকে দেখতে খুব তরুণ লাগে!",
-              "bn_pron": "nin2 kan4 qi3 lai2 hen3 nian2 qing1 · নিন খানছিলাই হেন নিয়েনছিং",
+              "bn_pron": "nín kàn qǐ lái hěn nián qīng · নিন খানছিলাই হেন নিয়েনছিং",
               "tokens": [
                 {
                   "t": "您",
@@ -6426,7 +6426,7 @@
               "level": "A1",
               "target": "我爸爸是工程师。",
               "bn": "আমার বাবা একজন প্রকৌশলী।",
-              "bn_pron": "wo3 ba4 ba shi4 gong1 cheng2 shi1 · ওও বাবা শি গোংছেংশি",
+              "bn_pron": "wǒ bà ba shì gōng chéng shī · ওও বাবা শি গোংছেংশি",
               "tokens": [
                 {
                   "t": "我",
@@ -6459,7 +6459,7 @@
               "level": "A1",
               "target": "我妈妈是老师。",
               "bn": "আমার মা একজন শিক্ষিকা।",
-              "bn_pron": "wo3 ma1 ma shi4 lao3 shi1 · ওও মামা শি লাওশি",
+              "bn_pron": "wǒ mā ma shì lǎo shī · ওও মামা শি লাওশি",
               "tokens": [
                 {
                   "t": "我",
@@ -6492,7 +6492,7 @@
               "level": "A1",
               "target": "我弟弟还在上大学。",
               "bn": "আমার ছোট ভাই এখনো বিশ্ববিদ্যালয়ে পড়ে।",
-              "bn_pron": "wo3 di4 di hai2 zai4 shang4 da4 xue2 · ওও দিদি হাই দ্জাই শাং দাসুয়ে",
+              "bn_pron": "wǒ dì di hái zài shàng dà xué · ওও দিদি হাই দ্জাই শাং দাসুয়ে",
               "tokens": [
                 {
                   "t": "我",
@@ -6529,7 +6529,7 @@
               "level": "A1",
               "target": "你结婚了吗？",
               "bn": "আপনি কি বিবাহিত?",
-              "bn_pron": "ni3 jie2 hun1 le ma · নি জিয়েহুন ল্য মা?",
+              "bn_pron": "nǐ jié hūn le ma · নি জিয়েহুন ল্য মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -6562,7 +6562,7 @@
               "level": "A1",
               "target": "我结婚了，有一个孩子。",
               "bn": "হ্যাঁ আমি বিবাহিত, আমার একটি সন্তান আছে।",
-              "bn_pron": "wo3 jie2 hun1 le you3 yi2 ge4 hai2 zi · ওও জিয়েহুন ল্য ইয়ৌ ই গে হাইয্য",
+              "bn_pron": "wǒ jié hūn le yǒu yí gè hái zi · ওও জিয়েহুন ল্য ইয়ৌ ই গে হাইয্য",
               "tokens": [
                 {
                   "t": "我",
@@ -6599,7 +6599,7 @@
               "level": "A1",
               "target": "这是我们全家的照片。",
               "bn": "এটা আমাদের পুরো পরিবারের ছবি।",
-              "bn_pron": "zhe4 shi4 wo3 men quan2 jia1 de zhao4 pian4 · ঝে শি ওওমেন ছুয়েনজিয়াদ্য ঝাওফিয়েন",
+              "bn_pron": "zhè shì wǒ men quán jiā de zhào piàn · ঝে শি ওওমেন ছুয়েনজিয়াদ্য ঝাওফিয়েন",
               "tokens": [
                 {
                   "t": "这",
@@ -6640,7 +6640,7 @@
               "level": "A1",
               "target": "周末我常给父母打电话。",
               "bn": "সপ্তাহান্তে আমি প্রায়ই মা-বাবাকে ফোন করি।",
-              "bn_pron": "zhou1 mo4 wo3 chang2 gei3 fu4 mu3 da3 dian4 hua4 · ঝৌমো ওও ছাং গেই ফুমু দা দিয়েনহুয়া",
+              "bn_pron": "zhōu mò wǒ cháng gěi fù mǔ dǎ diàn huà · ঝৌমো ওও ছাং গেই ফুমু দা দিয়েনহুয়া",
               "tokens": [
                 {
                   "t": "周末",
@@ -6681,7 +6681,7 @@
               "level": "A1",
               "target": "你什么时候回家？",
               "bn": "তুমি কবে বাড়ি ফিরবে?",
-              "bn_pron": "ni3 shen2 me shi2 hou4 hui2 jia1 · নি শেন্ম্য শিহৌ হুয়েই জিয়া?",
+              "bn_pron": "nǐ shén me shí hòu huí jiā · নি শেন্ম্য শিহৌ হুয়েই জিয়া?",
               "tokens": [
                 {
                   "t": "你",
@@ -6727,7 +6727,7 @@
               "level": "A1",
               "target": "照片里的那个人是谁？",
               "bn": "ছবির ওই মানুষটি কে?",
-              "bn_pron": "zhao4 pian4 li3 de na4 ge4 ren2 shi4 shui2 · ঝাওফিয়েন লি দ্য না গে রেন শি শুয়েই?",
+              "bn_pron": "zhào piàn lǐ de nà gè rén shì shuí · ঝাওফিয়েন লি দ্য না গে রেন শি শুয়েই?",
               "tokens": [
                 {
                   "t": "照片",
@@ -6769,7 +6769,7 @@
               "level": "A1",
               "target": "那是我姐姐，她在银行工作。",
               "bn": "ও আমার বড় বোন, সে ব্যাংকে চাকরি করে।",
-              "bn_pron": "na4 shi4 wo3 jie3 jie ta1 zai4 yin2 hang2 gong1 zuo4 · না শি ওও জিয়েজিয়ে থা দ্জাই ইনহাং গোংযুও",
+              "bn_pron": "nà shì wǒ jiě jie tā zài yín háng gōng zuò · না শি ওও জিয়েজিয়ে থা দ্জাই ইনহাং গোংযুও",
               "tokens": [
                 {
                   "t": "那",
@@ -6811,7 +6811,7 @@
               "level": "A1",
               "target": "你爸爸妈妈身体好吗？",
               "bn": "তোমার মা-বাবার শরীর ভালো আছে তো?",
-              "bn_pron": "ni3 ba4 ba ma1 ma shen1 ti3 hao3 ma · নি বাবা মামা শেনথি হাও মা?",
+              "bn_pron": "nǐ bà ba mā ma shēn tǐ hǎo ma · নি বাবা মামা শেনথি হাও মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -6849,7 +6849,7 @@
               "level": "A1",
               "target": "他们身体都很好，谢谢关心。",
               "bn": "তাঁদের শরীর বেশ ভালো, খোঁজ নেওয়ার জন্য ধন্যবাদ।",
-              "bn_pron": "ta1 men shen1 ti3 dou1 hen2 hao3 xie4 xie guan1 xin1 · থামেন শেনথি দৌ হেন হাও সিয়েসিয়ে গুয়ানসিন",
+              "bn_pron": "tā men shēn tǐ dōu hén hǎo xiè xie guān xīn · থামেন শেনথি দৌ হেন হাও সিয়েসিয়ে গুয়ানসিন",
               "tokens": [
                 {
                   "t": "他们",
@@ -6891,7 +6891,7 @@
               "level": "A1",
               "target": "我们一家人住在一栋公寓里。",
               "bn": "আমরা পুরো পরিবার একটি ফ্ল্যাটে থাকি।",
-              "bn_pron": "wo3 men yi4 jia1 ren2 zhu4 zai4 yi2 dong4 gong1 yu4 li3 · ওওমেন ইজিয়ারেন ঝু দ্জাই ই দোং গোং-ইউ লি",
+              "bn_pron": "wǒ men yì jiā rén zhù zài yí dòng gōng yù lǐ · ওওমেন ইজিয়ারেন ঝু দ্জাই ই দোং গোং-ইউ লি",
               "tokens": [
                 {
                   "t": "我们",
@@ -6936,7 +6936,7 @@
               "level": "A1",
               "target": "我姐姐很喜欢做饭。",
               "bn": "আমার বড় বোন রান্না করতে খুব পছন্দ করে।",
-              "bn_pron": "wo3 jie3 jie hen2 xi3 huan1 zuo4 fan4 · ওও জিয়েজিয়ে হেন সিহুয়ান যুওফান",
+              "bn_pron": "wǒ jiě jie hén xǐ huān zuò fàn · ওও জিয়েজিয়ে হেন সিহুয়ান যুওফান",
               "tokens": [
                 {
                   "t": "我",
@@ -6973,7 +6973,7 @@
               "level": "A1",
               "target": "他没有兄弟姐妹。",
               "bn": "তার কোনো ভাইবোন নেই।",
-              "bn_pron": "ta1 mei2 you3 xiong1 di4 jie3 mei4 · থা মেই-ইয়ৌ সিওংদি জিয়েমেই",
+              "bn_pron": "tā méi yǒu xiōng dì jiě mèi · থা মেই-ইয়ৌ সিওংদি জিয়েমেই",
               "tokens": [
                 {
                   "t": "他",
@@ -7002,7 +7002,7 @@
               "level": "A1",
               "target": "祝你们全家幸福安康！",
               "bn": "আপনাদের পুরো পরিবারের সুখ ও সুস্থতা কামনা করি!",
-              "bn_pron": "zhu4 ni3 men quan2 jia1 xing4 fu2 an1 kang1 · ঝু নিমেন ছুয়েনজিয়া সিংফু আনখাং",
+              "bn_pron": "zhù nǐ men quán jiā xìng fú ān kāng · ঝু নিমেন ছুয়েনজিয়া সিংফু আনখাং",
               "tokens": [
                 {
                   "t": "祝",
@@ -7061,7 +7061,7 @@
               "level": "A1",
               "target": "你想吃什么？",
               "bn": "তুমি কী খেতে চাও?",
-              "bn_pron": "ni3 xiang3 chi1 shen2 me · নি সিয়াং ছি শেন্ম্য?",
+              "bn_pron": "nǐ xiǎng chī shén me · নি সিয়াং ছি শেন্ম্য?",
               "tokens": [
                 {
                   "t": "你",
@@ -7094,7 +7094,7 @@
               "level": "A1",
               "target": "我想吃米饭和鸡肉。",
               "bn": "আমি ভাত আর মুরগির মাংস খেতে চাই।",
-              "bn_pron": "wo3 xiang3 chi1 mi3 fan4 he2 ji1 rou4 · ওও সিয়াং ছি মিফান হ্য জিরৌ",
+              "bn_pron": "wǒ xiǎng chī mǐ fàn hé jī ròu · ওও সিয়াং ছি মিফান হ্য জিরৌ",
               "tokens": [
                 {
                   "t": "我",
@@ -7135,7 +7135,7 @@
               "level": "A1",
               "target": "你想喝什么？",
               "bn": "তুমি কী পান করতে চাও?",
-              "bn_pron": "ni3 xiang3 he1 shen2 me · নি সিয়াং হ্য শেন্ম্য?",
+              "bn_pron": "nǐ xiǎng hē shén me · নি সিয়াং হ্য শেন্ম্য?",
               "tokens": [
                 {
                   "t": "你",
@@ -7168,7 +7168,7 @@
               "level": "A1",
               "target": "请给我一杯热水。",
               "bn": "দয়া করে আমাকে এক গ্লাস গরম পানি দিন।",
-              "bn_pron": "qing3 gei3 wo3 yi4 bei1 re4 shui3 · ছিং গেই ওও ই বেই রেশুয়েই",
+              "bn_pron": "qǐng gěi wǒ yì bēi rè shuǐ · ছিং গেই ওও ই বেই রেশুয়েই",
               "tokens": [
                 {
                   "t": "请",
@@ -7205,7 +7205,7 @@
               "level": "A1",
               "target": "中国菜很好吃！",
               "bn": "চীনা খাবার খুব সুস্বাদু!",
-              "bn_pron": "Zhong1 guo2 cai4 hen2 hao3 chi1 · চোংকুও ছাই হেন হাওছি",
+              "bn_pron": "Zhōng guó cài hén hǎo chī · চোংকুও ছাই হেন হাওছি",
               "tokens": [
                 {
                   "t": "中国菜",
@@ -7234,7 +7234,7 @@
               "level": "A1",
               "target": "我喜欢吃苹果和香蕉。",
               "bn": "আমি আপেল আর কলা খেতে পছন্দ করি।",
-              "bn_pron": "wo3 xi3 huan1 chi1 ping2 guo3 he2 xiang1 jiao1 · ওও সিহুয়ান ছি ফিংগুও হ্য সিয়াংজিয়াও",
+              "bn_pron": "wǒ xǐ huān chī píng guǒ hé xiāng jiāo · ওও সিহুয়ান ছি ফিংগুও হ্য সিয়াংজিয়াও",
               "tokens": [
                 {
                   "t": "我",
@@ -7275,7 +7275,7 @@
               "level": "A1",
               "target": "今天早饭我吃了面包和鸡蛋。",
               "bn": "আজ নাশতায় আমি পাউরুটি ও ডিম খেয়েছি।",
-              "bn_pron": "jin1 tian1 zao3 fan4 wo3 chi1 le mian4 bao1 he2 ji1 dan4 · চিনথিয়েন যাওফান ওও ছি ল্য মিয়েনবাও হ্য জিদান",
+              "bn_pron": "jīn tiān zǎo fàn wǒ chī le miàn bāo hé jī dàn · চিনথিয়েন যাওফান ওও ছি ল্য মিয়েনবাও হ্য জিদান",
               "tokens": [
                 {
                   "t": "今天",
@@ -7320,7 +7320,7 @@
               "level": "A1",
               "target": "我不喝咖啡，我喝茶。",
               "bn": "আমি কফি খাই না, আমি চা খাই।",
-              "bn_pron": "wo3 bu4 he1 ka1 fei1 wo3 he1 cha2 · ওও বু হ্য খাফেই ওও হ্য ছা",
+              "bn_pron": "wǒ bù hē kā fēi wǒ hē chá · ওও বু হ্য খাফেই ওও হ্য ছা",
               "tokens": [
                 {
                   "t": "我",
@@ -7378,7 +7378,7 @@
               "level": "A1",
               "target": "请问附近有清真餐厅吗？",
               "bn": "দয়া করে বলবেন কি, আশেপাশে হালাল রেস্তোরাঁ আছে?",
-              "bn_pron": "qing3 wen4 fu4 jin4 you3 qing1 zhen1 can1 ting1 ma · ছিং ওয়েন ফুজিন ইয়ৌ ছিংঝেন ছানথিং মা?",
+              "bn_pron": "qǐng wèn fù jìn yǒu qīng zhēn cān tīng ma · ছিং ওয়েন ফুজিন ইয়ৌ ছিংঝেন ছানথিং মা?",
               "tokens": [
                 {
                   "t": "请问",
@@ -7415,7 +7415,7 @@
               "level": "A1",
               "target": "我是穆斯林，只吃清真食物。",
               "bn": "আমি মুসলিম, শুধু হালাল খাবার খাই।",
-              "bn_pron": "wo3 shi4 Mu4 si1 lin2 zhi3 chi1 qing1 zhen1 shi2 wu4 · ওও শি মুস্যলিন ঝি ছি ছিংঝেন শিউ",
+              "bn_pron": "wǒ shì Mù sī lín zhǐ chī qīng zhēn shí wù · ওও শি মুস্যলিন ঝি ছি ছিংঝেন শিউ",
               "tokens": [
                 {
                   "t": "我",
@@ -7456,7 +7456,7 @@
               "level": "A1",
               "target": "我不吃猪肉和猪油。",
               "bn": "আমি শুকরের মাংস ও শুকরের চর্বি খাই না।",
-              "bn_pron": "wo3 bu4 chi1 zhu1 rou4 he2 zhu1 you2 · ওও বু ছি ঝুরৌ হ্য ঝু-ইয়ৌ",
+              "bn_pron": "wǒ bù chī zhū ròu hé zhū yóu · ওও বু ছি ঝুরৌ হ্য ঝু-ইয়ৌ",
               "tokens": [
                 {
                   "t": "我",
@@ -7493,7 +7493,7 @@
               "level": "A1",
               "target": "我是吃素的，请做蔬菜。",
               "bn": "আমি নিরামিষভোজী, দয়া করে সবজির পদ বানাবেন।",
-              "bn_pron": "wo3 shi4 chi1 su4 de qing3 zuo4 shu1 cai4 · ওও শি ছিসুদ্য ছিং যুও শুছাই",
+              "bn_pron": "wǒ shì chī sù de qǐng zuò shū cài · ওও শি ছিসুদ্য ছিং যুও শুছাই",
               "tokens": [
                 {
                   "t": "我",
@@ -7538,7 +7538,7 @@
               "level": "A1",
               "target": "这个菜里面有肉吗？",
               "bn": "এই তরকারির ভেতরে কি মাংস আছে?",
-              "bn_pron": "zhe4 ge4 cai4 li3 mian4 you3 rou4 ma · ঝেগে ছাই লিমিয়েন ইয়ৌ রৌ মা?",
+              "bn_pron": "zhè gè cài lǐ miàn yǒu ròu ma · ঝেগে ছাই লিমিয়েন ইয়ৌ রৌ মা?",
               "tokens": [
                 {
                   "t": "这个",
@@ -7579,7 +7579,7 @@
               "level": "A1",
               "target": "我不喝酒。",
               "bn": "আমি মদ পান করি না।",
-              "bn_pron": "wo3 bu4 he1 jiu3 · ওও বু হ্য জিউ",
+              "bn_pron": "wǒ bù hē jiǔ · ওও বু হ্য জিউ",
               "tokens": [
                 {
                   "t": "我",
@@ -7612,7 +7612,7 @@
               "level": "A1",
               "target": "我对花生过敏。",
               "bn": "চিনাবাদামে আমার অ্যালার্জি আছে।",
-              "bn_pron": "wo3 dui4 hua1 sheng1 guo4 min3 · ওও তুই হুয়াশেং গুওমিন",
+              "bn_pron": "wǒ duì huā shēng guò mǐn · ওও তুই হুয়াশেং গুওমিন",
               "tokens": [
                 {
                   "t": "我",
@@ -7645,7 +7645,7 @@
               "level": "A1",
               "target": "请少放油和盐。",
               "bn": "দয়া করে তেল ও লবণ কম দেবেন।",
-              "bn_pron": "qing3 shao3 fang4 you2 he2 yan2 · ছিং শাও ফাং ইয়ৌ হ্য ইয়েন",
+              "bn_pron": "qǐng shǎo fàng yóu hé yán · ছিং শাও ফাং ইয়ৌ হ্য ইয়েন",
               "tokens": [
                 {
                   "t": "请",
@@ -7699,7 +7699,7 @@
               "level": "A1",
               "target": "服务员，请给我看一下菜单。",
               "bn": "ওয়েটার, দয়া করে আমাকে মেনুটা একটু দিন।",
-              "bn_pron": "fu2 wu4 yuan2 qing3 gei3 wo3 kan4 yi2 xia4 cai4 dan1 · ফুউ-ইয়ুয়েন ছিং গেই ওও খান ইসিয়া ছাইদান",
+              "bn_pron": "fú wù yuán qǐng gěi wǒ kàn yí xià cài dān · ফুউ-ইয়ুয়েন ছিং গেই ওও খান ইসিয়া ছাইদান",
               "tokens": [
                 {
                   "t": "服务员",
@@ -7745,7 +7745,7 @@
               "level": "A1",
               "target": "好的，请问您想点什么菜？",
               "bn": "জি আচ্ছা, আপনি কী খাবার অর্ডার করতে চান?",
-              "bn_pron": "hao3 de qing3 wen4 nin2 xiang3 dian3 shen2 me cai4 · হাওদ্য ছিং ওয়েন নিন সিয়াং দিয়েন শেন্ম্য ছাই?",
+              "bn_pron": "hǎo de qǐng wèn nín xiǎng diǎn shén me cài · হাওদ্য ছিং ওয়েন নিন সিয়াং দিয়েন শেন্ম্য ছাই?",
               "tokens": [
                 {
                   "t": "好的",
@@ -7787,7 +7787,7 @@
               "level": "A1",
               "target": "我要一份牛肉面和一盘炒饭。",
               "bn": "আমি এক বাটি বিফ নুডলস আর এক প্লেট ফ্রাইড রাইস চাই।",
-              "bn_pron": "wo3 yao4 yi2 fen4 niu2 rou4 mian4 he2 yi4 pan2 chao3 fan4 · ওও ইয়াও ইফেন নিউরৌমিয়েন হ্য ইফান ছাওফান",
+              "bn_pron": "wǒ yào yí fèn niú ròu miàn hé yì pán chǎo fàn · ওও ইয়াও ইফেন নিউরৌমিয়েন হ্য ইফান ছাওফান",
               "tokens": [
                 {
                   "t": "我",
@@ -7833,7 +7833,7 @@
               "level": "A1",
               "target": "请不要太辣，微辣就好。",
               "bn": "দয়া করে বেশি ঝাল দেবেন না, হালকা ঝালই যথেষ্ট।",
-              "bn_pron": "qing3 bu2 yao4 tai4 la4 wei1 la4 jiu4 hao3 · ছিং বু ইয়াও থাই লা ওয়েই লা জিউ হাও",
+              "bn_pron": "qǐng bú yào tài là wēi là jiù hǎo · ছিং বু ইয়াও থাই লা ওয়েই লা জিউ হাও",
               "tokens": [
                 {
                   "t": "请",
@@ -7870,7 +7870,7 @@
               "level": "A1",
               "target": "请给我一双筷子和一把勺子。",
               "bn": "দয়া করে আমাকে এক জোড়া চপস্টিক ও একটি চামচ দিন।",
-              "bn_pron": "qing3 gei3 wo3 yi4 shuang1 kuai4 zi he2 yi4 ba3 shao2 zi · ছিং গেই ওও ই শুয়াং খুয়াইয্য হ্য ই বা শাওয্য",
+              "bn_pron": "qǐng gěi wǒ yì shuāng kuài zi hé yì bǎ sháo zi · ছিং গেই ওও ই শুয়াং খুয়াইয্য হ্য ই বা শাওয্য",
               "tokens": [
                 {
                   "t": "请给",
@@ -7915,7 +7915,7 @@
               "level": "A1",
               "target": "可以打包吗？",
               "bn": "এটা কি পার্সেল/টেকঅ্যাওয়ে করা যাবে?",
-              "bn_pron": "ke2 yi3 da3 bao1 ma · খে-ই দাবাও মা?",
+              "bn_pron": "ké yǐ dǎ bāo ma · খে-ই দাবাও মা?",
               "tokens": [
                 {
                   "t": "可以",
@@ -7944,7 +7944,7 @@
               "level": "A1",
               "target": "服务员，买单！",
               "bn": "ওয়েটার, বিলটা দেবেন!",
-              "bn_pron": "fu2 wu4 yuan2 mai3 dan1 · ফুউ-ইয়ুয়েন মাইদান",
+              "bn_pron": "fú wù yuán mǎi dān · ফুউ-ইয়ুয়েন মাইদান",
               "tokens": [
                 {
                   "t": "服务员",
@@ -7969,7 +7969,7 @@
               "level": "A1",
               "target": "我吃饱了，谢谢！",
               "bn": "আমার পেট ভরে গেছে, ধন্যবাদ!",
-              "bn_pron": "wo3 chi1 bao3 le xie4 xie · ওও ছি বাও ল্য সিয়েসিয়ে",
+              "bn_pron": "wǒ chī bǎo le xiè xie · ওও ছি বাও ল্য সিয়েসিয়ে",
               "tokens": [
                 {
                   "t": "我",
@@ -8011,7 +8011,7 @@
               "level": "A1",
               "target": "这个菜非常好吃！",
               "bn": "এই তরকারিটা অসাধারণ সুস্বাদু!",
-              "bn_pron": "zhe4 ge4 cai4 fei1 chang2 hao3 chi1 · ঝেগে ছাই ফেইছাং হাওছি",
+              "bn_pron": "zhè gè cài fēi cháng hǎo chī · ঝেগে ছাই ফেইছাং হাওছি",
               "tokens": [
                 {
                   "t": "这个",
@@ -8044,7 +8044,7 @@
               "level": "A1",
               "target": "这杯果汁很好喝。",
               "bn": "এই ফলের জুসটা খেতে খুব মজার।",
-              "bn_pron": "zhe4 bei1 guo3 zhi1 hen2 hao3 he1 · ঝে বেই গুওঝি হেন হাওহ্য",
+              "bn_pron": "zhè bēi guǒ zhī hén hǎo hē · ঝে বেই গুওঝি হেন হাওহ্য",
               "tokens": [
                 {
                   "t": "这杯",
@@ -8077,7 +8077,7 @@
               "level": "A1",
               "target": "孟加拉菜喜欢放辣。",
               "bn": "বাংলাদেশি খাবারে ঝাল বেশি পছন্দ করা হয়।",
-              "bn_pron": "Meng4 jia1 la1 cai4 xi3 huan1 fang4 la4 · মেংজিয়ালা ছাই সিহুয়ান ফাং লা",
+              "bn_pron": "Mèng jiā lā cài xǐ huān fàng là · মেংজিয়ালা ছাই সিহুয়ান ফাং লা",
               "tokens": [
                 {
                   "t": "孟加拉菜",
@@ -8106,7 +8106,7 @@
               "level": "A1",
               "target": "这个汤有点儿咸。",
               "bn": "এই স্যুপটা একটু বেশি নোনতা।",
-              "bn_pron": "zhe4 ge4 tang1 you3 dian3 er xian2 · ঝেগে থাং ইয়ৌ দিয়ার সিয়েন",
+              "bn_pron": "zhè gè tāng yǒu diǎn er xián · ঝেগে থাং ইয়ৌ দিয়ার সিয়েন",
               "tokens": [
                 {
                   "t": "这个",
@@ -8139,7 +8139,7 @@
               "level": "A1",
               "target": "奶茶太甜了。",
               "bn": "দুধ চা বেশি মিষ্টি হয়ে গেছে।",
-              "bn_pron": "nai3 cha2 tai4 tian2 le · নাইছা থাই থিয়েন ল্য",
+              "bn_pron": "nǎi chá tài tián le · নাইছা থাই থিয়েন ল্য",
               "tokens": [
                 {
                   "t": "奶茶",
@@ -8172,7 +8172,7 @@
               "level": "A1",
               "target": "我饿了，我们去吃饭吧。",
               "bn": "আমার ক্ষুধা লেগেছে, চলো খেতে যাই।",
-              "bn_pron": "wo3 e4 le wo3 men qu4 chi1 fan4 ba · ওও এ ল্য ওওমেন ছু ছিফান বা",
+              "bn_pron": "wǒ è le wǒ men qù chī fàn ba · ওও এ ল্য ওওমেন ছু ছিফান বা",
               "tokens": [
                 {
                   "t": "我",
@@ -8209,7 +8209,7 @@
               "level": "A1",
               "target": "我渴了，想买一瓶矿泉水。",
               "bn": "আমার পিপাসা পেয়েছে, এক বোতল মিনারেল ওয়াটার কিনতে চাই।",
-              "bn_pron": "wo3 ke3 le xiang3 mai3 yi4 ping2 kuang4 quan2 shui3 · ওও খে ল্য সিয়াং মাই ই ফিং খুয়াংছুয়েন শুয়েই",
+              "bn_pron": "wǒ kě le xiǎng mǎi yì píng kuàng quán shuǐ · ওও খে ল্য সিয়াং মাই ই ফিং খুয়াংছুয়েন শুয়েই",
               "tokens": [
                 {
                   "t": "我",
@@ -8246,7 +8246,7 @@
               "level": "A1",
               "target": "洗手间在哪里？",
               "bn": "ওয়াশরুমটা কোথায়?",
-              "bn_pron": "xi3 shou3 jian1 zai4 na3 li3 · সিশৌজিয়েন দ্জাই নালি?",
+              "bn_pron": "xǐ shǒu jiān zài nǎ lǐ · সিশৌজিয়েন দ্জাই নালি?",
               "tokens": [
                 {
                   "t": "洗手间",
@@ -8297,7 +8297,7 @@
               "level": "A1",
               "target": "请问，这个多少钱？",
               "bn": "দয়া করে বলবেন, এটার দাম কত?",
-              "bn_pron": "qing3 wen4 zhe4 ge duo1 shao qian2 · ছিং ওয়েন ঝেগে দুওশাও ছিয়েন?",
+              "bn_pron": "qǐng wèn zhè ge duō shao qián · ছিং ওয়েন ঝেগে দুওশাও ছিয়েন?",
               "tokens": [
                 {
                   "t": "请问",
@@ -8327,7 +8327,7 @@
               "level": "A1",
               "target": "这个八十块钱。",
               "bn": "এটা ৮০ ইউয়ান/টাকা।",
-              "bn_pron": "zhe4 ge ba1 shi2 kuai4 qian2 · ঝেগে বাশি খুয়াই ছিয়েন",
+              "bn_pron": "zhè ge bā shí kuài qián · ঝেগে বাশি খুয়াই ছিয়েন",
               "tokens": [
                 {
                   "t": "这个",
@@ -8361,7 +8361,7 @@
               "level": "A1",
               "target": "那件衣服多少钱？",
               "bn": "ওই জামাটার দাম কত?",
-              "bn_pron": "na4 jian4 yi1 fu duo1 shao qian2 · না জিয়েন ইফু দুওশাও ছিয়েন?",
+              "bn_pron": "nà jiàn yī fu duō shao qián · না জিয়েন ইফু দুওশাও ছিয়েন?",
               "tokens": [
                 {
                   "t": "那件",
@@ -8390,7 +8390,7 @@
               "level": "A1",
               "target": "一斤苹果多少钱？",
               "bn": "এক জিন (৫০০ গ্রাম) আপেলের দাম কত?",
-              "bn_pron": "yi4 jin1 ping2 guo3 duo1 shao qian2 · ই জিন ফিংগুও দুওশাও ছিয়েন?",
+              "bn_pron": "yì jīn píng guǒ duō shao qián · ই জিন ফিংগুও দুওশাও ছিয়েন?",
               "tokens": [
                 {
                   "t": "一斤",
@@ -8419,7 +8419,7 @@
               "level": "A1",
               "target": "一共多少钱？",
               "bn": "সব মিলিয়ে মোট কত হলো?",
-              "bn_pron": "yi2 gong4 duo1 shao qian2 · ইগোং দুওশাও ছিয়েন?",
+              "bn_pron": "yí gòng duō shao qián · ইগোং দুওশাও ছিয়েন?",
               "tokens": [
                 {
                   "t": "一共",
@@ -8444,7 +8444,7 @@
               "level": "A1",
               "target": "我有黑色和白色的。",
               "bn": "আমার কাছে কালো আর সাদা রঙের আছে।",
-              "bn_pron": "wo3 you3 hei1 se4 he2 bai2 se4 de · ওও ইয়ৌ হেইস্য হ্য বাইস্য দ্য",
+              "bn_pron": "wǒ yǒu hēi sè hé bái sè de · ওও ইয়ৌ হেইস্য হ্য বাইস্য দ্য",
               "tokens": [
                 {
                   "t": "我",
@@ -8485,7 +8485,7 @@
               "level": "A1",
               "target": "我可以试穿一下吗？",
               "bn": "আমি কি এটা একটু পরে দেখতে পারি?",
-              "bn_pron": "wo3 ke2 yi3 shi4 chuan1 yi2 xia4 ma · ওও খে-ই শিছুয়ান ইসিয়া মা?",
+              "bn_pron": "wǒ ké yǐ shì chuān yí xià ma · ওও খে-ই শিছুয়ান ইসিয়া মা?",
               "tokens": [
                 {
                   "t": "我",
@@ -8522,7 +8522,7 @@
               "level": "A1",
               "target": "有大一点儿的吗？",
               "bn": "এর চেয়ে একটু বড় সাইজের আছে কি?",
-              "bn_pron": "you3 da4 yi4 dian3 er de ma · ইয়ৌ দা ইদিয়ার দ্য মা?",
+              "bn_pron": "yǒu dà yì diǎn er de ma · ইয়ৌ দা ইদিয়ার দ্য মা?",
               "tokens": [
                 {
                   "t": "有",
@@ -8572,7 +8572,7 @@
               "level": "A1",
               "target": "太贵了！便宜一点儿吧。",
               "bn": "অনেক বেশি দাম! একটু কমান না।",
-              "bn_pron": "tai4 gui4 le pian2 yi yi4 dian3 er ba · থাই গুয়েই ল্য ফিয়েন-ই ইদিয়ার বা",
+              "bn_pron": "tài guì le pián yi yì diǎn er ba · থাই গুয়েই ল্য ফিয়েন-ই ইদিয়ার বা",
               "tokens": [
                 {
                   "t": "太贵了",
@@ -8606,7 +8606,7 @@
               "level": "A1",
               "target": "好吧，六十块钱给你。",
               "bn": "আচ্ছা ঠিক আছে, ৬০ ইউয়ানেই নিয়ে যান।",
-              "bn_pron": "hao3 ba liu4 shi2 kuai4 qian2 gei3 ni3 · হাও বা লিউশি খুয়াই ছিয়েন গেই নি",
+              "bn_pron": "hǎo ba liù shí kuài qián gěi nǐ · হাও বা লিউশি খুয়াই ছিয়েন গেই নি",
               "tokens": [
                 {
                   "t": "好吧",
@@ -8644,7 +8644,7 @@
               "level": "A1",
               "target": "能再便宜一点吗？",
               "bn": "আরেকটু কমানো যাবে কি?",
-              "bn_pron": "neng2 zai4 pian2 yi yi4 dian3 ma · নেং দ্জাই ফিয়েন-ই ইদিয়েন মা?",
+              "bn_pron": "néng zài pián yi yì diǎn ma · নেং দ্জাই ফিয়েন-ই ইদিয়েন মা?",
               "tokens": [
                 {
                   "t": "能",
@@ -8681,7 +8681,7 @@
               "level": "A1",
               "target": "这件打折吗？",
               "bn": "এটায় কি কোনো ডিসকাউন্ট/ছাড় আছে?",
-              "bn_pron": "zhe4 jian4 da3 zhe2 ma · ঝে জিয়েন দাঝে মা?",
+              "bn_pron": "zhè jiàn dǎ zhé ma · ঝে জিয়েন দাঝে মা?",
               "tokens": [
                 {
                   "t": "这件",
@@ -8710,7 +8710,7 @@
               "level": "A1",
               "target": "我买两个，算便宜点儿。",
               "bn": "আমি দুইটি কিনব, দাম একটু কম ধরুন।",
-              "bn_pron": "wo3 mai3 liang3 ge4 suan4 pian2 yi dian3 er · ওও মাই লিয়াং গে সুয়ান ফিয়েন-ই দিয়ার",
+              "bn_pron": "wǒ mǎi liǎng gè suàn pián yi diǎn er · ওও মাই লিয়াং গে সুয়ান ফিয়েন-ই দিয়ার",
               "tokens": [
                 {
                   "t": "我",
@@ -8751,7 +8751,7 @@
               "level": "A1",
               "target": "五十一件怎么样？",
               "bn": "প্রতিটি ৫০ ইউয়ান হলে কেমন হয়?",
-              "bn_pron": "wu3 shi2 yi2 jian4 zen3 me yang4 · উশি ই জিয়েন জেন্ম্য ইয়াং?",
+              "bn_pron": "wǔ shí yí jiàn zěn me yàng · উশি ই জিয়েন জেন্ম্য ইয়াং?",
               "tokens": [
                 {
                   "t": "五十",
@@ -8780,7 +8780,7 @@
               "level": "A1",
               "target": "这个质量非常好。",
               "bn": "এটার কোয়ালিটি/মান খুবই ভালো।",
-              "bn_pron": "zhe4 ge zhi4 liang4 fei1 chang2 hao3 · ঝেগে ঝিলিয়াং ফেইছাং হাও",
+              "bn_pron": "zhè ge zhì liàng fēi cháng hǎo · ঝেগে ঝিলিয়াং ফেইছাং হাও",
               "tokens": [
                 {
                   "t": "这个",
@@ -8813,7 +8813,7 @@
               "level": "A1",
               "target": "谢谢，我再看看。",
               "bn": "ধন্যবাদ, আমি একটু ঘুরে আরও দেখি।",
-              "bn_pron": "xie4 xie wo3 zai4 kan4 kan · সিয়েসিয়ে ওও দ্জাই খানখান",
+              "bn_pron": "xiè xie wǒ zài kàn kan · সিয়েসিয়ে ওও দ্জাই খানখান",
               "tokens": [
                 {
                   "t": "谢谢",
@@ -8859,7 +8859,7 @@
               "level": "A1",
               "target": "请问可以用支付宝吗？",
               "bn": "দয়া করে বলবেন, আলিপে দিয়ে পেমেন্ট করা যাবে?",
-              "bn_pron": "qing3 wen4 ke2 yi3 yong4 Zhi1 fu4 bao3 ma · ছিং ওয়েন খে-ই ইয়োং ঝিফুবাও মা?",
+              "bn_pron": "qǐng wèn ké yǐ yòng Zhī fù bǎo ma · ছিং ওয়েন খে-ই ইয়োং ঝিফুবাও মা?",
               "tokens": [
                 {
                   "t": "请问",
@@ -8896,7 +8896,7 @@
               "level": "A1",
               "target": "我用微信支付。",
               "bn": "আমি উইচ্যাট পে দিয়ে পরিশোধ করছি।",
-              "bn_pron": "wo3 yong4 Wei1 xin4 zhi1 fu4 · ওও ইয়োং ওয়েইসিন ঝিফু",
+              "bn_pron": "wǒ yòng Wēi xìn zhī fù · ওও ইয়োং ওয়েইসিন ঝিফু",
               "tokens": [
                 {
                   "t": "我",
@@ -8929,7 +8929,7 @@
               "level": "A1",
               "target": "收现金吗？",
               "bn": "নগদ টাকা (ক্যাশ) নেন কি?",
-              "bn_pron": "shou1 xian4 jin1 ma · শৌ সিয়েনজিন মা?",
+              "bn_pron": "shōu xiàn jīn ma · শৌ সিয়েনজিন মা?",
               "tokens": [
                 {
                   "t": "收",
@@ -8958,7 +8958,7 @@
               "level": "A1",
               "target": "可以刷信用卡吗？",
               "bn": "ক্রেডিট কার্ড সোয়াইপ করা যাবে?",
-              "bn_pron": "ke2 yi3 shua1 xin4 yong4 ka3 ma · খে-ই শুয়া সিন-ইয়োংখা মা?",
+              "bn_pron": "ké yǐ shuā xìn yòng kǎ ma · খে-ই শুয়া সিন-ইয়োংখা মা?",
               "tokens": [
                 {
                   "t": "可以",
@@ -8991,7 +8991,7 @@
               "level": "A1",
               "target": "我扫您的二维码。",
               "bn": "আমি আপনার কিউআর কোড স্ক্যান করছি।",
-              "bn_pron": "wo3 sao3 nin2 de er4 wei2 ma3 · ওও সাও নিনদ্য আরওয়েইমা",
+              "bn_pron": "wǒ sǎo nín de èr wéi mǎ · ওও সাও নিনদ্য আরওয়েইমা",
               "tokens": [
                 {
                   "t": "我",
@@ -9024,7 +9024,7 @@
               "level": "A1",
               "target": "请给我一个袋子。",
               "bn": "দয়া করে আমাকে একটি ব্যাগ দিন।",
-              "bn_pron": "qing3 gei3 wo3 yi2 ge4 dai4 zi · ছিং গেই ওও ই গে দাইয্য",
+              "bn_pron": "qǐng gěi wǒ yí gè dài zi · ছিং গেই ওও ই গে দাইয্য",
               "tokens": [
                 {
                   "t": "请",
@@ -9061,7 +9061,7 @@
               "level": "A1",
               "target": "请给我一张收据。",
               "bn": "দয়া করে আমাকে একটি রসিদ দিন।",
-              "bn_pron": "qing3 gei3 wo3 yi4 zhang1 shou1 ju4 · ছিং গেই ওও ই ঝাং শৌজু",
+              "bn_pron": "qǐng gěi wǒ yì zhāng shōu jù · ছিং গেই ওও ই ঝাং শৌজু",
               "tokens": [
                 {
                   "t": "请",
@@ -9098,7 +9098,7 @@
               "level": "A1",
               "target": "可以退货或换货吗？",
               "bn": "পণ্য কি ফেরত বা বদলে নেওয়া যাবে?",
-              "bn_pron": "ke2 yi3 tui4 huo4 huo4 huan4 huo4 ma · খে-ই থুইহুও হুও হুয়ানহুও মা?",
+              "bn_pron": "ké yǐ tuì huò huò huàn huò ma · খে-ই থুইহুও হুও হুয়ানহুও মা?",
               "tokens": [
                 {
                   "t": "可以",
@@ -9148,7 +9148,7 @@
               "level": "A1",
               "target": "欢迎光临！您想买什么？",
               "bn": "দোকানে স্বাগতম! আপনি কী কিনতে চান?",
-              "bn_pron": "huan1 ying2 guang1 lin2 nin2 xiang3 mai3 shen2 me · হুয়ান-ইং গুয়াংলিন নিন সিয়াং মাই শেন্ম্য?",
+              "bn_pron": "huān yíng guāng lín nín xiǎng mǎi shén me · হুয়ান-ইং গুয়াংলিন নিন সিয়াং মাই শেন্ম্য?",
               "tokens": [
                 {
                   "t": "欢迎光临",
@@ -9186,7 +9186,7 @@
               "level": "A1",
               "target": "我想买一个大一点儿的行李箱。",
               "bn": "আমি একটু বড় সাইজের একটা স্যুটকেস কিনতে চাই।",
-              "bn_pron": "wo3 xiang3 mai3 yi2 ge4 da4 yi4 dian3 er de xing2 li xiang1 · ওও সিয়াং মাই ই গে দা ইদিয়ার দ্য সিংলিসিয়াং",
+              "bn_pron": "wǒ xiǎng mǎi yí gè dà yì diǎn er de xíng li xiāng · ওও সিয়াং মাই ই গে দা ইদিয়ার দ্য সিংলিসিয়াং",
               "tokens": [
                 {
                   "t": "我",
@@ -9224,7 +9224,7 @@
               "level": "A1",
               "target": "这个很结实，三百块钱。",
               "bn": "এটা খুব মজবুত, দাম তিনশ ইউয়ান।",
-              "bn_pron": "zhe4 ge hen3 jie1 shi san1 bai3 kuai4 qian2 · ঝেগে হেন জিয়েসি সানবাই খুয়াই ছিয়েন",
+              "bn_pron": "zhè ge hěn jiē shi sān bǎi kuài qián · ঝেগে হেন জিয়েসি সানবাই খুয়াই ছিয়েন",
               "tokens": [
                 {
                   "t": "这个",
@@ -9262,7 +9262,7 @@
               "level": "A1",
               "target": "两百八十块可以吗？",
               "bn": "দুইশ আশি ইউয়ান হবে কি?",
-              "bn_pron": "liang3 bai3 ba1 shi2 kuai4 ke2 yi3 ma · লিয়াংবাই বাশি খুয়াই খে-ই মা?",
+              "bn_pron": "liǎng bǎi bā shí kuài ké yǐ ma · লিয়াংবাই বাশি খুয়াই খে-ই মা?",
               "tokens": [
                 {
                   "t": "两百八十",
@@ -9296,7 +9296,7 @@
               "level": "A1",
               "target": "行，我就收您两百八。",
               "bn": "আচ্ছা চলবে, আপনার কাছ থেকে ২৮০ নিচ্ছি।",
-              "bn_pron": "xing2 wo3 jiu4 shou1 nin2 liang3 bai3 ba1 · সিং ওও জিউ শৌ নিন লিয়াংবাই বা",
+              "bn_pron": "xíng wǒ jiù shōu nín liǎng bǎi bā · সিং ওও জিউ শৌ নিন লিয়াংবাই বা",
               "tokens": [
                 {
                   "t": "行",
@@ -9338,7 +9338,7 @@
               "level": "A1",
               "target": "这个商店什么时候关门？",
               "bn": "এই দোকানটা কয়টার সময় বন্ধ হয়?",
-              "bn_pron": "zhe4 ge shang1 dian4 shen2 me shi2 hou4 guan1 men2 · ঝেগে শাংদিয়েন শেন্ম্য শিহৌ গুয়ানমেন?",
+              "bn_pron": "zhè ge shāng diàn shén me shí hòu guān mén · ঝেগে শাংদিয়েন শেন্ম্য শিহৌ গুয়ানমেন?",
               "tokens": [
                 {
                   "t": "这个",
@@ -9371,7 +9371,7 @@
               "level": "A1",
               "target": "晚上十点关门。",
               "bn": "রাত দশটায় বন্ধ হয়।",
-              "bn_pron": "wan3 shang shi2 dian3 guan1 men2 · ওয়ানশাং শি দিয়েন গুয়ানমেন",
+              "bn_pron": "wǎn shang shí diǎn guān mén · ওয়ানশাং শি দিয়েন গুয়ানমেন",
               "tokens": [
                 {
                   "t": "晚上",
@@ -9400,7 +9400,7 @@
               "level": "A1",
               "target": "我忘了带钱包。",
               "bn": "আমি মানিব্যাগ সাথে আনতে ভুলে গেছি।",
-              "bn_pron": "wo3 wang4 le dai4 qian2 bao1 · ওও ওয়াং ল্য দাই ছিয়েনবাও",
+              "bn_pron": "wǒ wàng le dài qián bāo · ওও ওয়াং ল্য দাই ছিয়েনবাও",
               "tokens": [
                 {
                   "t": "我",
@@ -9455,7 +9455,7 @@
               "level": "A1",
               "target": "你怎么去学校？",
               "bn": "তুমি কীভাবে স্কুলে যাও?",
-              "bn_pron": "ni3 zen3 me qu4 xue2 xiao4 · নি জেন্ম্য ছু সুয়েসিয়াও?",
+              "bn_pron": "nǐ zěn me qù xué xiào · নি জেন্ম্য ছু সুয়েসিয়াও?",
               "tokens": [
                 {
                   "t": "你",
@@ -9488,7 +9488,7 @@
               "level": "A1",
               "target": "我坐地铁去学校。",
               "bn": "আমি মেট্রোরেলে করে স্কুলে যাই।",
-              "bn_pron": "wo3 zuo4 di4 tie3 qu4 xue2 xiao4 · ওও যুও দিথিয়ে ছু সুয়েসিয়াও",
+              "bn_pron": "wǒ zuò dì tiě qù xué xiào · ওও যুও দিথিয়ে ছু সুয়েসিয়াও",
               "tokens": [
                 {
                   "t": "我",
@@ -9525,7 +9525,7 @@
               "level": "A1",
               "target": "他坐公共汽车去公司。",
               "bn": "সে বাসে করে অফিসে যায়।",
-              "bn_pron": "ta1 zuo4 gong1 gong4 qi4 che1 qu4 gong1 si1 · থা যুও গোংগোং ছিছে ছু গোংস্য",
+              "bn_pron": "tā zuò gōng gòng qì chē qù gōng sī · থা যুও গোংগোং ছিছে ছু গোংস্য",
               "tokens": [
                 {
                   "t": "他",
@@ -9562,7 +9562,7 @@
               "level": "A1",
               "target": "我坐飞机来北京。",
               "bn": "আমি উড়োজাহাজে বেইজিং এসেছি।",
-              "bn_pron": "wo3 zuo4 fei1 ji1 lai2 Bei3 jing1 · ওও যুও ফেইজি লাই বেইজিং",
+              "bn_pron": "wǒ zuò fēi jī lái Běi jīng · ওও যুও ফেইজি লাই বেইজিং",
               "tokens": [
                 {
                   "t": "我",
@@ -9599,7 +9599,7 @@
               "level": "A1",
               "target": "从上海到北京坐高铁很快。",
               "bn": "সাংহাই থেকে বেইজিং বুলেট ট্রেনে যাওয়া খুব দ্রুত।",
-              "bn_pron": "cong2 Shang4 hai3 dao4 Bei3 jing1 zuo4 gao1 tie3 hen3 kuai4 · ছোং শাংহাই দাও বেইজিং যুও গাওথিয়ে হেন খুয়াই",
+              "bn_pron": "cóng Shàng hǎi dào Běi jīng zuò gāo tiě hěn kuài · ছোং শাংহাই দাও বেইজিং যুও গাওথিয়ে হেন খুয়াই",
               "tokens": [
                 {
                   "t": "从",
@@ -9640,7 +9640,7 @@
               "level": "A1",
               "target": "我们打车去机场吧。",
               "bn": "চলো ট্যাক্সি নিয়ে এয়ারপোর্টে যাই।",
-              "bn_pron": "wo3 men da3 che1 qu4 ji1 chang3 ba · ওওমেন দাছে ছু জিছাং বা",
+              "bn_pron": "wǒ men dǎ chē qù jī chǎng ba · ওওমেন দাছে ছু জিছাং বা",
               "tokens": [
                 {
                   "t": "我们",
@@ -9677,7 +9677,7 @@
               "level": "A1",
               "target": "公司很近，我走路去。",
               "bn": "অফিস খুব কাছে, আমি হেঁটে যাই।",
-              "bn_pron": "gong1 si1 hen3 jin4 wo3 zou3 lu4 qu4 · গোংস্য হেন জিন ওও যৌলু ছু",
+              "bn_pron": "gōng sī hěn jìn wǒ zǒu lù qù · গোংস্য হেন জিন ওও যৌলু ছু",
               "tokens": [
                 {
                   "t": "公司",
@@ -9714,7 +9714,7 @@
               "level": "A1",
               "target": "请问火车站在哪儿？",
               "bn": "বলবেন কি, রেলস্টেশনটা কোথায়?",
-              "bn_pron": "qing3 wen4 huo3 che1 zhan4 zai4 na3 er · ছিং ওয়েন হুওছেঝান দ্জাই নার?",
+              "bn_pron": "qǐng wèn huǒ chē zhàn zài nǎ er · ছিং ওয়েন হুওছেঝান দ্জাই নার?",
               "tokens": [
                 {
                   "t": "请问",
@@ -9760,7 +9760,7 @@
               "level": "A1",
               "target": "师傅，我要去首都机场。",
               "bn": "ড্রাইভার ভাই, আমি ক্যাপিটাল এয়ারপোর্টে যাব।",
-              "bn_pron": "shi1 fu wo3 yao4 qu4 Shou3 du1 Ji1 chang3 · শিফু ওও ইয়াও ছু শৌদু জিছাং",
+              "bn_pron": "shī fu wǒ yào qù Shǒu dū Jī chǎng · শিফু ওও ইয়াও ছু শৌদু জিছাং",
               "tokens": [
                 {
                   "t": "师傅",
@@ -9794,7 +9794,7 @@
               "level": "A1",
               "target": "好的，请系好安全带。",
               "bn": "আচ্ছা, দয়া করে সিটবেল্ট বেঁধে নিন।",
-              "bn_pron": "hao3 de qing3 ji4 hao3 an1 quan2 dai4 · হাওদ্য ছিং জিহাও আনছুয়েনদাই",
+              "bn_pron": "hǎo de qǐng jì hǎo ān quán dài · হাওদ্য ছিং জিহাও আনছুয়েনদাই",
               "tokens": [
                 {
                   "t": "好的",
@@ -9828,7 +9828,7 @@
               "level": "A1",
               "target": "去酒店大概需要多长时间？",
               "bn": "হোটেলে যেতে আনুমানিক কত সময় লাগবে?",
-              "bn_pron": "qu4 jiu3 dian4 da4 gai4 xu1 yao4 duo1 chang2 shi2 jian1 · ছু জিউদিয়েন দাগাই সু-ইয়াও দুওছাং শিজিয়েন?",
+              "bn_pron": "qù jiǔ diàn dà gài xū yào duō cháng shí jiān · ছু জিউদিয়েন দাগাই সু-ইয়াও দুওছাং শিজিয়েন?",
               "tokens": [
                 {
                   "t": "去酒店",
@@ -9861,7 +9861,7 @@
               "level": "A1",
               "target": "大概要三十分钟。",
               "bn": "প্রায় ত্রিশ মিনিট লাগবে।",
-              "bn_pron": "da4 gai4 yao4 san1 shi2 fen1 zhong1 · দাগাই ইয়াও সানশি ফেনঝোং",
+              "bn_pron": "dà gài yào sān shí fēn zhōng · দাগাই ইয়াও সানশি ফেনঝোং",
               "tokens": [
                 {
                   "t": "大概",
@@ -9894,7 +9894,7 @@
               "level": "A1",
               "target": "请开快一点儿，我赶时间。",
               "bn": "দয়া করে একটু তাড়াতাড়ি চালান, আমার তাড়া আছে।",
-              "bn_pron": "qing3 kai1 kuai4 yi4 dian3 er wo3 gan3 shi2 jian1 · ছিং খাই খুয়াই ইদিয়ার ওও গান শিজিয়েন",
+              "bn_pron": "qǐng kāi kuài yì diǎn er wǒ gǎn shí jiān · ছিং খাই খুয়াই ইদিয়ার ওও গান শিজিয়েন",
               "tokens": [
                 {
                   "t": "请",
@@ -9931,7 +9931,7 @@
               "level": "A1",
               "target": "就在前面红绿灯停一下。",
               "bn": "সামনের ট্রাফিক লাইটের কাছেই থামুন।",
-              "bn_pron": "jiu4 zai4 qian2 mian4 hong2 lv4 deng1 ting2 yi2 xia4 · জিউ দ্জাই ছিয়েনমিয়েন হোংলুদেং থিং ইসিয়া",
+              "bn_pron": "jiù zài qián miàn hóng lǜ dēng tíng yí xià · জিউ দ্জাই ছিয়েনমিয়েন হোংলুদেং থিং ইসিয়া",
               "tokens": [
                 {
                   "t": "就",
@@ -9964,7 +9964,7 @@
               "level": "A1",
               "target": "谢谢师傅，给你车费。",
               "bn": "ধন্যবাদ ভাই, এই নিন ভাড়া।",
-              "bn_pron": "xie4 xie shi1 fu gei3 ni3 che1 fei4 · সিয়েসিয়ে শিফু গেই নি ছেফেই",
+              "bn_pron": "xiè xie shī fu gěi nǐ chē fèi · সিয়েসিয়ে শিফু গেই নি ছেফেই",
               "tokens": [
                 {
                   "t": "谢谢",
@@ -10001,7 +10001,7 @@
               "level": "A1",
               "target": "路上有点儿堵车。",
               "bn": "রাস্তায় একটু ট্রাফিক জ্যাম আছে।",
-              "bn_pron": "lu4 shang you3 dian3 er du3 che1 · লুশাং ইয়ৌ দিয়ার দুছে",
+              "bn_pron": "lù shang yǒu diǎn er dǔ chē · লুশাং ইয়ৌ দিয়ার দুছে",
               "tokens": [
                 {
                   "t": "路上",
@@ -10043,7 +10043,7 @@
               "level": "A1",
               "target": "请问地铁站怎么走？",
               "bn": "দয়া করে বলবেন, মেট্রো স্টেশনে কীভাবে যাব?",
-              "bn_pron": "qing3 wen4 di4 tie3 zhan4 zen3 me zou3 · ছিং ওয়েন দিথিয়েঝান জেন্ম্য যৌ?",
+              "bn_pron": "qǐng wèn dì tiě zhàn zěn me zǒu · ছিং ওয়েন দিথিয়েঝান জেন্ম্য যৌ?",
               "tokens": [
                 {
                   "t": "请问",
@@ -10072,7 +10072,7 @@
               "level": "A1",
               "target": "一直往前走两百米。",
               "bn": "সোজা সামনের দিকে দুইশ মিটার যান।",
-              "bn_pron": "yi4 zhi2 wang3 qian2 zou3 liang3 bai3 mi3 · ইঝি ওয়াং ছিয়েন যৌ লিয়াংবাই মি",
+              "bn_pron": "yì zhí wǎng qián zǒu liǎng bǎi mǐ · ইঝি ওয়াং ছিয়েন যৌ লিয়াংবাই মি",
               "tokens": [
                 {
                   "t": "一直",
@@ -10105,7 +10105,7 @@
               "level": "A1",
               "target": "在十字路口往左拐。",
               "bn": "চৌরাস্তার মোড়ে বাম দিকে ঘোরেন।",
-              "bn_pron": "zai4 shi2 zi4 lu4 kou3 wang3 zuo3 guai3 · দ্জাই শিয্যলুখৌ ওয়াং যুও গুয়াই",
+              "bn_pron": "zài shí zì lù kǒu wǎng zuǒ guǎi · দ্জাই শিয্যলুখৌ ওয়াং যুও গুয়াই",
               "tokens": [
                 {
                   "t": "在",
@@ -10138,7 +10138,7 @@
               "level": "A1",
               "target": "过马路然后往右拐。",
               "bn": "রাস্তা পার হয়ে তারপর ডানে ঘোরেন।",
-              "bn_pron": "guo4 ma3 lu4 ran2 hou4 wang3 you4 guai3 · গুও মালু রানহৌ ওয়াং ইয়ৌ গুয়াই",
+              "bn_pron": "guò mǎ lù rán hòu wǎng yòu guǎi · গুও মালু রানহৌ ওয়াং ইয়ৌ গুয়াই",
               "tokens": [
                 {
                   "t": "过",
@@ -10171,7 +10171,7 @@
               "level": "A1",
               "target": "就在银行的右边。",
               "bn": "এটা ঠিক ব্যাংকের ডান পাশেই।",
-              "bn_pron": "jiu4 zai4 yin2 hang2 de you4 bian1 · জিউ দ্জাই ইনহাংদ্য ইয়ৌবিয়েন",
+              "bn_pron": "jiù zài yín háng de yòu biān · জিউ দ্জাই ইনহাংদ্য ইয়ৌবিয়েন",
               "tokens": [
                 {
                   "t": "就",
@@ -10208,7 +10208,7 @@
               "level": "A1",
               "target": "医院在公园对面。",
               "bn": "হাসপাতালটা পার্কের ঠিক বিপরীত পাশে।",
-              "bn_pron": "yi1 yuan4 zai4 gong1 yuan2 dui4 mian4 · ই-ইয়ুয়েন দ্জাই গোং-ইয়ুয়েন তুইমিয়েন",
+              "bn_pron": "yī yuàn zài gōng yuán duì miàn · ই-ইয়ুয়েন দ্জাই গোং-ইয়ুয়েন তুইমিয়েন",
               "tokens": [
                 {
                   "t": "医院",
@@ -10241,7 +10241,7 @@
               "level": "A1",
               "target": "离这里远吗？",
               "bn": "এখান থেকে কি দূর?",
-              "bn_pron": "li2 zhe4 li3 yuan3 ma · লি ঝেলি ইয়ুয়েন মা?",
+              "bn_pron": "lí zhè lǐ yuǎn ma · লি ঝেলি ইয়ুয়েন মা?",
               "tokens": [
                 {
                   "t": "离",
@@ -10274,7 +10274,7 @@
               "level": "A1",
               "target": "不远，走五分钟就到。",
               "bn": "বেশি দূর নয়, ৫ মিনিট হাঁটলেই পৌঁছে যাবেন।",
-              "bn_pron": "bu4 yuan3 zou3 wu3 fen1 zhong1 jiu4 dao4 · বু ইয়ুয়েন যৌ উ ফেনঝোং জিউ দাও",
+              "bn_pron": "bù yuǎn zǒu wǔ fēn zhōng jiù dào · বু ইয়ুয়েন যৌ উ ফেনঝোং জিউ দাও",
               "tokens": [
                 {
                   "t": "不远",
@@ -10320,7 +10320,7 @@
               "level": "A1",
               "target": "我想买一张明天去杭州的火车票。",
               "bn": "আমি আগামীকাল হাংচৌ যাওয়ার একটি ট্রেনের টিকিট কিনতে চাই।",
-              "bn_pron": "wo3 xiang3 mai3 yi4 zhang1 ming2 tian1 qu4 Hang2 zhou1 de huo3 che1 piao4 · ওও সিয়াং মাই ই ঝাং মিংথিয়েন ছু হাংঝৌদ্য হুওছেফিয়াও",
+              "bn_pron": "wǒ xiǎng mǎi yì zhāng míng tiān qù Háng zhōu de huǒ chē piào · ওও সিয়াং মাই ই ঝাং মিংথিয়েন ছু হাংঝৌদ্য হুওছেফিয়াও",
               "tokens": [
                 {
                   "t": "我想买",
@@ -10361,7 +10361,7 @@
               "level": "A1",
               "target": "请问这趟车几点开？",
               "bn": "বলবেন কি, এই ট্রেনটা কয়টায় ছাড়ে?",
-              "bn_pron": "qing3 wen4 zhe4 tang4 che1 ji3 dian3 kai1 · ছিং ওয়েন ঝে থাং ছে জি দিয়েন খাই?",
+              "bn_pron": "qǐng wèn zhè tàng chē jǐ diǎn kāi · ছিং ওয়েন ঝে থাং ছে জি দিয়েন খাই?",
               "tokens": [
                 {
                   "t": "请问",
@@ -10394,7 +10394,7 @@
               "level": "A1",
               "target": "我的座位在哪里？",
               "bn": "আমার সিট কোথায়?",
-              "bn_pron": "wo3 de zuo4 wei4 zai4 na3 li3 · ওওদ্য যুওওয়েই দ্জাই নালি?",
+              "bn_pron": "wǒ de zuò wèi zài nǎ lǐ · ওওদ্য যুওওয়েই দ্জাই নালি?",
               "tokens": [
                 {
                   "t": "我的",
@@ -10427,7 +10427,7 @@
               "level": "A1",
               "target": "请问登机口在几号？",
               "bn": "বলবেন কি, বোর্ডিং গেট কত নম্বর?",
-              "bn_pron": "qing3 wen4 deng1 ji1 kou3 zai4 ji3 hao4 · ছিং ওয়েন দেংজিখৌ দ্জাই জি হাও?",
+              "bn_pron": "qǐng wèn dēng jī kǒu zài jǐ hào · ছিং ওয়েন দেংজিখৌ দ্জাই জি হাও?",
               "tokens": [
                 {
                   "t": "请问",
@@ -10456,7 +10456,7 @@
               "level": "A1",
               "target": "这是我的护照和机票。",
               "bn": "এই নিন আমার পাসপোর্ট ও বিমানের টিকিট।",
-              "bn_pron": "zhe4 shi4 wo3 de hu4 zhao4 he2 ji1 piao4 · ঝে শি ওওদ্য হুঝাও হ্য জিফিয়াও",
+              "bn_pron": "zhè shì wǒ de hù zhào hé jī piào · ঝে শি ওওদ্য হুঝাও হ্য জিফিয়াও",
               "tokens": [
                 {
                   "t": "这是",
@@ -10493,7 +10493,7 @@
               "level": "A1",
               "target": "地铁一号线的出口在哪儿？",
               "bn": "মেট্রো ১ নম্বর লাইনের বের হওয়ার গেট কোথায়?",
-              "bn_pron": "di4 tie3 yi1 hao4 xian4 de chu1 kou3 zai4 na3 er · দিথিয়ে ই হাও সিয়েনদ্য ছুখৌ দ্জাই নার?",
+              "bn_pron": "dì tiě yī hào xiàn de chū kǒu zài nǎ er · দিথিয়ে ই হাও সিয়েনদ্য ছুখৌ দ্জাই নার?",
               "tokens": [
                 {
                   "t": "地铁",
@@ -10530,7 +10530,7 @@
               "level": "A1",
               "target": "我好像迷路了，能帮我吗？",
               "bn": "আমার মনে হয় আমি রাস্তা হারিয়ে ফেলেছি, আমাকে সাহায্য করবেন কি?",
-              "bn_pron": "wo3 hao3 xiang4 mi2 lu4 le neng2 bang1 wo3 ma · ওও হাওসিয়াং মিলু ল্য নেং বাং ওও মা?",
+              "bn_pron": "wǒ hǎo xiàng mí lù le néng bāng wǒ ma · ওও হাওসিয়াং মিলু ল্য নেং বাং ওও মা?",
               "tokens": [
                 {
                   "t": "我",
@@ -10563,7 +10563,7 @@
               "level": "A1",
               "target": "请指给我看地图上在哪儿。",
               "bn": "দয়া করে ম্যাপে দেখিয়ে দিন এটা কোথায়।",
-              "bn_pron": "qing3 zhi3 gei3 wo3 kan4 di4 tu2 shang4 zai4 na3 er · ছিং ঝি গেই ওও খান দিথু শাং দ্জাই নার",
+              "bn_pron": "qǐng zhǐ gěi wǒ kàn dì tú shàng zài nǎ er · ছিং ঝি গেই ওও খান দিথু শাং দ্জাই নার",
               "tokens": [
                 {
                   "t": "请指",
@@ -10622,7 +10622,7 @@
               "level": "A1",
               "target": "我每天早上七点起床。",
               "bn": "আমি প্রতিদিন সকাল ৭টায় ঘুম থেকে উঠি।",
-              "bn_pron": "wo3 mei3 tian1 zao3 shang qi1 dian3 qi3 chuang2 · ওও মেইথিয়েন যাওশাং ছি দিয়েন ছিছুয়াং",
+              "bn_pron": "wǒ měi tiān zǎo shang qī diǎn qǐ chuáng · ওও মেইথিয়েন যাওশাং ছি দিয়েন ছিছুয়াং",
               "tokens": [
                 {
                   "t": "我",
@@ -10659,7 +10659,7 @@
               "level": "A1",
               "target": "八点半我去上班。",
               "bn": "সাড়ে আটটায় আমি অফিসে যাই।",
-              "bn_pron": "ba1 dian3 ban4 wo3 qu4 shang4 ban1 · বা দিয়েন বান ওও ছু শাংবান",
+              "bn_pron": "bā diǎn bàn wǒ qù shàng bān · বা দিয়েন বান ওও ছু শাংবান",
               "tokens": [
                 {
                   "t": "八点半",
@@ -10688,7 +10688,7 @@
               "level": "A1",
               "target": "十二点我和同事吃午饭。",
               "bn": "বারোটায় আমি সহকর্মীদের সাথে দুপুরের খাবার খাই।",
-              "bn_pron": "shi2 er4 dian3 wo3 he2 tong2 shi4 chi1 wu3 fan4 · শি-আর দিয়েন ওও হ্য থংশি ছি উফান",
+              "bn_pron": "shí èr diǎn wǒ hé tóng shì chī wǔ fàn · শি-আর দিয়েন ওও হ্য থংশি ছি উফান",
               "tokens": [
                 {
                   "t": "十二点",
@@ -10721,7 +10721,7 @@
               "level": "A1",
               "target": "下午五点半下班回家。",
               "bn": "বিকেল সাড়ে পাঁচটায় অফিস শেষ করে বাসায় ফিরি।",
-              "bn_pron": "xia4 wu3 wu3 dian3 ban4 xia4 ban1 hui2 jia1 · সিয়াউ উ দিয়েন বান সিয়াবান হুয়েই জিয়া",
+              "bn_pron": "xià wǔ wǔ diǎn bàn xià bān huí jiā · সিয়াউ উ দিয়েন বান সিয়াবান হুয়েই জিয়া",
               "tokens": [
                 {
                   "t": "下午",
@@ -10754,7 +10754,7 @@
               "level": "A1",
               "target": "晚上我看书或者学习汉语。",
               "bn": "রাতে আমি বই পড়ি অথবা চীনা ভাষা শিখি।",
-              "bn_pron": "wan3 shang wo3 kan4 shu1 huo4 zhe3 xue2 xi2 Han4 yu3 · ওয়ানশাং ওও খান শু হুওঝে সুয়েসি হান-ইউ",
+              "bn_pron": "wǎn shang wǒ kàn shū huò zhě xué xí Hàn yǔ · ওয়ানশাং ওও খান শু হুওঝে সুয়েসি হান-ইউ",
               "tokens": [
                 {
                   "t": "晚上",
@@ -10791,7 +10791,7 @@
               "level": "A1",
               "target": "我十一点半睡觉。",
               "bn": "আমি সাড়ে এগারোটায় ঘুমাতে যাই।",
-              "bn_pron": "wo3 shi2 yi1 dian3 ban4 shui4 jiao4 · ওও শি-ই দিয়েন বান শুয়েইজিয়াও",
+              "bn_pron": "wǒ shí yī diǎn bàn shuì jiào · ওও শি-ই দিয়েন বান শুয়েইজিয়াও",
               "tokens": [
                 {
                   "t": "我",
@@ -10820,7 +10820,7 @@
               "level": "A1",
               "target": "我天天早上锻炼身体。",
               "bn": "আমি রোজ সকালে শরীরচর্চা/ব্যায়াম করি।",
-              "bn_pron": "wo3 tian1 tian1 zao3 shang duan4 lian4 shen1 ti3 · ওও থিয়েনথিয়েন যাওশাং দুয়ানলিয়েন শেনথি",
+              "bn_pron": "wǒ tiān tiān zǎo shang duàn liàn shēn tǐ · ওও থিয়েনথিয়েন যাওশাং দুয়ানলিয়েন শেনথি",
               "tokens": [
                 {
                   "t": "我",
@@ -10853,7 +10853,7 @@
               "level": "A1",
               "target": "星期天我在家休息。",
               "bn": "রবিবারে আমি বাড়িতে বিশ্রাম নিই।",
-              "bn_pron": "xing1 qi1 tian1 wo3 zai4 jia1 xiu1 xi · সিংছি-থিয়েন ওও দ্জাই জিয়া সিউসি",
+              "bn_pron": "xīng qī tiān wǒ zài jiā xiū xi · সিংছি-থিয়েন ওও দ্জাই জিয়া সিউসি",
               "tokens": [
                 {
                   "t": "星期天",
@@ -10899,7 +10899,7 @@
               "level": "A1",
               "target": "喂，你现在在哪儿呢？",
               "bn": "হ্যালো, তুমি এখন কোথায় আছো?",
-              "bn_pron": "wei2 ni3 xian4 zai4 zai4 na3 er ne · ওয়েই নি সিয়েনদ্জাই দ্জাই নার ন্য?",
+              "bn_pron": "wéi nǐ xiàn zài zài nǎ er ne · ওয়েই নি সিয়েনদ্জাই দ্জাই নার ন্য?",
               "tokens": [
                 {
                   "t": "喂",
@@ -10937,7 +10937,7 @@
               "level": "A1",
               "target": "我在图书馆看书呢。",
               "bn": "আমি লাইব্রেরিতে বই পড়ছি।",
-              "bn_pron": "wo3 zai4 tu2 shu1 guan3 kan4 shu1 ne · ওও দ্জাই থুশুগুয়ান খান শু ন্য",
+              "bn_pron": "wǒ zài tú shū guǎn kàn shū ne · ওও দ্জাই থুশুগুয়ান খান শু ন্য",
               "tokens": [
                 {
                   "t": "我",
@@ -10971,7 +10971,7 @@
               "level": "A1",
               "target": "我妈妈在厨房做晚饭。",
               "bn": "আমার মা রান্নাঘরে রাতের খাবার রান্না করছেন।",
-              "bn_pron": "wo3 ma1 ma zai4 chu2 fang2 zuo4 wan3 fan4 · ওও মামা দ্জাই ছুফাং যুও ওয়ানফান",
+              "bn_pron": "wǒ mā ma zài chú fáng zuò wǎn fàn · ওও মামা দ্জাই ছুফাং যুও ওয়ানফান",
               "tokens": [
                 {
                   "t": "我妈妈",
@@ -11000,7 +11000,7 @@
               "level": "A1",
               "target": "他在办公室开会。",
               "bn": "তিনি অফিসে মিটিং করছেন।",
-              "bn_pron": "ta1 zai4 ban4 gong1 shi4 kai1 hui4 · থা দ্জাই বানগোংশি খাইহুয়েই",
+              "bn_pron": "tā zài bàn gōng shì kāi huì · থা দ্জাই বানগোংশি খাইহুয়েই",
               "tokens": [
                 {
                   "t": "他",
@@ -11029,7 +11029,7 @@
               "level": "A1",
               "target": "学生在教室里上课。",
               "bn": "শিক্ষার্থীরা ক্লাসরুমে ক্লাস করছে।",
-              "bn_pron": "xue2 sheng zai4 jiao4 shi4 li3 shang4 ke4 · সুয়েশেং দ্জাই জিয়াওশি লি শাংখে",
+              "bn_pron": "xué sheng zài jiào shì lǐ shàng kè · সুয়েশেং দ্জাই জিয়াওশি লি শাংখে",
               "tokens": [
                 {
                   "t": "学生",
@@ -11058,7 +11058,7 @@
               "level": "A1",
               "target": "爸爸在客厅看电视。",
               "bn": "বাবা বসার ঘরে টিভি দেখছেন।",
-              "bn_pron": "ba4 ba zai4 ke4 ting1 kan4 dian4 shi4 · বাবা দ্জাই খেথিং খান দিয়েনশি",
+              "bn_pron": "bà ba zài kè tīng kàn diàn shì · বাবা দ্জাই খেথিং খান দিয়েনশি",
               "tokens": [
                 {
                   "t": "爸爸",
@@ -11087,7 +11087,7 @@
               "level": "A1",
               "target": "我的手机正在充电。",
               "bn": "আমার মোবাইল এখন চার্জ হচ্ছে।",
-              "bn_pron": "wo3 de shou3 ji1 zheng4 zai4 chong1 dian4 · ওওদ্য শৌজি ঝেংযাই ছোংদিয়েন",
+              "bn_pron": "wǒ de shǒu jī zhèng zài chōng diàn · ওওদ্য শৌজি ঝেংযাই ছোংদিয়েন",
               "tokens": [
                 {
                   "t": "我的手机",
@@ -11116,7 +11116,7 @@
               "level": "A1",
               "target": "星期五我去清真寺礼拜。",
               "bn": "শুক্রবার আমি মসজিদে নামাজ পড়তে যাই।",
-              "bn_pron": "xing1 qi1 wu3 wo3 qu4 qing1 zhen1 si4 li3 bai4 · সিংছি-উ ওও ছু ছিংঝেনস্য লিবাই",
+              "bn_pron": "xīng qī wǔ wǒ qù qīng zhēn sì lǐ bài · সিংছি-উ ওও ছু ছিংঝেনস্য লিবাই",
               "tokens": [
                 {
                   "t": "星期五",
@@ -11162,7 +11162,7 @@
               "level": "A1",
               "target": "房间里有一张床和一张桌子。",
               "bn": "রুমের ভেতরে একটি বিছানা ও একটি টেবিল আছে।",
-              "bn_pron": "fang2 jian1 li3 you3 yi4 zhang1 chuang2 he2 yi4 zhang1 zhuo1 zi · ফাংজিয়েন লি ইয়ৌ ই ঝাং ছুয়াং হ্য ই ঝাং ঝুওয্য",
+              "bn_pron": "fáng jiān lǐ yǒu yì zhāng chuáng hé yì zhāng zhuō zi · ফাংজিয়েন লি ইয়ৌ ই ঝাং ছুয়াং হ্য ই ঝাং ঝুওয্য",
               "tokens": [
                 {
                   "t": "房间里",
@@ -11199,7 +11199,7 @@
               "level": "A1",
               "target": "桌子上放着一台电脑。",
               "bn": "টেবিলের উপর একটি কম্পিউটার রাখা আছে।",
-              "bn_pron": "zhuo1 zi shang4 fang4 zhe yi4 tai2 dian4 nao3 · ঝুওয্য শাং ফাংঝে ই থাই দিয়েননাও",
+              "bn_pron": "zhuō zi shàng fàng zhe yì tái diàn nǎo · ঝুওয্য শাং ফাংঝে ই থাই দিয়েননাও",
               "tokens": [
                 {
                   "t": "桌子上",
@@ -11228,7 +11228,7 @@
               "level": "A1",
               "target": "椅子下面有一只小猫。",
               "bn": "চেয়ারের নিচে একটি ছোট বিড়াল আছে।",
-              "bn_pron": "yi3 zi xia4 mian4 you3 yi4 zhi1 xiao3 mao1 · ইয্য সিয়ামিয়েন ইয়ৌ ই ঝি সিয়াও মাও",
+              "bn_pron": "yǐ zi xià miàn yǒu yì zhī xiǎo māo · ইয্য সিয়ামিয়েন ইয়ৌ ই ঝি সিয়াও মাও",
               "tokens": [
                 {
                   "t": "椅子下面",
@@ -11257,7 +11257,7 @@
               "level": "A1",
               "target": "请把门关上，开一下空调。",
               "bn": "দয়া করে দরজাটা বন্ধ করুন আর এসিটা একটু চালু করুন।",
-              "bn_pron": "qing3 ba3 men2 guan1 shang4 kai1 yi2 xia4 kong1 tiao2 · ছিং বা মেন গুয়ানশাং খাই ইসিয়া খোংথিয়াও",
+              "bn_pron": "qǐng bǎ mén guān shàng kāi yí xià kōng tiáo · ছিং বা মেন গুয়ানশাং খাই ইসিয়া খোংথিয়াও",
               "tokens": [
                 {
                   "t": "请",
@@ -11294,7 +11294,7 @@
               "level": "A1",
               "target": "我的钥匙放在书包里了。",
               "bn": "আমার চাবি স্কুলব্যাগের ভেতরে রাখা আছে।",
-              "bn_pron": "wo3 de yao4 shi fang4 zai4 shu1 bao1 li3 le · ওওদ্য ইয়াওশি ফাং দ্জাই শুবাও লি ল্য",
+              "bn_pron": "wǒ de yào shi fàng zài shū bāo lǐ le · ওওদ্য ইয়াওশি ফাং দ্জাই শুবাও লি ল্য",
               "tokens": [
                 {
                   "t": "我的钥匙",
@@ -11327,7 +11327,7 @@
               "level": "A1",
               "target": "房子里很干净，也很安静。",
               "bn": "বাসাটা বেশ পরিষ্কার এবং শান্তও।",
-              "bn_pron": "fang2 zi li3 hen3 gan1 jing4 ye3 hen3 an1 jing4 · ফাংয্য লি হেন গানজিং ইয়ে হেন আনজিং",
+              "bn_pron": "fáng zi lǐ hěn gān jìng yě hěn ān jìng · ফাংয্য লি হেন গানজিং ইয়ে হেন আনজিং",
               "tokens": [
                 {
                   "t": "房子里",
@@ -11360,7 +11360,7 @@
               "level": "A1",
               "target": "我在网上找房子租。",
               "bn": "আমি অনলাইনে ভাড়া নেওয়ার জন্য বাসা খুঁজছি।",
-              "bn_pron": "wo3 zai4 wang3 shang4 zhao3 fang2 zi zu1 · ওও দ্জাই ওয়াংশাং ঝাও ফাংয্য যু",
+              "bn_pron": "wǒ zài wǎng shàng zhǎo fáng zi zū · ওও দ্জাই ওয়াংশাং ঝাও ফাংয্য যু",
               "tokens": [
                 {
                   "t": "我",
@@ -11393,7 +11393,7 @@
               "level": "A1",
               "target": "电梯在那边，我们上五楼。",
               "bn": "লিফট ওই পাশে, আমরা পাঁচতলায় উঠব।",
-              "bn_pron": "dian4 ti1 zai4 na4 bian1 wo3 men shang4 wu3 lou2 · দিয়েনথি দ্জাই নাবিয়েন ওওমেন শাং উ লৌ",
+              "bn_pron": "diàn tī zài nà biān wǒ men shàng wǔ lóu · দিয়েনথি দ্জাই নাবিয়েন ওওমেন শাং উ লৌ",
               "tokens": [
                 {
                   "t": "电梯",
@@ -11439,7 +11439,7 @@
               "level": "A1",
               "target": "喂，请问是王先生吗？",
               "bn": "হ্যালো, আমি কি মিস্টার ওয়াংয়ের সাথে কথা বলছি?",
-              "bn_pron": "wei2 qing3 wen4 shi4 Wang2 xian1 sheng ma · ওয়েই ছিং ওয়েন শি ওয়াং সিয়েনশেং মা?",
+              "bn_pron": "wéi qǐng wèn shì Wáng xiān sheng ma · ওয়েই ছিং ওয়েন শি ওয়াং সিয়েনশেং মা?",
               "tokens": [
                 {
                   "t": "喂",
@@ -11477,7 +11477,7 @@
               "level": "A1",
               "target": "对，我是。请问您是哪位？",
               "bn": "জি, আমিই। আপনি কে বলছেন?",
-              "bn_pron": "dui4 wo3 shi4 qing3 wen4 nin2 shi4 na3 wei4 · তুয়েই ওও শি ছিং ওয়েন নিন শি না ওয়েই?",
+              "bn_pron": "duì wǒ shì qǐng wèn nín shì nǎ wèi · তুয়েই ওও শি ছিং ওয়েন নিন শি না ওয়েই?",
               "tokens": [
                 {
                   "t": "对",
@@ -11511,7 +11511,7 @@
               "level": "A1",
               "target": "我正在工作，待会儿给你回电话。",
               "bn": "আমি এখন কাজ করছি, একটু পরে আপনাকে ব্যাক কল করছি।",
-              "bn_pron": "wo3 zheng4 zai4 gong1 zuo4 dai1 hui4 er gei3 ni3 hui2 dian4 hua4 · ওও ঝেংযাই গোংযুও দাইহুয়ের গেই নি হুয়েই দিয়েনহুয়া",
+              "bn_pron": "wǒ zhèng zài gōng zuò dāi huì er gěi nǐ huí diàn huà · ওও ঝেংযাই গোংযুও দাইহুয়ের গেই নি হুয়েই দিয়েনহুয়া",
               "tokens": [
                 {
                   "t": "我正在",
@@ -11548,7 +11548,7 @@
               "level": "A1",
               "target": "请发微信给我吧。",
               "bn": "দয়া করে আমাকে উইচ্যাটে মেসেজ দিন।",
-              "bn_pron": "qing3 fa1 Wei1 xin4 gei3 wo3 ba · ছিং ফা ওয়েইসিন গেই ওও বা",
+              "bn_pron": "qǐng fā Wēi xìn gěi wǒ ba · ছিং ফা ওয়েইসিন গেই ওও বা",
               "tokens": [
                 {
                   "t": "请",
@@ -11581,7 +11581,7 @@
               "level": "A1",
               "target": "我每天看电子邮件。",
               "bn": "আমি প্রতিদিন ইমেইল চেক করি।",
-              "bn_pron": "wo3 mei3 tian1 kan4 dian4 zi3 you2 jian4 · ওও মেইথিয়েন খান দিয়েনয্য ইয়ৌজিয়েন",
+              "bn_pron": "wǒ měi tiān kàn diàn zǐ yóu jiàn · ওও মেইথিয়েন খান দিয়েনয্য ইয়ৌজিয়েন",
               "tokens": [
                 {
                   "t": "我",
@@ -11614,7 +11614,7 @@
               "level": "A1",
               "target": "下午三点有个重要会议。",
               "bn": "বিকেল তিনটায় একটি গুরুত্বপূর্ণ মিটিং আছে।",
-              "bn_pron": "xia4 wu3 san1 dian3 you3 ge4 zhong4 yao4 hui4 yi4 · সিয়াউ সান দিয়েন ইয়ৌ গে ঝোং-ইয়াও হুয়েই-ই",
+              "bn_pron": "xià wǔ sān diǎn yǒu gè zhòng yào huì yì · সিয়াউ সান দিয়েন ইয়ৌ গে ঝোং-ইয়াও হুয়েই-ই",
               "tokens": [
                 {
                   "t": "下午三点",
@@ -11647,7 +11647,7 @@
               "level": "A1",
               "target": "我今天不加班。",
               "bn": "আজ আমি ওভারটাইম করছি না।",
-              "bn_pron": "wo3 jin1 tian1 bu4 jia1 ban1 · ওও চিনথিয়েন বু জিয়াবান",
+              "bn_pron": "wǒ jīn tiān bù jiā bān · ওও চিনথিয়েন বু জিয়াবান",
               "tokens": [
                 {
                   "t": "我",
@@ -11676,7 +11676,7 @@
               "level": "A1",
               "target": "工作辛苦了！",
               "bn": "কাজে অনেক পরিশ্রম করলেন (শুভেচ্ছা)!",
-              "bn_pron": "gong1 zuo4 xin1 ku3 le · গোংযুও সিনখু ল্য",
+              "bn_pron": "gōng zuò xīn kǔ le · গোংযুও সিনখু ল্য",
               "tokens": [
                 {
                   "t": "工作",
@@ -11723,7 +11723,7 @@
               "level": "A1",
               "target": "今天天气怎么样？",
               "bn": "আজকের আবহাওয়া কেমন?",
-              "bn_pron": "jin1 tian1 tian1 qi4 zen3 me yang4 · চিনথিয়েন থিয়েনছি জেন্ম্য ইয়াং?",
+              "bn_pron": "jīn tiān tiān qì zěn me yàng · চিনথিয়েন থিয়েনছি জেন্ম্য ইয়াং?",
               "tokens": [
                 {
                   "t": "今天",
@@ -11753,7 +11753,7 @@
               "level": "A1",
               "target": "今天很晴朗，有点儿热。",
               "bn": "আজ আকাশ পরিষ্কার/রোদেলা, একটু গরম আছে।",
-              "bn_pron": "jin1 tian1 hen3 qing2 lang3 you3 dian3 er re4 · চিনথিয়েন হেন ছিংলাং ইয়ৌ দিয়ার রে",
+              "bn_pron": "jīn tiān hěn qíng lǎng yǒu diǎn er rè · চিনথিয়েন হেন ছিংলাং ইয়ৌ দিয়ার রে",
               "tokens": [
                 {
                   "t": "今天",
@@ -11783,7 +11783,7 @@
               "level": "A1",
               "target": "外面下雨了，带伞吧。",
               "bn": "বাইরে বৃষ্টি নেমেছে, ছাতা নিয়ে বের হও।",
-              "bn_pron": "wai4 mian4 xia4 yu3 le dai4 san3 ba · ওয়াইমিয়েন সিয়া-ইউ ল্য দাই সান বা",
+              "bn_pron": "wài miàn xià yǔ le dài sǎn ba · ওয়াইমিয়েন সিয়া-ইউ ল্য দাই সান বা",
               "tokens": [
                 {
                   "t": "外面",
@@ -11816,7 +11816,7 @@
               "level": "A1",
               "target": "北京的冬天很冷，还会下雪。",
               "bn": "বেইজিংয়ে শীতকালে খুব ঠান্ডা, আর তুষারও পড়ে।",
-              "bn_pron": "Bei3 jing1 de dong1 tian1 hen3 leng3 hai2 hui4 xia4 xue3 · বেইজিংদ্য দোংথিয়েন হেন লেং হাই হুয়েই সিয়া-সুয়ে",
+              "bn_pron": "Běi jīng de dōng tiān hěn lěng hái huì xià xuě · বেইজিংদ্য দোংথিয়েন হেন লেং হাই হুয়েই সিয়া-সুয়ে",
               "tokens": [
                 {
                   "t": "北京的冬天",
@@ -11845,7 +11845,7 @@
               "level": "A1",
               "target": "今天风很大。",
               "bn": "আজ প্রচণ্ড বাতাস বইছে।",
-              "bn_pron": "jin1 tian1 feng1 hen3 da4 · চিনথিয়েন ফেং হেন দা",
+              "bn_pron": "jīn tiān fēng hěn dà · চিনথিয়েন ফেং হেন দা",
               "tokens": [
                 {
                   "t": "今天",
@@ -11874,7 +11874,7 @@
               "level": "A1",
               "target": "明天会下雨吗？",
               "bn": "আগামীকাল কি বৃষ্টি হবে?",
-              "bn_pron": "ming2 tian1 hui4 xia4 yu3 ma · মিংথিয়েন হুয়েই সিয়া-ইউ মা?",
+              "bn_pron": "míng tiān huì xià yǔ ma · মিংথিয়েন হুয়েই সিয়া-ইউ মা?",
               "tokens": [
                 {
                   "t": "明天",
@@ -11907,7 +11907,7 @@
               "level": "A1",
               "target": "天气预报说今天是阴天。",
               "bn": "আবহাওয়ার খবরে বলেছে আজ আকাশ মেঘলা থাকবে।",
-              "bn_pron": "tian1 qi4 yu4 bao4 shuo1 jin1 tian1 shi4 yin1 tian1 · থিয়েনছি ইউবাও শুও চিনথিয়েন শি ইনথিয়েন",
+              "bn_pron": "tiān qì yù bào shuō jīn tiān shì yīn tiān · থিয়েনছি ইউবাও শুও চিনথিয়েন শি ইনথিয়েন",
               "tokens": [
                 {
                   "t": "天气预报",
@@ -11944,7 +11944,7 @@
               "level": "A1",
               "target": "多穿点儿衣服，别感冒了。",
               "bn": "একটু মোটা কাপড় পরো, ঠান্ডা লাগিও না যেন।",
-              "bn_pron": "duo1 chuan1 dian3 er yi1 fu bie2 gan3 mao4 le · দুও ছুয়ান দিয়ার ইফু বিয়ে গানমাও ল্য",
+              "bn_pron": "duō chuān diǎn er yī fu bié gǎn mào le · দুও ছুয়ান দিয়ার ইফু বিয়ে গানমাও ল্য",
               "tokens": [
                 {
                   "t": "多穿点儿",
@@ -11990,7 +11990,7 @@
               "level": "A1",
               "target": "春天",
               "bn": "বসন্তকাল",
-              "bn_pron": "chun1 tian1 · ছুনথিয়েন",
+              "bn_pron": "chūn tiān · ছুনথিয়েন",
               "tokens": [
                 {
                   "t": "春",
@@ -12015,7 +12015,7 @@
               "level": "A1",
               "target": "夏天",
               "bn": "গ্রীষ্মকাল",
-              "bn_pron": "xia4 tian1 · সিয়াথিয়েন",
+              "bn_pron": "xià tiān · সিয়াথিয়েন",
               "tokens": [
                 {
                   "t": "夏",
@@ -12040,7 +12040,7 @@
               "level": "A1",
               "target": "秋天",
               "bn": "শরৎকাল",
-              "bn_pron": "qiu1 tian1 · ছিউথিয়েন",
+              "bn_pron": "qiū tiān · ছিউথিয়েন",
               "tokens": [
                 {
                   "t": "秋",
@@ -12065,7 +12065,7 @@
               "level": "A1",
               "target": "冬天",
               "bn": "শীতকাল",
-              "bn_pron": "dong1 tian1 · দোংথিয়েন",
+              "bn_pron": "dōng tiān · দোংথিয়েন",
               "tokens": [
                 {
                   "t": "冬",
@@ -12090,7 +12090,7 @@
               "level": "A1",
               "target": "我最喜欢秋天，很凉快。",
               "bn": "আমার সবচেয়ে পছন্দ শরৎকাল, খুব আরামদায়ক ঠান্ডা থাকে।",
-              "bn_pron": "wo3 zui4 xi3 huan1 qiu1 tian1 hen3 liang2 kuai · ওও জুই সিহুয়ান ছিউথিয়েন হেন লিয়াংখুয়াই",
+              "bn_pron": "wǒ zuì xǐ huān qiū tiān hěn liáng kuai · ওও জুই সিহুয়ান ছিউথিয়েন হেন লিয়াংখুয়াই",
               "tokens": [
                 {
                   "t": "我最喜欢",
@@ -12119,7 +12119,7 @@
               "level": "A1",
               "target": "春天花开了，非常漂亮。",
               "bn": "বসন্তে ফুল ফোটে, দেখতে খুব সুন্দর।",
-              "bn_pron": "chun1 tian1 hua1 kai1 le fei1 chang2 piao4 liang · ছুনথিয়েন হুয়া খাই ল্য ফেইছাং ফিয়াওলিয়াং",
+              "bn_pron": "chūn tiān huā kāi le fēi cháng piào liang · ছুনথিয়েন হুয়া খাই ল্য ফেইছাং ফিয়াওলিয়াং",
               "tokens": [
                 {
                   "t": "春天",
@@ -12148,7 +12148,7 @@
               "level": "A1",
               "target": "孟加拉国的夏天很长。",
               "bn": "বাংলাদেশে গ্রীষ্মকাল অনেক দীর্ঘ।",
-              "bn_pron": "Meng4 jia1 la1 guo2 de xia4 tian1 hen3 chang2 · মেংজিয়ালাগুওদ্য সিয়াথিয়েন হেন ছাং",
+              "bn_pron": "Mèng jiā lā guó de xià tiān hěn cháng · মেংজিয়ালাগুওদ্য সিয়াথিয়েন হেন ছাং",
               "tokens": [
                 {
                   "t": "孟加拉国",
@@ -12177,7 +12177,7 @@
               "level": "A1",
               "target": "现在多少度？",
               "bn": "এখন তাপমাত্রা কত ডিগ্রি?",
-              "bn_pron": "xian4 zai4 duo1 shao du4 · সিয়েনদ্জাই দুওশাও দু?",
+              "bn_pron": "xiàn zài duō shao dù · সিয়েনদ্জাই দুওশাও দু?",
               "tokens": [
                 {
                   "t": "现在",
@@ -12219,7 +12219,7 @@
               "level": "A1",
               "target": "我身体不太舒服。",
               "bn": "আমার শরীরটা তেমন ভালো লাগছে না।",
-              "bn_pron": "wo3 shen1 ti3 bu2 tai4 shu1 fu · ওও শেনথি বু থাই শুফু",
+              "bn_pron": "wǒ shēn tǐ bú tài shū fu · ওও শেনথি বু থাই শুফু",
               "tokens": [
                 {
                   "t": "我身体",
@@ -12248,7 +12248,7 @@
               "level": "A1",
               "target": "我头疼，也有点儿发烧。",
               "bn": "আমার মাথাব্যথা করছে, সাথে একটু জ্বরও আছে।",
-              "bn_pron": "wo3 tou2 teng2 ye3 you3 dian3 er fa1 shao1 · ওও থৌথেং ইয়ে ইয়ৌ দিয়ার ফাশাও",
+              "bn_pron": "wǒ tóu téng yě yǒu diǎn er fā shāo · ওও থৌথেং ইয়ে ইয়ৌ দিয়ার ফাশাও",
               "tokens": [
                 {
                   "t": "我",
@@ -12285,7 +12285,7 @@
               "level": "A1",
               "target": "我肚子疼。",
               "bn": "আমার পেটে ব্যথা করছে।",
-              "bn_pron": "wo3 du4 zi teng2 · ওও দুয্য থেং",
+              "bn_pron": "wǒ dù zi téng · ওও দুয্য থেং",
               "tokens": [
                 {
                   "t": "我",
@@ -12314,7 +12314,7 @@
               "level": "A1",
               "target": "我要去医院看医生。",
               "bn": "আমি হাসপাতালে ডাক্তার দেখাতে যাব।",
-              "bn_pron": "wo3 yao4 qu4 yi1 yuan4 kan4 yi1 sheng1 · ওও ইয়াও ছু ই-ইয়ুয়েন খান ইশেং",
+              "bn_pron": "wǒ yào qù yī yuàn kàn yī shēng · ওও ইয়াও ছু ই-ইয়ুয়েন খান ইশেং",
               "tokens": [
                 {
                   "t": "我要去",
@@ -12343,7 +12343,7 @@
               "level": "A1",
               "target": "这个药每天吃几次？",
               "bn": "এই ওষুধটা দিনে কয়বার খেতে হবে?",
-              "bn_pron": "zhe4 ge yao4 mei3 tian1 chi1 ji3 ci4 · ঝেগে ইয়াও মেইথিয়েন ছি জি ছ্য?",
+              "bn_pron": "zhè ge yào měi tiān chī jǐ cì · ঝেগে ইয়াও মেইথিয়েন ছি জি ছ্য?",
               "tokens": [
                 {
                   "t": "这个药",
@@ -12372,7 +12372,7 @@
               "level": "A1",
               "target": "每天吃三次，每次两片。",
               "bn": "দিনে তিনবার, প্রতিবার দুইটি করে ট্যাবলেট।",
-              "bn_pron": "mei3 tian1 chi1 san1 ci4 mei3 ci4 liang3 pian4 · মেইথিয়েন ছি সান ছ্য মেই ছ্য লিয়াং ফিয়েন",
+              "bn_pron": "měi tiān chī sān cì měi cì liǎng piàn · মেইথিয়েন ছি সান ছ্য মেই ছ্য লিয়াং ফিয়েন",
               "tokens": [
                 {
                   "t": "每天",
@@ -12409,7 +12409,7 @@
               "level": "A1",
               "target": "多喝热水，好好休息。",
               "bn": "বেশি করে গরম পানি পান করুন ও ভালো করে বিশ্রাম নিন।",
-              "bn_pron": "duo1 he1 re4 shui3 hao3 hao3 xiu1 xi · দুও হ্য রেশুয়েই হাওহাও সিউসি",
+              "bn_pron": "duō hē rè shuǐ hǎo hǎo xiū xi · দুও হ্য রেশুয়েই হাওহাও সিউসি",
               "tokens": [
                 {
                   "t": "多喝",
@@ -12442,7 +12442,7 @@
               "level": "A1",
               "target": "祝你早日康复！",
               "bn": "দ্রুত সুস্থ হয়ে উঠুন!",
-              "bn_pron": "zhu4 ni3 zao3 ri4 kang1 fu4 · ঝু নি যাওরি খাংফু",
+              "bn_pron": "zhù nǐ zǎo rì kāng fù · ঝু নি যাওরি খাংফু",
               "tokens": [
                 {
                   "t": "祝你",
@@ -12484,7 +12484,7 @@
               "level": "A1",
               "target": "请帮帮我，这是紧急情况！",
               "bn": "দয়া করে আমাকে সাহায্য করুন, এটা জরুরি অবস্থা!",
-              "bn_pron": "qing3 bang1 bang1 wo3 zhe4 shi4 jin3 ji2 qing2 kuang4 · ছিং বাংবাং ওও ঝে শি জিনজি ছিংখুয়াং",
+              "bn_pron": "qǐng bāng bāng wǒ zhè shì jǐn jí qíng kuàng · ছিং বাংবাং ওও ঝে শি জিনজি ছিংখুয়াং",
               "tokens": [
                 {
                   "t": "请帮帮我",
@@ -12513,7 +12513,7 @@
               "level": "A1",
               "target": "请帮我叫救护车！",
               "bn": "দয়া করে আমার জন্য অ্যাম্বুলেন্স ডাকুন!",
-              "bn_pron": "qing3 bang1 wo3 jiao4 jiu4 hu4 che1 · ছিং বাং ওও জিয়াও জিউহুছে",
+              "bn_pron": "qǐng bāng wǒ jiào jiù hù chē · ছিং বাং ওও জিয়াও জিউহুছে",
               "tokens": [
                 {
                   "t": "请帮我",
@@ -12542,7 +12542,7 @@
               "level": "A1",
               "target": "附近哪里有药店？",
               "bn": "আশেপাশে ফার্মেসি কোথায় আছে?",
-              "bn_pron": "fu4 jin4 na3 li3 you3 yao4 dian4 · ফুজিন নালি ইয়ৌ ইয়াওদিয়েন?",
+              "bn_pron": "fù jìn nǎ lǐ yǒu yào diàn · ফুজিন নালি ইয়ৌ ইয়াওদিয়েন?",
               "tokens": [
                 {
                   "t": "附近",
@@ -12571,7 +12571,7 @@
               "level": "A1",
               "target": "我想买一盒感冒药。",
               "bn": "আমি এক বক্স সর্দি-কাশির ওষুধ কিনতে চাই।",
-              "bn_pron": "wo3 xiang3 mai3 yi4 he2 gan3 mao4 yao4 · ওও সিয়াং মাই ই হ্য গানমাও ইয়াও",
+              "bn_pron": "wǒ xiǎng mǎi yì hé gǎn mào yào · ওও সিয়াং মাই ই হ্য গানমাও ইয়াও",
               "tokens": [
                 {
                   "t": "我想买",
@@ -12600,7 +12600,7 @@
               "level": "A1",
               "target": "我的护照和手机丢了！",
               "bn": "আমার পাসপোর্ট আর মোবাইল হারিয়ে গেছে!",
-              "bn_pron": "wo3 de hu4 zhao4 he2 shou3 ji1 diu1 le · ওওদ্য হুঝাও হ্য শৌজি দিউ ল্য",
+              "bn_pron": "wǒ de hù zhào hé shǒu jī diū le · ওওদ্য হুঝাও হ্য শৌজি দিউ ল্য",
               "tokens": [
                 {
                   "t": "我的",
@@ -12637,7 +12637,7 @@
               "level": "A1",
               "target": "我要去警察局报警。",
               "bn": "আমি থানায় রিপোর্ট করতে যাব।",
-              "bn_pron": "wo3 yao4 qu4 jing3 cha2 ju2 bao4 jing3 · ওও ইয়াও ছু জিংছাজু বাওজিং",
+              "bn_pron": "wǒ yào qù jǐng chá jú bào jǐng · ওও ইয়াও ছু জিংছাজু বাওজিং",
               "tokens": [
                 {
                   "t": "我要去",
@@ -12666,7 +12666,7 @@
               "level": "A1",
               "target": "我需要联系大使馆。",
               "bn": "আমার দূতাবাসের সাথে যোগাযোগ করা প্রয়োজন।",
-              "bn_pron": "wo3 xu1 yao4 lian2 xi4 da4 shi3 guan3 · ওও সু-ইয়াও লিয়েনসি দাশিগুয়ান",
+              "bn_pron": "wǒ xū yào lián xì dà shǐ guǎn · ওও সু-ইয়াও লিয়েনসি দাশিগুয়ান",
               "tokens": [
                 {
                   "t": "我",
@@ -12699,7 +12699,7 @@
               "level": "A1",
               "target": "谢谢你救了我！",
               "bn": "আমাকে বাঁচানো/সাহায্য করার জন্য অনেক ধন্যবাদ!",
-              "bn_pron": "xie4 xie ni3 jiu4 le wo3 · সিয়েসিয়ে নি জিউ ল্য ওও",
+              "bn_pron": "xiè xie nǐ jiù le wǒ · সিয়েসিয়ে নি জিউ ল্য ওও",
               "tokens": [
                 {
                   "t": "谢谢你",
@@ -12750,7 +12750,7 @@
               "level": "A1",
               "target": "你有什么爱好？",
               "bn": "তোমার কী শখ আছে?",
-              "bn_pron": "ni3 you3 shen2 me ai4 hao4 · নি ইয়ৌ শেন্ম্য আইহাও?",
+              "bn_pron": "nǐ yǒu shén me ài hào · নি ইয়ৌ শেন্ম্য আইহাও?",
               "tokens": [
                 {
                   "t": "你",
@@ -12784,7 +12784,7 @@
               "level": "A1",
               "target": "我喜欢看电影和听音乐。",
               "bn": "আমি সিনেমা দেখতে আর গান শুনতে পছন্দ করি।",
-              "bn_pron": "wo3 xi3 huan1 kan4 dian4 ying3 he2 ting1 yin1 yue4 · ওও সিহুয়ান খান দিয়েন-ইং হ্য থিং ইন-ইয়ুয়ে",
+              "bn_pron": "wǒ xǐ huān kàn diàn yǐng hé tīng yīn yuè · ওও সিহুয়ান খান দিয়েন-ইং হ্য থিং ইন-ইয়ুয়ে",
               "tokens": [
                 {
                   "t": "我",
@@ -12822,7 +12822,7 @@
               "level": "A1",
               "target": "我周末喜欢去公园散步。",
               "bn": "আমি সপ্তাহান্তে পার্কে হাঁটতে যেতে পছন্দ করি।",
-              "bn_pron": "wo3 zhou1 mo4 xi3 huan1 qu4 gong1 yuan2 san4 bu4 · ওও ঝৌমো সিহুয়ান ছু গোং-ইয়ুয়েন সানবু",
+              "bn_pron": "wǒ zhōu mò xǐ huān qù gōng yuán sàn bù · ওও ঝৌমো সিহুয়ান ছু গোং-ইয়ুয়েন সানবু",
               "tokens": [
                 {
                   "t": "我",
@@ -12859,7 +12859,7 @@
               "level": "A1",
               "target": "你喜欢踢足球还是打板球？",
               "bn": "তুমি ফুটবল খেলতে পছন্দ করো নাকি ক্রিকেট?",
-              "bn_pron": "ni3 xi3 huan1 ti1 zu2 qiu2 hai2 shi4 da3 ban3 qiu2 · নি সিহুয়ান থি যুছিউ হাইশি দা বানছিউ?",
+              "bn_pron": "nǐ xǐ huān tī zú qiú hái shì dǎ bǎn qiú · নি সিহুয়ান থি যুছিউ হাইশি দা বানছিউ?",
               "tokens": [
                 {
                   "t": "你喜欢",
@@ -12892,7 +12892,7 @@
               "level": "A1",
               "target": "我非常喜欢喝中国绿茶。",
               "bn": "আমি চীনা গ্রিন টি পান করতে খুব ভালোবাসি।",
-              "bn_pron": "wo3 fei1 chang2 xi3 huan1 he1 Zhong1 guo2 lv4 cha2 · ওও ফেইছাং সিহুয়ান হ্য চোংকুও লুছা",
+              "bn_pron": "wǒ fēi cháng xǐ huān hē Zhōng guó lǜ chá · ওও ফেইছাং সিহুয়ান হ্য চোংকুও লুছা",
               "tokens": [
                 {
                   "t": "我",
@@ -12925,7 +12925,7 @@
               "level": "A1",
               "target": "我很喜欢拍照和旅游。",
               "bn": "আমি ছবি তুলতে ও ভ্রমণ করতে খুব ভালোবাসি।",
-              "bn_pron": "wo3 hen2 xi3 huan1 pai1 zhao4 he2 lv3 you2 · ওও হেন সিহুয়ান ফাইঝাও হ্য লুইয়ৌ",
+              "bn_pron": "wǒ hén xǐ huān pāi zhào hé lǚ yóu · ওও হেন সিহুয়ান ফাইঝাও হ্য লুইয়ৌ",
               "tokens": [
                 {
                   "t": "我",
@@ -12962,7 +12962,7 @@
               "level": "A1",
               "target": "我不喜欢太吵的地方。",
               "bn": "আমি বেশি কোলাহলপূর্ণ জায়গা পছন্দ করি না।",
-              "bn_pron": "wo3 bu4 xi3 huan1 tai4 chao3 de di4 fang · ওও বু সিহুয়ান থাই ছাওদ্য দিফাং",
+              "bn_pron": "wǒ bù xǐ huān tài chǎo de dì fang · ওও বু সিহুয়ান থাই ছাওদ্য দিফাং",
               "tokens": [
                 {
                   "t": "我",
@@ -12995,7 +12995,7 @@
               "level": "A1",
               "target": "周末我们一起去爬山吧。",
               "bn": "চলো সপ্তাহান্তে আমরা একসাথে পাহাড়ে ঘুরতে যাই।",
-              "bn_pron": "zhou1 mo4 wo3 men yi4 qi3 qu4 pa2 shan1 ba · ঝৌমো ওওমেন ইছি ছু ফাশান বা",
+              "bn_pron": "zhōu mò wǒ men yì qǐ qù pá shān ba · ঝৌমো ওওমেন ইছি ছু ফাশান বা",
               "tokens": [
                 {
                   "t": "周末",
@@ -13045,7 +13045,7 @@
               "level": "A1",
               "target": "我会写很多汉字了。",
               "bn": "আমি এখন অনেকগুলো চীনা অক্ষর লিখতে পারি।",
-              "bn_pron": "wo3 hui4 xie3 hen3 duo1 Han4 zi4 le · ওও হুয়েই সিয়ে হেন দুও হানয্য ল্য",
+              "bn_pron": "wǒ huì xiě hěn duō Hàn zì le · ওও হুয়েই সিয়ে হেন দুও হানয্য ল্য",
               "tokens": [
                 {
                   "t": "我",
@@ -13086,7 +13086,7 @@
               "level": "A1",
               "target": "你会做中国菜吗？",
               "bn": "তুমি কি চীনা রান্না করতে জানো?",
-              "bn_pron": "ni3 hui4 zuo4 Zhong1 guo2 cai4 ma · নি হুয়েই যুও চোংকুও ছাই মা?",
+              "bn_pron": "nǐ huì zuò Zhōng guó cài ma · নি হুয়েই যুও চোংকুও ছাই মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -13123,7 +13123,7 @@
               "level": "A1",
               "target": "我不会游泳，可是我会开车。",
               "bn": "আমি সাঁতার জানি না, কিন্তু গাড়ি চালাতে জানি।",
-              "bn_pron": "wo3 bu2 hui4 you2 yong3 ke3 shi4 wo3 hui4 kai1 che1 · ওও বু হুয়েই ইয়ৌ-ইয়োং খ্যশি ওও হুয়েই খাইছে",
+              "bn_pron": "wǒ bú huì yóu yǒng kě shì wǒ huì kāi chē · ওও বু হুয়েই ইয়ৌ-ইয়োং খ্যশি ওও হুয়েই খাইছে",
               "tokens": [
                 {
                   "t": "我不会",
@@ -13160,7 +13160,7 @@
               "level": "A1",
               "target": "今天能看完这本书吗？",
               "bn": "আজ কি এই বইটা পড়ে শেষ করা সম্ভব?",
-              "bn_pron": "jin1 tian1 neng2 kan4 wan2 zhe4 ben3 shu1 ma · চিনথিয়েন নেং খানওয়ান ঝেবেন শু মা?",
+              "bn_pron": "jīn tiān néng kàn wán zhè běn shū ma · চিনথিয়েন নেং খানওয়ান ঝেবেন শু মা?",
               "tokens": [
                 {
                   "t": "今天",
@@ -13197,7 +13197,7 @@
               "level": "A1",
               "target": "这里可以拍照吗？",
               "bn": "এখানে কি ছবি তোলা যাবে?",
-              "bn_pron": "zhe4 li3 ke2 yi3 pai1 zhao4 ma · ঝেলি খে-ই ফাইঝাও মা?",
+              "bn_pron": "zhè lǐ ké yǐ pāi zhào ma · ঝেলি খে-ই ফাইঝাও মা?",
               "tokens": [
                 {
                   "t": "这里",
@@ -13230,7 +13230,7 @@
               "level": "A1",
               "target": "不好意思，里面不可以抽烟。",
               "bn": "দুঃখিত, ভেতরে ধূমপান করা নিষেধ।",
-              "bn_pron": "bu4 hao3 yi4 si li3 mian4 bu4 ke2 yi3 chou1 yan1 · বু হাও-ইস্য লিমিয়েন বু খে-ই ছৌ-ইয়েন",
+              "bn_pron": "bù hǎo yì si lǐ miàn bù ké yǐ chōu yān · বু হাও-ইস্য লিমিয়েন বু খে-ই ছৌ-ইয়েন",
               "tokens": [
                 {
                   "t": "不好意思",
@@ -13263,7 +13263,7 @@
               "level": "A1",
               "target": "你能帮我拍张照片吗？",
               "bn": "আপনি কি আমার একটা ছবি তুলে দিতে পারবেন?",
-              "bn_pron": "ni3 neng2 bang1 wo3 pai1 zhang1 zhao4 pian4 ma · নি নেং বাং ওও ফাই ঝাং ঝাওফিয়েন মা?",
+              "bn_pron": "nǐ néng bāng wǒ pāi zhāng zhào piàn ma · নি নেং বাং ওও ফাই ঝাং ঝাওফিয়েন মা?",
               "tokens": [
                 {
                   "t": "你能",
@@ -13296,7 +13296,7 @@
               "level": "A1",
               "target": "只要努力，你一定能学好。",
               "bn": "চেষ্টা করলে তুমি অবশ্যই ভালোভাবে শিখতে পারবে।",
-              "bn_pron": "zhi3 yao4 nu3 li4 ni3 yi2 ding4 neng2 xue2 hao3 · ঝি-ইয়াও নুলি নি ইদিং নেং সুয়েহাও",
+              "bn_pron": "zhǐ yào nǔ lì nǐ yí dìng néng xué hǎo · ঝি-ইয়াও নুলি নি ইদিং নেং সুয়েহাও",
               "tokens": [
                 {
                   "t": "只要",
@@ -13346,7 +13346,7 @@
               "level": "A1",
               "target": "你喜欢什么颜色？",
               "bn": "তুমি কোন রং পছন্দ করো?",
-              "bn_pron": "ni3 xi3 huan1 shen2 me yan2 se4 · নি সিহুয়ান শেন্ম্য ইয়েনসে?",
+              "bn_pron": "nǐ xǐ huān shén me yán sè · নি সিহুয়ান শেন্ম্য ইয়েনসে?",
               "tokens": [
                 {
                   "t": "你喜欢",
@@ -13375,7 +13375,7 @@
               "level": "A1",
               "target": "我最喜欢蓝色和绿色。",
               "bn": "আমি নীল আর সবুজ রং সবচেয়ে বেশি পছন্দ করি।",
-              "bn_pron": "wo3 zui4 xi3 huan1 lan2 se4 he2 lv4 se4 · ওও জুই সিহুয়ান লানসে হ্য লুসে",
+              "bn_pron": "wǒ zuì xǐ huān lán sè hé lǜ sè · ওও জুই সিহুয়ান লানসে হ্য লুসে",
               "tokens": [
                 {
                   "t": "我最喜欢",
@@ -13408,7 +13408,7 @@
               "level": "A1",
               "target": "她今天穿了一件红裙子。",
               "bn": "সে আজ একটি লাল স্কার্ট/জামা পরেছে।",
-              "bn_pron": "ta1 jin1 tian1 chuan1 le yi2 jian4 hong2 qun2 zi · থা চিনথিয়েন ছুয়ান ল্য ই জিয়েন হোংছুনয্য",
+              "bn_pron": "tā jīn tiān chuān le yí jiàn hóng qún zi · থা চিনথিয়েন ছুয়ান ল্য ই জিয়েন হোংছুনয্য",
               "tokens": [
                 {
                   "t": "她",
@@ -13445,7 +13445,7 @@
               "level": "A1",
               "target": "那双黑色的运动鞋很好看。",
               "bn": "ওই কালো স্নিকার্স জোড়া দেখতে খুব সুন্দর।",
-              "bn_pron": "na4 shuang1 hei1 se4 de yun4 dong4 xie2 hen2 hao3 kan4 · না শুয়াং হেইসে দ্য ইয়ুনদোংসিয়ে হেন হাওখান",
+              "bn_pron": "nà shuāng hēi sè de yùn dòng xié hén hǎo kàn · না শুয়াং হেইসে দ্য ইয়ুনদোংসিয়ে হেন হাওখান",
               "tokens": [
                 {
                   "t": "那双",
@@ -13478,7 +13478,7 @@
               "level": "A1",
               "target": "我的老师戴着一副眼镜。",
               "bn": "আমার শিক্ষক একটি চশমা পরে আছেন।",
-              "bn_pron": "wo3 de lao3 shi1 dai4 zhe yi2 fu4 yan3 jing4 · ওওদ্য লাওশি দাইঝে ই ফু ইয়েনজিং",
+              "bn_pron": "wǒ de lǎo shī dài zhe yí fù yǎn jìng · ওওদ্য লাওশি দাইঝে ই ফু ইয়েনজিং",
               "tokens": [
                 {
                   "t": "我的老师",
@@ -13511,7 +13511,7 @@
               "level": "A1",
               "target": "外面太阳很大，戴帽子吧。",
               "bn": "বাইরে কড়া রোদ, টুপি পরে নাও।",
-              "bn_pron": "wai4 mian4 tai4 yang2 hen3 da4 dai4 mao4 zi ba · ওয়াইমিয়েন থাই-ইয়াং হেন দা দাই মাওয্য বা",
+              "bn_pron": "wài miàn tài yáng hěn dà dài mào zi ba · ওয়াইমিয়েন থাই-ইয়াং হেন দা দাই মাওয্য বা",
               "tokens": [
                 {
                   "t": "外面",
@@ -13544,7 +13544,7 @@
               "level": "A1",
               "target": "这个手机很轻，也很漂亮。",
               "bn": "এই মোবাইলটা বেশ হালকা এবং সুন্দরও।",
-              "bn_pron": "zhe4 ge shou3 ji1 hen3 qing1 ye3 hen3 piao4 liang · ঝেগে শৌজি হেন ছিং ইয়ে হেন ফিয়াওলিয়াং",
+              "bn_pron": "zhè ge shǒu jī hěn qīng yě hěn piào liang · ঝেগে শৌজি হেন ছিং ইয়ে হেন ফিয়াওলিয়াং",
               "tokens": [
                 {
                   "t": "这个手机",
@@ -13577,7 +13577,7 @@
               "level": "A1",
               "target": "你的新背包真好看！",
               "bn": "তোমার নতুন ব্যাকপ্যাকটা সত্যিই খুব সুন্দর!",
-              "bn_pron": "ni3 de xin1 bei1 bao1 zhen1 hao3 kan4 · নিদ্য সিন বেইবাও ঝেন হাওখান",
+              "bn_pron": "nǐ de xīn bēi bāo zhēn hǎo kàn · নিদ্য সিন বেইবাও ঝেন হাওখান",
               "tokens": [
                 {
                   "t": "你的",
@@ -13619,7 +13619,7 @@
               "level": "A1",
               "target": "今天能见到你，我太开心了！",
               "bn": "আজ তোমার সাথে দেখা হওয়ায় আমি ভীষণ খুশি!",
-              "bn_pron": "jin1 tian1 neng2 jian4 dao4 ni3 wo3 tai4 kai1 xin1 le · চিনথিয়েন নেং জিয়েনদাও নি ওও থাই খাইসিন ল্য",
+              "bn_pron": "jīn tiān néng jiàn dào nǐ wǒ tài kāi xīn le · চিনথিয়েন নেং জিয়েনদাও নি ওও থাই খাইসিন ল্য",
               "tokens": [
                 {
                   "t": "今天",
@@ -13652,7 +13652,7 @@
               "level": "A1",
               "target": "别担心，一切都会好的。",
               "bn": "দুশ্চিন্তা করো না, সবকিছু ঠিক হয়ে যাবে।",
-              "bn_pron": "bie2 dan1 xin1 yi2 qie4 dou1 hui4 hao3 de · বিয়ে দানসিন ইছিয়ে দৌ হুয়েই হাওদ্য",
+              "bn_pron": "bié dān xīn yí qiè dōu huì hǎo de · বিয়ে দানসিন ইছিয়ে দৌ হুয়েই হাওদ্য",
               "tokens": [
                 {
                   "t": "别担心",
@@ -13681,7 +13681,7 @@
               "level": "A1",
               "target": "别生气了，是我错了。",
               "bn": "রাগ করো না, ভুলটা আমারই ছিল।",
-              "bn_pron": "bie2 sheng1 qi4 le shi4 wo3 cuo4 le · বিয়ে শেংছি ল্য শি ওও ছুও ল্য",
+              "bn_pron": "bié shēng qì le shì wǒ cuò le · বিয়ে শেংছি ল্য শি ওও ছুও ল্য",
               "tokens": [
                 {
                   "t": "别生气了",
@@ -13706,7 +13706,7 @@
               "level": "A1",
               "target": "听到这个消息我很难过。",
               "bn": "এই খবরটা শুনে আমার খুব মন খারাপ লাগছে।",
-              "bn_pron": "ting1 dao4 zhe4 ge xiao1 xi wo3 hen3 nan2 guo4 · থিংদাও ঝেগে সিয়াওসি ওও হেন নানগুও",
+              "bn_pron": "tīng dào zhè ge xiāo xi wǒ hěn nán guò · থিংদাও ঝেগে সিয়াওসি ওও হেন নানগুও",
               "tokens": [
                 {
                   "t": "听到",
@@ -13743,7 +13743,7 @@
               "level": "A1",
               "target": "不用紧张，慢慢说就行。",
               "bn": "নার্ভাস হওয়ার দরকার নেই, আস্তে ধীরে বললেই চলবে।",
-              "bn_pron": "bu2 yong4 jin3 zhang1 man4 man1 shuo1 jiu4 xing2 · বু ইয়োং জিনঝাং মানমান শুও জিউ সিং",
+              "bn_pron": "bú yòng jǐn zhāng màn mān shuō jiù xíng · বু ইয়োং জিনঝাং মানমান শুও জিউ সিং",
               "tokens": [
                 {
                   "t": "不用紧张",
@@ -13772,7 +13772,7 @@
               "level": "A1",
               "target": "我觉得中文很有意思。",
               "bn": "আমার কাছে চীনা ভাষাটা খুব মজার মনে হয়।",
-              "bn_pron": "wo3 jue2 de Zhong1 wen2 hen2 you3 yi4 si · ওও জুয়েদে ঝোংওয়েন হেন ইয়ৌ-ইস্য",
+              "bn_pron": "wǒ jué de Zhōng wén hén yǒu yì si · ওও জুয়েদে ঝোংওয়েন হেন ইয়ৌ-ইস্য",
               "tokens": [
                 {
                   "t": "我觉得",
@@ -13801,7 +13801,7 @@
               "level": "A1",
               "target": "谢谢大家的热情帮助，我很感动。",
               "bn": "সবার আন্তরিক সাহায্যের জন্য ধন্যবাদ, আমি সত্যিই আবেগাপ্লুত।",
-              "bn_pron": "xie4 xie da4 jia1 de re4 qing2 bang1 zhu4 wo3 hen3 gan3 dong4 · সিয়েসিয়ে দাজিয়াদ্য রেছিং বাংঝু ওও হেন গানদোং",
+              "bn_pron": "xiè xie dà jiā de rè qíng bāng zhù wǒ hěn gǎn dòng · সিয়েসিয়ে দাজিয়াদ্য রেছিং বাংঝু ওও হেন গানদোং",
               "tokens": [
                 {
                   "t": "谢谢大家",
@@ -13838,7 +13838,7 @@
               "level": "A1",
               "target": "我对自己很有信心。",
               "bn": "আমার নিজের উপর যথেষ্ট আত্মবিশ্বাস আছে।",
-              "bn_pron": "wo3 dui4 zi4 ji3 hen2 you3 xin4 xin1 · ওও তুই য্যজি হেন ইয়ৌ সিনসিন",
+              "bn_pron": "wǒ duì zì jǐ hén yǒu xìn xīn · ওও তুই য্যজি হেন ইয়ৌ সিনসিন",
               "tokens": [
                 {
                   "t": "我",
@@ -13893,7 +13893,7 @@
               "level": "A1",
               "target": "这是我的书，那是你的。",
               "bn": "এটা আমার বই, ওটা তোমার।",
-              "bn_pron": "zhe4 shi4 wo3 de shu1 na4 shi4 ni3 de · ঝে শি ওওদ্য শু না শি নিদ্য",
+              "bn_pron": "zhè shì wǒ de shū nà shì nǐ de · ঝে শি ওওদ্য শু না শি নিদ্য",
               "tokens": [
                 {
                   "t": "这",
@@ -13934,7 +13934,7 @@
               "level": "A1",
               "target": "这些水果很新鲜。",
               "bn": "এই ফলগুলো খুব তাজা।",
-              "bn_pron": "zhe4 xie1 shui3 guo3 hen3 xin1 xian1 · ঝেসিয়ে শুয়েইগুও হেন সিনসিয়েন",
+              "bn_pron": "zhè xiē shuǐ guǒ hěn xīn xiān · ঝেসিয়ে শুয়েইগুও হেন সিনসিয়েন",
               "tokens": [
                 {
                   "t": "这些",
@@ -13963,7 +13963,7 @@
               "level": "A1",
               "target": "那些人都是我们的同事。",
               "bn": "ওই মানুষগুলো সবাই আমাদের সহকর্মী।",
-              "bn_pron": "na4 xie1 ren2 dou1 shi4 wo3 men de tong2 shi4 · নাসিয়ে রেন দৌ শি ওওমেনদ্য থংশি",
+              "bn_pron": "nà xiē rén dōu shì wǒ men de tóng shì · নাসিয়ে রেন দৌ শি ওওমেনদ্য থংশি",
               "tokens": [
                 {
                   "t": "那些人",
@@ -13992,7 +13992,7 @@
               "level": "A1",
               "target": "请坐在我这里吧。",
               "bn": "দয়া করে আমার এখানে এসে বসো।",
-              "bn_pron": "qing3 zuo4 zai4 wo3 zhe4 li3 ba · ছিং যুও দ্জাই ওও ঝেলি বা",
+              "bn_pron": "qǐng zuò zài wǒ zhè lǐ ba · ছিং যুও দ্জাই ওও ঝেলি বা",
               "tokens": [
                 {
                   "t": "请坐",
@@ -14021,7 +14021,7 @@
               "level": "A1",
               "target": "那家饭馆的菜特别香。",
               "bn": "ওই রেস্তোরাঁর খাবারটা অসাধারণ ঘ্রাণ ও স্বাদের।",
-              "bn_pron": "na4 jia1 fan4 guan3 de cai4 te4 bie2 xiang1 · না জিয়া ফানগুয়ান্দ্য ছাই থেবিয়ে সিয়াং",
+              "bn_pron": "nà jiā fàn guǎn de cài tè bié xiāng · না জিয়া ফানগুয়ান্দ্য ছাই থেবিয়ে সিয়াং",
               "tokens": [
                 {
                   "t": "那家",
@@ -14054,7 +14054,7 @@
               "level": "A1",
               "target": "这里不能停车。",
               "bn": "এখানে গাড়ি পার্ক করা যাবে না।",
-              "bn_pron": "zhe4 li3 bu4 neng2 ting2 che1 · ঝেলি বু নেং থিংছে",
+              "bn_pron": "zhè lǐ bù néng tíng chē · ঝেলি বু নেং থিংছে",
               "tokens": [
                 {
                   "t": "这里",
@@ -14083,7 +14083,7 @@
               "level": "A1",
               "target": "你以前去过那里吗？",
               "bn": "তুমি কি আগে কখনো ওখানে গিয়েছ?",
-              "bn_pron": "ni3 yi3 qian2 qu4 guo4 na4 li3 ma · নি ইছিয়েন ছু গুও নালি মা?",
+              "bn_pron": "nǐ yǐ qián qù guò nà lǐ ma · নি ইছিয়েন ছু গুও নালি মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -14120,7 +14120,7 @@
               "level": "A1",
               "target": "哪个手机比较好？",
               "bn": "কোন মোবাইলটা তুলনামূলক ভালো?",
-              "bn_pron": "na3 ge4 shou3 ji1 bi3 jiao4 hao3 · নাগে শৌজি বিজিয়াও হাও?",
+              "bn_pron": "nǎ gè shǒu jī bǐ jiào hǎo · নাগে শৌজি বিজিয়াও হাও?",
               "tokens": [
                 {
                   "t": "哪个",
@@ -14161,7 +14161,7 @@
               "level": "A1",
               "target": "我的包在椅子上面。",
               "bn": "আমার ব্যাগটা চেয়ারের উপরে আছে।",
-              "bn_pron": "wo3 de bao1 zai4 yi3 zi shang4 mian4 · ওওদ্য বাও দ্জাই ইয্য শাংমিয়েন",
+              "bn_pron": "wǒ de bāo zài yǐ zi shàng miàn · ওওদ্য বাও দ্জাই ইয্য শাংমিয়েন",
               "tokens": [
                 {
                   "t": "我的包",
@@ -14194,7 +14194,7 @@
               "level": "A1",
               "target": "鞋在桌子下面。",
               "bn": "জুতাটা টেবিলের নিচে আছে।",
-              "bn_pron": "xie2 zai4 zhuo1 zi xia4 mian4 · সিয়ে দ্জাই ঝুওয্য সিয়ামিয়েন",
+              "bn_pron": "xié zài zhuō zi xià miàn · সিয়ে দ্জাই ঝুওয্য সিয়ামিয়েন",
               "tokens": [
                 {
                   "t": "鞋",
@@ -14227,7 +14227,7 @@
               "level": "A1",
               "target": "杯子里没有水了。",
               "bn": "কাপের ভেতরে আর পানি নেই।",
-              "bn_pron": "bei1 zi li3 mei2 you3 shui3 le · বেইয্য লি মেই-ইয়ৌ শুয়েই ল্য",
+              "bn_pron": "bēi zi lǐ méi yǒu shuǐ le · বেইয্য লি মেই-ইয়ৌ শুয়েই ল্য",
               "tokens": [
                 {
                   "t": "杯子里",
@@ -14260,7 +14260,7 @@
               "level": "A1",
               "target": "外面冷，请穿外套。",
               "bn": "বাইরে ঠান্ডা, দয়া করে জ্যাকেট পরো।",
-              "bn_pron": "wai4 mian4 leng3 qing3 chuan1 wai4 tao4 · ওয়াইমিয়েন লেং ছিং ছুয়ান ওয়াইথাও",
+              "bn_pron": "wài miàn lěng qǐng chuān wài tào · ওয়াইমিয়েন লেং ছিং ছুয়ান ওয়াইথাও",
               "tokens": [
                 {
                   "t": "外面",
@@ -14293,7 +14293,7 @@
               "level": "A1",
               "target": "学校前面有一家书店。",
               "bn": "স্কুলের সামনে একটি বইয়ের দোকান আছে।",
-              "bn_pron": "xue2 xiao4 qian2 mian4 you3 yi4 jia1 shu1 dian4 · সুয়েসিয়াও ছিয়েনমিয়েন ইয়ৌ ই জিয়া শুদিয়েন",
+              "bn_pron": "xué xiào qián miàn yǒu yì jiā shū diàn · সুয়েসিয়াও ছিয়েনমিয়েন ইয়ৌ ই জিয়া শুদিয়েন",
               "tokens": [
                 {
                   "t": "学校",
@@ -14330,7 +14330,7 @@
               "level": "A1",
               "target": "医院后面是一个公园。",
               "bn": "হাসপাতালের পেছনে একটি পার্ক আছে।",
-              "bn_pron": "yi1 yuan4 hou4 mian4 shi4 yi2 ge4 gong1 yuan2 · ই-ইয়ুয়েন হৌমিয়েন শি ই গে গোং-ইয়ুয়েন",
+              "bn_pron": "yī yuàn hòu miàn shì yí gè gōng yuán · ই-ইয়ুয়েন হৌমিয়েন শি ই গে গোং-ইয়ুয়েন",
               "tokens": [
                 {
                   "t": "医院",
@@ -14367,7 +14367,7 @@
               "level": "A1",
               "target": "超市就在地铁站旁边。",
               "bn": "সুপারমার্কেটটা মেট্রো স্টেশনের ঠিক পাশেই।",
-              "bn_pron": "chao1 shi4 jiu4 zai4 di4 tie3 zhan4 pang2 bian1 · ছাওশি জিউ দ্জাই দিথিয়েঝান ফাংবিয়েন",
+              "bn_pron": "chāo shì jiù zài dì tiě zhàn páng biān · ছাওশি জিউ দ্জাই দিথিয়েঝান ফাংবিয়েন",
               "tokens": [
                 {
                   "t": "超市",
@@ -14400,7 +14400,7 @@
               "level": "A1",
               "target": "银行在邮局和饭馆中间。",
               "bn": "ব্যাংকটা পোস্ট অফিস আর রেস্তোরাঁর মাঝখানে।",
-              "bn_pron": "yin2 hang2 zai4 you2 ju2 he2 fan4 guan3 zhong1 jian1 · ইনহাং দ্জাই ইয়ৌজু হ্য ফানগুয়ান ঝোংজিয়েন",
+              "bn_pron": "yín háng zài yóu jú hé fàn guǎn zhōng jiān · ইনহাং দ্জাই ইয়ৌজু হ্য ফানগুয়ান ঝোংজিয়েন",
               "tokens": [
                 {
                   "t": "银行",
@@ -14454,7 +14454,7 @@
               "level": "A1",
               "target": "我的电脑在桌子上。",
               "bn": "আমার কম্পিউটারটা টেবিলের উপর আছে।",
-              "bn_pron": "wo3 de dian4 nao3 zai4 zhuo1 zi shang4 · ওওদ্য দিয়েননাও দ্জাই ঝুওয্য শাং",
+              "bn_pron": "wǒ de diàn nǎo zài zhuō zi shàng · ওওদ্য দিয়েননাও দ্জাই ঝুওয্য শাং",
               "tokens": [
                 {
                   "t": "我的电脑",
@@ -14483,7 +14483,7 @@
               "level": "A1",
               "target": "桌子上有一台电脑。",
               "bn": "টেবিলের উপর একটি কম্পিউটার আছে।",
-              "bn_pron": "zhuo1 zi shang4 you3 yi4 tai2 dian4 nao3 · ঝুওয্য শাং ইয়ৌ ই থাই দিয়েননাও",
+              "bn_pron": "zhuō zi shàng yǒu yì tái diàn nǎo · ঝুওয্য শাং ইয়ৌ ই থাই দিয়েননাও",
               "tokens": [
                 {
                   "t": "桌子上",
@@ -14512,7 +14512,7 @@
               "level": "A1",
               "target": "书架上放着很多中文书。",
               "bn": "বইয়ের তাকে অনেকগুলো চীনা বই রাখা আছে।",
-              "bn_pron": "shu1 jia4 shang4 fang4 zhe hen3 duo1 Zhong1 wen2 shu1 · শুজিয়া শাং ফাংঝে হেন দুও ঝোংওয়েন শু",
+              "bn_pron": "shū jià shàng fàng zhe hěn duō Zhōng wén shū · শুজিয়া শাং ফাংঝে হেন দুও ঝোংওয়েন শু",
               "tokens": [
                 {
                   "t": "书架上",
@@ -14545,7 +14545,7 @@
               "level": "A1",
               "target": "教室里没有学生。",
               "bn": "ক্লাসরুমের ভেতরে কোনো শিক্ষার্থী নেই।",
-              "bn_pron": "jiao4 shi4 li3 mei2 you3 xue2 sheng · জিয়াওশি লি মেই-ইয়ৌ সুয়েশেং",
+              "bn_pron": "jiào shì lǐ méi yǒu xué sheng · জিয়াওশি লি মেই-ইয়ৌ সুয়েশেং",
               "tokens": [
                 {
                   "t": "教室里",
@@ -14574,7 +14574,7 @@
               "level": "A1",
               "target": "我左边坐着我的好朋友。",
               "bn": "আমার বাম পাশে আমার ঘনিষ্ঠ বন্ধু বসে আছে।",
-              "bn_pron": "wo3 zuo3 bian1 zuo4 zhe wo3 de hao3 peng2 you · ওও যুওবিয়েন যুওঝে ওওদ্য হাও ফেংইয়ৌ",
+              "bn_pron": "wǒ zuǒ biān zuò zhe wǒ de hǎo péng you · ওও যুওবিয়েন যুওঝে ওওদ্য হাও ফেংইয়ৌ",
               "tokens": [
                 {
                   "t": "我左边",
@@ -14603,7 +14603,7 @@
               "level": "A1",
               "target": "房子前面有一棵大树。",
               "bn": "বাড়ির সামনে একটি বড় গাছ আছে।",
-              "bn_pron": "fang2 zi qian2 mian4 you3 yi4 ke1 da4 shu4 · ফাংয্য ছিয়েনমিয়েন ইয়ৌ ই খ্য দা শু",
+              "bn_pron": "fáng zi qián miàn yǒu yì kē dà shù · ফাংয্য ছিয়েনমিয়েন ইয়ৌ ই খ্য দা শু",
               "tokens": [
                 {
                   "t": "房子前面",
@@ -14632,7 +14632,7 @@
               "level": "A1",
               "target": "汽车停在停车场里。",
               "bn": "গাড়িটি পার্কিং লটের ভেতরে দাঁড়ানো।",
-              "bn_pron": "qi4 che1 ting2 zai4 ting2 che1 chang3 li3 · ছিছে থিং দ্জাই থিংছেছাং লি",
+              "bn_pron": "qì chē tíng zài tíng chē chǎng lǐ · ছিছে থিং দ্জাই থিংছেছাং লি",
               "tokens": [
                 {
                   "t": "汽车",
@@ -14661,7 +14661,7 @@
               "level": "A1",
               "target": "请问这里附近有银行吗？",
               "bn": "দয়া করে বলবেন, এখানকার আশেপাশে কোনো ব্যাংক আছে?",
-              "bn_pron": "qing3 wen4 zhe4 li3 fu4 jin4 you3 yin2 hang2 ma · ছিং ওয়েন ঝেলি ফুজিন ইয়ৌ ইনহাং মা?",
+              "bn_pron": "qǐng wèn zhè lǐ fù jìn yǒu yín háng ma · ছিং ওয়েন ঝেলি ফুজিন ইয়ৌ ইনহাং মা?",
               "tokens": [
                 {
                   "t": "请问",
@@ -14703,7 +14703,7 @@
               "level": "A1",
               "target": "我们都是孟加拉国人。",
               "bn": "আমরা সবাই বাংলাদেশি।",
-              "bn_pron": "wo3 men dou1 shi4 Meng4 jia1 la1 guo2 ren2 · ওওমেন দৌ শি মেংজিয়ালাগুওরেন",
+              "bn_pron": "wǒ men dōu shì Mèng jiā lā guó rén · ওওমেন দৌ শি মেংজিয়ালাগুওরেন",
               "tokens": [
                 {
                   "t": "我们",
@@ -14736,7 +14736,7 @@
               "level": "A1",
               "target": "他们两个都会说中文。",
               "bn": "তারা দুজনই চীনা ভাষা বলতে পারে।",
-              "bn_pron": "ta1 men liang3 ge4 dou1 hui4 shuo1 Zhong1 wen2 · থামেন লিয়াং গে দৌ হুয়েই শুও ঝোংওয়েন",
+              "bn_pron": "tā men liǎng gè dōu huì shuō Zhōng wén · থামেন লিয়াং গে দৌ হুয়েই শুও ঝোংওয়েন",
               "tokens": [
                 {
                   "t": "他们两个",
@@ -14769,7 +14769,7 @@
               "level": "A1",
               "target": "我想买一些水果。",
               "bn": "আমি কিছু ফল কিনতে চাই।",
-              "bn_pron": "wo3 xiang3 mai3 yi4 xie1 shui3 guo3 · ওও সিয়াং মাই ইসিয়ে শুয়েইগুও",
+              "bn_pron": "wǒ xiǎng mǎi yì xiē shuǐ guǒ · ওও সিয়াং মাই ইসিয়ে শুয়েইগুও",
               "tokens": [
                 {
                   "t": "我想买",
@@ -14798,7 +14798,7 @@
               "level": "A1",
               "target": "请给我倒一点儿水。",
               "bn": "দয়া করে আমাকে একটু পানি ঢেলে দিন।",
-              "bn_pron": "qing3 gei3 wo3 dao4 yi4 dian3 er shui3 · ছিং গেই ওও দাও ইদিয়ার শুয়েই",
+              "bn_pron": "qǐng gěi wǒ dào yì diǎn er shuǐ · ছিং গেই ওও দাও ইদিয়ার শুয়েই",
               "tokens": [
                 {
                   "t": "请",
@@ -14835,7 +14835,7 @@
               "level": "A1",
               "target": "每个学生都要考试。",
               "bn": "প্রতিটি শিক্ষার্থীকেই পরীক্ষা দিতে হবে।",
-              "bn_pron": "mei3 ge4 xue2 sheng dou1 yao4 kao3 shi4 · মেই গে সুয়েশেং দৌ ইয়াও খাওশি",
+              "bn_pron": "měi gè xué sheng dōu yào kǎo shì · মেই গে সুয়েশেং দৌ ইয়াও খাওশি",
               "tokens": [
                 {
                   "t": "每个学生",
@@ -14864,7 +14864,7 @@
               "level": "A1",
               "target": "我也很想去广州看看。",
               "bn": "আমিও খুব করে কুয়াংচৌ ঘুরে দেখতে চাই।",
-              "bn_pron": "wo3 ye3 hen2 xiang3 qu4 Guang3 zhou1 kan4 kan · ওও ইয়ে হেন সিয়াং ছু গুয়াংঝৌ খানখান",
+              "bn_pron": "wǒ yě hén xiǎng qù Guǎng zhōu kàn kan · ওও ইয়ে হেন সিয়াং ছু গুয়াংঝৌ খানখান",
               "tokens": [
                 {
                   "t": "我",
@@ -14901,7 +14901,7 @@
               "level": "A1",
               "target": "这件衣服有点儿大。",
               "bn": "এই জামাটা একটু বড়।",
-              "bn_pron": "zhe4 jian4 yi1 fu you3 dian3 er da4 · ঝে জিয়েন ইফু ইয়ৌ দিয়ার দা",
+              "bn_pron": "zhè jiàn yī fu yǒu diǎn er dà · ঝে জিয়েন ইফু ইয়ৌ দিয়ার দা",
               "tokens": [
                 {
                   "t": "这件衣服",
@@ -14930,7 +14930,7 @@
               "level": "A1",
               "target": "这里什么东西都有。",
               "bn": "এখানে সব ধরনের জিনিসই পাওয়া যায়।",
-              "bn_pron": "zhe4 li3 shen2 me dong1 xi dou1 you3 · ঝেলি শেন্ম্য দোংসি দৌ ইয়ৌ",
+              "bn_pron": "zhè lǐ shén me dōng xi dōu yǒu · ঝেলি শেন্ম্য দোংসি দৌ ইয়ৌ",
               "tokens": [
                 {
                   "t": "这里",
@@ -14981,7 +14981,7 @@
               "level": "A1",
               "target": "我昨天买了一本书。",
               "bn": "আমি গতকাল একটি বই কিনেছি।",
-              "bn_pron": "wo3 zuo2 tian1 mai3 le yi4 ben3 shu1 · ওও জুওথিয়েন মাই ল্য ই বেন শু",
+              "bn_pron": "wǒ zuó tiān mǎi le yì běn shū · ওও জুওথিয়েন মাই ল্য ই বেন শু",
               "tokens": [
                 {
                   "t": "我",
@@ -15014,7 +15014,7 @@
               "level": "A1",
               "target": "我昨天没买衣服。",
               "bn": "আমি গতকাল জামা কিনিনি।",
-              "bn_pron": "wo3 zuo2 tian1 mei2 mai3 yi1 fu · ওও জুওথিয়েন মেই মাই ইফু",
+              "bn_pron": "wǒ zuó tiān méi mǎi yī fu · ওও জুওথিয়েন মেই মাই ইফু",
               "tokens": [
                 {
                   "t": "我",
@@ -15047,7 +15047,7 @@
               "level": "A1",
               "target": "你喝咖啡了吗？",
               "bn": "তুমি কি কফি খেয়েছ?",
-              "bn_pron": "ni3 he1 ka1 fei1 le ma · নি হ্য খাফেই ল্য মা?",
+              "bn_pron": "nǐ hē kā fēi le ma · নি হ্য খাফেই ল্য মা?",
               "tokens": [
                 {
                   "t": "你",
@@ -15080,7 +15080,7 @@
               "level": "A1",
               "target": "还没有，我刚到公司。",
               "bn": "এখনো না, আমি মাত্র অফিসে পৌঁছেছি।",
-              "bn_pron": "hai2 mei2 you3 wo3 gang1 dao4 gong1 si1 · হাই মেই-ইয়ৌ ওও গাং দাও গোংস্য",
+              "bn_pron": "hái méi yǒu wǒ gāng dào gōng sī · হাই মেই-ইয়ৌ ওও গাং দাও গোংস্য",
               "tokens": [
                 {
                   "t": "还没有",
@@ -15113,7 +15113,7 @@
               "level": "A1",
               "target": "他昨天晚上去北京了。",
               "bn": "সে গতকাল রাতে বেইজিং চলে গেছে।",
-              "bn_pron": "ta1 zuo2 tian1 wan3 shang qu4 Bei3 jing1 le · থা জুওথিয়েন ওয়ানশাং ছু বেইজিং ল্য",
+              "bn_pron": "tā zuó tiān wǎn shang qù Běi jīng le · থা জুওথিয়েন ওয়ানশাং ছু বেইজিং ল্য",
               "tokens": [
                 {
                   "t": "他",
@@ -15146,7 +15146,7 @@
               "level": "A1",
               "target": "今天的作业我做完了。",
               "bn": "আজকের হোমওয়ার্ক আমি করে শেষ করেছি।",
-              "bn_pron": "jin1 tian1 de zuo4 ye4 wo3 zuo4 wan2 le · চিনথিয়েনদ্য যুও-ইয়ে ওও যুও-ওয়ান ল্য",
+              "bn_pron": "jīn tiān de zuò yè wǒ zuò wán le · চিনথিয়েনদ্য যুও-ইয়ে ওও যুও-ওয়ান ল্য",
               "tokens": [
                 {
                   "t": "今天的作业",
@@ -15175,7 +15175,7 @@
               "level": "A1",
               "target": "刚才谁给你打电话了？",
               "bn": "একটু আগে তোমাকে কে ফোন করেছিল?",
-              "bn_pron": "gang1 cai2 shui2 gei3 ni3 da3 dian4 hua4 le · গাংছাই শুয়েই গেই নি দা দিয়েনহুয়া ল্য?",
+              "bn_pron": "gāng cái shuí gěi nǐ dǎ diàn huà le · গাংছাই শুয়েই গেই নি দা দিয়েনহুয়া ল্য?",
               "tokens": [
                 {
                   "t": "刚才",
@@ -15208,7 +15208,7 @@
               "level": "A1",
               "target": "我以前去过中国两次。",
               "bn": "আমি এর আগে দুইবার চীনে গিয়েছি।",
-              "bn_pron": "wo3 yi3 qian2 qu4 guo4 Zhong1 guo2 liang3 ci4 · ওও ইছিয়েন ছু গুও চোংকুও লিয়াং ছ্য",
+              "bn_pron": "wǒ yǐ qián qù guò Zhōng guó liǎng cì · ওও ইছিয়েন ছু গুও চোংকুও লিয়াং ছ্য",
               "tokens": [
                 {
                   "t": "我以前",
@@ -15254,7 +15254,7 @@
               "level": "A1",
               "target": "明天我要去飞机场接朋友。",
               "bn": "আগামীকাল আমি এয়ারপোর্টে বন্ধুকে রিসিভ করতে যাব।",
-              "bn_pron": "ming2 tian1 wo3 yao4 qu4 fei1 ji1 chang3 jie1 peng2 you · মিংথিয়েন ওও ইয়াও ছু ফেইজিছাং জিয়ে ফেংইয়ৌ",
+              "bn_pron": "míng tiān wǒ yào qù fēi jī chǎng jiē péng you · মিংথিয়েন ওও ইয়াও ছু ফেইজিছাং জিয়ে ফেংইয়ৌ",
               "tokens": [
                 {
                   "t": "明天",
@@ -15287,7 +15287,7 @@
               "level": "A1",
               "target": "下个星期天你打算做什么？",
               "bn": "আগামী রবিবারে তুমি কী করার পরিকল্পনা করছ?",
-              "bn_pron": "xia4 ge4 xing1 qi1 tian1 ni3 da3 suan4 zuo4 shen2 me · সিয়াগে সিংছিথিয়েন নি দাসুয়ান যুও শেন্ম্য?",
+              "bn_pron": "xià gè xīng qī tiān nǐ dǎ suàn zuò shén me · সিয়াগে সিংছিথিয়েন নি দাসুয়ান যুও শেন্ম্য?",
               "tokens": [
                 {
                   "t": "下个星期天",
@@ -15320,7 +15320,7 @@
               "level": "A1",
               "target": "我准备明年去中国留学。",
               "bn": "আমি আগামী বছর চীনে পড়াশোনার জন্য যাওয়ার প্রস্তুতি নিচ্ছি।",
-              "bn_pron": "wo3 zhun3 bei4 ming2 nian2 qu4 Zhong1 guo2 liu2 xue2 · ওও ঝুনবেই মিংনিয়েন ছু চোংকুও লিউসুয়ে",
+              "bn_pron": "wǒ zhǔn bèi míng nián qù Zhōng guó liú xué · ওও ঝুনবেই মিংনিয়েন ছু চোংকুও লিউসুয়ে",
               "tokens": [
                 {
                   "t": "我准备",
@@ -15353,7 +15353,7 @@
               "level": "A1",
               "target": "晚上你想看什么电影？",
               "bn": "রাতে তুমি কোন সিনেমা দেখতে চাও?",
-              "bn_pron": "wan3 shang ni3 xiang3 kan4 shen2 me dian4 ying3 · ওয়ানশাং নি সিয়াং খান শেন্ম্য দিয়েন-ইং?",
+              "bn_pron": "wǎn shang nǐ xiǎng kàn shén me diàn yǐng · ওয়ানশাং নি সিয়াং খান শেন্ম্য দিয়েন-ইং?",
               "tokens": [
                 {
                   "t": "晚上",
@@ -15382,7 +15382,7 @@
               "level": "A1",
               "target": "我们要好好复习准备考试。",
               "bn": "পরীক্ষার প্রস্তুতির জন্য আমাদের ভালো করে রিভিশন দিতে হবে।",
-              "bn_pron": "wo3 men yao4 hao3 hao3 fu4 xi2 zhun3 bei4 kao3 shi4 · ওওমেন ইয়াও হাওহাও ফুসি ঝুনবেই খাওশি",
+              "bn_pron": "wǒ men yào hǎo hǎo fù xí zhǔn bèi kǎo shì · ওওমেন ইয়াও হাওহাও ফুসি ঝুনবেই খাওশি",
               "tokens": [
                 {
                   "t": "我们要",
@@ -15411,7 +15411,7 @@
               "level": "A1",
               "target": "快要下雨了，我们快回家吧。",
               "bn": "এক্ষুনি বৃষ্টি নামবে, চলো তাড়াতাড়ি বাসায় ফিরি।",
-              "bn_pron": "kuai4 yao4 xia4 yu3 le wo3 men kuai4 hui2 jia1 ba · খুয়াই-ইয়াও সিয়া-ইউ ল্য ওওমেন খুয়াই হুয়েই জিয়া বা",
+              "bn_pron": "kuài yào xià yǔ le wǒ men kuài huí jiā ba · খুয়াই-ইয়াও সিয়া-ইউ ল্য ওওমেন খুয়াই হুয়েই জিয়া বা",
               "tokens": [
                 {
                   "t": "快要",
@@ -15448,7 +15448,7 @@
               "level": "A1",
               "target": "以后我想开一家公司。",
               "bn": "ভবিষ্যতে আমি একটি কোম্পানি খুলতে চাই।",
-              "bn_pron": "yi3 hou4 wo3 xiang3 kai1 yi4 jia1 gong1 si1 · ই-হৌ ওও সিয়াং খাই ই জিয়া গোংস্য",
+              "bn_pron": "yǐ hòu wǒ xiǎng kāi yì jiā gōng sī · ই-হৌ ওও সিয়াং খাই ই জিয়া গোংস্য",
               "tokens": [
                 {
                   "t": "以后",
@@ -15481,7 +15481,7 @@
               "level": "A1",
               "target": "明年见，我会想你的！",
               "bn": "আগামী বছর দেখা হবে, আমি তোমাকে মিস করব!",
-              "bn_pron": "ming2 tian1 nian2 jian4 wo3 hui4 xiang3 ni3 de · মিংনিয়েন জিয়েন ওও হুয়েই সিয়াং নিদ্য",
+              "bn_pron": "míng tiān nián jiàn wǒ huì xiǎng nǐ de · মিংনিয়েন জিয়েন ওও হুয়েই সিয়াং নিদ্য",
               "tokens": [
                 {
                   "t": "明年见",
@@ -15523,7 +15523,7 @@
               "level": "A1",
               "target": "你是怎么学汉语的？",
               "bn": "তুমি কীভাবে চীনা ভাষা শিখলে?",
-              "bn_pron": "ni3 shi4 zen3 me xue2 Han4 yu3 de · নি শি জেন্ম্য সুয়ে হান-ইউ দ্য?",
+              "bn_pron": "nǐ shì zěn me xué Hàn yǔ de · নি শি জেন্ম্য সুয়ে হান-ইউ দ্য?",
               "tokens": [
                 {
                   "t": "你",
@@ -15560,7 +15560,7 @@
               "level": "A1",
               "target": "你为什么今天不开心？",
               "bn": "তুমি আজ মন খারাপ করে আছো কেন?",
-              "bn_pron": "ni3 wei4 shen2 me jin1 tian1 bu4 kai1 xin1 · নি ওয়েইশেন্ম্য চিনথিয়েন বু খাইসিন?",
+              "bn_pron": "nǐ wèi shén me jīn tiān bù kāi xīn · নি ওয়েইশেন্ম্য চিনথিয়েন বু খাইসিন?",
               "tokens": [
                 {
                   "t": "你",
@@ -15593,7 +15593,7 @@
               "level": "A1",
               "target": "因为我今天太累了。",
               "bn": "কারণ আজ আমি ভীষণ ক্লান্ত।",
-              "bn_pron": "yin1 wei4 wo3 jin1 tian1 tai4 lei4 le · ইনওয়েই ওও চিনথিয়েন থাই লেই ল্য",
+              "bn_pron": "yīn wèi wǒ jīn tiān tài lèi le · ইনওয়েই ওও চিনথিয়েন থাই লেই ল্য",
               "tokens": [
                 {
                   "t": "因为",
@@ -15626,7 +15626,7 @@
               "level": "A1",
               "target": "你跟谁一起去市场？",
               "bn": "তুমি কার সাথে বাজারে যাচ্ছ?",
-              "bn_pron": "ni3 gen1 shui2 yi4 qi3 qu4 shi4 chang3 · নি গেন শুয়েই ইছি ছু শিছাং?",
+              "bn_pron": "nǐ gēn shuí yì qǐ qù shì chǎng · নি গেন শুয়েই ইছি ছু শিছাং?",
               "tokens": [
                 {
                   "t": "你",
@@ -15659,7 +15659,7 @@
               "level": "A1",
               "target": "你去哪儿买菜？",
               "bn": "তুমি কোথায় শাকসবজি কিনতে যাচ্ছ?",
-              "bn_pron": "ni3 qu4 na3 er mai3 cai4 · নি ছু নার মাই ছাই?",
+              "bn_pron": "nǐ qù nǎ er mǎi cài · নি ছু নার মাই ছাই?",
               "tokens": [
                 {
                   "t": "你",
@@ -15688,7 +15688,7 @@
               "level": "A1",
               "target": "这个字是什么意思？",
               "bn": "এই অক্ষরটির অর্থ কী?",
-              "bn_pron": "zhe4 ge zi4 shi4 shen2 me yi4 si · ঝেগে য্য শি শেন্ম্য ইস্য?",
+              "bn_pron": "zhè ge zì shì shén me yì si · ঝেগে য্য শি শেন্ম্য ইস্য?",
               "tokens": [
                 {
                   "t": "这个字",
@@ -15717,7 +15717,7 @@
               "level": "A1",
               "target": "每天你怎么去上班？",
               "bn": "প্রতিদিন তুমি কীভাবে অফিসে যাও?",
-              "bn_pron": "mei3 tian1 ni3 zen3 me qu4 shang4 ban1 · মেইথিয়েন নি জেন্ম্য ছু শাংবান?",
+              "bn_pron": "měi tiān nǐ zěn me qù shàng bān · মেইথিয়েন নি জেন্ম্য ছু শাংবান?",
               "tokens": [
                 {
                   "t": "每天",
@@ -15750,7 +15750,7 @@
               "level": "A1",
               "target": "哪天你有空一起喝茶？",
               "bn": "কোন দিন তোমার ফ্রি সময় হবে একসাথে চা খেতে?",
-              "bn_pron": "na3 tian1 ni3 you3 kong4 yi4 qi3 he1 cha2 · না থিয়েন নি ইয়ৌ খোং ইছি হ্য ছা?",
+              "bn_pron": "nǎ tiān nǐ yǒu kòng yì qǐ hē chá · না থিয়েন নি ইয়ৌ খোং ইছি হ্য ছা?",
               "tokens": [
                 {
                   "t": "哪天",
@@ -15792,7 +15792,7 @@
               "level": "A1",
               "target": "因为下雨，所以我没去跑步。",
               "bn": "যেহেতু বৃষ্টি হয়েছে, তাই আমি দৌড়াতে যাইনি।",
-              "bn_pron": "yin1 wei4 xia4 yu3 suo3 yi3 wo3 mei2 qu4 pao3 bu4 · ইনওয়েই সিয়া-ইউ সুও-ই ওও মেই ছু ফাওবু",
+              "bn_pron": "yīn wèi xià yǔ suǒ yǐ wǒ méi qù pǎo bù · ইনওয়েই সিয়া-ইউ সুও-ই ওও মেই ছু ফাওবু",
               "tokens": [
                 {
                   "t": "因为",
@@ -15829,7 +15829,7 @@
               "level": "A1",
               "target": "虽然汉语有点儿难，但是很有意思。",
               "bn": "যদিও চীনা ভাষা একটু কঠিন, তবুও খুব মজার।",
-              "bn_pron": "sui1 ran2 Han4 yu3 you3 dian3 er nan2 dan4 shi4 hen2 you3 yi4 si · সুইরান হান-ইউ ইয়ৌ দিয়ার নান দানশি হেন ইয়ৌ-ইস্য",
+              "bn_pron": "suī rán Hàn yǔ yǒu diǎn er nán dàn shì hén yǒu yì si · সুইরান হান-ইউ ইয়ৌ দিয়ার নান দানশি হেন ইয়ৌ-ইস্য",
               "tokens": [
                 {
                   "t": "虽然",
@@ -15866,7 +15866,7 @@
               "level": "A1",
               "target": "我先吃饭，然后再去学习。",
               "bn": "আমি আগে খাব, তারপর পড়তে যাব।",
-              "bn_pron": "wo3 xian1 chi1 fan4 ran2 hou4 zai4 qu4 xue2 xi2 · ওও সিয়েন ছিফান রানহৌ দ্জাই ছু সুয়েসি",
+              "bn_pron": "wǒ xiān chī fàn rán hòu zài qù xué xí · ওও সিয়েন ছিফান রানহৌ দ্জাই ছু সুয়েসি",
               "tokens": [
                 {
                   "t": "我",
@@ -15899,7 +15899,7 @@
               "level": "A1",
               "target": "你喝茶还是喝咖啡？",
               "bn": "তুমি চা খাবে নাকি কফি?",
-              "bn_pron": "ni3 he1 cha2 hai2 shi4 he1 ka1 fei1 · নি হ্য ছা হাইশি হ্য খাফেই?",
+              "bn_pron": "nǐ hē chá hái shì hē kā fēi · নি হ্য ছা হাইশি হ্য খাফেই?",
               "tokens": [
                 {
                   "t": "你",
@@ -15932,7 +15932,7 @@
               "level": "A1",
               "target": "如果明天晴天，我们就去海边。",
               "bn": "আগামীকাল রোদ থাকলে আমরা সমুদ্রসৈকতে যাব।",
-              "bn_pron": "ru2 guo3 ming2 tian1 qing2 tian1 wo3 men jiu4 qu4 hai3 bian1 · রুগুও মিংথিয়েন ছিংথিয়েন ওওমেন জিউ ছু হাইবিয়েন",
+              "bn_pron": "rú guǒ míng tiān qíng tiān wǒ men jiù qù hǎi biān · রুগুও মিংথিয়েন ছিংথিয়েন ওওমেন জিউ ছু হাইবিয়েন",
               "tokens": [
                 {
                   "t": "如果",
@@ -15965,7 +15965,7 @@
               "level": "A1",
               "target": "一边听录音一边大声跟读。",
               "bn": "অডিও শোনার সাথে সাথে জোরে জোরে পড়ে যাও।",
-              "bn_pron": "yi4 bian1 ting1 lu4 yin1 yi4 bian1 da4 sheng1 gen1 du2 · ইবিয়েন থিং লু-ইন ইবিয়েন দাশেং গেনদু",
+              "bn_pron": "yì biān tīng lù yīn yì biān dà shēng gēn dú · ইবিয়েন থিং লু-ইন ইবিয়েন দাশেং গেনদু",
               "tokens": [
                 {
                   "t": "一边",
@@ -15998,7 +15998,7 @@
               "level": "A1",
               "target": "这是我的新电脑，而且很便宜。",
               "bn": "এটা আমার নতুন কম্পিউটার, আর দামও বেশ সস্তা।",
-              "bn_pron": "zhe4 shi4 wo3 de xin1 dian4 nao3 er2 qie3 hen3 pian2 yi · ঝে শি ওওদ্য সিন দিয়েননাও আরছিয়ে হেন ফিয়েন-ই",
+              "bn_pron": "zhè shì wǒ de xīn diàn nǎo ér qiě hěn pián yi · ঝে শি ওওদ্য সিন দিয়েননাও আরছিয়ে হেন ফিয়েন-ই",
               "tokens": [
                 {
                   "t": "这是",
@@ -16035,7 +16035,7 @@
               "level": "A1",
               "target": "不管是学生还是老师都要努力。",
               "bn": "ছাত্র হোক বা শিক্ষক সবারই চেষ্টা করা উচিত।",
-              "bn_pron": "bu4 guan3 shi4 xue2 sheng hai2 shi4 lao3 shi1 dou1 yao4 nu3 li4 · বুগুয়ান শি সুয়েশেং হাইশি লাওশি দৌ ইয়াও নুলি",
+              "bn_pron": "bù guǎn shì xué sheng hái shì lǎo shī dōu yào nǔ lì · বুগুয়ান শি সুয়েশেং হাইশি লাওশি দৌ ইয়াও নুলি",
               "tokens": [
                 {
                   "t": "不管是",
@@ -16094,7 +16094,7 @@
               "level": "A1",
               "target": "你好，我已经在网上预定了房间。",
               "bn": "হ্যালো, আমি অনলাইনে আগে থেকেই রুম বুক করেছি।",
-              "bn_pron": "ni2 hao3 wo3 yi3 jing1 zai4 wang3 shang4 yu4 ding4 le fang2 jian1 · নি হাও ওও ইজিং দ্জাই ওয়াংশাং ইউদিং ল্য ফাংজিয়েন",
+              "bn_pron": "ní hǎo wǒ yǐ jīng zài wǎng shàng yù dìng le fáng jiān · নি হাও ওও ইজিং দ্জাই ওয়াংশাং ইউদিং ল্য ফাংজিয়েন",
               "tokens": [
                 {
                   "t": "你好",
@@ -16132,7 +16132,7 @@
               "level": "A1",
               "target": "您好！请给我看一下您的护照。",
               "bn": "নমস্কার! দয়া করে আপনার পাসপোর্টটা একটু দেখান।",
-              "bn_pron": "nin2 hao3 qing3 gei3 wo3 kan4 yi2 xia4 nin2 de hu4 zhao4 · নিন হাও ছিং গেই ওও খান ইসিয়া নিনদ্য হুঝাও",
+              "bn_pron": "nín hǎo qǐng gěi wǒ kàn yí xià nín de hù zhào · নিন হাও ছিং গেই ওও খান ইসিয়া নিনদ্য হুঝাও",
               "tokens": [
                 {
                   "t": "您好",
@@ -16166,7 +16166,7 @@
               "level": "A1",
               "target": "好的，请问酒店有无线网吗？",
               "bn": "এই নিন। আচ্ছা হোটেলে কি ওয়াই-ফাই আছে?",
-              "bn_pron": "hao3 de qing3 wen4 jiu3 dian4 you3 wu2 xian4 wang3 ma · হাওদ্য ছিং ওয়েন জিউদিয়েন ইয়ৌ উসিয়েনওয়াং মা?",
+              "bn_pron": "hǎo de qǐng wèn jiǔ diàn yǒu wú xiàn wǎng ma · হাওদ্য ছিং ওয়েন জিউদিয়েন ইয়ৌ উসিয়েনওয়াং মা?",
               "tokens": [
                 {
                   "t": "好的",
@@ -16208,7 +16208,7 @@
               "level": "A1",
               "target": "有，密码就写在您的房卡上。",
               "bn": "আছে, পাসওয়ার্ড আপনার রুম কার্ডের ওপরই লেখা আছে।",
-              "bn_pron": "you3 mi4 ma3 jiu4 xie3 zai4 nin2 de fang2 ka3 shang4 · ইয়ৌ মিমা জিউ সিয়ে দ্জাই নিনদ্য ফাংখা শাং",
+              "bn_pron": "yǒu mì mǎ jiù xiě zài nín de fáng kǎ shàng · ইয়ৌ মিমা জিউ সিয়ে দ্জাই নিনদ্য ফাংখা শাং",
               "tokens": [
                 {
                   "t": "有",
@@ -16246,7 +16246,7 @@
               "level": "A1",
               "target": "房间包早饭吗？",
               "bn": "রুম ভাড়ার সাথে কি সকালের নাশতা অন্তর্ভুক্ত?",
-              "bn_pron": "fang2 jian1 bao1 zao3 fan4 ma · ফাংজিয়েন বাও যাওফান মা?",
+              "bn_pron": "fáng jiān bāo zǎo fàn ma · ফাংজিয়েন বাও যাওফান মা?",
               "tokens": [
                 {
                   "t": "房间",
@@ -16279,7 +16279,7 @@
               "level": "A1",
               "target": "明天中午十二点以前退房。",
               "bn": "আগামীকাল দুপুর ১২টার আগে চেক-আউট করতে হবে।",
-              "bn_pron": "ming2 tian1 zhong1 wu3 shi2 er4 dian3 yi3 qian2 tui4 fang2 · মিংথিয়েন ঝোংউ শি-আর দিয়েন ইছিয়েন থুইফাং",
+              "bn_pron": "míng tiān zhōng wǔ shí èr diǎn yǐ qián tuì fáng · মিংথিয়েন ঝোংউ শি-আর দিয়েন ইছিয়েন থুইফাং",
               "tokens": [
                 {
                   "t": "明天",
@@ -16312,7 +16312,7 @@
               "level": "A1",
               "target": "请问房间在几楼？",
               "bn": "রুমটা কত তলায়?",
-              "bn_pron": "qing3 wen4 fang2 jian1 zai4 ji3 lou2 · ছিং ওয়েন ফাংজিয়েন দ্জাই জি লৌ?",
+              "bn_pron": "qǐng wèn fáng jiān zài jǐ lóu · ছিং ওয়েন ফাংজিয়েন দ্জাই জি লৌ?",
               "tokens": [
                 {
                   "t": "请问",
@@ -16341,7 +16341,7 @@
               "level": "A1",
               "target": "电梯在右边，祝您住得愉快！",
               "bn": "লিফট ডান পাশে, আপনার অবস্থান আনন্দদায়ক হোক!",
-              "bn_pron": "dian4 ti1 zai4 you4 bian1 zhu4 nin2 zhu4 de yu2 kuai4 · দিয়েনথি দ্জাই ইয়ৌবিয়েন ঝু নিন ঝুদ্য ইউখুয়াই",
+              "bn_pron": "diàn tī zài yòu biān zhù nín zhù de yú kuài · দিয়েনথি দ্জাই ইয়ৌবিয়েন ঝু নিন ঝুদ্য ইউখুয়াই",
               "tokens": [
                 {
                   "t": "电梯",
@@ -16387,7 +16387,7 @@
               "level": "A1",
               "target": "请问，留学生办公室怎么走？",
               "bn": "দয়া করে বলবেন, আন্তর্জাতিক শিক্ষার্থীদের অফিসে কীভাবে যাব?",
-              "bn_pron": "qing3 wen4 liu2 xue2 sheng1 ban4 gong1 shi4 zen3 me zou3 · ছিং ওয়েন লিউসুয়েশেং বানগোংশি জেন্ম্য যৌ?",
+              "bn_pron": "qǐng wèn liú xué shēng bàn gōng shì zěn me zǒu · ছিং ওয়েন লিউসুয়েশেং বানগোংশি জেন্ম্য যৌ?",
               "tokens": [
                 {
                   "t": "请问",
@@ -16421,7 +16421,7 @@
               "level": "A1",
               "target": "就在教学楼二楼二零三室。",
               "bn": "এটা একাডেমিক ভবনের দোতলায় ২০৩ নম্বর রুমে।",
-              "bn_pron": "jiu4 zai4 jiao4 xue2 lou2 er4 lou2 er4 ling2 san1 shi4 · জিউ দ্জাই জিয়াওসুয়েলৌ আরলৌ আর লিং সান শি",
+              "bn_pron": "jiù zài jiào xué lóu èr lóu èr líng sān shì · জিউ দ্জাই জিয়াওসুয়েলৌ আরলৌ আর লিং সান শি",
               "tokens": [
                 {
                   "t": "就在",
@@ -16455,7 +16455,7 @@
               "level": "A1",
               "target": "你每天几点有汉语课？",
               "bn": "তোমার প্রতিদিন কয়টায় চীনা ভাষার ক্লাস থাকে?",
-              "bn_pron": "ni3 mei3 tian1 ji3 dian3 you3 Han4 yu3 ke4 · নি মেইথিয়েন জি দিয়েন ইয়ৌ হান-ইউ খ্য?",
+              "bn_pron": "nǐ měi tiān jǐ diǎn yǒu Hàn yǔ kè · নি মেইথিয়েন জি দিয়েন ইয়ৌ হান-ইউ খ্য?",
               "tokens": [
                 {
                   "t": "你",
@@ -16488,7 +16488,7 @@
               "level": "A1",
               "target": "我们星期一到星期五都有课。",
               "bn": "সোম থেকে শুক্রবার পর্যন্ত প্রতিদিনই আমাদের ক্লাস থাকে।",
-              "bn_pron": "wo3 men xing1 qi1 yi1 dao4 xing1 qi1 wu3 dou1 you3 ke4 · ওওমেন সিংছি-ই দাও সিংছি-উ দৌ ইয়ৌ খ্য",
+              "bn_pron": "wǒ men xīng qī yī dào xīng qī wǔ dōu yǒu kè · ওওমেন সিংছি-ই দাও সিংছি-উ দৌ ইয়ৌ খ্য",
               "tokens": [
                 {
                   "t": "我们",
@@ -16517,7 +16517,7 @@
               "level": "A1",
               "target": "我对中国历史和文化很感兴趣。",
               "bn": "চীনের ইতিহাস ও সংস্কৃতি নিয়ে আমার খুব আগ্রহ আছে।",
-              "bn_pron": "wo3 dui4 Zhong1 guo2 li4 shi3 he2 wen2 hua4 hen3 gan3 xing4 qu4 · ওও তুই চোংকুও লিশি হ্য ওয়েনহুয়া হেন গানসিংছু",
+              "bn_pron": "wǒ duì Zhōng guó lì shǐ hé wén huà hěn gǎn xìng qù · ওও তুই চোংকুও লিশি হ্য ওয়েনহুয়া হেন গানসিংছু",
               "tokens": [
                 {
                   "t": "我对",
@@ -16554,7 +16554,7 @@
               "level": "A1",
               "target": "我可以借这本词典吗？",
               "bn": "আমি কি এই ডিকশনারিটা ধার নিতে পারি?",
-              "bn_pron": "wo3 ke2 yi3 jie4 zhe4 ben3 ci2 dian3 ma · ওও খে-ই জিয়ে ঝেবেন ছ্যদিয়েন মা?",
+              "bn_pron": "wǒ ké yǐ jiè zhè běn cí diǎn ma · ওও খে-ই জিয়ে ঝেবেন ছ্যদিয়েন মা?",
               "tokens": [
                 {
                   "t": "我",
@@ -16591,7 +16591,7 @@
               "level": "A1",
               "target": "下课以后我们去食堂吃午饭。",
               "bn": "ক্লাস শেষে আমরা ক্যাফেটেরিয়ায় দুপুরের খাবার খাব।",
-              "bn_pron": "xia4 ke4 yi3 hou4 wo3 men qu4 shi2 tang2 chi1 wu3 fan4 · সিয়াখ্য ই-হৌ ওওমেন ছু শিথাং ছি উফান",
+              "bn_pron": "xià kè yǐ hòu wǒ men qù shí táng chī wǔ fàn · সিয়াখ্য ই-হৌ ওওমেন ছু শিথাং ছি উফান",
               "tokens": [
                 {
                   "t": "下课以后",
@@ -16624,7 +16624,7 @@
               "level": "A1",
               "target": "老师，这个问题我不懂，可以再讲一遍吗？",
               "bn": "স্যার, এই প্রশ্নটা আমি বুঝিনি, আরেকবার বুঝিয়ে দেবেন কি?",
-              "bn_pron": "lao3 shi1 zhe4 ge wen4 ti2 wo3 bu4 dong3 ke2 yi3 zai4 jiang3 yi2 bian4 ma · লাওশি ঝেগে ওয়েনথি ওও বু দোং খে-ই দ্জাই জিয়াং ইবিয়েন মা?",
+              "bn_pron": "lǎo shī zhè ge wèn tí wǒ bù dǒng ké yǐ zài jiǎng yí biàn ma · লাওশি ঝেগে ওয়েনথি ওও বু দোং খে-ই দ্জাই জিয়াং ইবিয়েন মা?",
               "tokens": [
                 {
                   "t": "老师",
@@ -16682,7 +16682,7 @@
               "level": "A1",
               "target": "我们加个微信吧！以后多联系。",
               "bn": "চলো আমরা উইচ্যাটে অ্যাড হয়ে যাই! ভবিষ্যতে নিয়মিত যোগাযোগ রাখব।",
-              "bn_pron": "wo3 men jia1 ge4 Wei1 xin4 ba yi3 hou4 duo1 lian2 xi4 · ওওমেন জিয়াগে ওয়েইসিন বা ই-হৌ দুও লিয়েনসি",
+              "bn_pron": "wǒ men jiā gè Wēi xìn ba yǐ hòu duō lián xì · ওওমেন জিয়াগে ওয়েইসিন বা ই-হৌ দুও লিয়েনসি",
               "tokens": [
                 {
                   "t": "我们",
@@ -16720,7 +16720,7 @@
               "level": "A1",
               "target": "好啊，你扫我还是我扫你？",
               "bn": "দারুণ, তুমি আমার কোড স্ক্যান করবে নাকি আমি তোমার?",
-              "bn_pron": "hao3 a ni3 sao3 wo3 hai2 shi4 wo3 sao3 ni3 · হাও আ নি সাও ওও হাইশি ওও সাও নি?",
+              "bn_pron": "hǎo a nǐ sǎo wǒ hái shì wǒ sǎo nǐ · হাও আ নি সাও ওও হাইশি ওও সাও নি?",
               "tokens": [
                 {
                   "t": "好啊",
@@ -16754,7 +16754,7 @@
               "level": "A1",
               "target": "这个星期六你有空吗？",
               "bn": "এই শনিবারে তোমার ফ্রি সময় আছে কি?",
-              "bn_pron": "zhe4 ge xing1 qi1 liu4 ni3 you3 kong4 ma · ঝেগে সিংছিলিউ নি ইয়ৌ খোং মা?",
+              "bn_pron": "zhè ge xīng qī liù nǐ yǒu kòng ma · ঝেগে সিংছিলিউ নি ইয়ৌ খোং মা?",
               "tokens": [
                 {
                   "t": "这个星期六",
@@ -16783,7 +16783,7 @@
               "level": "A1",
               "target": "我想请你喝茶聊天。",
               "bn": "আমি তোমাকে চা খাওয়াতে ও আড্ডা দিতে চাই।",
-              "bn_pron": "wo3 xiang3 qing3 ni3 he1 cha2 liao2 tian1 · ওও সিয়াং ছিং নি হ্য ছা লিয়াওথিয়েন",
+              "bn_pron": "wǒ xiǎng qǐng nǐ hē chá liáo tiān · ওও সিয়াং ছিং নি হ্য ছা লিয়াওথিয়েন",
               "tokens": [
                 {
                   "t": "我想",
@@ -16816,7 +16816,7 @@
               "level": "A1",
               "target": "你觉得北京怎么样？",
               "bn": "তোমার কাছে বেইজিং শহরটা কেমন লাগে?",
-              "bn_pron": "ni3 jue2 de Bei3 jing1 zen3 me yang4 · নি জুয়েদে বেইজিং জেন্ম্য ইয়াং?",
+              "bn_pron": "nǐ jué de Běi jīng zěn me yàng · নি জুয়েদে বেইজিং জেন্ম্য ইয়াং?",
               "tokens": [
                 {
                   "t": "你觉得",
@@ -16845,7 +16845,7 @@
               "level": "A1",
               "target": "人很热情，城市也很方便！",
               "bn": "মানুষজন খুব আন্তরিক, আর শহরটাও যাতায়াতের জন্য বেশ সুবিধাজনক!",
-              "bn_pron": "ren2 hen3 re4 qing2 cheng2 shi4 ye3 hen3 fang1 bian4 · রেন হেন রেছিং ছেংশি ইয়ে হেন ফাংবিয়েন",
+              "bn_pron": "rén hěn rè qíng chéng shì yě hěn fāng biàn · রেন হেন রেছিং ছেংশি ইয়ে হেন ফাংবিয়েন",
               "tokens": [
                 {
                   "t": "人很热情",
@@ -16878,7 +16878,7 @@
               "level": "A1",
               "target": "欢迎你以后来孟加拉国旅游！",
               "bn": "ভবিষ্যতে বাংলাদেশে বেড়াতে আসার জন্য তোমাকে আমন্ত্রণ!",
-              "bn_pron": "huan1 ying2 ni3 yi3 hou4 lai2 Meng4 jia1 la1 guo2 lv3 you2 · হুয়ান-ইং নি ই-হৌ লাই মেংজিয়ালাগুও লুইয়ৌ",
+              "bn_pron": "huān yíng nǐ yǐ hòu lái Mèng jiā lā guó lǚ yóu · হুয়ান-ইং নি ই-হৌ লাই মেংজিয়ালাগুও লুইয়ৌ",
               "tokens": [
                 {
                   "t": "欢迎你",
@@ -16911,7 +16911,7 @@
               "level": "A1",
               "target": "一定，我也很想去达卡看看！",
               "bn": "অবশ্যই, আমিও খুব ঢাকা ঘুরে দেখতে চাই!",
-              "bn_pron": "yi2 ding4 wo3 ye3 hen2 xiang3 qu4 Da2 ka3 kan4 kan · ইদিং ওও ইয়ে হেন সিয়াং ছু দাখা খানখান",
+              "bn_pron": "yí dìng wǒ yě hén xiǎng qù Dá kǎ kàn kan · ইদিং ওও ইয়ে হেন সিয়াং ছু দাখা খানখান",
               "tokens": [
                 {
                   "t": "一定",
@@ -16956,7 +16956,7 @@
               "level": "A1",
               "target": "大家好，我来自美丽的孟加拉国。",
               "bn": "সবাইকে শুভেচ্ছা, আমি সুন্দর বাংলাদেশ থেকে এসেছি।",
-              "bn_pron": "da4 jia1 hao3 wo3 lai2 zi4 mei3 li4 de Meng4 jia1 la1 guo2 · দাজিয়া হাও ওও লাইয্য মেইলিদ্য মেংজিয়ালাগুও",
+              "bn_pron": "dà jiā hǎo wǒ lái zì měi lì de Mèng jiā lā guó · দাজিয়া হাও ওও লাইয্য মেইলিদ্য মেংজিয়ালাগুও",
               "tokens": [
                 {
                   "t": "大家好",
@@ -16993,7 +16993,7 @@
               "level": "A1",
               "target": "我学习汉语已经两个月了。",
               "bn": "আমি দুই মাস ধরে চীনা ভাষা শিখছি।",
-              "bn_pron": "wo3 xue2 xi2 Han4 yu3 yi3 jing1 liang3 ge4 yue4 le · ওও সুয়েসি হান-ইউ ইজিং লিয়াং গে ইয়ুয়ে ল্য",
+              "bn_pron": "wǒ xué xí Hàn yǔ yǐ jīng liǎng gè yuè le · ওও সুয়েসি হান-ইউ ইজিং লিয়াং গে ইয়ুয়ে ল্য",
               "tokens": [
                 {
                   "t": "我",
@@ -17026,7 +17026,7 @@
               "level": "A1",
               "target": "现在我会读也会说基础汉语。",
               "bn": "এখন আমি প্রাথমিক চীনা পড়তে ও বলতে পারি।",
-              "bn_pron": "xian4 zai4 wo3 hui4 du2 ye3 hui4 shuo1 ji1 chu3 Han4 yu3 · সিয়েনদ্জাই ওও হুয়েই দু ইয়ে হুয়েই শুও জিছু হান-ইউ",
+              "bn_pron": "xiàn zài wǒ huì dú yě huì shuō jī chǔ Hàn yǔ · সিয়েনদ্জাই ওও হুয়েই দু ইয়ে হুয়েই শুও জিছু হান-ইউ",
               "tokens": [
                 {
                   "t": "现在",
@@ -17067,7 +17067,7 @@
               "level": "A1",
               "target": "每天坚持练习十五分钟。",
               "bn": "প্রতিদিন নিয়মিত পনেরো মিনিট অনুশীলন করুন।",
-              "bn_pron": "mei3 tian1 jian1 chi2 lian4 xi2 shi2 wu3 fen1 zhong1 · মেইথিয়েন জিয়েনছি লিয়েনসি শি-উ ফেনঝোং",
+              "bn_pron": "měi tiān jiān chí liàn xí shí wǔ fēn zhōng · মেইথিয়েন জিয়েনছি লিয়েনসি শি-উ ফেনঝোং",
               "tokens": [
                 {
                   "t": "每天",
@@ -17100,7 +17100,7 @@
               "level": "A1",
               "target": "说错了也没关系，多说就会好。",
               "bn": "বলতে গিয়ে ভুল হলেও সমস্যা নেই, বেশি বেশি বললে ঠিক হয়ে যাবে।",
-              "bn_pron": "shuo1 cuo4 le ye3 mei2 guan1 xi duo1 shuo1 jiu4 hui4 hao3 · শুও ছুও ল্য ইয়ে মেই কুয়ানসি দুও শুও জিউ হুয়েই হাও",
+              "bn_pron": "shuō cuò le yě méi guān xi duō shuō jiù huì hǎo · শুও ছুও ল্য ইয়ে মেই কুয়ানসি দুও শুও জিউ হুয়েই হাও",
               "tokens": [
                 {
                   "t": "说错了",
@@ -17137,7 +17137,7 @@
               "level": "A1",
               "target": "学好汉语能帮我工作和做生意。",
               "bn": "চীনা ভালোভাবে শিখলে আমার চাকরি ও ব্যবসায় সাহায্য হবে।",
-              "bn_pron": "xue2 hao3 Han4 yu3 neng2 bang1 wo3 gong1 zuo4 he2 zuo4 sheng1 yi · সুয়েহাও হান-ইউ নেং বাং ওও গোংযুও হ্য যুও শেং-ই",
+              "bn_pron": "xué hǎo Hàn yǔ néng bāng wǒ gōng zuò hé zuò shēng yi · সুয়েহাও হান-ইউ নেং বাং ওও গোংযুও হ্য যুও শেং-ই",
               "tokens": [
                 {
                   "t": "学好汉语",
@@ -17174,7 +17174,7 @@
               "level": "A1",
               "target": "恭喜你完成了第一阶段课程！",
               "bn": "অভিনন্দন, আপনি কোর্সের প্রথম ধাপ সফলভাবে সম্পন্ন করেছেন!",
-              "bn_pron": "gong1 xi3 ni3 wan2 cheng2 le di4 yi1 jie1 duan4 ke4 cheng2 · গোংসি নি ওয়ানছেং ল্য দি-ই জিয়েদুয়ান খ্যছেং",
+              "bn_pron": "gōng xǐ nǐ wán chéng le dì yī jiē duàn kè chéng · গোংসি নি ওয়ানছেং ল্য দি-ই জিয়েদুয়ান খ্যছেং",
               "tokens": [
                 {
                   "t": "恭喜你",
@@ -17207,7 +17207,7 @@
               "level": "A1",
               "target": "加油，我们下一级课程见！",
               "bn": "এগিয়ে যান, পরবর্তী লেভেলের কোর্সে আবার দেখা হবে!",
-              "bn_pron": "jia1 you2 wo3 men xia4 yi4 ji2 ke4 cheng2 jian4 · জিয়া-ইয়ৌ ওওমেন সিয়া ই জি খ্যছেং জিয়েন",
+              "bn_pron": "jiā yóu wǒ men xià yì jí kè chéng jiàn · জিয়া-ইয়ৌ ওওমেন সিয়া ই জি খ্যছেং জিয়েন",
               "tokens": [
                 {
                   "t": "加油",

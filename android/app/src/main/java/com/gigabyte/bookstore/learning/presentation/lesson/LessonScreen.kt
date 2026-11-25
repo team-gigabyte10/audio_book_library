@@ -100,8 +100,20 @@ import com.gigabyte.bookstore.learning.domain.model.LessonItem
 import com.gigabyte.bookstore.learning.domain.model.PlaybackStep
 import com.gigabyte.bookstore.learning.domain.model.SpeechLang
 import com.gigabyte.bookstore.learning.domain.model.Token
+import com.gigabyte.bookstore.learning.domain.util.PinyinToneConverter
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+
+private fun getReadingLabel(itemId: String): String = when {
+    itemId.startsWith("zh-") -> "🇨🇳 পিনয়িন: "
+    itemId.startsWith("jp-") -> "🇯🇵 রিডিং: "
+    itemId.startsWith("ko-") -> "🇰🇷 রোমানাইজেশন: "
+    itemId.startsWith("ar-") -> "🇸🇦 রোমানাইজেশন: "
+    itemId.startsWith("ur-") -> "🇵🇰 হরকতসহ রূপ: "
+    itemId.startsWith("de-") -> "🇩🇪 উচ্চারণ রূপ: "
+    itemId.startsWith("en-") -> "🇬🇧 ফোনেটিক রূপ: "
+    else -> "📖 মূল রূপ: "
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -958,7 +970,10 @@ private fun ItemCard(
                 if (!item.bnPron.isNullOrBlank()) {
                     val rawPron = item.bnPron
                     val hasReading = rawPron.contains(" · ")
-                    val readingPart = if (hasReading) rawPron.substringBefore(" · ").trim() else null
+                    val rawReading = if (hasReading) rawPron.substringBefore(" · ").trim() else null
+                    val readingPart = if (rawReading != null && item.id.startsWith("zh-")) {
+                        PinyinToneConverter.toToneMarks(rawReading)
+                    } else rawReading
                     val pronPart = if (hasReading) rawPron.substringAfter(" · ").trim() else rawPron.trim()
 
                     if (!readingPart.isNullOrBlank()) {
@@ -978,7 +993,7 @@ private fun ItemCard(
                                     modifier = Modifier.weight(1f)
                                 ) {
                                     Text(
-                                        text = if (item.id.startsWith("jp-")) "🇯🇵 রিডিং: " else "📖 মূল রূপ: ",
+                                        text = getReadingLabel(item.id),
                                         fontSize = 12.sp,
                                         fontWeight = FontWeight.Bold,
                                         color = MaterialTheme.colorScheme.secondary
@@ -991,12 +1006,18 @@ private fun ItemCard(
                                     )
                                 }
                                 IconButton(
-                                    onClick = { onSpeakText(readingPart) },
+                                    onClick = {
+                                        if (item.id.startsWith("zh-")) {
+                                            onSpeakText(item.target)
+                                        } else {
+                                            onSpeakText(rawReading ?: readingPart)
+                                        }
+                                    },
                                     modifier = Modifier.size(28.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.VolumeUp,
-                                        contentDescription = "রিডিং শুনুন",
+                                        contentDescription = if (item.id.startsWith("zh-")) "উচ্চারণ শুনুন" else "রিডিং শুনুন",
                                         tint = MaterialTheme.colorScheme.secondary,
                                         modifier = Modifier.size(16.dp)
                                     )
@@ -1991,7 +2012,10 @@ private fun SpeedDrillChallengeCard(
                         Spacer(Modifier.height(8.dp))
                         val rawPron = item.bnPron
                         val hasReading = rawPron.contains(" · ")
-                        val readingPart = if (hasReading) rawPron.substringBefore(" · ").trim() else null
+                        val rawReading = if (hasReading) rawPron.substringBefore(" · ").trim() else null
+                        val readingPart = if (rawReading != null && item.id.startsWith("zh-")) {
+                            PinyinToneConverter.toToneMarks(rawReading)
+                        } else rawReading
                         val pronPart = if (hasReading) rawPron.substringAfter(" · ").trim() else rawPron.trim()
 
                         if (!readingPart.isNullOrBlank()) {
@@ -2011,7 +2035,7 @@ private fun SpeedDrillChallengeCard(
                                         modifier = Modifier.weight(1f)
                                     ) {
                                         Text(
-                                            text = if (item.id.startsWith("jp-")) "🇯🇵 রিডিং: " else "📖 মূল রূপ: ",
+                                            text = getReadingLabel(item.id),
                                             fontSize = 11.sp,
                                             fontWeight = FontWeight.Bold,
                                             color = MaterialTheme.colorScheme.secondary
@@ -2024,12 +2048,18 @@ private fun SpeedDrillChallengeCard(
                                         )
                                     }
                                     IconButton(
-                                        onClick = { onSpeakText(readingPart) },
+                                        onClick = {
+                                            if (item.id.startsWith("zh-")) {
+                                                onSpeakText(item.target)
+                                            } else {
+                                                onSpeakText(rawReading ?: readingPart)
+                                            }
+                                        },
                                         modifier = Modifier.size(26.dp)
                                     ) {
                                         Icon(
                                             imageVector = Icons.AutoMirrored.Filled.VolumeUp,
-                                            contentDescription = "রিডিং শুনুন",
+                                            contentDescription = if (item.id.startsWith("zh-")) "উচ্চারণ শুনুন" else "রিডিং শুনুন",
                                             tint = MaterialTheme.colorScheme.secondary,
                                             modifier = Modifier.size(15.dp)
                                         )
