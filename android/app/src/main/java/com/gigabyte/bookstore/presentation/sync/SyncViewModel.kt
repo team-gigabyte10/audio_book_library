@@ -37,16 +37,32 @@ class SyncViewModel(application: Application) : AndroidViewModel(application) {
     private val _state = MutableStateFlow<InitialSyncState>(InitialSyncState.CheckingAuth)
     val state: StateFlow<InitialSyncState> = _state.asStateFlow()
 
+    private var splashStartTime: Long = 0L
+
+    /**
+     * Enforces that the branded Splash Screen stays visible for at least 3.5 seconds (3 to 5s window)
+     * so learners can enjoy the hero artwork and brand identity before entering the app.
+     */
+    private suspend fun enforceMinimumSplashDuration(minDurationMs: Long = 3500L) {
+        val elapsed = System.currentTimeMillis() - splashStartTime
+        val remaining = (minDurationMs - elapsed).coerceAtLeast(0L)
+        if (remaining > 0L) {
+            kotlinx.coroutines.delay(remaining)
+        }
+    }
+
     init {
         startSyncWorkflow()
     }
 
     fun startSyncWorkflow() {
         viewModelScope.launch {
+            splashStartTime = System.currentTimeMillis()
             _state.value = InitialSyncState.CheckingAuth
 
             // 1. Check if user is logged in locally
             if (!appPreferences.isLoggedIn.value) {
+                enforceMinimumSplashDuration()
                 _state.value = InitialSyncState.NeedRegistration
                 return@launch
             }
@@ -54,11 +70,13 @@ class SyncViewModel(application: Application) : AndroidViewModel(application) {
             // 2. Verify login & device ID in background with Firestore
             when (val authCheck = userRepository.verifyLoginAndDevice()) {
                 is VerificationResult.DeviceMismatch -> {
+                    enforceMinimumSplashDuration()
                     _state.value = InitialSyncState.DeviceMismatch(authCheck.expectedDeviceId)
                     return@launch
                 }
                 is VerificationResult.UserNotFound -> {
                     appPreferences.clearUserSession()
+                    enforceMinimumSplashDuration()
                     _state.value = InitialSyncState.NeedRegistration
                     return@launch
                 }
@@ -67,11 +85,13 @@ class SyncViewModel(application: Application) : AndroidViewModel(application) {
                     proceedToFileSync(authCheck.user.status)
                 }
                 is VerificationResult.Offline -> {
-                    // Offline fallback: immediately use locally cached status and books without waiting!
+                    // Offline fallback: wait for minimum splash branding duration
+                    enforceMinimumSplashDuration()
                     _state.value = InitialSyncState.Ready
                 }
                 is VerificationResult.Error -> {
-                    // Network error fallback: proceed with locally cached status
+                    // Network error fallback
+                    enforceMinimumSplashDuration()
                     _state.value = InitialSyncState.Ready
                 }
             }
@@ -94,9 +114,11 @@ class SyncViewModel(application: Application) : AndroidViewModel(application) {
                         )
                     }
                     is SyncProgressState.Completed -> {
+                        enforceMinimumSplashDuration()
                         _state.value = InitialSyncState.Ready
                     }
                     is SyncProgressState.Error -> {
+                        enforceMinimumSplashDuration()
                         _state.value = InitialSyncState.Ready // Proceed with offline cached books
                     }
                     else -> {}
