@@ -74,6 +74,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     val bookmarkedBookIds: StateFlow<Set<String>> = app.appPreferences.bookmarkedBookIds
 
+    fun isLiveSpokenUnlocked(): Boolean = app.appPreferences.isLiveSpokenUnlocked()
+
     fun removeBookmark(bookId: String) {
         app.appPreferences.removeBookmark(bookId)
     }

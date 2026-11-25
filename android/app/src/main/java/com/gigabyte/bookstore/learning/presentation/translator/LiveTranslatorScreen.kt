@@ -109,7 +109,8 @@ private val BANGLA_SAMPLE_PHRASES = listOf(
 @Composable
 fun LiveTranslatorScreen(
     viewModel: LiveTranslatorViewModel,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onExploreCourses: () -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val speechState by viewModel.speechState.collectAsStateWithLifecycle()
@@ -166,6 +167,81 @@ fun LiveTranslatorScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
+                // 0. Access Control Lock Banner when user hasn't purchased any course
+                if (!uiState.isLiveSpokenUnlocked) {
+                    item {
+                        Card(
+                            shape = RoundedCornerShape(18.dp),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                            border = BorderStroke(1.5.dp, Color(0xFFF59E0B)),
+                            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(
+                                        Brush.verticalGradient(
+                                            listOf(
+                                                Color(0xFFFEF08A).copy(alpha = 0.22f),
+                                                Color(0xFFF59E0B).copy(alpha = 0.06f)
+                                            )
+                                        )
+                                    )
+                                    .padding(14.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    Surface(
+                                        shape = CircleShape,
+                                        color = Color(0xFFF59E0B),
+                                        modifier = Modifier.size(32.dp)
+                                    ) {
+                                        Box(contentAlignment = Alignment.Center) {
+                                            Icon(
+                                                imageVector = Icons.Default.Lock,
+                                                contentDescription = null,
+                                                tint = Color.Black,
+                                                modifier = Modifier.size(18.dp)
+                                            )
+                                        }
+                                    }
+                                    Text(
+                                        text = "যেকোনো কোর্স কিনলেই লাইভ স্পোকেন আনলক!",
+                                        style = MaterialTheme.typography.titleSmall.copy(
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color(0xFFB45309)
+                                        )
+                                    )
+                                }
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = "আমাদের যেকোনো একটি পেইড কোর্স কিনলেই সকল ভাষার আনলিমিটেড লাইভ স্পোকেন, এআই অনুবাদ ও সঠিক উচ্চারণ আজীবনের জন্য আনলক হয়ে যাবে।",
+                                    style = MaterialTheme.typography.bodySmall.copy(
+                                        fontSize = 12.sp,
+                                        lineHeight = 17.sp,
+                                        textAlign = TextAlign.Center
+                                    ),
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                Spacer(Modifier.height(10.dp))
+                                Button(
+                                    onClick = onExploreCourses,
+                                    shape = RoundedCornerShape(10.dp),
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF59E0B))
+                                ) {
+                                    Icon(Icons.Default.MenuBook, contentDescription = null, tint = Color.Black, modifier = Modifier.size(16.dp))
+                                    Spacer(Modifier.width(6.dp))
+                                    Text("কোর্সগুলো দেখুন ও কিনুন", fontWeight = FontWeight.Bold, color = Color.Black, fontSize = 12.sp)
+                                }
+                            }
+                        }
+                    }
+                }
+
                 // 1. Target Language Picker
                 item {
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -667,10 +743,39 @@ private fun TranslationOutputCard(
                                     lineHeight = 24.sp
                                 )
                             }
+                            // Japanese Special Kana (Hiragana) Reading Box for Kanji!
+                            if (language == TranslatorLanguage.JAPANESE) {
+                                val kanaText = result.kanaReading?.takeIf { it.isNotBlank() }
+                                    ?: result.romanization?.let { BanglaPronunciationEngine.romajiToHiragana(it).takeIf { k -> k.isNotBlank() } }
+                                if (!kanaText.isNullOrBlank()) {
+                                    Surface(
+                                        shape = RoundedCornerShape(8.dp),
+                                        color = accent.copy(alpha = 0.12f),
+                                        border = BorderStroke(1.dp, accent.copy(alpha = 0.32f)),
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
+                                        Column(Modifier.padding(horizontal = 8.dp, vertical = 5.dp)) {
+                                            Text(
+                                                text = "🔤 হিরাগানা (কানা পাঠ - কাঞ্জির উচ্চারণ):",
+                                                fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = accent
+                                            )
+                                            Text(
+                                                text = kanaText,
+                                                fontSize = 16.sp,
+                                                lineHeight = 22.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = MaterialTheme.colorScheme.onSurface
+                                            )
+                                        }
+                                    }
+                                }
+                            }
                             result.romanization?.let { rom ->
                                 Text(
-                                    text = "পঠন সহায়িকা: $rom",
-                                    style = MaterialTheme.typography.bodySmall,
+                                    text = if (language == TranslatorLanguage.JAPANESE) "রোমাজি (Romaji): $rom" else "পঠন সহায়িকা: $rom",
+                                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }

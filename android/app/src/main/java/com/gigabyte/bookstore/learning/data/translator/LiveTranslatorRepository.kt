@@ -215,10 +215,15 @@ class LiveTranslatorRepository(
         val reverse = direction == TranslatorDirection.TARGET_TO_BN
         val pron = item.bnPron?.takeIf { it.isNotBlank() }
             ?: BanglaPronunciationEngine.generate(item.target, language)
+        val jaKana = if (language == TranslatorLanguage.JAPANESE) {
+            val allKana = item.target.filter { c -> c in '\u3040'..'\u30FF' || c == ' ' }
+            allKana.takeIf { it.isNotBlank() }
+        } else null
         return TranslationResult(
             sourceText = query,
             targetText = if (reverse) item.bn.orEmpty() else item.target,
             banglaPronunciation = pron,
+            kanaReading = jaKana,
             wordBreakdown = item.tokens.map { tok ->
                 tok.copy(bnPron = tok.bnPron ?: BanglaPronunciationEngine.generateWord(tok.text, language))
             },
@@ -275,6 +280,9 @@ class LiveTranslatorRepository(
                 language = language,
                 romanizationHint = romanHint
             )
+            val jaKana = if (language == TranslatorLanguage.JAPANESE && !romanHint.isNullOrBlank()) {
+                BanglaPronunciationEngine.romajiToHiragana(romanHint).takeIf { it.isNotBlank() }
+            } else null
             val tokens = if (direction == TranslatorDirection.BN_TO_TARGET) {
                 payload.translatedText.split(Regex("\\s+")).filter { it.isNotBlank() }.take(10).map { w ->
                     Token(w, null, BanglaPronunciationEngine.generateWord(w, language))
@@ -285,6 +293,7 @@ class LiveTranslatorRepository(
                 targetText = payload.translatedText,
                 banglaPronunciation = bnPron,
                 romanization = romanHint,
+                kanaReading = jaKana,
                 wordBreakdown = tokens,
                 languageKey = language.key,
                 direction = direction,
@@ -345,13 +354,21 @@ class LiveTranslatorRepository(
             val targetLabel = "${language.nativeName} (${language.titleBn})"
 
             return if (direction == TranslatorDirection.BN_TO_TARGET) {
+                val jaNotice = if (language == TranslatorLanguage.JAPANESE) {
+                    """
+                    SPECIAL INSTRUCTION FOR JAPANESE:
+                    Many learners cannot read Kanji. You MUST provide "kana_reading" with pure Hiragana/Katakana (NO KANJI, e.g. "わたしはほんをよみます") and "romanization" with standard Hepburn Romaji.
+                    """
+                } else ""
                 """
                 You are an expert Bangladeshi language tutor. Translate this Bangla sentence naturally into spoken $targetLabel.
                 Input (Bangla): "$query"
+                $jaNotice
 
                 Return ONLY a valid JSON object with NO markdown fences and exact keys:
                 {
                   "translated_text": "natural spoken sentence in target script",
+                  "kana_reading": "if Japanese, pure Hiragana/Katakana reading with NO Kanji, empty string otherwise",
                   "bangla_pronunciation": "accurate phonetic pronunciation written strictly in Bengali script for a Bengali learner",
                   "romanization": "optional Romaji or transliteration, empty string if not needed",
                   "word_breakdown": [{"t": "target_word", "bn": "short_bangla_meaning", "pron": "bangla_pronunciation_of_word"}],
@@ -366,6 +383,7 @@ class LiveTranslatorRepository(
                 Return ONLY a valid JSON object with NO markdown fences and exact keys:
                 {
                   "translated_text": "natural Standard Bangla meaning",
+                  "kana_reading": "",
                   "bangla_pronunciation": "accurate phonetic pronunciation of the original foreign input written strictly in Bengali script",
                   "romanization": "",
                   "word_breakdown": [{"t": "source_word", "bn": "bangla_meaning", "pron": "bangla_pronunciation_of_word"}],
@@ -400,6 +418,10 @@ class LiveTranslatorRepository(
                 .replace('\u0964', '\u09F7')
                 .takeIf { it.isNotEmpty() }
             val roman = jsonObj.optString("romanization", "").trim().takeIf { it.isNotEmpty() }
+            val parsedKana = jsonObj.optString("kana_reading", "").trim().takeIf { it.isNotEmpty() }
+            val kana = parsedKana ?: if (language == TranslatorLanguage.JAPANESE && !roman.isNullOrBlank()) {
+                BanglaPronunciationEngine.romajiToHiragana(roman).takeIf { it.isNotBlank() }
+            } else null
             val tip = jsonObj.optString("grammar_tip_bn", "").trim().takeIf { it.isNotEmpty() }
 
             val tokensList = mutableListOf<Token>()
@@ -419,6 +441,7 @@ class LiveTranslatorRepository(
                 targetText = translated,
                 banglaPronunciation = bnPron,
                 romanization = roman,
+                kanaReading = kana,
                 wordBreakdown = tokensList,
                 grammarTipBn = tip,
                 languageKey = language.key,

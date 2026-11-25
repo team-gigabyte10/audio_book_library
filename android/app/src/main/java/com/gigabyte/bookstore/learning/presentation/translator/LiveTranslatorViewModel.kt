@@ -34,6 +34,7 @@ data class LiveTranslatorUiState(
     val result: TranslationResult? = null,
     val errorMessage: String? = null,
     val autoSpeak: Boolean = true,
+    val isLiveSpokenUnlocked: Boolean = false,
     val history: List<TranslationResult> = emptyList()
 )
 
@@ -54,10 +55,25 @@ class LiveTranslatorViewModel(
         LiveTranslatorUiState(
             selectedLanguage = TranslatorLanguage.fromKey(initialLangKey),
             autoSpeak = preferences.learnTranslatorAutoSpeak.value,
+            isLiveSpokenUnlocked = app.appPreferences.isLiveSpokenUnlocked(),
             history = decodeHistory(preferences.learnTranslatorHistoryJson.value)
         )
     )
     val uiState: StateFlow<LiveTranslatorUiState> = _uiState.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            kotlinx.coroutines.flow.combine(
+                app.appPreferences.unlockedBundles,
+                app.appPreferences.userStatus,
+                app.appPreferences.isAdmin
+            ) { _, _, _ ->
+                app.appPreferences.isLiveSpokenUnlocked()
+            }.collect { unlocked ->
+                _uiState.update { it.copy(isLiveSpokenUnlocked = unlocked) }
+            }
+        }
+    }
 
     private var translateJob: Job? = null
     private var speakJob: Job? = null

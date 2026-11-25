@@ -157,6 +157,7 @@ data class TranslationResult(
     val targetText: String,
     val banglaPronunciation: String? = null,
     val romanization: String? = null,
+    val kanaReading: String? = null,
     val wordBreakdown: List<Token> = emptyList(),
     val grammarTipBn: String? = null,
     val languageKey: String,

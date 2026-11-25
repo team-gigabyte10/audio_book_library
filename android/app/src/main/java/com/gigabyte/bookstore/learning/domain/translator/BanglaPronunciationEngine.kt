@@ -228,6 +228,102 @@ object BanglaPronunciationEngine {
         return if (hasKana) transliterateKanaToBangla(targetText) else targetText
     }
 
+    fun romajiToHiragana(romaji: String): String {
+        if (romaji.isBlank()) return ""
+        val s = romaji.lowercase()
+            .replace("ā", "aa").replace("ī", "ii").replace("ū", "uu")
+            .replace("ē", "ee").replace("ō", "oo")
+            .replace("ou", "oo")
+        val sb = StringBuilder()
+        var i = 0
+        while (i < s.length) {
+            val c = s[i]
+            if (c !in 'a'..'z') {
+                sb.append(c)
+                i++
+                continue
+            }
+            // Sokuon (double consonant like tt, kk, ss, pp, excluding nn)
+            if (i + 1 < s.length && c == s[i + 1] && c in "bcdfghjklmpqrstvwxyz" && c != 'n') {
+                sb.append('っ')
+                i++
+                continue
+            }
+            // 3-char clusters
+            if (i + 2 < s.length) {
+                val tri = s.substring(i, i + 3)
+                val hit = ROMAJI_TO_HIRA_TRI[tri]
+                if (hit != null) {
+                    sb.append(hit)
+                    i += 3
+                    continue
+                }
+            }
+            // 2-char clusters
+            if (i + 1 < s.length) {
+                val di = s.substring(i, i + 2)
+                val hit = ROMAJI_TO_HIRA_DI[di]
+                if (hit != null) {
+                    sb.append(hit)
+                    i += 2
+                    continue
+                }
+            }
+            // 1-char
+            val mono = s[i].toString()
+            if (mono == "n" && (i + 1 == s.length || s[i + 1] !in "aeiouy")) {
+                sb.append("ん")
+                i++
+                continue
+            }
+            val hitMono = ROMAJI_TO_HIRA_MONO[mono]
+            if (hitMono != null) {
+                sb.append(hitMono)
+                i++
+                continue
+            }
+            sb.append(s[i])
+            i++
+        }
+        return sb.toString()
+    }
+
+    private val ROMAJI_TO_HIRA_TRI = mapOf(
+        "kya" to "きゃ", "kyu" to "きゅ", "kyo" to "きょ",
+        "sha" to "しゃ", "shu" to "しゅ", "sho" to "しょ",
+        "cha" to "ちゃ", "chu" to "ちゅ", "cho" to "ちょ",
+        "nya" to "にゃ", "nyu" to "にゅ", "nyo" to "にょ",
+        "hya" to "ひゃ", "hyu" to "ひゅ", "hyo" to "ひょ",
+        "mya" to "みゃ", "myu" to "みゅ", "myo" to "みょ",
+        "rya" to "りゃ", "ryu" to "りゅ", "ryo" to "りょ",
+        "gya" to "ぎゃ", "gyu" to "ぎゅ", "gyo" to "ぎょ",
+        "bya" to "びゃ", "byu" to "びゅ", "byo" to "びょ",
+        "pya" to "ぴゃ", "pyu" to "ぴゅ", "pyo" to "ぴょ",
+        "tsu" to "つ", "chi" to "ち", "shi" to "し"
+    )
+
+    private val ROMAJI_TO_HIRA_DI = mapOf(
+        "ka" to "か", "ki" to "き", "ku" to "く", "ke" to "け", "ko" to "こ",
+        "sa" to "さ", "si" to "し", "su" to "す", "se" to "せ", "so" to "そ",
+        "ta" to "た", "ti" to "ち", "tu" to "つ", "te" to "て", "to" to "to", "to" to "と",
+        "na" to "な", "ni" to "に", "nu" to "ぬ", "ne" to "ね", "no" to "の",
+        "ha" to "は", "hi" to "ひ", "fu" to "ふ", "hu" to "ふ", "he" to "へ", "ho" to "ほ",
+        "ma" to "ま", "mi" to "み", "mu" to "む", "me" to "め", "mo" to "mo", "mo" to "も",
+        "ya" to "や", "yu" to "ゆ", "yo" to "よ",
+        "ra" to "ら", "ri" to "り", "ru" to "る", "re" to "れ", "ro" to "ろ",
+        "wa" to "わ", "wo" to "を", "nn" to "ん",
+        "ga" to "が", "gi" to "ぎ", "gu" to "ぐ", "ge" to "げ", "go" to "ご",
+        "za" to "ざ", "zi" to "じ", "ji" to "じ", "zu" to "ず", "ze" to "ぜ", "zo" to "zo", "zo" to "ぞ",
+        "da" to "だ", "di" to "ぢ", "du" to "づ", "de" to "で", "do" to "ど",
+        "ba" to "ば", "bi" to "び", "bu" to "ぶ", "be" to "べ", "bo" to "ぼ",
+        "pa" to "ぱ", "pi" to "ぴ", "pu" to "ぷ", "pe" to "ぺ", "po" to "ぽ",
+        "ja" to "じゃ", "ju" to "じゅ", "jo" to "じょ"
+    )
+
+    private val ROMAJI_TO_HIRA_MONO = mapOf(
+        "a" to "あ", "i" to "い", "u" to "う", "e" to "え", "o" to "お", "n" to "ん"
+    )
+
     internal fun transliterateKanaToBangla(input: String): String {
         // Normalize Katakana -> Hiragana for uniform mora table lookup
         val hira = buildString(input.length) {

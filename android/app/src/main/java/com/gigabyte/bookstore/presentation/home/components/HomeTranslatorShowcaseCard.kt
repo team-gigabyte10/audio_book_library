@@ -53,7 +53,8 @@ private val SUPPORTED_FLAG_PILLS = listOf(
 @Composable
 fun HomeTranslatorShowcaseCard(
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    isLiveSpokenUnlocked: Boolean = false
 ) {
     val accentTeal = Color(0xFF00897B)
     Card(
@@ -141,14 +142,14 @@ fun HomeTranslatorShowcaseCard(
                     }
 
                     Surface(
-                        color = Color(0xFF10B981),
+                        color = if (isLiveSpokenUnlocked) Color(0xFF10B981) else Color(0xFFF59E0B),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "✓ লাইভ স্পিচ",
+                            text = if (isLiveSpokenUnlocked) "✓ লাইভ স্পোকেন আনলকড" else "🔒 যেকোনো কোর্স কিনলেই আনলক",
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
-                                color = Color.White,
+                                color = if (isLiveSpokenUnlocked) Color.White else Color.Black,
                                 fontSize = 11.sp
                             ),
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)

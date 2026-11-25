@@ -643,7 +643,10 @@ fun AppNavHost(
             )
             LiveTranslatorScreen(
                 viewModel = translatorViewModel,
-                onBackClick = { navController.popBackStack() }
+                onBackClick = { navController.popBackStack() },
+                onExploreCourses = {
+                    navController.popBackStack()
+                }
             )
         }
 

@@ -377,8 +377,12 @@ fun HomeScreen(
                         // 0. Live Bangla-to-Foreign Speech Translator Showcase Card
                         item {
                             Spacer(modifier = Modifier.height(12.dp))
+                            val isLiveSpokenUnlocked = remember(unlockedBundles, userStatus, isAdmin) {
+                                viewModel.isLiveSpokenUnlocked()
+                            }
                             HomeTranslatorShowcaseCard(
                                 onClick = onNavigateToTranslator,
+                                isLiveSpokenUnlocked = isLiveSpokenUnlocked,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

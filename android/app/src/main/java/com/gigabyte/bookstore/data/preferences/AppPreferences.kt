@@ -302,6 +302,18 @@ class AppPreferences(context: Context) {
         return _unlockedBundles.value.contains(normalized)
     }
 
+    /**
+     * Live Spoken (Live Translator) is unlocked if ANY course was purchased,
+     * or if user has paid status, or is admin.
+     */
+    fun hasAnyCoursePurchased(): Boolean {
+        if (_isAdmin.value) return true
+        if (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true)) return true
+        return _unlockedBundles.value.isNotEmpty()
+    }
+
+    fun isLiveSpokenUnlocked(): Boolean = hasAnyCoursePurchased()
+
     // -------------------------------------------------------------
     // Bookmarks (Saved Books)
     // -------------------------------------------------------------

@@ -420,8 +420,12 @@ fun LearnHomeScreen(
                 ) {
                     item {
                         val translatorLang = remember(language) { TranslatorLanguage.fromKey(language) }
+                        val isLiveSpokenUnlocked = remember {
+                            (context.applicationContext as? BanglaAudiobookApp)?.appPreferences?.isLiveSpokenUnlocked() ?: false
+                        }
                         CourseLiveTranslatorCard(
                             translatorLanguage = translatorLang,
+                            isUnlocked = isLiveSpokenUnlocked,
                             onClick = { onOpenTranslator(translatorLang.key) }
                         )
                     }
@@ -2286,13 +2290,14 @@ private fun InfoPill(
 @Composable
 private fun CourseLiveTranslatorCard(
     translatorLanguage: TranslatorLanguage,
+    isUnlocked: Boolean = false,
     onClick: () -> Unit
 ) {
     val accent = Color(translatorLanguage.accentHex)
     Card(
         shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(1.2.dp, accent.copy(alpha = 0.42f)),
+        border = BorderStroke(1.2.dp, if (isUnlocked) accent.copy(alpha = 0.42f) else Color(0xFFF59E0B).copy(alpha = 0.5f)),
         elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
         modifier = Modifier
             .fillMaxWidth()
@@ -2344,12 +2349,18 @@ private fun CourseLiveTranslatorCard(
                                 modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
                             )
                         }
-                        Text(
-                            text = "• বাংলা উচ্চারণ",
-                            fontSize = 10.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color = Color(0xFF10B981)
-                        )
+                        Surface(
+                            color = if (isUnlocked) Color(0xFF10B981).copy(alpha = 0.15f) else Color(0xFFF59E0B).copy(alpha = 0.18f),
+                            shape = RoundedCornerShape(6.dp)
+                        ) {
+                            Text(
+                                text = if (isUnlocked) "• আনলকড" else "🔒 যেকোনো কোর্স কিনলেই আনলক",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isUnlocked) Color(0xFF10B981) else Color(0xFFD97706),
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                            )
+                        }
                     }
                     Spacer(Modifier.height(4.dp))
                     Text(
@@ -2370,7 +2381,7 @@ private fun CourseLiveTranslatorCard(
                 }
                 Spacer(Modifier.width(8.dp))
                 Surface(
-                    color = accent,
+                    color = if (isUnlocked) accent else Color(0xFFF59E0B),
                     shape = RoundedCornerShape(10.dp)
                 ) {
                     Row(
@@ -2378,16 +2389,16 @@ private fun CourseLiveTranslatorCard(
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
                     ) {
                         Text(
-                            text = "খুলুন",
+                            text = if (isUnlocked) "খুলুন" else "আনলক",
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color.White
+                            color = if (isUnlocked) Color.White else Color.Black
                         )
                         Spacer(Modifier.width(3.dp))
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                             contentDescription = null,
-                            tint = Color.White,
+                            tint = if (isUnlocked) Color.White else Color.Black,
                             modifier = Modifier.size(12.dp)
                         )
                     }
