@@ -35,7 +35,8 @@ data class LessonSummary(
     val titleTarget: String?,
     val itemCount: Int,
     val bestScore: Int,
-    val state: LessonState
+    val state: LessonState,
+    val lastItemIndex: Int = 0
 )
 
 data class LessonItemSummary(
@@ -47,7 +48,8 @@ data class LessonItemSummary(
     val introBn: String?,
     val itemCount: Int,
     val bestScore: Int,
-    val state: LessonState
+    val state: LessonState,
+    val lastItemIndex: Int = 0
 )
 
 data class PartWithLessons(
@@ -97,7 +99,8 @@ class LearningRepository(private val dao: LearningDao) {
                         titleTarget = row.lesson.titleTarget,
                         itemCount = row.visibleCount,
                         bestScore = saved?.bestScore ?: 0,
-                        state = LessonUnlock.stateOf(saved?.state)
+                        state = LessonUnlock.stateOf(saved?.state),
+                        lastItemIndex = saved?.lastItemIndex ?: 0
                     )
                 }
         }
@@ -131,7 +134,8 @@ class LearningRepository(private val dao: LearningDao) {
                         introBn = l.lesson.introBn,
                         itemCount = l.visibleCount,
                         bestScore = saved?.bestScore ?: 0,
-                        state = LessonUnlock.stateOf(saved?.state)
+                        state = LessonUnlock.stateOf(saved?.state),
+                        lastItemIndex = saved?.lastItemIndex ?: 0
                     )
                 }
                 PartWithLessons(part = partSummary, lessons = partLessons)

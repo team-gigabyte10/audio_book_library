@@ -418,6 +418,21 @@ fun CourseSyllabusScreen(
         }
     }
 
+    val allLessonsInCourse = remember(filteredSyllabus) {
+        filteredSyllabus.flatMap { it.lessons }
+    }
+    val totalLessons = remember(allLessonsInCourse) { allLessonsInCourse.size }
+    val completedLessons = remember(allLessonsInCourse) {
+        allLessonsInCourse.count { it.state == LessonState.DONE }
+    }
+    val progressPercent = remember(totalLessons, completedLessons) {
+        if (totalLessons > 0) ((completedLessons.toFloat() / totalLessons) * 100).toInt() else 0
+    }
+    val resumeLesson = remember(allLessonsInCourse) {
+        allLessonsInCourse.firstOrNull { it.state == LessonState.IN_PROGRESS }
+            ?: allLessonsInCourse.firstOrNull { it.state != LessonState.DONE }
+    }
+
     Scaffold(
         topBar = {
             ThemedTopAppBar(
@@ -479,6 +494,9 @@ fun CourseSyllabusScreen(
                     if (isQuran) {
                         item(key = "quran_hero_banner") {
                             QuranSyllabusHeroCard(
+                                completedLessons = completedLessons,
+                                totalLessons = totalLessons,
+                                progressPercent = progressPercent,
                                 onOpenDefinitions = { onOpenIntro("Quran_Tajweed_Definitions.md") }
                             )
                         }
@@ -492,7 +510,48 @@ fun CourseSyllabusScreen(
                                 subtitle = courseSubtitle,
                                 partCount = filteredSyllabus.size,
                                 accentColor = topAccent,
+                                completedLessons = completedLessons,
+                                totalLessons = totalLessons,
+                                progressPercent = progressPercent,
                                 isCourseOwned = isCourseOwned
+                            )
+                        }
+                    }
+
+                    // Resume Lesson Card (Shows when learner has an active / unfinished lesson)
+                    if (resumeLesson != null && completedLessons < totalLessons) {
+                        item(key = "resume_active_lesson") {
+                            ResumeLessonCard(
+                                lesson = resumeLesson,
+                                accentColor = getSyllabusPartTheme(1).accentColor,
+                                onOpenLesson = onOpenLesson
+                            )
+                        }
+                    }
+
+                    // Optional Daily Learning Bonus for Paid and Active Users (Voluntary & Minimum)
+                    if (isAdAllowed && effectiveAllowRewardAd) {
+                        item(key = "daily_bonus_reward_card") {
+                            DailyVoluntaryRewardCard(
+                                isLoadingAd = isLoadingRewardAd,
+                                onClaimReward = {
+                                    val activity = context as? Activity
+                                    if (activity != null) {
+                                        isLoadingRewardAd = true
+                                        FacebookRewardAdManager.getInstance(context).showAd(
+                                            activity = activity,
+                                            onRewardEarned = {
+                                                isLoadingRewardAd = false
+                                                Toast.makeText(context, "🎉 অভিনন্দন! দৈনিক লার্নিং রিওয়ার্ড কয়েন ওয়ালেটে যুক্ত হয়েছে!", Toast.LENGTH_LONG).show()
+                                            },
+                                            onClosed = { isLoadingRewardAd = false },
+                                            onError = {
+                                                isLoadingRewardAd = false
+                                                Toast.makeText(context, "বোনাস রিওয়ার্ড আনলক হয়েছে! 🎉", Toast.LENGTH_SHORT).show()
+                                            }
+                                        )
+                                    }
+                                }
                             )
                         }
                     }
@@ -518,6 +577,9 @@ fun CourseSyllabusScreen(
                             appPrefs?.getCourseModuleRemainingMillis(part.id) ?: 0L
                         } else 0L
 
+                        val partCompletedLessons = item.lessons.count { it.state == LessonState.DONE }
+                        val partTotalLessons = item.lessons.size.takeIf { it > 0 } ?: part.lessonCount
+
                         item(key = "part_${part.id}") {
                             SyllabusPartHeaderCard(
                                 part = part,
@@ -526,6 +588,8 @@ fun CourseSyllabusScreen(
                                 isPermanent = isCourseOwned,
                                 allowRewardAd = effectiveAllowRewardAd,
                                 remainingMillis = remainingMillis,
+                                completedLessons = partCompletedLessons,
+                                totalLessons = partTotalLessons,
                                 onClick = {
                                     if (isUnlocked) {
                                         onOpenPart(part.id)
@@ -602,12 +666,184 @@ fun CourseSyllabusScreen(
 
 
 @Composable
+private fun ResumeLessonCard(
+    lesson: LessonItemSummary,
+    accentColor: Color,
+    onOpenLesson: (String) -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.5.dp, accentColor.copy(alpha = 0.55f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenLesson(lesson.id) }
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.horizontalGradient(
+                        colors = listOf(
+                            accentColor.copy(alpha = 0.16f),
+                            accentColor.copy(alpha = 0.04f)
+                        )
+                    )
+                )
+                .padding(14.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Surface(
+                color = accentColor,
+                shape = CircleShape,
+                modifier = Modifier.size(42.dp)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "চালিয়ে যান",
+                        tint = Color.White,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.width(12.dp))
+
+            Column(modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = "📖 পড়া চালিয়ে যান (Resume)",
+                        fontSize = 11.5.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = accentColor,
+                        letterSpacing = 0.4.sp
+                    )
+                    if (lesson.lastItemIndex > 0) {
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Surface(
+                            shape = RoundedCornerShape(4.dp),
+                            color = accentColor.copy(alpha = 0.15f)
+                        ) {
+                            Text(
+                                text = "বাক্য ${(lesson.lastItemIndex + 1).toBanglaDigits()}/${lesson.itemCount.toBanglaDigits()}",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = accentColor,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                            )
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(2.dp))
+                val orderFormatted = if (lesson.order < 10) "0${lesson.order}" else "${lesson.order}"
+                Text(
+                    text = "Lesson $orderFormatted: ${lesson.titleBn ?: lesson.titleTarget.orEmpty()}",
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            Button(
+                onClick = { onOpenLesson(lesson.id) },
+                shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+            ) {
+                Text("শুনুন", fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            }
+        }
+    }
+}
+
+@Composable
+private fun DailyVoluntaryRewardCard(
+    isLoadingAd: Boolean,
+    onClaimReward: () -> Unit
+) {
+    Card(
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, Color(0xFFF59E0B).copy(alpha = 0.5f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.horizontalGradient(
+                        colors = listOf(
+                            Color(0xFFF59E0B).copy(alpha = 0.12f),
+                            Color(0xFFF59E0B).copy(alpha = 0.03f)
+                        )
+                    )
+                )
+                .padding(horizontal = 14.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                Surface(
+                    color = Color(0xFFF59E0B).copy(alpha = 0.2f),
+                    shape = CircleShape,
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text("🎁", fontSize = 18.sp)
+                    }
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Column {
+                    Text(
+                        text = "দৈনিক লার্নিং বোনাস কয়েন",
+                        fontSize = 13.5.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Text(
+                        text = "একটি ছোট ভিডিও দেখে বোনাস কয়েন সংগ্রহ করুন (ঐচ্ছিক)",
+                        fontSize = 11.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            OutlinedButton(
+                onClick = onClaimReward,
+                enabled = !isLoadingAd,
+                shape = RoundedCornerShape(10.dp),
+                border = BorderStroke(1.dp, Color(0xFFF59E0B)),
+                contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
+            ) {
+                if (isLoadingAd) {
+                    CircularProgressIndicator(modifier = Modifier.size(14.dp), strokeWidth = 2.dp, color = Color(0xFFF59E0B))
+                } else {
+                    Text("সংগ্রহ করুন", fontSize = 11.5.sp, fontWeight = FontWeight.Bold, color = Color(0xFFD97706))
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun CourseHeroBannerCard(
     country: CourseCountry,
     titleBn: String,
     subtitle: String,
     partCount: Int,
     accentColor: Color,
+    completedLessons: Int = 0,
+    totalLessons: Int = 0,
+    progressPercent: Int = 0,
     isCourseOwned: Boolean = false,
     modifier: Modifier = Modifier
 ) {
@@ -618,22 +854,21 @@ private fun CourseHeroBannerCard(
         border = BorderStroke(1.5.dp, accentColor.copy(alpha = 0.55f)),
         modifier = modifier
             .fillMaxWidth()
-            .height(180.dp)
             .clip(RoundedCornerShape(20.dp))
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxWidth()) {
             // Background Image
             Image(
                 painter = painterResource(id = R.drawable.language_course_backdrop),
                 contentDescription = titleBn,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.matchParentSize()
             )
 
             // Cinematic gradient overlay: subtle accent glow on top, deep rich dark slate on bottom
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .matchParentSize()
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
@@ -647,7 +882,7 @@ private fun CourseHeroBannerCard(
 
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(16.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
@@ -685,6 +920,8 @@ private fun CourseHeroBannerCard(
                     }
                 }
 
+                Spacer(Modifier.height(14.dp))
+
                 Column {
                     Text(
                         text = titleBn,
@@ -703,6 +940,40 @@ private fun CourseHeroBannerCard(
                         overflow = TextOverflow.Ellipsis
                     )
                 }
+
+                if (totalLessons > 0) {
+                    Spacer(Modifier.height(12.dp))
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "কোর্স অগ্রগতি",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = Color(0xFFCBD5E1)
+                            )
+                            Text(
+                                text = "${completedLessons.toBanglaDigits()}/${totalLessons.toBanglaDigits()} সম্পন্ন (${progressPercent.toBanglaDigits()}%)",
+                                fontSize = 11.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (progressPercent == 100) Color(0xFF6EE7B7) else Color.White
+                            )
+                        }
+                        Spacer(Modifier.height(5.dp))
+                        LinearProgressIndicator(
+                            progress = { (progressPercent / 100f).coerceIn(0f, 1f) },
+                            color = if (progressPercent == 100) Color(0xFF10B981) else accentColor,
+                            trackColor = Color.White.copy(alpha = 0.25f),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(6.dp)
+                                .clip(RoundedCornerShape(3.dp))
+                        )
+                    }
+                }
             }
         }
     }
@@ -710,6 +981,9 @@ private fun CourseHeroBannerCard(
 
 @Composable
 private fun QuranSyllabusHeroCard(
+    completedLessons: Int = 0,
+    totalLessons: Int = 0,
+    progressPercent: Int = 0,
     onOpenDefinitions: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -720,21 +994,20 @@ private fun QuranSyllabusHeroCard(
         border = BorderStroke(1.5.dp, Color(0xFFFFD54F).copy(alpha = 0.55f)),
         modifier = modifier
             .fillMaxWidth()
-            .height(215.dp)
             .clip(RoundedCornerShape(20.dp))
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxWidth()) {
             Image(
                 painter = painterResource(id = R.drawable.quran_course_backdrop),
                 contentDescription = "সহজে কুরআন শিক্ষা ও তাজবীদ",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.matchParentSize()
             )
 
             // Balanced cinematic dark overlay for crystal clear contrast and artwork visibility
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .matchParentSize()
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
@@ -748,7 +1021,7 @@ private fun QuranSyllabusHeroCard(
 
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(16.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
@@ -786,6 +1059,8 @@ private fun QuranSyllabusHeroCard(
                     }
                 }
 
+                Spacer(Modifier.height(14.dp))
+
                 Column {
                     Text(
                         text = "সহজে কুরআন শিক্ষা ও তাজবীদ কোর্স",
@@ -795,13 +1070,49 @@ private fun QuranSyllabusHeroCard(
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
-                        text = "১০টি পর্যায় • ৪০টি অডিও লেসন • ইয়াসীন, আর-রাহমান ও দুআ-মুনাজাত",
+                        text = "১০টি পর্যায় • ৪০টি অডিও লেসন • তাজবীদ ও নূরানী পদ্ধতি",
                         fontSize = 12.sp,
                         color = Color(0xFFE2E8F0),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                 }
+
+                if (totalLessons > 0) {
+                    Spacer(Modifier.height(10.dp))
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "কুরআন শিক্ষা অগ্রগতি",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = Color(0xFFCBD5E1)
+                            )
+                            Text(
+                                text = "${completedLessons.toBanglaDigits()}/${totalLessons.toBanglaDigits()} সম্পন্ন (${progressPercent.toBanglaDigits()}%)",
+                                fontSize = 11.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (progressPercent == 100) Color(0xFF6EE7B7) else GoldenAccent
+                            )
+                        }
+                        Spacer(Modifier.height(5.dp))
+                        LinearProgressIndicator(
+                            progress = { (progressPercent / 100f).coerceIn(0f, 1f) },
+                            color = GoldenAccent,
+                            trackColor = Color.White.copy(alpha = 0.25f),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(6.dp)
+                                .clip(RoundedCornerShape(3.dp))
+                        )
+                    }
+                }
+
+                Spacer(Modifier.height(12.dp))
 
                 // Quick access action for Tajweed & Noorani definitions
                 Surface(
@@ -871,6 +1182,8 @@ private fun SyllabusPartHeaderCard(
     isPermanent: Boolean = false,
     allowRewardAd: Boolean = true,
     remainingMillis: Long = 0L,
+    completedLessons: Int = 0,
+    totalLessons: Int = part.lessonCount,
     onClick: () -> Unit
 ) {
     val cardAccent = when {
@@ -945,20 +1258,62 @@ private fun SyllabusPartHeaderCard(
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.78f)
                         )
                     }
+
+                    if (totalLessons > 0) {
+                        Spacer(modifier = Modifier.height(6.dp))
+                        val partPercent = ((completedLessons.toFloat() / totalLessons) * 100).toInt()
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth().padding(end = 8.dp)
+                        ) {
+                            LinearProgressIndicator(
+                                progress = { (partPercent / 100f).coerceIn(0f, 1f) },
+                                color = if (partPercent == 100) Color(0xFF10B981) else theme.accentColor,
+                                trackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(4.dp)
+                                    .clip(RoundedCornerShape(2.dp))
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "${completedLessons.toBanglaDigits()}/${totalLessons.toBanglaDigits()} শেষ",
+                                fontSize = 10.5.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = if (partPercent == 100) Color(0xFF10B981) else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
                 }
 
                 Column(
                     horizontalAlignment = Alignment.End,
                     verticalArrangement = Arrangement.Center
                 ) {
+                    val isPartDone = totalLessons > 0 && completedLessons == totalLessons
                     when {
+                        isPartDone -> {
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = Color(0xFF10B981).copy(alpha = 0.18f),
+                                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.5f))
+                            ) {
+                                Text(
+                                    text = "✓ সম্পন্ন",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color(0xFF10B981),
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                )
+                            }
+                        }
                         isPermanent -> {
                             Surface(
                                 shape = RoundedCornerShape(10.dp),
                                 color = theme.accentColor.copy(alpha = 0.15f)
                             ) {
                                 Text(
-                                    text = "${part.lessonCount}টি লেসন",
+                                    text = "${totalLessons}টি লেসন",
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = theme.accentColor,

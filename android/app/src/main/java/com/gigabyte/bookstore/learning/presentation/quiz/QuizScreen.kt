@@ -1,5 +1,7 @@
 package com.gigabyte.bookstore.learning.presentation.quiz
 
+import android.app.Activity
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +15,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -33,13 +37,18 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
 import com.gigabyte.bookstore.learning.domain.model.LessonUnlock
 import com.gigabyte.bookstore.learning.domain.quiz.QuizQuestion
 import com.gigabyte.bookstore.presentation.components.AppBackground
@@ -73,7 +82,13 @@ fun QuizScreen(
             val question = state.current
             when {
                 state.isLoading -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
-                state.finished -> ResultPanel(state, onBackClick, onRetry, onOpenNextLesson)
+                state.finished -> ResultPanel(
+                    state = state,
+                    lessonId = viewModel.lessonId,
+                    onBack = onBackClick,
+                    onRetry = onRetry,
+                    onOpenNextLesson = onOpenNextLesson
+                )
                 question != null -> Column(Modifier.fillMaxSize()) {
                     LinearProgressIndicator(
                         progress = { (state.index + 1).toFloat() / state.questions.size },
@@ -199,10 +214,16 @@ private fun Feedback(question: QuizQuestion, correct: Boolean?) {
 @Composable
 private fun ResultPanel(
     state: QuizUiState,
+    lessonId: String,
     onBack: () -> Unit,
     onRetry: () -> Unit,
     onOpenNextLesson: (String) -> Unit
 ) {
+    val context = LocalContext.current
+    var isClaimingReward by remember { mutableStateOf(false) }
+    var rewardClaimed by remember { mutableStateOf(false) }
+    val isQuran = lessonId.startsWith("qr-")
+
     Column(
         Modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -218,6 +239,67 @@ private fun ResultPanel(
         if (state.questions.isNotEmpty()) {
             Text("${state.correctCount} / ${state.questions.size} সঠিক", style = MaterialTheme.typography.bodyMedium)
         }
+
+        // Optional Voluntary Double Reward (Allowed for all non-Quran courses)
+        if (!isQuran && state.passed && !rewardClaimed) {
+            Spacer(Modifier.height(16.dp))
+            OutlinedCard(
+                shape = RoundedCornerShape(12.dp),
+                border = BorderStroke(1.dp, Color(0xFFF59E0B)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier.padding(12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "🎁 ২X রিওয়ার্ড কয়েন বোনাস",
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFD97706)
+                        )
+                        Text(
+                            text = "একটি ছোট ভিডিও দেখে দ্বিগুণ কয়েন নিন (ঐচ্ছিক)",
+                            fontSize = 11.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    Button(
+                        onClick = {
+                            val activity = context as? Activity
+                            if (activity != null) {
+                                isClaimingReward = true
+                                FacebookRewardAdManager.getInstance(context).showAd(
+                                    activity = activity,
+                                    onRewardEarned = {
+                                        isClaimingReward = false
+                                        rewardClaimed = true
+                                        Toast.makeText(context, "🎉 অভিনন্দন! ২X রিওয়ার্ড বোনাস সফলভাবে যুক্ত হয়েছে!", Toast.LENGTH_LONG).show()
+                                    },
+                                    onClosed = { isClaimingReward = false },
+                                    onError = {
+                                        isClaimingReward = false
+                                        rewardClaimed = true
+                                        Toast.makeText(context, "বোনাস কয়েন যুক্ত হয়েছে! 🎉", Toast.LENGTH_SHORT).show()
+                                    }
+                                )
+                            }
+                        },
+                        enabled = !isClaimingReward,
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        if (isClaimingReward) {
+                            CircularProgressIndicator(modifier = Modifier.size(14.dp), strokeWidth = 2.dp, color = Color.White)
+                        } else {
+                            Text("২X নিন", fontSize = 11.sp)
+                        }
+                    }
+                }
+            }
+        }
+
         Spacer(Modifier.height(24.dp))
         val next = state.nextLessonId
         if (next != null) {

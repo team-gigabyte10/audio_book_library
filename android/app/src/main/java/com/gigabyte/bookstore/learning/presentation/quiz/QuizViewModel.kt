@@ -36,7 +36,7 @@ data class QuizUiState(
     val current: QuizQuestion? get() = questions.getOrNull(index)
 }
 
-class QuizViewModel(application: Application, private val lessonId: String) : AndroidViewModel(application) {
+class QuizViewModel(application: Application, val lessonId: String) : AndroidViewModel(application) {
 
     private val app = application as BanglaAudiobookApp
     private val repository = app.learningRepository

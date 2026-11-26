@@ -34,6 +34,7 @@ import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -60,6 +61,11 @@ import com.gigabyte.bookstore.learning.presentation.syllabus.SyllabusPartTheme
 import com.gigabyte.bookstore.learning.presentation.syllabus.getSyllabusPartTheme
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+
+private fun Int.toBanglaDigits(): String {
+    val bnDigits = charArrayOf('০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯')
+    return this.toString().map { if (it in '0'..'9') bnDigits[it - '0'] else it }.joinToString("")
+}
 
 @Composable
 fun PartLessonsScreen(
@@ -117,6 +123,8 @@ fun PartLessonsScreen(
                 else -> {
                     val standardLessons = list.filter { !it.id.startsWith("en-wh-") }
                     val whLessons = list.filter { it.id.startsWith("en-wh-") }
+                    val completedLessons = standardLessons.count { it.state == LessonState.DONE }
+                    val progressPercent = if (standardLessons.isNotEmpty()) ((completedLessons.toFloat() / standardLessons.size) * 100).toInt() else 0
 
                     LazyColumn(
                         contentPadding = PaddingValues(16.dp),
@@ -129,6 +137,8 @@ fun PartLessonsScreen(
                                 titleBn = part?.titleBn ?: title,
                                 titleTarget = part?.titleTarget,
                                 lessonCount = standardLessons.size,
+                                completedLessons = completedLessons,
+                                progressPercent = progressPercent,
                                 theme = theme
                             )
                         }
@@ -222,6 +232,8 @@ private fun PartOverviewBanner(
     titleBn: String,
     titleTarget: String?,
     lessonCount: Int,
+    completedLessons: Int = 0,
+    progressPercent: Int = 0,
     theme: SyllabusPartTheme
 ) {
     Card(
@@ -244,60 +256,96 @@ private fun PartOverviewBanner(
                 )
                 .padding(18.dp)
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(
-                    color = theme.accentColor,
-                    shape = RoundedCornerShape(14.dp),
-                    modifier = Modifier.size(52.dp)
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = theme.icon,
-                            contentDescription = null,
-                            tint = Color.White,
-                            modifier = Modifier.size(28.dp)
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.width(14.dp))
-
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = "PART 0$partOrder · A1 FOUNDATION",
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Surface(
                         color = theme.accentColor,
-                        letterSpacing = 0.5.sp
-                    )
-                    Spacer(modifier = Modifier.height(2.dp))
-                    Text(
-                        text = titleBn,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-                    if (!titleTarget.isNullOrBlank()) {
+                        shape = RoundedCornerShape(14.dp),
+                        modifier = Modifier.size(52.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                imageVector = theme.icon,
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(28.dp)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.width(14.dp))
+
+                    Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = titleTarget,
-                            fontSize = 13.sp,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            text = "PART 0$partOrder · A1 FOUNDATION",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = theme.accentColor,
+                            letterSpacing = 0.5.sp
+                        )
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = titleBn,
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        if (!titleTarget.isNullOrBlank()) {
+                            Text(
+                                text = titleTarget,
+                                fontSize = 13.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = theme.accentColor.copy(alpha = 0.16f),
+                        border = BorderStroke(1.dp, theme.accentColor.copy(alpha = 0.35f))
+                    ) {
+                        Text(
+                            text = "${lessonCount}টি লেসন",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = theme.accentColor,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
                         )
                     }
                 }
 
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = theme.accentColor.copy(alpha = 0.16f),
-                    border = BorderStroke(1.dp, theme.accentColor.copy(alpha = 0.35f))
-                ) {
-                    Text(
-                        text = "${lessonCount}টি লেসন",
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = theme.accentColor,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
-                    )
+                if (lessonCount > 0) {
+                    Spacer(modifier = Modifier.height(14.dp))
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "মডিউলের অগ্রগতি",
+                                fontSize = 11.5.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Text(
+                                text = "${completedLessons.toBanglaDigits()}/${lessonCount.toBanglaDigits()} সম্পন্ন (${progressPercent.toBanglaDigits()}%)",
+                                fontSize = 11.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (progressPercent == 100) Color(0xFF10B981) else theme.accentColor
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(5.dp))
+                        LinearProgressIndicator(
+                            progress = { (progressPercent / 100f).coerceIn(0f, 1f) },
+                            color = if (progressPercent == 100) Color(0xFF10B981) else theme.accentColor,
+                            trackColor = theme.accentColor.copy(alpha = 0.15f),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(6.dp)
+                                .clip(RoundedCornerShape(3.dp))
+                        )
+                    }
                 }
             }
         }
@@ -311,6 +359,7 @@ private fun PartLessonCard(
     onClick: () -> Unit
 ) {
     val isDone = lesson.state == LessonState.DONE
+    val isInProgress = lesson.state == LessonState.IN_PROGRESS
     val isVeryImportant = lesson.titleTarget?.contains("Very Important", ignoreCase = true) == true ||
         lesson.titleBn?.contains("অতি গুরুত্বপূর্ণ") == true
 
@@ -321,6 +370,7 @@ private fun PartLessonCard(
             if (isVeryImportant) 1.5.dp else 1.dp,
             when {
                 isDone -> Color(0xFF10B981).copy(alpha = 0.5f)
+                isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.5f)
                 isVeryImportant -> Color(0xFFE11D48).copy(alpha = 0.45f)
                 else -> theme.accentColor.copy(alpha = 0.25f)
             }
@@ -351,15 +401,27 @@ private fun PartLessonCard(
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Surface(
-                    color = if (isDone) Color(0xFF10B981).copy(alpha = 0.18f) else theme.accentColor.copy(alpha = 0.14f),
+                    color = when {
+                        isDone -> Color(0xFF10B981).copy(alpha = 0.18f)
+                        isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.18f)
+                        else -> theme.accentColor.copy(alpha = 0.14f)
+                    },
                     shape = CircleShape,
                     modifier = Modifier.size(38.dp)
                 ) {
                     Box(contentAlignment = Alignment.Center) {
                         Icon(
-                            imageVector = if (isDone) Icons.Default.CheckCircle else Icons.Default.PlayCircle,
+                            imageVector = when {
+                                isDone -> Icons.Default.CheckCircle
+                                isInProgress -> Icons.Default.PlayArrow
+                                else -> Icons.Default.PlayCircle
+                            },
                             contentDescription = null,
-                            tint = if (isDone) Color(0xFF10B981) else theme.accentColor,
+                            tint = when {
+                                isDone -> Color(0xFF10B981)
+                                isInProgress -> Color(0xFFD97706)
+                                else -> theme.accentColor
+                            },
                             modifier = Modifier.size(22.dp)
                         )
                     }
@@ -384,13 +446,74 @@ private fun PartLessonCard(
                     }
                     Spacer(modifier = Modifier.height(4.dp))
                     val detail = buildString {
-                        append("${lesson.itemCount}টি আইটেম")
+                        append("${lesson.itemCount}টি বাক্য")
                         if (lesson.bestScore > 0) append(" · সেরা স্কোর ${lesson.bestScore}%")
                     }
                     Text(
                         text = detail,
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = when {
+                        isDone -> Color(0xFF10B981).copy(alpha = 0.16f)
+                        isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.16f)
+                        else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+                    },
+                    border = BorderStroke(
+                        1.dp,
+                        when {
+                            isDone -> Color(0xFF10B981).copy(alpha = 0.45f)
+                            isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.45f)
+                            else -> Color.Transparent
+                        }
+                    )
+                ) {
+                    Text(
+                        text = when {
+                            isDone -> "✓ সম্পন্ন"
+                            isInProgress -> "চলছে"
+                            else -> "শুরু করুন"
+                        },
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = when {
+                            isDone -> Color(0xFF10B981)
+                            isInProgress -> Color(0xFFD97706)
+                            else -> MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                        modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                    )
+                }
+            }
+
+            if (isInProgress && lesson.itemCount > 0) {
+                Spacer(modifier = Modifier.height(8.dp))
+                val itemProgress = ((lesson.lastItemIndex + 1).toFloat() / lesson.itemCount.coerceAtLeast(1)).coerceIn(0f, 1f)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    LinearProgressIndicator(
+                        progress = { itemProgress },
+                        color = Color(0xFFF59E0B),
+                        trackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f),
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(4.dp)
+                            .clip(RoundedCornerShape(2.dp))
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "বাক্য ${(lesson.lastItemIndex + 1).toBanglaDigits()}/${lesson.itemCount.toBanglaDigits()}",
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFFD97706)
                     )
                 }
             }
