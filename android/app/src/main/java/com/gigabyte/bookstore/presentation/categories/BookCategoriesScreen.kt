@@ -71,10 +71,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.ads.AdConfig
 import com.gigabyte.bookstore.data.models.AppPricingConfig
 import com.gigabyte.bookstore.data.models.RemoteBook
 import com.gigabyte.bookstore.presentation.components.AppBackground
 import com.gigabyte.bookstore.presentation.components.BookCoverView
+import com.gigabyte.bookstore.presentation.components.FacebookBannerAd
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.ui.theme.GoldenAccent
@@ -350,6 +352,15 @@ fun BookCategoriesScreen(
                                     }
                                 }
                             }
+                        }
+
+                        // Bottom Sponsored / Minimum Banner Ad
+                        item {
+                            Spacer(modifier = Modifier.height(24.dp))
+                            FacebookBannerAd(
+                                placementId = AdConfig.ADMOB_BANNER_AD_UNIT_ID,
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
                         }
                     }
                 }

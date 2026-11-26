@@ -53,25 +53,24 @@ object AdConfig {
     var isAdsEnabled: Boolean = true
 
     /**
-     * Returns false for sacred and sensitive learning courses (Quran & Arabic).
-     * No ads (rewarded video, banner, or interstitial) will ever be loaded or shown for these courses.
+     * Returns false for sacred learning content (Holy Quran & Tajweed recitation).
+     * Quran learning is 100% ad-free and free for all users.
+     * Arabic language and spoken course allows ads (e.g., rewarded ads to unlock lessons) like other language courses.
      */
     fun isAdAllowedForCourse(courseType: String?): Boolean {
         if (courseType == null) return true
         val clean = courseType.trim().lowercase()
         val isQuran = clean == "quran" || clean.startsWith("qr") || clean.contains("quran")
-        val isArabic = clean == "arabic" || clean.startsWith("ar") || clean.contains("arabic")
-        return !isQuran && !isArabic
+        return !isQuran
     }
 
     /**
-     * Returns false for sacred or Islamic books/content (Quran, Hadith, Arabic).
-     * No banner or promotional ads will be shown on reader pages for such titles.
+     * Returns false for sacred or Islamic recitation/Quranic texts.
+     * Quran reading and meaning are completely ad-free.
      */
     fun isAdAllowedForContent(title: String?, id: String?): Boolean {
         val combined = "${title.orEmpty()} ${id.orEmpty()}".lowercase()
         val isQuran = combined.contains("quran") || combined.contains("কুরআন") || combined.contains("কোরআন") || combined.contains("তাজবীদ")
-        val isArabic = combined.contains("arabic") || combined.contains("আরবি")
-        return !isQuran && !isArabic
+        return !isQuran
     }
 }
