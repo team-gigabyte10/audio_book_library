@@ -345,11 +345,11 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(bottom = 24.dp)
                     ) {
-                        // 1. Facebook Banner Ad (with fallback to Hero Banner Carousel if ad not filled)
+                        // 1. Google AdMob Banner Ad with Meta Mediation (with fallback to Hero Banner Carousel if ad not filled)
                         item {
                             Spacer(modifier = Modifier.height(12.dp))
                             FacebookBannerAd(
-                                placementId = AdConfig.FB_BANNER_PLACEMENT_ID,
+                                placementId = AdConfig.ADMOB_BANNER_AD_UNIT_ID,
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 16.dp),

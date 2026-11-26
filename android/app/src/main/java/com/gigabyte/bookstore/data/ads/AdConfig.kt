@@ -5,6 +5,23 @@ package com.gigabyte.bookstore.data.ads
  * When running in test mode, test placement IDs or test mode flags are enabled.
  */
 object AdConfig {
+    /**
+     * Official Google AdMob Application ID.
+     */
+    const val ADMOB_APP_ID = "ca-app-pub-5437449031023884~6246574950"
+
+    /**
+     * Official Google AdMob Banner Ad Unit ID (Home Banner Ad).
+     * Mediates Meta Audience Network in real-time.
+     */
+    const val ADMOB_BANNER_AD_UNIT_ID = "ca-app-pub-5437449031023884/5175880910"
+
+    /**
+     * Official Google AdMob Rewarded Ad Unit ID (Course Unlock Reward Ad).
+     * Mediates Meta Audience Network in real-time.
+     */
+    const val ADMOB_REWARDED_AD_UNIT_ID = "ca-app-pub-5437449031023884/5670317892"
+
     const val FB_APP_ID = "29550780014571719"
 
     /**

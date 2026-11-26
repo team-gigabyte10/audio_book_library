@@ -3,20 +3,23 @@ package com.gigabyte.bookstore.data.ads
 import android.app.Activity
 import android.content.Context
 import android.util.Log
-import com.facebook.ads.Ad
-import com.facebook.ads.AdError
-import com.facebook.ads.RewardedVideoAd
-import com.facebook.ads.RewardedVideoAdListener
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 
-private const val TAG = "FacebookRewardAdManager"
+private const val TAG = "AdMobRewardAdManager"
 
 /**
- * Singleton manager to preload and display Meta Audience Network Rewarded Video Ads.
+ * Singleton manager to preload and display Google AdMob Rewarded Video Ads,
+ * with real-time Meta Audience Network Bidding mediation.
  * Used to grant 24-hour course module unlocks to trial users.
  */
 class FacebookRewardAdManager(private val context: Context) {
 
-    private var rewardedVideoAd: RewardedVideoAd? = null
+    private var admobRewardedAd: RewardedAd? = null
     private var isAdLoaded = false
     private var isAdLoading = false
 
@@ -56,53 +59,38 @@ class FacebookRewardAdManager(private val context: Context) {
     }
 
     /**
-     * Preloads a rewarded video ad in background so it displays instantly when requested.
+     * Preloads a rewarded video ad in background via AdMob Mediation (bidding Meta Audience Network).
      * Preload runs completely silently; background errors are never dispatched to user-facing callbacks.
      */
-    fun preloadAd(placementId: String = AdConfig.FB_REWARDED_PLACEMENT_ID) {
+    fun preloadAd(adUnitId: String = AdConfig.ADMOB_REWARDED_AD_UNIT_ID) {
         if (!AdConfig.isAdsEnabled || isAdLoaded || isAdLoading) return
 
         isAdLoading = true
-        val ad = RewardedVideoAd(context, placementId)
-        val listener = object : RewardedVideoAdListener {
-            override fun onError(ad: Ad?, error: AdError?) {
-                Log.w(TAG, "Silent preload failed: ${error?.errorMessage} (code: ${error?.errorCode})")
-                isAdLoaded = false
-                isAdLoading = false
-            }
+        val adRequest = AdRequest.Builder().build()
+        RewardedAd.load(
+            context,
+            adUnitId,
+            adRequest,
+            object : RewardedAdLoadCallback() {
+                override fun onAdLoaded(ad: RewardedAd) {
+                    Log.d(TAG, "Rewarded video preloaded successfully via AdMob + Meta Mediation: $adUnitId")
+                    admobRewardedAd = ad
+                    isAdLoaded = true
+                    isAdLoading = false
+                }
 
-            override fun onAdLoaded(ad: Ad?) {
-                Log.d(TAG, "Rewarded video preloaded successfully for placement: $placementId")
-                isAdLoaded = true
-                isAdLoading = false
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    Log.w(TAG, "Silent preload failed: ${loadAdError.message} (code: ${loadAdError.code})")
+                    admobRewardedAd = null
+                    isAdLoaded = false
+                    isAdLoading = false
+                }
             }
-
-            override fun onAdClicked(ad: Ad?) {}
-            override fun onLoggingImpression(ad: Ad?) {}
-            override fun onRewardedVideoCompleted() {
-                Log.d(TAG, "User completed video. Reward earned!")
-                dispatchRewardEarned()
-            }
-            override fun onRewardedVideoClosed() {
-                Log.d(TAG, "Rewarded video dismissed.")
-                isAdLoaded = false
-                dispatchClosed()
-                preloadAd(placementId)
-            }
-        }
-
-        try {
-            ad.loadAd(ad.buildLoadAdConfig().withAdListener(listener).build())
-            rewardedVideoAd = ad
-        } catch (e: Exception) {
-            Log.e(TAG, "Exception while preloading rewarded ad", e)
-            isAdLoading = false
-        }
+        )
     }
 
     fun isAdReady(): Boolean {
-        val ad = rewardedVideoAd
-        return isAdLoaded && ad != null && ad.isAdLoaded && !ad.isAdInvalidated
+        return isAdLoaded && admobRewardedAd != null
     }
 
     /**
@@ -114,7 +102,7 @@ class FacebookRewardAdManager(private val context: Context) {
      */
     fun showAd(
         activity: Activity,
-        placementId: String = AdConfig.FB_REWARDED_PLACEMENT_ID,
+        placementId: String = AdConfig.ADMOB_REWARDED_AD_UNIT_ID,
         onRewardEarned: () -> Unit,
         onClosed: (() -> Unit)? = null,
         onError: ((String) -> Unit)? = null
@@ -123,60 +111,88 @@ class FacebookRewardAdManager(private val context: Context) {
         this.activeOnClosed = onClosed
         this.activeOnError = onError
 
-        val ad = rewardedVideoAd
-        if (ad != null && ad.isAdLoaded && !ad.isAdInvalidated) {
-            try {
-                ad.show(ad.buildShowAdConfig().build())
-            } catch (e: Exception) {
-                Log.e(TAG, "Exception while showing rewarded ad", e)
-                dispatchError(e.localizedMessage ?: "Unknown error")
-                preloadAd(placementId)
-            }
-        } else {
-            // Ad not ready: try to load and notify caller
-            Log.w(TAG, "Ad was not preloaded, attempting direct load & show")
-            isAdLoading = true
-            val freshAd = RewardedVideoAd(activity, placementId)
-
-            val freshListener = object : RewardedVideoAdListener {
-                override fun onAdLoaded(ad: Ad?) {
-                    isAdLoading = false
-                    isAdLoaded = true
-                    try {
-                        freshAd.show(freshAd.buildShowAdConfig().build())
-                    } catch (e: Exception) {
-                        dispatchError("বিজ্ঞাপন দেখানো সম্ভব হয়নি")
-                    }
+        val ad = admobRewardedAd
+        if (ad != null && isAdLoaded) {
+            ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                override fun onAdShowedFullScreenContent() {
+                    Log.d(TAG, "Ad showed full screen content.")
                 }
 
-                override fun onRewardedVideoCompleted() {
-                    dispatchRewardEarned()
-                }
-
-                override fun onRewardedVideoClosed() {
+                override fun onAdDismissedFullScreenContent() {
+                    Log.d(TAG, "Ad dismissed by user.")
                     isAdLoaded = false
+                    admobRewardedAd = null
                     dispatchClosed()
                     preloadAd(placementId)
                 }
 
-                override fun onError(ad: Ad?, error: AdError?) {
-                    isAdLoading = false
+                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                    Log.e(TAG, "Ad failed to show: ${adError.message}")
                     isAdLoaded = false
-                    Log.w(TAG, "Fresh ad load failed: ${error?.errorMessage}")
-                    dispatchError(error?.errorMessage ?: "বিজ্ঞাপন লোড করা যায়নি")
+                    admobRewardedAd = null
+                    dispatchError(adError.message)
+                    preloadAd(placementId)
                 }
-
-                override fun onAdClicked(ad: Ad?) {}
-                override fun onLoggingImpression(ad: Ad?) {}
             }
 
             try {
-                freshAd.loadAd(freshAd.buildLoadAdConfig().withAdListener(freshListener).build())
-                rewardedVideoAd = freshAd
+                ad.show(activity) { rewardItem ->
+                    Log.d(TAG, "User earned reward: ${rewardItem.amount} ${rewardItem.type}")
+                    dispatchRewardEarned()
+                }
             } catch (e: Exception) {
-                isAdLoading = false
-                dispatchError("বিজ্ঞাপন সার্ভিস প্রস্তুত নয়")
+                Log.e(TAG, "Exception while showing rewarded ad", e)
+                dispatchError(e.localizedMessage ?: "বিজ্ঞাপন দেখানো সম্ভব হয়নি")
+                preloadAd(placementId)
             }
+        } else {
+            // Ad not ready: try to load and notify caller
+            Log.w(TAG, "Ad was not preloaded, attempting direct load & show via AdMob")
+            isAdLoading = true
+            val adRequest = AdRequest.Builder().build()
+            RewardedAd.load(
+                activity,
+                placementId,
+                adRequest,
+                object : RewardedAdLoadCallback() {
+                    override fun onAdLoaded(freshAd: RewardedAd) {
+                        isAdLoading = false
+                        isAdLoaded = true
+                        admobRewardedAd = freshAd
+
+                        freshAd.fullScreenContentCallback = object : FullScreenContentCallback() {
+                            override fun onAdDismissedFullScreenContent() {
+                                isAdLoaded = false
+                                admobRewardedAd = null
+                                dispatchClosed()
+                                preloadAd(placementId)
+                            }
+
+                            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                                isAdLoaded = false
+                                admobRewardedAd = null
+                                dispatchError(adError.message)
+                                preloadAd(placementId)
+                            }
+                        }
+
+                        try {
+                            freshAd.show(activity) {
+                                dispatchRewardEarned()
+                            }
+                        } catch (e: Exception) {
+                            dispatchError("বিজ্ঞাপন দেখানো সম্ভব হয়নি")
+                        }
+                    }
+
+                    override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                        isAdLoading = false
+                        isAdLoaded = false
+                        Log.w(TAG, "Fresh ad load failed: ${loadAdError.message}")
+                        dispatchError(loadAdError.message)
+                    }
+                }
+            )
         }
     }
 

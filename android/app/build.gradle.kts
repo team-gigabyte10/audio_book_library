@@ -136,7 +136,9 @@ dependencies {
   implementation(libs.okhttp)
   // implementation(libs.play.services.location)
   implementation(libs.retrofit)
-  // Meta Audience Network (Facebook Ads)
+  // Google Mobile Ads (AdMob) & Meta Audience Network Mediation Adapter
+  implementation(libs.play.services.ads)
+  implementation(libs.admob.meta.adapter)
   implementation(libs.facebook.audience.network)
   // QR Code Generation (ZXing) & Modern Google Play Services Code Scanner
   implementation("com.google.zxing:core:3.5.3")

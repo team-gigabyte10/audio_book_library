@@ -3,13 +3,9 @@ package com.gigabyte.bookstore.presentation.components
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,25 +28,25 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.facebook.ads.Ad
-import com.facebook.ads.AdError
-import com.facebook.ads.AdListener
-import com.facebook.ads.AdSize
-import com.facebook.ads.AdView
 import com.gigabyte.bookstore.data.ads.AdConfig
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
 
-private const val TAG = "FacebookBannerAd"
+private const val TAG = "AdMobBannerAd"
 
 /**
- * Jetpack Compose wrapper for Meta Audience Network (Facebook) Banner Ads.
- * Supports standard banner (50dp), large banner (90dp), and medium rectangle (250dp).
+ * Jetpack Compose wrapper for Google AdMob Banner Ads with Meta Audience Network Bidding mediation.
+ * Supports standard banner (320x50), medium rectangle (300x250), etc.
  * Includes automatic lifecycle management (adView.destroy) and graceful fallback.
  */
 @Composable
 fun FacebookBannerAd(
     modifier: Modifier = Modifier,
-    placementId: String = AdConfig.FB_BANNER_PLACEMENT_ID,
-    adSize: AdSize = AdSize.RECTANGLE_HEIGHT_250,
+    placementId: String = AdConfig.ADMOB_BANNER_AD_UNIT_ID,
+    adSize: AdSize = AdSize.MEDIUM_RECTANGLE,
     showContainer: Boolean = true,
     fallback: @Composable (() -> Unit)? = null
 ) {
@@ -61,6 +57,13 @@ fun FacebookBannerAd(
 
     var isAdLoaded by remember { mutableStateOf(false) }
     var isAdFailed by remember { mutableStateOf(false) }
+    var currentAdView by remember { mutableStateOf<AdView?>(null) }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            currentAdView?.destroy()
+        }
+    }
 
     Box(
         modifier = modifier.fillMaxWidth(),
@@ -86,36 +89,37 @@ fun FacebookBannerAd(
                                 )
                             }
 
-                            val adView = AdView(context, placementId, adSize)
-                            val listener = object : AdListener {
-                                override fun onError(ad: Ad?, error: AdError?) {
-                                    Log.w(TAG, "Ad failed to load: ${error?.errorMessage} (code: ${error?.errorCode})")
-                                    isAdFailed = true
-                                    isAdLoaded = false
-                                }
+                            val adView = AdView(context).apply {
+                                setAdSize(adSize)
+                                adUnitId = placementId
+                                adListener = object : AdListener() {
+                                    override fun onAdLoaded() {
+                                        Log.d(TAG, "AdMob + Meta Banner loaded successfully: $placementId")
+                                        isAdLoaded = true
+                                        isAdFailed = false
+                                    }
 
-                                override fun onAdLoaded(ad: Ad?) {
-                                    Log.d(TAG, "Ad loaded successfully for placement: $placementId")
-                                    isAdLoaded = true
-                                    isAdFailed = false
-                                }
+                                    override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                                        Log.w(TAG, "Banner failed to load: ${loadAdError.message} (code: ${loadAdError.code})")
+                                        isAdFailed = true
+                                        isAdLoaded = false
+                                    }
 
-                                override fun onAdClicked(ad: Ad?) {
-                                    Log.d(TAG, "Ad clicked")
-                                }
+                                    override fun onAdClicked() {
+                                        Log.d(TAG, "Banner clicked")
+                                    }
 
-                                override fun onLoggingImpression(ad: Ad?) {
-                                    Log.d(TAG, "Ad impression logged")
+                                    override fun onAdImpression() {
+                                        Log.d(TAG, "Banner impression logged")
+                                    }
                                 }
                             }
-
+                            currentAdView = adView
                             frameLayout.addView(adView)
-                            adView.loadAd(adView.buildLoadAdConfig().withAdListener(listener).build())
+                            adView.loadAd(AdRequest.Builder().build())
                             frameLayout
                         },
-                        update = { _ ->
-                            // View update if needed
-                        }
+                        update = { _ -> }
                     )
 
                     // Small "Ad" or "বিজ্ঞাপন" sponsored badge in corner

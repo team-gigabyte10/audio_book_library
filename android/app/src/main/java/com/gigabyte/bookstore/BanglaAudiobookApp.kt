@@ -97,6 +97,15 @@ class BanglaAudiobookApp : Application() {
             android.util.Log.e("BanglaAudiobookApp", "Failed to start listening to pricing config", e)
         }
 
+        // Initialize Google Mobile Ads (AdMob) with Meta Bidding Mediation
+        try {
+            com.google.android.gms.ads.MobileAds.initialize(this) { status ->
+                android.util.Log.d("BanglaAudiobookApp", "MobileAds initialized: ${status.adapterStatusMap.keys}")
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("BanglaAudiobookApp", "Failed to initialize MobileAds SDK", e)
+        }
+
         // Initialize Meta Audience Network (Facebook Ads)
         try {
             com.facebook.ads.AudienceNetworkAds.initialize(this)

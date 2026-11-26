@@ -55,7 +55,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.facebook.ads.AdSize
+import com.google.android.gms.ads.AdSize
 import com.gigabyte.bookstore.data.ads.AdConfig
 import com.gigabyte.bookstore.presentation.components.FacebookBannerAd
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
@@ -279,8 +279,8 @@ fun TextReaderScreen(
                 )
                 if (isAdAllowed) {
                     FacebookBannerAd(
-                        placementId = AdConfig.FB_BANNER_PLACEMENT_ID,
-                        adSize = AdSize.BANNER_HEIGHT_50,
+                        placementId = AdConfig.ADMOB_BANNER_AD_UNIT_ID,
+                        adSize = AdSize.BANNER,
                         showContainer = false,
                         modifier = Modifier
                             .fillMaxWidth()
