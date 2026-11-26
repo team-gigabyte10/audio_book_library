@@ -290,41 +290,32 @@ fun BookDetailsScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // Action buttons - Audio & Summary
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        // Primary Action Button - Audiobook Playback (Audio Player)
+                        Button(
+                            onClick = {
+                                val startIdx = history?.chapterIndex ?: 0
+                                viewModel.continueListening()
+                                onPlayChapter(startIdx)
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(48.dp)
+                                .testTag("book_details_play_button"),
+                            shape = RoundedCornerShape(12.dp)
                         ) {
-                            Button(
-                                onClick = {
-                                    val startIdx = history?.chapterIndex ?: 0
-                                    viewModel.continueListening()
-                                    onOpenReader(startIdx)
-                                },
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .testTag("book_details_play_button")
-                            ) {
-                                Icon(Icons.Default.PlayArrow, contentDescription = null)
-                                Spacer(modifier = Modifier.width(6.dp))
-                                Text(
-                                    if (history != null) "চালিয়ে যান" else "শুনুন"
+                            Icon(
+                                imageVector = Icons.Default.PlayArrow,
+                                contentDescription = null,
+                                modifier = Modifier.size(22.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = if (history != null) "চালিয়ে যান (অডিওবুক)" else "শুনুন (অডিওবুক)",
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 15.sp
                                 )
-                            }
-
-                            OutlinedButton(
-                                onClick = {
-                                    val startIdx = history?.chapterIndex ?: 0
-                                    onOpenReader(startIdx)
-                                },
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .testTag("book_details_read_button")
-                            ) {
-                                Icon(Icons.Default.MenuBook, contentDescription = null)
-                                Spacer(modifier = Modifier.width(6.dp))
-                                Text("সারসংক্ষেপ পড়ুন")
-                            }
+                            )
                         }
 
                         Spacer(modifier = Modifier.height(10.dp))

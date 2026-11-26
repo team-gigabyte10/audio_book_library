@@ -106,18 +106,27 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
             }
         }
 
-        // 4. Reactive State Combination: recomputes categories, filter chips and counts whenever any stream changes
+        // 4. Reactive State Combination: recomputes categories, filter chips, counts and unlock state whenever any stream changes
         viewModelScope.launch {
             combine(
                 _bundles,
                 _allBooks,
                 _selectedBundleId,
                 _selectedCategory,
-                _searchQuery
-            ) { bundles, allBooks, bundleId, category, query ->
-                val unlocked = app.appPreferences.unlockedBundles.value
-                val status = app.appPreferences.userStatus.value
-                val isUnlocked = unlocked.contains("audiobook_bundle") || status.equals("ACTIVE", ignoreCase = true)
+                _searchQuery,
+                app.appPreferences.unlockedBundles,
+                app.appPreferences.userStatus
+            ) { args ->
+                @Suppress("UNCHECKED_CAST")
+                val bundles = args[0] as List<AudioBundle>
+                @Suppress("UNCHECKED_CAST")
+                val allBooks = args[1] as List<RemoteBook>
+                val bundleId = args[2] as? String
+                val category = args[3] as String
+                val query = args[4] as String
+
+                val targetBundle = bundleId ?: "audiobook_bundle"
+                val isUnlocked = app.appPreferences.isBundleUnlocked(targetBundle)
                 val groups = computeCategoryGroups(allBooks, bundles, bundleId, query)
 
                 BookCategoriesUiState(

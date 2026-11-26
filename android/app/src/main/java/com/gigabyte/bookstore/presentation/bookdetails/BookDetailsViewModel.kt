@@ -115,11 +115,25 @@ class BookDetailsViewModel(
 
     private fun loadBookDetails() {
         viewModelScope.launch {
-            _book.value = repository.getBookById(bookId)
+            var localBook = repository.getBookById(bookId)
+            var chapList = repository.getChaptersForBookSync(bookId)
+
+            if (localBook == null || chapList.isEmpty() || localBook.filePath.isBlank()) {
+                val downloaded = syncManager.ensureBookDownloadedOnDemand(bookId, isFull = false)
+                if (downloaded != null && downloaded.exists()) {
+                    localBook = repository.getBookById(bookId)
+                    chapList = repository.getChaptersForBookSync(bookId)
+                }
+            }
+
+            _book.value = localBook
+            _chapters.value = chapList
             checkLocalFiles()
             resolvePdfUrl()
             repository.getChaptersForBook(bookId).collect {
-                _chapters.value = it
+                if (it.isNotEmpty()) {
+                    _chapters.value = it
+                }
             }
         }
         viewModelScope.launch {

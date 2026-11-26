@@ -231,7 +231,7 @@ fun BookCategoriesScreen(
                             totalBooks = currentBookCount,
                             categoryCount = uiState.categoryGroups.size,
                             isUnlocked = uiState.isAudiobookUnlocked,
-                            bundlePrice = pricingConfig.getPackagePrice("audiobook_bundle"),
+                            bundlePrice = pricingConfig.getPackagePrice(uiState.selectedBundleId ?: "audiobook_bundle"),
                             onUnlockClick = onNavigateToPayment,
                             modifier = Modifier.padding(horizontal = 16.dp)
                         )
