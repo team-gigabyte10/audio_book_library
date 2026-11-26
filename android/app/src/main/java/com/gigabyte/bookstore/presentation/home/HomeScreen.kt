@@ -665,7 +665,18 @@ fun HomeScreen(
                 }
             },
             onPlayLesson = { clickedCourse, lesson ->
-                viewModel.playCourseLesson(clickedCourse, lesson)
+                val isCourseUnlocked = if (clickedCourse.language.equals("Japanese", ignoreCase = true)) {
+                    isJapaneseUnlocked
+                } else {
+                    isEnglishUnlocked
+                }
+                if (lesson.isFree || isCourseUnlocked) {
+                    viewModel.playCourseLesson(clickedCourse, lesson)
+                } else {
+                    selectedCourse = null
+                    val targetPkgId = if (clickedCourse.language.equals("Japanese", ignoreCase = true)) "japanese_course" else "english_course"
+                    onNavigateToPayment(targetPkgId)
+                }
             }
         )
     }

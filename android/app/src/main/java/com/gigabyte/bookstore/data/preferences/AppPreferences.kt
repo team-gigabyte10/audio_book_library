@@ -257,7 +257,7 @@ class AppPreferences(context: Context) {
             val cleanCourse = courseType.trim().lowercase()
             val cleanPart = partId.trim().lowercase()
             return when {
-                cleanCourse.startsWith("qr") || cleanPart.startsWith("qr") || cleanPart.startsWith("quran") -> "quran_course"
+                cleanCourse.startsWith("qr") || cleanCourse.contains("quran") || cleanPart.startsWith("qr") || cleanPart.contains("quran") -> "quran_course"
                 cleanCourse.startsWith("bd") || cleanCourse.startsWith("regional") || cleanPart.startsWith("bd") || cleanPart.startsWith("regional") -> "regional_course"
                 cleanCourse.startsWith("jp") || cleanPart.startsWith("jp") -> "japanese_course"
                 cleanCourse.startsWith("zh") || cleanPart.startsWith("zh") -> "chinese_course"
@@ -298,7 +298,6 @@ class AppPreferences(context: Context) {
         if (_isAdmin.value) return true
         if (_unlockedBundles.value.contains("mega_bundle")) return true
         val normalized = normalizeBundleId(bundleId)
-        if (normalized == "audiobook_bundle" && (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true))) return true
         return _unlockedBundles.value.contains(normalized)
     }
 
@@ -443,7 +442,7 @@ class AppPreferences(context: Context) {
         // 0. Quran Learning course is 100% free for everyone forever (Waqf)
         val cleanCourse = courseType.trim().lowercase()
         val cleanPart = partId.trim().lowercase()
-        if (cleanCourse == "quran" || cleanCourse.startsWith("qr") || cleanPart.startsWith("qr-") || cleanPart.startsWith("quran")) {
+        if (cleanCourse == "quran" || cleanCourse.startsWith("qr") || cleanCourse.contains("quran") || cleanPart.startsWith("qr-") || cleanPart.contains("quran")) {
             return true
         }
 

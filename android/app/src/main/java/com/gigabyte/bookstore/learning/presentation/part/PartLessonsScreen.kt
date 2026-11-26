@@ -1,5 +1,7 @@
 package com.gigabyte.bookstore.learning.presentation.part
 
+import android.app.Activity
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -29,6 +31,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material3.Card
@@ -48,19 +51,27 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gigabyte.bookstore.BanglaAudiobookApp
+import com.gigabyte.bookstore.data.ads.AdConfig
+import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
+import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.learning.data.LessonSummary
 import com.gigabyte.bookstore.learning.domain.model.LessonState
 import com.gigabyte.bookstore.learning.presentation.syllabus.SyllabusPartTheme
 import com.gigabyte.bookstore.learning.presentation.syllabus.getSyllabusPartTheme
 import com.gigabyte.bookstore.presentation.components.AppBackground
+import com.gigabyte.bookstore.presentation.components.ModuleUnlockDialog
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
+import kotlinx.coroutines.flow.MutableStateFlow
 
 private fun Int.toBanglaDigits(): String {
     val bnDigits = charArrayOf('০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯')
@@ -72,12 +83,43 @@ fun PartLessonsScreen(
     viewModel: PartLessonsViewModel,
     onBackClick: () -> Unit,
     onOpenLesson: (String) -> Unit,
-    onOpenIntro: (String) -> Unit = {}
+    onOpenIntro: (String) -> Unit = {},
+    onNavigateToPayment: (() -> Unit)? = null
 ) {
     val lessons by viewModel.lessons.collectAsStateWithLifecycle()
     val part by viewModel.part.collectAsStateWithLifecycle()
     val title by viewModel.title.collectAsStateWithLifecycle()
     val theme = getSyllabusPartTheme(part?.order ?: 1)
+
+    val context = LocalContext.current
+    val app = context.applicationContext as? BanglaAudiobookApp
+    val appPrefs = app?.appPreferences
+    val unlockedBundles by (appPrefs?.unlockedBundles ?: MutableStateFlow(emptySet())).collectAsStateWithLifecycle()
+    val isAdmin by (appPrefs?.isAdmin ?: MutableStateFlow(false)).collectAsStateWithLifecycle()
+    val moduleUpdates by (appPrefs?.unlockedModuleUpdates ?: MutableStateFlow(0L)).collectAsStateWithLifecycle()
+    val allowRewardAdUnlock by (appPrefs?.allowRewardAdUnlock ?: MutableStateFlow(true)).collectAsStateWithLifecycle()
+    val rewardUnlockHours by (appPrefs?.rewardUnlockHours ?: MutableStateFlow(24)).collectAsStateWithLifecycle()
+
+    val currentPart = part
+    val courseBundleId = remember(currentPart) {
+        AppPreferences.getCourseBundleId("", currentPart?.id.orEmpty())
+    }
+    val isQuran = currentPart?.id?.startsWith("qr-") == true
+    val isCourseOwned = remember(unlockedBundles, isAdmin, courseBundleId, isQuran) {
+        isQuran || isAdmin || unlockedBundles.contains("mega_bundle") || unlockedBundles.contains(courseBundleId)
+    }
+
+    val isPartUnlocked = remember(isCourseOwned, currentPart, moduleUpdates) {
+        if (currentPart == null) true
+        else isCourseOwned || currentPart.order <= 1 || (appPrefs?.isCourseModuleUnlocked(currentPart.order, currentPart.id, "") == true)
+    }
+
+    var showUnlockDialog by remember { mutableStateOf(false) }
+    var isLoadingRewardAd by remember { mutableStateOf(false) }
+    val isAdAllowed = remember(currentPart) { !isQuran && AdConfig.isAdAllowedForCourse(currentPart?.id) }
+    val effectiveAllowRewardAd = remember(isAdAllowed, allowRewardAdUnlock) {
+        if (isAdAllowed) allowRewardAdUnlock else false
+    }
 
     Scaffold(
         topBar = {
@@ -157,7 +199,14 @@ fun PartLessonsScreen(
                             PartLessonCard(
                                 lesson = lesson,
                                 theme = theme,
-                                onClick = { onOpenLesson(lesson.id) }
+                                isUnlocked = isPartUnlocked,
+                                onClick = {
+                                    if (isPartUnlocked) {
+                                        onOpenLesson(lesson.id)
+                                    } else {
+                                        showUnlockDialog = true
+                                    }
+                                }
                             )
                         }
 
@@ -184,7 +233,14 @@ fun PartLessonsScreen(
                             item(key = "expandable_100_wh_questions") {
                                 Wh100ExpandableCard(
                                     lessons = whLessons,
-                                    onOpenLesson = onOpenLesson
+                                    isUnlocked = isPartUnlocked,
+                                    onOpenLesson = { lessonId ->
+                                        if (isPartUnlocked) {
+                                            onOpenLesson(lessonId)
+                                        } else {
+                                            showUnlockDialog = true
+                                        }
+                                    }
                                 )
                             }
                         }
@@ -199,7 +255,13 @@ fun PartLessonsScreen(
                                 subtitle = "সকাল থেকে রাত পর্যন্ত আপনার দৈনন্দিন রুটিন ইংরেজিতে সাবলীলভাবে বলার একক অনুশীলন।",
                                 pills = listOf("🇬🇧 Only English", "🎧 Natural Audio", "⚡ 13 Sentences"),
                                 accentColor = Color(0xFF6D28D9),
-                                onClick = { onOpenIntro("daily_activities.md") }
+                                onClick = {
+                                    if (isPartUnlocked) {
+                                        onOpenIntro("daily_activities.md")
+                                    } else {
+                                        showUnlockDialog = true
+                                    }
+                                }
                             )
                         }
 
@@ -211,7 +273,13 @@ fun PartLessonsScreen(
                                 subtitle = "Cell Phone, Laptop এবং Facebook ID নিয়ে সহজ ও সাবলীল স্পোকেন ইংলিশ প্রেজেন্টেশন।",
                                 pills = listOf("🇬🇧 Only English", "🎧 Natural Audio", "⚡ 3 Topics"),
                                 accentColor = Color(0xFF0284C7),
-                                onClick = { onOpenIntro("mini_presentations.md") }
+                                onClick = {
+                                    if (isPartUnlocked) {
+                                        onOpenIntro("mini_presentations.md")
+                                    } else {
+                                        showUnlockDialog = true
+                                    }
+                                }
                             )
                         }
                     }
@@ -223,6 +291,55 @@ fun PartLessonsScreen(
             }
             }
         }
+    }
+
+    if (showUnlockDialog && currentPart != null) {
+        val activity = context as? Activity
+        ModuleUnlockDialog(
+            partTitleBn = currentPart.titleBn ?: currentPart.titleTarget ?: "মডিউল",
+            partOrder = currentPart.order,
+            lessonCount = lessons?.size ?: 0,
+            isLoadingAd = isLoadingRewardAd,
+            allowRewardAd = effectiveAllowRewardAd,
+            rewardHours = rewardUnlockHours,
+            onDismiss = {
+                if (!isLoadingRewardAd) {
+                    showUnlockDialog = false
+                }
+            },
+            onWatchAdClick = {
+                val partId = currentPart.id
+                if (activity != null && isAdAllowed) {
+                    isLoadingRewardAd = true
+                    FacebookRewardAdManager.getInstance(context).showAd(
+                        activity = activity,
+                        onRewardEarned = {
+                            isLoadingRewardAd = false
+                            showUnlockDialog = false
+                            appPrefs?.unlockCourseModuleFor24Hours(partId)
+                            Toast.makeText(context, "🎉 অভিনন্দন! মডিউলটি পরবর্তী ২৪ ঘণ্টার জন্য আনলক হয়েছে!", Toast.LENGTH_LONG).show()
+                        },
+                        onClosed = {
+                            isLoadingRewardAd = false
+                        },
+                        onError = { errorMsg ->
+                            isLoadingRewardAd = false
+                            showUnlockDialog = false
+                            // Graceful fallback
+                            appPrefs?.unlockCourseModuleFor24Hours(partId)
+                            Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য মডিউলটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
+                        }
+                    )
+                } else {
+                    showUnlockDialog = false
+                    appPrefs?.unlockCourseModuleFor24Hours(partId)
+                }
+            },
+            onGoPremiumClick = {
+                showUnlockDialog = false
+                onNavigateToPayment?.invoke()
+            }
+        )
     }
 }
 
@@ -356,6 +473,7 @@ private fun PartOverviewBanner(
 private fun PartLessonCard(
     lesson: LessonSummary,
     theme: SyllabusPartTheme,
+    isUnlocked: Boolean = true,
     onClick: () -> Unit
 ) {
     val isDone = lesson.state == LessonState.DONE
@@ -369,6 +487,7 @@ private fun PartLessonCard(
         border = BorderStroke(
             if (isVeryImportant) 1.5.dp else 1.dp,
             when {
+                !isUnlocked -> theme.accentColor.copy(alpha = 0.25f)
                 isDone -> Color(0xFF10B981).copy(alpha = 0.5f)
                 isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.5f)
                 isVeryImportant -> Color(0xFFE11D48).copy(alpha = 0.45f)
@@ -402,6 +521,7 @@ private fun PartLessonCard(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Surface(
                     color = when {
+                        !isUnlocked -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
                         isDone -> Color(0xFF10B981).copy(alpha = 0.18f)
                         isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.18f)
                         else -> theme.accentColor.copy(alpha = 0.14f)
@@ -412,17 +532,19 @@ private fun PartLessonCard(
                     Box(contentAlignment = Alignment.Center) {
                         Icon(
                             imageVector = when {
+                                !isUnlocked -> Icons.Default.Lock
                                 isDone -> Icons.Default.CheckCircle
                                 isInProgress -> Icons.Default.PlayArrow
                                 else -> Icons.Default.PlayCircle
                             },
                             contentDescription = null,
                             tint = when {
+                                !isUnlocked -> theme.accentColor
                                 isDone -> Color(0xFF10B981)
                                 isInProgress -> Color(0xFFD97706)
                                 else -> theme.accentColor
                             },
-                            modifier = Modifier.size(22.dp)
+                            modifier = Modifier.size(20.dp)
                         )
                     }
                 }
@@ -461,6 +583,7 @@ private fun PartLessonCard(
                 Surface(
                     shape = RoundedCornerShape(8.dp),
                     color = when {
+                        !isUnlocked -> theme.accentColor.copy(alpha = 0.15f)
                         isDone -> Color(0xFF10B981).copy(alpha = 0.16f)
                         isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.16f)
                         else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
@@ -468,6 +591,7 @@ private fun PartLessonCard(
                     border = BorderStroke(
                         1.dp,
                         when {
+                            !isUnlocked -> theme.accentColor.copy(alpha = 0.35f)
                             isDone -> Color(0xFF10B981).copy(alpha = 0.45f)
                             isInProgress -> Color(0xFFF59E0B).copy(alpha = 0.45f)
                             else -> Color.Transparent
@@ -476,6 +600,7 @@ private fun PartLessonCard(
                 ) {
                     Text(
                         text = when {
+                            !isUnlocked -> "🔒 আনলক"
                             isDone -> "✓ সম্পন্ন"
                             isInProgress -> "চলছে"
                             else -> "শুরু করুন"
@@ -483,6 +608,7 @@ private fun PartLessonCard(
                         fontSize = 10.5.sp,
                         fontWeight = FontWeight.Bold,
                         color = when {
+                            !isUnlocked -> theme.accentColor
                             isDone -> Color(0xFF10B981)
                             isInProgress -> Color(0xFFD97706)
                             else -> MaterialTheme.colorScheme.onSurfaceVariant
@@ -644,6 +770,7 @@ private fun SpeechMonologueCard(
 @Composable
 private fun Wh100ExpandableCard(
     lessons: List<LessonSummary>,
+    isUnlocked: Boolean = true,
     onOpenLesson: (String) -> Unit
 ) {
     var isExpanded by remember { mutableStateOf(false) }
@@ -778,6 +905,7 @@ private fun Wh100ExpandableCard(
                             index = index + 1,
                             lesson = lesson,
                             accentColor = accentColor,
+                            isUnlocked = isUnlocked,
                             onClick = { onOpenLesson(lesson.id) }
                         )
                     }
@@ -792,6 +920,7 @@ private fun WhLessonTile(
     index: Int,
     lesson: LessonSummary,
     accentColor: Color,
+    isUnlocked: Boolean = true,
     onClick: () -> Unit
 ) {
     val whWord = when {
@@ -863,15 +992,23 @@ private fun WhLessonTile(
             Spacer(modifier = Modifier.width(8.dp))
 
             Surface(
-                color = if (isDone) Color(0xFF10B981).copy(alpha = 0.18f) else accentColor.copy(alpha = 0.12f),
+                color = when {
+                    !isUnlocked -> accentColor.copy(alpha = 0.12f)
+                    isDone -> Color(0xFF10B981).copy(alpha = 0.18f)
+                    else -> accentColor.copy(alpha = 0.12f)
+                },
                 shape = CircleShape,
                 modifier = Modifier.size(32.dp)
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Icon(
-                        imageVector = if (isDone) Icons.Default.CheckCircle else Icons.Default.PlayArrow,
+                        imageVector = when {
+                            !isUnlocked -> Icons.Default.Lock
+                            isDone -> Icons.Default.CheckCircle
+                            else -> Icons.Default.PlayArrow
+                        },
                         contentDescription = "Start Lesson",
-                        tint = if (isDone) Color(0xFF10B981) else accentColor,
+                        tint = if (isDone && isUnlocked) Color(0xFF10B981) else accentColor,
                         modifier = Modifier.size(18.dp)
                     )
                 }

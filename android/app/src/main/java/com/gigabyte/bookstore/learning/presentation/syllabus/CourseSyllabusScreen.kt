@@ -42,6 +42,7 @@ import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
 import com.gigabyte.bookstore.presentation.components.ModuleUnlockDialog
 import kotlinx.coroutines.flow.MutableStateFlow
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -520,11 +521,21 @@ fun CourseSyllabusScreen(
 
                     // Resume Lesson Card (Shows when learner has an active / unfinished lesson)
                     if (resumeLesson != null && completedLessons < totalLessons) {
+                        val resumePart = filteredSyllabus.find { it.part.id == resumeLesson.partId }?.part
+                        val isResumePartUnlocked = isCourseOwned || resumePart == null || resumePart.order <= 1 ||
+                            (appPrefs?.isCourseModuleUnlocked(resumePart.order, resumePart.id, courseType) == true)
+
                         item(key = "resume_active_lesson") {
                             ResumeLessonCard(
                                 lesson = resumeLesson,
                                 accentColor = getSyllabusPartTheme(1).accentColor,
-                                onOpenLesson = onOpenLesson
+                                onClick = {
+                                    if (isResumePartUnlocked) {
+                                        onOpenLesson(resumeLesson.id)
+                                    } else {
+                                        selectedLockedPart = resumePart
+                                    }
+                                }
                             )
                         }
                     }
@@ -669,7 +680,7 @@ fun CourseSyllabusScreen(
 private fun ResumeLessonCard(
     lesson: LessonItemSummary,
     accentColor: Color,
-    onOpenLesson: (String) -> Unit
+    onClick: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -678,7 +689,7 @@ private fun ResumeLessonCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onOpenLesson(lesson.id) }
+            .clickable(onClick = onClick)
     ) {
         Row(
             modifier = Modifier
@@ -751,7 +762,7 @@ private fun ResumeLessonCard(
             Spacer(modifier = Modifier.width(8.dp))
 
             Button(
-                onClick = { onOpenLesson(lesson.id) },
+                onClick = onClick,
                 shape = RoundedCornerShape(10.dp),
                 contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
             ) {
