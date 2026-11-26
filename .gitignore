@@ -1,4 +1,36 @@
+# Dependencies & Package Managers
+node_modules/
+*/node_modules/
 
-# Local Claude Code session log (Recall plugin), never commit
-.recall/
+# Build outputs & caches
+dist/
+*/dist/
+build/
+*/build/
+.gradle/
+*/.gradle/
+out/
+target/
+
+# Python caches
 __pycache__/
+*.pyc
+*.pyo
+
+# Local caches & temp
+frontend/data/cache/
+frontend/data/temp/
+.recall/
+
+# Android binaries & keys
+*.apk
+*.aab
+local.properties
+*.keystore
+
+# IDE & OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
