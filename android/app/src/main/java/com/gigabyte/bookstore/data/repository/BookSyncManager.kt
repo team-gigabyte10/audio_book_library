@@ -295,7 +295,7 @@ class BookSyncManager(
             try {
                 val doc = firestore.collection("books").document(cleanBookId).get().await()
                 if (doc.exists()) {
-                    book = Book(
+                    book = RemoteBook(
                         id = doc.id,
                         title = doc.getString("title") ?: "বই",
                         subtitle = doc.getString("subtitle"),

@@ -3,6 +3,7 @@ package com.gigabyte.bookstore.domain.player
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.local.entities.PlaybackHistoryEntity
 import com.gigabyte.bookstore.data.models.Book
 import com.gigabyte.bookstore.data.models.Chapter
@@ -82,13 +83,13 @@ class AudiobookPlayer(
             _playbackState.value = _playbackState.value.copy(isLoading = true)
             currentBook = book
             lastBook = book
-            var chaps = withContext(Dispatchers.IO) { repository.getChaptersForBookSync(book.id) }
+            var chaps = repository.getChaptersForBookSync(book.id)
             if (chaps.isEmpty()) {
                 val isFull = book.id.endsWith("_full")
                 val baseBookId = if (isFull) book.id.removeSuffix("_full") else book.id
                 val downloaded = (context.applicationContext as? BanglaAudiobookApp)?.syncManager?.ensureBookDownloadedOnDemand(baseBookId, isFull)
                 if (downloaded != null) {
-                    chaps = withContext(Dispatchers.IO) { repository.getChaptersForBookSync(book.id) }
+                    chaps = repository.getChaptersForBookSync(book.id)
                 }
             }
             chaptersList = chaps
