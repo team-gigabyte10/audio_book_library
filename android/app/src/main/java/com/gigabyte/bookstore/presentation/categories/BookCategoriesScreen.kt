@@ -720,10 +720,13 @@ private fun CategoryBookCard(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-                if (!book.author.isNullOrBlank()) {
+                val displayAuthor = book.author?.takeIf {
+                    !it.equals("Unknown", ignoreCase = true) && !it.equals("Unknown Author", ignoreCase = true)
+                }
+                if (!displayAuthor.isNullOrBlank()) {
                     Spacer(modifier = Modifier.height(2.dp))
                     Text(
-                        text = book.author,
+                        text = displayAuthor,
                         style = MaterialTheme.typography.bodySmall.copy(
                             fontSize = 11.sp,
                             color = MaterialTheme.colorScheme.onSurfaceVariant

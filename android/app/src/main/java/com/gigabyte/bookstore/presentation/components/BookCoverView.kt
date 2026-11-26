@@ -141,10 +141,13 @@ fun BookCoverView(
                             overflow = TextOverflow.Ellipsis
                         )
 
-                        if (!author.isNullOrBlank()) {
+                        val displayAuthor = author?.takeIf {
+                            !it.equals("Unknown", ignoreCase = true) && !it.equals("Unknown Author", ignoreCase = true)
+                        }
+                        if (!displayAuthor.isNullOrBlank()) {
                             Spacer(modifier = Modifier.height(6.dp))
                             Text(
-                                text = author,
+                                text = displayAuthor,
                                 style = MaterialTheme.typography.bodySmall.copy(
                                     color = Color.White.copy(alpha = 0.85f),
                                     fontSize = 12.sp

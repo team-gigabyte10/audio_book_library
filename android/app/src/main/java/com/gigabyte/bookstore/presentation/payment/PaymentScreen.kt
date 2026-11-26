@@ -26,6 +26,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -270,7 +273,18 @@ fun PaymentScreen(
         }
     }
     var selectedPackageId by remember(initialPackageId) {
-        mutableStateOf(initialPackageId ?: "audiobook_bundle")
+        val defaultId = when {
+            !initialPackageId.isNullOrBlank() -> initialPackageId
+            displayedPackages.isNotEmpty() -> displayedPackages.first().id
+            else -> "audiobook_bundle"
+        }
+        mutableStateOf(defaultId)
+    }
+
+    LaunchedEffect(displayedPackages) {
+        if (displayedPackages.isNotEmpty() && displayedPackages.none { it.id == selectedPackageId }) {
+            selectedPackageId = displayedPackages.first().id
+        }
     }
     val selectedPackage = displayedPackages.firstOrNull { it.id == selectedPackageId }
         ?: displayedPackages.firstOrNull()
@@ -1280,13 +1294,26 @@ fun PaymentScreen(
             AlertDialog(
                 onDismissRequest = { if (!isWalletPurchasing) showWalletConfirmDialog = false },
                 title = {
-                    Text("কোর্স ক্রয়ের নিশ্চিতকরণ", fontWeight = FontWeight.Bold)
+                    Text("কোর্স ক্রয় নিশ্চিতকরন", fontWeight = FontWeight.Bold, fontSize = 17.sp)
                 },
                 text = {
+                    val annotatedText = buildAnnotatedString {
+                        append("আপনি কি নিশ্চিত যে আপনার রেফারেল ওয়ালেট ব্যালেন্স থেকে ")
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)) {
+                            append("৳${selectedPackage.price.toInt()}")
+                        }
+                        append(" দিয়ে ")
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color(0xFF10B981), fontSize = 15.sp)) {
+                            append("‘${selectedPackage.title}’")
+                        }
+                        append(" কোর্সটি সাথে সাথে আনলক করতে চান?\n\n")
+                        append("বর্তমান ব্যালেন্স: ৳${"%.2f".format(userBalance)}\n")
+                        append("ক্রয়ের পর ব্যালেন্স: ৳${"%.2f".format(userBalance - selectedPackage.price)}")
+                    }
                     Text(
-                        text = "আপনি কি নিশ্চিত যে আপনার রেফারেল ওয়ালেট ব্যালেন্স থেকে ৳${selectedPackage.price.toInt()} দিয়ে '${selectedPackage.title}' সাথে সাথে আনলক করতে চান?\n\nবর্তমান ব্যালেন্স: ৳${"%.2f".format(userBalance)}\nক্রয়ের পর ব্যালেন্স: ৳${"%.2f".format(userBalance - selectedPackage.price)}",
+                        text = annotatedText,
                         fontSize = 13.sp,
-                        lineHeight = 19.sp
+                        lineHeight = 20.sp
                     )
                 },
                 confirmButton = {

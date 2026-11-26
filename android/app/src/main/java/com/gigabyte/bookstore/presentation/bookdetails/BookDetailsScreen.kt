@@ -255,10 +255,13 @@ fun BookDetailsScreen(
                             textAlign = androidx.compose.ui.text.style.TextAlign.Center
                         )
 
-                        if (!currentBook.author.isNullOrBlank()) {
+                        val displayAuthor = currentBook.author?.takeIf {
+                            !it.equals("Unknown", ignoreCase = true) && !it.equals("Unknown Author", ignoreCase = true)
+                        }
+                        if (!displayAuthor.isNullOrBlank()) {
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
-                                text = currentBook.author,
+                                text = displayAuthor,
                                 style = MaterialTheme.typography.titleMedium.copy(
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
