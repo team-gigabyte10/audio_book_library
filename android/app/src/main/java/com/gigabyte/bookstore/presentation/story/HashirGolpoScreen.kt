@@ -1,11 +1,13 @@
 package com.gigabyte.bookstore.presentation.story
 
+import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
+import com.gigabyte.bookstore.data.ads.SmartInterstitialAdManager
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -147,7 +149,16 @@ fun HashirGolpoScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    val activity = LocalContext.current as? Activity
+                    IconButton(onClick = {
+                        if (activity != null) {
+                            SmartInterstitialAdManager.getInstance(activity).showInterstitialIfReady(activity) {
+                                onBackClick()
+                            }
+                        } else {
+                            onBackClick()
+                        }
+                    }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "ফিরে যান",
@@ -279,11 +290,19 @@ fun HashirGolpoScreen(
 
     // Modal Story Reader
     activeStory?.let { currentStory ->
+        val activity = LocalContext.current as? Activity
         HashirGolpoReaderBottomSheet(
             story = currentStory,
             isSpeaking = isSpeaking,
             fontSize = fontSize,
-            onDismiss = { viewModel.closeStory() },
+            onDismiss = {
+                viewModel.closeStory()
+                if (activity != null) {
+                    val manager = SmartInterstitialAdManager.getInstance(activity)
+                    manager.recordAction()
+                    manager.showInterstitialIfReady(activity) {}
+                }
+            },
             onToggleTts = { viewModel.toggleTts(currentStory) },
             onIncreaseFontSize = { viewModel.increaseFontSize() },
             onDecreaseFontSize = { viewModel.decreaseFontSize() },

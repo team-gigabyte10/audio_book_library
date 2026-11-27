@@ -22,6 +22,17 @@ object AdConfig {
      */
     const val ADMOB_REWARDED_AD_UNIT_ID = "ca-app-pub-5437449031023884/5670317892"
 
+    /**
+     * Official Google AdMob App Open Ad Unit ID.
+     */
+    const val ADMOB_APP_OPEN_AD_UNIT_ID = "ca-app-pub-5437449031023884/6421729571"
+
+    /**
+     * Official Google AdMob Smart Interstitial Ad Unit ID.
+     * Mediates Meta Audience Network in real-time.
+     */
+    const val ADMOB_INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-5437449031023884/6448156446"
+
     const val FB_APP_ID = "29550780014571719"
 
     /**
@@ -33,6 +44,23 @@ object AdConfig {
      * Official Meta Audience Network placement ID for Rewarded Ads.
      */
     const val FB_REWARDED_PLACEMENT_ID = "29550780014571719_29552101711106216"
+
+    /**
+     * Official Meta Audience Network placement ID for Smart Interstitial Ads.
+     */
+    const val FB_INTERSTITIAL_PLACEMENT_ID = "29550780014571719_29650193074630412"
+
+    // Google Official Test Ad Unit IDs (used in debug builds when isTestMode is enabled)
+    const val TEST_APP_OPEN_AD_UNIT_ID = "ca-app-pub-3940256099942544/9257395921"
+    const val TEST_INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
+
+    fun getAppOpenAdUnitId(): String {
+        return if (com.gigabyte.bookstore.BuildConfig.DEBUG && isTestMode) TEST_APP_OPEN_AD_UNIT_ID else ADMOB_APP_OPEN_AD_UNIT_ID
+    }
+
+    fun getInterstitialAdUnitId(): String {
+        return if (com.gigabyte.bookstore.BuildConfig.DEBUG && isTestMode) TEST_INTERSTITIAL_AD_UNIT_ID else ADMOB_INTERSTITIAL_AD_UNIT_ID
+    }
 
     /**
      * Duration in milliseconds for which a course module remains unlocked after watching a video ad.

@@ -1,7 +1,10 @@
 package com.gigabyte.bookstore.presentation.reader
 
+import android.app.Activity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
+import com.gigabyte.bookstore.data.ads.SmartInterstitialAdManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -197,8 +200,17 @@ fun TextReaderScreen(
                     }
                 },
                 navigationIcon = {
+                    val activity = LocalContext.current as? Activity
                     IconButton(
-                        onClick = onBackClick,
+                        onClick = {
+                            if (activity != null) {
+                                SmartInterstitialAdManager.getInstance(activity).showInterstitialIfReady(activity) {
+                                    onBackClick()
+                                }
+                            } else {
+                                onBackClick()
+                            }
+                        },
                         modifier = Modifier.testTag("reader_back_button")
                     ) {
                         Icon(

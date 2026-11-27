@@ -1,6 +1,8 @@
 package com.gigabyte.bookstore
 
 import android.app.Application
+import com.gigabyte.bookstore.data.ads.AppOpenAdManager
+import com.gigabyte.bookstore.data.ads.SmartInterstitialAdManager
 import com.gigabyte.bookstore.data.local.AudiobookDatabase
 import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.data.repository.AudiobookRepository
@@ -51,6 +53,10 @@ class BanglaAudiobookApp : Application() {
 
     val hashirGolpoRepository: HashirGolpoRepository by lazy {
         HashirGolpoRepository(this)
+    }
+
+    val appOpenAdManager: AppOpenAdManager by lazy {
+        AppOpenAdManager(this)
     }
 
     // English learning module (created on first use)
@@ -106,6 +112,9 @@ class BanglaAudiobookApp : Application() {
         try {
             com.google.android.gms.ads.MobileAds.initialize(this) { status ->
                 android.util.Log.d("BanglaAudiobookApp", "MobileAds initialized: ${status.adapterStatusMap.keys}")
+                // Preload App Open and Smart Interstitial Ads once SDK is initialized
+                appOpenAdManager.preloadAd(this)
+                SmartInterstitialAdManager.getInstance(this).preloadAd()
             }
         } catch (e: Exception) {
             android.util.Log.e("BanglaAudiobookApp", "Failed to initialize MobileAds SDK", e)

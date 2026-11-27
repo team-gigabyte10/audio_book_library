@@ -49,6 +49,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
+import com.gigabyte.bookstore.data.ads.SmartInterstitialAdManager
 import com.gigabyte.bookstore.learning.domain.model.LessonUnlock
 import com.gigabyte.bookstore.learning.domain.quiz.QuizQuestion
 import com.gigabyte.bookstore.presentation.components.AppBackground
@@ -303,13 +304,37 @@ private fun ResultPanel(
         Spacer(Modifier.height(24.dp))
         val next = state.nextLessonId
         if (next != null) {
-            Button(onClick = { onOpenNextLesson(next) }, modifier = Modifier.fillMaxWidth()) { Text("পরের লেসন") }
+            Button(
+                onClick = {
+                    val activity = context as? Activity
+                    if (activity != null) {
+                        SmartInterstitialAdManager.getInstance(context).showInterstitialIfReady(activity, forceIgnoreCounter = true) {
+                            onOpenNextLesson(next)
+                        }
+                    } else {
+                        onOpenNextLesson(next)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) { Text("পরের লেসন") }
             Spacer(Modifier.height(8.dp))
         }
         if (!state.passed) {
             Button(onClick = onRetry, modifier = Modifier.fillMaxWidth()) { Text("আবার কুইজ দিন") }
             Spacer(Modifier.height(8.dp))
         }
-        OutlinedButton(onClick = onBack, modifier = Modifier.fillMaxWidth()) { Text("লেসনে ফিরে যান") }
+        OutlinedButton(
+            onClick = {
+                val activity = context as? Activity
+                if (activity != null) {
+                    SmartInterstitialAdManager.getInstance(context).showInterstitialIfReady(activity, forceIgnoreCounter = true) {
+                        onBack()
+                    }
+                } else {
+                    onBack()
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) { Text("লেসনে ফিরে যান") }
     }
 }
