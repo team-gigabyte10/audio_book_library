@@ -162,6 +162,10 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
         _selectedCategory.value = "all"
     }
 
+    val unlockedModuleUpdates: StateFlow<Long> = app.appPreferences.unlockedModuleUpdates
+
+    fun isBookUnlocked(bookId: String): Boolean = app.appPreferences.isBookUnlockedForReading(bookId)
+
     fun updateSearchQuery(query: String) {
         _searchQuery.value = query
     }

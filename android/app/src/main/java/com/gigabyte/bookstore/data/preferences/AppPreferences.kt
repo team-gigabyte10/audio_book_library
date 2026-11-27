@@ -491,6 +491,29 @@ class AppPreferences(context: Context) {
         _unlockedModuleUpdates.value = System.currentTimeMillis()
     }
 
+    fun isBookUnlockedForReading(bookId: String): Boolean {
+        if (_isAdmin.value) return true
+        if (_unlockedBundles.value.contains("mega_bundle")) return true
+        if (_unlockedBundles.value.contains("audiobook_bundle")) return true
+        if (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true)) return true
+
+        val remaining = getBookRemainingMillis(bookId)
+        return remaining > 0L
+    }
+
+    fun getBookRemainingMillis(bookId: String): Long {
+        val unlockedAt = prefs.getLong("unlocked_book_ts_$bookId", 0L)
+        if (unlockedAt <= 0L) return 0L
+        val durationMs = (_rewardUnlockHours.value.toLong().coerceAtLeast(1L)) * 60 * 60 * 1000L
+        val remaining = durationMs - (System.currentTimeMillis() - unlockedAt)
+        return if (remaining > 0L) remaining else 0L
+    }
+
+    fun unlockBookFor24Hours(bookId: String) {
+        prefs.edit().putLong("unlocked_book_ts_$bookId", System.currentTimeMillis()).apply()
+        _unlockedModuleUpdates.value = System.currentTimeMillis()
+    }
+
     private val _userEmail = MutableStateFlow(prefs.getString(KEY_USER_EMAIL, "") ?: "")
     val userEmail: StateFlow<String> = _userEmail.asStateFlow()
 

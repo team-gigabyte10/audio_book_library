@@ -256,6 +256,21 @@ fun BundleDetailsBottomSheet(
                     )
                 }
             }
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "💡 টিপস: বান্ডেল কিনলে সব বই আজীবন আনলক থাকবে, অথবা যেকোনো বই বিজ্ঞাপন দেখে ২৪ ঘণ্টা বিনামূল্যে পড়তে পারবেন।",
+                    fontSize = 11.5.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    lineHeight = 16.sp,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                )
+            }
         }
     }
 }

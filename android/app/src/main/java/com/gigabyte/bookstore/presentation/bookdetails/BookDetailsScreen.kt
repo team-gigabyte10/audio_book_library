@@ -25,11 +25,21 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
+import android.app.Activity
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.material.icons.filled.CheckCircle
+import com.gigabyte.bookstore.data.ads.FacebookRewardAdManager
+import com.gigabyte.bookstore.presentation.components.BookUnlockDialog
+import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.PictureAsPdf
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -39,15 +49,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import android.content.Intent
-import androidx.compose.material.icons.filled.Download
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.PictureAsPdf
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.TextButton
@@ -91,12 +94,18 @@ fun BookDetailsScreen(
 ) {
 
     val context = LocalContext.current
+    val activity = context as? Activity
     val book by viewModel.book.collectAsStateWithLifecycle()
     val chapters by viewModel.chapters.collectAsStateWithLifecycle()
     val history by viewModel.history.collectAsStateWithLifecycle()
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
 
     val userStatus by viewModel.userStatus.collectAsStateWithLifecycle()
+    val pricingConfig by viewModel.appPreferences.pricingConfig.collectAsStateWithLifecycle()
+    val unlockedModuleUpdates by viewModel.unlockedModuleUpdates.collectAsStateWithLifecycle()
+    val unlockedBundles by viewModel.unlockedBundles.collectAsStateWithLifecycle()
+    val rewardHours by viewModel.rewardUnlockHours.collectAsStateWithLifecycle()
+
     val isPdfDownloaded by viewModel.isPdfDownloaded.collectAsStateWithLifecycle()
     val isFullBookDownloaded by viewModel.isFullBookDownloaded.collectAsStateWithLifecycle()
     val isDownloadingFullBook by viewModel.isDownloadingFullBook.collectAsStateWithLifecycle()
@@ -106,7 +115,19 @@ fun BookDetailsScreen(
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-    var showUpgradeDialog by remember { mutableStateOf<String?>(null) }
+    var showUnlockDialog by remember { mutableStateOf(false) }
+    var isLoadingRewardAd by remember { mutableStateOf(false) }
+
+    val isBookUnlocked = remember(userStatus, unlockedBundles, unlockedModuleUpdates) {
+        viewModel.isBookUnlockedForReading()
+    }
+    val remainingMillis = remember(unlockedModuleUpdates) {
+        viewModel.getBookRemainingMillis()
+    }
+
+    LaunchedEffect(Unit) {
+        FacebookRewardAdManager.getInstance(context).preloadAd()
+    }
 
     LaunchedEffect(downloadError) {
         downloadError?.let {
@@ -324,9 +345,7 @@ fun BookDetailsScreen(
 
                         Spacer(modifier = Modifier.height(10.dp))
 
-                        // Paid Exclusive Features: Full Book & PDF Document
-                        val isPaid = userStatus.equals("paid", ignoreCase = true) || userStatus.equals("active", ignoreCase = true)
-
+                        // Full Book Reading & PDF Document
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -334,7 +353,7 @@ fun BookDetailsScreen(
                             // Full Book Button
                             OutlinedButton(
                                 onClick = {
-                                    if (isPaid) {
+                                    if (isBookUnlocked) {
                                         viewModel.openFullBook(
                                             onSuccess = { fullBookId ->
                                                 onOpenFullBook(fullBookId)
@@ -346,13 +365,15 @@ fun BookDetailsScreen(
                                             }
                                         )
                                     } else {
-                                        showUpgradeDialog = "সম্পূর্ণ বই পড়ার সুবিধা শুধুমাত্র পেইড (Paid) ব্যবহারকারীদের জন্য। অনুগ্রহ করে আপনার অ্যাকাউন্ট আপগ্রেড করুন।"
+                                        showUnlockDialog = true
                                     }
                                 },
                                 enabled = !isDownloadingFullBook,
-                                modifier = Modifier.weight(1f),
-                                colors = if (!isPaid) ButtonDefaults.outlinedButtonColors(
-                                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .heightIn(min = 44.dp),
+                                colors = if (!isBookUnlocked) ButtonDefaults.outlinedButtonColors(
+                                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.85f)
                                 ) else ButtonDefaults.outlinedButtonColors()
                             ) {
                                 if (isDownloadingFullBook) {
@@ -364,19 +385,21 @@ fun BookDetailsScreen(
                                     Text(
                                         text = "লোড হচ্ছে...",
                                         fontSize = 12.sp,
-                                        maxLines = 1
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 } else {
                                     Icon(
-                                        imageVector = if (isPaid) Icons.Default.AutoStories else Icons.Default.Lock,
+                                        imageVector = if (isBookUnlocked) Icons.Default.AutoStories else Icons.Default.Lock,
                                         contentDescription = null,
                                         modifier = Modifier.size(18.dp)
                                     )
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text(
-                                        text = if (isPaid) "সম্পূর্ণ বই" else "সম্পূর্ণ বই (পেইড)",
+                                        text = if (isBookUnlocked) "সম্পূর্ণ বই পড়ুন" else "সম্পূর্ণ বই (বিজ্ঞাপন/পেইড)",
                                         fontSize = 12.sp,
-                                        maxLines = 1
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 }
                             }
@@ -384,8 +407,8 @@ fun BookDetailsScreen(
                             // PDF Document Button (Manual Download or Open)
                             OutlinedButton(
                                 onClick = {
-                                    if (!isPaid) {
-                                        showUpgradeDialog = "মূল পিডিএফ ডকুমেন্ট পড়ার সুবিধা শুধুমাত্র পেইড (Paid) ব্যবহারকারীদের জন্য। অনুগ্রহ করে আপনার অ্যাকাউন্ট আপগ্রেড করুন।"
+                                    if (!isBookUnlocked) {
+                                        showUnlockDialog = true
                                     } else {
                                         if (isPdfDownloaded) {
                                             onOpenPdf(currentBook.id)
@@ -394,10 +417,12 @@ fun BookDetailsScreen(
                                         }
                                     }
                                 },
-                                modifier = Modifier.weight(1f),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .heightIn(min = 44.dp),
                                 enabled = pdfProgress == null,
-                                colors = if (!isPaid) ButtonDefaults.outlinedButtonColors(
-                                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                                colors = if (!isBookUnlocked) ButtonDefaults.outlinedButtonColors(
+                                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.85f)
                                 ) else ButtonDefaults.outlinedButtonColors()
                             ) {
                                 if (pdfProgress != null) {
@@ -410,7 +435,7 @@ fun BookDetailsScreen(
                                 } else {
                                     Icon(
                                         imageVector = when {
-                                            !isPaid -> Icons.Default.Lock
+                                            !isBookUnlocked -> Icons.Default.Lock
                                             isPdfDownloaded -> Icons.Default.PictureAsPdf
                                             else -> Icons.Default.Download
                                         },
@@ -420,12 +445,47 @@ fun BookDetailsScreen(
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text(
                                         text = when {
-                                            !isPaid -> "পিডিএফ (পেইড)"
+                                            !isBookUnlocked -> "পিডিএফ (বিজ্ঞাপন/পেইড)"
                                             isPdfDownloaded -> "পিডিএফ পড়ুন"
                                             else -> "পিডিএফ ডাউনলোড"
                                         },
                                         fontSize = 12.sp,
-                                        maxLines = 1
+                                        maxLines = 1,
+                                        softWrap = false
+                                    )
+                                }
+                            }
+                        }
+
+                        // 24-Hour Free Pass Active Banner
+                        if (remainingMillis > 0L) {
+                            val remainingHours = (remainingMillis / (1000 * 60 * 60)).coerceAtLeast(1)
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Surface(
+                                color = Color(0xFF10B981).copy(alpha = 0.15f),
+                                shape = RoundedCornerShape(8.dp),
+                                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.CheckCircle,
+                                        contentDescription = null,
+                                        tint = Color(0xFF10B981),
+                                        modifier = Modifier.size(15.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(
+                                        text = "✓ বিজ্ঞাপন রিওয়ার্ড সক্রিয়: পরবর্তী ${remainingHours} ঘণ্টা বইটি সম্পূর্ণ ফ্রি!",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = Color(0xFF065F46),
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 }
                             }
@@ -437,38 +497,69 @@ fun BookDetailsScreen(
     }
     }
 
-    // Upgrade Dialog for Trial Users
-    if (showUpgradeDialog != null) {
-        AlertDialog(
-            onDismissRequest = { showUpgradeDialog = null },
-            icon = {
-                Icon(
-                    imageVector = Icons.Default.Lock,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(32.dp)
-                )
-            },
-            title = {
-                Text(
-                    text = "পেইড ফিচার (Paid Feature)",
-                    fontWeight = FontWeight.Bold
-                )
-            },
-            text = {
-                Text(text = showUpgradeDialog ?: "")
-            },
-            confirmButton = {
-                Button(onClick = {
-                    showUpgradeDialog = null
-                    onOpenPayment()
-                }) {
-                    Text("পেমেন্ট পেইজে যান")
+    // Unlock Dialog for Locked Books (Rewarded Ad or Buy Bundle)
+    if (showUnlockDialog && book != null) {
+        val currentBook = book!!
+        BookUnlockDialog(
+            bookTitle = currentBook.title,
+            bookAuthor = currentBook.author,
+            isLoadingAd = isLoadingRewardAd,
+            rewardHours = rewardHours,
+            bundlePrice = pricingConfig.getPackagePrice("audiobook_bundle"),
+            onWatchAdClick = {
+                if (activity != null) {
+                    isLoadingRewardAd = true
+                    FacebookRewardAdManager.getInstance(context).showAd(
+                        activity = activity,
+                        onRewardEarned = {
+                            isLoadingRewardAd = false
+                            showUnlockDialog = false
+                            viewModel.unlockBookFor24Hours()
+                            Toast.makeText(context, "🎉 অভিনন্দন! বইটি পরবর্তী ${rewardHours} ঘণ্টার জন্য আনলক হয়েছে!", Toast.LENGTH_LONG).show()
+                            viewModel.openFullBook(
+                                onSuccess = { fullBookId ->
+                                    onOpenFullBook(fullBookId)
+                                },
+                                onError = { errMsg ->
+                                    scope.launch {
+                                        snackbarHostState.showSnackbar(errMsg)
+                                    }
+                                }
+                            )
+                        },
+                        onClosed = {
+                            isLoadingRewardAd = false
+                        },
+                        onError = { errorMsg ->
+                            isLoadingRewardAd = false
+                            showUnlockDialog = false
+                            // Graceful fallback if ad network is busy
+                            viewModel.unlockBookFor24Hours()
+                            Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য বইটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
+                            viewModel.openFullBook(
+                                onSuccess = { fullBookId ->
+                                    onOpenFullBook(fullBookId)
+                                },
+                                onError = { errMsg ->
+                                    scope.launch {
+                                        snackbarHostState.showSnackbar(errMsg)
+                                    }
+                                }
+                            )
+                        }
+                    )
+                } else {
+                    showUnlockDialog = false
+                    viewModel.unlockBookFor24Hours()
                 }
             },
-            dismissButton = {
-                TextButton(onClick = { showUpgradeDialog = null }) {
-                    Text("বাতিল")
+            onBuyBundleClick = {
+                showUnlockDialog = false
+                onOpenPayment()
+            },
+            onDismiss = {
+                if (!isLoadingRewardAd) {
+                    showUnlockDialog = false
                 }
             }
         )

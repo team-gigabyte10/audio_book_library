@@ -49,6 +49,13 @@ class BookDetailsViewModel(
     val playbackState: StateFlow<PlaybackState> = player.playbackState
 
     val bookmarkedBookIds: StateFlow<Set<String>> = appPreferences.bookmarkedBookIds
+    val unlockedModuleUpdates: StateFlow<Long> = appPreferences.unlockedModuleUpdates
+    val unlockedBundles: StateFlow<Set<String>> = appPreferences.unlockedBundles
+    val rewardUnlockHours: StateFlow<Int> = appPreferences.rewardUnlockHours
+
+    fun isBookUnlockedForReading(): Boolean = appPreferences.isBookUnlockedForReading(bookId)
+    fun getBookRemainingMillis(): Long = appPreferences.getBookRemainingMillis(bookId)
+    fun unlockBookFor24Hours() = appPreferences.unlockBookFor24Hours(bookId)
 
     fun toggleBookmark(): Boolean {
         return appPreferences.toggleBookmark(bookId)

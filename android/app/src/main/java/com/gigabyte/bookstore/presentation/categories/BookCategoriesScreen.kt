@@ -347,6 +347,7 @@ fun BookCategoriesScreen(
                                     items(group.books, key = { it.id }) { book ->
                                         CategoryBookCard(
                                             book = book,
+                                            isUnlocked = viewModel.isBookUnlocked(book.id),
                                             onClick = { onNavigateToBook(book.id) },
                                             onPlay = { onPlayBook(book.id, 0) }
                                         )
@@ -494,7 +495,9 @@ private fun HeroOverviewBanner(
                             containerColor = Color(0xFF10B981)
                         ),
                         shape = RoundedCornerShape(10.dp),
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 44.dp),
                         contentPadding = PaddingValues(vertical = 10.dp)
                     ) {
                         Icon(
@@ -509,9 +512,19 @@ private fun HeroOverviewBanner(
                             style = MaterialTheme.typography.labelMedium.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White
-                            )
+                            ),
+                            maxLines = 1,
+                            softWrap = false
                         )
                     }
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Text(
+                        text = "💡 যেকোনো বই বিজ্ঞাপন দেখে বিনামূল্যে পড়া যাবে",
+                        fontSize = 11.5.sp,
+                        color = Color(0xFFA7F3D0),
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             }
         }
@@ -670,6 +683,7 @@ private fun CategoryHeaderView(group: BookCategoryGroup) {
 @Composable
 private fun CategoryBookCard(
     book: RemoteBook,
+    isUnlocked: Boolean = false,
     onClick: () -> Unit,
     onPlay: () -> Unit,
     modifier: Modifier = Modifier
@@ -702,6 +716,22 @@ private fun CategoryBookCard(
                     coverPath = book.coverUrl ?: book.coverPath,
                     modifier = Modifier.fillMaxSize()
                 )
+
+                if (isUnlocked) {
+                    Surface(
+                        color = Color(0xFF10B981),
+                        shape = RoundedCornerShape(topStart = 14.dp, bottomEnd = 8.dp),
+                        modifier = Modifier.align(Alignment.TopStart)
+                    ) {
+                        Text(
+                            text = "✓ আনলকড",
+                            color = Color.White,
+                            fontSize = 9.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                }
 
                 // Play Button overlay
                 IconButton(
