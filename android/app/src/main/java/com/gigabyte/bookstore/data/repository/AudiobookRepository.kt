@@ -227,42 +227,4 @@ class AudiobookRepository(
         bookDao.insertBook(BookEntity.fromDomainModel(parsed.book))
         chapterDao.insertChapters(parsed.chapters.map { ChapterEntity.fromDomainModel(it) })
     }
-
-    suspend fun ensureHasirGolpoPreloaded(): Book? = withContext(Dispatchers.IO) {
-        try {
-            val booksDir = File(context.filesDir, "book-store").apply { if (!exists()) mkdirs() }
-            val fullFile = File(booksDir, "hasir_golpo_50_full.md")
-            val summaryFile = File(booksDir, "hasir_golpo_50.md")
-
-            if (!fullFile.exists() || fullFile.length() == 0L) {
-                context.assets.open("hasir_golpo_50.md").use { input ->
-                    FileOutputStream(fullFile).use { output ->
-                        input.copyTo(output)
-                    }
-                }
-            }
-            if (!summaryFile.exists() || summaryFile.length() == 0L) {
-                fullFile.copyTo(summaryFile, overwrite = true)
-            }
-
-            val imported = importDownloadedBook(
-                file = summaryFile,
-                bookId = "hasir_golpo_50",
-                title = "হাসির গল্প সংকলন",
-                author = "নির্বাচিত লোকজ ও ধ্রুপদী সাহিত্য",
-                coverPath = null
-            )
-            importDownloadedBook(
-                file = fullFile,
-                bookId = "hasir_golpo_50_full",
-                title = "হাসির গল্প সংকলন (সম্পূর্ণ)",
-                author = "নির্বাচিত লোকজ ও ধ্রুপদী সাহিত্য",
-                coverPath = null
-            )
-            imported
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
 }

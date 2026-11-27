@@ -67,6 +67,8 @@ import com.gigabyte.bookstore.learning.presentation.translator.LiveTranslatorScr
 import com.gigabyte.bookstore.learning.presentation.translator.LiveTranslatorViewModel
 import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
+import com.gigabyte.bookstore.presentation.story.HashirGolpoScreen
+import com.gigabyte.bookstore.presentation.story.HashirGolpoViewModel
 
 @Composable
 
@@ -231,6 +233,9 @@ fun AppNavHost(
                 },
                 onNavigateToLastRead = {
                     navController.navigate(Screen.LastRead.route)
+                },
+                onNavigateToHashirGolpo = {
+                    navController.navigate(Screen.HashirGolpo.route)
                 },
                 onLogout = { logout(application, navController) }
             )
@@ -785,6 +790,17 @@ fun AppNavHost(
                 onOpenIntro = { asset ->
                     navController.navigate(Screen.LearnIntro.createRoute(asset))
                 }
+            )
+        }
+
+        // 13. Hashir Golpo Screen (50 Humorous Stories & TTS Audio Reader)
+        composable(Screen.HashirGolpo.route) {
+            val hashirGolpoViewModel: HashirGolpoViewModel = viewModel(factory = SimpleViewModelFactory {
+                HashirGolpoViewModel(application)
+            })
+            HashirGolpoScreen(
+                viewModel = hashirGolpoViewModel,
+                onBackClick = { navController.popBackStack() }
             )
         }
     }

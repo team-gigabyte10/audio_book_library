@@ -68,5 +68,6 @@ sealed class Screen(val route: String) {
         fun createRoute(lang: String = "english") = "learn/translator?lang=$lang"
     }
     object LastRead : Screen("last-read")
+    object HashirGolpo : Screen("hashir_golpo")
 }
 

@@ -4,6 +4,7 @@ import android.app.Application
 import com.gigabyte.bookstore.data.local.AudiobookDatabase
 import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.data.repository.AudiobookRepository
+import com.gigabyte.bookstore.data.repository.HashirGolpoRepository
 import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.data.repository.BookSyncManager
 import com.gigabyte.bookstore.domain.player.AudiobookPlayer
@@ -48,6 +49,10 @@ class BanglaAudiobookApp : Application() {
         UserRepository(this, preferences)
     }
 
+    val hashirGolpoRepository: HashirGolpoRepository by lazy {
+        HashirGolpoRepository(this)
+    }
+
     // English learning module (created on first use)
     val learningDatabase: LearningDatabase by lazy { LearningDatabase.getInstance(this) }
     val learningRepository: LearningRepository by lazy { LearningRepository(learningDatabase.learningDao()) }
@@ -78,7 +83,6 @@ class BanglaAudiobookApp : Application() {
         // Purge legacy sample books if any exist so only synced books are shown
         applicationScope.launch(Dispatchers.IO) {
             repository.removeBuiltInBooksIfNeeded()
-            repository.ensureHasirGolpoPreloaded()
         }
 
         // Ensure English learning content is imported/updated on launch
