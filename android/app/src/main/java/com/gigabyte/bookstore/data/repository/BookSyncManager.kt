@@ -508,14 +508,16 @@ class BookSyncManager(
             val cover = File(booksDir, "${bookId}_cover.jpg").takeIf { it.exists() }
                 ?: File(booksDir, "${bookId}_cover.png").takeIf { it.exists() }
 
-            val titleGuess = bookId.replace("_", " ")
+            val titleGuess = if (bookId == "hasir_golpo_50") "হাসির গল্প সংকলন" else bookId.replace("_", " ")
+            val authorGuess = if (bookId == "hasir_golpo_50") "নির্বাচিত লোকজ ও ধ্রুপদী সাহিত্য" else null
+            val categoryGuess = if (bookId == "hasir_golpo_50") "হাসির গল্প ও নির্মল বিনোদন" else "আত্মউন্নয়ন"
 
             if (summaryFile != null) {
                 audiobookRepository?.importDownloadedBook(
                     file = summaryFile,
                     bookId = bookId,
                     title = titleGuess,
-                    author = null,
+                    author = authorGuess,
                     coverPath = cover?.absolutePath
                 )
             } else if (fullBookFile != null) {
@@ -523,7 +525,7 @@ class BookSyncManager(
                     file = fullBookFile,
                     bookId = bookId,
                     title = titleGuess,
-                    author = null,
+                    author = authorGuess,
                     coverPath = cover?.absolutePath
                 )
             }
@@ -533,7 +535,7 @@ class BookSyncManager(
                     file = fullBookFile,
                     bookId = "${bookId}_full",
                     title = "$titleGuess (সম্পূর্ণ)",
-                    author = null,
+                    author = authorGuess,
                     coverPath = cover?.absolutePath
                 )
             }
@@ -545,6 +547,8 @@ class BookSyncManager(
             RemoteBook(
                 id = bookId,
                 title = titleGuess,
+                author = authorGuess,
+                category = categoryGuess,
                 summarySnippet = contentSnippet,
                 localSummaryPath = summaryFile?.absolutePath,
                 localFullBookPath = fullBookFile?.absolutePath,

@@ -96,6 +96,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun isBundleUnlocked(bundleId: String): Boolean = app.appPreferences.isBundleUnlocked(bundleId)
+    fun isBookUnlocked(bookId: String): Boolean = app.appPreferences.isBookUnlockedForReading(bookId)
 
     fun playCourseLesson(course: Course, lesson: CourseLesson) {
         val markdown = lesson.content.ifBlank {

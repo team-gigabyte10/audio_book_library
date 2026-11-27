@@ -387,6 +387,29 @@ fun HomeScreen(
                             )
                         }
 
+                        // 0.5 😂 "হাসির গল্প সংকলন" SHOWCASE CARD
+                        item {
+                            Spacer(modifier = Modifier.height(14.dp))
+                            val isHasirGolpoUnlocked = remember(unlockedBundles, userStatus, isAdmin) {
+                                isAudiobookUnlocked || viewModel.isBookUnlocked("hasir_golpo_50")
+                            }
+                            HomeShowcaseCard(
+                                title = "হাসির গল্প সংকলন",
+                                subtitle = "গোপাল ভাঁড়, মোল্লা নাসিরুদ্দীন, বীরবল ও বল্টুর সেরা ৫০টি হাসির গল্প ও কৌতুক",
+                                badgeText = "😂 হাসির গল্প সংকলন (৫০টি গল্প)",
+                                badgeColor = Color(0xFFF59E0B),
+                                priceText = if (isHasirGolpoUnlocked) "আনলকড" else "ফ্রি অ্যাড / পেইড",
+                                isPurchased = isHasirGolpoUnlocked,
+                                imageUrl = null,
+                                country = CourseCountry.BUNDLE,
+                                accentColor = Color(0xFFF59E0B),
+                                statsText = "📖 ৫০টি মজার হাসির গল্প · অডিও + টেক্সট",
+                                ctaText = "গল্পগুলো পড়ুন ও শুনুন",
+                                onClick = { onNavigateToBook("hasir_golpo_50") },
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
                         // 1. 📚 BUNDLE BOOKS SHOWCASE CARD
                         item {
                             Spacer(modifier = Modifier.height(14.dp))

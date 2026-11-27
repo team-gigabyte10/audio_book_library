@@ -78,6 +78,7 @@ class BanglaAudiobookApp : Application() {
         // Purge legacy sample books if any exist so only synced books are shown
         applicationScope.launch(Dispatchers.IO) {
             repository.removeBuiltInBooksIfNeeded()
+            repository.ensureHasirGolpoPreloaded()
         }
 
         // Ensure English learning content is imported/updated on launch

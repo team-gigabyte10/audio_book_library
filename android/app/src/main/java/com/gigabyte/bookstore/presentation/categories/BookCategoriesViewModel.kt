@@ -246,6 +246,8 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
 
     private fun getCategoryMeta(cat: String): CategoryMeta {
         return when {
+            cat.contains("হাসি", ignoreCase = true) || cat.contains("কৌতুক", ignoreCase = true) || cat.contains("Humor", ignoreCase = true) || cat.contains("Comedy", ignoreCase = true) ->
+                CategoryMeta("হাসির গল্প ও নির্মল বিনোদন", "😂", "মজার কৌতুক, গোপাল ভাঁড়, মোল্লা নাসিরুদ্দীন ও অমর হাসির গল্প সংকলন")
             cat.contains("জীবনী", ignoreCase = true) || cat.contains("সাহিত্য", ignoreCase = true) || cat.contains("Classic", ignoreCase = true) ->
                 CategoryMeta("অনুপ্রেরণামূলক জীবনী ও ক্লাসিক", "🌟", "বিশ্বসেরা ব্যক্তিত্বদের জীবনসংগ্রাম ও কালজয়ী সাহিত্যের অনুপ্রেরণা")
             cat.contains("ব্যবসা", ignoreCase = true) || cat.contains("ক্যারিয়ার", ignoreCase = true) || cat.contains("Business", ignoreCase = true) || cat.contains("নেতৃত্ব", ignoreCase = true) ->
