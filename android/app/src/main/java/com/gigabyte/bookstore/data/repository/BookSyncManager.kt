@@ -63,6 +63,10 @@ class BookSyncManager(
             val remoteList = mutableListOf<RemoteBook>()
 
             for (doc in snapshot.documents) {
+                val rawPdfUrl = doc.getString("pdfUrl")
+                val rawPdfDriveUrl = doc.getString("pdfDriveUrl")
+                val effectivePdfUrl = rawPdfUrl?.takeIf { it.isNotBlank() } ?: rawPdfDriveUrl?.takeIf { it.isNotBlank() }
+
                 val book = RemoteBook(
                     id = doc.id,
                     title = doc.getString("title") ?: "Untitled",
@@ -79,7 +83,8 @@ class BookSyncManager(
                     fullBookMdUrl = doc.getString("fullBookMdUrl"),
                     fullBookMdPath = doc.getString("fullBookMdPath"),
                     fullBookFilename = doc.getString("fullBookFilename"),
-                    pdfUrl = doc.getString("pdfUrl"),
+                    pdfUrl = effectivePdfUrl,
+                    pdfDriveUrl = rawPdfDriveUrl,
                     pdfPath = doc.getString("pdfPath"),
                     pdfFilename = doc.getString("pdfFilename"),
                     coverUrl = doc.getString("coverUrl"),
@@ -87,9 +92,9 @@ class BookSyncManager(
                     summarySnippet = doc.getString("summarySnippet"),
                     totalWords = doc.getLong("totalWords")?.toInt() ?: 0,
                     estimatedMinutes = doc.getLong("estimatedMinutes")?.toInt() ?: 1,
-                    hasSummary = doc.getBoolean("hasSummary") ?: false,
-                    hasFullBook = doc.getBoolean("hasFullBook") ?: false,
-                    hasPdf = doc.getBoolean("hasPdf") ?: false,
+                    hasSummary = doc.getBoolean("hasSummary") ?: (!doc.getString("summaryMdUrl").isNullOrBlank() || !doc.getString("summaryMdPath").isNullOrBlank()),
+                    hasFullBook = doc.getBoolean("hasFullBook") ?: (!doc.getString("fullBookMdUrl").isNullOrBlank() || !doc.getString("fullBookMdPath").isNullOrBlank()),
+                    hasPdf = doc.getBoolean("hasPdf") ?: (!effectivePdfUrl.isNullOrBlank() || !doc.getString("pdfPath").isNullOrBlank()),
                     slug = doc.getString("slug"),
                     publishedAtIso = doc.getString("publishedAtIso")
                 )
@@ -229,6 +234,24 @@ class BookSyncManager(
         }
     }
 
+    private fun convertDriveUrlToDirectDownload(url: String): String {
+        if (!url.contains("drive.google.com")) return url
+        val fileId = when {
+            url.contains("/file/d/") -> {
+                url.substringAfter("/file/d/").substringBefore("/").substringBefore("?")
+            }
+            url.contains("id=") -> {
+                url.substringAfter("id=").substringBefore("&")
+            }
+            else -> null
+        }
+        return if (!fileId.isNullOrBlank()) {
+            "https://drive.google.com/uc?export=download&id=$fileId"
+        } else {
+            url
+        }
+    }
+
     suspend fun downloadMarkdownFile(
         url: String?,
         storagePath: String?,
@@ -237,7 +260,8 @@ class BookSyncManager(
         try {
             destination.parentFile?.mkdirs()
             if (!url.isNullOrBlank()) {
-                val request = Request.Builder().url(url).build()
+                val effectiveUrl = convertDriveUrlToDirectDownload(url)
+                val request = Request.Builder().url(effectiveUrl).build()
                 okHttpClient.newCall(request).execute().use { response ->
                     if (response.isSuccessful) {
                         response.body?.byteStream()?.use { input ->
@@ -253,10 +277,11 @@ class BookSyncManager(
                 return@withContext true
             }
 
+            val cleanStoragePath = storagePath?.trim()?.trimStart('/')
             val storageRef = when {
-                !storagePath.isNullOrBlank() -> storage.reference.child(storagePath)
+                !cleanStoragePath.isNullOrBlank() -> storage.reference.child(cleanStoragePath)
                 !url.isNullOrBlank() && url.contains("firebasestorage.googleapis.com") -> {
-                    storage.getReferenceFromUrl(url)
+                    try { storage.getReferenceFromUrl(url) } catch (e: Exception) { null }
                 }
                 else -> null
             }
@@ -289,12 +314,20 @@ class BookSyncManager(
         if (targetFile.exists() && targetFile.length() > 0) {
             return@withContext targetFile
         }
+        val altFile = if (isFull) File(booksDir, "${cleanBookId}_summary.md") else File(booksDir, "${cleanBookId}_full.md")
+        if (altFile.exists() && altFile.length() > 0) {
+            return@withContext altFile
+        }
 
         var book = cachedBooks.value.find { it.id == cleanBookId || it.slug == cleanBookId }
         if (book == null) {
             try {
                 val doc = firestore.collection("books").document(cleanBookId).get().await()
                 if (doc.exists()) {
+                    val rawPdfUrl = doc.getString("pdfUrl")
+                    val rawPdfDriveUrl = doc.getString("pdfDriveUrl")
+                    val effectivePdfUrl = rawPdfUrl?.takeIf { it.isNotBlank() } ?: rawPdfDriveUrl?.takeIf { it.isNotBlank() }
+
                     book = RemoteBook(
                         id = doc.id,
                         title = doc.getString("title") ?: "বই",
@@ -305,6 +338,8 @@ class BookSyncManager(
                         summaryMdPath = doc.getString("summaryMdPath"),
                         fullBookMdUrl = doc.getString("fullBookMdUrl"),
                         fullBookMdPath = doc.getString("fullBookMdPath"),
+                        pdfUrl = effectivePdfUrl,
+                        pdfDriveUrl = rawPdfDriveUrl,
                         coverUrl = doc.getString("coverUrl")
                     )
                 }
@@ -313,25 +348,37 @@ class BookSyncManager(
             }
         }
 
-        val mdUrl = if (isFull) book?.fullBookMdUrl else (book?.summaryMdUrl ?: book?.fullBookMdUrl)
-        val mdPath = if (isFull) book?.fullBookMdPath else (book?.summaryMdPath ?: book?.fullBookMdPath)
+        val hasSummary = !book?.summaryMdUrl.isNullOrBlank() || !book?.summaryMdPath.isNullOrBlank()
+        val mdUrl = if (isFull || !hasSummary) (book?.fullBookMdUrl ?: book?.summaryMdUrl) else (book?.summaryMdUrl ?: book?.fullBookMdUrl)
+        val mdPath = if (isFull || !hasSummary) (book?.fullBookMdPath ?: book?.summaryMdPath) else (book?.summaryMdPath ?: book?.fullBookMdPath)
 
         if (mdUrl.isNullOrBlank() && mdPath.isNullOrBlank()) {
             return@withContext null
         }
 
-        val downloaded = downloadMarkdownFile(mdUrl, mdPath, targetFile)
-        if (downloaded && targetFile.exists() && targetFile.length() > 0) {
+        val effectiveDestination = if (!hasSummary && !isFull) File(booksDir, "${cleanBookId}_full.md") else targetFile
+        val downloaded = downloadMarkdownFile(mdUrl, mdPath, effectiveDestination)
+        if (downloaded && effectiveDestination.exists() && effectiveDestination.length() > 0) {
             val importBookId = if (isFull) "${cleanBookId}_full" else cleanBookId
             val title = if (isFull) "${book?.title ?: "বই"} (সম্পূর্ণ)" else (book?.title ?: "বই")
             audiobookRepository?.importDownloadedBook(
-                file = targetFile,
+                file = effectiveDestination,
                 bookId = importBookId,
                 title = title,
                 author = book?.author,
                 coverPath = book?.localCoverPath ?: book?.coverUrl
             )
-            return@withContext targetFile
+            // If there's no summary, also register cleanBookId so both normal and full routes find the book
+            if (!hasSummary && isFull) {
+                audiobookRepository?.importDownloadedBook(
+                    file = effectiveDestination,
+                    bookId = cleanBookId,
+                    title = book?.title ?: "বই",
+                    author = book?.author,
+                    coverPath = book?.localCoverPath ?: book?.coverUrl
+                )
+            }
+            return@withContext effectiveDestination
         }
         null
     }

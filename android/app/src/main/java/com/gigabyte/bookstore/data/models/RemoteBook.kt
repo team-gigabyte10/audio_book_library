@@ -21,6 +21,7 @@ data class RemoteBook(
     val fullBookFilename: String? = null,
 
     val pdfUrl: String? = null,
+    val pdfDriveUrl: String? = null,
     val pdfPath: String? = null,
     val pdfFilename: String? = null,
 

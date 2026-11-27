@@ -89,6 +89,7 @@ fun BookCategoriesScreen(
     initialBundleId: String? = null,
     onNavigateBack: () -> Unit,
     onNavigateToBook: (String) -> Unit,
+    onOpenReader: (String) -> Unit = {},
     onNavigateToPayment: () -> Unit,
     onNavigateToPlayer: () -> Unit,
     onPlayBook: (String, Int) -> Unit,
@@ -300,11 +301,17 @@ fun BookCategoriesScreen(
                         }
                     }
 
-                    // 3. Category Filter Chips Row
+                    // 3. Category Filter Chips Row (Single Clean Row)
                     item {
                         Spacer(modifier = Modifier.height(14.dp))
+                        val currentBookCount = if (uiState.selectedBundleId != null) {
+                            uiState.categoryGroups.sumOf { it.books.size }
+                        } else {
+                            uiState.allBooks.size
+                        }
                         CategoryFilterRow(
                             categoryGroups = uiState.categoryGroups,
+                            totalBooksCount = currentBookCount,
                             selectedCategory = uiState.selectedCategory,
                             onSelectCategory = { viewModel.selectCategory(it) }
                         )
@@ -556,17 +563,14 @@ private fun OverviewStatItem(label: String, value: String) {
 @Composable
 private fun CategoryFilterRow(
     categoryGroups: List<BookCategoryGroup>,
+    totalBooksCount: Int,
     selectedCategory: String,
     onSelectCategory: (String) -> Unit
 ) {
-    LazyHorizontalGrid(
-        rows = GridCells.Fixed(2),
-        modifier = Modifier
-            .fillMaxWidth()
-            .heightIn(min = 86.dp, max = 100.dp),
+    LazyRow(
+        modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         item {
             val isSelected = selectedCategory == "all"
@@ -579,7 +583,7 @@ private fun CategoryFilterRow(
                     .clickable { onSelectCategory("all") }
             ) {
                 Text(
-                    text = "সব বই",
+                    text = if (totalBooksCount > 0) "সব বই ($totalBooksCount)" else "সব বই",
                     style = MaterialTheme.typography.labelSmall.copy(
                         fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                         color = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurface
@@ -589,7 +593,7 @@ private fun CategoryFilterRow(
             }
         }
 
-        items(categoryGroups) { group ->
+        items(categoryGroups.filter { it.books.isNotEmpty() }) { group ->
             val isSelected = selectedCategory == group.name
             Surface(
                 color = if (isSelected) MaterialTheme.colorScheme.primary
@@ -597,7 +601,10 @@ private fun CategoryFilterRow(
                 shape = RoundedCornerShape(20.dp),
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
-                    .clickable { onSelectCategory(group.name) }
+                    .clickable {
+                        // Toggle: clicking active category deselects it and returns to "all"
+                        if (isSelected) onSelectCategory("all") else onSelectCategory(group.name)
+                    }
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,

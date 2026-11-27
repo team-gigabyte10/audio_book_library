@@ -180,6 +180,10 @@ class HomeRepository(
         try {
             val snapshot = firestore.collection("books").get().await()
             snapshot.documents.mapNotNull { doc ->
+                val rawPdfUrl = doc.getString("pdfUrl")
+                val rawPdfDriveUrl = doc.getString("pdfDriveUrl")
+                val effectivePdfUrl = rawPdfUrl?.takeIf { it.isNotBlank() } ?: rawPdfDriveUrl?.takeIf { it.isNotBlank() }
+
                 RemoteBook(
                     id = doc.id,
                     title = doc.getString("title") ?: "Untitled",
@@ -196,7 +200,8 @@ class HomeRepository(
                     fullBookMdUrl = doc.getString("fullBookMdUrl"),
                     fullBookMdPath = doc.getString("fullBookMdPath"),
                     fullBookFilename = doc.getString("fullBookFilename"),
-                    pdfUrl = doc.getString("pdfUrl"),
+                    pdfUrl = effectivePdfUrl,
+                    pdfDriveUrl = rawPdfDriveUrl,
                     pdfPath = doc.getString("pdfPath"),
                     pdfFilename = doc.getString("pdfFilename"),
                     coverUrl = doc.getString("coverUrl"),
@@ -204,9 +209,9 @@ class HomeRepository(
                     summarySnippet = doc.getString("summarySnippet"),
                     totalWords = doc.getLong("totalWords")?.toInt() ?: 0,
                     estimatedMinutes = doc.getLong("estimatedMinutes")?.toInt() ?: 1,
-                    hasSummary = doc.getBoolean("hasSummary") ?: false,
-                    hasFullBook = doc.getBoolean("hasFullBook") ?: false,
-                    hasPdf = doc.getBoolean("hasPdf") ?: false,
+                    hasSummary = doc.getBoolean("hasSummary") ?: (!doc.getString("summaryMdUrl").isNullOrBlank() || !doc.getString("summaryMdPath").isNullOrBlank()),
+                    hasFullBook = doc.getBoolean("hasFullBook") ?: (!doc.getString("fullBookMdUrl").isNullOrBlank() || !doc.getString("fullBookMdPath").isNullOrBlank()),
+                    hasPdf = doc.getBoolean("hasPdf") ?: (!effectivePdfUrl.isNullOrBlank() || !doc.getString("pdfPath").isNullOrBlank()),
                     slug = doc.getString("slug"),
                     publishedAtIso = doc.getString("publishedAtIso")
                 )
@@ -263,6 +268,10 @@ class HomeRepository(
                 }
                 if (snapshot != null) {
                     val list = snapshot.documents.mapNotNull { doc ->
+                        val rawPdfUrl = doc.getString("pdfUrl")
+                        val rawPdfDriveUrl = doc.getString("pdfDriveUrl")
+                        val effectivePdfUrl = rawPdfUrl?.takeIf { it.isNotBlank() } ?: rawPdfDriveUrl?.takeIf { it.isNotBlank() }
+
                         RemoteBook(
                             id = doc.id,
                             title = doc.getString("title") ?: "Untitled",
@@ -279,7 +288,8 @@ class HomeRepository(
                             fullBookMdUrl = doc.getString("fullBookMdUrl"),
                             fullBookMdPath = doc.getString("fullBookMdPath"),
                             fullBookFilename = doc.getString("fullBookFilename"),
-                            pdfUrl = doc.getString("pdfUrl"),
+                            pdfUrl = effectivePdfUrl,
+                            pdfDriveUrl = rawPdfDriveUrl,
                             pdfPath = doc.getString("pdfPath"),
                             pdfFilename = doc.getString("pdfFilename"),
                             coverUrl = doc.getString("coverUrl"),
@@ -287,9 +297,9 @@ class HomeRepository(
                             summarySnippet = doc.getString("summarySnippet"),
                             totalWords = doc.getLong("totalWords")?.toInt() ?: 0,
                             estimatedMinutes = doc.getLong("estimatedMinutes")?.toInt() ?: 1,
-                            hasSummary = doc.getBoolean("hasSummary") ?: false,
-                            hasFullBook = doc.getBoolean("hasFullBook") ?: false,
-                            hasPdf = doc.getBoolean("hasPdf") ?: false,
+                            hasSummary = doc.getBoolean("hasSummary") ?: (!doc.getString("summaryMdUrl").isNullOrBlank() || !doc.getString("summaryMdPath").isNullOrBlank()),
+                            hasFullBook = doc.getBoolean("hasFullBook") ?: (!doc.getString("fullBookMdUrl").isNullOrBlank() || !doc.getString("fullBookMdPath").isNullOrBlank()),
+                            hasPdf = doc.getBoolean("hasPdf") ?: (!effectivePdfUrl.isNullOrBlank() || !doc.getString("pdfPath").isNullOrBlank()),
                             slug = doc.getString("slug"),
                             publishedAtIso = doc.getString("publishedAtIso")
                         )

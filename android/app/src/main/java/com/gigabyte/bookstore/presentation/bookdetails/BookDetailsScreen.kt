@@ -40,6 +40,9 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.FilledTonalButton
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -112,6 +115,7 @@ fun BookDetailsScreen(
     val pdfProgress by viewModel.pdfDownloadProgress.collectAsStateWithLifecycle()
     val downloadError by viewModel.downloadErrorMessage.collectAsStateWithLifecycle()
     val downloadSuccess by viewModel.downloadSuccessMessage.collectAsStateWithLifecycle()
+    val remotePdfUrl by viewModel.remotePdfUrl.collectAsStateWithLifecycle()
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -404,7 +408,7 @@ fun BookDetailsScreen(
                                 }
                             }
 
-                            // PDF Document Button (Manual Download or Open)
+                            // PDF Document Button (Drive View, Download or Open)
                             OutlinedButton(
                                 onClick = {
                                     if (!isBookUnlocked) {
@@ -412,6 +416,13 @@ fun BookDetailsScreen(
                                     } else {
                                         if (isPdfDownloaded) {
                                             onOpenPdf(currentBook.id)
+                                        } else if (!remotePdfUrl.isNullOrBlank() && (remotePdfUrl!!.contains("drive.google.com") || remotePdfUrl!!.startsWith("http"))) {
+                                            try {
+                                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(remotePdfUrl))
+                                                context.startActivity(intent)
+                                            } catch (e: Exception) {
+                                                viewModel.downloadPdf()
+                                            }
                                         } else {
                                             viewModel.downloadPdf()
                                         }
@@ -437,6 +448,7 @@ fun BookDetailsScreen(
                                         imageVector = when {
                                             !isBookUnlocked -> Icons.Default.Lock
                                             isPdfDownloaded -> Icons.Default.PictureAsPdf
+                                            !remotePdfUrl.isNullOrBlank() && remotePdfUrl!!.contains("drive.google.com") -> Icons.Default.PictureAsPdf
                                             else -> Icons.Default.Download
                                         },
                                         contentDescription = null,
@@ -447,6 +459,7 @@ fun BookDetailsScreen(
                                         text = when {
                                             !isBookUnlocked -> "পিডিএফ (বিজ্ঞাপন/পেইড)"
                                             isPdfDownloaded -> "পিডিএফ পড়ুন"
+                                            !remotePdfUrl.isNullOrBlank() && remotePdfUrl!!.contains("drive.google.com") -> "ড্রাইভ পিডিএফ"
                                             else -> "পিডিএফ ডাউনলোড"
                                         },
                                         fontSize = 12.sp,
@@ -494,7 +507,6 @@ fun BookDetailsScreen(
                 }
             }
         }
-    }
     }
 
     // Unlock Dialog for Locked Books (Rewarded Ad or Buy Bundle)
@@ -564,6 +576,7 @@ fun BookDetailsScreen(
             }
         )
     }
+}
 }
 
 

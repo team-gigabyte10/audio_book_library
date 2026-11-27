@@ -115,13 +115,55 @@ class BookDetailsViewModel(
             it.id == bookId || it.slug == bookId
         }
         if (cached != null) {
-            if (!cached.pdfUrl.isNullOrBlank()) _remotePdfUrl.value = cached.pdfUrl
+            val url = cached.pdfUrl ?: cached.pdfDriveUrl
+            if (!url.isNullOrBlank()) _remotePdfUrl.value = url
             if (!cached.pdfPath.isNullOrBlank()) _remotePdfPath.value = cached.pdfPath
         }
     }
 
     private fun loadBookDetails() {
+        // 1. Immediately populate from cachedBooks so the UI NEVER hangs on loading
+        val cached = syncManager.cachedBooks.value.find { it.id == bookId || it.slug == bookId }
+        if (cached != null) {
+            _book.value = Book(
+                id = cached.id,
+                title = cached.title,
+                author = cached.author,
+                filePath = cached.localSummaryPath ?: cached.localFullBookPath ?: "",
+                coverPath = cached.localCoverPath ?: cached.coverUrl,
+                chapterCount = 1,
+                description = cached.subtitle ?: cached.tagline
+            )
+        }
+
         viewModelScope.launch {
+            val local = repository.getBookById(bookId)
+            if (local != null) {
+                _book.value = local
+                _chapters.value = repository.getChaptersForBookSync(bookId)
+            } else if (_book.value == null) {
+                try {
+                    val doc = firestore.collection("books").document(bookId).get().await()
+                    if (doc.exists()) {
+                        val title = doc.getString("title") ?: "বই"
+                        val author = doc.getString("author")
+                        val coverUrl = doc.getString("coverUrl")
+                        val subtitle = doc.getString("subtitle")
+                        _book.value = Book(
+                            id = doc.id,
+                            title = title,
+                            author = author,
+                            filePath = "",
+                            coverPath = coverUrl,
+                            chapterCount = 1,
+                            description = subtitle
+                        )
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+
             var localBook = repository.getBookById(bookId)
             var chapList = repository.getChaptersForBookSync(bookId)
 
@@ -133,8 +175,10 @@ class BookDetailsViewModel(
                 }
             }
 
-            _book.value = localBook
-            _chapters.value = chapList
+            if (localBook != null) {
+                _book.value = localBook
+                _chapters.value = chapList
+            }
             checkLocalFiles()
             resolvePdfUrl()
             repository.getChaptersForBook(bookId).collect {
@@ -159,10 +203,11 @@ class BookDetailsViewModel(
             it.slug == bookId ||
             (_book.value?.title != null && it.title.equals(_book.value?.title, ignoreCase = true))
         }
-        if (cached != null && (!cached.pdfUrl.isNullOrBlank() || !cached.pdfPath.isNullOrBlank())) {
-            _remotePdfUrl.value = cached.pdfUrl
+        val cachedUrl = cached?.pdfUrl ?: cached?.pdfDriveUrl
+        if (cached != null && (!cachedUrl.isNullOrBlank() || !cached.pdfPath.isNullOrBlank())) {
+            _remotePdfUrl.value = cachedUrl
             _remotePdfPath.value = cached.pdfPath
-            return@withContext Pair(cached.pdfUrl, cached.pdfPath)
+            return@withContext Pair(cachedUrl, cached.pdfPath)
         }
 
         // 2. Query Firestore directly
@@ -170,7 +215,7 @@ class BookDetailsViewModel(
             // Direct by ID
             val doc = firestore.collection("books").document(bookId).get().await()
             if (doc.exists()) {
-                val url = doc.getString("pdfUrl")
+                val url = doc.getString("pdfUrl") ?: doc.getString("pdfDriveUrl")
                 val path = doc.getString("pdfPath")
                 if (!url.isNullOrBlank() || !path.isNullOrBlank()) {
                     _remotePdfUrl.value = url
@@ -183,7 +228,7 @@ class BookDetailsViewModel(
             val bySlug = firestore.collection("books").whereEqualTo("slug", bookId).get().await()
             val slugDoc = bySlug.documents.firstOrNull()
             if (slugDoc != null) {
-                val url = slugDoc.getString("pdfUrl")
+                val url = slugDoc.getString("pdfUrl") ?: slugDoc.getString("pdfDriveUrl")
                 val path = slugDoc.getString("pdfPath")
                 if (!url.isNullOrBlank() || !path.isNullOrBlank()) {
                     _remotePdfUrl.value = url
@@ -198,7 +243,7 @@ class BookDetailsViewModel(
                 val byTitle = firestore.collection("books").whereEqualTo("title", currentTitle).get().await()
                 val titleDoc = byTitle.documents.firstOrNull()
                 if (titleDoc != null) {
-                    val url = titleDoc.getString("pdfUrl")
+                    val url = titleDoc.getString("pdfUrl") ?: titleDoc.getString("pdfDriveUrl")
                     val path = titleDoc.getString("pdfPath")
                     if (!url.isNullOrBlank() || !path.isNullOrBlank()) {
                         _remotePdfUrl.value = url

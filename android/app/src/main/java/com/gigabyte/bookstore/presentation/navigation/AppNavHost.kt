@@ -513,6 +513,9 @@ fun AppNavHost(
                 onNavigateToBook = { bookId ->
                     navController.navigate(Screen.BookDetails.createRoute(bookId))
                 },
+                onOpenReader = { bookId ->
+                    navController.navigate(Screen.TextReader.createRoute(bookId, 0))
+                },
                 onNavigateToPayment = {
                     navController.navigate(Screen.Payment.createRoute("audiobook_bundle"))
                 },

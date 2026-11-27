@@ -67,8 +67,9 @@ class TextReaderViewModel(
             if (currentBook == null || chapList.isEmpty() || currentBook.filePath.isBlank()) {
                 val downloadedFile = app.syncManager.ensureBookDownloadedOnDemand(baseBookId, isFull)
                 if (downloadedFile != null && downloadedFile.exists()) {
-                    currentBook = repository.getBookById(bookId)
-                    chapList = repository.getChaptersForBookSync(bookId)
+                    currentBook = repository.getBookById(bookId) ?: repository.getBookById(baseBookId)
+                    chapList = repository.getChaptersForBookSync(bookId).takeIf { it.isNotEmpty() }
+                        ?: repository.getChaptersForBookSync(baseBookId)
                 }
             }
 
