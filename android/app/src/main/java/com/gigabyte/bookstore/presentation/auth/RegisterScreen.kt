@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.Login
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -611,63 +612,92 @@ fun RegisterScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // 4. SUBMIT / REGISTER BUTTON (VIBRANT GRADIENT)
-            Button(
+            // 4. SUBMIT / REGISTER BUTTON (PREMIUM REDESIGNED)
+            val isRegisterEnabled = isFormValid && uiState !is RegisterUiState.Loading
+            val registerGradient = if (isRegisterEnabled) {
+                Brush.horizontalGradient(
+                    listOf(
+                        Color(0xFF00897B),
+                        Color(0xFF00695C),
+                        Color(0xFF004D40)
+                    )
+                )
+            } else {
+                Brush.horizontalGradient(
+                    listOf(
+                        Color(0xFF78909C).copy(alpha = 0.45f),
+                        Color(0xFF546E7A).copy(alpha = 0.45f)
+                    )
+                )
+            }
+
+            Surface(
                 onClick = { submit() },
-                enabled = isFormValid && uiState !is RegisterUiState.Loading,
+                enabled = isRegisterEnabled,
+                shape = RoundedCornerShape(16.dp),
+                color = Color.Transparent,
+                shadowElevation = if (isRegisterEnabled) 6.dp else 0.dp,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 54.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Transparent,
-                    disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
-                ),
-                contentPadding = PaddingValues(),
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = if (isFormValid) 4.dp else 0.dp)
+                    .heightIn(min = 54.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(registerGradient)
+                    .border(
+                        width = 1.dp,
+                        color = if (isRegisterEnabled) Color.White.copy(alpha = 0.35f) else Color.Transparent,
+                        shape = RoundedCornerShape(16.dp)
+                    )
             ) {
-                val buttonBrush = if (isFormValid && uiState !is RegisterUiState.Loading) {
-                    Brush.horizontalGradient(
-                        listOf(
-                            Color(0xFF00897B),
-                            Color(0xFF004D40)
-                        )
-                    )
-                } else {
-                    Brush.horizontalGradient(
-                        listOf(
-                            Color(0xFFB0BEC5),
-                            Color(0xFF90A4AE)
-                        )
-                    )
-                }
-                Box(
+                Row(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .background(buttonBrush)
-                        .padding(horizontal = 16.dp),
-                    contentAlignment = Alignment.Center
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp, vertical = 14.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     if (uiState is RegisterUiState.Loading) {
                         CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
+                            modifier = Modifier.size(22.dp),
                             color = Color.White,
-                            strokeWidth = 2.dp
+                            strokeWidth = 2.5.dp
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            text = "অ্যাকাউন্ট তৈরি হচ্ছে...",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
                         )
                     } else {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                imageVector = Icons.Default.CheckCircle,
-                                contentDescription = null,
-                                modifier = Modifier.size(20.dp),
-                                tint = Color.White
-                            )
+                        Surface(
+                            shape = CircleShape,
+                            color = if (isRegisterEnabled) Color.White.copy(alpha = 0.20f) else Color.White.copy(alpha = 0.10f),
+                            modifier = Modifier.size(30.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.Default.CheckCircle,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                    tint = if (isRegisterEnabled) Color.White else Color.White.copy(alpha = 0.6f)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            text = "অ্যাকাউন্ট তৈরি করুন (Register)",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = if (isRegisterEnabled) Color.White else Color.White.copy(alpha = 0.65f),
+                            letterSpacing = 0.3.sp
+                        )
+                        if (isRegisterEnabled) {
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = "অ্যাকাউন্ট তৈরি ও ট্রায়াল শুরু করুন (Register)",
-                                fontSize = 15.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                                tint = Color.White.copy(alpha = 0.85f)
                             )
                         }
                     }
@@ -683,27 +713,58 @@ fun RegisterScreen(
                 )
             }
 
-            // 5. LOGIN NAVIGATION FOOTER
+            // 5. LOGIN NAVIGATION FOOTER (MATCHING CARD BUTTON)
             if (onNavigateToLogin != null) {
-                Spacer(modifier = Modifier.height(16.dp))
-                TextButton(
-                    onClick = onNavigateToLogin,
-                    modifier = Modifier.fillMaxWidth()
+                Spacer(modifier = Modifier.height(18.dp))
+                Card(
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)
+                    ),
+                    border = androidx.compose.foundation.BorderStroke(
+                        1.dp,
+                        MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(16.dp))
+                        .clickable { onNavigateToLogin() }
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.Login,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(18.dp)
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(
-                            text = "আগে থেকেই অ্যাকাউন্ট আছে? লগইন করুন (Log in)",
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 14.sp,
-                            color = MaterialTheme.colorScheme.primary
-                        )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Surface(
+                            shape = CircleShape,
+                            color = Color(0xFF00695C).copy(alpha = 0.15f),
+                            modifier = Modifier.size(32.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.Login,
+                                    contentDescription = null,
+                                    tint = Color(0xFF00695C),
+                                    modifier = Modifier.size(18.dp)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column {
+                            Text(
+                                text = "আগে থেকেই অ্যাকাউন্ট আছে?",
+                                fontSize = 12.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Text(
+                                text = "এখানে ক্লিক করে লগইন করুন (Log In) →",
+                                fontSize = 13.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF00695C)
+                            )
+                        }
                     }
                 }
             }

@@ -14,6 +14,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.Login
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -418,63 +419,92 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // 4. SUBMIT / LOGIN BUTTON (VIBRANT GRADIENT)
-            Button(
+            // 4. SUBMIT / LOGIN BUTTON (PREMIUM REDESIGNED)
+            val isLoginEnabled = isEmailValid && uiState !is LoginUiState.Loading
+            val buttonGradient = if (isLoginEnabled) {
+                Brush.horizontalGradient(
+                    listOf(
+                        Color(0xFF00897B),
+                        Color(0xFF00695C),
+                        Color(0xFF004D40)
+                    )
+                )
+            } else {
+                Brush.horizontalGradient(
+                    listOf(
+                        Color(0xFF78909C).copy(alpha = 0.45f),
+                        Color(0xFF546E7A).copy(alpha = 0.45f)
+                    )
+                )
+            }
+
+            Surface(
                 onClick = { submit() },
-                enabled = isEmailValid && uiState !is LoginUiState.Loading,
+                enabled = isLoginEnabled,
+                shape = RoundedCornerShape(16.dp),
+                color = Color.Transparent,
+                shadowElevation = if (isLoginEnabled) 6.dp else 0.dp,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 54.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Transparent,
-                    disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
-                ),
-                contentPadding = PaddingValues(),
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = if (isEmailValid) 4.dp else 0.dp)
+                    .heightIn(min = 54.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(buttonGradient)
+                    .border(
+                        width = 1.dp,
+                        color = if (isLoginEnabled) Color.White.copy(alpha = 0.35f) else Color.Transparent,
+                        shape = RoundedCornerShape(16.dp)
+                    )
             ) {
-                val buttonBrush = if (isEmailValid && uiState !is LoginUiState.Loading) {
-                    Brush.horizontalGradient(
-                        listOf(
-                            Color(0xFF00897B),
-                            Color(0xFF004D40)
-                        )
-                    )
-                } else {
-                    Brush.horizontalGradient(
-                        listOf(
-                            Color(0xFFB0BEC5),
-                            Color(0xFF90A4AE)
-                        )
-                    )
-                }
-                Box(
+                Row(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .background(buttonBrush)
-                        .padding(horizontal = 16.dp),
-                    contentAlignment = Alignment.Center
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp, vertical = 14.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     if (uiState is LoginUiState.Loading) {
                         CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
+                            modifier = Modifier.size(22.dp),
                             color = Color.White,
-                            strokeWidth = 2.dp
+                            strokeWidth = 2.5.dp
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            text = "লগইন হচ্ছে...",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
                         )
                     } else {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.Login,
-                                contentDescription = null,
-                                modifier = Modifier.size(20.dp),
-                                tint = Color.White
-                            )
+                        Surface(
+                            shape = CircleShape,
+                            color = if (isLoginEnabled) Color.White.copy(alpha = 0.20f) else Color.White.copy(alpha = 0.10f),
+                            modifier = Modifier.size(30.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.Login,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                    tint = if (isLoginEnabled) Color.White else Color.White.copy(alpha = 0.6f)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            text = "লগইন করুন (Login)",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = if (isLoginEnabled) Color.White else Color.White.copy(alpha = 0.65f),
+                            letterSpacing = 0.3.sp
+                        )
+                        if (isLoginEnabled) {
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = "লগইন করুন (Login)",
-                                fontSize = 15.5.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                                tint = Color.White.copy(alpha = 0.85f)
                             )
                         }
                     }
@@ -541,32 +571,34 @@ fun LoginScreen(
 
                     Spacer(modifier = Modifier.height(14.dp))
 
-                    OutlinedButton(
+                    Button(
                         onClick = onNavigateToRegister,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .heightIn(min = 48.dp),
+                            .heightIn(min = 50.dp),
                         shape = RoundedCornerShape(14.dp),
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            containerColor = MaterialTheme.colorScheme.surface
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF00695C),
+                            contentColor = Color.White
                         ),
-                        border = androidx.compose.foundation.BorderStroke(
-                            width = 1.5.dp,
-                            color = Color(0xFF00695C)
-                        )
+                        elevation = ButtonDefaults.buttonElevation(defaultElevation = 3.dp)
                     ) {
                         Icon(
                             imageVector = Icons.Default.PersonAdd,
                             contentDescription = null,
-                            modifier = Modifier.size(18.dp),
-                            tint = Color(0xFF00695C)
+                            modifier = Modifier.size(18.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
                             text = "নতুন অ্যাকাউন্ট তৈরি করুন (Register)",
                             fontWeight = FontWeight.Bold,
-                            fontSize = 13.5.sp,
-                            color = Color(0xFF00695C)
+                            fontSize = 14.sp
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                            contentDescription = null,
+                            modifier = Modifier.size(14.dp)
                         )
                     }
                 }
