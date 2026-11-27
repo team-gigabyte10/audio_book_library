@@ -1323,12 +1323,14 @@ private fun AdminCoursePolicyCard(
                         containerColor = if (!isPaidOnly) Color(0xFF047857) else Color(0xFFE5E7EB),
                         contentColor = if (!isPaidOnly) Color.White else Color(0xFF374151)
                     ),
-                    modifier = Modifier.weight(1f).height(38.dp)
+                    modifier = Modifier.weight(1f).heightIn(min = 38.dp)
                 ) {
                     Text(
                         text = if (!isPaidOnly) "✓ বিজ্ঞাপন চালু" else "বিজ্ঞাপন চালু করুন",
                         fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
 
@@ -1344,12 +1346,14 @@ private fun AdminCoursePolicyCard(
                         containerColor = if (isPaidOnly) Color(0xFFB45309) else Color(0xFFE5E7EB),
                         contentColor = if (isPaidOnly) Color.White else Color(0xFF374151)
                     ),
-                    modifier = Modifier.weight(1f).height(38.dp)
+                    modifier = Modifier.weight(1f).heightIn(min = 38.dp)
                 ) {
                     Text(
                         text = if (isPaidOnly) "✓ শুধু পেইড সক্রিয়" else "শুধু পেইড সেট করুন",
                         fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
             }

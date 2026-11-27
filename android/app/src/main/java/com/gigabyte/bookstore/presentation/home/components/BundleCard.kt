@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -115,6 +116,8 @@ fun BundleCard(
                     ) {
                         Text(
                             text = bundle.badge.ifBlank { "আত্ম উন্নয়নমূলক বই" },
+                            maxLines = 1,
+                            softWrap = false,
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 11.sp,
@@ -225,7 +228,7 @@ fun BundleCard(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     ),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().heightIn(min = 40.dp),
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(
                         horizontal = 14.dp,
                         vertical = 8.dp
@@ -240,6 +243,8 @@ fun BundleCard(
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
                         text = "বইগুলো লাইব্রেরিতে দেখুন",
+                        maxLines = 1,
+                        softWrap = false,
                         style = MaterialTheme.typography.labelMedium.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 13.sp,

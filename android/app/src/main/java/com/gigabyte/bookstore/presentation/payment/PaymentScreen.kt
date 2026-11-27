@@ -842,7 +842,7 @@ fun PaymentScreen(
                                 TextButton(
                                     onClick = { showMyQrDialog = true },
                                     contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
-                                    modifier = Modifier.height(28.dp)
+                                    modifier = Modifier.heightIn(min = 28.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.Default.QrCode,

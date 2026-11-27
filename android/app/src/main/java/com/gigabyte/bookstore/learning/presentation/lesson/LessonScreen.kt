@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -1749,7 +1750,7 @@ private fun SettingsSheet(
             onClick = onDismiss,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(48.dp),
+                .heightIn(min = 48.dp),
             shape = RoundedCornerShape(12.dp),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         ) {
@@ -2313,7 +2314,7 @@ private fun SpeedDrillChallengeCard(
                         onClick = ::reset,
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00796B)),
-                        modifier = Modifier.fillMaxWidth().height(48.dp)
+                        modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)
                     ) {
                         Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
                         Spacer(Modifier.width(6.dp))
@@ -2330,7 +2331,7 @@ private fun SpeedDrillChallengeCard(
                             onClick = ::onRepetition,
                             shape = RoundedCornerShape(12.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00796B)),
-                            modifier = Modifier.weight(1f).height(54.dp)
+                            modifier = Modifier.weight(1f).heightIn(min = 54.dp)
                         ) {
                             Icon(Icons.Default.RecordVoiceOver, contentDescription = null, modifier = Modifier.size(22.dp))
                             Spacer(Modifier.width(8.dp))
@@ -2363,7 +2364,7 @@ private fun SpeedDrillChallengeCard(
                         },
                         shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00796B)),
-                        modifier = Modifier.fillMaxWidth().height(52.dp)
+                        modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp)
                     ) {
                         Icon(Icons.Default.PlayArrow, contentDescription = null, modifier = Modifier.size(22.dp))
                         Spacer(Modifier.width(8.dp))

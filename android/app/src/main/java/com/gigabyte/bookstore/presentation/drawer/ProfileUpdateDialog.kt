@@ -463,7 +463,7 @@ fun ProfileUpdateDialog(
                             },
                             enabled = isNameValid && !isSaving,
                             shape = RoundedCornerShape(12.dp),
-                            modifier = Modifier.height(46.dp)
+                            modifier = Modifier.heightIn(min = 46.dp)
                         ) {
                             if (isSaving) {
                                 CircularProgressIndicator(

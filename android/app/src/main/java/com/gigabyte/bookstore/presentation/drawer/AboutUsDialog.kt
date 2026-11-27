@@ -324,7 +324,7 @@ fun AboutUsDialog(
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(48.dp)
+                            .heightIn(min = 48.dp)
                     ) {
                         Text(
                             text = "ঠিক আছে (Close)",

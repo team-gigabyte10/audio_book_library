@@ -424,7 +424,7 @@ fun LoginScreen(
                 enabled = isEmailValid && uiState !is LoginUiState.Loading,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(54.dp),
+                    .heightIn(min = 54.dp),
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
@@ -545,7 +545,7 @@ fun LoginScreen(
                         onClick = onNavigateToRegister,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(48.dp),
+                            .heightIn(min = 48.dp),
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults.outlinedButtonColors(
                             containerColor = MaterialTheme.colorScheme.surface

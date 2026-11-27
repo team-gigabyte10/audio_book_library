@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -73,7 +74,7 @@ fun HeroBannerCarousel(
             pageSpacing = 12.dp,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(175.dp)
+                .heightIn(min = 175.dp)
         ) { page ->
             val banner = banners[page]
             HeroBannerItem(
@@ -175,6 +176,8 @@ fun HeroBannerItem(
                     ) {
                         Text(
                             text = banner.tag,
+                            maxLines = 1,
+                            softWrap = false,
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 11.sp,

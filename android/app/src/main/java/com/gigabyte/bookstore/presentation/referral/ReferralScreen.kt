@@ -434,7 +434,7 @@ fun StatsGrid(
             enabled = currentBalance >= minWithdrawal,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(48.dp),
+                .heightIn(min = 48.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF10B981),
                 disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant

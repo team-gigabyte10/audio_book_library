@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -62,7 +63,7 @@ fun HomeShowcaseCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         modifier = modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .heightIn(min = 200.dp)
             .clip(RoundedCornerShape(20.dp))
             .border(
                 width = 1.5.dp,

@@ -21,8 +21,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -421,8 +424,8 @@ private fun AlphabetLetterCell(
         color = backgroundColor,
         border = BorderStroke(if (isSpeaking) 2.dp else 1.dp, borderColor),
         modifier = Modifier
-            .width(62.dp)
-            .height(72.dp)
+            .widthIn(min = 62.dp)
+            .heightIn(min = 72.dp)
             .scale(if (isSpeaking) pulseScale else 1.0f)
             .clip(RoundedCornerShape(12.dp))
             .combinedClickable(

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -135,6 +136,8 @@ fun CourseCard(
                     ) {
                         Text(
                             text = languageBadge,
+                            maxLines = 1,
+                            softWrap = false,
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 11.sp,
@@ -150,6 +153,8 @@ fun CourseCard(
                     ) {
                         Text(
                             text = course.level,
+                            maxLines = 1,
+                            softWrap = false,
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = 10.sp,
@@ -283,7 +288,7 @@ fun CourseCard(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     ),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().heightIn(min = 40.dp),
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(
                         horizontal = 14.dp,
                         vertical = 8.dp
@@ -291,6 +296,8 @@ fun CourseCard(
                 ) {
                     Text(
                         text = "কোর্স ও লেসন দেখুন",
+                        maxLines = 1,
+                        softWrap = false,
                         style = MaterialTheme.typography.labelMedium.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 13.sp,

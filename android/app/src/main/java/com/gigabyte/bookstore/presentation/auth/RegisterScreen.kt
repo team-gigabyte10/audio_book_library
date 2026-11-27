@@ -617,7 +617,7 @@ fun RegisterScreen(
                 enabled = isFormValid && uiState !is RegisterUiState.Loading,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(54.dp),
+                    .heightIn(min = 54.dp),
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
