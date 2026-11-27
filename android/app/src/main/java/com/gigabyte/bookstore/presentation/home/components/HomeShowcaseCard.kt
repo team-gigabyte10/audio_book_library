@@ -59,7 +59,7 @@ fun HomeShowcaseCard(
 ) {
     Card(
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF0F172A)),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         modifier = modifier
             .fillMaxWidth()
@@ -67,38 +67,42 @@ fun HomeShowcaseCard(
             .clip(RoundedCornerShape(20.dp))
             .border(
                 width = 1.5.dp,
-                color = accentColor.copy(alpha = 0.45f),
+                color = accentColor.copy(alpha = 0.55f),
                 shape = RoundedCornerShape(20.dp)
             )
             .clickable { onClick() }
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(min = 200.dp)
+        ) {
             // Background Image or Quran Backdrop or Standard Gradient
             if (!imageUrl.isNullOrBlank()) {
                 AsyncImage(
                     model = imageUrl,
                     contentDescription = title,
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.matchParentSize()
                 )
             } else if (country == CourseCountry.QURAN) {
                 CountryFlagBackdrop(
                     country = country,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.matchParentSize()
                 )
             } else {
                 val gradientColors = if (fallbackGradientColors.isNotEmpty()) {
                     fallbackGradientColors
                 } else {
                     listOf(
-                        accentColor.copy(alpha = 0.85f),
-                        accentColor.copy(alpha = 0.50f),
+                        accentColor.copy(alpha = 0.90f),
+                        accentColor.copy(alpha = 0.60f),
                         Color(0xFF0F172A)
                     )
                 }
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .matchParentSize()
                         .background(Brush.linearGradient(gradientColors))
                 )
             }
@@ -106,13 +110,13 @@ fun HomeShowcaseCard(
             // Dark Multi-stop Gradient Overlay for guaranteed crystal-clear text readability over flags
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .matchParentSize()
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
-                                Color.Black.copy(alpha = 0.28f),
-                                Color(0xFF040A0D).copy(alpha = 0.62f),
-                                Color(0xFF020608).copy(alpha = 0.92f)
+                                Color.Black.copy(alpha = 0.35f),
+                                Color(0xFF040A0D).copy(alpha = 0.68f),
+                                Color(0xFF020608).copy(alpha = 0.94f)
                             )
                         )
                     )
@@ -121,7 +125,8 @@ fun HomeShowcaseCard(
             // Content Column
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
+                    .heightIn(min = 200.dp)
                     .padding(16.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
@@ -213,17 +218,20 @@ fun HomeShowcaseCard(
                             Spacer(modifier = Modifier.weight(1f))
                         }
 
+                        val isBrightAccent = (0.299 * accentColor.red + 0.587 * accentColor.green + 0.114 * accentColor.blue) > 0.55
+                        val buttonTextColor = if (isBrightAccent) Color(0xFF0F172A) else Color.White
+
                         Surface(
-                            color = accentColor.copy(alpha = 0.28f),
+                            color = accentColor,
                             shape = RoundedCornerShape(12.dp),
-                            border = androidx.compose.foundation.BorderStroke(
-                                1.dp,
-                                accentColor.copy(alpha = 0.5f)
-                            )
+                            shadowElevation = 3.dp,
+                            modifier = Modifier.clip(RoundedCornerShape(12.dp))
                         ) {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
+                                modifier = Modifier
+                                    .heightIn(min = 36.dp)
+                                    .padding(horizontal = 14.dp, vertical = 6.dp)
                             ) {
                                 Text(
                                     text = ctaText,
@@ -231,16 +239,16 @@ fun HomeShowcaseCard(
                                     softWrap = false,
                                     style = MaterialTheme.typography.labelSmall.copy(
                                         fontWeight = FontWeight.Bold,
-                                        color = Color.White,
-                                        fontSize = 11.sp
+                                        color = buttonTextColor,
+                                        fontSize = 12.sp
                                     )
                                 )
-                                Spacer(modifier = Modifier.width(4.dp))
+                                Spacer(modifier = Modifier.width(6.dp))
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                                     contentDescription = null,
-                                    tint = Color.White,
-                                    modifier = Modifier.size(12.dp)
+                                    tint = buttonTextColor,
+                                    modifier = Modifier.size(13.dp)
                                 )
                             }
                         }

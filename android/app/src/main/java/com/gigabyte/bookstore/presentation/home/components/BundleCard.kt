@@ -228,7 +228,7 @@ fun BundleCard(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     ),
-                    modifier = Modifier.fillMaxWidth().heightIn(min = 40.dp),
+                    modifier = Modifier.fillMaxWidth().heightIn(min = 44.dp),
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(
                         horizontal = 14.dp,
                         vertical = 8.dp
