@@ -8,8 +8,12 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 
 private val DarkColorScheme = darkColorScheme(
     primary = DarkTealPrimary,
@@ -56,9 +60,19 @@ fun BanglaAudiobookTheme(
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    val currentDensity = LocalDensity.current
+    val safeDensity = remember(currentDensity) {
+        Density(
+            density = currentDensity.density,
+            fontScale = currentDensity.fontScale.coerceIn(0.85f, 1.15f)
+        )
+    }
+
+    CompositionLocalProvider(LocalDensity provides safeDensity) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
 }

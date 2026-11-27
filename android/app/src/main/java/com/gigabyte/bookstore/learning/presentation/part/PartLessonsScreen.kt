@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.animation.AnimatedVisibility
@@ -426,6 +428,8 @@ private fun PartOverviewBanner(
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
                             color = theme.accentColor,
+                            maxLines = 1,
+                            softWrap = false,
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
                         )
                     }
@@ -613,6 +617,8 @@ private fun PartLessonCard(
                             isInProgress -> Color(0xFFD97706)
                             else -> MaterialTheme.colorScheme.onSurfaceVariant
                         },
+                        maxLines = 1,
+                        softWrap = false,
                         modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
                     )
                 }
@@ -957,14 +963,21 @@ private fun WhLessonTile(
             Surface(
                 color = accentColor.copy(alpha = 0.14f),
                 shape = RoundedCornerShape(8.dp),
-                modifier = Modifier.width(72.dp).height(38.dp)
+                modifier = Modifier
+                    .widthIn(min = 68.dp)
+                    .wrapContentHeight()
             ) {
-                Box(contentAlignment = Alignment.Center) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp)
+                ) {
                     Text(
                         text = whWord,
                         fontSize = 11.5.sp,
                         fontWeight = FontWeight.Bold,
-                        color = accentColor
+                        color = accentColor,
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
             }

@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -297,7 +298,9 @@ fun CourseDetailsBottomSheet(
                                             style = MaterialTheme.typography.bodySmall.copy(
                                                 fontSize = 12.sp,
                                                 fontWeight = if (lesson.isFree) FontWeight.SemiBold else FontWeight.Normal
-                                            )
+                                            ),
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis
                                         )
                                     }
 
@@ -323,7 +326,9 @@ fun CourseDetailsBottomSheet(
                                                         fontSize = 9.sp,
                                                         color = Color.White,
                                                         fontWeight = FontWeight.Bold
-                                                    )
+                                                    ),
+                                                    maxLines = 1,
+                                                    softWrap = false
                                                 )
                                             }
                                         }

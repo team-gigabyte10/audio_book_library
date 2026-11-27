@@ -766,7 +766,7 @@ private fun ResumeLessonCard(
                 shape = RoundedCornerShape(10.dp),
                 contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
             ) {
-                Text("শুনুন", fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                Text("শুনুন", fontSize = 12.sp, fontWeight = FontWeight.Bold, maxLines = 1, softWrap = false)
             }
         }
     }
@@ -838,7 +838,7 @@ private fun DailyVoluntaryRewardCard(
                 if (isLoadingAd) {
                     CircularProgressIndicator(modifier = Modifier.size(14.dp), strokeWidth = 2.dp, color = Color(0xFFF59E0B))
                 } else {
-                    Text("সংগ্রহ করুন", fontSize = 11.5.sp, fontWeight = FontWeight.Bold, color = Color(0xFFD97706))
+                    Text("সংগ্রহ করুন", fontSize = 11.5.sp, fontWeight = FontWeight.Bold, color = Color(0xFFD97706), maxLines = 1, softWrap = false)
                 }
             }
         }
@@ -1354,7 +1354,9 @@ private fun SyllabusPartHeaderCard(
                                         text = if (allowRewardAd) "আনলক" else "🔒 প্রিমিয়াম",
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = badgeColor
+                                        color = badgeColor,
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 }
                             }
@@ -1371,6 +1373,8 @@ private fun SyllabusPartHeaderCard(
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color(0xFF10B981),
+                                    maxLines = 1,
+                                    softWrap = false,
                                     modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                                 )
                             }
