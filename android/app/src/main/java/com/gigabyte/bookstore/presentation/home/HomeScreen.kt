@@ -126,6 +126,7 @@ fun HomeScreen(
     onNavigateToLastRead: () -> Unit = {},
     onNavigateToHashirGolpo: () -> Unit = {},
     onNavigateToMotivationalStories: () -> Unit = {},
+    onNavigateToCommunicationSkills: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
@@ -232,6 +233,10 @@ fun HomeScreen(
                 onBookmarksClick = {
                     scope.launch { drawerState.close() }
                     showBookmarksDialog = true
+                },
+                onCommunicationSkillsClick = {
+                    scope.launch { drawerState.close() }
+                    onNavigateToCommunicationSkills()
                 },
                 onPaymentClick = {
                     scope.launch { drawerState.close() }
@@ -427,6 +432,26 @@ fun HomeScreen(
                                 statsText = "🔥 ৫০টি অনুপ্রেরণামূলক গল্প · অডিও + টেক্সট",
                                 ctaText = "গল্পগুলো পড়ুন ও শুনুন",
                                 onClick = { onNavigateToMotivationalStories() },
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 0.7 🗣️ "যোগাযোগ ও মন জয় করার টেকনিক" SHOWCASE CARD
+                        item {
+                            Spacer(modifier = Modifier.height(14.dp))
+                            HomeShowcaseCard(
+                                title = "যোগাযোগ ও মানুষের মন জয় করার টেকনিক",
+                                subtitle = "ডেল কার্নেগির নীতি ও আধুনিক মনস্তত্ত্বের আলোকে মানুষের মন জয় ও প্রভাব বিস্তারের সেরা কৌশল",
+                                badgeText = "🗣️ যোগাযোগ ও মন জয় (৪২টি কৌশল)",
+                                badgeColor = Color(0xFF0D9488),
+                                priceText = "ফ্রি গাইড",
+                                isPurchased = true,
+                                imageUrl = null,
+                                country = CourseCountry.BUNDLE,
+                                accentColor = Color(0xFF0D9488),
+                                statsText = "🗣️ ৪২টি প্র্যাকটিক্যাল টেকনিক · অডিও + টেক্সট",
+                                ctaText = "কৌশলগুলো জানুন ও শুনুন",
+                                onClick = { onNavigateToCommunicationSkills() },
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

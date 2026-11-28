@@ -71,6 +71,8 @@ import com.gigabyte.bookstore.presentation.story.HashirGolpoScreen
 import com.gigabyte.bookstore.presentation.story.HashirGolpoViewModel
 import com.gigabyte.bookstore.presentation.story.MotivationalStoryScreen
 import com.gigabyte.bookstore.presentation.story.MotivationalStoryViewModel
+import com.gigabyte.bookstore.presentation.communication.CommunicationSkillScreen
+import com.gigabyte.bookstore.presentation.communication.CommunicationSkillViewModel
 
 @Composable
 
@@ -241,6 +243,9 @@ fun AppNavHost(
                 },
                 onNavigateToMotivationalStories = {
                     navController.navigate(Screen.MotivationalStories.route)
+                },
+                onNavigateToCommunicationSkills = {
+                    navController.navigate(Screen.CommunicationSkills.route)
                 },
                 onLogout = { logout(application, navController) }
             )
@@ -819,6 +824,17 @@ fun AppNavHost(
             })
             MotivationalStoryScreen(
                 viewModel = motivationalStoryViewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        // 15. Communication Skills Screen (42 Practical Techniques & TTS Audio Reader)
+        composable(Screen.CommunicationSkills.route) {
+            val communicationSkillViewModel: CommunicationSkillViewModel = viewModel(factory = SimpleViewModelFactory {
+                CommunicationSkillViewModel(application)
+            })
+            CommunicationSkillScreen(
+                viewModel = communicationSkillViewModel,
                 onBackClick = { navController.popBackStack() }
             )
         }

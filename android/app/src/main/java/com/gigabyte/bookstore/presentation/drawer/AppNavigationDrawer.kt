@@ -54,6 +54,7 @@ fun AppDrawerContent(
     onManageNoticesClick: (() -> Unit)? = null,
     onReferralClick: () -> Unit,
     onReferAndEarnClick: (() -> Unit)? = null,
+    onCommunicationSkillsClick: (() -> Unit)? = null,
     onAboutUsClick: () -> Unit,
     onHomeClick: (() -> Unit)? = null,
     onLibraryClick: (() -> Unit)? = null,
@@ -316,6 +317,14 @@ fun AppDrawerContent(
                     title = "বুকমার্কসমূহ (Bookmarks)",
                     onClick = onBookmarksClick
                 )
+
+                if (onCommunicationSkillsClick != null) {
+                    DrawerMenuItem(
+                        icon = Icons.Default.RecordVoiceOver,
+                        title = "যোগাযোগ ও মন জয় করার টেকনিক",
+                        onClick = onCommunicationSkillsClick
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(8.dp))
 
