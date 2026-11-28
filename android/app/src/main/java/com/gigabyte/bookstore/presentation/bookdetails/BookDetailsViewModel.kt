@@ -388,6 +388,7 @@ class BookDetailsViewModel(
         val fullFile = File(booksDir, "${bookId}_full.md")
         val fullBookId = "${bookId}_full"
 
+        // 1. If full book file exists and is non-empty, open it immediately
         if (fullFile.exists() && fullFile.length() > 0) {
             _isFullBookDownloaded.value = true
             viewModelScope.launch {
@@ -404,6 +405,32 @@ class BookDetailsViewModel(
             return
         }
 
+        // 2. Offline Fallback: If full file does NOT exist, check if summary file exists!
+        // In many books, the summary file contains the entire book or all available chapters.
+        val summaryFile = File(booksDir, "${bookId}_summary.md")
+        if (summaryFile.exists() && summaryFile.length() > 0) {
+            viewModelScope.launch {
+                val currentBook = _book.value
+                repository.importDownloadedBook(
+                    file = summaryFile,
+                    bookId = bookId,
+                    title = currentBook?.title ?: "বই",
+                    author = currentBook?.author,
+                    coverPath = currentBook?.coverPath
+                )
+                repository.importDownloadedBook(
+                    file = summaryFile,
+                    bookId = fullBookId,
+                    title = if (currentBook != null) "${currentBook.title} (সম্পূর্ণ)" else "সম্পূর্ণ বই",
+                    author = currentBook?.author,
+                    coverPath = currentBook?.coverPath
+                )
+                onSuccess(fullBookId)
+            }
+            return
+        }
+
+        // 3. Neither file exists on disk: Attempt download if online, with safe timeout and clear offline error
         viewModelScope.launch {
             _isDownloadingFullBook.value = true
             try {
@@ -412,8 +439,10 @@ class BookDetailsViewModel(
                 var fullPath = cached?.fullBookMdPath
 
                 if (fullUrl.isNullOrBlank() && fullPath.isNullOrBlank()) {
-                    val doc = firestore.collection("books").document(bookId).get().await()
-                    if (doc.exists()) {
+                    val doc = withTimeoutOrNull(2500L) {
+                        firestore.collection("books").document(bookId).get().await()
+                    }
+                    if (doc != null && doc.exists()) {
                         fullUrl = doc.getString("fullBookMdUrl")
                         fullPath = doc.getString("fullBookMdPath")
                     }
@@ -421,7 +450,7 @@ class BookDetailsViewModel(
 
                 if (fullUrl.isNullOrBlank() && fullPath.isNullOrBlank()) {
                     _isDownloadingFullBook.value = false
-                    onError("এই বইটির সম্পূর্ণ সংস্করণ অনলাইনে উপলব্ধ নেই")
+                    onError("বইটি অফলাইনে পড়ার জন্য পূর্বে ডাউনলোড করা থাকতে হবে। সম্পূর্ণ সংস্করণ অনলাইনে উপলব্ধ নেই বা ইন্টারনেট সংযোগ নেই।")
                     return@launch
                 }
 
@@ -444,11 +473,11 @@ class BookDetailsViewModel(
                     )
                     onSuccess(fullBookId)
                 } else {
-                    onError("সম্পূর্ণ বই ডাউনলোড করা সম্ভব হয়নি")
+                    onError("সম্পূর্ণ বই ডাউনলোড করা সম্ভব হয়নি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন।")
                 }
             } catch (e: Exception) {
                 _isDownloadingFullBook.value = false
-                onError("ডাউনলোড ত্রুটি: ${e.localizedMessage ?: "নেটওয়ার্ক সমস্যা"}")
+                onError("বইটি অফলাইনে পড়ার জন্য পূর্বে ডাউনলোড করা থাকতে হবে। অনুগ্রহ করে ইন্টারনেট সংযোগ চালু করুন।")
             }
         }
     }

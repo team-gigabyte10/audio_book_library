@@ -66,7 +66,10 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
         // 1. Initial immediate offline/cache load so UI renders instantly without waiting for network
         viewModelScope.launch {
             try {
-                val cached = app.syncManager.cachedBooks.value
+                var cached = app.syncManager.cachedBooks.value
+                if (cached.isEmpty()) {
+                    cached = app.syncManager.loadCatalogFromDisk()
+                }
                 if (cached.isNotEmpty()) {
                     _allBooks.value = cached
                 } else {
@@ -78,7 +81,7 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
                                 title = entity.title,
                                 author = entity.author,
                                 coverPath = entity.coverPath,
-                                category = "আত্মউন্নয়ন ও ক্লাসিক"
+                                category = "সাধারণ"
                             )
                         }
                     }

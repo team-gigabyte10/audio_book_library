@@ -14,6 +14,8 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.util.concurrent.TimeUnit
@@ -51,11 +53,26 @@ class BookSyncManager(
         File(context.filesDir, "book-store").apply { if (!exists()) mkdirs() }
     }
 
+    private val catalogFile: File by lazy {
+        File(context.filesDir, "cached_catalog_books.json")
+    }
+
     private val _syncState = MutableStateFlow<SyncProgressState>(SyncProgressState.Idle)
     val syncState: StateFlow<SyncProgressState> = _syncState.asStateFlow()
 
     private val _cachedBooks = MutableStateFlow<List<RemoteBook>>(emptyList())
     val cachedBooks: StateFlow<List<RemoteBook>> = _cachedBooks.asStateFlow()
+
+    init {
+        try {
+            val initialDiskBooks = loadCatalogFromDisk()
+            if (initialDiskBooks.isNotEmpty()) {
+                _cachedBooks.value = initialDiskBooks
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
     suspend fun syncBooksForUser(userStatus: String): List<RemoteBook> = withContext(Dispatchers.IO) {
         try {
@@ -206,6 +223,8 @@ class BookSyncManager(
             }
 
             _cachedBooks.value = remoteList
+            // Persist full catalog to local disk so it is always available 100% offline
+            saveCatalogToDisk(remoteList)
             // Instant sync complete! Splash screen opens library in 1-2s.
             _syncState.value = SyncProgressState.Completed(remoteList, isFromCacheOnly = false)
             remoteList
@@ -579,6 +598,34 @@ class BookSyncManager(
     }
 
     private suspend fun loadOfflineCachedBooks(userStatus: String): List<RemoteBook> {
+        val diskCatalog = loadCatalogFromDisk()
+        if (diskCatalog.isNotEmpty()) {
+            for (book in diskCatalog) {
+                val summaryFile = File(booksDir, "${book.id}_summary.md").takeIf { it.exists() && it.length() > 0 }
+                val fullBookFile = File(booksDir, "${book.id}_full.md").takeIf { it.exists() && it.length() > 0 }
+                val primaryFile = summaryFile ?: fullBookFile
+                if (primaryFile != null) {
+                    audiobookRepository?.importDownloadedBook(
+                        file = primaryFile,
+                        bookId = book.id,
+                        title = book.title,
+                        author = book.author,
+                        coverPath = book.localCoverPath ?: book.coverUrl
+                    )
+                }
+                if (fullBookFile != null) {
+                    audiobookRepository?.importDownloadedBook(
+                        file = fullBookFile,
+                        bookId = "${book.id}_full",
+                        title = "${book.title} (সম্পূর্ণ)",
+                        author = book.author,
+                        coverPath = book.localCoverPath ?: book.coverUrl
+                    )
+                }
+            }
+            return diskCatalog
+        }
+
         val allFiles = booksDir.listFiles() ?: return emptyList()
         val bookIds = allFiles
             .map { it.name }
@@ -647,6 +694,110 @@ class BookSyncManager(
                 hasFullBook = fullBookFile != null,
                 hasPdf = pdfFile != null
             )
+        }
+    }
+
+    fun saveCatalogToDisk(books: List<RemoteBook>) {
+        if (books.isEmpty()) return
+        try {
+            val jsonArray = JSONArray()
+            for (b in books) {
+                val obj = JSONObject()
+                obj.put("id", b.id)
+                obj.put("title", b.title)
+                obj.put("subtitle", b.subtitle ?: "")
+                obj.put("author", b.author ?: "")
+                obj.put("translator", b.translator ?: "")
+                obj.put("tagline", b.tagline ?: "")
+                obj.put("category", b.category ?: "সাধারণ")
+                obj.put("language", b.language ?: "Bangla")
+                obj.put("audioUrl", b.audioUrl ?: "")
+                obj.put("summaryMdUrl", b.summaryMdUrl ?: "")
+                obj.put("summaryMdPath", b.summaryMdPath ?: "")
+                obj.put("summaryFilename", b.summaryFilename ?: "")
+                obj.put("fullBookMdUrl", b.fullBookMdUrl ?: "")
+                obj.put("fullBookMdPath", b.fullBookMdPath ?: "")
+                obj.put("fullBookFilename", b.fullBookFilename ?: "")
+                obj.put("pdfUrl", b.pdfUrl ?: "")
+                obj.put("pdfDriveUrl", b.pdfDriveUrl ?: "")
+                obj.put("pdfPath", b.pdfPath ?: "")
+                obj.put("pdfFilename", b.pdfFilename ?: "")
+                obj.put("coverUrl", b.coverUrl ?: "")
+                obj.put("coverPath", b.coverPath ?: "")
+                obj.put("summarySnippet", b.summarySnippet ?: "")
+                obj.put("totalWords", b.totalWords)
+                obj.put("estimatedMinutes", b.estimatedMinutes)
+                obj.put("hasSummary", b.hasSummary)
+                obj.put("hasFullBook", b.hasFullBook)
+                obj.put("hasPdf", b.hasPdf)
+                obj.put("slug", b.slug ?: "")
+                obj.put("publishedAtIso", b.publishedAtIso ?: "")
+                jsonArray.put(obj)
+            }
+            catalogFile.writeText(jsonArray.toString())
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun loadCatalogFromDisk(): List<RemoteBook> {
+        if (!catalogFile.exists() || catalogFile.length() == 0L) return emptyList()
+        return try {
+            val jsonString = catalogFile.readText()
+            val jsonArray = JSONArray(jsonString)
+            val list = mutableListOf<RemoteBook>()
+            for (i in 0 until jsonArray.length()) {
+                val obj = jsonArray.getJSONObject(i)
+                val id = obj.optString("id")
+                if (id.isBlank()) continue
+
+                val summaryLocal = File(booksDir, "${id}_summary.md").takeIf { it.exists() && it.length() > 0 }
+                val fullLocal = File(booksDir, "${id}_full.md").takeIf { it.exists() && it.length() > 0 }
+                val pdfLocal = File(booksDir, "$id.pdf").takeIf { it.exists() && it.length() > 0 }
+                val coverLocal = File(booksDir, "${id}_cover.jpg").takeIf { it.exists() }
+                    ?: File(booksDir, "${id}_cover.png").takeIf { it.exists() }
+
+                val book = RemoteBook(
+                    id = id,
+                    title = obj.optString("title", "বই"),
+                    subtitle = obj.optString("subtitle").takeIf { it.isNotBlank() },
+                    author = obj.optString("author").takeIf { it.isNotBlank() },
+                    translator = obj.optString("translator").takeIf { it.isNotBlank() },
+                    tagline = obj.optString("tagline").takeIf { it.isNotBlank() },
+                    category = obj.optString("category", "সাধারণ").takeIf { it.isNotBlank() } ?: "সাধারণ",
+                    language = obj.optString("language", "Bangla"),
+                    audioUrl = obj.optString("audioUrl").takeIf { it.isNotBlank() },
+                    summaryMdUrl = obj.optString("summaryMdUrl").takeIf { it.isNotBlank() },
+                    summaryMdPath = obj.optString("summaryMdPath").takeIf { it.isNotBlank() },
+                    summaryFilename = obj.optString("summaryFilename").takeIf { it.isNotBlank() },
+                    fullBookMdUrl = obj.optString("fullBookMdUrl").takeIf { it.isNotBlank() },
+                    fullBookMdPath = obj.optString("fullBookMdPath").takeIf { it.isNotBlank() },
+                    fullBookFilename = obj.optString("fullBookFilename").takeIf { it.isNotBlank() },
+                    pdfUrl = obj.optString("pdfUrl").takeIf { it.isNotBlank() },
+                    pdfDriveUrl = obj.optString("pdfDriveUrl").takeIf { it.isNotBlank() },
+                    pdfPath = obj.optString("pdfPath").takeIf { it.isNotBlank() },
+                    pdfFilename = obj.optString("pdfFilename").takeIf { it.isNotBlank() },
+                    coverUrl = obj.optString("coverUrl").takeIf { it.isNotBlank() },
+                    coverPath = obj.optString("coverPath").takeIf { it.isNotBlank() },
+                    summarySnippet = obj.optString("summarySnippet").takeIf { it.isNotBlank() },
+                    totalWords = obj.optInt("totalWords", 0),
+                    estimatedMinutes = obj.optInt("estimatedMinutes", 1),
+                    hasSummary = obj.optBoolean("hasSummary", false),
+                    hasFullBook = obj.optBoolean("hasFullBook", false),
+                    hasPdf = obj.optBoolean("hasPdf", false),
+                    slug = obj.optString("slug").takeIf { it.isNotBlank() },
+                    publishedAtIso = obj.optString("publishedAtIso").takeIf { it.isNotBlank() },
+                    localSummaryPath = summaryLocal?.absolutePath,
+                    localFullBookPath = fullLocal?.absolutePath,
+                    localPdfPath = pdfLocal?.absolutePath,
+                    localCoverPath = coverLocal?.absolutePath
+                )
+                list.add(book)
+            }
+            list
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emptyList()
         }
     }
 }

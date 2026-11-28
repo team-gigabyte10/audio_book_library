@@ -24,10 +24,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.ads.AdConfig
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -51,6 +53,20 @@ fun FacebookBannerAd(
     fallback: @Composable (() -> Unit)? = null
 ) {
     if (!AdConfig.isAdsEnabled) {
+        fallback?.invoke()
+        return
+    }
+
+    val context = LocalContext.current
+    val app = context.applicationContext as? BanglaAudiobookApp
+    val isPaid = app?.appPreferences?.let {
+        it.isBundleUnlocked("audiobook_bundle") ||
+        it.isBundleUnlocked("mega_bundle") ||
+        it.isAdmin.value ||
+        it.userStatus.value == "active"
+    } ?: false
+
+    if (isPaid) {
         fallback?.invoke()
         return
     }

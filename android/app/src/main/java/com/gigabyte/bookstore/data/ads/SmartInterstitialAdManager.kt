@@ -98,7 +98,22 @@ class SmartInterstitialAdManager private constructor(private val context: Contex
             return
         }
 
-        // Safety 2: Cooldown check
+        // Safety 2: Check if user is a paid subscriber or admin (Ad-free experience)
+        val app = activity.applicationContext as? BanglaAudiobookApp
+        val appPrefs = app?.appPreferences
+        val isPaid = appPrefs?.let {
+            it.isBundleUnlocked("audiobook_bundle") ||
+            it.isBundleUnlocked("mega_bundle") ||
+            it.isAdmin.value ||
+            it.userStatus.value == "active"
+        } ?: false
+        if (isPaid) {
+            Log.d(TAG, "Interstitial skipped: User is a paid/premium member.")
+            onAdClosed()
+            return
+        }
+
+        // Safety 3: Cooldown check (3.5 minutes = 210,000 ms)
         val now = System.currentTimeMillis()
         if (now - lastShownTime < MIN_COOLDOWN_MS) {
             Log.d(TAG, "Interstitial skipped: In cooldown period (${(MIN_COOLDOWN_MS - (now - lastShownTime)) / 1000}s remaining).")
@@ -107,15 +122,14 @@ class SmartInterstitialAdManager private constructor(private val context: Contex
             return
         }
 
-        // Safety 3: Action threshold check (unless forced)
-        if (!forceIgnoreCounter && actionCounter < 2) {
-            Log.d(TAG, "Interstitial skipped: Action threshold not reached yet ($actionCounter/2).")
+        // Safety 4: Action threshold check (at least 4 user actions before interstitial)
+        if (!forceIgnoreCounter && actionCounter < 4) {
+            Log.d(TAG, "Interstitial skipped: Action threshold not reached yet ($actionCounter/4).")
             onAdClosed()
             return
         }
 
-        // Safety 4: Do NOT interrupt active audio playback or TTS narration
-        val app = activity.applicationContext as? BanglaAudiobookApp
+        // Safety 5: Do NOT interrupt active audio playback or TTS narration
         val isAudioPlaying = try {
             app?.player?.playbackState?.value?.isPlaying == true ||
                     app?.ttsManager?.isSpeaking?.value == true
