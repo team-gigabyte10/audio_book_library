@@ -354,6 +354,7 @@ fun BookCategoriesScreen(
                                     items(group.books, key = { it.id }) { book ->
                                         CategoryBookCard(
                                             book = book,
+                                            isCategoryFree = viewModel.isCategoryFreeBook(book.id),
                                             isUnlocked = viewModel.isBookUnlocked(book.id),
                                             onClick = { onNavigateToBook(book.id) },
                                             onPlay = { onPlayBook(book.id, 0) }
@@ -690,6 +691,7 @@ private fun CategoryHeaderView(group: BookCategoryGroup) {
 @Composable
 private fun CategoryBookCard(
     book: RemoteBook,
+    isCategoryFree: Boolean = false,
     isUnlocked: Boolean = false,
     onClick: () -> Unit,
     onPlay: () -> Unit,
@@ -724,7 +726,21 @@ private fun CategoryBookCard(
                     modifier = Modifier.fillMaxSize()
                 )
 
-                if (isUnlocked) {
+                if (isCategoryFree) {
+                    Surface(
+                        color = Color(0xFF059669),
+                        shape = RoundedCornerShape(topStart = 14.dp, bottomEnd = 8.dp),
+                        modifier = Modifier.align(Alignment.TopStart)
+                    ) {
+                        Text(
+                            text = "✓ ফ্রি বই",
+                            color = Color.White,
+                            fontSize = 9.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                } else if (isUnlocked) {
                     Surface(
                         color = Color(0xFF10B981),
                         shape = RoundedCornerShape(topStart = 14.dp, bottomEnd = 8.dp),
@@ -737,6 +753,31 @@ private fun CategoryBookCard(
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
                         )
+                    }
+                } else {
+                    Surface(
+                        color = Color(0xFF1E293B).copy(alpha = 0.85f),
+                        shape = RoundedCornerShape(topStart = 14.dp, bottomEnd = 8.dp),
+                        modifier = Modifier.align(Alignment.TopStart)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(horizontal = 5.dp, vertical = 2.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Lock,
+                                contentDescription = null,
+                                tint = GoldenAccent,
+                                modifier = Modifier.size(10.dp)
+                            )
+                            Spacer(modifier = Modifier.width(2.dp))
+                            Text(
+                                text = "লকড",
+                                color = Color.White,
+                                fontSize = 8.5.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
                     }
                 }
             }

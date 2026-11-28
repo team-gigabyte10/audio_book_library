@@ -109,6 +109,7 @@ fun BookDetailsScreen(
     val unlockedModuleUpdates by viewModel.unlockedModuleUpdates.collectAsStateWithLifecycle()
     val unlockedBundles by viewModel.unlockedBundles.collectAsStateWithLifecycle()
     val rewardHours by viewModel.rewardUnlockHours.collectAsStateWithLifecycle()
+    val allowRewardAdUnlock by viewModel.allowBookRewardAdUnlock.collectAsStateWithLifecycle()
 
     val isPdfDownloaded by viewModel.isPdfDownloaded.collectAsStateWithLifecycle()
     val isFullBookDownloaded by viewModel.isFullBookDownloaded.collectAsStateWithLifecycle()
@@ -124,7 +125,10 @@ fun BookDetailsScreen(
     var showPaidOnlyPdfDialog by remember { mutableStateOf(false) }
     var isLoadingRewardAd by remember { mutableStateOf(false) }
 
-    val isBookUnlocked = remember(userStatus, unlockedBundles, unlockedModuleUpdates) {
+    val isCategoryFree = remember(book) {
+        viewModel.isCategoryFreeBook()
+    }
+    val isBookUnlocked = remember(userStatus, unlockedBundles, unlockedModuleUpdates, allowRewardAdUnlock, book) {
         viewModel.isBookUnlockedForReading()
     }
     val isPdfUnlocked = remember(userStatus, unlockedBundles, unlockedModuleUpdates) {
@@ -360,6 +364,36 @@ fun BookDetailsScreen(
                             )
                         }
 
+                        if (isCategoryFree) {
+                            Spacer(modifier = Modifier.height(6.dp))
+                            Surface(
+                                color = Color(0xFF059669).copy(alpha = 0.12f),
+                                shape = RoundedCornerShape(8.dp),
+                                border = BorderStroke(1.dp, Color(0xFF059669).copy(alpha = 0.35f)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.CheckCircle,
+                                        contentDescription = null,
+                                        tint = Color(0xFF059669),
+                                        modifier = Modifier.size(15.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(
+                                        text = "✓ ক্যাটাগরির ফ্রি প্রিভিউ বই: সম্পূর্ণ বইটি ফ্রিতে পড়তে পারবেন!",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = Color(0xFF065F46)
+                                    )
+                                }
+                            }
+                        }
+
                         Spacer(modifier = Modifier.height(10.dp))
 
                         // Full Book Reading & PDF Document
@@ -413,7 +447,7 @@ fun BookDetailsScreen(
                                     )
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text(
-                                        text = if (isBookUnlocked) "সম্পূর্ণ বই পড়ুন" else "সম্পূর্ণ বই (বিজ্ঞাপন/পেইড)",
+                                        text = if (isBookUnlocked) "সম্পূর্ণ বই পড়ুন" else if (allowRewardAdUnlock) "সম্পূর্ণ বই (বিজ্ঞাপন/পেইড)" else "সম্পূর্ণ বই (শুধুমাত্র পেইড)",
                                         fontSize = 12.sp,
                                         maxLines = 1,
                                         softWrap = false
@@ -529,6 +563,7 @@ fun BookDetailsScreen(
             bookTitle = currentBook.title,
             bookAuthor = currentBook.author,
             isLoadingAd = isLoadingRewardAd,
+            allowRewardAd = allowRewardAdUnlock,
             rewardHours = rewardHours,
             bundlePrice = pricingConfig.getPackagePrice("audiobook_bundle"),
             onWatchAdClick = {

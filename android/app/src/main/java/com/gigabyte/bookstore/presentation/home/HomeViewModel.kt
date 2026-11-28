@@ -155,6 +155,31 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     val userRepository = com.gigabyte.bookstore.data.repository.UserRepository(application, app.appPreferences)
 
+    val bookUnlockPolicy: StateFlow<String> = app.appPreferences.bookUnlockMode
+    val allowBookRewardAdUnlock: StateFlow<Boolean> = app.appPreferences.allowBookRewardAdUnlock
+    val freeBooksPerCategoryCount: StateFlow<Int> = app.appPreferences.freeBooksPerCategoryCount
+    val bookRewardUnlockHours: StateFlow<Int> = app.appPreferences.bookRewardUnlockHours
+
+    fun updateBookUnlockPolicy(
+        unlockMode: String,
+        allowRewardedAdUnlock: Boolean,
+        freeBooksPerCategoryCount: Int,
+        rewardUnlockHours: Int,
+        onComplete: (Boolean, String?) -> Unit
+    ) {
+        viewModelScope.launch {
+            val adminEmail = app.appPreferences.userEmail.value
+            val res = app.userRepository.updateBookUnlockPolicy(
+                unlockMode = unlockMode,
+                allowRewardedAdUnlock = allowRewardedAdUnlock,
+                rewardUnlockHours = rewardUnlockHours,
+                freeBooksPerCategoryCount = freeBooksPerCategoryCount,
+                adminEmail = adminEmail
+            )
+            onComplete(res.isSuccess, res.exceptionOrNull()?.localizedMessage)
+        }
+    }
+
     fun updateUserProfile(
         name: String,
         institute: String,
@@ -169,7 +194,21 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun isBundleUnlocked(bundleId: String): Boolean = app.appPreferences.isBundleUnlocked(bundleId)
-    fun isBookUnlocked(bookId: String): Boolean = app.appPreferences.isBookUnlockedForReading(bookId)
+
+    fun isCategoryFreeBook(bookId: String): Boolean {
+        val allBooks = app.syncManager.cachedBooks.value
+        val thisBook = allBooks.find { it.id == bookId || it.slug == bookId } ?: return false
+        val catName = thisBook.category?.trim().takeIf { !it.isNullOrBlank() } ?: "আত্মউন্নয়ন ও ক্লাসিক"
+        val booksInSameCategory = allBooks.filter {
+            val c = it.category?.trim().takeIf { !it.isNullOrBlank() } ?: "আত্মউন্নয়ন ও ক্লাসিক"
+            c.equals(catName, ignoreCase = true)
+        }
+        val freeCount = app.appPreferences.getFreeBooksPerCategoryCount().coerceAtLeast(1)
+        val idx = booksInSameCategory.indexOfFirst { it.id == thisBook.id || it.slug == thisBook.slug }
+        return idx != -1 && idx < freeCount
+    }
+
+    fun isBookUnlocked(bookId: String): Boolean = app.appPreferences.isBookUnlockedForReading(bookId, isCategoryFreeBook(bookId))
 
     fun playCourseLesson(course: Course, lesson: CourseLesson) {
         val markdown = lesson.content.ifBlank {

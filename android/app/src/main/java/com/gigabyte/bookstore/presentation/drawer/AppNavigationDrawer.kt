@@ -52,6 +52,7 @@ fun AppDrawerContent(
     onPaymentClick: () -> Unit,
     onApprovePaymentsClick: () -> Unit,
     onManageNoticesClick: (() -> Unit)? = null,
+    onManageBookPolicyClick: (() -> Unit)? = null,
     onReferralClick: () -> Unit,
     onReferAndEarnClick: (() -> Unit)? = null,
     onCommunicationSkillsClick: (() -> Unit)? = null,
@@ -361,6 +362,13 @@ fun AppDrawerContent(
                         title = "পেমেন্ট অনুমোদন (Approve Payments)",
                         onClick = onApprovePaymentsClick
                     )
+                    if (onManageBookPolicyClick != null) {
+                        DrawerMenuItem(
+                            icon = Icons.Default.LockReset,
+                            title = "বই আনলক পলিসি (Book Unlock Policy)",
+                            onClick = { onManageBookPolicyClick.invoke() }
+                        )
+                    }
                 }
 
                 DrawerMenuItem(

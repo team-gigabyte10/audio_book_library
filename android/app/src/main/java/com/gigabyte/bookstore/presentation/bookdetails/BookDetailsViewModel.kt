@@ -52,9 +52,25 @@ class BookDetailsViewModel(
     val bookmarkedBookIds: StateFlow<Set<String>> = appPreferences.bookmarkedBookIds
     val unlockedModuleUpdates: StateFlow<Long> = appPreferences.unlockedModuleUpdates
     val unlockedBundles: StateFlow<Set<String>> = appPreferences.unlockedBundles
-    val rewardUnlockHours: StateFlow<Int> = appPreferences.rewardUnlockHours
+    val rewardUnlockHours: StateFlow<Int> = appPreferences.bookRewardUnlockHours
+    val allowBookRewardAdUnlock: StateFlow<Boolean> = appPreferences.allowBookRewardAdUnlock
+    val bookUnlockMode: StateFlow<String> = appPreferences.bookUnlockMode
 
-    fun isBookUnlockedForReading(): Boolean = appPreferences.isBookUnlockedForReading(bookId)
+    fun isCategoryFreeBook(): Boolean {
+        val allBooks = syncManager.cachedBooks.value
+        val thisBook = allBooks.find { it.id == bookId || it.slug == bookId } ?: return false
+        val catName = thisBook.category?.trim().takeIf { !it.isNullOrBlank() } ?: "আত্মউন্নয়ন ও ক্লাসিক"
+        val booksInSameCategory = allBooks.filter {
+            val c = it.category?.trim().takeIf { !it.isNullOrBlank() } ?: "আত্মউন্নয়ন ও ক্লাসিক"
+            c.equals(catName, ignoreCase = true)
+        }
+        val freeCount = appPreferences.getFreeBooksPerCategoryCount().coerceAtLeast(1)
+        val idx = booksInSameCategory.indexOfFirst { it.id == thisBook.id || it.slug == thisBook.slug }
+        return idx != -1 && idx < freeCount
+    }
+
+    fun isBookUnlockedForReading(): Boolean = appPreferences.isBookUnlockedForReading(bookId, isCategoryFreeBook())
+    fun isRewardAdUnlockAllowed(): Boolean = appPreferences.isBookRewardAdUnlockAllowed()
     fun isPdfUnlocked(): Boolean = appPreferences.isPdfUnlocked(bookId)
     fun getBookRemainingMillis(): Long = appPreferences.getBookRemainingMillis(bookId)
     fun unlockBookFor24Hours() = appPreferences.unlockBookFor24Hours(bookId)

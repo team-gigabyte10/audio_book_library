@@ -166,8 +166,25 @@ class BookCategoriesViewModel(application: Application) : AndroidViewModel(appli
     }
 
     val unlockedModuleUpdates: StateFlow<Long> = app.appPreferences.unlockedModuleUpdates
+    val freeBooksPerCategoryCount: StateFlow<Int> = app.appPreferences.freeBooksPerCategoryCount
+    val allowBookRewardAdUnlock: StateFlow<Boolean> = app.appPreferences.allowBookRewardAdUnlock
 
-    fun isBookUnlocked(bookId: String): Boolean = app.appPreferences.isBookUnlockedForReading(bookId)
+    fun isCategoryFreeBook(bookId: String): Boolean {
+        val freeCount = app.appPreferences.getFreeBooksPerCategoryCount().coerceAtLeast(1)
+        val groups = _uiState.value.categoryGroups
+        for (group in groups) {
+            val idx = group.books.indexOfFirst { it.id == bookId }
+            if (idx != -1) {
+                return idx < freeCount
+            }
+        }
+        return false
+    }
+
+    fun isBookUnlocked(bookId: String): Boolean {
+        val isCatFree = isCategoryFreeBook(bookId)
+        return app.appPreferences.isBookUnlockedForReading(bookId, isCatFree)
+    }
 
     fun updateSearchQuery(query: String) {
         _searchQuery.value = query

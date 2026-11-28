@@ -111,6 +111,13 @@ class BanglaAudiobookApp : Application() {
             android.util.Log.e("BanglaAudiobookApp", "Failed to start listening to course policy", e)
         }
 
+        // Listen to dynamic Book Unlock Policy from Firebase Firestore
+        try {
+            userRepository.listenBookUnlockPolicy()
+        } catch (e: Exception) {
+            android.util.Log.e("BanglaAudiobookApp", "Failed to start listening to book policy", e)
+        }
+
         // Listen to dynamic pricing & referral bonuses from Firebase Firestore
         try {
             userRepository.listenAppPricingConfig()

@@ -84,6 +84,7 @@ import com.gigabyte.bookstore.presentation.components.ExitConfirmationDialog
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
+import com.gigabyte.bookstore.presentation.drawer.BookUnlockPolicyDialog
 import com.gigabyte.bookstore.presentation.drawer.NoticeManagementDialog
 import com.gigabyte.bookstore.presentation.home.components.HomeNoticeMarqueeBar
 import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
@@ -147,6 +148,7 @@ fun HomeScreen(
     val activeNotice by viewModel.activeNotice.collectAsStateWithLifecycle()
 
     var showNoticeManagementDialog by remember { mutableStateOf(false) }
+    var showBookPolicyDialog by remember { mutableStateOf(false) }
 
     val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("audiobook_bundle")
@@ -249,6 +251,10 @@ fun HomeScreen(
                 onManageNoticesClick = {
                     scope.launch { drawerState.close() }
                     showNoticeManagementDialog = true
+                },
+                onManageBookPolicyClick = {
+                    scope.launch { drawerState.close() }
+                    showBookPolicyDialog = true
                 },
                 onReferAndEarnClick = {
                     scope.launch { drawerState.close() }
@@ -782,6 +788,14 @@ fun HomeScreen(
         NoticeManagementDialog(
             viewModel = viewModel,
             onDismiss = { showNoticeManagementDialog = false }
+        )
+    }
+
+    // Book Unlock Policy Dialog (Admin)
+    if (showBookPolicyDialog) {
+        BookUnlockPolicyDialog(
+            viewModel = viewModel,
+            onDismiss = { showBookPolicyDialog = false }
         )
     }
 

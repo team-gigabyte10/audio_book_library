@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
 import com.gigabyte.bookstore.data.models.AppPricingConfig
+import com.gigabyte.bookstore.data.models.BookUnlockPolicy
 import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 import com.google.firebase.firestore.ListenerRegistration
 import com.gigabyte.bookstore.data.models.PaymentRequest
@@ -1299,6 +1300,7 @@ class UserRepository(
     }
 
     private var policyListenerRegistration: ListenerRegistration? = null
+    private var bookPolicyListenerRegistration: ListenerRegistration? = null
     private var pricingListenerRegistration: ListenerRegistration? = null
 
     /**
@@ -1535,6 +1537,111 @@ class UserRepository(
                 updatedBy = adminEmail
             )
             appPreferences.saveCourseUnlockPolicy(policy)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Starts listening to real-time changes of the Book Unlock Policy from Firebase Firestore (settings/book_config).
+     * Automatically keeps AppPreferences in sync.
+     */
+    fun listenBookUnlockPolicy() {
+        if (bookPolicyListenerRegistration != null) return
+        try {
+            val docRef = firestore.collection("settings").document("book_config")
+            bookPolicyListenerRegistration = docRef.addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    android.util.Log.w("UserRepository", "Error listening to book_config", error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+                    val mode = snapshot.getString("unlockMode") ?: BookUnlockPolicy.MODE_AD_AND_PAID
+                    val allowAds = snapshot.getBoolean("allowRewardedAdUnlock") ?: true
+                    val hours = snapshot.getLong("rewardUnlockHours")?.toInt() ?: 24
+                    val freeCount = snapshot.getLong("freeBooksPerCategoryCount")?.toInt() ?: 1
+                    val policy = BookUnlockPolicy(
+                        unlockMode = mode,
+                        allowRewardedAdUnlock = allowAds,
+                        rewardUnlockHours = hours,
+                        freeBooksPerCategoryCount = freeCount,
+                        updatedAt = snapshot.getString("updatedAt") ?: "",
+                        updatedBy = snapshot.getString("updatedBy") ?: ""
+                    )
+                    appPreferences.saveBookUnlockPolicy(policy)
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "Failed to attach book_config listener", e)
+        }
+    }
+
+    fun stopListeningBookUnlockPolicy() {
+        bookPolicyListenerRegistration?.remove()
+        bookPolicyListenerRegistration = null
+    }
+
+    /**
+     * Fetches current Book Unlock Policy from Firebase Firestore (settings/book_config).
+     */
+    suspend fun fetchBookUnlockPolicy(): BookUnlockPolicy = withContext(Dispatchers.IO) {
+        try {
+            val doc = firestore.collection("settings").document("book_config").get().await()
+            if (doc.exists()) {
+                val mode = doc.getString("unlockMode") ?: BookUnlockPolicy.MODE_AD_AND_PAID
+                val allowAds = doc.getBoolean("allowRewardedAdUnlock") ?: true
+                val hours = doc.getLong("rewardUnlockHours")?.toInt() ?: 24
+                val freeCount = doc.getLong("freeBooksPerCategoryCount")?.toInt() ?: 1
+                val policy = BookUnlockPolicy(
+                    unlockMode = mode,
+                    allowRewardedAdUnlock = allowAds,
+                    rewardUnlockHours = hours,
+                    freeBooksPerCategoryCount = freeCount,
+                    updatedAt = doc.getString("updatedAt") ?: "",
+                    updatedBy = doc.getString("updatedBy") ?: ""
+                )
+                appPreferences.saveBookUnlockPolicy(policy)
+                return@withContext policy
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "fetchBookUnlockPolicy error", e)
+        }
+        return@withContext appPreferences.getBookUnlockPolicy()
+    }
+
+    /**
+     * Updates the Book Unlock Policy in Firebase Firestore (settings/book_config).
+     * Admin only.
+     */
+    suspend fun updateBookUnlockPolicy(
+        unlockMode: String,
+        allowRewardedAdUnlock: Boolean,
+        rewardUnlockHours: Int = 24,
+        freeBooksPerCategoryCount: Int = 1,
+        adminEmail: String = ""
+    ): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val currentDate = User.getCurrentFormattedDate()
+            val data = mapOf(
+                "unlockMode" to unlockMode,
+                "allowRewardedAdUnlock" to allowRewardedAdUnlock,
+                "rewardUnlockHours" to rewardUnlockHours,
+                "freeBooksPerCategoryCount" to freeBooksPerCategoryCount,
+                "updatedAt" to currentDate,
+                "updatedBy" to adminEmail.trim().lowercase()
+            )
+            firestore.collection("settings").document("book_config").set(data).await()
+
+            val policy = BookUnlockPolicy(
+                unlockMode = unlockMode,
+                allowRewardedAdUnlock = allowRewardedAdUnlock,
+                rewardUnlockHours = rewardUnlockHours,
+                freeBooksPerCategoryCount = freeBooksPerCategoryCount,
+                updatedAt = currentDate,
+                updatedBy = adminEmail
+            )
+            appPreferences.saveBookUnlockPolicy(policy)
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)

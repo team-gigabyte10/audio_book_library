@@ -21,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.Button
@@ -58,6 +59,7 @@ fun BookUnlockDialog(
     bookTitle: String,
     bookAuthor: String? = null,
     isLoadingAd: Boolean = false,
+    allowRewardAd: Boolean = true,
     rewardHours: Int = 24,
     bundlePrice: Double = 100.0,
     onWatchAdClick: () -> Unit,
@@ -115,13 +117,13 @@ fun BookUnlockDialog(
                     contentAlignment = Alignment.Center
                 ) {
                     Surface(
-                        color = Color(0xFF0D9488),
+                        color = if (allowRewardAd) Color(0xFF0D9488) else Color(0xFFB45309),
                         shape = CircleShape,
                         modifier = Modifier.size(52.dp)
                     ) {
                         Box(contentAlignment = Alignment.Center) {
                             Icon(
-                                imageVector = Icons.Default.AutoStories,
+                                imageVector = if (allowRewardAd) Icons.Default.AutoStories else Icons.Default.Lock,
                                 contentDescription = null,
                                 tint = Color.White,
                                 modifier = Modifier.size(28.dp)
@@ -134,7 +136,7 @@ fun BookUnlockDialog(
 
                 // Title
                 Text(
-                    text = "বইটি আনলক করুন",
+                    text = if (allowRewardAd) "বইটি আনলক করুন" else "শুধুমাত্র পেইড মেম্বারদের জন্য",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface
@@ -175,7 +177,11 @@ fun BookUnlockDialog(
 
                 // Explain text
                 Text(
-                    text = "একটি ছোট বিজ্ঞাপন দেখে পরবর্তী ${rewardHours} ঘণ্টার জন্য সম্পূর্ণ বইটি বিনামূল্যে পড়ুন অথবা সকল বই আজীবনের জন্য আনলক করতে বান্ডেল কিনুন।",
+                    text = if (allowRewardAd) {
+                        "একটি ছোট বিজ্ঞাপন দেখে পরবর্তী ${rewardHours} ঘণ্টার জন্য সম্পূর্ণ বইটি বিনামূল্যে পড়ুন অথবা সকল বই আজীবনের জন্য আনলক করতে বান্ডেল কিনুন।"
+                    } else {
+                        "বিজ্ঞাপন দেখে সাময়িক আনলক বর্তমানে অ্যাডমিন কর্তৃক বন্ধ রাখা হয়েছে। সম্পূর্ণ বই পড়তে এবং আনলিমিটেড লাইব্রেরি অ্যাক্সেস পেতে অনুগ্রহ করে অডিওবুক বান্ডেল সাবস্ক্রাইব করুন।"
+                    },
                     fontSize = 13.sp,
                     lineHeight = 19.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -194,82 +200,117 @@ fun BookUnlockDialog(
                         modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
                         verticalArrangement = Arrangement.spacedBy(6.dp)
                     ) {
-                        BookBenefitRow("সম্পূর্ণ বই পড়তে পারবেন (${rewardHours} ঘণ্টা ফ্রি)")
-                        BookBenefitRow("বাংলা অডিও ও রিডার সিনক্রোনাইজেশন")
-                        BookBenefitRow("পিডিএফ ডকুমেন্ট ডাউনলোড ও পড়ার সুবিধা")
+                        if (allowRewardAd) {
+                            BookBenefitRow("সম্পূর্ণ বই পড়তে পারবেন (${rewardHours} ঘণ্টা ফ্রি)")
+                            BookBenefitRow("বাংলা অডিও ও রিডার সিনক্রোনাইজেশন")
+                            BookBenefitRow("পিডিএফ ডকুমেন্ট ডাউনলোড ও পড়ার সুবিধা")
+                        } else {
+                            BookBenefitRow("সকল প্রিমিয়াম বই পড়ার আজীবন আনলিমিটেড অ্যাক্সেস")
+                            BookBenefitRow("বাংলা অডিও ও রিডার সিনক্রোনাইজেশন")
+                            BookBenefitRow("ড্রাইভ পিডিএফ পড়া ও ডাউনলোডের সুবিধা")
+                        }
                     }
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // Button 1: Watch Ad (Primary CTA)
-                Button(
-                    onClick = onWatchAdClick,
-                    enabled = !isLoadingAd,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = 50.dp),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF0D9488)
-                    ),
-                    elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
-                ) {
-                    if (isLoadingAd) {
-                        CircularProgressIndicator(
-                            color = Color.White,
-                            modifier = Modifier.size(20.dp),
-                            strokeWidth = 2.dp
+                if (allowRewardAd) {
+                    // Button 1: Watch Ad (Primary CTA)
+                    Button(
+                        onClick = onWatchAdClick,
+                        enabled = !isLoadingAd,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 50.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF0D9488)
+                        ),
+                        elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
+                    ) {
+                        if (isLoadingAd) {
+                            CircularProgressIndicator(
+                                color = Color.White,
+                                modifier = Modifier.size(20.dp),
+                                strokeWidth = 2.dp
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "বিজ্ঞাপন লোড হচ্ছে...",
+                                color = Color.White,
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.PlayCircle,
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "বিজ্ঞাপন দেখে পড়ুন (${rewardHours} ঘণ্টা ফ্রি)",
+                                color = Color.White,
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    // Button 2: Buy Bundle
+                    OutlinedButton(
+                        onClick = onBuyBundleClick,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 46.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        border = BorderStroke(1.dp, GoldenAccent),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = GoldenAccent
+                        )
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.WorkspacePremium,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "বিজ্ঞাপন লোড হচ্ছে...",
-                            color = Color.White,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.SemiBold
+                            text = "সকল বই আনলক করুন (৳${bundlePrice.toInt()})",
+                            fontSize = 13.5.sp,
+                            fontWeight = FontWeight.Bold
                         )
-                    } else {
+                    }
+                } else {
+                    // Paid only primary button
+                    Button(
+                        onClick = onBuyBundleClick,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 50.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = GoldenAccent
+                        ),
+                        elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
+                    ) {
                         Icon(
-                            imageVector = Icons.Default.PlayCircle,
+                            imageVector = Icons.Default.WorkspacePremium,
                             contentDescription = null,
-                            tint = Color.White,
+                            tint = Color.Black,
                             modifier = Modifier.size(20.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "বিজ্ঞাপন দেখে পড়ুন (${rewardHours} ঘণ্টা ফ্রি)",
-                            color = Color.White,
+                            text = "আনলিমিটেড অ্যাক্সেস পেতে সাবস্ক্রাইব করুন (৳${bundlePrice.toInt()})",
+                            color = Color.Black,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
-                }
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                // Button 2: Buy Bundle
-                OutlinedButton(
-                    onClick = onBuyBundleClick,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = 46.dp),
-                    shape = RoundedCornerShape(14.dp),
-                    border = BorderStroke(1.dp, GoldenAccent),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = GoldenAccent
-                    )
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.WorkspacePremium,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "সকল বই আনলক করুন (৳${bundlePrice.toInt()})",
-                        fontSize = 13.5.sp,
-                        fontWeight = FontWeight.Bold
-                    )
                 }
 
                 Spacer(modifier = Modifier.height(6.dp))

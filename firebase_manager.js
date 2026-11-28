@@ -51,6 +51,33 @@ async function getPolicy() {
   }
 }
 
+async function getBookPolicy() {
+  const ref = doc(db, 'settings', 'book_config');
+  const snap = await getDoc(ref);
+  if (!snap.exists()) {
+    console.log('❌ settings/book_config does not exist yet.');
+  } else {
+    console.log('✅ settings/book_config:', JSON.stringify(snap.data(), null, 2));
+  }
+}
+
+async function setBookPolicy(mode = 'ad_and_paid', freeCount = 1, hours = 24, adminEmail = 'admin@audiobook.com') {
+  const isPaidOnly = mode.toLowerCase() === 'paid_only';
+  const data = {
+    unlockMode: isPaidOnly ? 'paid_only' : 'ad_and_paid',
+    allowRewardedAdUnlock: !isPaidOnly,
+    rewardUnlockHours: parseInt(hours, 10) || 24,
+    freeBooksPerCategoryCount: parseInt(freeCount, 10) || 1,
+    updatedAt: getCurrentFormattedDate(),
+    updatedBy: adminEmail
+  };
+
+  const ref = doc(db, 'settings', 'book_config');
+  await setDoc(ref, data, { merge: true });
+  console.log(`✅ Book Unlock Policy updated successfully to: ${data.unlockMode}`);
+  console.log(JSON.stringify(data, null, 2));
+}
+
 async function getPricing() {
   const ref = doc(db, 'settings', 'pricing');
   const snap = await getDoc(ref);
@@ -203,7 +230,7 @@ async function setTrial(email) {
 }
 
 async function main() {
-  const [,, cmd, arg1, arg2, arg3] = process.argv;
+  const [,, cmd, arg1, arg2, arg3, arg4] = process.argv;
   try {
     switch (cmd) {
       case 'init-policy':
@@ -214,6 +241,12 @@ async function main() {
         break;
       case 'get-policy':
         await getPolicy();
+        break;
+      case 'get-book-policy':
+        await getBookPolicy();
+        break;
+      case 'set-book-policy':
+        await setBookPolicy(arg1 || 'ad_and_paid', arg2 || 1, arg3 || 24, arg4 || 'admin@audiobook.com');
         break;
       case 'get-pricing':
         await getPricing();

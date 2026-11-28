@@ -1,6 +1,7 @@
 package com.gigabyte.bookstore.data.preferences
 
 import com.gigabyte.bookstore.data.models.AppPricingConfig
+import com.gigabyte.bookstore.data.models.BookUnlockPolicy
 import com.gigabyte.bookstore.data.models.CourseUnlockPolicy
 
 import android.content.Context
@@ -219,6 +220,10 @@ class AppPreferences(context: Context) {
         private const val KEY_COURSE_UNLOCK_MODE = "course_unlock_mode"
         private const val KEY_ALLOW_REWARD_AD_UNLOCK = "allow_reward_ad_unlock"
         private const val KEY_REWARD_UNLOCK_HOURS = "reward_unlock_hours"
+        private const val KEY_BOOK_UNLOCK_MODE = "book_unlock_mode"
+        private const val KEY_ALLOW_BOOK_REWARD_AD_UNLOCK = "allow_book_reward_ad_unlock"
+        private const val KEY_BOOK_REWARD_UNLOCK_HOURS = "book_reward_unlock_hours"
+        private const val KEY_FREE_BOOKS_PER_CATEGORY_COUNT = "free_books_per_category_count"
         private const val KEY_PRICE_MEGA_BUNDLE = "price_mega_bundle"
         private const val KEY_PRICE_SINGLE_COURSE = "price_single_course"
         private const val KEY_BONUS_BUNDLE_REFERRAL = "bonus_bundle_referral"
@@ -388,6 +393,58 @@ class AppPreferences(context: Context) {
     }
 
     // -------------------------------------------------------------
+    // Book Unlock Policy (Controlled via Firebase Firestore settings/book_config)
+    // -------------------------------------------------------------
+    private val _bookUnlockMode = MutableStateFlow(
+        prefs.getString(KEY_BOOK_UNLOCK_MODE, BookUnlockPolicy.MODE_AD_AND_PAID) ?: BookUnlockPolicy.MODE_AD_AND_PAID
+    )
+    val bookUnlockMode: StateFlow<String> = _bookUnlockMode.asStateFlow()
+
+    private val _allowBookRewardAdUnlock = MutableStateFlow(
+        prefs.getBoolean(KEY_ALLOW_BOOK_REWARD_AD_UNLOCK, true)
+    )
+    val allowBookRewardAdUnlock: StateFlow<Boolean> = _allowBookRewardAdUnlock.asStateFlow()
+
+    private val _bookRewardUnlockHours = MutableStateFlow(
+        prefs.getInt(KEY_BOOK_REWARD_UNLOCK_HOURS, 24)
+    )
+    val bookRewardUnlockHours: StateFlow<Int> = _bookRewardUnlockHours.asStateFlow()
+
+    private val _freeBooksPerCategoryCount = MutableStateFlow(
+        prefs.getInt(KEY_FREE_BOOKS_PER_CATEGORY_COUNT, 1)
+    )
+    val freeBooksPerCategoryCount: StateFlow<Int> = _freeBooksPerCategoryCount.asStateFlow()
+
+    fun isBookRewardAdUnlockAllowed(): Boolean {
+        return _allowBookRewardAdUnlock.value && !_bookUnlockMode.value.equals(BookUnlockPolicy.MODE_PAID_ONLY, ignoreCase = true)
+    }
+
+    fun getFreeBooksPerCategoryCount(): Int = _freeBooksPerCategoryCount.value
+
+    fun getBookUnlockPolicy(): BookUnlockPolicy {
+        return BookUnlockPolicy(
+            unlockMode = _bookUnlockMode.value,
+            allowRewardedAdUnlock = _allowBookRewardAdUnlock.value,
+            rewardUnlockHours = _bookRewardUnlockHours.value,
+            freeBooksPerCategoryCount = _freeBooksPerCategoryCount.value
+        )
+    }
+
+    fun saveBookUnlockPolicy(policy: BookUnlockPolicy) {
+        prefs.edit()
+            .putString(KEY_BOOK_UNLOCK_MODE, policy.unlockMode)
+            .putBoolean(KEY_ALLOW_BOOK_REWARD_AD_UNLOCK, policy.allowRewardedAdUnlock)
+            .putInt(KEY_BOOK_REWARD_UNLOCK_HOURS, policy.rewardUnlockHours)
+            .putInt(KEY_FREE_BOOKS_PER_CATEGORY_COUNT, policy.freeBooksPerCategoryCount)
+            .apply()
+        _bookUnlockMode.value = policy.unlockMode
+        _allowBookRewardAdUnlock.value = policy.allowRewardedAdUnlock
+        _bookRewardUnlockHours.value = policy.rewardUnlockHours
+        _freeBooksPerCategoryCount.value = policy.freeBooksPerCategoryCount
+        _unlockedModuleUpdates.value = System.currentTimeMillis()
+    }
+
+    // -------------------------------------------------------------
     // App Pricing & Referral Bonuses (Controlled via Firebase Firestore)
     // -------------------------------------------------------------
     private val _pricingConfig = MutableStateFlow(
@@ -491,14 +548,18 @@ class AppPreferences(context: Context) {
         _unlockedModuleUpdates.value = System.currentTimeMillis()
     }
 
-    fun isBookUnlockedForReading(bookId: String): Boolean {
+    fun isBookUnlockedForReading(bookId: String, isCategoryFree: Boolean = false): Boolean {
         if (_isAdmin.value) return true
         if (_unlockedBundles.value.contains("mega_bundle")) return true
         if (_unlockedBundles.value.contains("audiobook_bundle")) return true
         if (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true)) return true
+        if (isCategoryFree) return true
 
-        val remaining = getBookRemainingMillis(bookId)
-        return remaining > 0L
+        if (isBookRewardAdUnlockAllowed()) {
+            val remaining = getBookRemainingMillis(bookId)
+            if (remaining > 0L) return true
+        }
+        return false
     }
 
     /**
@@ -514,9 +575,10 @@ class AppPreferences(context: Context) {
     }
 
     fun getBookRemainingMillis(bookId: String): Long {
+        if (!isBookRewardAdUnlockAllowed()) return 0L
         val unlockedAt = prefs.getLong("unlocked_book_ts_$bookId", 0L)
         if (unlockedAt <= 0L) return 0L
-        val durationMs = (_rewardUnlockHours.value.toLong().coerceAtLeast(1L)) * 60 * 60 * 1000L
+        val durationMs = (_bookRewardUnlockHours.value.toLong().coerceAtLeast(1L)) * 60 * 60 * 1000L
         val remaining = durationMs - (System.currentTimeMillis() - unlockedAt)
         return if (remaining > 0L) remaining else 0L
     }
