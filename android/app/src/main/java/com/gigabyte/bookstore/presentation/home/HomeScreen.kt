@@ -125,6 +125,7 @@ fun HomeScreen(
     onNavigateToTranslator: () -> Unit = {},
     onNavigateToLastRead: () -> Unit = {},
     onNavigateToHashirGolpo: () -> Unit = {},
+    onNavigateToMotivationalStories: () -> Unit = {},
     onLogout: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
@@ -404,6 +405,26 @@ fun HomeScreen(
                                 statsText = "📖 ৫০টি মজার হাসির গল্প · অডিও + টেক্সট",
                                 ctaText = "গল্পগুলো পড়ুন ও শুনুন",
                                 onClick = { onNavigateToHashirGolpo() },
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            )
+                        }
+
+                        // 0.6 🔥 "অনুপ্রেরণার গল্প" SHOWCASE CARD
+                        item {
+                            Spacer(modifier = Modifier.height(14.dp))
+                            HomeShowcaseCard(
+                                title = "অনুপ্রেরণার গল্প সংকলন",
+                                subtitle = "ব্যর্থতা জয়, অদম্য ইচ্ছাশক্তি, দারিদ্র্য জয় ও কখনো হাল না ছাড়ার সেরা ৫০টি গল্প",
+                                badgeText = "🔥 অনুপ্রেরণার গল্প (৫০টি গল্প)",
+                                badgeColor = Color(0xFFF97316),
+                                priceText = "ফ্রি সংকলন",
+                                isPurchased = true,
+                                imageUrl = null,
+                                country = CourseCountry.BUNDLE,
+                                accentColor = Color(0xFFF97316),
+                                statsText = "🔥 ৫০টি অনুপ্রেরণামূলক গল্প · অডিও + টেক্সট",
+                                ctaText = "গল্পগুলো পড়ুন ও শুনুন",
+                                onClick = { onNavigateToMotivationalStories() },
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                         }

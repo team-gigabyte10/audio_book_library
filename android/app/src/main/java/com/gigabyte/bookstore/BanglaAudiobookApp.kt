@@ -7,6 +7,7 @@ import com.gigabyte.bookstore.data.local.AudiobookDatabase
 import com.gigabyte.bookstore.data.preferences.AppPreferences
 import com.gigabyte.bookstore.data.repository.AudiobookRepository
 import com.gigabyte.bookstore.data.repository.HashirGolpoRepository
+import com.gigabyte.bookstore.data.repository.MotivationalStoryRepository
 import com.gigabyte.bookstore.data.repository.UserRepository
 import com.gigabyte.bookstore.data.repository.BookSyncManager
 import com.gigabyte.bookstore.domain.player.AudiobookPlayer
@@ -53,6 +54,10 @@ class BanglaAudiobookApp : Application() {
 
     val hashirGolpoRepository: HashirGolpoRepository by lazy {
         HashirGolpoRepository(this)
+    }
+
+    val motivationalStoryRepository: MotivationalStoryRepository by lazy {
+        MotivationalStoryRepository(this)
     }
 
     val appOpenAdManager: AppOpenAdManager by lazy {

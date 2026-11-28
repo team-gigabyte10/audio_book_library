@@ -69,6 +69,8 @@ import com.gigabyte.bookstore.presentation.lastread.LastReadScreen
 import com.gigabyte.bookstore.presentation.lastread.LastReadViewModel
 import com.gigabyte.bookstore.presentation.story.HashirGolpoScreen
 import com.gigabyte.bookstore.presentation.story.HashirGolpoViewModel
+import com.gigabyte.bookstore.presentation.story.MotivationalStoryScreen
+import com.gigabyte.bookstore.presentation.story.MotivationalStoryViewModel
 
 @Composable
 
@@ -236,6 +238,9 @@ fun AppNavHost(
                 },
                 onNavigateToHashirGolpo = {
                     navController.navigate(Screen.HashirGolpo.route)
+                },
+                onNavigateToMotivationalStories = {
+                    navController.navigate(Screen.MotivationalStories.route)
                 },
                 onLogout = { logout(application, navController) }
             )
@@ -803,6 +808,17 @@ fun AppNavHost(
             })
             HashirGolpoScreen(
                 viewModel = hashirGolpoViewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        // 14. Motivational Stories Screen (50 Heart-touching Motivational Stories & TTS Audio Reader)
+        composable(Screen.MotivationalStories.route) {
+            val motivationalStoryViewModel: MotivationalStoryViewModel = viewModel(factory = SimpleViewModelFactory {
+                MotivationalStoryViewModel(application)
+            })
+            MotivationalStoryScreen(
+                viewModel = motivationalStoryViewModel,
                 onBackClick = { navController.popBackStack() }
             )
         }

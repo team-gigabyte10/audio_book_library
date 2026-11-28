@@ -69,5 +69,6 @@ sealed class Screen(val route: String) {
     }
     object LastRead : Screen("last-read")
     object HashirGolpo : Screen("hashir_golpo")
+    object MotivationalStories : Screen("motivational_stories")
 }
 
