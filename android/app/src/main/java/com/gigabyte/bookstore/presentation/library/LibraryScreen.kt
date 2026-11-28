@@ -722,7 +722,7 @@ fun BookGridItemCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            // Book Cover Image with overlay Play Button
+            // Book Cover Image
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -736,25 +736,6 @@ fun BookGridItemCard(
                     cornerRadius = 0.dp,
                     elevation = 0.dp
                 )
-
-                // Floating Play Button
-                IconButton(
-                    onClick = onPlayClick,
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(8.dp)
-                        .size(38.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primary)
-                        .testTag("play_book_${book.id}")
-                ) {
-                    Icon(
-                        imageVector = if (isPlaying) Icons.Default.Headphones else Icons.Default.PlayArrow,
-                        contentDescription = "শুনুন",
-                        tint = MaterialTheme.colorScheme.onPrimary,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
             }
 
             // Info & Actions Section

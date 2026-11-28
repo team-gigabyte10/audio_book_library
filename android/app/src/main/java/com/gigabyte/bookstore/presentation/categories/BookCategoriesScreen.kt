@@ -739,24 +739,6 @@ private fun CategoryBookCard(
                         )
                     }
                 }
-
-                // Play Button overlay
-                IconButton(
-                    onClick = onPlay,
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(6.dp)
-                        .size(32.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primary)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.PlayArrow,
-                        contentDescription = "শুনুন",
-                        tint = Color.White,
-                        modifier = Modifier.size(18.dp)
-                    )
-                }
             }
 
             Column(modifier = Modifier.padding(10.dp)) {

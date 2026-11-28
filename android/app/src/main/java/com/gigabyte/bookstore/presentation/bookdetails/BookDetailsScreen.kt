@@ -72,6 +72,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -120,10 +121,14 @@ fun BookDetailsScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     var showUnlockDialog by remember { mutableStateOf(false) }
+    var showPaidOnlyPdfDialog by remember { mutableStateOf(false) }
     var isLoadingRewardAd by remember { mutableStateOf(false) }
 
     val isBookUnlocked = remember(userStatus, unlockedBundles, unlockedModuleUpdates) {
         viewModel.isBookUnlockedForReading()
+    }
+    val isPdfUnlocked = remember(userStatus, unlockedBundles, unlockedModuleUpdates) {
+        viewModel.isPdfUnlocked()
     }
     val remainingMillis = remember(unlockedModuleUpdates) {
         viewModel.getBookRemainingMillis()
@@ -408,11 +413,11 @@ fun BookDetailsScreen(
                                 }
                             }
 
-                            // PDF Document Button (Drive View, Download or Open)
+                            // PDF Document Button (Drive View, Download or Open - Paid users only)
                             OutlinedButton(
                                 onClick = {
-                                    if (!isBookUnlocked) {
-                                        showUnlockDialog = true
+                                    if (!isPdfUnlocked) {
+                                        showPaidOnlyPdfDialog = true
                                     } else {
                                         if (isPdfDownloaded) {
                                             onOpenPdf(currentBook.id)
@@ -432,7 +437,7 @@ fun BookDetailsScreen(
                                     .weight(1f)
                                     .heightIn(min = 44.dp),
                                 enabled = pdfProgress == null,
-                                colors = if (!isBookUnlocked) ButtonDefaults.outlinedButtonColors(
+                                colors = if (!isPdfUnlocked) ButtonDefaults.outlinedButtonColors(
                                     contentColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.85f)
                                 ) else ButtonDefaults.outlinedButtonColors()
                             ) {
@@ -446,7 +451,7 @@ fun BookDetailsScreen(
                                 } else {
                                     Icon(
                                         imageVector = when {
-                                            !isBookUnlocked -> Icons.Default.Lock
+                                            !isPdfUnlocked -> Icons.Default.Lock
                                             isPdfDownloaded -> Icons.Default.PictureAsPdf
                                             !remotePdfUrl.isNullOrBlank() && remotePdfUrl!!.contains("drive.google.com") -> Icons.Default.PictureAsPdf
                                             else -> Icons.Default.Download
@@ -457,7 +462,7 @@ fun BookDetailsScreen(
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text(
                                         text = when {
-                                            !isBookUnlocked -> "পিডিএফ (বিজ্ঞাপন/পেইড)"
+                                            !isPdfUnlocked -> "পিডিএফ (শুধুমাত্র পেইড)"
                                             isPdfDownloaded -> "পিডিএফ পড়ুন"
                                             !remotePdfUrl.isNullOrBlank() && remotePdfUrl!!.contains("drive.google.com") -> "ড্রাইভ পিডিএফ"
                                             else -> "পিডিএফ ডাউনলোড"
@@ -574,6 +579,60 @@ fun BookDetailsScreen(
                     showUnlockDialog = false
                 }
             }
+        )
+    }
+
+    // Dedicated Paid-Only Google Drive PDF Dialog
+    if (showPaidOnlyPdfDialog) {
+        val bundlePrice = pricingConfig.getPackagePrice("audiobook_bundle")
+        AlertDialog(
+            onDismissRequest = { showPaidOnlyPdfDialog = false },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Lock,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(32.dp)
+                )
+            },
+            title = {
+                Text(
+                    text = "পিডিএফ শুধুমাত্র পেইড ইউজারদের জন্য",
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Center
+                )
+            },
+            text = {
+                Text(
+                    text = "বইটির সম্পূর্ণ Google Drive পিডিএফ ডাউনলোড ও পড়ার সুবিধাটি শুধুমাত্র পেইড সদস্যদের জন্য সংরক্ষিত। পুরো বান্ডেলের সকল বই আজীবনের জন্য আনলক করতে বান্ডেল কিনুন।",
+                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Center
+                )
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showPaidOnlyPdfDialog = false
+                        onOpenPayment()
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "বান্ডেল কিনুন ($bundlePrice টাকা)",
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = { showPaidOnlyPdfDialog = false },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = "বাতিল")
+                }
+            },
+            shape = RoundedCornerShape(18.dp)
         )
     }
 }

@@ -970,23 +970,6 @@ fun HomeTrendingBookCard(
                     coverPath = book.coverUrl ?: book.localCoverPath,
                     modifier = Modifier.fillMaxSize()
                 )
-
-                IconButton(
-                    onClick = onPlay,
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(6.dp)
-                        .size(34.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primary)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.PlayArrow,
-                        contentDescription = "শুনুন",
-                        tint = Color.White,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
             }
 
             Column(modifier = Modifier.padding(10.dp)) {

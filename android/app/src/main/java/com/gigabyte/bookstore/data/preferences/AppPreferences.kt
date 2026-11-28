@@ -501,6 +501,18 @@ class AppPreferences(context: Context) {
         return remaining > 0L
     }
 
+    /**
+     * Google Drive PDF access is strictly reserved for paid/premium users (or admins).
+     * Watching temporary reward ads does NOT unlock Drive PDF downloads.
+     */
+    fun isPdfUnlocked(bookId: String? = null): Boolean {
+        if (_isAdmin.value) return true
+        if (_unlockedBundles.value.contains("mega_bundle")) return true
+        if (_unlockedBundles.value.contains("audiobook_bundle")) return true
+        if (_userStatus.value.equals("paid", ignoreCase = true) || _userStatus.value.equals("active", ignoreCase = true)) return true
+        return false
+    }
+
     fun getBookRemainingMillis(bookId: String): Long {
         val unlockedAt = prefs.getLong("unlocked_book_ts_$bookId", 0L)
         if (unlockedAt <= 0L) return 0L

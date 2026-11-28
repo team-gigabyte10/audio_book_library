@@ -54,6 +54,7 @@ class BookDetailsViewModel(
     val rewardUnlockHours: StateFlow<Int> = appPreferences.rewardUnlockHours
 
     fun isBookUnlockedForReading(): Boolean = appPreferences.isBookUnlockedForReading(bookId)
+    fun isPdfUnlocked(): Boolean = appPreferences.isPdfUnlocked(bookId)
     fun getBookRemainingMillis(): Long = appPreferences.getBookRemainingMillis(bookId)
     fun unlockBookFor24Hours() = appPreferences.unlockBookFor24Hours(bookId)
 
