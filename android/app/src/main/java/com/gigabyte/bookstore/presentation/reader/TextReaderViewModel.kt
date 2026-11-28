@@ -62,6 +62,31 @@ class TextReaderViewModel(
             var currentBook = repository.getBookById(bookId)
             var chapList = repository.getChaptersForBookSync(bookId)
 
+            // Direct local disk check: If not yet in Room or no chapters, import from disk immediately
+            if (currentBook == null || chapList.isEmpty() || currentBook.filePath.isBlank()) {
+                val booksDir = File(app.filesDir, "book-store")
+                val targetFile = if (isFull) File(booksDir, "${baseBookId}_full.md") else File(booksDir, "${baseBookId}_summary.md")
+                val altFile = if (isFull) File(booksDir, "${baseBookId}_summary.md") else File(booksDir, "${baseBookId}_full.md")
+                val diskFile = when {
+                    targetFile.exists() && targetFile.length() > 0 -> targetFile
+                    altFile.exists() && altFile.length() > 0 -> altFile
+                    else -> null
+                }
+                if (diskFile != null) {
+                    val imported = repository.importDownloadedBook(
+                        file = diskFile,
+                        bookId = bookId,
+                        title = if (isFull) "$baseBookId (সম্পূর্ণ)" else baseBookId,
+                        author = null,
+                        coverPath = null
+                    )
+                    if (imported != null) {
+                        currentBook = imported
+                        chapList = repository.getChaptersForBookSync(bookId)
+                    }
+                }
+            }
+
             // On-demand lazy fetch: If book is a placeholder or chapters not yet indexed,
             // download and index markdown file dynamically in ~200ms without blocking user
             if (currentBook == null || chapList.isEmpty() || currentBook.filePath.isBlank()) {

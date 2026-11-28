@@ -653,16 +653,12 @@ fun CourseSyllabusScreen(
                         onError = { errorMsg ->
                             isLoadingRewardAd = false
                             selectedLockedPart = null
-                            // Graceful Fallback: Never block the learner if ad network fails to fill or has errors!
-                            appPrefs?.unlockCourseModuleFor24Hours(partId)
-                            Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য মডিউলটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
-                            onOpenPart(partId)
+                            Toast.makeText(context, "বিজ্ঞাপন লোড হতে পারেনি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন অথবা কোর্স কিনুন।", Toast.LENGTH_LONG).show()
                         }
                     )
                 } else {
                     selectedLockedPart = null
-                    appPrefs?.unlockCourseModuleFor24Hours(partId)
-                    onOpenPart(partId)
+                    Toast.makeText(context, "বিজ্ঞাপন লোড হতে পারেনি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন অথবা কোর্স কিনুন।", Toast.LENGTH_LONG).show()
                 }
             },
             onGoPremiumClick = {

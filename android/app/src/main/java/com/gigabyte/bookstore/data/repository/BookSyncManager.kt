@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
@@ -312,18 +313,24 @@ class BookSyncManager(
         val targetFile = File(booksDir, targetFileName)
 
         if (targetFile.exists() && targetFile.length() > 0) {
+            val importBookId = if (isFull) "${cleanBookId}_full" else cleanBookId
+            ensureFileImportedIntoRoom(targetFile, importBookId, cleanBookId, isFull)
             return@withContext targetFile
         }
         val altFile = if (isFull) File(booksDir, "${cleanBookId}_summary.md") else File(booksDir, "${cleanBookId}_full.md")
         if (altFile.exists() && altFile.length() > 0) {
+            val importBookId = if (isFull) "${cleanBookId}_full" else cleanBookId
+            ensureFileImportedIntoRoom(altFile, importBookId, cleanBookId, isFull)
             return@withContext altFile
         }
 
         var book = cachedBooks.value.find { it.id == cleanBookId || it.slug == cleanBookId }
         if (book == null) {
             try {
-                val doc = firestore.collection("books").document(cleanBookId).get().await()
-                if (doc.exists()) {
+                val doc = withTimeoutOrNull(1500L) {
+                    firestore.collection("books").document(cleanBookId).get().await()
+                }
+                if (doc != null && doc.exists()) {
                     val rawPdfUrl = doc.getString("pdfUrl")
                     val rawPdfDriveUrl = doc.getString("pdfDriveUrl")
                     val effectivePdfUrl = rawPdfUrl?.takeIf { it.isNotBlank() } ?: rawPdfDriveUrl?.takeIf { it.isNotBlank() }
@@ -381,6 +388,41 @@ class BookSyncManager(
             return@withContext effectiveDestination
         }
         null
+    }
+
+    private suspend fun ensureFileImportedIntoRoom(
+        file: File,
+        importBookId: String,
+        cleanBookId: String,
+        isFull: Boolean
+    ) {
+        val repo = audiobookRepository ?: return
+        val existingChapters = repo.getChaptersForBookSync(importBookId)
+        val existingBook = repo.getBookById(importBookId)
+        if (existingBook == null || existingChapters.isEmpty() || existingBook.filePath.isBlank()) {
+            val cached = _cachedBooks.value.find { it.id == cleanBookId || it.slug == cleanBookId }
+            val title = if (isFull) {
+                "${cached?.title ?: cleanBookId} (সম্পূর্ণ)"
+            } else {
+                cached?.title ?: cleanBookId
+            }
+            repo.importDownloadedBook(
+                file = file,
+                bookId = importBookId,
+                title = title,
+                author = cached?.author,
+                coverPath = cached?.localCoverPath ?: cached?.coverUrl
+            )
+            if (isFull && repo.getBookById(cleanBookId) == null) {
+                repo.importDownloadedBook(
+                    file = file,
+                    bookId = cleanBookId,
+                    title = cached?.title ?: cleanBookId,
+                    author = cached?.author,
+                    coverPath = cached?.localCoverPath ?: cached?.coverUrl
+                )
+            }
+        }
     }
 
     fun getPdfLocalFile(bookId: String): File {

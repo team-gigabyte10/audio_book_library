@@ -327,9 +327,13 @@ fun BookDetailsScreen(
                         // Primary Action Button - Audiobook Playback (Audio Player)
                         Button(
                             onClick = {
-                                val startIdx = history?.chapterIndex ?: 0
-                                viewModel.continueListening()
-                                onPlayChapter(startIdx)
+                                if (!isBookUnlocked) {
+                                    showUnlockDialog = true
+                                } else {
+                                    val startIdx = history?.chapterIndex ?: 0
+                                    viewModel.continueListening()
+                                    onPlayChapter(startIdx)
+                                }
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -338,13 +342,17 @@ fun BookDetailsScreen(
                             shape = RoundedCornerShape(12.dp)
                         ) {
                             Icon(
-                                imageVector = Icons.Default.PlayArrow,
+                                imageVector = if (isBookUnlocked) Icons.Default.PlayArrow else Icons.Default.Lock,
                                 contentDescription = null,
                                 modifier = Modifier.size(22.dp)
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = if (history != null) "চালিয়ে যান (অডিওবুক)" else "শুনুন (অডিওবুক)",
+                                text = if (isBookUnlocked) {
+                                    if (history != null) "চালিয়ে যান (অডিওবুক)" else "শুনুন (অডিওবুক)"
+                                } else {
+                                    "শুনুন (বিজ্ঞাপন/পেইড আনলক)"
+                                },
                                 style = MaterialTheme.typography.titleMedium.copy(
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 15.sp
@@ -550,24 +558,12 @@ fun BookDetailsScreen(
                         onError = { errorMsg ->
                             isLoadingRewardAd = false
                             showUnlockDialog = false
-                            // Graceful fallback if ad network is busy
-                            viewModel.unlockBookFor24Hours()
-                            Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য বইটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
-                            viewModel.openFullBook(
-                                onSuccess = { fullBookId ->
-                                    onOpenFullBook(fullBookId)
-                                },
-                                onError = { errMsg ->
-                                    scope.launch {
-                                        snackbarHostState.showSnackbar(errMsg)
-                                    }
-                                }
-                            )
+                            Toast.makeText(context, "বিজ্ঞাপন লোড হতে পারেনি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন অথবা বান্ডেল কিনুন।", Toast.LENGTH_LONG).show()
                         }
                     )
                 } else {
                     showUnlockDialog = false
-                    viewModel.unlockBookFor24Hours()
+                    Toast.makeText(context, "বিজ্ঞাপন লোড হতে পারেনি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন অথবা বান্ডেল কিনুন।", Toast.LENGTH_LONG).show()
                 }
             },
             onBuyBundleClick = {

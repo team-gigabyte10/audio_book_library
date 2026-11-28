@@ -327,14 +327,12 @@ fun PartLessonsScreen(
                         onError = { errorMsg ->
                             isLoadingRewardAd = false
                             showUnlockDialog = false
-                            // Graceful fallback
-                            appPrefs?.unlockCourseModuleFor24Hours(partId)
-                            Toast.makeText(context, "বিজ্ঞাপন সার্ভার ব্যস্ত থাকায় আপনার সুবিধার জন্য মডিউলটি আনলক করে দেওয়া হলো! 🎉", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "বিজ্ঞাপন লোড হতে পারেনি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন অথবা কোর্স কিনুন।", Toast.LENGTH_LONG).show()
                         }
                     )
                 } else {
                     showUnlockDialog = false
-                    appPrefs?.unlockCourseModuleFor24Hours(partId)
+                    Toast.makeText(context, "বিজ্ঞাপন লোড হতে পারেনি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করুন অথবা কোর্স কিনুন।", Toast.LENGTH_LONG).show()
                 }
             },
             onGoPremiumClick = {

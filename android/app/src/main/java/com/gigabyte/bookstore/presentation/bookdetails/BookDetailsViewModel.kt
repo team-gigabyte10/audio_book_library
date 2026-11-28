@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import java.io.File
 
 class BookDetailsViewModel(
@@ -138,14 +139,48 @@ class BookDetailsViewModel(
         }
 
         viewModelScope.launch {
-            val local = repository.getBookById(bookId)
+            // Check Room first
+            var local = repository.getBookById(bookId)
+            var chaps = repository.getChaptersForBookSync(bookId)
             if (local != null) {
                 _book.value = local
-                _chapters.value = repository.getChaptersForBookSync(bookId)
-            } else if (_book.value == null) {
+                if (chaps.isNotEmpty()) {
+                    _chapters.value = chaps
+                }
+            }
+
+            // Check disk files directly (summary or full)
+            val summaryFile = File(booksDir, "${bookId}_summary.md")
+            val fullFile = File(booksDir, "${bookId}_full.md")
+            val existingFile = when {
+                summaryFile.exists() && summaryFile.length() > 0 -> summaryFile
+                fullFile.exists() && fullFile.length() > 0 -> fullFile
+                else -> null
+            }
+
+            if (existingFile != null && (local == null || chaps.isEmpty() || local.filePath.isBlank())) {
+                val isFull = existingFile == fullFile
+                val defaultTitle = cached?.title ?: local?.title ?: bookId
+                val imported = repository.importDownloadedBook(
+                    file = existingFile,
+                    bookId = bookId,
+                    title = if (isFull) "$defaultTitle (সম্পূর্ণ)" else defaultTitle,
+                    author = cached?.author ?: local?.author,
+                    coverPath = cached?.localCoverPath ?: cached?.coverUrl ?: local?.coverPath
+                )
+                if (imported != null) {
+                    _book.value = imported
+                    _chapters.value = repository.getChaptersForBookSync(bookId)
+                }
+            }
+
+            // If still null, try Firestore with a 1500ms timeout
+            if (_book.value == null) {
                 try {
-                    val doc = firestore.collection("books").document(bookId).get().await()
-                    if (doc.exists()) {
+                    val doc = withTimeoutOrNull(1500L) {
+                        firestore.collection("books").document(bookId).get().await()
+                    }
+                    if (doc != null && doc.exists()) {
                         val title = doc.getString("title") ?: "বই"
                         val author = doc.getString("author")
                         val coverUrl = doc.getString("coverUrl")
@@ -163,6 +198,19 @@ class BookDetailsViewModel(
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
+            }
+
+            // Fallback: If _book.value is still null but disk file exists, create Book object from disk file!
+            if (_book.value == null && existingFile != null) {
+                _book.value = Book(
+                    id = bookId,
+                    title = cached?.title ?: bookId,
+                    author = cached?.author,
+                    filePath = existingFile.absolutePath,
+                    coverPath = cached?.localCoverPath ?: cached?.coverUrl,
+                    chapterCount = _chapters.value.size.coerceAtLeast(1),
+                    description = cached?.subtitle ?: ""
+                )
             }
 
             var localBook = repository.getBookById(bookId)
