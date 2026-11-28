@@ -1,6 +1,7 @@
 package com.gigabyte.bookstore.data.repository
 
 import android.util.Log
+import com.gigabyte.bookstore.data.models.AppNotice
 import com.gigabyte.bookstore.data.models.AudioBundle
 import com.gigabyte.bookstore.data.models.Course
 import com.gigabyte.bookstore.data.models.CourseLesson
@@ -308,6 +309,125 @@ class HomeRepository(
                 }
             }
         awaitClose { listenerRegistration.remove() }
+    }
+
+    /**
+     * Real-time flow of the latest active notice to display on the home screen.
+     */
+    fun getActiveNoticeFlow(): Flow<AppNotice?> = callbackFlow {
+        val listenerRegistration = firestore.collection("notices")
+            .whereEqualTo("isActive", true)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    Log.w(TAG, "Notice listener error: ${error.message}")
+                    trySend(null)
+                    return@addSnapshotListener
+                }
+
+                if (snapshot == null || snapshot.isEmpty) {
+                    trySend(null)
+                    return@addSnapshotListener
+                }
+
+                val notices = snapshot.documents.mapNotNull { doc ->
+                    AppNotice(
+                        id = doc.id,
+                        title = doc.getString("title") ?: "",
+                        message = doc.getString("message") ?: "",
+                        isActive = doc.getBoolean("isActive") ?: true,
+                        priority = doc.getLong("priority")?.toInt() ?: 1,
+                        actionUrl = doc.getString("actionUrl"),
+                        createdAt = doc.getLong("createdAt") ?: System.currentTimeMillis(),
+                        authorEmail = doc.getString("authorEmail")
+                    )
+                }.sortedWith(compareByDescending<AppNotice> { it.priority }.thenByDescending { it.createdAt })
+
+                trySend(notices.firstOrNull())
+            }
+        awaitClose { listenerRegistration.remove() }
+    }
+
+    /**
+     * Retrieve all notices (active & inactive) for admin management.
+     */
+    suspend fun getAllNotices(): List<AppNotice> = withContext(Dispatchers.IO) {
+        try {
+            val snapshot = firestore.collection("notices").get().await()
+            snapshot.documents.mapNotNull { doc ->
+                AppNotice(
+                    id = doc.id,
+                    title = doc.getString("title") ?: "",
+                    message = doc.getString("message") ?: "",
+                    isActive = doc.getBoolean("isActive") ?: true,
+                    priority = doc.getLong("priority")?.toInt() ?: 1,
+                    actionUrl = doc.getString("actionUrl"),
+                    createdAt = doc.getLong("createdAt") ?: System.currentTimeMillis(),
+                    authorEmail = doc.getString("authorEmail")
+                )
+            }.sortedByDescending { it.createdAt }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error fetching all notices: ${e.message}", e)
+            emptyList()
+        }
+    }
+
+    /**
+     * Post a new notice or update an existing one.
+     */
+    suspend fun postNotice(notice: AppNotice): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val docRef = if (notice.id.isBlank()) {
+                firestore.collection("notices").document()
+            } else {
+                firestore.collection("notices").document(notice.id)
+            }
+
+            val data = hashMapOf(
+                "title" to notice.title,
+                "message" to notice.message,
+                "isActive" to notice.isActive,
+                "priority" to notice.priority,
+                "actionUrl" to notice.actionUrl,
+                "createdAt" to if (notice.createdAt > 0) notice.createdAt else System.currentTimeMillis(),
+                "authorEmail" to notice.authorEmail
+            )
+
+            docRef.set(data).await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error posting notice: ${e.message}", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Toggle the active status of a notice.
+     */
+    suspend fun updateNoticeStatus(id: String, isActive: Boolean): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            firestore.collection("notices").document(id)
+                .update("isActive", isActive)
+                .await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error updating notice status: ${e.message}", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Delete a notice.
+     */
+    suspend fun deleteNotice(id: String): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            firestore.collection("notices").document(id)
+                .delete()
+                .await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error deleting notice: ${e.message}", e)
+            Result.failure(e)
+        }
     }
 }
 

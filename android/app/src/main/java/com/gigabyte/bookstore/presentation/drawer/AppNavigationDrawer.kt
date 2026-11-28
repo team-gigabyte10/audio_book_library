@@ -51,6 +51,7 @@ fun AppDrawerContent(
     onBookmarksClick: () -> Unit,
     onPaymentClick: () -> Unit,
     onApprovePaymentsClick: () -> Unit,
+    onManageNoticesClick: (() -> Unit)? = null,
     onReferralClick: () -> Unit,
     onReferAndEarnClick: (() -> Unit)? = null,
     onAboutUsClick: () -> Unit,
@@ -341,6 +342,11 @@ fun AppDrawerContent(
                 )
 
                 if (isAdmin) {
+                    DrawerMenuItem(
+                        icon = Icons.Default.Campaign,
+                        title = "বিজ্ঞপ্তি পরিচালনা (Manage Notice)",
+                        onClick = { onManageNoticesClick?.invoke() }
+                    )
                     DrawerMenuItem(
                         icon = Icons.Default.CheckCircle,
                         title = "পেমেন্ট অনুমোদন (Approve Payments)",

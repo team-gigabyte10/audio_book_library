@@ -69,8 +69,8 @@ fun FacebookBannerAd(
         modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
-        if (isAdFailed && fallback != null) {
-            fallback()
+        if (isAdFailed) {
+            fallback?.invoke()
         } else {
             val content: @Composable () -> Unit = {
                 Box(

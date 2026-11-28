@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.gigabyte.bookstore.BanglaAudiobookApp
 import com.gigabyte.bookstore.data.local.entities.PlaybackHistoryEntity
+import com.gigabyte.bookstore.data.models.AppNotice
 import com.gigabyte.bookstore.data.models.AudioBundle
 import com.gigabyte.bookstore.data.models.Course
 import com.gigabyte.bookstore.data.models.HeroBanner
@@ -68,6 +69,78 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val referralCode: StateFlow<String> = app.appPreferences.referralCode
     val unlockedBundles: StateFlow<Set<String>> = app.appPreferences.unlockedBundles
     val isAdmin: StateFlow<Boolean> = app.appPreferences.isAdmin
+
+    /** Active announcement/notice for home screen marquee banner */
+    val activeNotice: StateFlow<AppNotice?> = homeRepository.getActiveNoticeFlow()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
+
+    /** All notices for admin management */
+    private val _allNotices = MutableStateFlow<List<AppNotice>>(emptyList())
+    val allNotices: StateFlow<List<AppNotice>> = _allNotices.asStateFlow()
+
+    private val _isNoticeLoading = MutableStateFlow(false)
+    val isNoticeLoading: StateFlow<Boolean> = _isNoticeLoading.asStateFlow()
+
+    fun loadAllNotices() {
+        viewModelScope.launch {
+            _isNoticeLoading.value = true
+            _allNotices.value = homeRepository.getAllNotices()
+            _isNoticeLoading.value = false
+        }
+    }
+
+    fun postNotice(
+        title: String,
+        message: String,
+        actionUrl: String? = null,
+        priority: Int = 1,
+        onComplete: (Boolean, String?) -> Unit
+    ) {
+        viewModelScope.launch {
+            _isNoticeLoading.value = true
+            val notice = AppNotice(
+                title = title.trim(),
+                message = message.trim(),
+                isActive = true,
+                priority = priority,
+                actionUrl = actionUrl?.trim()?.ifBlank { null },
+                createdAt = System.currentTimeMillis(),
+                authorEmail = userEmail.value.ifBlank { null }
+            )
+            val result = homeRepository.postNotice(notice)
+            _isNoticeLoading.value = false
+            if (result.isSuccess) {
+                loadAllNotices()
+                onComplete(true, null)
+            } else {
+                onComplete(false, result.exceptionOrNull()?.message)
+            }
+        }
+    }
+
+    fun toggleNoticeStatus(noticeId: String, currentStatus: Boolean) {
+        viewModelScope.launch {
+            val newStatus = !currentStatus
+            val result = homeRepository.updateNoticeStatus(noticeId, newStatus)
+            if (result.isSuccess) {
+                _allNotices.value = _allNotices.value.map {
+                    if (it.id == noticeId) it.copy(isActive = newStatus) else it
+                }
+            }
+        }
+    }
+
+    fun deleteNotice(noticeId: String, onComplete: ((Boolean) -> Unit)? = null) {
+        viewModelScope.launch {
+            val result = homeRepository.deleteNotice(noticeId)
+            if (result.isSuccess) {
+                _allNotices.value = _allNotices.value.filterNot { it.id == noticeId }
+                onComplete?.invoke(true)
+            } else {
+                onComplete?.invoke(false)
+            }
+        }
+    }
 
     val allBooks: StateFlow<List<com.gigabyte.bookstore.data.models.Book>> = bookRepository.allBooks
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())

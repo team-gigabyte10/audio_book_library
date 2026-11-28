@@ -72,7 +72,6 @@ import coil.compose.AsyncImage
 import com.gigabyte.bookstore.data.local.entities.PlaybackHistoryEntity
 import com.gigabyte.bookstore.data.models.AudioBundle
 import com.gigabyte.bookstore.data.models.Course
-import com.gigabyte.bookstore.data.models.HeroBanner
 import com.gigabyte.bookstore.data.models.PlaybackState
 import com.gigabyte.bookstore.data.models.RemoteBook
 import com.gigabyte.bookstore.presentation.components.AppBackground
@@ -85,13 +84,14 @@ import com.gigabyte.bookstore.presentation.components.ExitConfirmationDialog
 import com.gigabyte.bookstore.presentation.components.MiniPlayerBar
 import com.gigabyte.bookstore.presentation.components.ThemedTopAppBar
 import com.gigabyte.bookstore.presentation.drawer.AboutUsDialog
+import com.gigabyte.bookstore.presentation.drawer.NoticeManagementDialog
+import com.gigabyte.bookstore.presentation.home.components.HomeNoticeMarqueeBar
 import com.gigabyte.bookstore.presentation.drawer.AppDrawerContent
 import com.gigabyte.bookstore.presentation.drawer.BookmarksDialog
 import com.gigabyte.bookstore.presentation.drawer.ProfileUpdateDialog
 import com.gigabyte.bookstore.presentation.home.components.BundleCard
 import com.gigabyte.bookstore.presentation.home.components.CourseCard
 import com.gigabyte.bookstore.presentation.home.components.CourseDetailsBottomSheet
-import com.gigabyte.bookstore.presentation.home.components.HeroBannerCarousel
 import com.gigabyte.bookstore.presentation.home.components.HomeShowcaseCard
 import com.gigabyte.bookstore.presentation.home.components.HomeTranslatorShowcaseCard
 import com.gigabyte.bookstore.presentation.home.components.SectionHeader
@@ -143,6 +143,9 @@ fun HomeScreen(
     val referralCode by viewModel.referralCode.collectAsStateWithLifecycle()
     val unlockedBundles by viewModel.unlockedBundles.collectAsStateWithLifecycle()
     val isAdmin by viewModel.isAdmin.collectAsStateWithLifecycle()
+    val activeNotice by viewModel.activeNotice.collectAsStateWithLifecycle()
+
+    var showNoticeManagementDialog by remember { mutableStateOf(false) }
 
     val isAudiobookUnlocked = remember(userStatus, unlockedBundles) {
         viewModel.isBundleUnlocked("audiobook_bundle")
@@ -237,6 +240,10 @@ fun HomeScreen(
                 onApprovePaymentsClick = {
                     scope.launch { drawerState.close() }
                     onNavigateToApproval()
+                },
+                onManageNoticesClick = {
+                    scope.launch { drawerState.close() }
+                    showNoticeManagementDialog = true
                 },
                 onReferAndEarnClick = {
                     scope.launch { drawerState.close() }
@@ -347,32 +354,27 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(bottom = 24.dp)
                     ) {
-                        // 1. Google AdMob Banner Ad with Meta Mediation (with fallback to Hero Banner Carousel if ad not filled)
+                        // 0. 📢 Notice Marquee Bar (Active announcement)
+                        if (activeNotice != null && activeNotice!!.isActive && activeNotice!!.message.isNotBlank()) {
+                            item {
+                                Spacer(modifier = Modifier.height(10.dp))
+                                HomeNoticeMarqueeBar(
+                                    notice = activeNotice,
+                                    isAdmin = isAdmin,
+                                    onAdminManageClick = { showNoticeManagementDialog = true },
+                                    modifier = Modifier.padding(horizontal = 16.dp)
+                                )
+                            }
+                        }
+
+                        // 1. Google AdMob Banner Ad with Meta Mediation
                         item {
                             Spacer(modifier = Modifier.height(12.dp))
                             FacebookBannerAd(
                                 placementId = AdConfig.ADMOB_BANNER_AD_UNIT_ID,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 16.dp),
-                                fallback = {
-                                    if (uiState.banners.isNotEmpty()) {
-                                        HeroBannerCarousel(
-                                            banners = uiState.banners,
-                                            onBannerClick = { banner ->
-                                                handleBannerClick(
-                                                    banner = banner,
-                                                    courses = uiState.englishCourses + uiState.japaneseCourses,
-                                                    onSelectCourse = { selectedCourse = it },
-                                                    onNavigateToLibrary = onNavigateToLibrary,
-                                                    onNavigateToBook = onNavigateToBook,
-                                                    onNavigateToLearnEnglish = onNavigateToLearnEnglish,
-                                                    onNavigateToLearnJapanese = onNavigateToLearnJapanese
-                                                )
-                                            }
-                                        )
-                                    }
-                                }
+                                    .padding(horizontal = 16.dp)
                             )
                         }
 
@@ -750,6 +752,14 @@ fun HomeScreen(
         AboutUsDialog(onDismiss = { showAboutUsDialog = false })
     }
 
+    // Notice Management Dialog (Admin)
+    if (showNoticeManagementDialog) {
+        NoticeManagementDialog(
+            viewModel = viewModel,
+            onDismiss = { showNoticeManagementDialog = false }
+        )
+    }
+
     // Bookmarks Dialog
     if (showBookmarksDialog) {
         val bookmarkedIds by viewModel.bookmarkedBookIds.collectAsStateWithLifecycle()
@@ -781,34 +791,6 @@ fun HomeScreen(
                 showExitDialog = false
             }
         )
-    }
-}
-
-private fun handleBannerClick(
-    banner: HeroBanner,
-    courses: List<Course>,
-    onSelectCourse: (Course) -> Unit,
-    onNavigateToLibrary: () -> Unit,
-    onNavigateToBook: (String) -> Unit,
-    onNavigateToLearnEnglish: () -> Unit = {},
-    onNavigateToLearnJapanese: () -> Unit = {}
-) {
-    if (banner.id == "banner_spoken_english" || banner.targetId == "learn_english" || banner.actionType == "learn" || banner.actionType == "english") {
-        onNavigateToLearnEnglish()
-        return
-    }
-    if (banner.id == "banner_japanese_jlpt" || banner.targetId == "learn_japanese" || banner.actionType == "japanese") {
-        onNavigateToLearnJapanese()
-        return
-    }
-    when (banner.actionType) {
-        "bundle" -> onNavigateToLibrary()
-        "course" -> {
-            val course = courses.find { it.id == banner.targetId } ?: courses.firstOrNull()
-            course?.let { onSelectCourse(it) }
-        }
-        "book" -> onNavigateToBook(banner.targetId)
-        else -> onNavigateToLibrary()
     }
 }
 
